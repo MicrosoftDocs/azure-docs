@@ -40,7 +40,7 @@ order by run_id desc
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) or the Azure portal.
 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
@@ -71,7 +71,7 @@ A geo-backup is created once per day to a [paired data center](../../best-practi
 
 ## Backup and restore costs
 
-You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation of how snapshots are charged, refer to  [Understanding how Snapshots Accrue Charges](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). The geo-redundant charge covers the cost for storing the geo-backups.  
+You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation of how snapshots are charged, refer to  [Understanding how Snapshots Accrue Charges](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). The geo-redundant charge covers the cost for storing the geo-backups.  
 
 The total cost for your primary data warehouse and seven days of snapshot changes is rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and the snapshots captures 100 GB, you are billed for 2 TB of data at Azure Premium Storage rates.
 
@@ -83,7 +83,7 @@ For more information about Azure Synapse pricing, see [Azure Synapse pricing](ht
 
 Each snapshot creates a restore point that represents the time the snapshot started. To restore a data warehouse, you choose a restore point and issue a restore command.  
 
-You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (SQL pool)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
+You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (SQL pool)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) with the MODIFY NAME option.
 
 To restore a data warehouse, see [Restore a SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
@@ -91,7 +91,7 @@ To restore a deleted or paused data warehouse, you can [create a support ticket]
 
 ## Cross subscription restore
 
-If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restore to a different logical server and ['Move'](/azure/azure-resource-manager/resource-group-move-resources) the server across subscriptions to perform a cross subscription restore.
+If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restore to a different logical server and ['Move'](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) the server across subscriptions to perform a cross subscription restore.
 
 ## Geo-redundant restore
 
