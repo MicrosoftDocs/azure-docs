@@ -69,7 +69,7 @@ Understanding Network Security provided by Azure Security Center:
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.​
 
-How to configure DDoS protection:​ https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection​
+How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 For more information about the Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -131,7 +131,7 @@ How to add a firewall rule in Event Hubs for a specified IP address:
 
 ​- Event Hub should use a virtual network service endpoint.​
 
-​How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage​
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Built-in Policy for Event Hubs namespace:  https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
@@ -370,12 +370,9 @@ How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/au
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.​
 
-​
+​How to deploy Privileged Identity Management (PIM):​ https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-How to deploy Privileged Identity Management (PIM):​ https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan​​
-
-​
-Understand Azure AD risk detections:​ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events​​
+​Understand Azure AD risk detections:​ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 How to configure action groups for custom alerting and notification:​ https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
@@ -777,7 +774,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Event Hub should use a virtual network service endpoint
 
-Azure Built-in Policy for Event Hubs namespace:​ https://docs.microsoft.com/en-\ us/azure/governance/policy/samples/built-in-policies#event-hub
+Azure Built-in Policy for Event Hubs namespace:​ https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -994,7 +991,7 @@ How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/mo
 
 **Guidance**: Enable soft-delete in Key Vault to protect keys against accidental or malicious deletion. Azure Event Hubs requires customer-managed keys to have Soft Delete and Do Not Purge configured.
 
-Configure soft delete for Azure Storage account that’s used for capturing Event Hubs data. Note that this feature isn’t supported for Azure Data Lake Storage Gen 2 yet.
+Configure soft delete for Azure Storage account that's used for capturing Event Hubs data. Note that this feature isn't supported for Azure Data Lake Storage Gen 2 yet.
 
 How to enable soft-delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
@@ -1032,7 +1029,7 @@ How to configure Workflow Automations within Azure Security Center: https://docs
 
 ### 10.3: Test Security Response Procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
@@ -1080,7 +1077,7 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 
 **Guidance**: Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Yes
 
