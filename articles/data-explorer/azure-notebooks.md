@@ -31,8 +31,8 @@ ms.date: 04/01/2020
 1. In the **Create New Project** dialog box:
     1. Enter the **Project Name**.
     1. Clear the **Public** checkbox.
-    >[!Important]
-    > If you don't clear the Public checkbox, your project will be exposed on the open Internet.
+        >[!Important]
+        > If you don't clear the Public checkbox, your project will be exposed on the open Internet.
     1. Select **Create**.
     
     ![Create a new project](media/azurenotebooks/an-create-new-project-blank.png)
@@ -103,4 +103,4 @@ To create a notebook, select **+ New** and select **Notebook**.
 
 ## Next steps
 
-* [Kusto-python GitHub repo](ttps://github.com/Azure/azure-kusto-python)
+* [Kusto-python GitHub repo](https://github.com/Azure/azure-kusto-python)
