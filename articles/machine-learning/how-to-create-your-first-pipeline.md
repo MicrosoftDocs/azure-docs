@@ -27,7 +27,7 @@ The ML pipelines you create are visible to the members of your Azure Machine Lea
 
 ML pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. They can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Create the resources required to run an ML pipeline:
 
 * Set up a datastore used to access the data needed in the pipeline steps.
 
-* Configure a `DataReference` object to point to data that lives in, or is accessible in, a datastore.
+* Configure a `Dataset` object to point to data that lives in, or is accessible in, a datastore.
 
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
@@ -82,13 +82,13 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-A pipeline consists of one or more steps. A step is a unit run on a compute target. Steps might consume data sources and produce “intermediate” data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline.
+A pipeline consists of one or more steps. A step is a unit run on a compute target. Steps might consume data sources and produce "intermediate" data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline.
 
 To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
 
-### Configure data reference
+~~### Configure data set~~
 
-You just created a data source that can be referenced in a pipeline as an input to a step. A data source in a pipeline is represented by a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. The `DataReference` object points to data that lives in or is accessible from a datastore.
+~~You just created a data source that can be referenced in a pipeline as an input to a step. The preferred way to provide data to a pipeline is a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) object. The `Dataset` object points to data that lives in or is accessible from a datastore or at a Web URL. The `Dataset` class is abstract, so you will create an instance of either a `FileDataset` (referring to one or more files) or a `TabularDataset` that's created by parsing into a table the data in one or more files.~~
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -99,7 +99,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.
+~~Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.~~
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -109,7 +109,7 @@ output_data1 = PipelineData(
     datastore=def_blob_store,
     output_name="output_data1")
 ```
-
+~~ KILL ALL ABOVE ~~ 
 ### Configure data using datasets
 
 If you have tabular data stored in a file or set of files, a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) is an efficient alternative to a `DataReference`. `TabularDataset` objects support versioning, diffs, and summary statistics. `TabularDataset`s are lazily evaluated (like Python generators) and it's efficient to subset them by splitting or filtering. The `FileDataset` class provides similar lazily-evaluated data representing one or more files. 
@@ -286,7 +286,7 @@ from azureml.pipeline.steps import PythonScriptStep
 trainStep = PythonScriptStep(
     script_name="train.py",
     arguments=["--input", blob_input_data, "--output", output_data1],
-    inputs=[blob_input_data],
+    inputs=[my_dataset.as_named_input('input')],
     outputs=[output_data1],
     compute_target=compute_target,
     source_directory=project_folder
@@ -385,7 +385,7 @@ When you first run a pipeline, Azure Machine Learning:
 * Downloads the Docker image for each step to the compute target from the container registry.
 * Mounts the datastore if a `DataReference` object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
 * Runs the step in the compute target specified in the step definition. 
-* Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
+* Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user's default datastore.
 
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
