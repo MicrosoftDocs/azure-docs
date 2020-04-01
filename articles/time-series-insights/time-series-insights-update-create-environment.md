@@ -355,5 +355,7 @@ Learn more about Time Series Models:
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview data modeling](./time-series-insights-update-tsm.md)
 
+Learn more about Connect your environment to Power BI
+
 > [!div class="nextstepaction"]
 > [Visualize data from Time Series Insights in Power BI](./how-to-connect-power-bi.md)
