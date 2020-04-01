@@ -2,7 +2,7 @@
 title: "Tutorial: Regular-expression entity - LUIS"
 description: Extract consistently formatted data from an utterance using the Regular Expression entity.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity.
 ---
 

@@ -2,7 +2,7 @@
 title: "Tutorial: Publish settings - LUIS"
 description: In this tutorial, change the publish settings to gain improve predictions.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand hwo publishing settings impact the LUIS app.
 
 ---
@@ -110,8 +110,6 @@ Because it is a publish setting, you do not see it labeled on the intents or ent
     ```
 
     The sentiment analysis is positive with a score of 86%.
-
-## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 

@@ -2,7 +2,7 @@
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
 description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 

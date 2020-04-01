@@ -3,7 +3,7 @@ title: "Tutorial: Reviewing endpoint utterances - LUIS"
 description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
 ---
@@ -52,7 +52,7 @@ In this app, you have intents and entities but you don't have any endpoint usage
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Use the endpoint to add the following utterances.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with the utterances in the following table. For each utterance, submit the utterance, and get the result. Then replace the utterance at the end with the next utterance.
 
     |Endpoint utterance|Aligned intent|
     |--|--|

@@ -2,7 +2,7 @@
 title: "Tutorial: Patterns - LUIS"
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
@@ -95,7 +95,7 @@ The two intents find the manager or the manager's direct reports, based on the u
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is the utterance `query`.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -256,7 +256,7 @@ Now that the patterns are added to the app, train, publish and query the app at 
 
 1. After publishing is complete, switch browser tabs back to the endpoint URL tab.
 
-1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is the `query`.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`
 
     ```json
     {
