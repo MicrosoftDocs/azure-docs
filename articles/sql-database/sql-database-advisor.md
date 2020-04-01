@@ -4,7 +4,7 @@ description: Azure SQL Database provides recommendations for single and pooled d
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
