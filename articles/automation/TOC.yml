@@ -20,7 +20,7 @@
     - name: Use Azure AD in Azure Automation to authenticate to Azure
       href: automation-use-azure-ad.md
     - name: Manage Office 365 services using Azure Automation
-      href: automation-manage-office-365.md
+      href: manage-office-365.md
     - name: Encrypt secure assets in Azure Automation
       href: automation-secure-asset-encryption.md
     - name: Manage role-based access control
