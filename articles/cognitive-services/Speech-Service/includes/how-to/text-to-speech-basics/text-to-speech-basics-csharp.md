@@ -29,7 +29,6 @@ using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 ```
@@ -102,7 +101,7 @@ static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config);
-    await synthesizer.SpeakTextAsync("A simple test to write to a file.");
+    await synthesizer.SpeakTextAsync("Synthesizing directly to speaker output.");
 }
 ```
 
@@ -120,7 +119,7 @@ It's simple to make this change from the previous example. First, remove the `Au
 > Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example 
 > above, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-dotnet) variable. The `AudioData` property contains a `byte []` of the output data. Simply grab the `byte []` and write it to a new `MemoryStream`. From here you can implement any custom behavior using the resulting output, but in this example you write to a file manually.
+This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-dotnet) variable. The `AudioData` property contains a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet) class to manage the in-memory stream. In this example you use the `AudioDataStream.FromResult()` static function to get a stream from the result.
 
 ```csharp
 static async Task SynthesizeAudioAsync() 
@@ -128,14 +127,12 @@ static async Task SynthesizeAudioAsync()
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
     
-    var result = await synthesizer.SpeakTextAsync("Getting the response as a memory stream.");
-    using var stream = new MemoryStream();
-    stream.Write(result.AudioData);
-
-    using FileStream fs = File.Create("path/to/write/file.wav");
-    stream.WriteTo(fs);
+    var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
+    using var stream = AudioDataStream.FromResult(result);
 }
 ```
+
+From here you can implement any custom behavior using the resulting `stream` object.
 
 ## Customize audio format
 
@@ -147,60 +144,25 @@ The following section shows how to customize audio output attributes including:
 
 To change the audio format, you use the `SetSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` of type [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet), which you use to select the output format. See the reference docs for a [list of audio formats](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet) that are available.
 
-There are various options for different file types depending on your requirements. In this example, you specify a high-fidelity raw format `Raw24Khz16BitMonoPcm`, which requires writing the `.wav` headers manually. If you choose a format such as `Audio24Khz96KBitRateMonoMp3`, you would not need to write headers.
+There are various options for different file types depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
 
-First, create a function `WriteWavHeader()` to write the necessary audio metadata to the front of your `MemoryStream`. Since `Raw24Khz16BitMonoPcm` is a raw audio format, you need to write standardized audio file headers so that other software knows information like the number of channels, sample rate, and bit depth when your file is played.
-
-```csharp
-static void WriteWavHeader(
-    MemoryStream stream, 
-    bool isFloatingPoint, 
-    ushort channelCount, 
-    ushort bitDepth, 
-    int sampleRate, 
-    int totalSampleCount)
-{
-    stream.Position = 0;
-    stream.Write(Encoding.ASCII.GetBytes("RIFF"), 0, 4);
-    stream.Write(BitConverter.GetBytes(((bitDepth / 8) * totalSampleCount) + 36), 0, 4);
-    stream.Write(Encoding.ASCII.GetBytes("WAVE"), 0, 4);
-    stream.Write(Encoding.ASCII.GetBytes("fmt "), 0, 4);
-    stream.Write(BitConverter.GetBytes(16), 0, 4);
-
-    // audio format (floating point (3) or PCM (1)). Any other format indicates compression.
-    stream.Write(BitConverter.GetBytes((ushort)(isFloatingPoint ? 3 : 1)), 0, 2);
-    stream.Write(BitConverter.GetBytes(channelCount), 0, 2);
-    stream.Write(BitConverter.GetBytes(sampleRate), 0, 4);
-    stream.Write(BitConverter.GetBytes(sampleRate * channelCount * (bitDepth / 8)), 0, 4);
-    stream.Write(BitConverter.GetBytes((ushort)channelCount * (bitDepth / 8)), 0, 2);
-    stream.Write(BitConverter.GetBytes(bitDepth), 0, 2);
-    stream.Write(Encoding.ASCII.GetBytes("data"), 0, 4);
-    stream.Write(BitConverter.GetBytes((bitDepth / 8) * totalSampleCount), 0, 4);
-}
-```
-
-Next, set the `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you write the `byte []` from the result to a `MemoryStream`, but first you must write the custom `.wav` headers for the chosen file type. Use the function you created above, passing the memory stream by reference. For the other params, the number of **channels** is 1 (mono), the **bit-depth** is 16, the **sample-rate** is 24,000 (24Khz), and the **total samples** is the length of the raw `byte []` from the `SpeechSynthesisResult`.
+In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet) to get an in-memory stream of the result, and then write it to a file.
 
 ```csharp
 static async Task SynthesizeAudioAsync() 
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Raw24Khz16BitMonoPcm);
+    config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
     using var synthesizer = new SpeechSynthesizer(config, null);
-    var result = await synthesizer.SpeakTextAsync("Customizing audio output.");
-    using var stream = new MemoryStream();
+    var result = await synthesizer.SpeakTextAsync("Customizing audio output format.");
 
-    // first write the headers to the front of the stream
-    WriteWavHeader(stream, false, 1, 16, 24000, result.AudioData.Length);
-    stream.Write(result.AudioData);
-
-    using FileStream fs = File.Create("path/to/write/file.wav");
-    stream.WriteTo(fs);
+    using var stream = AudioDataStream.FromResult(result);
+    await stream.SaveToWaveFileAsync("path/to/write/file.wav");
 }
 ```
 
-Running your program again will write a custom-formatted `.wav` file to the specified path.
+Running your program again will write a `.wav` file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
@@ -217,7 +179,7 @@ First, create a new XML file for the SSML config in your root project directory,
 </speak>
 ```
 
-Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string using `XDocument.Load()`. From here, the result object is exactly the same as previous examples.
+Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string using `File.ReadAllText()`. From here, the result object is exactly the same as previous examples.
 
 > [!NOTE]
 > If you're using Visual Studio, your build config likely will not find your XML file by default. To fix this, right click the XML file and 
@@ -229,14 +191,11 @@ public static async Task SynthesizeAudioAsync()
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
     
-    var ssml = XDocument.Load(@"./ssml.xml").ToString();
+    var ssml = File.ReadAllText("./ssml.xml");
     var result = await synthesizer.SpeakSsmlAsync(ssml);
 
-    using var stream = new MemoryStream();
-    stream.Write(result.AudioData);
-
-    using FileStream fs = File.Create("path/to/write/file.wav");
-    stream.WriteTo(fs);
+    using var stream = AudioDataStream.FromResult(result);
+    await stream.SaveToWaveFileAsync("path/to/write/file.wav");
 }
 ```
 
@@ -270,4 +229,3 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
-
