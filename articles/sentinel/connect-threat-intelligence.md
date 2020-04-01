@@ -42,7 +42,7 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
 - [Anomali ThreatStream](https://www.anomali.com/products/threatstream)
 
-    To download ThreatStream Integrator, and to find instructions for connecting ThreatStream intelligence to the Microsoft Graph Security API, see the [ThreatStream downloads](https://ui.threatstream.com/downloads) page.
+    To download ThreatStream Integrator and Extensions, and the instructions for connecting ThreatStream intelligence to the Microsoft Graph Security API, see the [ThreatStream downloads](https://ui.threatstream.com/downloads) page.
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     
