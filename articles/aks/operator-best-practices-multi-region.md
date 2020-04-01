@@ -1,6 +1,5 @@
 ---
-title: Best practices for disaster recovery
-titleSuffix: Azure Kubernetes Service
+title: Best practices for AKS business continuity and disaster recovery
 description: Learn a cluster operator's best practices to achieve maximum uptime for your applications, providing high availability and preparing for disaster recovery in Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
