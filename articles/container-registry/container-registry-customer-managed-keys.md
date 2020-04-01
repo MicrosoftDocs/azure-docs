@@ -8,9 +8,9 @@ ms.custom:
 
 # Encryption using customer-managed keys
 
-When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
+When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manages in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
-Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
+Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
@@ -383,6 +383,11 @@ az keyvault delete-policy \
 ```
 
 Revoking the key effectively blocks access to all registry data, since the registry can't access the encryption key. If access to the key is enabled or the deleted key is restored, your registry will pick the key so you can again access the encrypted registry data.
+
+## Advanced scenarios
+
+* **System-assigned identity** - You can use a registry's system-assigned managed identity to access the key vault for encryption keys. To use the system-assigned identity, you must first enable both a user-assigned identity and the system-assigned identity when creating the registry. Then, configure the system-assigned identity with key vault access. Then, update the registry's encryption key to use the system-assigned identity.
+* **Key Vault firewall** - If your Azure key vault is deployed in a virtual network with a Key Vault firewall, you must configure the key vault to allow access by any [trusted service](../key-vault/key-vault-overview-vnet-service-endpoints.md#trusted-services). See [Configure Azure Key Vault firewalls and virtual networks](../key-vault/key-vault-network-security.md). In this case, key vault access for registry encryption is only possible with a registry's system-assigned identity.
 
 ## Next steps
 
