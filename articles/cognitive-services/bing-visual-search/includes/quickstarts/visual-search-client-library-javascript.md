@@ -1,31 +1,28 @@
 ---
-title: "Quickstart: Get image insights using the SDK for Node.js - Bing Visual Search"
+title: Bing Visual Search JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js SDK.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-visual-search
-ms.topic: quickstart
-ms.date: 12/17/2019
+ms.topic: include
+ms.date: 03/26/2020
 ms.author: aahi
 ---
 
-# Quickstart: Get image insights using the Bing Visual Search SDK for Node.js
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the JavaScript client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js SDK. While Bing Visual Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites
 * [Node.js](https://www.nodejs.org/)
-* The Bing Visual Search SDK for Node.js
-    * To set up a console application using the Bing Visual Search SDK, run the following commands:
+* The Bing Visual Search client library for JavaScript
+    * To set up a console application using the Bing Visual Search client library, run the following commands:
         1. `npm install ms-rest-azure`
         2. `npm install azure-cognitiveservices-visualsearch`.
 
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 
@@ -106,4 +103,4 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
+> [Build a single-page web app](../../tutorial-bing-visual-search-single-page-app.md)
