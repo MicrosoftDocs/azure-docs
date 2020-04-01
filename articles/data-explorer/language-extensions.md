@@ -1,19 +1,20 @@
 ---
-title: Use language extension to integrate other languages within your Azure Data Explorer KQL queries. 
-description: Learn about how to manage language extensions in your Azure Data Explorer cluster. 
+title: Manage language extensions in your Azure Data Explorer cluster. 
+description: Use language extension to integrate other languages within your Azure Data Explorer KQL queries. 
 author: orspod
 ms.author: orspodek
-ms.reviewer: 
+ms.reviewer: orhasban 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/01/2020
 ---
 
-# Language extensions (Preview)
+# Manage language extensions in your Azure Data Explorer cluster (Preview)
 
-Language extensions (plugins) feature allows the user to run a user-defined-function (UDF) using a relevant script. The script gets tabular data as its input, and is expected to produce tabular output. The plugin's runtime is hosted in a sandbox, an isolated, and secure environment, running on the cluster's nodes.
+The language extensions feature allows you to use language extension plugins to integrate other languages into your Azure Data Explorer KQL queries. When you run a user-defined-function (UDF) using a relevant script, the script gets tabular data as its input and is expected to produce tabular output. The plugin's runtime is hosted in a [sandbox](/azure/kusto/concepts/sandboxes), an isolated and secure environment, running on the cluster's nodes. In this article, you manage the language extensions plugin in your Azure Data Explorer cluster within the Azure portal.
 
-Azure Data Explorer language extensions that are currently supported are Python and R.
+> [!NOTE]
+> Azure Data Explorer language extensions that are currently supported are Python and R.
 
 ## Prerequisites
 
@@ -23,28 +24,32 @@ Azure Data Explorer language extensions that are currently supported are Python 
 ## Enable language extensions on your cluster
 
 > [!WARNING]
-> Please review the [limitations](#limitations) prior to enabling language extension.
+> Please review the [limitations](#limitations) prior to enabling a language extension.
 
-1. In the Azure portal, go to your Azure Data Explorer cluster. In **Settings**, select **Configurations**. 
+Perform the following steps to enable language extensions on your cluster:
+
+1. In the Azure portal, go to your Azure Data Explorer cluster. 
+1. In **Settings**, select **Configurations**. 
 1. In the **Configurations** pane, select **On** to enable a language extension.
 1. Select **Save**.
  
     ![language extension on](media/language-extensions/configurations-enable-extension.png)
+
+> [!NOTE]
+> Enabling the language extension process can take a few minutes. During that time, your cluster will be suspended.
  
 ## Run language extension integrated queries
 
-
-Learn how to [run Python integrated KQL queries](/azure/kusto/query/pythonplugin)
-
-Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin) 
-
+* Learn how to [run Python integrated KQL queries](/azure/kusto/query/pythonplugin)
+* Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin) 
 
 ## Disable language extensions on your cluster
 
-> [!WARNING]
+> [!NOTE]
 > Disabling language extensions could take a few minutes.
 
-1. In the Azure portal, go to your Azure Data Explorer cluster. In **Settings**, select **Configurations**. 
+1. In the Azure portal, go to your Azure Data Explorer cluster. 
+1. In **Settings**, select **Configurations**. 
 1. In the **Configurations** pane, select **Off** to disable a language extension.
 1. Select **Save**.
 
@@ -52,7 +57,6 @@ Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin)
 
 ## Limitations
 
-* Language extensions feature doesn't support [Disk encryption](manage-cluster-security.md). 
-* Language extensions runtime sandbox allocate disk space even if no query runs in the scope of the relevant language.
-* Enabling language extension process can take a few minutes. During that time, your cluster will be suspended.
+* The language extensions feature doesn't support [Disk encryption](manage-cluster-security.md). 
+* The language extensions runtime sandbox allocates disk space even if no query runs in the scope of the relevant language.
 
