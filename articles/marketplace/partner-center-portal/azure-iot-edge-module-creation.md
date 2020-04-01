@@ -1,5 +1,5 @@
 ---
-title: Create an Azure IoT Edge module offer for the Commercial Marketplace with Partner Center
+title: Create an Azure IoT Edge module offer with Partner Center - Azure Marketplace
 description: Learn how to create an IoT Edge module offer in Azure Marketplace using Partner Center
 author: anbene
 ms.author: mingshen
@@ -164,19 +164,19 @@ Here are some tips for writing your description:
 
 To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-StyleEditor.png" alt-text="Illustrates the rich text editor." border="false":::
+:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false":::
 
 - To change the format of your content, highlight the text that you want to format and select a text style, as shown in this screenshot:
 
-     :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-StyleControls.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
+     :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
 
 - To add a bulleted or numbered list to the text, use the options shown in this screenshot:
   
-    :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-NumberedBulletedLists.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
+    :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
 
 - To add or remove indentation to the text, use the options shown in this screenshot:
 
-    :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-NumberedBulletedLists.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
 
 #### Privacy policy link
 

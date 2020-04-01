@@ -58,7 +58,7 @@ IoT Edge module dimensions (such as CPU, RAM, storage, and GPU) on targeted IoT 
 
 Copy this HTML text or use the corresponding rich text functions in the editing window.
 
-```
+```html
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
