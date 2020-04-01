@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/7/2019
+ms.date: 04/01/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -37,6 +37,36 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## 1.4.38.0
+
+
+
+### Release status
+03/xx/2020: Released for download
+
+### Functional changes ADSyncAutoUpgrade 
+
+
+- Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. 
+- The mS-DS-ConsistencyGuid attribute is automatically set on al synced groups and you do not have to do anything to enable this feature. 
+- Removed the Get-ADSyncRunProfile because it is no longer in use. 
+- Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
+- Added a new cmdlet to remove objects from the connector space the old CSDelete.exe tool is removed, and it is replaced with the new Remove-ADSyncCSObject cmdlet. The Remove-ADSyncCSObject cmdlet takes a CsObject as input. This object can be retrieved by using the Get-ADSyncCSObject cmdlet.
+
+>[!NOTE]
+>The old CSDelete.exe tool has been removed and replaced with the new Remove-ADSyncCSObject cmdlet 
+
+### Fixed issues
+
+
+- Fixed a bug in the group writeback forest/OU selector on rerunning the AADC wizard after disabling the feature. 
+- Introduced a new error page that will be displayed if the required DCOM registry values are missing with a new help link. Information is also written to log files. 
+- Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
+- Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
+- Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+- Fixed a bug that was causing discovery error during import. 
+
 
 ## 1.4.25.0
 
