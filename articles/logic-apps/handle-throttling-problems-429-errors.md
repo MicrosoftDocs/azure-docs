@@ -82,7 +82,7 @@ To learn whether a trigger or action supports retry policies, check the trigger 
 
 Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
-For logic apps in the public, multi-tenant Azure Logic Apps service, throttling happens at the *connection* level. So, for example, for logic apps that run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling still happens for non-ISE connections because they run in the public, multi-tenant Logic Apps service. However, ISE connections, which are created by ISE connectors, aren't throttled because they run in your ISE.
+For logic apps in the global, multi-tenant Azure Logic Apps service, throttling happens at the *connection* level. So, for example, for logic apps that run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling still happens for non-ISE connections because they run in the global, multi-tenant Logic Apps service. However, ISE connections, which are created by ISE connectors, aren't throttled because they run in your ISE.
 
 To handle throttling at this level, you have these options:
 
@@ -104,7 +104,7 @@ To handle throttling at this level, you have these options:
 
 * Change the concurrency or parallelism on a ["For each" loop](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
-  By default, "For each" loop iterations all run at the same time. If you have a connector that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see these topics:
+  By default, "For each" loop iterations run at the same time up to the [concurrency limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). If you have a connector that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see these topics:
   
   * ["For each" loops - change concurrency or run sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)
 
@@ -122,7 +122,7 @@ While a connector has its own throttling limits, the destination service or syst
 
 By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
 
-For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20, which is the [default limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries build up and never get to run.
+For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20 or the [current default limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries build up and never get to run.
 
 This table describes the timeline for what happens in the loop when the action's retry interval is 1 second:
 
