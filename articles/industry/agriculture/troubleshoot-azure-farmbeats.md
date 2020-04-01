@@ -306,10 +306,3 @@ Try either of the following:
 1. Go to your FarmBeats Datahub resource group.
 2. Select the **App service**.  
 3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
-
-<<<<<<< HEAD
-=======
-## Next steps
-
-If you're still facing FarmBeats issues, contact our [Support Forum](https://aka.ms/farmbeatssupport).
->>>>>>> upstream/master
