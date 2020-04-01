@@ -16,6 +16,8 @@ ms.author: memildin
 ---
 # Supported platforms 
 
+This page shows the platforms and environments supported by Azure Security Center.
+
 ## Combinations of environments <a name="vm-server"></a>
 
 Azure Security Center supports virtual machines and servers on different types of hybrid environments:
