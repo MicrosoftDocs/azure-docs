@@ -10,9 +10,23 @@ ms.author: mirequa
 
 CycleCloud is able to resolve parameter values and perform logical evaluation of functions.
 
+## Parameter Types
+
+CycleCloud handles several basic types of parameters. In most cases, it will handle them as expected:
+
+```ini
+Attribute = foo      # string
+Attribute = 1        # integer
+Attribute = 1.1      # double
+Attribute = false    # boolean
+Attribute = foo, bar # string[]
+```
+
+To be more explicit, string values can be surrounded by double quotes (for example, `Attribute = "foo"`). This may be useful in the case where a value looks like a number but should be interpreted as a string (version numbers, for example). Boolean values can be set to the bare tokens `true` or `false` (case-insensitive). Comma-separated values are interpreted as lists, and elements are in turn interpreted using the same rules as above.
+
 ## Parameter Value Evaluation
 
-Cyclecloud directly interprets parameter values which use the `$` or `${}` notation.
+CycleCloud directly interprets parameter values which use the `$` or `${}` notation.
 
 ```ini
 MyAttribute = $MyParameter
@@ -22,7 +36,7 @@ MyAttributeList = $Param1, $Param2
 
 ## Functions using Parameters
 
-The Cyclecloud template parser is able to perform math and do ternary logic analysis as seen below.
+The CycleCloud template parser is able to perform math and do ternary logic analysis as seen below.
 
 ```ini
 MaxCoreCount = ${HyperthreadedCoreCount/2}
