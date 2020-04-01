@@ -76,7 +76,7 @@ Lab Services uses a pay-as-you go pricing model which means that you only pay fo
 Students are each assigned their own VM that is assigned to them for the lifetime of the lab.  They can choose to:
 
 - Save directly to the VM.
-- Save to an external repository, such as OneDrive, GitHub, etc.
+- Save to an external location, such as OneDrive, GitHub, etc.
 
 To use OneDrive, you may choose to configure this automatically for students on their lab VMs.  Additional information on this is provided below.
 

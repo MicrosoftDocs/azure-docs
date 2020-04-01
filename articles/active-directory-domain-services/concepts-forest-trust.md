@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
 ---
 
@@ -106,11 +106,11 @@ The outbound forest trust for Azure AD Domain Services is created in the Azure p
 
 Many inter-domain and inter-forest transactions depend on domain or forest trusts in order to complete various tasks. This section describes the processes and interactions that occur as resources are accessed across trusts and authentication referrals are evaluated.
 
-### Overview of Authentication Referral Processing
+### Overview of authentication referral processing
 
 When a request for authentication is referred to a domain, the domain controller in that domain must determine whether a trust relationship exists with the domain from which the request comes. The direction of the trust and whether the trust is transitive or nontransitive must also be determined before it authenticates the user to access resources in the domain. The authentication process that occurs between trusted domains varies according to the authentication protocol in use. The Kerberos V5 and NTLM protocols process referrals for authentication to a domain differently
 
-### Kerberos V5 Referral Processing
+### Kerberos V5 referral processing
 
 The Kerberos V5 authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. The Kerberos protocol connects to an online Key Distribution Center (KDC) and the Active Directory account store for session tickets.
 
@@ -126,7 +126,7 @@ If the client uses Kerberos V5 for authentication, it requests a ticket to the s
     * If yes, send the client a referral to the next domain on the trust path.
     * If no, send the client a logon-denied message.
 
-### NTLM Referral Processing
+### NTLM referral processing
 
 The NTLM authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. This protocol authenticates clients that do not use Kerberos authentication. NTLM uses trusts to pass authentication requests between domains.
 
@@ -142,7 +142,7 @@ If the account does not exist in the database, the domain controller determines 
     * If yes, pass the authentication request on to the next domain in the trust path. This domain controller repeats the process by checking the user's credentials against its own security accounts database.
     * If no, send the client a logon-denied message.
 
-### Kerberos-Based Processing of Authentication Requests Over Forest Trusts
+### Kerberos-based processing of authentication requests over forest trusts
 
 When two forests are connected by a forest trust, authentication requests made using the Kerberos V5 or NTLM protocols can be routed between forests to provide access to resources in both forests.
 

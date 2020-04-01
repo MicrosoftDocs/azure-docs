@@ -14,6 +14,8 @@
     items:
     - name: AKS
       href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Application Gateway
+      href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Backup
       href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cosmos DB
@@ -22,6 +24,18 @@
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Hub
       href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - Spark
+      href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - Hadoop
+      href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - Kafka
+      href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - HBase
+      href: ../../hdinsight/hbase/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - Interactive Query
+      href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: HDInsight - ML Services
+      href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault
       href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer
@@ -32,6 +46,10 @@
       href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Virtual machine scale sets - Linux
+      href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Virtual machine scale sets - Windows
+      href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
   - name: Beginner templates
