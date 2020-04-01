@@ -20,11 +20,11 @@ ms.author: menchi
 
 At the end of this tutorial, you have three Python apps:
 
-* **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
+* **CreateModule**, which creates a device identity, a module identity, and associated security keys to connect your device and module clients.
 
 * **UpdateModuleTwinDesiredProperties**, which sends updated module twin desired properties to your IoT Hub.
 
-* **
+* **ReceiveModuleTwinDesiredPropertiesPatch**, which receives the module twin desired properties patch on your device.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -114,7 +114,7 @@ In this section, you create a Python app that creates a device identity and a mo
 1. At your command prompt, run the following command:
 
     ```cmd/sh
-    python AddModule.py
+    python CreateModule.py
     ```
 
 This app creates a device identity with ID **myFirstDevice** and a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
@@ -173,7 +173,7 @@ In this section, you create a Python app that updates the module twin desired pr
 
 ## Get updates on the device side
 
-You can use the following code to get the module twin update patch on your device.
+In this section, you create a Python app to get the module twin desired properties update on your device.
 
 1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** on the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities** select **myFirstModule**. Copy the module connection string. You need it in a following step.
 
@@ -225,6 +225,32 @@ You can use the following code to get the module twin update patch on your devic
 
         iothub_client_sample_run()
     ```
+
+## Run the apps
+
+In this section you run the **ReceiveModuleTwinDesiredPropertiesPatch** app on your device and then run the **UpdateModuleTwinDesiredProperties** app to update the desired properties of your module.
+
+1. Open a command window and run the device app:
+
+    ```cmd/sh
+    python ReceiveModuleTwinDesiredPropertiesPatch.py
+    ```
+
+   ![Device app initial output](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
+
+1. In a separate command window, run the service app:
+
+    ```cmd/sh
+    python UpdateModuleTwinDesiredProperties.py
+    ```
+
+    Notice that the **TelemetryInterval** desired property appears in the updated module twin in your service app output:
+
+   ![Service app output](./media/iot-hub-python-python-module-twin-getstarted/service.png)
+
+    And the receipt of the same property appears in the desired properties patch in the output of your device app:
+
+   ![Device app output shows desired properties patch](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
 
 ## Next steps
 
