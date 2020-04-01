@@ -31,10 +31,10 @@ Let's create a Cosmos account. If you already have an account you want to use, y
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ### Create a database 
-In this application we will cover two ways of creating your collections on Cosmos DB: 
+In this application we will cover two ways of creating collections in Azure Cosmos DB: 
 - **Storing each object model in a separate collection**: We recommend [creating a database with dedicated throughput](set-throughput.md#set-throughput-on-a-database). Using this capacity model will give you better cost efficiency.
 
-![Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module][dbleveltp]
+:::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
 
 - **Storing all object models in a single Cosmos DB collection**: If you'd prefer to store all models in a single collection, you can just create a new database without selecting the Provision Throughput option. Using this capacity model will create each collection with its own throughput capacity for every object model.
 
@@ -106,7 +106,7 @@ You can store the various data models in the same collection and then use a filt
 
 ### One collection per object model
 
-This section explores how to achieve this with Azure Cosmos DB's API for MongoDB. This method is our recommended approach since it allows to control cost and capacity regardless of the amount of object models in your data. This is the default operating model for Mongoose, so, you might be familiar with this, if you're familiar with Mongoose.
+This section explores how to achieve this with Azure Cosmos DB's API for MongoDB. This method is our recommended approach since it allows you to control cost and capacity. As a result, the amount of Request Units on the database does not depend on the number of object models. This is the default operating model for Mongoose, so, you might be familiar with this.
 
 1. Open your ```index.js``` again.
 
