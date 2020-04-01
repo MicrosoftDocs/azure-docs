@@ -73,7 +73,7 @@
       - name: One-click ingestion into a new table
         href: one-click-ingestion-new-table.md
       - name: One-click ingestion into an existing table
-        href: one-click-ingestion-new-table.md
+        href: one-click-ingestion-existing-table.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
     - name: Using LightIngest
@@ -194,6 +194,8 @@
           href: customer-managed-keys-csharp.md
         - name: Azure Resource Manager template
           href: customer-managed-keys-resource-manager.md
+    - name: Create Azure AD app
+      href: provision-azure-ad-app.md     
   - name: Manage
     items:
     - name: Cluster
