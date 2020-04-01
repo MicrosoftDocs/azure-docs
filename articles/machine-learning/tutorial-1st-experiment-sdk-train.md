@@ -129,17 +129,17 @@ After the training has completed, call the `experiment` variable to fetch a link
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure portal</td><td>Link to Documentation</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure Machine Learning studio</td><td>Link to Documentation</td></tr></table>
 
-## View training results in portal
+## View training results in studio
 
-Following the **Link to Azure portal** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
+Following the **Link to Azure Machine Learning studio** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
 ![Main Experiment page in Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
 
-Clicking on a run number link in the `RUN NUMBER` column takes you to the page for each individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
+Select a run number link in the `RUN NUMBER` column to see the page for an individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs + logs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
 
 ![Run details page in Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
 
