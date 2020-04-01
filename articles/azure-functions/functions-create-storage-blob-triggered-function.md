@@ -74,7 +74,7 @@ Now that you have a blob container, you can test the function by uploading a fil
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
 
     ![Expand the log in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png)
-    :::image type="content" source="functions-storage-log-expander.png" alt-text="Expand the log in the Azure portal." border="false":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Expand the log in the Azure portal." border="false":::
 
 1. In a separate browser window, go to your resource group in the Azure portal, and select the storage account.
 
