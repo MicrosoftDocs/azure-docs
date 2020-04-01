@@ -15,7 +15,7 @@ This chapter lists the minimum system requirements to work with *Azure Remote Re
 
 * Windows 10 version 1903 or higher.
 * Up-to-date graphics drivers.
-* Optional: H265 hardware video decoder, if you want to use local preview of remotely rendered content (for example in Unity or Unreal).
+* Optional: H265 hardware video decoder, if you want to use local preview of remotely rendered content (for example in Unity).
 
 > [!IMPORTANT]
 > Windows update doesn't always deliver the very latest GPU drivers, check your GPU manufacturer's website for latest drivers:
@@ -32,7 +32,7 @@ The table below lists which GPUs support H265 hardware video decoding.
 | AMD | GPUs with at least version 6 of AMD's [Unified Video Decoder](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6). |
 | Intel | Skylake and newer CPUs |
 
-Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity or Unreal.
+Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity.
 
 ## Devices
 
