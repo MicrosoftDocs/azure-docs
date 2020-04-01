@@ -13,8 +13,8 @@ This article provides solutions to common Azure FarmBeats issues. For additional
 
 ## Install issues
 
-  >[!NOTE]
-  If you are restarting the install because of an error, make sure to delete the Resource Group or delete all resources from the Resource Group before re-triggering the install.
+  > [!NOTE]
+  > If you are restarting the install because of an error, make sure to delete the Resource Group or delete all resources from the Resource Group before re-triggering the install.
 
 ### Invalid Sentinel credentials
 
