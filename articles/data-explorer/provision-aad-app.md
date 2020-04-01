@@ -3,10 +3,10 @@ title: Create an AAD application in Azure Data Explorer
 description: Learn how to create an AAD application in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: tzgitlin
+ms.reviewer: herauch
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 04/01/2020
 ---
 
 # Create an Azure Active Directory application registration
@@ -20,91 +20,85 @@ A service principal is automatically created when the application registration i
 
 1. Log in to [Azure portal](https://portal.azure.com) and open the `Azure Active Directory` blade
 
-	![Select Azure Active Directory from portal menu](media/provision-aad-app/provisionaadapp-createappreg-select-azure-active-directory.png)
+    ![Select Azure Active Directory from portal menu](media/provision-aad-app/create-app-reg-select-azure-active-directory.png)
 
 1. Select the **App registrations** blade and select **New registration**
 
-    ![Start a new app registration](media/provision-aad-app/provisionaadapp-createappreg-new-registration.png)
+    ![Start a new app registration](media/provision-aad-app/create-app-reg-new-registration.png)
 
 1. Fill in the following: 
+
     * **Name** 
     * **Supported account types**
     * **Redirect URI** > **Web**
         > [!IMPORTANT] 
-	    > The application type should be **Web**. The URI is optional and is left blank in this case.
+        > The application type should be **Web**. The URI is optional and is left blank in this case.
     * Select **Register**
 
-	![Register new app registration](media/provision-aad-app/provisionaadapp-createappreg-register-app.png)
+    ![Register new app registration](media/provision-aad-app/create-app-reg-register-app.png)
 
 1. Select the **Overview** blade and copy the **Application ID**.
 
-	> [!NOTE]
-	> You'll need the application ID to authorize the service principal to access the database.
+    > [!NOTE]
+    > You'll need the application ID to authorize the service principal to access the database.
 
-	![Copy app registration id](media/provision-aad-app/provisionaadapp-createappreg-copy-applicationid.png)
+    ![Copy app registration id](media/provision-aad-app/create-app-reg-copy-applicationid.png)
 
 1. In the **Certificates & secrets** blade, select **New client secret**
 
-	![Initiate creation of client secret](media/provision-aad-app/provisionaadapp-createappreg-new-client-secret.png)
+    ![Initiate creation of client secret](media/provision-aad-app/create-app-reg-new-client-secret.png)
 
     > [!TIP]
     > This article describes using a client secret for the application's credentials.  You can also use an X509 certificate to authenticate your application. Select **Upload certificate** and follow the instructions to upload the public portion of the certificate.
 
 1. Enter a description, expiration, and select **Add**
 
-	![Enter client secret parameters](media/provision-aad-app/provisionaadapp-createappreg-enter-client-secret-details.png)
+    ![Enter client secret parameters](media/provision-aad-app/create-app-reg-enter-client-secret-details.png)
 
 1. Copy the key value
 
-	> [!NOTE]
-	> When you leave this page, the key value won't be accessible.  You will need the key to configure client credentials to the database.
+    > [!NOTE]
+    > When you leave this page, the key value won't be accessible.  You will need the key to configure client credentials to the database.
 
-	![Copy client secret key value](media/provision-aad-app/provisionaadapp-createappreg-copy-client-secret.png)
+    ![Copy client secret key value](media/provision-aad-app/create-app-reg-copy-client-secret.png)
 
-Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example \\below\\, skip the next section. If you need support for delegated permissions, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
+Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example below, skip the next section. If you need support for delegated permissions, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
 
 ## Configure delegated permissions for the application registration
 
 If your application needs to access Azure Data Explorer using the credentials of the calling user, configure delegated permissions for your application registration. For example, if you're building a web API to access Azure Data Explorer and you want to authenticate using the credentials of the user who is *calling* your API.  
 
 1. In the **API permissions** blade, select **Add a permission**.
+1. Select **APIs my organization uses**. Search for and select **Azure Data Explorer**.
 
-	![Initiate adding app registration API permission](media/provision-aad-app/provisionaadapp-configuredelegated-add-permission.png)
-
-1. Select **APIs my organization uses**. Search for and select **KustoService**
-
-	![Add KustoService API permission](media/provision-aad-app/provisionaadapp-configuredelegated-search-for-kustoservice.png)
+    ![Add Azure Data Explorer API permission](media/provision-aad-app/configure-delegated-add-api-permisions.png)
 
 1. In **Delegated permissions**, select the **user_impersonation** box and **Add permissions**
 
-	![Select delegated permissions with user impersonation](media/provision-aad-app/provisionaadapp-configuredelegated-click-add-permissions.png)	 
-
-## Verify Application Registration
-
-\\Is there another way to verify. Geneva is internal only?
+    ![Select delegated permissions with user impersonation](media/provision-aad-app/provisionaadapp-configuredelegated-click-add-permissions.png)     
 
 ## Grant the service principal access to an Azure Data Explorer database
 
 Now that your service principal application registration is created, you need to grant the corresponding service principal access to your Azure Data Explorer database. 
 
-1. In the Web UI(\\link\\), connect to your database and open a query tab.
+1. In the [Web UI](https://dataexplorer.azure.com/), connect to your database and open a query tab.
 
 1. Execute the following command:
 
-	```kusto
-	.add database <DatabaseName> viewers ('<ApplicationId>') '<Notes>'
-	```
+    ```kusto
+    .add database <DatabaseName> viewers ('<ApplicationId>') '<Notes>'
+    ```
 
-	For example:
-	
-	```kusto
-	.add database Logs viewers ('aadapp=f778b387-ba15-437f-a69e-ed9c9225278b') 'Kusto App Registration'
-	```
+    For example:
+    
+    ```kusto
+    .add database Logs viewers ('aadapp=f778b387-ba15-437f-a69e-ed9c9225278b') 'Kusto App Registration'
+    ```
 
-	\\The last parameter is a string that shows up as notes when you query the roles associated with a database.\\
-	
-	> [!NOTE]
-	> After creating the application registration, there may be a several minute delay until Azure Data Explorer can reference it. If you receive an error, that the application is not found, when executing this command, wait and try again.
+    The last parameter is a string that shows up as notes when you query the roles associated with a database.
+    
+    > [!NOTE]
+    > After creating the application registration, there may be a several minute delay until Azure Data Explorer can reference it. If you receive an error, that the application is not found, when executing this command, wait and try again.
 
 For additional information see [security roles management](../security-roles.md) and [ingestion permissions](../../api/netfx/kusto-ingest-client-permissions.md).  
 
@@ -114,8 +108,8 @@ Use the application credentials to programmatically access your database by usin
 
 ```C#
 . . .
-string applicationClientId = "f778b387-ba15-437f-a69e-ed9c9225278b";
-string applicationKey = "tBvAns1f7M75/?QI@?.4=uouC94UWBnC";
+string applicationClientId = "<myClientID>";
+string applicationKey = "<myApplicationKey>";
 . . .
 var kcsb = new KustoConnectionStringBuilder($"https://{clusterName}.kusto.windows.net/{databaseName}")
     .WithAadApplicationKeyAuthentication(
@@ -129,10 +123,9 @@ var queryResult = client.ExecuteQuery($"{query}");
    > [!NOTE]
    > Specify the application id and key of the application registration (service principal) created earlier.
 
-> For more information, see [authenticate with AAD for Azure Data Explorer access](./how-to-authenticate-with-aad.md).
+> For more information, see [authenticate with AAD for Azure Data Explorer access](./how-to-authenticate-with-aad.md) and [use Azure Key Vault with .NET Core web app](/azure/key-vault/tutorial-net-create-vault-azure-web-app#create-a-net-core-web-app).
 
-## AAD errors
-\\should we remove
+## Troubleshooting
 
 ### Invalid resource error
 
