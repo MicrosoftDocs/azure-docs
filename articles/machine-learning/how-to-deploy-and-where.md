@@ -1165,6 +1165,11 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+
+> [!WARNING]
+> Azure Machine Learning will route only POST and GET requests to the containers running the scoring service. This can cause errors due to browsers using OPTIONS requests to pre-flight CORS requests.
+> 
+
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
