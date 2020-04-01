@@ -20,11 +20,11 @@ A service principal is automatically created when the application registration i
 
 1. Log in to [Azure portal](https://portal.azure.com) and open the `Azure Active Directory` blade
 
-    ![Select Azure Active Directory from portal menu](media/provision-aad-app/create-app-reg-select-azure-active-directory.png)
+    ![Select Azure Active Directory from portal menu](media/provision-azure-ad-app/create-app-reg-select-azure-active-directory.png)
 
 1. Select the **App registrations** blade and select **New registration**
 
-    ![Start a new app registration](media/provision-aad-app/create-app-reg-new-registration.png)
+    ![Start a new app registration](media/provision-azure-ad-app/create-app-reg-new-registration.png)
 
 1. Fill in the following information: 
 
@@ -35,32 +35,32 @@ A service principal is automatically created when the application registration i
         > The application type should be **Web**. The URI is optional and is left blank in this case.
     * Select **Register**
 
-    ![Register new app registration](media/provision-aad-app/create-app-reg-register-app.png)
+    ![Register new app registration](media/provision-azure-ad-app/create-app-reg-register-app.png)
 
 1. Select the **Overview** blade and copy the **Application ID**.
 
     > [!NOTE]
     > You'll need the application ID to authorize the service principal to access the database.
 
-    ![Copy app registration ID](media/provision-aad-app/create-app-reg-copy-applicationid.png)
+    ![Copy app registration ID](media/provision-azure-ad-app/create-app-reg-copy-applicationid.png)
 
 1. In the **Certificates & secrets** blade, select **New client secret**
 
-    ![Start creation of client secret](media/provision-aad-app/create-app-reg-new-client-secret.png)
+    ![Start creation of client secret](media/provision-azure-ad-app/create-app-reg-new-client-secret.png)
 
     > [!TIP]
     > This article describes using a client secret for the application's credentials.  You can also use an X509 certificate to authenticate your application. Select **Upload certificate** and follow the instructions to upload the public portion of the certificate.
 
 1. Enter a description, expiration, and select **Add**
 
-    ![Enter client secret parameters](media/provision-aad-app/create-app-reg-enter-client-secret-details.png)
+    ![Enter client secret parameters](media/provision-azure-ad-app/create-app-reg-enter-client-secret-details.png)
 
 1. Copy the key value.
 
     > [!NOTE]
     > When you leave this page, the key value won't be accessible.  You'll need the key to configure client credentials to the database.
 
-    ![Copy client secret key value](media/provision-aad-app/create-app-reg-copy-client-secret.png)
+    ![Copy client secret key value](media/provision-azure-ad-app/create-app-reg-copy-client-secret.png)
 
 Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example below, skip the next section. For delegated permissions support, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
 
@@ -71,11 +71,11 @@ If your application needs to access Azure Data Explorer using the credentials of
 1. In the **API permissions** blade, select **Add a permission**.
 1. Select **APIs my organization uses**. Search for and select **Azure Data Explorer**.
 
-    ![Add Azure Data Explorer API permission](media/provision-aad-app/configure-delegated-add-api-permission.png)
+    ![Add Azure Data Explorer API permission](media/provision-azure-ad-app/configure-delegated-add-api-permission.png)
 
 1. In **Delegated permissions**, select the **user_impersonation** box and **Add permissions**
 
-    ![Select delegated permissions with user impersonation](media/provision-aad-app/configure-delegated-click-add-permissions.png)     
+    ![Select delegated permissions with user impersonation](media/provision-azure-ad-app/configure-delegated-click-add-permissions.png)     
 
 ## Grant the service principal access to an Azure Data Explorer database
 
