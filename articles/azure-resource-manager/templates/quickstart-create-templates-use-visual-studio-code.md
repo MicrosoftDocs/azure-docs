@@ -20,9 +20,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm!` into the code editor which initiates ARM Tools snippets for scaffolding out an ARM template.
 
+Select `arm!` to create a template scoped for an Azure resource group deployment.
+
 ![](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-Select `arm!` to create a template scoped for an Azure resource group deployment.
+This snippet creates the basic building blocks for an ARM template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
@@ -51,6 +53,30 @@ You should now have a valid ARM template for deploying an Azure Storage account.
 Place your cursor in the parameters block, add a carriage return, type `par`, and then select `arm-param-value`. This adds a generic parameter to the template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+Notice that the template also has a warning indicating that the parameter is never used. This can be seen either by hovering over the yellow squiggle in the editor pane or by opening the VS Code problems panel.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Now update the storage resources name property to use the parameter. To do so, remove the current name.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions that can be used in ARM expressions.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+Type in `par` and select *parameters* from the list. 
+
+![](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+Enter an opening round bracket `(` produces a list of all parameters defined in the template, in this case, *storageAccountName*. Select the parameter.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/13.png)
 
 ## Clean up resources
 
