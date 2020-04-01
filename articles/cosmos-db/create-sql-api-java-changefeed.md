@@ -1,5 +1,5 @@
 ---
-title: Tutorial - an end-to-end Java SQL API application sample with Change Feed
+title: Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
 description: This tutorial walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 author: anfeldma
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.date: 04/01/2020
 ms.author: anfeldma
 ---
 
-# Tutorial - an end-to-end Java SQL API application sample with Change Feed
+# Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
 
 This tutorial guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 
