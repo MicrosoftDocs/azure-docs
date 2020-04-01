@@ -1,6 +1,6 @@
 ---
-title: Create an AAD application in Azure Data Explorer
-description: Learn how to create an AAD application in Azure Data Explorer.
+title: Create an Azure AD application in Azure Data Explorer
+description: Learn how to create an Azure AD application in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: herauch
@@ -123,7 +123,7 @@ var queryResult = client.ExecuteQuery($"{query}");
    > [!NOTE]
    > Specify the application id and key of the application registration (service principal) created earlier.
 
-For more information, see [authenticate with AAD for Azure Data Explorer access](/azure/kusto/management/access-control/how-to-authenticate-with-aad) and [use Azure Key Vault with .NET Core web app](/azure/key-vault/tutorial-net-create-vault-azure-web-app#create-a-net-core-web-app).
+For more information, see [authenticate with Azure AD for Azure Data Explorer access](/azure/kusto/management/access-control/how-to-authenticate-with-aad) and [use Azure Key Vault with .NET Core web app](/azure/key-vault/tutorial-net-create-vault-azure-web-app#create-a-net-core-web-app).
 
 ## Troubleshooting
 
@@ -137,11 +137,11 @@ You'll need to follow the instructions on [setting up delegated permissions for 
 
 ### Enable user consent error
 
-Your AAD tenant administrator may enact a policy that prevents tenant users from giving consent to applications. This situation will result in an error similar to the following, when a user tries to log in to your application:
+Your Azure AD tenant administrator may enact a policy that prevents tenant users from giving consent to applications. This situation will result in an error similar to the following, when a user tries to log in to your application:
 
 `AADSTS65001: The user or administrator has not consented to use the application with ID '<App ID>' named 'App Name'`
 
-You'll need to contact your AAD administrator to grant consent for all users in the tenant, or enable user consent for your specific application.
+You'll need to contact your Azure AD administrator to grant consent for all users in the tenant, or enable user consent for your specific application.
 
 ## Next steps
 
