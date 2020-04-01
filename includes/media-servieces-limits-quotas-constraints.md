@@ -9,17 +9,22 @@ ms.author: juliako
 > [!NOTE]
 > For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
-### General limits
+### Account limits
 
 | Resource | Default Limit | 
 | --- | --- | 
 | Media Services accounts in a single subscription | 25 (fixed) |
 
-### Assets and storage limits
+### Asset limits
 
 | Resource | Default Limit | 
 | --- | --- | 
 | Assets per Media Services account | 1,000,000|
+
+### Storage limits
+
+| Resource | Default Limit | 
+| --- | --- | 
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
 | Storage accounts | 100<sup>(2)</sup> (fixed) |
 
@@ -62,7 +67,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 
-### Delivery/streaming limits
+### Packaging & delivery limits
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -85,4 +90,3 @@ Any Job record in your account older than 90 days will be automatically deleted,
 ### Support ticket
 
 For resources that are not fixed, you may ask for the quotas to be raised, by opening a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Include detailed information in the request on the desired quota changes, use-case scenarios, and regions required. <br/>Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
-
