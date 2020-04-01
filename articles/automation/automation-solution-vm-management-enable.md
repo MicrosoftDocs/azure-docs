@@ -3,13 +3,17 @@ title: Enable Start/Stop VMs during off hours solution
 description: This article describes how to enable the Azure Automation Start/Stop VM solution for your Azure virtual machines.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/30/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ---
 
 # Enable Azure Start/Stop VMs solution
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to a new or existing Automation account and linked Log Analytics workspace. After completing the onboarding process, configure the variables to customize the solution.
+
+>[!NOTE]
+>To use this solution with Classic VMs, you need a Classic RunAs account, which is not created by default. For instructions on creating a Classic RunAs account, see [Classic Run-As Accounts](automation-create-standalone-account.md#classic-run-as-accounts).
+>
 
 ## Enable solution
 

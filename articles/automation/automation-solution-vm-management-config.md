@@ -3,7 +3,7 @@ title: Configure Start/Stop VMs solution
 description: This article describes how to configure the Start/Stop VMs during off-hours solution to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/30/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ---
 
