@@ -76,7 +76,7 @@ We recommend creating a network service endpoint in your virtual network for "St
 
 ### Network connectivity
 
-For Site Recovery replication to work, it needs the VM to provide outbound connectivity to specific URLs or IP ranges. You might have your VM behind a firewall or use network security group (NSG) rules to control outbound connectivity. If so, you might experience issues. To make sure all the URLs are connected, see [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+For Site Recovery replication to work, it needs the VM to provide outbound connectivity to specific URLs or IP ranges. You might have your VM behind a firewall or use network security group (NSG) rules to control outbound connectivity. If so, you might experience issues. To make sure all the URLs are connected, see [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
 
 ## Error ID 153006 - No app-consistent recovery point available for the VM in the past "X" minutes
 
