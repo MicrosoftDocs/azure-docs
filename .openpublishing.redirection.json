@@ -50494,6 +50494,10 @@
     {
       "source_path": "articles/service-fabric/service-fabric-deploy-multiple-apps.md",
       "redirect_url": "/azure/service-fabric/service-fabric-deploy-existing-app"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-managed-instance-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-managed-instance"
     }
   ]
 }
