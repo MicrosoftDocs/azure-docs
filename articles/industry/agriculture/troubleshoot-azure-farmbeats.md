@@ -18,7 +18,7 @@ This article provides solutions to common Azure FarmBeats issues. For additional
 
 ### Invalid Sentinel credentials
 
-The Sentinel credentials provided during install are incorrect. Please restart the installation with the correct credentials.
+The Sentinel credentials provided during install are incorrect. Restart the installation with the correct credentials.
 
 ### The regional account quota of Batch Accounts for the specified subscription has been reached
 
@@ -30,15 +30,15 @@ Make sure the Resource Group is in the same location as the Region specified dur
 
 ### Other install issues
 
-Please contact us with the following details:
+Contact us with the following details:
 
 - Your Subscription ID
 - Resource Group name
 - Attach the log file for the Deployment failure using the steps below:
 
     1. Navigate to the Resource Group in the Azure portal.
-    2. Click on Deployments under Settings section on the left hand side.
-    3. For every deployment that shows "Failed", please click through to details and download the deployment details. Attach this file to the mail.
+    2. Select Deployments under Settings section on the left hand side.
+    3. For every deployment that shows "Failed", click through to details and download the deployment details. Attach this file to the mail.
 
 ## Sensor telemetry
 
@@ -144,7 +144,7 @@ While you're deleting a device, you might encounter one of the following common 
 **Message**: "FarmBeats internal error, see troubleshooting guide for more details".
 
 **Corrective action**:
-This issue might result from a temporary failure in the data pipeline. Create the job again. If the error persists, please contact us with the error message / logs.
+This issue might result from a temporary failure in the data pipeline. Create the job again. If the error persists, contact us with the error message / logs.
 
 ## Accelerator troubleshooting
 
@@ -154,7 +154,7 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 **Message**: "No matching users found."
 
-**Corrective action**: Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID, which is registered for that user in the Active Directory. If the error persists, please contact us with the error message / logs.
+**Corrective action**: Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID, which is registered for that user in the Active Directory. If the error persists, contact us with the error message / logs.
 
 ### Unable to log in to Accelerator
 
@@ -162,7 +162,7 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 **Corrective action**: Ask the administrator to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
 
-If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, please contact us with the error message / logs.
+If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, contact us with the error message / logs.
 
 ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
@@ -174,7 +174,7 @@ If you've already been granted access and are facing this error, try again by re
 
 **Corrective action**: This error occurs if you leave the page idle for too long. Refresh the page.  
 
-If the error persists, please contact us with the error message / logs.
+If the error persists, contact us with the error message / logs.
 
 **Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
 
@@ -198,15 +198,15 @@ Do one of the following:
     *Update Sentinel Username*
     1. Sign in to [Azure portal](https://portal.azure.com).
     2. In the **Search** box, search for the FarmBeats Datahub resource group.
-    3. Click on Storage account storage***** -> Containers -> batch-prep-files -> to_vm -> config.ini
+    3. Select Storage account storage***** -> Containers -> batch-prep-files -> to_vm -> config.ini
     4. Click Edit
     5. Update the username in the sentinel_account section
 
     *Update Sentinel Password*
     1. Sign in to [Azure portal](https://portal.azure.com).
     2. In the **Search** box, search for the FarmBeats Datahub resource group.
-    3. Click on keyvault-*****
-    4. Click on Access Policies under Settings
+    3. Select keyvault-*****
+    4. Select Access Policies under Settings
     5. Click "Add Access Policy"
     6. Use "Secret management" for Configure from Template and add yourself to Principal
     7. Click Add, and then click Save on the Access Policies page
@@ -268,7 +268,7 @@ Try either of the following:
 
 **Issue**: The Soil Moisture map was generated, but the map has mostly white areas.
 
-**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, please visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
 1. Rerun the job for a different date range and check to see if the NDVI values in the satellite indices are more than 0.3
 
 ## Collect logs manually
