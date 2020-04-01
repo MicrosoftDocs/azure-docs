@@ -34,7 +34,7 @@ Notice that the VS Code language mode has changed from *JSON* to *Azure Resource
 
 ## Add storage account to template
 
-Place the cursor in the template *resource* block, type in `storage`, and select the *arm-storage* snippet.
+Place the cursor in the template **resources** block, type in `storage`, and select the *arm-storage* snippet.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
@@ -42,13 +42,13 @@ This adds a storage resource to the template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-The *tab* key can be used to tab through configurable properties on the storage account.
+The **tab** key can be used to tab through configurable properties on the storage account.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-## Add parameters and variables
+## Add parameters to template
 
-You should now have a valid ARM template for deploying an Azure Storage account. Now create and use a parameter to specify the storage account name and a variable to hold the storage account type.
+Now create and use a parameter to specify the storage account name.
 
 Place your cursor in the parameters block, add a carriage return, type `par`, and then select `arm-param-value`. This adds a generic parameter to the template.
 
