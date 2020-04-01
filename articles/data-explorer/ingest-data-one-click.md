@@ -69,8 +69,6 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 
 ## Next steps
 
-* Decide if you will use one-click ingestion to ingest data into an existing or new table:
-    * Ingest into [a new table from...](one-click-ingestion-new-table.md)
-    * Ingest into an [existing table from...](one-click-ingestion-existing-table.md) 
+* Decide if you will use one-click ingestion to ingest data into [an existing table](one-click-ingestion-existing-table.md) or [a new table](one-click-ingestion-new-table.md)
 * [Query data in Azure Data Explorer Web UI](/azure/data-explorer/web-query-data)
 * [Write queries for Azure Data Explorer using Kusto Query Language](/azure/data-explorer/write-queries)

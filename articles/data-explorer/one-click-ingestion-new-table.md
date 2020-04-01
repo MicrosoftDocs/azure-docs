@@ -1,5 +1,5 @@
 ---
-title: Use one-click ingestion to ingest data into a new existing Azure Data Explorer table
+title: Use one-click ingestion to ingest data into a new Azure Data Explorer table
 description: Ingesting (loading) data into a new Azure Data Explorer table simply, using one-click ingestion.
 author: orspod
 ms.author: orspodek
@@ -13,7 +13,7 @@ ms.date: 03/29/2020
 
 One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. 
 
-This document describes using the intuitive one-click wizard to ingest CSV data from a container into a new table. You can then edit the table and run queries with the Azure Data Explorer Web UI.
+This document describes using the intuitive one-click wizard to ingest CSV data from a container into a new table. You can then edit the table and run queries with the Azure Data Explorer Web UI. You can also set continuous ingestion to automatically ingest data into the table when the source data updates.
 
 One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you. 
 
@@ -28,7 +28,7 @@ For information about ingesting data into an existing table in Azure Data Explor
  
 1. In the **Ingest new data (Preview)** window, the **Source** tab is automatically selected. 
 
-Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
+1. Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
 
 ![Create a new table](media/one-click-ingestion-new-table/create-new-table.png) 
 
@@ -50,7 +50,7 @@ Select **Edit schema** to view and edit your table column configuration. The sys
 
         ![Select Include column names](media/one-click-ingestion-new-table/non-json-format.png)
         
-    1. In the **Mapping name** field, enter a mapping name. You can use alphanumeric characters and underscores. Spaces, special characters, and hyphens aren't supported.
+1. In the **Mapping name** field, enter a mapping name. You can use alphanumeric characters and underscores. Spaces, special characters, and hyphens aren't supported.
     
     ![Table mapping name](media/one-click-ingestion-new-table/table-mapping.png)
 
@@ -85,7 +85,7 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
 
 In the **Data ingestion completed** window, all three steps will be marked with green check marks if data ingestion finishes successfully.
  
-    ![One-click data ingestion complete](media/one-click-ingestion-new-table/one-click-data-ingestion-complete.png)
+![One-click data ingestion complete](media/one-click-ingestion-new-table/one-click-data-ingestion-complete.png)
 
 [!INCLUDE [data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-one-click-ingestion-query-data.md)]
 

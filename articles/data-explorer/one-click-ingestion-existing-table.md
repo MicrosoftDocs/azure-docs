@@ -54,7 +54,7 @@ Select **Edit schema** to view and edit your table column configuration.
 
     * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
         
-        ![Select Include column names](media/one-click-ingestion-existing-table/non-json-format.png)
+    ![Select Include column names](media/one-click-ingestion-existing-table/non-json-format.png)
 
     > [!Note]
     > Tabular formats can ingest column data into only one column in an Azure Data Explorer table. 
@@ -84,7 +84,7 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
 
 In the **Data ingestion completed** window, all three steps will be marked with green check marks if data ingestion finishes successfully.
  
-    ![One-click data ingestion complete](media/one-click-ingestion-existing-table/one-click-data-ingestion-complete.png)
+![One-click data ingestion complete](media/one-click-ingestion-existing-table/one-click-data-ingestion-complete.png)
 
 [!INCLUDE [data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-one-click-ingestion-query-data.md)]
 
