@@ -115,13 +115,14 @@ cd LocalFunctionsProject
 cd fabrikam-functions
 ```
 ::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
 ```
-
-To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
+::: zone-end  
+To test the function locally, start the local Azure Functions runtime host in the root of the project folder: 
 ::: zone pivot="programming-language-csharp"  
 ```
 func start --build  
@@ -139,8 +140,10 @@ npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+```
 mvn clean package  
 mvn azure-functions:run
+```
 ::: zone-end
 Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
 
