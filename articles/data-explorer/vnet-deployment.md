@@ -166,7 +166,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | West Europe | 23.97.212.5 |
 | West India | 23.99.5.162 |
 | West US | 23.99.5.162 |
-| West US 2 | 23.99.5.162 |    
+| West US 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### Azure Monitor configuration endpoint addresses
 
