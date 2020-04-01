@@ -28,6 +28,10 @@ Before you start, make sure you have the following things:
   - Azure Active Directory Premium P1 or P2
   - Enterprise Mobility + Security E3 or E5
 - An Azure Active Directory group with your users assigned as group members
+- Azure MFA enabled users
+
+>[!NOTE]
+>The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
 ## Opt in to the Conditional Access policy
 
@@ -55,49 +59,31 @@ Before you start, make sure you have the following things:
 
 8. On the **Select** panel, select both the **Windows Virtual Desktop** and **Windows Virtual Desktop Client** Enterprise applications.
 
+>[!NOTE]
+>Please don’t forget to add both Windows Virtual Desktop Enterprise Applications. Only the Client app isn’t enough. 
+
 9. Finally, select **Select**, then select **Done**.
 
 ![](media/4d310d3500156228aedeaab7c58d0862.png)
 
-## Create an allow list of trusted IP addresses
+10. Select **Cloud apps or actions** 
 
-Now that you've set up your Conditional Access policy, you can configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
+11. Select **Require multi-factor authentication**, then select at least one of the **selected controls**.
 
->[!NOTE]
->The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+12. Select **Select**, then select **Done**.
 
-![A screenshot of the named locations tab. Configure MFA trusted IPs is highlighted in red.](media/configure-mfa-trusted-ips.png)
+13. Select **Grant**.
 
-To set up an allow list for trusted IPs:
-
-1. In the **Named locations** tab, select **Configure MFA trusted IPs**.
-   
-2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to add to your allow list.
-
-![A screenshot of the multi-factor authentication page.](media/mfa-page.png)
-
-3. Go back to the Conditional Access rule page.
-
-4. Select **MFA Trusted IPs**.
-
-![A screenshot of the Conditions page. The checkbox named "MFA Trusted IPs" is selected.](media/mfa-trusted-ips.png)
-
-5. Select **Require multi-factor authentication**, then select at least one of the **selected controls**.
-
-6. Select **Select**, then select **Done**.
-
-7. Select **Grant**.
-
-8. Select **Require multi-factor authentication**.
+14. Select **Require multi-factor authentication**.
    
    ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
 
     >[!NOTE]
     >If you have MDM-enrolled devices in your organization and don't want them to show the MFA prompt, you can also select **Require device to be marked as compliant**.
 
-9. Select **Session**.
+15. Select **Session**.
 
-10. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
+16. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
 
     ![A screenshot of the Session page. The session menu shows the sign-in frequency drop-down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
    
@@ -106,8 +92,8 @@ To set up an allow list for trusted IPs:
     >
     >The default setting is a rolling window of 90 days, which means the client will ask users to sign in again when they try to access a resource after being inactive on their machine for 90 days or longer.
 
-11. Enable the policy.
+17. Enable the policy.
 
-12. Select **Create** to confirm the policy.
+18. Select **Create** to confirm the policy.
 
-13. You're all done! Feel free to test the policy to make sure your allow list works as intended.
+19. You're all done! Feel free to test the policy to make sure your allow list works as intended.
