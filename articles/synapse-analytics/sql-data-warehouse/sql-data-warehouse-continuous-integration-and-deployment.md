@@ -1,12 +1,12 @@
 ---
 title: Continuous integration and deployment 
 description: Enterprise-class Database DevOps experience for data warehousing with built-in support for continuous integration and deployment using Azure Pipelines.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: integration
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan

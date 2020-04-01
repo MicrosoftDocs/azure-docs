@@ -624,7 +624,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 
 ### Basic authentication
 
-If the [Basic](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) option is available, specify these property values:
+If the [Basic](../active-directory-b2c/secure-rest-api.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -686,7 +686,7 @@ For more information about securing services by using client certificate authent
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
+* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 

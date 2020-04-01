@@ -1,12 +1,12 @@
 ---
 title: Creating, updating statistics
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
