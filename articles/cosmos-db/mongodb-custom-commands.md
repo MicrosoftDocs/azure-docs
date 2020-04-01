@@ -10,13 +10,13 @@ ms.author: sngun
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open-source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cosmos DB such as global distribution, automatic sharding, high availability, latency guarantees, automatic, encryption at rest, backups, and many more, while preserving your investments in your MongoDB app.
 
 ## MongoDB protocol support
 
-By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2, for more details, see [supported features and syntax](mongodb-feature-support.md). The features or query operators added in MongoDB version 3.4 are currently available as a preview in the Azure Cosmos DB’s API for MongoDB. The following extension commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
+By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2, for more details, see [supported features and syntax](mongodb-feature-support.md). The features or query operators added in MongoDB version 3.4 are currently available as a preview in the Azure Cosmos DB’s API for MongoDB. The following extension commands support specific Azure Cosmos DB functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
 
 * [Create database](#create-database)
 * [Update database](#update-database)
@@ -159,7 +159,7 @@ The following table describes the parameters within the command:
 |---------|---------|---------|---------|
 | customAction | string | Required | Name of the custom command. Must be "CreateCollection".|
 | collection | string | Required | Name of the collection. No special characters are allowed.|
-| offerThroughput | int | Optional* | Provisioned throughput to set on the database. If this paramater is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
+| offerThroughput | int | Optional* | Provisioned throughput to set on the database. If this parameter is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
 | shardKey | string | Optional* | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this value. |
 
 ### Output
