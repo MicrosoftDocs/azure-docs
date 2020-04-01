@@ -71,7 +71,7 @@ If setting up a separate test tenant isn't feasible, skip this stage and stand u
 
 **Stage 3 – Test app pointing to production Azure tenant**
 
-Update the configuration to point your test instance of the app to your production instance of Azure. You can now test with users in your production instance. See [Transition users from AD FS to Azure AD in this article](#Tranistion-users-from-ad-fs-to-azure-ad).
+Update the configuration to point your test instance of the app to your production instance of Azure. You can now test with users in your production instance. If necessary review the section of this article on transitioning users.
 
 ![Migration stage 3 ](media/migrate-adfs-apps-to-azure/stage3.jpg)
 
