@@ -80,7 +80,7 @@ ms.author: sngun
 
 ### <a name="2.1.0"/>2.1.0
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
-* Added an option for disabling SSL verification when running against Cosmos DB Emulator.
+* Added an option for disabling TLS verification when running against Cosmos DB Emulator.
 * Removed the restriction of dependent requests module to be exactly 2.10.0.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Added support for enabling script logging during stored procedure execution.
