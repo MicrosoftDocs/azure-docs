@@ -17,7 +17,6 @@ ms.collection: M365-identity-device-management
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
-
 This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
 
 This table is a list of related topics:
@@ -33,12 +32,6 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
-
-
-
-
-## 1.4.25.0
-=======
 >[!IMPORTANT]
 > Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.3.20.0 (which was released on 4/24/2019) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
 >
@@ -58,7 +51,6 @@ xx/xx/2020: Released for download
 
 ### Functional changes ADSyncAutoUpgrade 
 
-
 - Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. 
 - The mS-DS-ConsistencyGuid attribute is automatically set on al synced groups and you do not have to do anything to enable this feature. 
 - Removed the Get-ADSyncRunProfile because it is no longer in use. 
@@ -70,8 +62,7 @@ xx/xx/2020: Released for download
 
 ### Fixed issues
 
-
-- Fixed a bug in the group writeback forest/OU selector on rerunning the AADC wizard after disabling the feature. 
+- Fixed a bug in the group writeback forest/OU selector on rerunning the Azure AD Connect wizard after disabling the feature. 
 - Introduced a new error page that will be displayed if the required DCOM registry values are missing with a new help link. Information is also written to log files. 
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
@@ -96,10 +87,9 @@ xx/xx/2020: Released for download
 ### Release status
 11/08/2019: Released for download. Not available through auto-upgrade.
 
-<<<<<<< HEAD
-=======
 >[!IMPORTANT]
->Due to an internal schema change in this release of Azure AD Connect, if you manage ADFS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+>Due to an internal schema change in this release of Azure AD Connect, if you manage AD FS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+
 ### Fixed issues
 
 This version fixes an issue with existing Hybrid Azure AD joined devices. This release contains a new device sync rule that corrects this issue.
@@ -107,7 +97,6 @@ Note that this rule change may cause deletion of obsolete devices from Azure AD.
 
 ## 1.4.25.0
 
->>>>>>> 7e6902cc6861de235dc60da3aaf5ecd1ede14ad6
 ### Release status
 9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
 
@@ -137,10 +126,10 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported in new AAD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
-- Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the AADC wizard.
+- Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
 - Added new error for issues with a user's password policy.
 - Prevent misconfiguration of  group filtering by domain and OU filters. Group filtering will show an error when the domain/OU of the entered group is already filtered out and keep the user from moving forward until the issue is resolved.
 - Users can no longer create a connector for Active Directory Domain Services or Windows Azure Active Directory in the Synchronization Service Manager UI.
