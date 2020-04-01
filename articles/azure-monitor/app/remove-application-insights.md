@@ -207,7 +207,7 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ---
 
-## Troubleshotting
+## Troubleshooting
 
 # [.NET](#tab/net)
 
