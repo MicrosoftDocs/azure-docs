@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
+title: Manage a Managed HSM using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 author: msmbaldwin
@@ -12,27 +12,22 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 
 ---
-# Manage Key Vault using the Azure CLI 
+# Manage a Managed HSM using the Azure CLI 
 
-This article covers how to get started working with Azure Key Vault using the Azure CLI.  You can see information on:
+This article covers how to get started working with Managed HSM using the Azure CLI.  You can see information on:
 
-- How to create a hardened container (a vault) in Azure
-- Adding a key, secret, or certificate to the key vault
+- How to create a Managed HSM in Azure
+- Adding a key
 - Registering an application with Azure Active Directory
-- Authorizing an application to use a key or secret
-- Setting key vault advanced access policies
+- Authorizing an application to use a key
+- Setting advanced access policies
 - Working with Hardware security modules (HSMs)
-- Deleting the key vault and associated keys and secrets
+- Deleting the Managed HSM and associated keys
 - Miscellaneous Azure Cross-Platform Command-line Interface Commands
 
 
-Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-> [!NOTE]
-> This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
->
-
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)
+For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -59,9 +54,9 @@ You can also read the following articles to get familiar with Azure Resource Man
 * [Install Azure CLI](/cli/azure/install-azure-cli)
 * [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
 
-## How to create a hardened container (a vault) in Azure
+## How to create a Managed HSM in Azure
 
-Vaults are secured containers backed by hardware security modules. Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution. In the next steps, you will create a vault.
+Managed HSM are highly available SGX enclaves backed by hardware security modules. Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution. In the next steps, you will create a vault.
 
 ### Connect to your subscriptions
 
@@ -104,34 +99,34 @@ The first parameter is resource group name and the second parameter is the locat
 az account list-locations
 ``` 
 
-### Register the Key Vault resource provider
+### Register the Managed HSM resource provider
 
- You may see the error "The subscription is not registered to use namespace 'Microsoft.KeyVault'" when you try to create a new key vault. If that message appears, make sure that Key Vault resource provider is registered in your subscription. This is a one-time operation for each subscription.
+You may see the error "The subscription is not registered to use namespace 'Microsoft.ManagedHSM'" when you try to create a new Managed HSM. If that message appears, make sure that the Managed HSM resource provider is registered in your subscription. This is a one-time operation for each subscription.
 
 ```azurecli
-az provider register -n Microsoft.KeyVault
+az provider register -n Microsoft.ManagedHSM
 ```
 
-### Create a key vault
+### Create a Managed HSM
 
-Use the `az keyvault create` command to create a key vault. This script has three mandatory parameters: a resource group name, a key vault name, and the geographic location.
+Use the `az keyvault hsm create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an hsm name, and the geographic location.
 
-To create a new vault with the name **ContosoKeyVault**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
+To create a new vault with the name **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
 
 ```azurecli
-az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
+az keyvault create --name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoKeyVault. You'll use this name for other Key Vault commands.
-* **vaultUri**: In the example, the URI is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
+* **hsmUri**: In the example, the URI is https://contosohsm.mhsm.azure.net. Applications that use your hsm through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
 
-## Adding a key, secret, or certificate to the key vault
+## Adding a key HSM
 
-If you want Azure Key Vault to create a software-protected key for you, use the `az key create` command.
+If you want to create a software-protected key, use the `az key create` command.
 
 ```azurecli
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
@@ -269,9 +264,9 @@ az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSM
 
 For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## Deleting the key vault and associated keys and secrets
+## Deleting the Managed HSM and associated keys
 
-If you no longer need the key vault and its keys or secrets, you can delete the key vault by using the `az keyvault delete` command:
+If you no longer need the Managed HSM and its keys, you can delete it by using the `az keyvault delete` command:
 
 ```azurecli
 az keyvault delete --name "ContosoKeyVault"
