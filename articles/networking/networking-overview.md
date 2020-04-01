@@ -1,6 +1,6 @@
 ---
-title: Azure networking | Microsoft Docs
-description: Learn about networking services in Azure and their capabilities.
+title: Azure networking services overview
+description: Learn about networking services in Azure and their capabilities - connectivity services, application protection services, application delivery services, and network monitoring.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -13,7 +13,7 @@ ms.author: kumud
 
 ---
 
-# Azure networking
+# Azure networking services overview
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
@@ -32,7 +32,7 @@ This section describes services that provide connectivity between Azure resource
 |[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Hosts DNS domains that provide name resolution by using Microsoft Azure infrastructure.|<p>[Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Create DNS records for a web app](../dns/dns-web-sites-custom-domain.md)</p> <p>[Create an alias record for Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Create an alias record for public IP Address](../dns/tutorial-alias-pip.md)</p> <p>[Create an alias record for zone resource record](../dns/tutorial-alias-rr.md)</p>|
-|[Azure Bastion](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure Bastion](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Virtual network NAT Gateway](#nat)|Create a NAT gateway to provide outbound connectivity for a virtual machine.|<p>[Create a NAT Gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Azure Peering Service (Preview)](#azurepeeringservice)|Collaborate with service providers for optimal and reliable routing to the Microsoft cloud over the public network.|<p>[Register Azure Peering Service](../peering-service/azure-portal.md)</p>|
 ||||
@@ -71,7 +71,7 @@ Azure Virtual WAN brings together many Azure cloud connectivity services such as
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Azure Bastion
-The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
 ![Azure Bastion architecture](./media/networking-overview/architecture.png)
 
@@ -143,7 +143,7 @@ This section describes networking services in Azure that help deliver applicatio
 |[Azure Front Door Service](#frontdoor)|Enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability.|<p>[Add a custom domain to your Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configure HTTPS on a Front Door custom domain](../frontdoor/front-door-custom-domain-https.md)</p><p>[Set up geo-filtering Web Application Firewall policy](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distributes traffic based on DNS to services across global Azure regions, while providing high availability and responsiveness|<p> [Route traffic for low latency](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Route traffic to a priority endpoint](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Control traffic with weighted endpoints](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Route traffic based on geographic location of the endpoint](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Route traffic based on user's subnet](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
 |[Load Balancer](#loadbalancer)|Provides regional load-balancing by routing traffic across availability zones and into your VNets. Provides internal load-balancing by routing traffic across and between your resources to build your regional application.|<p> [Load balance internet traffic to VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Load-balance traffic across VMs inside a virtual network](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Port forward traffic to a specific port on specific VMs](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configure load balancing and outbound rules](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Configure an application gateway with SSL termination](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md) </p>|
+|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configure an application gateway with TLS termination using the Azure portal](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md) </p>|
 |
 
 ### <a name="cdn"></a>Content Delivery Network

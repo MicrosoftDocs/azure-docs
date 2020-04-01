@@ -29,8 +29,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* All node pools must reside in the same virtual network and subnet.
-* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This version can be updated after the cluster has been provisioned by using per node pool operations.
+* All node pools must reside in the same virtual network.
+* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 
 ## Create an AKS cluster
 
@@ -116,6 +116,29 @@ The following example output shows that *mynodepool* has been successfully creat
 
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
+
+### Add a node pool with a unique subnet (preview)
+
+A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
+
+#### Limitations
+
+* All subnets assigned to nodepools must belong to the same virtual network.
+* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
+* Assignment of a unique subnet per node pool is limited to Azure CNI during preview.
+* Using network policies with a unique subnet per node pool is not supported during preview.
+
+To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## Upgrade a node pool
 
@@ -691,18 +714,22 @@ az group deployment create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node in a node pool
+## Assign a public IP per node for a node pool (preview)
 
 > [!WARNING]
 > During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. As a result of this limitation, Windows agent pools are not supported with this preview feature. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
-AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved by registering for a separate preview feature, Node Public IP (preview).
+AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
+
+Register for the Node Public IP feature by issuing the following Azure CLI command.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. 
+
+This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ## Clean up resources
 

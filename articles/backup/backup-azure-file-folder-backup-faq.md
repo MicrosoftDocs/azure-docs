@@ -54,6 +54,10 @@ Backup data is sent to the datacenter of the vault in which the server is regist
 
 Yes. The MARS agent converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the vault.
 
+### Do I need administrator permissions to install and configure the MARS agent?
+
+Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
+
 ## Manage backups
 
 ### What happens if I rename a Windows machine configured for backup?

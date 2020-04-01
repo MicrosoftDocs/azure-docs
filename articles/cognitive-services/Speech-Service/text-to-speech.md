@@ -3,13 +3,13 @@ title: Text-to-speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: erhopf
+ms.date: 03/23/2020
+ms.author: dapine
 ---
 
 # What is text-to-speech?
@@ -26,7 +26,7 @@ Text-to-speech from the Speech service enables your applications, tools, or devi
 
 * Speech synthesis - Use the [Speech SDK](quickstarts/text-to-speech-audio-file.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech using standard, neural, or custom voices.
 
-* Asynchronous synthesis of long audio - Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example audio books or lectures). Unlike synthesis performed using the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and that the synthesized audio is downloaded when made available from the service. Only neural voices are supported.
+* Asynchronous synthesis of long audio - Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example audio books or lectures). Unlike synthesis performed using the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and that the synthesized audio is downloaded when made available from the service. Only custom neural voices are supported.
 
 * Standard voices - Created using Statistical Parametric Synthesis and/or Concatenation Synthesis techniques. These voices are highly intelligible and sound natural. You can easily enable your applications to speak in more than 45 languages, with a wide range of voice options. These voices provide high pronunciation accuracy, including support for abbreviations, acronym expansions, date/time interpretations, polyphones, and more. For a full list of standard voices, see [supported languages](language-support.md#text-to-speech).
 

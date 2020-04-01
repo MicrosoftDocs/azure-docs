@@ -3,7 +3,7 @@ title: Archive & report with Azure Monitor - Azure AD entitlement management
 description: Learn how to archive logs and create reports with Azure Monitor in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/27/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -56,7 +56,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
 1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope**. Then, select the correct subscription and workspace.
 
-1. Next, in the query text area, delete the string “search *” and replace it with the following query:
+1. Next, in the query text area, delete the string "search *" and replace it with the following query:
 
     ```
     AuditLogs | where Category == "EntitlementManagement"
@@ -66,7 +66,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
     ![Click Run to start query](./media/entitlement-management-logs-and-reporting/run-query.png)
 
-The table will show the Audit log events for entitlement management from the last hour by default. You can change the “Time range” setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
+The table will show the Audit log events for entitlement management from the last hour by default. You can change the "Time range" setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
 
 If you would like to know the oldest and newest audit events held in Azure Monitor, use the following query:
 
@@ -96,13 +96,13 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven’t already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven't already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
 ```
     
-Now you're ready to authenticate to Azure AD, and retrieve the id of the Log Analytics workspace you’re querying.
+Now you're ready to authenticate to Azure AD, and retrieve the id of the Log Analytics workspace you're querying.
 
 ### Retrieve Log Analytics ID with one Azure subscription
 If you have only a single Azure subscription, and a single Log Analytics workspace, then type the following to authenticate to Azure AD, connect to that subscription, and retrieve that workspace:

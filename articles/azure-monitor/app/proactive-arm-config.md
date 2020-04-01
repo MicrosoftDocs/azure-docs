@@ -25,8 +25,6 @@ You can configure the following settings for a smart detection rule:
 To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
 For maximal flexibility, each smart detection rule can be configured with unique notification settings.
 
-## 
-
 ## Examples
 
 Below are a few examples showing how to configure the settings of smart detection rules using Azure Resource Manager templates.
@@ -127,12 +125,33 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ```
 
+
+## Smart detection rule names
+
+Below is a table of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
+
+> [!NOTE]
+> Smart detection rules marked as _preview_ don’t support email notifications. Therefore, you can only set the _enabled_ property for these rules. 
+
+| Azure portal rule name | Internal name
+|:---|:---|
+| Slow page load time |	slowpageloadtime |
+| Slow server response time | slowserverresponsetime |
+| Long dependency duration | longdependencyduration |
+| Degradation in server response time | degradationinserverresponsetime |
+| Degradation in dependency duration | degradationindependencyduration |
+| Degradation in trace severity ratio (preview) | extension_traceseveritydetector |
+| Abnormal rise in exception volume (preview) | extension_exceptionchangeextension |
+| Potential memory leak detected (preview) | extension_memoryleakextension |
+| Potential security issue detected (preview) | extension_securityextensionspackage |
+| Abnormal rise in daily data volume (preview) | extension_billingdatavolumedailyspikeextension |
+
 ### Failure Anomalies alert rule
 
 This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 > [!NOTE]
-> Failure Anomalies is a global service therefore rule location is create on the global location.
+> Failure Anomalies is a global service therefore rule location is created on the global location.
 
 ```json
 {
@@ -163,27 +182,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
 ```
 
 > [!NOTE]
-> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article.
-
-## Smart detection rule names
-
-Below is a table of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
-
-> [!NOTE]
-> Smart detection rules marked as _preview_ don’t support email notifications. Therefore, you can only set the _enabled_ property for these rules. 
-
-| Azure portal rule name | Internal name
-|:---|:---|
-| Slow page load time |	slowpageloadtime |
-| Slow server response time | slowserverresponsetime |
-| Long dependency duration | longdependencyduration |
-| Degradation in server response time | degradationinserverresponsetime |
-| Degradation in dependency duration | degradationindependencyduration |
-| Degradation in trace severity ratio (preview) | extension_traceseveritydetector |
-| Abnormal rise in exception volume (preview) | extension_exceptionchangeextension |
-| Potential memory leak detected (preview) | extension_memoryleakextension |
-| Potential security issue detected (preview) | extension_securityextensionspackage |
-| Abnormal rise in daily data volume (preview) | extension_billingdatavolumedailyspikeextension |
+> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article. If you want to manage Failure Anomalies manually this is done in Azure Monitor Alerts whereas all other Smart Detection rules are managed in the Smart Detection pane of the UI.
 
 ## Next Steps
 
