@@ -23,7 +23,7 @@ In this tutorial, you learn the following tasks:
 > [!div class="checklist"]
 > * Connect your workspace and create an experiment
 > * Load data and train scikit-learn models
-> * View training results in the portal
+> * View training results in the studio
 > * Retrieve the best model
 
 ## Prerequisites
@@ -120,10 +120,10 @@ The above code accomplishes the following:
 
 1. For each alpha hyperparameter value in the `alphas` array, a new run is created within the experiment. The alpha value is logged to differentiate between each run.
 1. In each run, a Ridge model is instantiated, trained, and used to run predictions. The root-mean-squared-error is calculated for the actual versus predicted values, and then logged to the run. At this point the run has metadata attached for both the alpha value and the rmse accuracy.
-1. Next, the model for each run is serialized and uploaded to the run. This allows you to download the model file from the run in the portal.
+1. Next, the model for each run is serialized and uploaded to the run. This allows you to download the model file from the run in the studio.
 1. At the end of each iteration the run is completed by calling `run.complete()`.
 
-After the training has completed, call the `experiment` variable to fetch a link to the experiment in the portal.
+After the training has completed, call the `experiment` variable to fetch a link to the experiment in the studio.
 
 ```python
 experiment
@@ -137,15 +137,15 @@ Following the **Link to Azure Machine Learning studio** takes you to the main ex
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
-![Main Experiment page in Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+![Main Experiment page in the studio](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
 
 Select a run number link in the `RUN NUMBER` column to see the page for an individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs + logs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
 
-![Run details page in Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+![Run details page in the studio](./media/tutorial-1st-experiment-sdk-train/model-download.png)
 
 ## Get the best model
 
-In addition to being able to download model files from the experiment in the portal, you can also download them programmatically. The following code iterates through each run in the experiment, and accesses both the logged run metrics and the run details (which contains the run_id). This keeps track of the best run, in this case the run with the lowest root-mean-squared-error.
+In addition to being able to download model files from the experiment in the studio, you can also download them programmatically. The following code iterates through each run in the experiment, and accesses both the logged run metrics and the run details (which contains the run_id). This keeps track of the best run, in this case the run with the lowest root-mean-squared-error.
 
 ```python
 minimum_rmse_runid = None
@@ -210,7 +210,7 @@ In this tutorial, you did the following tasks:
 > [!div class="checklist"]
 > * Connected your workspace and created an experiment
 > * Loaded data and trained scikit-learn models
-> * Viewed training results in the portal and retrieved models
+> * Viewed training results in the studio and retrieved models
 
 [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
 Learn how to develop [automated machine learning](tutorial-auto-train-models.md) experiments.
