@@ -36,7 +36,7 @@ You'll need:
 
 - An Azure Machine Learning workspace.
   
-  Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
+  Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This function looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
 
    ```python
    import azureml.core
@@ -71,11 +71,11 @@ For more options on creating datasets with different options and from different 
 
 To pass the dataset's path to your script, use the `Dataset` object's `as_named_input(str)` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[str]`.
 
-Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode will avoid the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's simply too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
+Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode will avoid the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
 
 To pass a dataset to your pipeline step:
 
-1. Use `TabularDataset.as_named_inputs()` or `FileDataset.as_named_input()` (no 's' at end)to create a `DatasetConsumptionConfig` object
+1. Use `TabularDataset.as_named_inputs()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
 1. Use `as_mount()` or `as_download()` to set the access mode
 1. Pass the datasets to your pipeline steps using either the `arguments` or the `inputs` argument
 
@@ -91,7 +91,7 @@ train_step = PythonScriptStep(
 )
 ```
 
-In addition, you can use methods such as `random_split()` and `take_sample()` to create multiple inputs or reduce the amount of data passed to your pipeline step:
+You can also use methods such as `random_split()` and `take_sample()` to create multiple inputs or reduce the amount of data passed to your pipeline step:
 
 ```python
 seed = 42 # PRNG seed
@@ -132,7 +132,7 @@ testing_data_folder = Run.get_context().input_datasets['test']
 
 The passed value will be the path to the dataset file(s).
 
-It is also possible to access a registered `Dataset` directly. Since registered datasets are persistent and shared across a workspace, you can retrieve them directly:
+It's also possible to access a registered `Dataset` directly. Since registered datasets are persistent and shared across a workspace, you can retrieve them directly:
 
 ```python
 run = Run.get_context()
@@ -158,7 +158,7 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-You may choose to create your `PipelineData` object using an access mode that provides an immediate upload. In that case, when you create your `PipelineData`, set the `upload_mode` to `"upload"` and use the `output_path_on_compute` argument to specify the path to which you will be writing the data:
+You may choose to create your `PipelineData` object using an access mode that provides an immediate upload. In that case, when you create your `PipelineData`, set the `upload_mode` to `"upload"` and use the `output_path_on_compute` argument to specify the path to which you'll be writing the data:
 
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
@@ -181,7 +181,7 @@ with open(args.output_path, 'w') as f:
 
 ### Read `PipelineData` as an input to non-initial steps
 
-After the initial pipeline step writes some data to the `PipelineData` path and it becomes an output of that initial step, it can be used as an input to a subsequent step:
+After the initial pipeline step writes some data to the `PipelineData` path and it becomes an output of that initial step, it can be used as an input to a later step:
 
 ```python
 step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
@@ -220,7 +220,7 @@ with open(args.pd) as f:
 
 ## Convert a `PipelineData` object into a registered `Dataset` for further processing
 
-If you'd like to make your `PipelineData` available for longer than the duration of a run, use it's `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it is highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
+If you'd like to make your `PipelineData` available for longer than the duration of a run, use its `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it's highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
 
 ```python
 step1_output_ds = step1_output_data.as_dataset()
