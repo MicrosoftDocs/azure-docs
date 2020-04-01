@@ -118,7 +118,7 @@ Replicator configurations configure the replicator that is responsible for makin
 The server authentication process [authenticates](../../service-fabric/service-fabric-cluster-creation-via-arm.md) the cluster management endpoints to a management client. The management client then recognizes that it's talking to the real cluster. This certificate also provides a [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) for the HTTPS management API and for Service Fabric Explorer over HTTPS.
 You must obtain a custom domain name for your cluster. When you request a certificate from a certificate authority, the certificate's subject name must match the custom domain name that you use for your cluster.
 
-To configure TLS for an application, you first need to obtain a SSL/TLS certificate that has been signed by a CA. The CA is a trusted third party that issues certificates for TLS security purposes. If you don't already have a SSL/TLS certificate, you need to obtain one from a company that sells SSL/TLS certificates.
+To configure TLS for an application, you first need to obtain an SSL/TLS certificate that has been signed by a CA. The CA is a trusted third party that issues certificates for TLS security purposes. If you don't already have an SSL/TLS certificate, you need to obtain one from a company that sells SSL/TLS certificates.
 
 The certificate must meet the following requirements for SSL/TLS certificates in Azure:
 -	The certificate must contain a private key.
@@ -131,7 +131,7 @@ The certificate must meet the following requirements for SSL/TLS certificates in
     - Request a certificate from a CA with a subject name that matches your service's custom domain name. For example, if your custom domain name is __contoso__**.com**, the certificate from your CA should have the subject name **.contoso.com** or __www__**.contoso.com**.
 
     >[!NOTE]
-    >You cannot obtain a SSL/TLS certificate from a CA for the __cloudapp__**.net** domain.
+    >You cannot obtain an SSL/TLS certificate from a CA for the __cloudapp__**.net** domain.
 
 -	The certificate must use a minimum of 2,048-bit encryption.
 
