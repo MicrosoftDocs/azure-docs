@@ -137,11 +137,12 @@ Following the **Link to Azure Machine Learning studio** takes you to the main ex
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
-![Main Experiment page in the studio](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Main Experiment page in the studio.":::
+
 
 Select a run number link in the `RUN NUMBER` column to see the page for an individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs + logs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
 
-![Run details page in the studio](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Run details page in the studio.":::
 
 ## Get the best model
 
