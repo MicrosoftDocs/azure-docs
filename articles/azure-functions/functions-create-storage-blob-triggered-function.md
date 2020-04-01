@@ -21,7 +21,7 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 You've successfully created your new function app.
 
-:::image type="content" source="./media/functions-create-first-azure-function/function-app-create-success.png" alt-text="Function app successfully created." border="false":::
+:::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-create-success.png" alt-text="Function app successfully created." border="true":::
 
 Next, you create a function in the new function app.
 
