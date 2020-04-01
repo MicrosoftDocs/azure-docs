@@ -126,7 +126,7 @@ Apps that use OAuth 2.0 or OpenID Connect can be integrated with Azure AD simila
 
 For any issues with onboarding your SaaS apps, you can contact the [SaaS Application Integration support alias](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
-**SAML signing certificates for SSO**: Signing certificates are an important part of any SSO deployment. Azure AD creates the csigning ertificates to establish SAML-based federated SSO to your SaaS applications. Once you add either gallery or non-gallery applications, you'll configure the added application using the federated SSO option. See [Manage certificates for federated single sign-on in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
+**SAML signing certificates for SSO**: Signing certificates are an important part of any SSO deployment. Azure AD creates the signing certificates to establish SAML-based federated SSO to your SaaS applications. Once you add either gallery or non-gallery applications, you'll configure the added application using the federated SSO option. See [Manage certificates for federated single sign-on in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
 
 ### Apps and configurations that can be moved today
 
@@ -257,7 +257,7 @@ Permit Access to All Users looks like in AD FS:
 This maps to Azure AD in one of the following ways:
 
 In the [Azure portal](https://portal.azure.com/):
-* Option 1: Set User assignment required to No ![edit access control policy for saas apps ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
+* Option 1: Set User assignment required to No ![edit access control policy for SaaS apps ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
 
     Note that setting the User assignment required switch to Yes requires that users be assigned to the application to gain access. When set to No, all users have access. This switch does not control what shows for users in the My Apps experience. 
 
@@ -357,7 +357,7 @@ Specify MFA rules based on a user's location in Azure AD:
 5. Configure the **Access controls** options as shown below:
 
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-2.png)
+![Map access control policies](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-2.png)
 
  
 ### Map Emit attributes as Claims rule
