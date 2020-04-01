@@ -40,8 +40,6 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.38.0
 
-
-
 ### Release status
 03/xx/2020: Released for download
 
@@ -69,7 +67,6 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 
 ## 1.4.25.0
-
 
 
 ### Release status
