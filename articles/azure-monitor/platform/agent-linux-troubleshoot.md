@@ -72,7 +72,7 @@ If none of these steps work for you, the following support channels are also ava
 | --- | --- |
 | 2 | Invalid option provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
 | 3 | Invalid configuration provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
-| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent.md#network-firewall-requirements). |
+| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent.md#firewall-requirements). |
 | 5 | 403 HTTP error received from Azure Monitor. See the full output of the omsadmin script for details. |
 | 6 | Non-200 HTTP error received from Azure Monitor. See the full output of the omsadmin script for details. |
 | 7 | Unable to connect to Azure Monitor. See the full output of the omsadmin script for details. |
