@@ -186,7 +186,8 @@ Memory issues detection |**Passed** <br><br><br><br> **Done** |<br> The selected
 Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series was analyzed and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
 
 #### Data Guardrail States
-Data guardrails will display one of three states: 'Passed', 'Done, or 'Alerted'. 
+Data guardrails will display one of three states: 'Passed', 'Done, or 'Alerted'.
+
 State| Description
 ----|----
 Passed| No data problems were detected and no user action is required. 
