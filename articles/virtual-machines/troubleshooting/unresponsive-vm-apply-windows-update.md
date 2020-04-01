@@ -36,7 +36,7 @@ This happens because a core file can't be created on the file system. Based on t
 
 1. [Create and access a repair VM](#create-and-access-a-repair-vm).
 2. [Free up space on the hard disk](#free-up-space-on-the-hard-disk).
-3. [Recommended: Before you rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).
+3. [Recommended: Before rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).
 4. [Rebuild the VM](#rebuild-the-vm).
 
 > [!NOTE]
@@ -49,13 +49,13 @@ This happens because a core file can't be created on the file system. Based on t
 
 ### Free up space on the hard disk
 
-You will need to resize the disk to 1 Tb. If it isn't already, perform a disk cleanup, and then do a defragmentation of the drive.
+If the disk isn't already 1 Tb, you will need to resize the disk. Once the disk is 1 TB, you need to perform a disk cleanup and then do a defragmentation on the drive.
 
-1. Check if the disk is full. If the disk is below 1 Tb, expand it to a maximum of 1 Tb using PowerShell.
+1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Once the disk is 1 Tb, perform a disk cleanup.
-    - Detach the data disk from the broken VM.
-    - Attach the data disk to a functioning VM.
-    - Use the Disk Cleanup tool to free up space.
+    - [Detach the data disk from the broken VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
+    - [Attach the data disk to a functioning VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
 3. Once resizing and cleanup are finished, defragment the drive:
 
     ```

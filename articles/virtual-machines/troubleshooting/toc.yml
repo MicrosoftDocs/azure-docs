@@ -88,7 +88,7 @@
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager
       href: troubleshoot-guide-windows-boot-manager-menu.md
-    - name: VM becomes unresponsive due to Windows Update
+    - name: VM is unresponsive due to updateing
       href: unresponsive-vm-apply-windows-update.md
 - name: Cannot connect to my VM
   items:
