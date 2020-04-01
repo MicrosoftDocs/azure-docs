@@ -62,15 +62,7 @@ Notice that the template also has a warning indicating that the parameter is nev
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
-Now update the storage resources name property to use the parameter. To do so, remove the current name.
-
-![](./media/quickstart-create-templates-use-visual-studio-code/10.png)
-
-Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions that can be used in ARM expressions.
-
-![](./media/quickstart-create-templates-use-visual-studio-code/11.png)
-
-Type in `par` and select *parameters* from the list. 
+Now update the storage resources name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions that can be used in ARM expressions. Type in `par` and select *parameters* from the list. 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
