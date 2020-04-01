@@ -102,6 +102,8 @@
         href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: Control Windows shutdown behavior
+      href: how-to-windows-shutdown.md
     - name: View support information (instructor)
       href: lab-creator-support-information.md      
   - name: Connect to VMs in classroom labs (student)
