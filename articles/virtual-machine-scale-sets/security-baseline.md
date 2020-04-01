@@ -4,7 +4,7 @@ description: Azure Security Baseline for Virtual Machine Scale Sets
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,8 +30,9 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2086).
 
-**Guidance**: When you create an Azure virtual machine (VM), you must create a virtual network (VNet) or use an existing VNet and configure VM with a subnet.   Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. Use Azure Services with Private Link enabled, deploy the service inside your VNet or connect privately using Private Endpoints. For service specific requirements, please refer to the security recommendation for that specific service.  Alternatively, if customer has a specific use case, Azure Firewall may also be used to meet certain requirements.
-Virtual networks and virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
+**Guidance**: When you create an Azure virtual machine (VM), you must create a virtual network or use an existing virtual network and configure VM with a subnet.   Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. Use Azure Services with Private Link enabled, deploy the service inside your virtual network or connect privately using Private Endpoints. For service specific requirements, please refer to the security recommendation for that specific service.  Alternatively, if you have a specific use case, Azure Firewall may also be used to meet certain requirements.
+
+Networking for Azure virtual machine scale sets:  https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking
 
 How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
@@ -64,10 +65,11 @@ Understand Network Security provided by Azure Security Center: https://docs.micr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2088).
 
-**Guidance**: Use Azure Network Security group to configure which network traffic and ports are able to connect to the resources on the Virtual Network.  NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type.
-Virtual networks and virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
+**Guidance**: If using web applications inside your Virtual Machine Scale Set(VMSS),  use network security group(NSG) to configure which network traffic and ports are able to connect to the resources on the virtual network.  NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type.  You can also deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
 
-Information on Network Security Groups: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Networking for Azure virtual machine scale sets:  https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking
+Create an application gateway with a Web Application Firewall using the Azure portal:  https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -134,7 +136,7 @@ How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/fi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2092).
 
-**Guidance**: You may deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool like Virtual machines etc.
+**Guidance**: If using web applications inside your Virtual Machine Scale Set(VMSS),  you may deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool like VMSS etc.
 
 How to deploy Application Gateway: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
@@ -204,11 +206,7 @@ How to create an NSG with a Security Config: https://docs.microsoft.com/azure/vi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2096).
 
-**Guidance**: Use Azure Policy to validate (and/or remediate) configuration for for network resource related to Virtual Machines Scale sets and Virtual Machines.
-
-How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Azure Policy samples for networking:  https://docs.microsoft.com/azure/governance/policy/samples/#network
+**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Virtual Machine Scale Set. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place.How to view and retrieve Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-viewHow to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -239,8 +237,14 @@ How to configure time synchronization for Azure Linux compute resources: https:/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2098).
 
-**Guidance**: The Azure Security Center provides Security Event log monitoring for Azure Virtual Machines. Given the volume of data that the security event log generates, it is not stored by default. 
-If your organization would like to retain the security event log data from the virtual machine, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
+**Guidance**: Use Azure Security Center to provide Security Event log monitoring for Azure Virtual Machines. Given the volume of data that the security event log generates, it is not stored by default. 
+If your organization would like to retain the security event log data from the virtual machine, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. 
+
+Additionally, use Azure Activity Log to provides insight into subscription-level events that have occurred in Azure.
+
+Data collection in Azure Security Center:  https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier 
+
+How to monitor virtual machines in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/monitor
 
 
 **Azure Security Center monitoring**: Yes
@@ -267,8 +271,12 @@ View and retrieve Azure Activity log events:  https://docs.microsoft.com/azure/a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2100).
 
-**Guidance**: The Azure Security Center provides Security Event log monitoring for Azure Virtual Machines. Given the volume of data that the security event log generates, it is not stored by default. 
-If your organization would like to retain the  security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
+**Guidance**: Use Azure Security Center to provide Security Event log monitoring for Azure Virtual Machines. Given the volume of data that the security event log generates, it is not stored by default. 
+If your organization would like to retain the security event log data from the virtual machine, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. 
+
+Data collection in Azure Security Center:  https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier 
+
+How to monitor virtual machines in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/monitor
 
 
 
@@ -281,7 +289,12 @@ If your organization would like to retain the  security event log data, it can b
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2101).
 
-**Guidance**: The Azure Security Center provides Security Event log monitoring for Windows Virtual Machines. Given the volume of data that the Security Event Log generates, it is not retained by default. If your organization would like to retain the Security Event Log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link:https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
+**Guidance**: Onboard Azure Virtual Machine Scale Sets (VMSS) to Azure Monitor. Ensure that the Azure Log Analytics workspace used has the log retention period set according to your organization's compliance regulations.
+
+How to monitor virtual machines in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/monitor
+
+How to configure Log Analytics Workspace Retention Period: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
+
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -349,7 +362,7 @@ Following link provides the Microsoft recommended security guidelines, which can
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2105).
 
-**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Also,you can use third party dns logging solution if DNS Analytics is not available in your region.
+**Guidance**: If using your own DNS solution, Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Also,you can use third party dns logging solution if DNS Analytics is not available in your region.
 Gather insights about your DNS infrastructure with the DNS Analytics Preview solution: https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
 
 
@@ -432,11 +445,9 @@ Information on Privileged Identity Manager: https://docs.microsoft.com/azure/act
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2110).
 
-**Guidance**: Wherever possible, customer to use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Wherever possible, use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-Single sign-on to applications in Azure Active Directory
-
-: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Single sign-on to applications in Azure Active Directory: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 How to monitor identity and access within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
@@ -532,12 +543,19 @@ How to use Azure Identity Access Reviews:  https://docs.microsoft.com/azure/acti
 
 **Responsibility**: Customer
 
-### 3.11: <span>Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on log data from Azure Virtual machines. <br></span><div><br></div><div>Understand Log Analytics Workspace: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal<br></div><div><br></div><div>How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics<br></div><div><br></div><div>How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries<br></div><div><br></div><span>How to monitor virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/monitor</span>
+### 3.11: <span></span><span>Monitor Attempts to Access Deactivated Accounts<br></span><span></span><span></span>
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2118).
 
-**Guidance**: Covered in Generic Azure Guidelines
+**Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on log data from Azure Virtual machines.
+Understand Log Analytics Workspace: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+
+How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+
+How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+
+How to monitor virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/monitor
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -565,7 +583,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2120).
 
-**Guidance**: In cases where a third party needs to access customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
+**Guidance**: In support scenarios where Microsoft needs access to customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
 
 Understanding Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
@@ -714,8 +732,6 @@ Azure Disk Encryption for Virtual Machine Scale Sets: https://docs.microsoft.com
 
 How to create alerts for Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-How to create alerts for Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
 Azure Storage analytics logging: https://docs.microsoft.com/azure/storage/common/storage-analytics-logging
 
 **Azure Security Center monitoring**: Currently not available
@@ -849,14 +865,9 @@ How to create and use Tags:  https://docs.microsoft.com/azure/azure-resource-man
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2138).
 
-**Guidance**: The contents of a Virtual Machine Scale set are available with an Azure Command line and PowerShell (PS) query options:
+**Guidance**: 
+You will need to create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.  
 
-Azure CLI method: 
-https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-cli#view-vms-in-a-scale-set
-
-Powershell method:
-
- https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#view-vms-in-a-scale-set
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1061,9 +1072,9 @@ Understanding Azure Policy Effects:  https://docs.microsoft.com/azure/governance
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2150).
 
-**Guidance**: There are several options for maintaining a secure configuration for Azure Virtual Machines(VM) for deployment:1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
-2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means. 
-3- Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
+**Guidance**: There are several options for maintaining a secure configuration for Azure Virtual Machines(VM) for deployment:1. Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
+2. Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means. 
+3. Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements. 
 
@@ -1083,7 +1094,7 @@ How to upload a custom VM VHD to Azure: https://docs.microsoft.com/azure-stack/o
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2151).
 
-**Guidance**: Use Azure DevOps/Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc.   To access the resources you manage in Azure DevOps—such as your code, builds, and work tracking—you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc.   To access the resources you manage in Azure DevOps—such as your code, builds, and work tracking—you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
 About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
@@ -1098,7 +1109,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2152).
 
-**Guidance**: If using custom images(e.g. Virtual Hard Disk(VHD)), use RBAC to ensure only authorized users may access the images.  
+**Guidance**: If using custom images (e.g. Virtual Hard Disk(VHD)), use RBAC to ensure only authorized users may access the images.  
 Understand RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
 How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal 
@@ -1216,8 +1227,6 @@ How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcred
 
 **Guidance**: Use Microsoft Antimalware for Azure Windows Virtual machines to continuously monitor and defend your resources.  You will need a third party tool for anti-malware protection in Azure Linux Virtual machine. 
 How to configure Microsoft Antimalware for Cloud Services and Virtual Machines:  https://docs.microsoft.com/azure/security/fundamentals/antimalware 
-
-Following link is some of the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected : https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 
 
@@ -1354,7 +1363,7 @@ Security alerts in Azure Security Center: https://docs.microsoft.com/azure/secur
 Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1382,7 +1391,7 @@ Identify weak points and gaps and revise plan as needed. Refer to NIST's publica
 How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 

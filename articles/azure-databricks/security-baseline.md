@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Databricks
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

@@ -4,7 +4,7 @@ description: Azure Security Baseline for Synapse Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -32,7 +32,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 **Guidance**: Secure your Azure SQL Server to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network. You can also narrow the scope if inbound and outbound connections by configuring a network security group (NSG) and associating that with your virtual network.
 
-Alternatively, for any virtual machines (VM) connecting to a SQL Database inside your Synapse Analytics pool, narrow down the scope of outgoing connection to the SQL Database by using a network security group. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses are allowed in the server and database level firewall rules.
+Alternatively, for any virtual machines (VM) connecting to a SQL Database inside your Synapse SQL pool, narrow down the scope of the outgoing connection to the SQL Database by using a network security group. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses are allowed in the server and database level firewall rules.
 
 Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview
 
@@ -149,7 +149,7 @@ Understand ATP for Azure Synapse Analytics: https://docs.microsoft.com/azure/sql
 
 **Guidance**: Use virtual network service tags  to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-When using a service endpoint for an Azure SQL Database in your SQL Synapse pool, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
+When using a service endpoint for an Azure SQL Database in your Synapse SQL pool, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
 Understand service tags with service endpoints for Azure SQL Database:
 https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations
@@ -166,7 +166,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5443).
 
-**Guidance**: Define and implement network security configurations for resources related to your SQL Analytics pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database/Server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
+**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database/Server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
  
 Use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
@@ -257,7 +257,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5448).
 
-**Guidance**: Enable auditing on the Azure SQL Database in your Synapse Analytics pool and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hubs).
+**Guidance**: Enable auditing on the Azure SQL Database in your Synapse SQL pool and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hubs).
 
 How to enable auditing for Azure SQL Database: https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
@@ -281,7 +281,7 @@ How to enable auditing for Azure SQL Database: https://docs.microsoft.com/azure/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5450).
 
-**Guidance**: When storing logs related to your Synapse Analytics pool in a Storage Account, Log Analytics workspace, or event hubs, set log retention period according to your organization's compliance regulations.
+**Guidance**: When storing logs related to your Synapse SQL pool in a Storage Account, Log Analytics workspace, or event hubs, set log retention period according to your organization's compliance regulations.
 
 Manage the Azure Blob storage lifecycle: https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal
 
