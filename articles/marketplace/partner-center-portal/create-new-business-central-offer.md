@@ -262,7 +262,7 @@ Required if your offer must be installed along with another extension that has a
 
 ### URL to app installation
 
-If you selected **Connect** above, provide the URL for your app installation here.
+If you selected **Connect** above, provide the URL for your app installation here. For connected services that don’t require installation, provide the URL for your service landing page or sign-up page.
 
 ## Test drive technical configuration
 
