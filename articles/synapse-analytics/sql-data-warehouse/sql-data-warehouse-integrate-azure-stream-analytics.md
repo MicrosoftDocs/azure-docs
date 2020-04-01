@@ -1,12 +1,12 @@
 ---
 title: Use Azure Stream Analytics
 description: Tips for using Azure Stream Analytics with your data warehouse in Azure Synapse for developing real-time solutions.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: integration
+ms.subservice: 
 ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
