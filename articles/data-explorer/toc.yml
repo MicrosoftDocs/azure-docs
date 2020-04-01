@@ -194,6 +194,8 @@
           href: customer-managed-keys-csharp.md
         - name: Azure Resource Manager template
           href: customer-managed-keys-resource-manager.md
+    - name: Create Azure AD app
+      href: provision-aad-app.md     
   - name: Manage
     items:
     - name: Cluster
