@@ -1,38 +1,59 @@
 ---
 title: 'Input and Output Data from ML Pipelines'
 titleSuffix: Azure Machine Learning
-description:Prepare, consume, and generate data in Azure Machine Learning pipelines
+description: Prepare, consume, and generate data in Azure Machine Learning pipelines
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/06/2019
+ms.date: 04/01/2020
 ---
 
-# Input and Output Data from ML Pipelines
+# Moving data into and between ML pipeline steps (Python)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-tk Do SEO keyword search to refine meta-title, meta-desc, H1 and 1st para tk 
-Azure Machine Learning pipelines allow you to create flexible, efficient, and modular ML solutions. Making data flow into, out from, and between pipeline steps is central to developing pipelines. For an overview of how data works in Azure Machine Learning, see [Data in Machine Learning](tk). This article will show you how to: 
+Import, transform, and move data between steps in a machine learning pipeline. Machine learning pipelines allow you to create flexible, efficient, and modular ML solutions. Making data flow into, out from, and between pipeline steps is central to developing pipelines. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
+
+This article will show you how to:
 
 - Use `Dataset` objects for pre-existing data
 - Access data within your steps
 - Move between `Dataset` representations and Pandas and Apache Spark representations
 - Split `Dataset` data into subsets, such as training and validation subsets
-- Create a `PipelineData` object to transfer data to the next pipeline step 
+- Create a `PipelineData` object to transfer data to the next pipeline step
+- Use `PipelineData` objects as input to pipeline steps
 
-## Prerequisites 
+## Prerequisites
 
-tk 
+You'll need:
+
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+
+- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
+
+- An Azure Machine Learning workspace.
+  
+  Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
+
+   ```python
+   import azureml.core
+   from azureml.core import Workspace, Datastore
+        
+   ws = Workspace.from_config()
+   ```
+
+- Some pre-existing data. This article briefly shows the use of an [Azure blob container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+
+- Optional: An existing machine learning pipeline, such as the one described in [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
 
 ## Use `Dataset` objects for pre-existing data 
 
-The preferred way to ingest data into a pipeline is to use a `Dataset` object. `Dataset` objects represent persistent data available throughout a workspace. 
+The preferred way to ingest data into a pipeline is to use a `Dataset` object. `Dataset` objects represent persistent data available throughout a workspace.
 
-There are many ways to create and register `Dataset` objects. The simplest programmatic way is to use existing blobs in workspace storage:
+There are many ways to create and register `Dataset` objects. Tabular datasets are for delimited data available in one or more files. File datasets are for binary data (such as images) or for data that you'll parse. The simplest programmatic ways to create `Dataset` objects are to use existing blobs in workspace storage or public URLs:
 
 ```python
 datastore = Datastore.get(workspace, 'training_data')
@@ -48,9 +69,9 @@ For more options on creating datasets with different options and from different 
 
 ### Pass a dataset to your script
 
-To pass the dataset's path to your script, use use `as_named_input(str)`. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[str]`. 
+To pass the dataset's path to your script, use the `Dataset` object's `as_named_input(str)` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[str]`.
 
-Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode will avoid runtime streaming overhead. If your script accesses a subset of the dataset or it's simply too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
+Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode will avoid the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's simply too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
 
 To pass a dataset to your pipeline step:
 
@@ -63,9 +84,9 @@ The following snippet shows the common pattern of combining these steps within t
 ```python
 
 train_step = PythonScriptStep(
-    name="train_data", 
-    script_name="train.py", 
-    compute_target=cluster, 
+    name="train_data",
+    script_name="train.py",
+    compute_target=cluster,
     inputs=[iris_dataset.as_named_inputs('iris').as_mount()]
 )
 ```
@@ -74,13 +95,13 @@ In addition, you can use methods such as `random_split()` and `take_sample()` to
 
 ```python
 seed = 42 # PRNG seed
-smaller_dataset = iris_dataset.take_sample(0.1, seed=seed) # 10% 
+smaller_dataset = iris_dataset.take_sample(0.1, seed=seed) # 10%
 train, test = smaller_dataset.random_split(percentage=0.8, seed=seed)
 
 train_step = PythonScriptStep(
-    name="train_data", 
-    script_name="train.py", 
-    compute_target=cluster, 
+    name="train_data",
+    script_name="train.py",
+    compute_target=cluster,
     inputs=[train.as_named_inputs('train').as_download(), test.as_named_inputs('test').as_download()]
 )
 ```
@@ -91,7 +112,7 @@ Named inputs to your pipeline step script are available as a dictionary within t
 
 ```python
 # In pipeline definition script:
-# Code for demonstration only: No good reason to use both `arguments` and `inputs`
+# Code for demonstration only: It would be very confusing to split datasets between `arguments` and `inputs`
 train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
@@ -104,12 +125,12 @@ train_step = PythonScriptStep(
 parser = argparse.ArgumentParser()
 parser.add_argument('--training-folder', type=str, dest='train_folder', help='training data folder mounting point')
 args = parser.parse_args()
-training_data_folder = args.train_folder 
+training_data_folder = args.train_folder
 
 testing_data_folder = Run.get_context().input_datasets['test']
 ```
 
-The passed value will be the path to the dataset file(s). 
+The passed value will be the path to the dataset file(s).
 
 It is also possible to access a registered `Dataset` directly. Since registered datasets are persistent and shared across a workspace, you can retrieve them directly:
 
@@ -121,7 +142,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## Use `PipelineData` for intermediate data
 
-While `Dataset` objects represent persistent data, `PipelineData` objects are used for temporary data that is output from pipeline steps. Because the lifespan of a `PipelineData` object is longer than a single pipeline step, you define them in the pipeline definition script. When you create a `PipelineData` object, you must provide a name and a datastore to which the data will listen. Pass your `PipelineData` object(s) to your `PythonScriptStep` using _both_ the `arguments` and the `outputs` arguments: 
+While `Dataset` objects represent persistent data, `PipelineData` objects are used for temporary data that is output from pipeline steps. Because the lifespan of a `PipelineData` object is longer than a single pipeline step, you define them in the pipeline definition script. When you create a `PipelineData` object, you must provide a name and a datastore at which the data will reside. Pass your `PipelineData` object(s) to your `PythonScriptStep` using _both_ the `arguments` and the `outputs` arguments:
 
 ```python
 default_datastore = workspace.get_default_datastore()
@@ -136,12 +157,16 @@ dataprep_step = PythonScriptStep(
     outputs=[dataprep_output]
 )
 ```
-tk mount vs upload tk
 
+You may choose to create your `PipelineData` object using an access mode that provides an immediate upload. In that case, when you create your `PipelineData`, set the `upload_mode` to `"upload"` and use the `output_path_on_compute` argument to specify the path to which you will be writing the data:
 
-### Use `PipelineData` as an output of a training step 
+```python
+PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
+```
 
-Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this is the first step and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`. 
+### Use `PipelineData` as an output of a training step
+
+Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this is the first step and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
 
 ```python
 parser = argparse.ArgumentParser()
@@ -150,7 +175,59 @@ args = parser.parse_args()
 
 # Make directory for file
 os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
-with open(args.output_path, 'w') as f: 
+with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
+### Read `PipelineData` as an input to non-initial steps
+
+After the initial pipeline step writes some data to the `PipelineData` path and it becomes an output of that initial step, it can be used as an input to a subsequent step:
+
+```python
+step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
+
+step1 = PythonScriptStep(
+    name="generate_data",
+    script_name="step1.py",
+    runconfig = aml_run_config,
+    arguments = ["--output_path", step1_output_data],
+    inputs=[],
+    outputs=[step1_output_data]
+)
+
+step2 = PythonScriptStep(
+    name="read_pipeline_data",
+    script_name="step2.py",
+    compute_target=compute,
+    runconfig = aml_run_config,
+    arguments = ["--pd", step1_output_data],
+    inputs=[step1_output_data]
+)
+
+pipeline = Pipeline(workspace=ws, steps=[step1, step2])
+```
+
+The value of a `PipelineData` input is the path to the previous output. If, as shown previously, the first step wrote a single file, consuming it might look like: 
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--pd', dest='pd', required=True)
+args = parser.parse_args()
+
+with open(args.pd) as f:
+    print(f.read())
+```
+
+## Convert a `PipelineData` object into a registered `Dataset` for further processing
+
+If you'd like to make your `PipelineData` available for longer than the duration of a run, use it's `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it is highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
+
+```python
+step1_output_ds = step1_output_data.as_dataset()
+step1_output_ds.register(name="processed_data", create_new_version=True)
+```
+
+## Next steps
+
+* [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
+* [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
