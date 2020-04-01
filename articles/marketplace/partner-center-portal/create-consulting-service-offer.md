@@ -1,5 +1,5 @@
 ---
-title: Create a consulting service offer in Partner Center
+title: Create a consulting service offer in Partner Center - Azure Marketplace
 description: Learn how to publish a consulting service offer to either Azure Marketplace or AppSource using Partner Center.
 author: anbene
 ms.author: mingshen
@@ -74,22 +74,22 @@ After meeting the requirements described above, follow these steps to create a c
 1. Log in to [Partner Center](https://partner.microsoft.com) and select **Dashboard** at the top.
 2. In the left-nav bar, select **Commercial Marketplace**, then select **Overview**.
 
-:::image type="content" source="media/cs-menu-overview.png" alt-text="Illustrates the menu for commercial marketplace":::
+    :::image type="content" source="media/cs-menu-overview.png" alt-text="Illustrates the menu for commercial marketplace":::
 
 3. Select **+ New Offer**, then select **Consulting service**.
 
-:::image type="content" source="media/cs-menu-newoffer.png" alt-text="Illustrates the button to create a new offer.":::
+    :::image type="content" source="media/cs-menu-newoffer.png" alt-text="Illustrates the button to create a new offer.":::
 
 4. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-  - This ID is visible to customers in the web address for the marketplace offer.
-  - Use only lowercase letters, numbers, dashes, and underscores, but no spaces. The length is limited to 50 characters. For example, if you enter **test-offer-1**, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-  - The Offer ID can&#39;t be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the marketplace offer.
+    - Use only lowercase letters, numbers, dashes, and underscores, but no spaces. The length is limited to 50 characters. For example, if you enter **test-offer-1**, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+    - The Offer ID can&#39;t be changed after you select **Create**.
 
 5. Enter an **Offer alias**. This is the name used to refer to the offer in Partner Center.
 
-- This name isn&#39;t used in the marketplace. It&#39;s different from the offer name and other values that are shown to customers. You can use this field to assign a name to the offer that is more useful to you for identifying the offer internally; it is not shown to customers.
-- The offer alias can&#39;t be changed after you select **Create**.
+    - This name isn&#39;t used in the marketplace. It&#39;s different from the offer name and other values that are shown to customers. You can use this field to assign a name to the offer that is more useful to you for identifying the offer internally; it is not shown to customers.
+    - The offer alias can&#39;t be changed after you select **Create**.
 
 After you enter **these two values**, select **Create** to continue to the **Offer setup** page.
 
@@ -103,12 +103,12 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
 
 1. **Select**  **Connect**  **to specify where you want us to send customer leads**. Partner Center supports the following systems:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+    > [!NOTE]
+    > If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we&#39;ll validate the connection and send you a test lead. While you preview the offer before you go live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -237,8 +237,8 @@ Here you'll define elements like pricing, market, and a private key.
 2. **Preview Audience**: configure the **Hide Key** used to set the private audience for your offer.
 3. **Pricing**: specify whether your offer is a **Free** or **Paid** offer.
 
-> [!NOTE]
-> Consulting Service offers are for the listing only;  any transactions will happen directly, outside of the commercial marketplace.
+    > [!NOTE]
+    > Consulting Service offers are for the listing only;  any transactions will happen directly, outside of the commercial marketplace.
 
 4. For a paid offer, specify the **Price and currency** and whether the price is **Fixed** or **Estimated**. If Estimated, you must specify in the description what factors will affect the price.
 5. Select **Save draft**.

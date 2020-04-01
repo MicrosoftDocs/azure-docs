@@ -1,5 +1,5 @@
 ---
-title: Consulting service prerequisites
+title: Azure and Dynamics 365 consulting service prerequisites - Azure Marketplace
 description: Prerequisites for an Azure or Dynamics 365 consulting service offer in Partner Center
 author: anbene
 ms.service: marketplace
