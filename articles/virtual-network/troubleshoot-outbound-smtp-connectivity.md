@@ -14,11 +14,7 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ---
-
-
 # Troubleshoot outbound SMTP connectivity issues in Azure
-
-<p class="alert is-flex is-primary"><span class="has-padding-small">Try the new <a href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazurevirtualsupportagent.services.microsoft.com%2F&amp;data=02%7C01%7Csudhat%40microsoft.com%7C96fd7ec8c05e4b19fa5608d7d31e70d1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637210000005963226&amp;sdata=lEN9HVzooJQslOSArkSVqGvsWqfaAEwkk4VXYFZNKU8%3D&amp;reserved=0">Virtual Support Agent</a> to solve your problem quicker</span><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazurevirtualsupportagent.services.microsoft.com%2F&amp;data=02%7C01%7Csudhat%40microsoft.com%7C96fd7ec8c05e4b19fa5608d7d31e70d1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637210000005963226&amp;sdata=lEN9HVzooJQslOSArkSVqGvsWqfaAEwkk4VXYFZNKU8%3D&amp;reserved=0">Click to Chat</a></span></p>
 
 Starting on November 15, 2017, outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. Outbound SMTP connections that use TCP port 25 were blocked. (Port 25 is primarily used for unauthenticated email delivery.)
 
