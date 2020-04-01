@@ -159,8 +159,8 @@ The following table describes the parameters within the command:
 |---------|---------|---------|---------|
 | customAction | string | Required | Name of the custom command. Must be "CreateCollection".|
 | collection | string | Required | Name of the collection. No special characters are allowed.|
-| offerThroughput | int | Optional* | Provisioned Throughput to set on the database. If it isn't provided, it will default to the minimum, 400 RU/s. * To specify throughput beyong 10,000 RU/s, the `shardKey` parameter will be required.|
-| shardKey | string | Optional* | Shard Key path to create a sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this value. |
+| offerThroughput | int | Optional* | Provisioned throughput to set on the database. If this paramater is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
+| shardKey | string | Optional* | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this value. |
 
 ### Output
 
