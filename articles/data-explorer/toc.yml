@@ -214,6 +214,8 @@
             href: cluster-principal-python.md
           - name: Azure Resource Manager template
             href: cluster-principal-resource-manager.md
+      - name: Manage cluster language extensions
+        href: language-extensions.md
     - name: Database
       items:
       - name: Follower databases
