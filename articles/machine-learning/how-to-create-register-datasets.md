@@ -109,6 +109,7 @@ By default, when you create a TabularDataset, column data types are inferred aut
 > If your storage is behind a virtual network or firewall, only creation of a dataset via the SDK is supported. To create your dataset, be sure to include the parameters `validate=False` and `infer_column_types=False` in your `from_delimited_files()` method. This bypasses the initial validation check and ensures that you can create your dataset from these secure files. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
