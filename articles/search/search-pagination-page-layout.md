@@ -70,7 +70,7 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document, with higher scores going to documents haivng more or stronger matches on a search term. Search scores convey general sense of relevance, relative to other documents in the same results set, and are not guaranteed to be consistent from one query to the next.
+For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document, with higher scores going to documents having more or stronger matches on a search term. Search scores convey general sense of relevance, relative to other documents in the same results set, and are not guaranteed to be consistent from one query to the next.
 
 As you work with queries, you might notice small discrepancies in ordered results. There are several explanations for why this might occur.
 
