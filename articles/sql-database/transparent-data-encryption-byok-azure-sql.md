@@ -4,14 +4,13 @@ description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.custom: azure-synapse
+ms.date: 03/18/2020
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 
@@ -68,7 +67,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
-- [Soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [Powershell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) or [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). It cannot be enabled via Azure portal.  
+- [Soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) or [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). It cannot be enabled via Azure portal.  
 
 - Grant the SQL Database server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using Azure portal, the Azure AD identity gets automatically created. When using PowerShell or CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
 
@@ -94,7 +93,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 
-- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will use
+- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
 ### Recommendations when configuring TDE protector
 - Keep a copy of the TDE protector on a secure place or escrow it to the escrow service.
@@ -159,7 +158,7 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for target SQL Database logical server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](sql-database-recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with managed instance, see [Quickstart: Restore a database to a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](sql-database-recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with managed instance, see [Quickstart: Restore a database to a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 

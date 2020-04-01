@@ -7,10 +7,9 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a static HTML web app in Azure
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
@@ -48,7 +47,7 @@ cd html-docs-hello-world
 ```
 
 ```azurecli
-az webapp up --location westeurope --name <app_name> --html
+az webapp up --location westeurope --name <app_name> 
 ```
 
 The `az webapp up` command does the following actions:

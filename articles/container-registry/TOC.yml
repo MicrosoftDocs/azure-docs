@@ -35,6 +35,10 @@
   - name: Concepts
     expanded: false
     items:
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Container registry SKUs and limits
       href: container-registry-skus.md
     - name: Registries, repositories, and images

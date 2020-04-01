@@ -72,7 +72,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project

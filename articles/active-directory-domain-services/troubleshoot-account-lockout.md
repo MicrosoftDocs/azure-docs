@@ -52,7 +52,7 @@ The most common reasons for an account to be locked out, without any malicious i
 
 ## Troubleshoot account lockouts with security audits
 
-To troubleshoot when account lockout events occur and where they're coming from, [enable security audits for Azure AD DS (currently in preview)][security-audit-events]. Audit events are only captured from the time you enable the feature. Ideally, you should enable security audits *before* there's an account lockout issue to troubleshoot. If a user account repeatedly has lockout issues, you can enable security audits ready for the next time the situation occurs.
+To troubleshoot when account lockout events occur and where they're coming from, [enable security audits for Azure AD DS][security-audit-events]. Audit events are only captured from the time you enable the feature. Ideally, you should enable security audits *before* there's an account lockout issue to troubleshoot. If a user account repeatedly has lockout issues, you can enable security audits ready for the next time the situation occurs.
 
 Once you have enabled security audits, the following sample queries show you how to review *Account Lockout Events*, code *4740*.
 

@@ -1,15 +1,15 @@
 ---
-title: PowerShell script to Update RU/s for Azure Cosmos DB SQL (Core) API
-description: Update the throughput for an Azure Cosmos database or container by using a PowerShell script- SQL (Core) API
+title: PowerShell script to update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container
+description: PowerShell script to update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
 ---
 
-# Update RU/s for a database or container for Azure Cosmos DB - SQL (Core) API
+# Update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -17,7 +17,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput on a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container")]
 
 ## Clean up deployment
 
@@ -33,8 +33,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Creates a new or updates an existing Cosmos DB SQL Database. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Gets a Cosmos DB SQL Container. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Creates a new or updates an existing Cosmos DB SQL Container. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

@@ -1,7 +1,7 @@
 ---
 title: Diagnostic Logs for Azure SignalR Service
 description: Learn how to set up diagnostic logs for Azure SignalR Service and how to utilize it to self-troubleshoot.
-author: wanl
+author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
@@ -26,22 +26,22 @@ You can view diagnostic logs for Azure SignalR Service. These logs provide riche
 
 Diagnostic logs are disabled by default. To enable diagnostic logs, follow these steps:
 
-1.	In the [Azure portal](https://portal.azure.com), under **Monitoring**, click **Diagnostic settings**.
+1. In the [Azure portal](https://portal.azure.com), under **Monitoring**, click **Diagnostic settings**.
 
     ![Pane navigation to diagnostic settings](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1.	Then click **Add diagnostic setting**.
+1. Then click **Add diagnostic setting**.
 
-	![Add diagnostic logs](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
+    ![Add diagnostic logs](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
-1.	Set the archive target that you want. Currently, we support **Archive to a storage account** and **Send to Log Analytics**.
+1. Set the archive target that you want. Currently, we support **Archive to a storage account** and **Send to Log Analytics**.
 
 1. Select the logs you want to archive.
 
-	![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
+    ![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
 
 
-1.	Save the new diagnostics settings.
+1. Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
@@ -190,4 +190,5 @@ Provide:
 4. Logs collected from server/client side, and other material that might be useful
 5. [Optional] Repro code
 
-> Note: if you open issue in GitHub, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.  
+> [!NOTE]
+> If you open issue in GitHub, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.

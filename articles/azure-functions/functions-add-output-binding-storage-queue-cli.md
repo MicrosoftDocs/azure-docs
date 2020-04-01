@@ -137,9 +137,9 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     $env:AZURE_STORAGE_CONNECTION_STRING = "<MY_CONNECTION_STRING>"
     ```
     
-    # [Cmd](#tab/cmd)
+    # [Azure CLI](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     set AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
@@ -147,7 +147,7 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     
 1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
     
-    ```azure-cli
+    ```azurecli
     az storage queue list --output tsv
     ```
 
@@ -165,9 +165,9 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # [Cmd](#tab/cmd)
+    # [Azure CLI](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 

@@ -48,9 +48,17 @@ Please contact us with the following details:
 
 **Corrective action**:
 
+<<<<<<< HEAD
 1. Go to your FarmBeats Datahub resource group.
 2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
 3. Do either of the following:
+=======
+1. Go to your FarmBeats Datahub resource group.   
+
+2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+
+3. Do either of the following:   
+>>>>>>> upstream/master
    - If there are *no incoming messages*, contact your device partner.  
    - If there are *incoming messages*, contact us with your Datahub and Accelerator logs and captured telemetry.
 
@@ -63,6 +71,7 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 **Corrective action**:
 
 1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+
 2. Ensure that you have used the correct Telemetry message format:
 
 ```json
@@ -76,7 +85,7 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
@@ -94,9 +103,12 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 
 1. In Datahub Swagger, go to the Partner API.
 2. Select **Get** > **Try it out** > **Execute**.
-3. Note the partner ID of the sensor partner you're interested in.
-4. Go back to the Partner API, and select **Get/\<ID>**.
-5. Specify the partner ID from step 3, and then select **Execute**.
+
+> [!NOTE]
+> The partner ID of the sensor partner you're interested in.
+
+3. Go back to the Partner API, and select **Get/\<ID>**.
+4. Specify the partner ID from step 3, and then select **Execute**.
 
    The API response should have the Event Hubs connection string.
 
@@ -131,6 +143,7 @@ While you're deleting a device, you might encounter one of the following common 
 
     > [!NOTE]
     > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the **Delete sensor** section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
+    > Partners do not have access to delete a device or sensor. Only Admins have access to do the same.
 
 ## Issues with jobs
 
@@ -190,7 +203,7 @@ Do one of the following:
 
 - Update FarmBeats with the correct username / password using the steps below and retry the job.
 
-    *Update Sentinel Username* 
+    *Update Sentinel Username*
     1. Sign in to [Azure portal](https://portal.azure.com).
     2. In the **Search** box, search for the FarmBeats Datahub resource group.
     3. Click on Storage account storage***** -> Containers -> batch-prep-files -> to_vm -> config.ini
@@ -211,13 +224,13 @@ Do one of the following:
 
 - Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
-### Sentinel hub: Wrong URL or site not accessible 
+### Sentinel hub: Wrong URL or site not accessible
 
-**Job failure message**: "Oops, something went wrong. The page you were trying to access is (temporarily) unavailable." 
+**Job failure message**: "Oops, something went wrong. The page you were trying to access is (temporarily) unavailable."
 
 **Corrective action**:
 
-1. Open [Sentinel](https://scihub.copernicus.eu/dhus/) in your browser to see whether the website is accessible. 
+1. Open [Sentinel](https://scihub.copernicus.eu/dhus/) in your browser to see whether the website is accessible.
 2. If the website isn't accessible, check to see whether any firewall, company network, or other blocking software is preventing access to the website, and then take the necessary steps to allow the Sentinel URL. 
 3. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.  
 
@@ -259,6 +272,13 @@ Try either of the following:
 
 2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
+### Soil Moisture map has white areas
+
+**Issue**: The Soil Moisture map was generated, but the map has mostly white areas.
+
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, please visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+1. Rerun the job for a different date range and check to see if the NDVI values in the satellite indices are more than 0.3
+
 ## Collect logs manually
 
 [Install and deploy Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
@@ -295,3 +315,9 @@ Try either of the following:
 2. Select the **App service**.  
 3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
 
+<<<<<<< HEAD
+=======
+## Next steps
+
+If you're still facing FarmBeats issues, contact our [Support Forum](https://aka.ms/farmbeatssupport).
+>>>>>>> upstream/master

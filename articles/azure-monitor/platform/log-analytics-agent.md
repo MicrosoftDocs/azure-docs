@@ -124,8 +124,8 @@ The following table highlights the packages required for supported Linux distros
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |	GNU C Library | 2.5-12 
-|Openssl	| OpenSSL Libraries | 1.0.x or 1.1.x |
+|Glibc |    GNU C Library | 2.5-12 
+|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
@@ -138,24 +138,41 @@ The following table highlights the packages required for supported Linux distros
 To ensure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 
+## SHA-2 Code Signing Support Requirement for Windows
+The Windows agent will begin to exclusively use SHA-2 signing on May 18, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before May 18, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+
+1. Install the latest Service Pack for your OS. The required service pack versions are:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 Code Signing Support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
+3. Update to the latest version of the Windows agent (version 10.20.18029).
+4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
+
+
 ## Network requirements
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace.
 
 ![Log Analytics agent communication diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+The following table lists the proxy and firewall configuration information that's required for the Linux and Windows agents to communicate with Azure Monitor logs.
 
-## Network firewall requirements
-The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
+### Firewall requirements
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.ods.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Inbound and Outbound|Yes |
+|*.azure-automation.net |Port 443 |Inbound and Outbound|Yes |
+|*.azure.com |Port 443|Inbound and Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### Proxy configuration
 
 The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 
@@ -178,7 +195,7 @@ For example:
 `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
+> If you use special characters such as "\@" in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 
 

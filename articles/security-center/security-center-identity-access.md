@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2020
+ms.date: 03/16/2020
 ms.author: memildin
 ---
 
@@ -24,14 +24,16 @@ When Security Center identifies potential security vulnerabilities, it creates r
 
 The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
 
-By monitoring identity activities, you can take proactive actions before an incident takes place or reactive actions to stop an attack attempt. Examples of recommendations you might see on the **Identity and access** resource security section of Azure Security Center include:
+By monitoring identity activities, you can take proactive actions before an incident takes place, or reactive actions to stop an attack attempt. For example, Security Center might flag deprecated accounts (accounts that are no longer needed, and blocked from signing in by Azure Active Directory) for removal. 
+
+Examples of recommendations you might see on the **Identity and access** resource security section of Azure Security Center include:
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - A maximum of 3 owners should be designated for your subscription
-- Deprecated accounts should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
+- Deprecated accounts should be removed from your subscription
 
-For a full list of the recommendations you might see here, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
+For more information about these recommendations as well as a full list of the recommendations you might see here, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments" below.
@@ -51,7 +53,7 @@ All of the identity and access recommendations are available within two security
 
 Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-- If you have a premium edition of AD, enable MFA using using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- If you have a premium edition of AD, enable MFA using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
 - Users of AD free edition can enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) but the Security Center recommendation to enable MFA will still appear.
 

@@ -3,16 +3,19 @@ title: View key metrics with Cloudyn dashboards in Azure
 description: This article describes how you can view key metrics with dashboards in Cloudyn.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # View key cost metrics with dashboards
 
 Dashboards in Cloudyn provide a high-level view of reports. Dashboards allow you to view key cost metrics in a single view. They also provide business trend highlights to help you make important business decisions.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 Dashboards are also used to create views for people with different responsibilities in your organization, which might include:
 

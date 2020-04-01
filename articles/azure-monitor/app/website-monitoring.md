@@ -122,7 +122,7 @@ If you plan to continue on to work with additional quickstarts or with the tutor
 > [!NOTE]
 > If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
+1. In the left menu in the Azure portal, click **Resource groups**, and then click **myResourceGroup** or the name of your temporary resource group.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps
