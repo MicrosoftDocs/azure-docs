@@ -89,7 +89,7 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 1. Go back to your function logs and verify that the blob has been read.
 
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="View message in the logs." border="false":::
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="View message in the logs." border="true":::
 
     >[!NOTE]
     > When your function app runs in the default Consumption plan, there may be a delay of up to several minutes between the blob being added or updated and the function being triggered. If you need low latency in your blob triggered functions, consider running your function app in an App Service plan.
