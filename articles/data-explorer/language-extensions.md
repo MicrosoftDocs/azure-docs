@@ -26,7 +26,7 @@ The language extensions feature allows you to use language extension plugins to 
 > [!WARNING]
 > Please review the [limitations](#limitations) prior to enabling a language extension.
 
-Perform the following steps to enable language extensions on your cluster:
+Do the following steps to enable language extensions on your cluster:
 
 1. In the Azure portal, go to your Azure Data Explorer cluster. 
 1. In **Settings**, select **Configurations**. 
@@ -38,7 +38,7 @@ Perform the following steps to enable language extensions on your cluster:
 > [!NOTE]
 > Enabling the language extension process can take a few minutes. During that time, your cluster will be suspended.
  
-## Run language extension integrated queries
+## Run language extension-integrated queries
 
 * Learn how to [run Python integrated KQL queries](/azure/kusto/query/pythonplugin)
 * Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin) 
@@ -47,6 +47,8 @@ Perform the following steps to enable language extensions on your cluster:
 
 > [!NOTE]
 > Disabling language extensions could take a few minutes.
+
+Do the following steps to disable language extensions on your cluster:
 
 1. In the Azure portal, go to your Azure Data Explorer cluster. 
 1. In **Settings**, select **Configurations**. 
