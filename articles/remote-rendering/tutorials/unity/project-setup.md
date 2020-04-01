@@ -188,6 +188,13 @@ public class RemoteRendering : MonoBehaviour
         arrService.OnSessionStatusChanged += ARRService_OnSessionStatusChanged;
     }
 
+#if !UNITY_EDITOR
+    private void Start()
+    {
+        StartCoroutine(AutoStartSessionAsync());
+    }
+#endif
+
     private void OnDestroy()
     {
         arrService.OnSessionErrorEncountered -= ARRService_OnSessionErrorEncountered;
@@ -274,6 +281,11 @@ public class RemoteRendering : MonoBehaviour
                 StopSession();
             }
         }
+    }
+#else
+    public IEnumerator AutoStartSessionAsync()
+    {
+        CreateSession();
     }
 #endif
 }
@@ -393,6 +405,11 @@ Insert the following code into the *RemoteRendering* script and remove the old v
             }
         }
     }
+#else
+    public IEnumerator AutoStartSessionAsync()
+    {
+        CreateSession();
+    }
 #endif
 ```
 
@@ -400,6 +417,8 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 > Before you run this code, make sure to deactivate the option **Auto-Stop Session** in the RemoteRendering component. Otherwise every session that you create will be automatically stopped when you stop the simulation, and attempting to reuse it will fail.
 
 When you press *Play*, you now get three buttons in the viewport: **Create Session**, **Query Active Sessions**, and **Use Existing Session**. The first button always creates a new session. The second button queries which *active* sessions exist. If you did not manually specify a session ID to try to use, this action will automatically select that session ID for future use. The third button attempts to connect to an existing session. Either one that you specified manually through the *Session Id* component property, or one found by *Query Active Sessions*.
+
+The **AutoStartSessionAsync** function is used to simulate the button presses outside of the editor.
 
 > [!TIP]
 > It is possible to open sessions that have been stopped, expired or are in an error state. While they cannot be used for rendering anymore, you can query their details, once you opened an inactive session. The code above checks a session's status in `ARRService_OnSessionStarted`, to automatically stop when the session has become unusable.
@@ -521,6 +540,16 @@ Insert the following code into the *RemoteRendering* script and remove the old v
                 }
             }
         }
+    }
+#else
+    public IEnumerator AutoStartSessionAsync()
+    {
+        CreateSession();
+        while (arrService.CurrentActiveSession == null)
+        {
+            yield return null;
+        }
+        ConnectSession();
     }
 #endif
 ```
@@ -678,6 +707,21 @@ Insert the following code into the *RemoteRendering* script and remove the old v
             }
         }
     }
+#else
+    public IEnumerator AutoStartSessionAsync()
+    {
+        CreateSession();
+        while (arrService.CurrentActiveSession == null)
+        {
+            yield return null;
+        }
+        ConnectSession();
+        while (!isConnected)
+        {
+            yield return null;
+        }
+        LoadModel();
+    }
 #endif
 ```
 
@@ -710,6 +754,7 @@ public class RemoteFrameStats : MonoBehaviour
 
     ARRServiceStats arrServiceStats = null;
 
+#if UNITY_EDITOR
     private void OnEnable()
     {
         arrServiceStats = new ARRServiceStats();
@@ -730,6 +775,7 @@ public class RemoteFrameStats : MonoBehaviour
             FrameStats.text = arrServiceStats.GetStatsString();
         }
     }
+#endif
 }
 ```
 
@@ -750,6 +796,8 @@ Select the *FrameStats* object and populate the **FrameStats field** by clicking
 Now, when connected to the remote session, the text should show the streaming statistics:
 
 ![frame stats output](media/framestats-output.png)
+
+The code disables the statistics update outside of the editor as a head-locked text box would be distracting. A more sophisticated implementation is found in the [Quickstart](../../quickstarts/render-model.md) project.
 
 ## Next steps
 

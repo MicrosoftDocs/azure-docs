@@ -87,7 +87,8 @@ public class RemoteRaycaster : MonoBehaviour
             return;
         }
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 position = Input.mousePresent ? Input.mousePosition : new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        var ray = Camera.main.ScreenPointToRay(position);
 
         Raycast(ray.origin, ray.direction);
     }
@@ -388,7 +389,8 @@ As a next step we want to move a selected object around. In the **RemoteRaycaste
         }
         else
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 position = Input.mousePresent ? Input.mousePosition : new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            var ray = Camera.main.ScreenPointToRay(position);
 
             Raycast(ray.origin, ray.direction);
 

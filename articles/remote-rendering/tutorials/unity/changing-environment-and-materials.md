@@ -207,7 +207,8 @@ public class RemoteRaycaster : MonoBehaviour
             return;
         }
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 position = Input.mousePresent ? Input.mousePosition : new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        var ray = Camera.main.ScreenPointToRay(position);
 
         Raycast(ray.origin, ray.direction);
     }
