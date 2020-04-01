@@ -34,7 +34,7 @@ Let's create a Cosmos account. If you already have an account you want to use, y
 In this application we will cover two ways of creating collections in Azure Cosmos DB: 
 - **Storing each object model in a separate collection**: We recommend [creating a database with dedicated throughput](set-throughput.md#set-throughput-on-a-database). Using this capacity model will give you better cost efficiency.
 
-:::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
+    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
 
 - **Storing all object models in a single Cosmos DB collection**: If you'd prefer to store all models in a single collection, you can just create a new database without selecting the Provision Throughput option. Using this capacity model will create each collection with its own throughput capacity for every object model.
 
