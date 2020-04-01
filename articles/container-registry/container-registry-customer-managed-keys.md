@@ -8,9 +8,9 @@ ms.custom:
 
 # Encryption using customer-managed keys
 
-When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manages in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
+When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
-Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
+Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate encryption keys. Azure Key Vault also helps you audit key usage.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
