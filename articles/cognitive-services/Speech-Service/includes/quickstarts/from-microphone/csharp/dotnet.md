@@ -24,56 +24,88 @@ Before you get started:
 
 The first step is to make sure that you have your project open in Visual Studio.
 
-1. Launch Visual Studio 2019.
-2. Load your project and open `Program.cs`.
+1. Launch **Visual Studio 2019**.
+2. Load your project and open *Program.cs*.
 
-## Start with some boilerplate code
+## Update source code
 
-Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `RecognizeSpeechAsync()`.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=5-15,43-52)]
+Replace the contents of the *Program.cs* file with the following C# code.
 
-## Create a Speech configuration
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
 
-Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region (choose the **Region identifier** from [region](https://aka.ms/speech/sdkregion). Insert this code in the `RecognizeSpeechAsync()` method.
+namespace Speech.Recognition
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            await RecognizeSpeechAsync();
 
-> [!NOTE]
-> This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+            Console.WriteLine("Please press any key to continue...");
+            Console.ReadLine();
+        }
 
-## Initialize a SpeechRecognizer
+        static async Task RecognizeSpeechAsync()
+        {
+            var config =
+                SpeechConfig.FromSubscription(
+                    "YourSubscriptionKey",
+                    "YourServiceRegion");
 
-Now, let's create a `SpeechRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=17-19,42)]
+            using var recognizer = new SpeechRecognizer(config);
+            
+            var result = await recognizer.RecognizeOnceAsync();
+            switch (result.Reason)
+            {
+                case ResultReason.RecognizedSpeech:
+                    Console.WriteLine($"We recognized: {result.Text}");
+                    break;
+                case ResultReason.NoMatch:
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = CancellationDetails.FromResult(result);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+    
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    }
+                    break;
+            }
+        }
+    }
+}
+```
 
-## Recognize a phrase
+Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual values from your Speech resource.
 
-From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
+- Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, and open the Speech resource
+- Under the **Keys** blade, there are two available subscription keys
+    - Use either one as the `YourSubscriptionKey` value replacement
+- Under the **Overview** blade, note the region and map it to the <a href="https://aka.ms/speech/sdkregion" target="_blank">region identifier <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    - Use the **Region identifier** as the `YourServiceRegion` value replacement, i.e.; `"westus"` for **West US**
 
-Inside the using statement, add this code.
+## Code explanation
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
+The `Main` entry point of the application, is `Task` returning which enables the `async` and `await` keywords. The `RecognizeSpeechAsync` function starts by instantiating a <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet" target="_blank">`SpeechConfig` <span class="docon docon-navigate-external x-hidden-focus"></span></a> object from the Speech resource subscription key and region. Using the `config` instance, a <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet" target="_blank">`SpeechRecognizer` <span class="docon docon-navigate-external x-hidden-focus"></span></a> object is created.
 
-## Display the recognition results (or errors)
+The `recognizer` instance exposes multiple ways to recognize speech. In this example, the `RecognizeOnceAsync()` method is demonstrated. This function lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech. Once the `result` is yielded, the code will write the recognition reason to the console.
 
-When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
-
-Inside the using statement, below `RecognizeOnceAsync()`, add this code.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
-
-## Check your code
-
-At this point, your code should look like this.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
+> [!TIP]
+> The Speech SDK will default to recognizing using `en-us` for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build and run your app
 
-Now you're ready to build your app and test our speech recognition using the Speech service.
+Now you're ready to rebuild your app and test the speech recognition functionality using the Speech service.
 
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
-2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
+2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps
