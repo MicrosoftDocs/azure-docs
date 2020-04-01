@@ -36,7 +36,7 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. Search for and select **Azure Cosmos DB**.
 
-   ![The Azure portal Databases pane](./media/create-cosmosdb-resources-portal/create-nosql-db-databases-json-tutorial-1.png)
+   ![The Azure portal Databases pane](./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png)
 
 1. Select **Add**.
 1. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account. 
@@ -61,11 +61,11 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
 
 1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**. 
 
-    ![The Azure portal Notifications pane](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-created.png)
+    ![The Azure portal Notifications pane](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-    ![The Azure Cosmos DB account page](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-created-2.png)
+    ![The Azure Cosmos DB account page](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
 
 <a id="create-container-database"></a>
 ## Add a database and a container 
