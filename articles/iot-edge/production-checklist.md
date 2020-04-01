@@ -135,7 +135,7 @@ Before you deploy modules to production IoT Edge devices, ensure that you contro
 
 In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner, as IoT Edge devices do.
 
-To create a service principal, run the two scripts as described in [Create a service principal](../container-registry/container-registry-auth-aci#create-a-service-principal.md). These scripts do the following tasks:
+To create a service principal, run the two scripts as described in [Create a service principal](../container-registry/container-registry-auth-aci.md#create-a-service-principal). These scripts do the following tasks:
 
 * The first script creates the service principal. It outputs the `Service principal ID` and the `Service principal password`. Store these values securely in your records.
 
