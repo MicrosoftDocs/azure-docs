@@ -1,3 +1,21 @@
+---
+title: 'Quickstart: Speech SDK Go (Linux) platform setup - Speech service'
+titleSuffix: Azure Cognitive Services
+description: Use this guide to set up your platform for Go on Linux with the Speech service SDK.
+services: cognitive-services
+author: glecaros
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.date: 03/30/2020
+ms.author: gelecaro
+---
+
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Linux
+
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+
 ## System requirements
 
 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)

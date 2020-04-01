@@ -12,6 +12,11 @@ ms.date: 10/14/2019
 ms.author: erhopf
 ---
 
+
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Linux
+
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+
 ## System requirements
 
 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
