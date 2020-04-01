@@ -9,8 +9,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
-ms.date: 10/25/2019
+ms.reviewer: Luis.Quintanilla
+ms.date: 04/01/2020
 ---
 
 # Model interpretability in Azure Machine Learning

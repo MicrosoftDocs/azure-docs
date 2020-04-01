@@ -9,8 +9,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
-ms.date: 10/25/2019
+ms.reviewer: Luis.Quintanilla
+ms.date: 04/01/2020
 ---
 
 # Model interpretability for local and remote runs
@@ -394,7 +394,7 @@ You can deploy the explainer along with the original model and use it at inferen
 1. Create a scoring explainer with the explanation object.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
+   from azureml.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
 
    # create a lightweight explainer at scoring time
    scoring_explainer = KernelScoringExplainer(explainer)
@@ -420,7 +420,7 @@ You can deploy the explainer along with the original model and use it at inferen
 1. As an optional step, you can retrieve the scoring explainer from cloud and test the explanations.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import load
+   from azureml.interpret.scoring.scoring_explainer import load
 
    # retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'my_scoring_explainer')
