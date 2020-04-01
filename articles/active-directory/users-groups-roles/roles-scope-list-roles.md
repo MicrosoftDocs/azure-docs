@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 ## Azure portal
 
-All the role assignments done on an administrative unit level can be viewed in the Administrative units section in Azure AD. Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the role assignments. Select the **Roles and administrators**
+All the role assignments done on an administrative unit level can be viewed in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Go to **Azure AD > Administrative units** in the portal. Select the admin unit for which you want to list the role assignments. Select **Roles and administrators** and open a role to view the assignments in the admin unit.
 
 ## PowerShell
 
