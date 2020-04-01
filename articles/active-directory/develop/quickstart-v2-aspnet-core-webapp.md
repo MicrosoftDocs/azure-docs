@@ -72,7 +72,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > We have configured your project with values of your app's properties and it's ready to run. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### Step 3: Run your Visual Studio project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
