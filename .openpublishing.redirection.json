@@ -50523,6 +50523,16 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-managed-instance"
+    },
+    {
+      "source_path": "articles/aks/integrate-azure.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
     }
   ]
 }
