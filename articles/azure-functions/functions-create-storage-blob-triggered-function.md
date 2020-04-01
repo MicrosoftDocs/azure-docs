@@ -7,11 +7,9 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---
-# Create an Azure function that's triggered by Blob storage
+# Create a function in Azure that's triggered by Blob storage
 
 Learn how to create a function triggered when files are uploaded to or updated in a Blob storage container.
-
-![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
 ## Prerequisites
 
@@ -74,6 +72,9 @@ Now that you have a blob container, you can test the function by uploading a fil
 ## Test the function
 
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
+
+    ![Expand the log in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png)
+    :::image type="content" source="functions-storage-log-expander.png" alt-text="Expand the log in the Azure portal." border="false":::
 
 1. In a separate browser window, go to your resource group in the Azure portal, and select the storage account.
 
