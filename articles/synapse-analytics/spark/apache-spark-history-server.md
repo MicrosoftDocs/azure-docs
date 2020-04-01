@@ -31,7 +31,7 @@ Apache Spark history server is the web user interface for completed and running 
 
 3. Select an application, then open **Log query** by clicking it.
 
-    ![Open logquery window.](./media/apache-spark-history-server/open-application-window.png)
+    ![Open log query window.](./media/apache-spark-history-server/open-application-window.png)
 
 4. Select **Spark history server**, then the Spark History Server web UI will show up.
 
