@@ -1,13 +1,13 @@
 ---
 title: Query Text-to-speech container endpoint
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 The container provides [REST-based endpoint APIs](../rest-text-to-speech.md). There are many [sample source code projects](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) for platform, framework, and language variations available.
