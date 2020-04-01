@@ -711,7 +711,6 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
-  href:  sql-database-managed-instance-index.yml
   items:
   - name: Overview
     items:
