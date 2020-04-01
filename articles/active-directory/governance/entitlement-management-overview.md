@@ -130,15 +130,16 @@ To better understand entitlement management and its documentation, you can refer
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use.
+Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not currently available for use.
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
 - Member users who **can** request an access package.
 - Member and guest users who request an access package.
 - Member and guest users who approve requests for an access package.
+- Member and guest users who have a direct assignment to an access package.
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 
