@@ -36,7 +36,7 @@ To complete this quickstart, you'll need:
 > [!NOTE]
 > On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-[!INCLUDE [linux-install-sdk](linux-common.md)]
+[!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
 
 ## Configure Go environment
