@@ -136,11 +136,11 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
    ![connect to server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. select **Connect**. The Object Explorer window opens in SSMS. 
+3. select **Connect**. The Object Explorer window opens in SSMS.
 
 4. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
 
-   ![database objects](./media/create-data-warehouse-portal/connected-ssms.png) 
+   ![database objects](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## Run some queries
 
@@ -158,7 +158,7 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
    ![Query databases](./media/create-data-warehouse-portal/query-databases.png)
 
-4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers. 
+4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers.
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
@@ -191,4 +191,4 @@ Follow these steps to clean up resources you no longer need.
 
 ## Next steps
 
-To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article. 
+To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.

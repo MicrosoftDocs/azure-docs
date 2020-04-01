@@ -42,7 +42,7 @@ By default, your connection connects to the *master* database and not your user 
 
 ## Azure Active Directory (AAD) authentication
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) authentication is a mechanism of connecting to SQL pool by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) authentication is a mechanism of connecting to SQL pool by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management.
 
 ### Benefits
 
@@ -55,10 +55,10 @@ Azure Active Directory benefits include:
 * Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Uses contained database users to authenticate identities at the database level.
 * Supports token-based authentication for applications connecting to SQL pool.
-* Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md) and [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+* Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
-> Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), specifically the Additional considerations.
+> Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), specifically the Additional considerations.
 
 ### Configuration steps
 
@@ -75,7 +75,7 @@ Currently Azure Active Directory users are not shown in SSDT Object Explorer. As
 
 ### Find the details
 
-* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and SQL Analytics in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md).
+* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and SQL Analytics in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Next steps
