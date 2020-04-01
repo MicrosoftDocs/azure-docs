@@ -314,9 +314,10 @@ Functions in msdocs-azurefunctions-qs:
 ::: zone pivot="programming-language-java"  
 ## Deploy the function project to Azure
 
-A function app and related resources are created in Azure when you first deploy your functions project. Settings for the Azure resources created to host your app are defined in the [pom.xml file](#pomxml).
+A function app and related resources are created in Azure when you first deploy your functions project. Settings for the Azure resources created to host your app are defined in the [pom.xml file](#pomxml). In this article, you'll accept the defaults.
 
-In this article, you'll accept the defaults.
+> [!TIP]
+> To create a function app running on Linux instead of Windows, change the `runtime.os` element in the pom.xml file from `windows` to `linux`. You can't run on both Linux and Windows in the same resource group.
 
 Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
 
@@ -337,7 +338,7 @@ This creates the following resources in Azure:
 
 + Resource group. Named as _java-functions-group_.
 + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
-+ App Service plan. Serverless hosting for your function app in the _westus_ region. The name is _java-functions-app-service-plan_.
++ Hosting plan. Serverless hosting for your function app in the _westus_ region. The name is _java-functions-app-service-plan_.
 + Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your your _artifactId_, appended with a randomly generated number. 
 
 The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
