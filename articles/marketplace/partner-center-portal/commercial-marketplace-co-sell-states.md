@@ -75,7 +75,7 @@ If applicable, use these codes to provide State/Province info when [providing co
 | United States Minor Outlying Islands | US-UM    |
 | Virgin Islands, U.S.                 | US-VI    |
 
-## Canadian Provinces/Territories Table
+## Canadian Provinces & Territories Table
 
 |   Province/Territory Name         |   Code    |
 |-------------------------------------|-----------|
@@ -94,7 +94,7 @@ If applicable, use these codes to provide State/Province info when [providing co
 | Yukon                               |  CA-YT    |
 
 
-## Australian States/Territories Table
+## Australian States & Territories Table
 
 |   State/Territory Name              |   Code    |
 |-------------------------------------|-----------|
