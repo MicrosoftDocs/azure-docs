@@ -42,7 +42,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
     >
     >![Command line Help](media/lightingest/lightingest-cmd-line-help.png)
 
-1. Enter LightIngest followed by the connection string to the Azure Data Explorer cluster that will manage the ingestion.
+1. Enter `ingest-` followed by the connection string to the Azure Data Explorer cluster that will manage the ingestion.
     Enclose the connection string in double quotes and follow the [Kusto connection strings specification](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto).
 
     For example:
@@ -53,7 +53,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
 * The recommended method is for LightIngest to work with the ingestion endpoint at `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. This way, the Azure Data Explorer service can manage the ingestion load, and you can easily recover from transient errors. However, you can also configure LightIngest to work directly with the engine endpoint (`https://{yourClusterNameAndRegion}.kusto.windows.net`).
 
 > [!Note]
-> If you ingest directly with the engine endpoint, you don't need to include `ingest-` but there won't be a DM feature to protect the engine and improve the ingestion success rate.
+> If you ingest directly with the engine endpoint, you don't need to include `ingest-`, but there won't be a DM feature to protect the engine and improve the ingestion success rate.
 
 * For optimal ingestion performance, it's important for LightIngest to know the raw data size and so LightIngest will estimate the uncompressed size of local files. However, LightIngest might not be able to correctly estimate the raw size of compressed blobs without first downloading them. Therefore, when ingesting compressed blobs, set the `rawSizeBytes` property on the blob metadata to uncompressed data size in bytes.
 
