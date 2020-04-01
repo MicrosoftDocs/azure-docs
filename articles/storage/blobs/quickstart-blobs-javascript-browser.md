@@ -100,7 +100,7 @@ In this section, you'll create a basic web page and configure VS Code to launch 
 
 ### Set up the web application
 
-First, create a new folder named *azure-blobs-javascript* and open it in VS Code. Then create a new file in VS Code, add the following HTML, and save it as *index.html* in the *azure-blobs-javascript* folder.
+First, create a new folder called *Azure-Blobs-JavaScript* and open it in VS Code. Then create a new file in VS Code, add the following HTML, and save it as *index.html* in the *Azure-Blobs-JavaScript* folder.
 
 ```html
 <!DOCTYPE html>
@@ -172,7 +172,7 @@ When you make changes to *index.html*, be sure to reload the page to see the cha
 
 To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. Bundling takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers.
 
-Follow the process in [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). After you've completed the steps to create your bundle, include the bundle in the *index.html* page via a script tag:
+Follow the process in [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md#setting-up-your-project). As part of the bundling process, make sure you create the *index.js* file. After you've completed the steps to create your bundle, include the bundle in the *index.html* page via a script tag:
 
 ```html
 <script src="./dist/main.js"></script>
