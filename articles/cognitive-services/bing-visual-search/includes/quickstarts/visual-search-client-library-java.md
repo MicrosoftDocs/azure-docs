@@ -1,19 +1,16 @@
 ---
-title: "Quickstart: Bing Visual Search client library for Java | Microsoft Docs"
-description: Upload an image using the Bing Visual Search SDK and get insights about it.
+title: Bing Visual Search Java client library quickstart 
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 12/17/2019
+ms.topic: include
+ms.date: 03/26/2020
 ms.author: aahi
 ---
 
-# Quickstart: Bing Visual Search client library for Java
-
-Get started with the Bing Visual Search client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Java client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
 Use the Bing Visual Search client library for Java to:
 
@@ -28,7 +25,7 @@ Use the Bing Visual Search client library for Java to:
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
@@ -160,10 +157,10 @@ gradle run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
+> [Build a single-page web app](../../tutorial-bing-visual-search-single-page-app.md)
