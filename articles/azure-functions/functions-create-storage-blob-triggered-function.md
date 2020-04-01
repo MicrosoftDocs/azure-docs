@@ -21,7 +21,7 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 You've successfully created your new function app.
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+:::image type="content" source="./media/functions-create-first-azure-function/function-app-create-success.png" alt-text="Function app successfully created." border="false":::
 
 Next, you create a function in the new function app.
 
@@ -31,13 +31,13 @@ Next, you create a function in the new function app.
 
 1. Select **Functions**, and then select **+ Add** to add a new function.
 
-   ![Choose a Function template in the Azure portal.](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png)
+   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="false":::
 
 1. Choose the **Azure Blob Storage trigger** template.
 
 1. Use the settings as specified in the table below the image.
 
-    ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Create the Blob storage triggered function." border="false":::
 
     | Setting | Suggested value | Description |
     |---|---|---|
@@ -53,19 +53,19 @@ Next, create the **samples-workitems** container.
 
 1. In your function, on the **Overview** page, select your resource group.
 
-    ![Select your Azure portal resource group.](./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Select your Azure portal resource group." border="false":::
 
 1. Find and select your resource group's storage account.
 
-    ![Run the Storage Account Explorer tool.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Run the Storage Account Explorer tool." border="false":::
 
 1. Choose **Containers**, and then choose **+ Containers**. 
 
-    ![Add container to your storage account in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Add container to your storage account in the Azure portal." border="false":::
 
 1. In the **Name** field, type `samples-workitems`, and then select **Create**.
 
-    ![Name the storage queue.](./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Name the storage queue." border="false":::
 
 Now that you have a blob container, you can test the function by uploading a file to the container.
 
@@ -73,24 +73,23 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
 
-    ![Expand the log in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png)
     :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Expand the log in the Azure portal." border="false":::
 
 1. In a separate browser window, go to your resource group in the Azure portal, and select the storage account.
 
 1. Select **Containers**, and then select the **samples-workitems** container.
 
-    ![Go to your samples-workitems container in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-container.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Go to your samples-workitems container in the Azure portal." border="false":::
 
 1. Select **Upload**, and then select the folder icon to choose a file to upload.
 
-    ![Upload a file to the blob container.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Upload a file to the blob container." border="false":::
 
 1. Browse to a file on your local computer, such as an image file, choose the file. Select **Open** and then **Upload**.
 
 1. Go back to your function logs and verify that the blob has been read.
 
-   ![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="View message in the logs." border="false":::
 
     >[!NOTE]
     > When your function app runs in the default Consumption plan, there may be a delay of up to several minutes between the blob being added or updated and the function being triggered. If you need low latency in your blob triggered functions, consider running your function app in an App Service plan.
