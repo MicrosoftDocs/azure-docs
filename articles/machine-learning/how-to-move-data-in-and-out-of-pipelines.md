@@ -25,6 +25,7 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create a `PipelineData` object to transfer data to the next pipeline step
 - Use `PipelineData` objects as input to pipeline steps
+- Create a new `Dataset` object from `PipelineData` you wish to persist
 
 ## Prerequisites
 
@@ -69,7 +70,7 @@ For more options on creating datasets with different options and from different 
 
 ### Pass a dataset to your script
 
-To pass the dataset's path to your script, use the `Dataset` object's `as_named_input(str)` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[str]`.
+To pass the dataset's path to your script, use the `Dataset` object's `as_named_input()` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[]`.
 
 Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode will avoid the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
 
