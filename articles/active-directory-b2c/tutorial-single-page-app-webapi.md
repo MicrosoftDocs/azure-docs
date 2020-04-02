@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 03/23/2020
+ms.date: 04/04/2020
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -74,10 +74,10 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 1. Modify the variable values to reflect those of the application registration you created earlier. Also update the `policyName` with the user flow you created as part of the prerequisites. For example, *B2C_1_signupsignin1*.
 
     ```javascript
-    var clientID = "<your-webapi-application-ID>"; // Application (client) ID
-    var b2cDomainHost = "<your-tenant-name>.b2clogin.com";
-    var tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
-    var policyName = "B2C_1_signupsignin1";
+    const clientID = "<your-webapi-application-ID>"; // Application (client) ID
+    const b2cDomainHost = "<your-tenant-name>.b2clogin.com";
+    const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
+    const policyName = "B2C_1_signupsignin1";
     ```
 
 #### Enable CORS

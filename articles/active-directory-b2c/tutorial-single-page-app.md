@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 03/23/2020
+ms.date: 04/04/2020
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory

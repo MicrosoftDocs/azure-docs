@@ -3,7 +3,7 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 04/04/2020
 ms.author: mimart
 # Used by the web app/web API tutorials for granting a web application access to
 # a registered web API application
