@@ -31,7 +31,7 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Add Analytics workspace](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](../../azure-monitor/learn/quick-create-workspace.m?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
+For more details on workspaces, visit the following [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## Turn on Diagnostic logs
 
