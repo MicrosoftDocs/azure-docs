@@ -4,9 +4,9 @@ description: Use Azure Resource Manager and Resource Manager REST API to deploy 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ---
-# Deploy resources with Resource Manager templates and Resource Manager REST API
+# Deploy resources with ARM templates and Resource Manager REST API
 
-This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
+This article explains how to use the Resource Manager REST API with Azure Resource Manager (ARM) templates to deploy your resources to Azure.
 
 You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
@@ -61,7 +61,7 @@ The examples in this article use resource group deployments.
 
 1. Validate your deployment before executing it by running the [Validate a template deployment](/rest/api/resources/deployments/validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
-1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI. 
+1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI.
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
@@ -110,13 +110,13 @@ The examples in this article use resource group deployments.
 
     You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-    If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](key-vault-parameter.md). 
+    If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](key-vault-parameter.md).
 
 1. Instead of linking to files for the template and parameters, you can include them in the request body. The following example shows the request body with the template and parameter inline:
 
    ```json
    {
-	  "properties": {
+      "properties": {
       "mode": "Incremental",
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -149,8 +149,8 @@ The examples in this article use resource group deployments.
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-02-01",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
               "name": "[parameters('storageAccountType')]"
@@ -186,5 +186,5 @@ The examples in this article use resource group deployments.
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
-- To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- To learn more about templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 

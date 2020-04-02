@@ -1,16 +1,8 @@
 ---
 title: Multi-turn conversations - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
+ms.date: 02/13/2020
 ---
 
 # Use follow-up prompts to create multiple turns of a conversation
@@ -26,6 +18,9 @@ To see how multi-turn works, view the following demonstration video:
 Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user might ask a question that needs to be filtered or refined to determine the correct answer. You make this flow through the questions possible by presenting the user with *follow-up prompts*.
 
 When a user asks a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices.
+
+> [!CAUTION]
+> Multi-turn prompts are not extracted from FAQ documents. If you need multi-turn extraction, remove the question marks that designate the QnA pairs as FAQs.
 
 ## Example multi-turn conversation with chat bot
 
@@ -60,7 +55,7 @@ If you are creating a multi-turn document, please keep in mind the following gui
 
 * Use headings and sub-headings to denote hierarchy. For example You can h1 to denote the parent QnA and h2 to denote the QnA that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Don't use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts.
 
-* First character of heading must be capitalized. 
+* First character of heading must be capitalized.
 
 * Do not end a heading with a question mark, `?`.
 
@@ -363,7 +358,7 @@ You can add or delete multi-turn prompts using the [QnA Maker Update API](https:
 
 ## Export knowledge base for version control
 
-QnA Maker [supports version control](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) in the QnA Maker portal by including multi-turn conversation steps in the exported file.
+QnA Maker supports version control by including multi-turn conversation steps in the exported file.
 
 ## Next steps
 

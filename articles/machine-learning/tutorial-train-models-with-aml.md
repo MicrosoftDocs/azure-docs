@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Train models"
 titleSuffix: Azure Machine Learning
-description: Learn how to train an image classification model with scikit-learn in a Python Jupyter notebook with Azure Machine Learning. This tutorial is part one of a two-part series. 
+description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of two. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
-# Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning
+# Tutorial: Train image classification models with MNIST data and scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
@@ -31,7 +31,7 @@ Learn how to take the following actions:
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.65.
@@ -43,7 +43,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based compute instance.
 
-* In your cloned **tutorials** folder, open the **img-classification-part1-training.ipynb** notebook. 
+* In your cloned *tutorials/image-classification-mnist-data* folder, open the *img-classification-part1-training.ipynb* notebook. 
 
 
 The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
@@ -102,7 +102,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create or attach an existing compute target
 
-By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. You will submit Python code to run on this VM later in the tutorial. 
+
+The code below creates the compute clusters for you if they don't already exist in your workspace.
 
  **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
 
@@ -143,7 +145,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-You now have the necessary packages and compute resources to train a model in the cloud.
+You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
@@ -212,7 +214,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ## Train on a remote cluster
 
-For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+For this task, you submit the job to run on the remote training cluster you set up earlier.  To submit a job you:
 * Create a directory
 * Create a training script
 * Create an estimator object

@@ -1,19 +1,19 @@
 ---
-title: 'Enable and work with Azure Bastion diagnostic logs  | Microsoft Docs'
+title: 'Enable and work with Azure Bastion diagnostic logs'
 description: In this article, learn how to enable and work with Azure Bastion diagnostic logs.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 
 ---
 
 # Enable and work with Bastion diagnostic logs
 
-As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
+As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where, and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
 
 ## <a name="enable"></a>Enable the diagnostics log
 

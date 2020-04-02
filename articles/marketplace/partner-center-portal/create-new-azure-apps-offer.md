@@ -1,9 +1,8 @@
 ---
 title: Create a new Azure Apps offer in the Commercial Marketplace 
 description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -43,7 +42,7 @@ All Azure applications include at least two files in the root folder of a `.zip`
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
-All new Azure application offers must include an [Azure partner customer usage attribution GUID](??).
+All new Azure application offers must include an [Azure partner customer usage attribution GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### Before you begin
 
@@ -151,19 +150,9 @@ The **Properties** page lets you define the categories and industries used to gr
 
 Select a minimum of one and a maximum of three categories, which will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
 
-### Standard Marketplace terms and conditions
+### Standard Contract for the Microsoft commercial marketplace
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace.
-
-Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once.
-
-The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178
-
-To use the Standard Contract, check the **Use Standard Contract?** box.
-
-#### Terms of use
-
-If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## Offer listing
 

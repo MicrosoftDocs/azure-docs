@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 
 ---
@@ -82,7 +82,7 @@ Supported **delimited text read settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | The type of formatSettings must be set to **DelimitedTextReadSetting**. | Yes      |
+| type          | The type of formatSettings must be set to **DelimitedTextReadSettings**. | Yes      |
 | skipLineCount | Indicates the number of **non-empty** rows to skip when reading data from input files. <br>If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. | No       |
 
 ### Delimited text as sink
@@ -99,8 +99,8 @@ Supported **delimited text write settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | The type of formatSettings must be set to **DelimitedTextWriteSetting**. | Yes                                                   |
-| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. | Yes when file name is not specified in output dataset |
+| type          | The type of formatSettings must be set to **DelimitedTextWriteSettings**. | Yes                                                   |
+| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
 
 ## Mapping data flow properties
 

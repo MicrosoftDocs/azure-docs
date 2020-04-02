@@ -249,10 +249,10 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 ## More resources
 * [Azure Resource Manager Template Language](../azure-resource-manager/templates/template-syntax.md)
 * [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md)
-* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure Resource Manager Template Functions](../azure-resource-manager/templates/template-functions.md)
+* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## Next steps
 

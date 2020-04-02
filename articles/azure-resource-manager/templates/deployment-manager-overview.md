@@ -60,20 +60,20 @@ The following example shows the general format of the artifact source.
 
 ```json
 {
-	"type": "Microsoft.DeploymentManager/artifactSources",
-    "name": "<artifact-source-name>",
-	"location": "<artifact-source-location>",
-	"apiVersion": "2018-09-01-preview",
-	"properties": {
-		"sourceType": "AzureStorage",
-		"artifactRoot": "<root-folder-for-templates>",
-		"authentication": {
-			"type": "SAS",
-			"properties": {
-				"sasUri": "<SAS-URI-for-storage-container>"
-			}
-		}
-	}
+  "type": "Microsoft.DeploymentManager/artifactSources",
+  "apiVersion": "2018-09-01-preview",
+  "name": "<artifact-source-name>",
+  "location": "<artifact-source-location>",
+  "properties": {
+    "sourceType": "AzureStorage",
+    "artifactRoot": "<root-folder-for-templates>",
+    "authentication": {
+      "type": "SAS",
+      "properties": {
+        "sasUri": "<SAS-URI-for-storage-container>"
+      }
+    }
+  }
 }
 ```
 
@@ -85,20 +85,20 @@ The following example shows the general format of the service topology resource.
 
 ```json
 {
-    "type": "Microsoft.DeploymentManager/serviceTopologies",
-	"name": "<topology-name>",
-	"location": "<topology-location>",
-	"apiVersion": "2018-09-01-preview",
-	"properties": {
-		"artifactSourceId": "<resource-ID-artifact-source>"
-	},
-	"dependsOn": [
-		"<artifact-source>"
-	],
-	"resources": [
-		{
-			"type": "services",
-		    ...
+  "type": "Microsoft.DeploymentManager/serviceTopologies",
+  "apiVersion": "2018-09-01-preview",
+  "name": "<topology-name>",
+  "location": "<topology-location>",
+  "dependsOn": [
+    "<artifact-source>"
+  ],
+  "properties": {
+    "artifactSourceId": "<resource-ID-artifact-source>"
+  },
+  "resources": [
+    {
+      "type": "services",
+        ...
         }
     ]
 }
@@ -112,20 +112,20 @@ The following example shows the general format of the services resource. In each
 
 ```json
 {
-    "type": "services",
-	"name": "<service-name>",
-	"location": "<service-location>",
-	"apiVersion": "2018-09-01-preview",
-	"dependsOn": [
-	    "<service-topology>"
-	],
-	"properties": {
-		"targetSubscriptionId": "<subscription-ID>",
-		"targetLocation": "<location-of-deployed-service>"
-	},
-	"resources": [
-		{
-			"type": "serviceUnits",
+  "type": "services",
+  "apiVersion": "2018-09-01-preview",
+  "name": "<service-name>",
+  "location": "<service-location>",
+  "dependsOn": [
+      "<service-topology>"
+  ],
+  "properties": {
+    "targetSubscriptionId": "<subscription-ID>",
+    "targetLocation": "<location-of-deployed-service>"
+  },
+  "resources": [
+    {
+      "type": "serviceUnits",
             ...
         }
     ]
@@ -140,24 +140,24 @@ The following example shows the general format of the service units resource. In
 
 ```json
 {
-	"type": "serviceUnits",
-	"name": "<service-unit-name>",
-	"location": "<service-unit-location>",
-	"apiVersion": "2018-09-01-preview",
-	"dependsOn": [
-		"<service>"
-	],
-	"tags": {
-		"serviceType": "Service West US Web App"
-	},
-	"properties": {
-		"targetResourceGroup": "<resource-group-name>",
-		"deploymentMode": "Incremental",
-		"artifacts": {
-			"templateArtifactSourceRelativePath": "<relative-path-to-template>",
-			"parametersArtifactSourceRelativePath": "<relative-path-to-parameter-file>"
-		}
-	}
+  "type": "serviceUnits",
+  "apiVersion": "2018-09-01-preview",
+  "name": "<service-unit-name>",
+  "location": "<service-unit-location>",
+  "dependsOn": [
+    "<service>"
+  ],
+  "tags": {
+    "serviceType": "Service West US Web App"
+  },
+  "properties": {
+    "targetResourceGroup": "<resource-group-name>",
+    "deploymentMode": "Incremental",
+    "artifacts": {
+      "templateArtifactSourceRelativePath": "<relative-path-to-template>",
+      "parametersArtifactSourceRelativePath": "<relative-path-to-parameter-file>"
+    }
+  }
 }
 ```
 
@@ -193,10 +193,10 @@ The wait step pauses the deployment before continuing. It allows you to verify t
 
 ```json
 {
-    "apiVersion": "2018-09-01-preview",
     "type": "Microsoft.DeploymentManager/steps",
+    "apiVersion": "2018-09-01-preview",
     "name": "waitStep",
-	    "location": "<step-location>",
+    "location": "<step-location>",
     "properties": {
         "stepType": "wait",
         "attributes": {
@@ -222,32 +222,32 @@ The following example shows the general format of the rollout.
 
 ```json
 {
-	"type": "Microsoft.DeploymentManager/rollouts",
-	"name": "<rollout-name>",
-	"location": "<rollout-location>",
-	"apiVersion": "2018-09-01-preview",
-	"Identity": {
-		"type": "userAssigned",
-		"identityIds": [
-			"<managed-identity-ID>"
-		]
-	},
-    "dependsOn": [
-		"<artifact-source>"
-    ],
-	"properties": {
-		"buildVersion": "1.0.0.0",
-		"artifactSourceId": "<artifact-source-ID>",
-		"targetServiceTopologyId": "<service-topology-ID>",
-		"stepGroups": [
-			{
-				"name": "stepGroup1",
-                "dependsOnStepGroups": ["<step-group-name>"],
-				"preDeploymentSteps": ["<step-ID>"],
-				"deploymentTargetId":
-					"<service-unit-ID>",
-				"postDeploymentSteps": ["<step-ID>"]
-			},
+  "type": "Microsoft.DeploymentManager/rollouts",
+  "apiVersion": "2018-09-01-preview",
+  "name": "<rollout-name>",
+  "location": "<rollout-location>",
+  "Identity": {
+    "type": "userAssigned",
+    "identityIds": [
+      "<managed-identity-ID>"
+    ]
+  },
+  "dependsOn": [
+    "<artifact-source>"
+  ],
+  "properties": {
+    "buildVersion": "1.0.0.0",
+    "artifactSourceId": "<artifact-source-ID>",
+    "targetServiceTopologyId": "<service-topology-ID>",
+    "stepGroups": [
+      {
+        "name": "stepGroup1",
+        "dependsOnStepGroups": ["<step-group-name>"],
+        "preDeploymentSteps": ["<step-ID>"],
+        "deploymentTargetId":
+          "<service-unit-ID>",
+        "postDeploymentSteps": ["<step-ID>"]
+      },
             ...
         ]
     }
@@ -270,21 +270,21 @@ For example, during rollout you create an artifact source for the binary artifac
 
 ```json
 {
-	"type": "Microsoft.DeploymentManager/artifactSources",
-    "name": "[variables('rolloutArtifactSource').name]",
-	"location": "[parameters('azureResourceLocation')]",
-	"apiVersion": "2018-09-01-preview",
-	"properties": {
-		"sourceType": "AzureStorage",
-        "artifactRoot": "[parameters('binaryArtifactRoot')]",
-	    "authentication" :
-		{
-			"type": "SAS",
-			"properties": {
-				"sasUri": "[parameters('artifactSourceSASLocation')]"
-			}
-		}
-	}
+  "type": "Microsoft.DeploymentManager/artifactSources",
+  "apiVersion": "2018-09-01-preview",
+  "name": "[variables('rolloutArtifactSource').name]",
+  "location": "[parameters('azureResourceLocation')]",
+  "properties": {
+    "sourceType": "AzureStorage",
+      "artifactRoot": "[parameters('binaryArtifactRoot')]",
+      "authentication" :
+        {
+          "type": "SAS",
+          "properties": {
+            "sasUri": "[parameters('artifactSourceSASLocation')]"
+          }
+        }
+  }
 },
 ```
 
@@ -294,13 +294,13 @@ Your template and parameter file need to know the correct path for getting the v
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "deployPackageUri": {
-            "value": "$containerRoot\\helloWorldWebAppWUS.zip"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployPackageUri": {
+      "value": "$containerRoot\\helloWorldWebAppWUS.zip"
     }
+  }
 }
 ```
 
@@ -308,19 +308,19 @@ Then, use that parameter in your template:
 
 ```json
 {
-    "name": "MSDeploy",
-    "type": "extensions",
-    "location": "[parameters('location')]",
-    "apiVersion": "2015-08-01",
-    "dependsOn": [
-        "[concat('Microsoft.Web/sites/', parameters('WebAppName'))]"
-    ],
-    "tags": {
-        "displayName": "WebAppMSDeploy"
-    },
-    "properties": {
-        "packageUri": "[parameters('deployPackageURI')]"
-    }
+  "name": "MSDeploy",
+  "apiVersion": "2015-08-01",
+  "type": "extensions",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Web/sites/', parameters('WebAppName'))]"
+  ],
+  "tags": {
+    "displayName": "WebAppMSDeploy"
+  },
+  "properties": {
+    "packageUri": "[parameters('deployPackageURI')]"
+  }
 }
 ```
 

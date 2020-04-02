@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved across Azure regio
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/21/2019
+ms.date: 01/20/2020
 ms.author: raynew
 ---
 
@@ -181,7 +181,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | service | No |
+> | service |  Yes | 
 
 ## Microsoft.AppConfiguration
 
@@ -996,7 +996,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | vaults | Yes (for Backup vaults I think? | 
+> | vaults | No. [Disable vault and recreate](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) for Site Recovery  | 
 
 
 ## Microsoft.Relay
@@ -1137,7 +1137,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | storageaccounts | Yes?? | 
+> | storageaccounts | Yes | 
 
 ## Microsoft.StorageCache
 

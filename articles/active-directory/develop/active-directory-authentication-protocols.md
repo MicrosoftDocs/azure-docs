@@ -14,7 +14,6 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform authentication protocols

@@ -3,7 +3,6 @@ title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -289,7 +288,7 @@ The following plots provide a global view of the trained model along with its pr
 |----|-----------|
 |Data Exploration| Displays an overview of the dataset along with prediction values.|
 |Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
-|Explanation Exploration|Demonstrates how a feature affects a change in model’s prediction values, or the probability of prediction values. Shows impact of feature interaction.|
+|Explanation Exploration|Demonstrates how a feature affects a change in model's prediction values, or the probability of prediction values. Shows impact of feature interaction.|
 |Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
 
 [![Visualization Dashboard Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
@@ -329,10 +328,10 @@ You can load the local, feature importance plot for any data point by selecting 
     jupyter labextension install microsoft-mli-widget
     ```
 
-To load the visualization dashboard, use the following code:
+To load the visualization dashboard, use the following code.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```
@@ -358,7 +357,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
    [![Visualization Dashboard Local Feature Importance](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Models** pane
-  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
+  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
 
 ## Interpretability at inference time
@@ -423,7 +422,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
 1. Deploy the image to a compute target, by following these steps:
 
-   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
    1. Create a scoring file.
 

@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate uniFLOW Online with Azure Active Directory (Azure AD). When you integrate uniFLOW Online with Azure AD, you can:
 
 * Control in Azure AD who has access to uniFLOW Online.
-* Enable your users to be automatically signed-in to uniFLOW Online with their Azure AD accounts.
+* Enable your users to sign in to uniFLOW Online with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,7 +35,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* uniFLOW Online single sign-on (SSO) enabled subscription.
+* uniFLOW Online tenant.
 
 ## Scenario description
 
@@ -61,11 +61,10 @@ Configure and test Azure AD SSO with uniFLOW Online using a test user called **B
 To configure and test Azure AD SSO with uniFLOW Online, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure uniFLOW Online SSO](#configure-uniflow-online-sso)** - to configure the single sign-on settings on application side.
-    * **[Create uniFLOW Online test user](#create-uniflow-online-test-user)** - to have a counterpart of B.Simon in uniFLOW Online that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+    * **[Sign in to uniFLOW Online using the created test user](#sign-in-to-uniflow-online-using-the-created-test-user)** - to test user sign-in on the application side.
 
 ## Configure Azure AD SSO
 
@@ -83,24 +82,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| | |
 	|-|-|
-	| `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com`|
+	| `https://<tenant_domain_name>.us.uniflowonline.com`|
+	| `https://<tenant_domain_name>.sg.uniflowonline.com`|
+	| `https://<tenant_domain_name>.jp.uniflowonline.com`|
+	| `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
 	| | |
 	|-|-|
-	| `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-	| `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com`|
+	| `https://<tenant_domain_name>.us.uniflowonline.com`|
+	| `https://<tenant_domain_name>.sg.uniflowonline.com`|
+	| `https://<tenant_domain_name>.jp.uniflowonline.com`|
+	| `https://<tenant_domain_name>.au.uniflowonline.com`|
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
 
 1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -112,6 +111,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| -----------| --------------- |
 	| displayname | user.displayname |
 	| nickname | user.onpremisessamaccountname |
+
+   > [!NOTE]
+   > The `user.onpremisessamaccountname` attribute will contain a value only if your Azure AD users are synced from a local Windows Active Directory.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -135,17 +137,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **uniFLOW Online**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the app's overview page, go to the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+   ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+
+> [!NOTE]
+> To allow all users to access the application without manual assignment, go to the **Manage** section and select **Properties**. Then, change the **User assignment required** parameter to **NO**.
 
 ## Configure uniFLOW Online SSO
 
@@ -182,7 +187,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Enter the Display name Ex: *AzureAD SSO*.
 
-	b. Select **From URL** option for the **ADGS Federation Metadata**.
+	b. Select the **From URL** option for the **ADFS Federation Metadata**.
 
 	c. In the **Federation Metadata URl** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
@@ -192,31 +197,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. Click **Save**.
 
-### Create uniFLOW Online test user
+### Sign in to uniFLOW Online using the created test user
 
-1. In a different web browser window, sign in to uniFLOW Online website as an administrator.
+1. In a different web browser window, go to the uniFLOW Online URL for your tenant.
 
-1. From the left navigation panel, select **User** tab.
+1. Select the previously created identity provider to sign-in via your Azure AD instance.
 
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure1.png)
-
-1. Click on the **Add user**.
-
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/user1.png)
-
-1. Click **Create user manually**.
-
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/user2.png)
-
-1. On the **CREATE USER MANUALLY** tab, provide the required values as per your organization requirements.
-
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/user3.png)
-
-## Test SSO
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the uniFLOW Online tile in the Access Panel, you should be automatically signed in to the uniFLOW Online for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Sign in using the test user.
 
 ## Additional resources
 

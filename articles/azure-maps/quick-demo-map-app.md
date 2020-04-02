@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Interactive map search with Azure Maps"
-description: Azure quickstart - Create a demo interactive map search by using Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 11/08/2019
+title: "Quickstart: Interactive map search with Azure Maps | Microsoft Azure Maps"
+description: Learn how to create a demo web application for interactive map search by using Microsoft Azure Maps web SDK.
+author: philmea
+ms.author: philmea
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -52,11 +52,11 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-![Get Primary Key in portal](./media/quick-demo-map-app/get-key.png)
+![Get Primary Key Azure Maps key in Azure portal](./media/quick-demo-map-app/get-key.png)
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) and click it to view the contents within the GitHub User Interface. Right click on the **Raw** button and copy the content of the file or 'Save as' to download the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
 
@@ -68,7 +68,7 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
-    ![Interactive search web application](./media/quick-demo-map-app/interactive-search.png)
+    ![Interactive map search web application](./media/quick-demo-map-app/interactive-search.png)
 
 ## Clean up resources
 

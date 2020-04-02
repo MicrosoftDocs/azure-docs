@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot errors with Azure Automation shared resources
-description: Learn how to troubleshoot issues with Azure Automation shared resources
+description: Learn how to troubleshoot and resolve issues with Azure Automation shared resources supporting runbooks. 
 services: automation
 author: mgoedtel
 ms.author: magoedte

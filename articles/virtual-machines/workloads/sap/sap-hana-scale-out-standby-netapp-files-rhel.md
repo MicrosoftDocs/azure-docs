@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
 
 ---
@@ -85,7 +85,7 @@ Before you begin, refer to the following SAP notes and papers:
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/solutions/3193782)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-* [SAP HANA on NetApp Systems with Network File System (NFS)](https://www.netapp.com/us/media/tr-4435.pdf): A configuration guide that contains information about how to set up SAP HANA by using Azure NFS by NetApp
+
 
 ## Overview
 
@@ -433,7 +433,11 @@ Configure and prepare your OS by doing the following steps:
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   For more details on how to change `nfs4_disable_idmapping` parameter see https://access.redhat.com/solutions/1749883.
 
 6. **[A]** Mount the shared Azure NetApp Files volumes.  
 

@@ -10,14 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-
+ms.date: 01/09/2020
 ---
 
 # Start, monitor, and cancel training runs in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and manage your runs for training and experimentation.
+The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This article shows examples of the following tasks:
 
@@ -30,7 +29,7 @@ This article shows examples of the following tasks:
 
 You'll need the following items:
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -75,6 +74,8 @@ To start a run of your experiment, use the following steps:
     ```azurecli-interactive
     az login
     ```
+    
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
 
@@ -100,6 +101,16 @@ To start a run of your experiment, use the following steps:
     > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
 
     For more information, see [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+
+### Using Azure Machine Learning studio
+
+To start a submit a pipeline run in the designer (preview), use the following steps:
+
+1. Set a default compute target for your pipeline.
+
+1. Select **Run** at the top of the pipeline canvas.
+
+1. Select an Experiment to group your pipeline runs.
 
 ## Monitor the status of a run
 
@@ -156,6 +167,22 @@ print(notebook_run.get_status())
 
     For more information, see [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
 
+
+### Using Azure Machine Learning studio
+
+To view the number of active runs for your experiment in the studio.
+
+1. Navigate to the **Experiments** section.. 
+
+1. Select an experiment.
+
+    In the experiment page, you can see the number of active compute targets and the duration for each run. 
+
+1. Select a specific run number.
+
+1. In the **Logs** tab, you can find diagnostic and error logs for your pipeline run.
+
+
 ## Cancel or fail runs
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
@@ -190,6 +217,17 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+
+### Using Azure Machine Learning studio
+
+To cancel a run in the studio, using the following steps:
+
+1. Go to the running pipeline in either the **Experiments** or **Pipelines** section. 
+
+1. Select the pipeline run number you want to cancel.
+
+1. In the toolbar, select **Cancel**
+
 
 ## Create child runs
 
@@ -332,6 +370,12 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 ```
 
 For more information on querying Azure CLI results, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+
+### Using Azure Machine Learning studio
+
+1. Navigate to the **Pipelines** section.
+
+1. Use the search bar to filter pipelines using tags, descriptions, experiment names, and submitter name.
 
 ## Example notebooks
 

@@ -1,19 +1,22 @@
 ---
 title: Learn Azure Service Fabric terminology 
-description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
+description: Learn key Service Fabric terminology and concepts used in the rest of the documentation.
 author: masnider
-
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
+ms.custom: sfrev
 ---
+
 # Service Fabric terminology overview
+
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  You can [host Service Fabric clusters anywhere](service-fabric-deploy-anywhere.md): Azure, in an on-premises datacenter, or on any cloud provider.  Service Fabric is the orchestrator that powers [Azure Service Fabric Mesh](/azure/service-fabric-mesh). You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
 
 ## Infrastructure concepts
+
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
-**Node**: A machine or VM that's part of a cluster is called a *node*. Each node is assigned a node name (a string). Nodes have characteristics, such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, that starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
+**Node**: A machine or VM that's part of a cluster is called a *node*. Each node is assigned a node name (string). Nodes have characteristics, such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, that starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
 ## Application and service concepts
 
@@ -25,7 +28,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 **Application**: An application is the unit of deployment, versioning, and lifetime of a Mesh application. The lifecycle of each application instance can be managed independently.  Applications are composed of one or more service code packages and settings. An application is defined using the Azure Resource Model (RM) schema.  Services are described as properties of the application resource in a RM template.  Networks and volumes used by the application are referenced by the application.  When creating an application, the application, service(s), network, and volume(s) are modeled using the Service Fabric Resource Model.
 
-**Service**: A service in an application represents a microservice and performs a complete and standalone function. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.  The number of services in an application can be scaled up and down.
+**Service**: A service in an application represents a microservice and performs a complete and standalone function. Each service is composed of one or more code packages that describe everything needed to run the container image associated with the code package.  The number of services in an application can be scaled up and down.
 
 **Network**: A network resource creates a private network for your applications and is independent of the applications or services that may refer to it. Multiple services from different applications can be part of the same network. Networks are deployable resources that are referenced by applications.
 
@@ -78,15 +81,16 @@ There are two types of services:
 
 **Data package**: A disk directory that contains the service type's static, read-only data files, typically photo, sound, and video files. The files in the data package directory are referenced by the service type's `ServiceManifest.xml` file. When you create a named service, the data package is copied to the node or nodes selected to run the named service. The code starts running and can now access the data files.
 
-**Configuration package**: A disk directory that contains the service type's static, read-only configuration files, typically text files. The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When you create a named service, the files in the configuration package are copied one or more nodes selected to run the named service. Then the code starts to run and can now access the configuration files.
+**Configuration package**: A disk directory that contains the service type's static, read-only configuration files, typically text files. The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When you create a named service, the files in the configuration package are copied to one or more nodes selected to run the named service. Then the code starts to run and can now access the configuration files.
 
-**Containers**: By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Containers are a virtualization technology that virtualizes the underlying operating system from applications. An application and its runtime, dependencies, and system libraries run inside a container. The container has full, private access to the container's own isolated view of the operating system constructs. Service Fabric supports Docker containers on Linux and Windows Server containers. For more information, read [Service Fabric and containers](service-fabric-containers-overview.md).
+**Containers**: By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Containers are a virtualization technology that abstracts the underlying operating system from applications. An application and its runtime, dependencies, and system libraries run inside a container. The container has full, private access to the container's own isolated view of the operating system constructs. Service Fabric supports Windows Server containers and Docker containers on Linux. For more information, read [Service Fabric and containers](service-fabric-containers-overview.md).
 
 **Partition scheme**: When you create a named service, you specify a partition scheme. Services with substantial amounts of state split the data across partitions, which spreads the state across the cluster's nodes. By splitting the data across partitions, your named service's state can scale. Within a partition, stateless named services have instances, whereas stateful named services have replicas. Usually, stateless named services have only one partition, because they have no internal state. The partition instances provide for availability. If one instance fails, other instances continue to operate normally, and then Service Fabric creates a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set so the state is kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
 Read the [Partition Service Fabric reliable services](service-fabric-concepts-partitioning.md) article for more information.
 
 ## System services
+
 There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
 **Naming Service**: Each Service Fabric cluster has a Naming Service, which resolves service names to a location in the cluster. You manage the service names and properties, like an internet Domain Name System (DNS) for the cluster. Clients securely communicate with any node in the cluster by using the Naming Service to resolve a service name and its location. Applications move within the cluster. For example, this can be due to failures, resource balancing, or the resizing of the cluster. You can develop services and clients that resolve the current network location. Clients obtain the actual machine IP address and port where it's currently running.
@@ -100,22 +104,26 @@ Read [Understand the ImageStoreConnectionString setting](service-fabric-image-st
 Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image Store service.
 
 **Failover Manager service**: Each Service Fabric cluster has a Failover Manager service that is responsible for the following actions:
-   - Performs functions related to high availability and consistency of services.
-   - Orchestrates application and cluster upgrades.
-   - Interacts with other system components.
+
+ - Performs functions related to high availability and consistency of services.
+ - Orchestrates application and cluster upgrades.
+ - Interacts with other system components.
 
 **Repair Manager service**: This is an optional system service that allows repair actions to be performed on a cluster in a way that is safe, automatable, and transparent. Repair manager is used in:
+
    - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
    - Carrying out repair actions for [Patch Orchestration Application](service-fabric-patch-orchestration-application.md)
 
-## Deployment and application models 
+## Deployment and application models
 
 To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
 ### Resource model (preview)
+
 Service Fabric Resources are anything that can be deployed individually to Service Fabric; including applications, services, networks, and volumes. Resources are defined using a JSON file, which can be deployed to a cluster endpoint.  For Service Fabric Mesh, the Azure Resource Model schema is used. A YAML file schema can also be used to more easily author definition files. Resources can be deployed anywhere Service Fabric runs. The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services. To learn more, read [Introduction to the Service Fabric Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### Native model
+
 The native application model provides your applications with full low-level access to Service Fabric. Applications and services are defined as registered types in XML manifest files.
 
 The native model supports the Reliable Services and Reliable Actors frameworks, which provides access to the Service Fabric runtime APIs and cluster management APIs in C# and Java. The native model also supports arbitrary containers and executables. The native model is not supported in the [Service Fabric Mesh environment](/azure/service-fabric-mesh/service-fabric-mesh-overview).
@@ -133,6 +141,7 @@ You can also run your existing applications on Service Fabric:
 Read the [Choose a programming model for your service](service-fabric-choose-framework.md) article for more information.
 
 ### Docker Compose 
+
 [Docker Compose](https://docs.docker.com/compose/) is part of the Docker project. Service Fabric provides limited support for [deploying applications using the Docker Compose model](service-fabric-docker-compose.md).
 
 ## Environments
@@ -145,7 +154,8 @@ Service Fabric is an open-source platform technology that several different serv
  - **Service Fabric development cluster**: Provides a local development experience on Windows, Linux, or Mac for development of Service Fabric applications.
 
 ## Environment, framework, and deployment model support matrix
-Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
+
+Different environments have different levels of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
 | Type of Application | Described By | Azure Service Fabric Mesh | Azure Service Fabric Clusters (any OS)| Local cluster | Standalone cluster |
 |---|---|---|---|---|---|
@@ -159,8 +169,8 @@ The following table describes the different application models and the tooling t
 | Service Fabric Mesh Applications | Resource Model (YAML & JSON) | VS 2017 |Not supported |Not supported | Supported - Mesh environment only | Not Supported|
 |Service Fabric Native Applications | Native Application Model (XML) | VS 2017 and VS 2015| Supported|Supported|Supported|Supported|
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
+
 To learn more about Service Fabric:
 
 * [Overview of Service Fabric](service-fabric-overview.md)

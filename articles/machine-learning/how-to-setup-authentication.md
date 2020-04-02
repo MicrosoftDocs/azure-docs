@@ -165,7 +165,7 @@ ws.get_details()
 
 The service principal created in the steps above can also be used to authenticate to the Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in both Python and Node.js, but you can also use any open-source library that supports OpenID Connect 1.0. 
 
-> ![NOTE]
+> [!NOTE]
 > MSAL.js is a newer library than ADAL, but you cannot do service-to-service authentication using client credentials with MSAL.js, since it is primarily a client-side library intended 
 > for interactive/UI authentication tied to a specific user. We recommend using ADAL as shown below to build automated workflows with the REST API.
 
@@ -262,18 +262,22 @@ from azureml.core.webservice import AciWebservice
 
 aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 memory_gb = 1,
-                                                auth_enable=True)
+                                                auth_enabled=True)
 ```
 
-Then you can use the custom ACI configuration in deployment using the parent `WebService` class.
+Then you can use the custom ACI configuration in deployment using the `Model` class.
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.model import Model, InferenceConfig
 
-aci_service = Webservice.deploy_from_image(deployment_config=aci_config,
-                                           image=image,
-                                           name="aci_service_sample",
-                                           workspace=ws)
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
+aci_service = Model.deploy(workspace=ws,
+                       name="aci_service_sample",
+                       models=[model],
+                       inference_config=inference_config,
+                       deployment_config=aci_config)
 aci_service.wait_for_deployment(True)
 ```
 

@@ -81,7 +81,7 @@ For more information, see the following articles:
 - [Azure Virtual Networks overview](../../virtual-network/virtual-networks-overview.md)
 - [Azure Network Security Groups overview](../../virtual-network/security-overview.md)
 - [Azure Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)
-- [Azure Storage security guide](../../storage/common/storage-security-guide.md)
+- [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 - [Azure Storage Service Encryption at rest](../../storage/common/storage-service-encryption.md)
 
 ## Use monitoring & alerting

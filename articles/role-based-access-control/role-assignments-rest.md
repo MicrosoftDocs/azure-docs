@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments using Azure RBAC and the REST API
+title: Add or remove role assignments with RBAC and the REST API
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and the REST API.
 services: active-directory
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -53,23 +53,27 @@ In RBAC, to grant access, you add a role assignment. To add a role assignment, u
 
 1. Within the URI, replace *{scope}* with the scope for the role assignment.
 
-    | Scope | Type |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
+
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
 
 1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
 1. Within the request body, replace *{scope}* with the scope for the role assignment.
 
-    | Scope | Type |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the role definition identifier.
 
@@ -89,18 +93,19 @@ In RBAC, to remove access, you remove a role assignment. To remove a role assign
 
 1. Within the URI, replace *{scope}* with the scope for removing the role assignment.
 
-    | Scope | Type |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
 ## Next steps
 
 - [List role assignments using Azure RBAC and the REST API](role-assignments-list-rest.md)
-- [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)
 - [Create custom roles for Azure resources using the REST API](custom-roles-rest.md)

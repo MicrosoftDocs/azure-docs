@@ -2,23 +2,25 @@
 title: Tutorial - Create a metrics chart in Azure Monitor
 description: Learn how to create your first metric chart with Azure metrics explorer.
 author: bwren
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: bwren
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create a metrics chart in Azure Monitor
-Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to investigate the health and utilization of your Azure resources. 
+Metrics explorer is a feature of Azure Monitor in the Azure portal that allows you to create charts from metric values, visually correlate trends, and investigate spikes and dips in metric values. Use the metrics explorer to investigate the health and utilization of your Azure resources or to plot charts from custom metrics. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add a metric value to a chart
-> * Perform different aggregations on metric values
+> * Select a metric for which you want to plot a chart
+> * Perform different aggregations of metric values
 > * Modify the time range and granularity for the chart
+
+Following is a video that shows a more extensive scenario than the procedure outlined in this article. If you are new to metrics, we suggest you read through this article first and then view the video to see more specifics. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ To complete this tutorial you need an Azure resource to monitor. You can use any
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Open metrics explorer and select a scope
-You can open metrics explorer either from the Azure Monitor menu or from a resource's menu in the Azure portal. Metric values from all resources are available regardless of which option you use. 
+You can open metrics explorer either from the Azure Monitor menu or from a resource's menu in the Azure portal. Metrics from all resources are available regardless of which option you use. 
 
 1. Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu.
 

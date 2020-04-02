@@ -1,7 +1,7 @@
 ---
-title: Handle events with Azure Maps | Microsoft Docs
-description: How to make an interactive Web SDK map with map events
-author: jingjing-z
+title: Handle map events | Microsoft Azure Maps
+description: In this article, you'll learn how to make an interactive Web SDK map with map events using the Microsoft Azure Maps web SDK.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 09/10/2019
 ms.topic: conceptual
@@ -13,11 +13,11 @@ ms.custom: codepen
 
 # Interact with the map
 
-This article shows you how to use [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
+This article shows you how to use [map events class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
-Play with the map below, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on the **Edit on CodePen** button and edit the code on CodePen.
+Play with the map below, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on **Edit on CodePen** to modify the code on CodePen.
 
 <br/>
 
@@ -26,7 +26,7 @@ Play with the map below, and see the corresponding mouse events highlighted on t
 
 ## Interact with map layers
 
-The following code highlights the name of the events that get fired up as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers do not support any of these events.
+The following code highlights the fired event as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events.
 
 <br/>
 

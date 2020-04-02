@@ -1,17 +1,17 @@
 ---
-title: Understand the Windows Hybrid Runbook Worker health in Azure Update Management
-description: Learn how to troubleshoot issues with the Hybrid Runbook Worker on Windows that supports Update Management.
+title: Diagnose Windows Hybrid Runbook Worker - Azure Update Management
+description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Windows that supports Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand the Windows Hybrid Runbook Worker health in Update Management
+# Understand and resolve Windows Hybrid Runbook Worker health in Update Management
 
 There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
@@ -49,8 +49,7 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2012 and later |.NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### .NET 4.6.2
 
@@ -111,7 +110,7 @@ RuleId                      : OperatingSystemCheck
 RuleGroupId                 : prerequisites
 RuleName                    : Operating System
 RuleGroupName               : Prerequisite Checks
-RuleDescription             : The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or higher
+RuleDescription             : The Windows Operating system must be version 6.2.9200 (Windows Server 2012) or higher
 CheckResult                 : Passed
 CheckResultMessage          : Operating System version is supported
 CheckResultMessageId        : OperatingSystemCheck.Passed

@@ -35,7 +35,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Can I configure an OAuth 2.0 authorization server with AD FS security?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [What routing method does API Management use in deployments to multiple geographic locations?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Can I use an Azure Resource Manager template to create an API Management service instance?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [Can I use a self-signed TLS/SSL certificate for a back end?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
@@ -57,7 +57,7 @@ When a feature is in preview, it means that we're actively seeking feedback on h
 You have several options to secure the connection between the API Management gateway and your back-end services. You can:
 
 * Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
-* Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
+* Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
 * Connect your API Management instance to an Azure Virtual Network.
 
@@ -110,11 +110,11 @@ API Management uses the [performance traffic routing method](../traffic-manager/
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
 Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) quickstart templates.
 
-### Can I use a self-signed SSL certificate for a back end?
+### Can I use a self-signed TLS/SSL certificate for a back end?
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
 #### Powershell method ####
-Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
+Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -134,13 +134,13 @@ Yes. API Management works with Azure ExpressRoute.
 
 ### Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?
 The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer doesn't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
-To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### What is the minimum subnet size needed when deploying API Management into a VNET?
 The minimum subnet size needed to deploy API Management is [/29](../virtual-network/virtual-networks-faq.md#configuration), which is the minimum subnet size that Azure supports.
 
 ### Can I move an API Management service from one subscription to another?
-Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### Are there restrictions on or known issues with importing my API?
 [Known issues and restrictions](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.

@@ -61,7 +61,7 @@ they can be used by your configurations.
 
 Resource Manager templates provide a declarative way of generating your infrastructure - things
 like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on. Here's
-an [article](../azure-resource-manager/resource-manager-deployment-model.md) that compares the
+an [article](../azure-resource-manager/management/deployment-models.md) that compares the
 Resource Manager deployment model (declarative) with the Azure Service Management (ASM or classic)
 deployment model (imperative), and discusses the core resource providers, compute, storage and
 network.

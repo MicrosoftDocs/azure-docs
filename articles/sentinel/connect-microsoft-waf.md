@@ -1,22 +1,14 @@
 ﻿---
-title: Connect Microsoft web application firewall data to Azure Sentinel| Microsoft Docs
+title: Connect Web Application Firewall data to Azure Sentinel
 description: Learn how to connect Microsoft web application firewall data to Azure Sentinel.
-services: sentinel
-documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
-editor: ''
-
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-
+ms.author: yelevin
 ---
 # Connect data from Microsoft web application firewall
 

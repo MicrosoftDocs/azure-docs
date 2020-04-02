@@ -1,6 +1,6 @@
 ---
-title: Tutorial - create and run a Jupyter notebook on Azure
-description: Learn how to create and run a Jupyter notebook in Azure Notebooks that demonstrates the process of linear regression in data science.
+title: Tutorial - create and run a Jupyter notebook - Azure Notebooks Preview
+description: Learn how to create and run a Jupyter notebook in Azure Notebooks Preview that demonstrates the process of linear regression in data science.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ---
@@ -10,6 +10,8 @@ ms.date: 01/11/2019
 This tutorial walks you through the process of using Azure Notebooks to create a complete Jupyter notebook that demonstrates simple linear regression. In the course of this tutorial, you familiarize yourself with the Jupyter notebook UI, which includes creating different cells, running cells, and presenting the notebook as a slide show.
 
 The completed notebook can be found on [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). This tutorial, however, begins with a new project and an empty notebook so you can experience creating it step by step.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 In this tutorial, you learn how to:
 
@@ -232,7 +234,7 @@ As the previous Markdown cell explained, you can include commands directly in th
 
     ![Busy indicator for the notebook kernel](media/tutorial/tutorial-kernel-busy.png)
 
-1. It also takes a little time for all of the `pip install` commands to run, and because you already installed these packages in the project environment (and because they're also included in Azure Notebooks by default), you see many messages that read, "Requirement already satisfied." All of that output can be visually distracting, so select that sell (using a single click), then use the **Cell** > **Cell Outputs** > **Toggle** to hide the output. You can also use the **Clear** command on that same submenu to remove the output entirely.
+1. It also takes a little time for all of the `pip install` commands to run, and because you already installed these packages in the project environment (and because they're also included in Azure Notebooks by default), you see many messages that read, "Requirement already satisfied." All of that output can be visually distracting, so select that cell (using a single click), then use the **Cell** > **Cell Outputs** > **Toggle** to hide the output. You can also use the **Clear** command on that same submenu to remove the output entirely.
 
     The **Toggle** command hides only the most recent output from the cell; if you run the cell again, the output reappears.
 

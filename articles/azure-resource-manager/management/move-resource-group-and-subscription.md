@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 03/02/2020
 ---
 
 # Move resources to a new resource group or subscription
@@ -19,7 +19,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
 
-1. Some services have specific limitations or requirements when moving resources. If you've moving any of the following services, check that guidance before moving.
+1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
 
    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -28,7 +28,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
 
-1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
@@ -84,7 +84,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
-1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 

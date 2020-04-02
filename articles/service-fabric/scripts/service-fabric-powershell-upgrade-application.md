@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Upgrade a Service Fabric application | Microsoft Docs
+title: Upgrade a Service Fabric application in Powershell
 description: Azure PowerShell Script Sample - Upgrade and monitor an Azure Service Fabric application using Powershell.
 services: service-fabric
 documentationcenter: 

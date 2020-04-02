@@ -35,7 +35,7 @@ You can enable ExpressRoute circuits that are created in the Resource Manager de
 * Access to the classic deployment model is controlled by the **allowClassicOperations** parameter in the ExpressRoute circuit.
 
 > [!IMPORTANT]
-> All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
+> All quotas that are documented on the [service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
 > 
 > 
 

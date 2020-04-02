@@ -20,10 +20,10 @@ The following articles show you how to:
 
 - Install and set up the Import/Export Tool.
 - Prepare your hard drives for a job where you import data from your drives to Azure Blob Storage.
-- Review the status of a job with Copy Log Files. 
-- Repair an import job. 
-- Repair an export job. 
-- Troubleshoot the Azure Import/Export Tool, in case you had a problem during process. 
+- Review the status of a job with Copy Log Files.
+- Repair an import job.
+- Repair an export job.
+- Troubleshoot the Azure Import/Export Tool, in case you had a problem during process.
 
 ## Next steps
 

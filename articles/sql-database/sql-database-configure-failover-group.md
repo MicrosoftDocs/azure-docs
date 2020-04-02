@@ -30,6 +30,7 @@ Consider the following prerequisites:
 # [Portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal.
 
+
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the single database you want to add to the failover group. 
 1. Select the name of the server under **Server name** to open the settings for the server.
@@ -177,6 +178,9 @@ Revert failover group back to the primary server:
 
 ---
 
+> [!IMPORTANT]
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+
 ## Elastic pool
 Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
 
@@ -322,11 +326,14 @@ Fail over to the secondary server:
 
 ---
 
+> [!IMPORTANT]
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+
 ## Managed instance
 
 Create a failover group between two managed instances using the Azure portal, or PowerShell. 
 
-You will need to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group.
+You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group. 
 
 ### Prerequisites
 Consider the following prerequisites:
@@ -338,7 +345,7 @@ Consider the following prerequisites:
 
 ### Create primary virtual network gateway 
 
-Create the primary virtual network gateway with the Azure portal, or PowerShell. 
+If you have not configured [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), you can create the primary virtual network gateway with the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
@@ -579,7 +586,7 @@ Test failover of your failover group using the Azure portal, or PowerShell.
 
 Test failover of your failover group using the Azure portal. 
 
-1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
+1. Navigate to your _secondary_ managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected. 
 
@@ -589,7 +596,7 @@ Test failover of your failover group using the Azure portal.
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Select **Failover** once again to fail the primary instance back to the primary role. 
+1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role. 
 
 # [PowerShell](#tab/azure-powershell)
 

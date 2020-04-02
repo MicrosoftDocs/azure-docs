@@ -106,7 +106,7 @@ In some cases, VM failover requires intermediate step that usually takes around 
 You might want to automate actions during failover. To do this, you can use scripts or Azure automation runbooks in recovery plans.
 
 - [Learn](site-recovery-create-recovery-plans.md) about creating and customizing recovery plans, including adding scripts.
-- [Learn](site-recovery-runbook-automation.md) abut adding Azure Automation runbooks to recovery plans.
+- [Learn](site-recovery-runbook-automation.md) about adding Azure Automation runbooks to recovery plans.
 
 
 ## Configure settings after failover
@@ -140,7 +140,7 @@ Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.m
 After you've failed over, you need to reprotect to start replicating the Azure VMs back to the on-premises site. After replication is up and running, you can fail back on-premises when you're ready.
 
 - [Learn more](failover-failback-overview.md#reprotectionfailback) about reprotection and failback.
-- [Prepare](/vmware-azure-reprotect.md) for VMware reprotection and failback.
+- [Prepare](vmware-azure-reprotect.md) for VMware reprotection and failback.
 - [Fail back](hyper-v-azure-failback.md) Hyper-V VMs.
 - [Learn about](physical-to-azure-failover-failback.md) the failover and failback process for physical servers.
 

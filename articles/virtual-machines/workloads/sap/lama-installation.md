@@ -66,18 +66,25 @@ Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_L
 * If you sign in to managed hosts, make sure to not block file systems from being unmounted  
   If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
 
+* Make sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more details, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+
 ## Set up Azure connector for SAP LaMa
 
-The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0. The Azure connector uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal for SAP Landscape Management (LaMa).
+The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0.
+
+The Azure connector uses the Azure Resource Manager API to manage your Azure resources. SAP LaMa can use a Service Principal or a Managed Identity to authenticate against this API. If your SAP LaMa is running on an Azure VM, we recommend using a Managed Identity as described in chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). If you want to use a Service Principal, follow the steps in chapter [Use a Service Principal to get access to the Azure API](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
+
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Use a Service Principal to get access to the Azure API
+
+The Azure connector can use a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal for SAP Landscape Management (LaMa).
 
 1. Go to https://portal.azure.com
 1. Open the Azure Active Directory blade
 1. Click on App registrations
-1. Click on Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http:\//localhost) and click on Create
-1. The sign-on URL is not used and can be any valid URL
-1. Select the new App and click on Keys in the Settings tab
-1. Enter a description for a new key, select "Never expires" and click on Save
+1. Click on New registration
+1. Enter a name and click on Register
+1. Select the new App and click on Certificates & secrets in the Settings tab
+1. Create a new client secret, enter a description for a new key, select when the secret should expire and click on Save
 1. Write down the Value. It is used as the password for the Service Principal
 1. Write down the Application ID. It is used as the username of the Service Principal
 
@@ -93,17 +100,40 @@ The Service Principal does not have permissions to access your Azure resources b
 1. Click Save
 1. Repeat step 3 to 8 for all resource groups you want to use in SAP LaMa
 
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a Managed Identity to get access to the Azure API
+
+To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+
+The Managed Identity does not have permissions to access your Azure resources by default. You need to give it permissions to access them.
+
+1. Go to https://portal.azure.com
+1. Open the Resource groups blade
+1. Select the resource group you want to use
+1. Click Access control (IAM)
+1. Click on Add -> Add Role assignment
+1. Select the role Contributor
+1. Select 'Virtual Machine' for 'Assign access to'
+1. Select the virtual machine where your SAP LaMa instance is running on
+1. Click Save
+1. Repeat the steps for all resource groups you want to use in SAP LaMa
+
+In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
+
+### Create a new connector in SAP LaMa
+
 Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Managers and click on Add. Select the Microsoft Azure Cloud Adapter and click Next. Enter the following information:
 
 * Label: Choose a name for the connector instance
-* User Name: Service Principal Application ID
-* Password: Service Principal key/password
-* URL: Keep default https://management.azure.com/
+* User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Identity] for more information
+* Password: Service Principal key/password. You can leave this field empty if you use a system or user assigned identity.
+* URL: Keep default `https://management.azure.com/`
 * Monitoring Interval (Seconds): Should be at least 300
+* Use Managed Identity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
 * Subscription ID: Azure subscription ID
 * Azure Active Directory Tenant ID: ID of the Active Directory tenant
 * Proxy host: Hostname of the proxy if SAP LaMa needs a proxy to connect to the internet
 * Proxy port: TCP port of the proxy
+* Change Storage Type to save costs: Enable this setting if the Azure Adapter should change the storage type of the Managed Disks to save costs when the disks are not in use. For data disks that are referenced in an SAP instance configuration, the adapter will change the disk type to Standard Storage during an instance unprepare and back to the original storage type during an instance prepare. If you stop a virtual machine in SAP LaMa, the adapter will change the storage type of all attached disks, including the OS disk to Standard Storage. If you start a virtual machine in SAP LaMa, the adapter will change the storage type back to the original storage type.
 
 Click on Test Configuration to validate your input. You should see
 

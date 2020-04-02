@@ -1,7 +1,6 @@
 ---
 title: Advanced aggregations in Azure Monitor log queries| Microsoft Docs
 description: Describes some of the more advanced aggregation options available to Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

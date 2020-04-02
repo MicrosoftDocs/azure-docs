@@ -1,6 +1,6 @@
 ---
 title: Monitor Linux cluster events in Azure Service Fabric 
-description: Learn how to monitor Linux cluster events from Syslog
+description: Learn how to monitor a Service Fabric Linux cluster events by writing Service Fabric platform events to Syslog.
 author: srrengar
 
 ms.topic: conceptual

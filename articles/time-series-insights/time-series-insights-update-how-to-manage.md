@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
 ---
 
@@ -81,7 +81,7 @@ To create an Azure Time Series Insights Preview environment:
 
 ## Manage the environment
 
-You can manage your Azure Time Series Insights Preview environment by using the Azure portal. When you manage through the Azure portal, you see a few key differences between a PAYG Azure Time Series Insights Preview environment and the generally available S1 or S2 environments:
+You can manage your Azure Time Series Insights Preview environment by using the Azure portal. There a few key differences  between a PAYG Azure Time Series Insights Preview environment and the generally available S1 or S2 environments to bear in mind when you manage your environment through the Azure portal:
 
 * The Azure portal Preview **Overview**  blade has the following changes:
 

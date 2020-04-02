@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2019
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -30,7 +30,15 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-This how-to article requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed Azure PowerShell module Az version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+
+To find your current version, run the following command:
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -79,7 +87,7 @@ To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.
 
 To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
-```cli
+```azurecli-interactive
 az login
 ```
 
@@ -109,6 +117,7 @@ First, create a new resource group with PowerShell using the [New-AzResourceGrou
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -116,7 +125,6 @@ If you're not sure which region to specify for the `-Location` parameter, you ca
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Next, create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
@@ -126,8 +134,11 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
   -SkuName Standard_RAGRS `
-  -Kind StorageV2 
+  -Kind StorageV2
 ```
+
+> [!IMPORTANT]
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters.
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **SkuName** parameter.
 
@@ -169,6 +180,9 @@ az storage account create \
     --kind StorageV2
 ```
 
+> [!IMPORTANT]
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters. 
+
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **sku** parameter.
 
 |Replication option  |sku parameter  |
@@ -201,7 +215,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-To learn how to create templates, see:
+> [!NOTE]
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`. 
+
+To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
@@ -256,7 +273,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/resource-group-delete.md).
+Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 > [!WARNING]
 > It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.

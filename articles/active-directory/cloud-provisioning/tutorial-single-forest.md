@@ -29,14 +29,14 @@ You can use the environment you create in this tutorial for testing or for getti
 
 ### In your on-premises environment
 
-1. Identity a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
+1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
 
 2. If there is a firewall between your servers and Azure AD, configure the following items:
    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 
      | Port number | How it's used |
      | --- | --- |
-     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
      | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. |
      

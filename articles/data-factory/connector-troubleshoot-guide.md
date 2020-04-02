@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -13,35 +13,33 @@ ms.reviewer: craigg
 # Troubleshoot Azure Data Factory Connectors
 
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
+  
 
-## Azure Data Lake Storage
+## Azure Blob Storage
 
-### Error message: The remote server returned an error: (403) Forbidden
+### Error code:  AzureBlobOperationFailed
 
-- **Symptoms**: Copy activity fail with the following error: 
+- **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
-    ```
-    Message: The remote server returned an error: (403) Forbidden.. 
-    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
-    ```
+- **Cause**: Blob storage operation hit problem.
 
-- **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
+- **Recommendation**:  Check the error in details. Refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
 
-- **Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
 
-### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
+### Error code:  AzureBlobServiceNotReturnExpectedDataLength
 
-- **Symptoms**:Copy activity fail with the following error:
+- **Message**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
 
-    ```
-    Failed to get access token by using service principal. 
-    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
-    ```
 
-- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
-busy to handle requests, it returns an HTTP error 503. 
+### Error code:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
 
-- **Resolution**: Rerun the copy activity after several minutes.
+- **Message**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+
+
+### Error code:  AzureStorageOperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
 
 ## Azure Cosmos DB
 
@@ -116,60 +114,88 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+			
 
-## SFTP
+## Azure Data Lake Storage Gen2
 
-### Error message: Invalid SFTP credential provided for 'SshPublicKey' authentication type
+### Error code:  AdlsGen2OperationFailed
 
-- **Symptoms**: You use `SshPublicKey` authentication and hit the following error:
+- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+
+- **Cause**: ADLS Gen2 throws the error indicating operation failed.
+
+- **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
+
+- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
+
+- **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+
+- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
+
+- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
+
+
+### Error code:  AdlsGen2InvalidUrl
+
+- **Message**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
+
+
+### Error code:  AdlsGen2InvalidFolderPath
+
+- **Message**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
+
+
+### Error code:  AdlsGen2OperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+
+### Error code:  AdlsGen2TimeoutError
+
+- **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+
+
+## Azure Data Lake Storage Gen1
+
+### Error message: The remote server returned an error: (403) Forbidden
+
+- **Symptoms**: Copy activity fail with the following error: 
 
     ```
-    Invalid Sftp credential provided for 'SshPublicKey' authentication type
+    Message: The remote server returned an error: (403) Forbidden.. 
+    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **Cause**: There are 3 possible causes:
+- **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
 
-    1. If you use ADF authoring UI to author SFTP linked service, this error means the private key you choose to use is of wrong format. You may use a PKCS#8 format of SSH private key, while note that ADF only supports the traditional SSH Key format. More specifically, the difference between PKCS#8 format and traditional Key format is PKCS#8 key content starts with “*-----BEGIN ENCRYPTED PRIVATE KEY-----*” whereas traditional key format starts with “*-----BEGIN RSA PRIVATE KEY-----*”.
-    2. If you use Azure Key Vault to store the private key content or use programmatical way to author the SFTP linked service, this error means the private key content there is incorrect, likely it's not base64 encoded.
-    3. Invalid credential or private key content.
+- **Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
 
-- **Resolution**: 
+### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
 
-    - For cause #1, run the following commands to convert the key to traditional key format, then use it in ADF authoring UI.
+- **Symptoms**: Copy activity fail with the following error:
 
-        ```
-        # Decrypt the pkcs8 key and convert the format to traditional key format
-        openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    ```
+    Failed to get access token by using service principal. 
+    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
+    ```
 
-        chmod 600 traditional_format_key_file
+- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
+busy to handle requests, it returns an HTTP error 503. 
 
-        # Re-encrypte the key file using passphrase
-        ssh-keygen -f traditional_format_key_file -p
-        ```
+- **Resolution**: Rerun the copy activity after several minutes.
+			      
 
-    - For cause #2, To generate such string, customer can use below 2 ways:
-    - Using third party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
-    - Using C# code:
-
-        ```c#
-        byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
-        string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-        ```
-
-    - For cause #3, double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
-  
-
-## Azure SQL Data Warehouse \ Azure SQL Database \ SQL Server
+## Azure SQL Data Warehouse/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
-- **Message**: `Cannot connect to SQL database: '%server;', Database: '%database;', User: '%user;'. Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.`
+- **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
-- **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
+- **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
-- **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL database, usually it is caused by Azure SQL database firewall issue.
+- **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
 - **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
@@ -178,57 +204,58 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Message**: `A database operation failed. Please search error to get more details.`
 
-- **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
+- **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Please refer the detail doc:  https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
+		For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
-- **Recommendation**:  Please check the size of both source and sink columns. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  Check the size of both source and sink columns. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### Error code:  SqlUnauthorizedAccess
 
 - **Message**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
-- **Cause**: Credential is incorrect or the login account cannot access SQL database.
+- **Cause**: Credential is incorrect or the login account cannot access SQL Database.
 
-- **Recommendation**:  Please check the login account has enough permission to access the SQL database.
+- **Recommendation**:  Check the login account has enough permission to access the SQL Database.
 
 
 ### Error code:  SqlOpenConnectionTimeout
 
 - **Message**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
-- **Cause**: Could be SQL database transient failure.
+- **Cause**: Could be SQL Database transient failure.
 
 - **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
 
 
 ### Error code:  SqlAutoCreateTableTypeMapFailed
 
-- **Message**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(colunm name:'%colunmName;') in auto-create table.`
+- **Message**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
 - **Cause**: Auto creation table cannot meet source requirement.
 
-- **Recommendation**:  Please update the column type in 'mappings', or manually create the sink table in target server.
+- **Recommendation**:  Update the column type in 'mappings', or manually create the sink table in target server.
 
 
 ### Error code:  SqlDataTypeNotSupported
 
-- **Message**: `A database operation failed. Please check the SQL errors.`
+- **Message**: `A database operation failed. Check the SQL errors.`
 
 - **Cause**: If the issue happens on SQL source and the error is related to SqlDateTime overflow, the data value is over the logic type range (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
 
-- **Recommendation**:  Please cast the type to string in source SQL query, or in copy activity column mapping change the column type to 'String'.
+- **Recommendation**:  Cast the type to string in source SQL query, or in copy activity column mapping change the column type to 'String'.
 
 - **Cause**: If the issue happens on SQL sink and the error is related to SqlDateTime overflow, the data value is over the allowed range in sink table.
 
-- **Recommendation**:  Please update the corresponding column type to 'datetime2' type in sink table.
+- **Recommendation**:  Update the corresponding column type to 'datetime2' type in sink table.
 
 
 ### Error code:  SqlInvalidDbStoredProcedure
@@ -237,7 +264,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data.
 
-- **Recommendation**:  Please validate the stored procedure by SQL Tools. Make sure the stored procedure can return data.
+- **Recommendation**:  Validate the stored procedure by SQL Tools. Make sure the stored procedure can return data.
 
 
 ### Error code:  SqlInvalidDbQueryString
@@ -246,7 +273,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: The specified SQL Query is not valid. It could be caused by that the query doesn't return any data
 
-- **Recommendation**:  Please validate the SQL Query by SQL Tools. Make sure the query can return data.
+- **Recommendation**:  Validate the SQL Query by SQL Tools. Make sure the query can return data.
 
 
 ### Error code:  SqlInvalidColumnName
@@ -255,43 +282,58 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: Cannot find column. Possible configuration wrong.
 
-- **Recommendation**:  Please verify column in the query, 'structure' in dataset, and 'mappings' in activity.
+- **Recommendation**:  Verify the column in the query, 'structure' in dataset, and 'mappings' in activity.
+
+
+### Error code:  SqlColumnNameMismatchByCaseSensitive
+
+- **Message**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
 
 
 ### Error code:  SqlBatchWriteTimeout
 
-- **Message**: `Timeout in SQL write opertaion.`
+- **Message**: `Timeouts in SQL write operation.`
 
-- **Cause**: Could be SQL database transient failure.
+- **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  If problem repro, please contact Azure SQL support.
+- **Recommendation**:  Please retry. If problem repro, contact Azure SQL support.
 
 
-### Error code:  SqlBatchWriteRollbackFailed
+### Error code:  SqlBatchWriteTransactionFailed
 
-- **Message**: `Timeout in SQL write operation and rollback also fail.`
+- **Message**: `SQL transaction commits failed`
 
-- **Cause**: Could be SQL database transient failure.
+- **Cause**: If exception details constantly tell transaction timeout, the network latency between integration runtime and database is higher than default threshold as 30 seconds.
 
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
+- **Recommendation**:  Update Sql linked service connection string with 'connection timeout' value equals to 120 or higher and rerun the activity.
+
+- **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or SQL Database side issue
+
+- **Recommendation**:  Please retry the activity and review SQL Database side metrics.
 
 
 ### Error code:  SqlBulkCopyInvalidColumnLength
 
-- **Message**: `SQL Bulk Copy failed due to received an invalid column length from the bcp client.`
+- **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
-- **Cause**: SQL Bulk Copy failed due to received an invalid column length from the bcp client.
+- **Cause**: SQL Bulk Copy failed due to receive an invalid column length from the bcp client.
 
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### Error code:  SqlConnectionIsClosed
 
-- **Message**: `The connection is closed by SQL database.`
+- **Message**: `The connection is closed by SQL Database.`
 
-- **Cause**: SQL connection is closed by SQL database when high concurrent run and sever terminate connection.
+- **Cause**: SQL connection is closed by SQL Database when high concurrent run and server terminate connection.
 
-- **Recommendation**:  Remote server close the SQL connection. Please retry. If problem repro, please contact Azure SQL support.
+- **Recommendation**:  Remote server closed the SQL connection. Please retry. If problem repro, contact Azure SQL support.
+
+
+### Error code:  SqlCreateTableFailedUnsupportedType
+
+- **Message**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
+
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
@@ -370,35 +412,257 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
             
 
-## Azure Blob Storage
+## Delimited Text Format
 
-### Error code:  AzureBlobOperationFailed
+### Error code:  DelimitedTextColumnNameNotAllowNull
 
-- **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
+- **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: Blob storage operation hit problem.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
 
-- **Recommendation**:  Please check the error in details. Please refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
+- **Recommendation**:  Check the first row, and fix the value if there is empty value.
+
+
+### Error code:  DelimitedTextMoreColumnsThanDefined
+
+- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+
+- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+
+- **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
+
+- **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
+
+- **Recommendation**:  Check the format settings to make sure it matches to your source file(s).
+
+- **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
+
+- **Recommendation**:  Make sure the files under the given folder have identical schema.
+
+
+### Error code:  DelimitedTextIncorrectRowDelimiter
+
+- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### Error code:  DelimitedTextTooLargeColumnCount
+
+- **Message**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+
+
+### Error code:  DelimitedTextInvalidSettings
+
+- **Message**: `%settingIssues;`
 
 
 
-## Azure Data Lake Gen2
+## Dynamics 365/Common Data Service/Dynamics CRM
 
-### Error code:  AdlsGen2OperationFailed
+### Error code:  DynamicsCreateServiceClientError
 
-- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Message**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
 
-- **Cause**: ADLS Gen2 throws the error indicating operation failed.
+- **Cause**: This is a transient issue on dynamics server side.
 
-- **Recommendation**:  Please check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
+- **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
 
-- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
 
-- **Recommendation**:  Please refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
 
-- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
+## JSON Format
 
-- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
+### Error code:  JsonInvalidArrayPathDefinition
+
+- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+
+
+### Error code:  JsonEmptyJObjectData
+
+- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### Error code:  JsonNullValueInPathDefinition
+
+- **Message**: `Null JSONPath detected in JsonPathDefinition.`
+
+
+### Error code:  JsonUnsupportedHierarchicalComplexValue
+
+- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+
+
+### Error code:  JsonConflictPartitionDiscoverySchema
+
+- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+
+
+### Error code:  JsonInvalidDataFormat
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+
+
+### Error code:  JsonInvalidDataMixedArrayAndObject
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+
+
+
+## Parquet Format
+
+### Error code:  ParquetJavaInvocationException
+
+- **Message**: `An error occurred when invoking java, message: %javaException;.`
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
+
+- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, suggest to upgrade to the latest version.
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
+
+- **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, scale up to a powerful machine with memory equal to or larger than 8 GB.
+
+- **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
+
+- **Recommendation**:  Please retry. If the problem persists, please contact support.
+
+
+### Error code:  ParquetInvalidFile
+
+- **Message**: `File is not a valid parquet file.`
+
+- **Cause**: Parquet file issue.
+
+- **Recommendation**:  Check the input is a valid parquet file.
+
+
+### Error code:  ParquetNotSupportedType
+
+- **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
+
+- **Cause**: The parquet format is not supported in Azure Data Factory.
+
+- **Recommendation**:  Double check the source data. Refer to the doc: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### Error code:  ParquetMissedDecimalPrecisionScale
+
+- **Message**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
+
+- **Cause**: Try to parse the number precision and scale, but no such information is provided.
+
+- **Recommendation**:  'Source' does not return correct Precision and scale. Check the issue column precision and scale.
+
+
+### Error code:  ParquetInvalidDecimalPrecisionScale
+
+- **Message**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
+
+- **Cause**: The schema is invalid.
+
+- **Recommendation**:  Check the issue column precision and scale.
+
+
+### Error code:  ParquetColumnNotFound
+
+- **Message**: `Column %column; does not exist in Parquet file.`
+
+- **Cause**: Source schema is mismatch with sink schema.
+
+- **Recommendation**:  Check the'mappings' in 'activity'. Make sure the source column can be mapped to the right sink column.
+
+
+### Error code:  ParquetInvalidDataFormat
+
+- **Message**: `Incorrect format of %srcValue; for converting to %dstType;.`
+
+- **Cause**: The data cannot be converted into type specified in mappings.source
+
+- **Recommendation**:  Double check the source data or specify the correct data type for this column in copy activity column mapping. Refer to the doc: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### Error code:  ParquetDataCountNotMatchColumnCount
+
+- **Message**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
+
+- **Cause**: Source column count and sink column count mismatch
+
+- **Recommendation**:  Double check source column count is same as sink column count in 'mapping'.
+
+
+### Error code:  ParquetDataTypeNotMatchColumnType
+
+- **Message**: The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.
+
+- **Cause**: Data from source cannot be converted to typed defined in sink
+
+- **Recommendation**:  Please specify a correct type in mapping.sink.
+
+
+### Error code:  ParquetBridgeInvalidData
+
+- **Message**: `%message;`
+
+- **Cause**: Data value over limitation
+
+- **Recommendation**:  Please retry. If issue persists, please contact us.
+
+
+### Error code:  ParquetUnsupportedInterpretation
+
+- **Message**: `The given interpretation '%interpretation;' of parquet format is not supported.`
+
+- **Cause**: Not supported scenario
+
+- **Recommendation**:  'ParquetInterpretFor' should not be 'sparkSql'.
+
+
+### Error code:  ParquetUnsupportFileLevelCompressionOption
+
+- **Message**: `File level compression is not supported for Parquet.`
+
+- **Cause**: Not supported scenario
+
+- **Recommendation**:  Remove 'CompressionType' in payload.
+
+
+
+## General Copy Activity Error
+
+### Error code:  JreNotFound
+
+- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+
+- **Cause**: The self-hosted integration runtime cannot find Java Runtime. The Java Runtime is required for reading particular source.
+
+- **Recommendation**:  Check your integration runtime environment, the reference doc: https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+
+
+### Error code:  WildcardPathSinkNotSupported
+
+- **Message**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
+
+- **Cause**: Sink dataset doesn't support wildcard.
+
+- **Recommendation**:  Check the sink dataset and fix the path without wildcard value.
+
+
+### Error code:  MappingInvalidPropertyWithEmptyValue
+
+- **Message**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
+
+
+### Error code:  MappingInvalidPropertyWithNamePathAndOrdinal
+
+- **Message**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
+
+
+### Error code:  MappingDuplicatedOrdinal
+
+- **Message**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
+
+
+### Error code:  MappingInvalidOrdinalForSinkColumn
+
+- **Message**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
 ## Next steps

@@ -20,7 +20,7 @@ You can choose to install binding extensions individually, or you can add an ext
 
 [!INCLUDE [Register extensions](functions-extension-bundles.md)]
 
-To learn more, see [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md#extension-bundles). You should add extension bundles to the host.json before you add bindings to the functions.json file.
+To learn more, see [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md#extension-bundles). You should add extension bundles to the host.json before you add bindings to the function.json file.
 
 ### Register individual extensions
 

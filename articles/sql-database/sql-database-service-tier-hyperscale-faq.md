@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer:
-ms.date: 10/12/2019
+ms.date: 03/03/2020
 ---
 # Azure SQL Database Hyperscale FAQ
 
@@ -159,7 +159,7 @@ Your database size automatically grows as you insert/ingest more data.
 
 ### What is the smallest database size that Hyperscale supports or starts with
 
-10 GB.
+40 GB. A Hyperscale database is created with a starting size of 10 GB. Then, it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB. Each of these 10 GB chucks is allocated in a different page server in order to provide more IOPS and higher I/O parallelism. Because of this optimization, even if you choose initial database size smaller than 40 GB, the database will grow to at least 40 GB automatically.
 
 ### In what increments does my database size grow
 
@@ -268,7 +268,7 @@ No. Backups are managed by the storage subsystem, and leverage storage snapshots
 
 ### Can I perform geo-restore with a Hyperscale database
 
-Yes.  Geo-restore is fully supported. Unlike point-in-time restore, geo-restore may require a long running size-of-data operation.
+Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) with the region of the source database.
 
 ### Can I set up geo-replication with Hyperscale database
 
@@ -316,7 +316,7 @@ Because the storage is shared and there is no direct physical replication happen
 
 ### How do I diagnose and troubleshoot performance problems in a Hyperscale database
 
-For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](/sql-database-hyperscale-performance-diagnostics).
+For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](sql-database-hyperscale-performance-diagnostics.md).
 
 ## Scalability Questions
 

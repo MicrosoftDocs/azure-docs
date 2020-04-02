@@ -1,13 +1,12 @@
 ---
 title: Build a serverless mobile application back end with Azure Functions and other services
 description: Learn about the compute services used to build a solid, serverless mobile application back end.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Build mobile back-end components with compute services
@@ -31,7 +30,7 @@ Use the following services to enable serverless compute capabilities in your mob
 - Event-driven and scalable where you can use triggers and bindings to define when a function is invoked and to what data it connects.
 - Bring your own dependencies because Functions supports NuGet and NPM, so you can use your favorite libraries.
 - Integrated security so that you can protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
-- Simplified integration with different [Azure services](/azure/azure-functions/functions-overview#integrations) and software as a service (SaaS) offerings.
+- Simplified integration with different [Azure services](/azure/azure-functions/functions-overview) and software as a service (SaaS) offerings.
 - Flexible development so that you can code your functions right in the Azure portal or set up continuous integration and deploy your code through GitHub, Azure DevOps Services, and other supported development tools.
 - Functions runtime is open source and available on [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 - Enhanced development experience where you can code, test, and debug locally by using their preferred editor or easy-to-use web interface with monitoring with integrated tools and built-in DevOps capabilities.

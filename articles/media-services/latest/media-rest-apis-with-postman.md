@@ -1,5 +1,5 @@
 ---
-title: Configure Postman for Azure Media Services REST API calls
+title: Configure Postman for Azure Media Services v3 REST API calls
 description: This article shows you how to configure Postman so it can be used to call Azure Media Services (AMS) REST APIs.
 services: media-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 12/05/2019
 ms.author: juliako
 
 ---
-# Configure Postman for Media Services REST API calls
+# Configure Postman for Media Services v3 REST API calls
 
 This article shows you how to configure **Postman** so it can be used to call Azure Media Services (AMS) REST APIs. The article shows how to import environment and collection files into **Postman**. The collection contains grouped definitions of HTTP requests that call Azure Media Services (AMS) REST APIs. The environment file contains variables that are used by the collection.
 

@@ -21,9 +21,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-This script creates an Azure Function app using the [consumption plan](../functions-scale.md#consumption-plan).
+This script creates an Azure Function app using the [Consumption plan](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Publish built-in apps in Windows Virtual Desktop - Azure
-description: How to publish modern apps in Windows Virtual Desktop.
+description: How to publish built-in apps in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
+manager: lizross
 ---
 # Publish built-in apps in Windows Virtual Desktop
 
@@ -18,7 +19,7 @@ This article will tell you how to publish apps in your Windows Virtual Desktop e
 To publish a built-in app:
 
 1. Connect to one of the virtual machines in your host pool.
-2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](https://docs.microsoft.com/powershell/module/appx/get-appxpackage?view=win10-ps).
+2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](/powershell/module/appx/get-appxpackage?view=win10-ps/).
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
    
    ```powershell

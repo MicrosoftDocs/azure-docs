@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Create an Azure VM cluster with Terraform using the Module Registry
-description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
+description: In this tutorial, you use Terraform modules to create a Windows virtual machine cluster in Azure
+keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create an Azure VM cluster with Terraform using the Module Registry
@@ -20,9 +21,9 @@ For more information on Terraform, see the [Terraform documentation](https://www
 ## Set up authentication with Azure
 
 > [!TIP]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> If you [use Terraform environment variables](terraform-install-configure.md) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+ Review [Install Terraform and configure access to Azure](terraform-install-configure.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```hcl
 variable subscription_id {}
@@ -31,6 +32,8 @@ variable client_id {}
 variable client_secret {}
 
 provider "azurerm" {
+    version = "~>1.40"
+
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

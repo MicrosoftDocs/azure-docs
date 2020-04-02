@@ -1,6 +1,6 @@
 ---
 title: Replicas and instances in Azure Service Fabric 
-description: Understand replicas and instances--their function and lifecycles
+description: Learn about replicas and instances in Service Fabric, including an overview of their lifecycles and functions.
 author: appi101
 
 ms.topic: conceptual

@@ -71,7 +71,7 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
 >[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

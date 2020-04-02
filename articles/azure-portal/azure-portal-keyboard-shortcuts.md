@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
-ms.author: kfollis
+ms.author: mblythe
 ms.custom: accessibility
 ---
 # Keyboard shortcuts in the Azure portal

@@ -2,14 +2,14 @@
 title: Tutorial - Create an Azure Active Directory B2C tenant
 description: Learn how to prepare for registering your applications by creating an Azure Active Directory B2C tenant using the Azure portal.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -64,6 +64,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     For **Resource group**, select **Create new**. Enter a **Name** for the resource group that will contain the tenant, select the **Resource group location**, and then select **Create**.
 
     ![Link subscription settings form in Azure portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+
+    You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes.
 
 ## Select your B2C tenant directory
 

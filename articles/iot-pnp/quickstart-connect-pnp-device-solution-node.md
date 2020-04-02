@@ -3,7 +3,7 @@ title: Interact with an IoT Plug and Play Preview device connected to your Azure
 description: Use Node.js to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
 author: miagdp
 ms.author: miag
-ms.date: 08/02/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp

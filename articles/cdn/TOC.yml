@@ -40,7 +40,7 @@
     href: cdn-china-delivery.md   
   - name: HTTP/2 support
     href: cdn-http2.md 
-  - name: Retrieve a Verizon POP list
+  - name: Retrieve POP IP's
     href: cdn-pop-list-api.md        
   - name: Migrate from Standard Verizon to Premium Verizon  
     href: cdn-migrate.md
@@ -102,6 +102,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
+    - name: HTTP raw logs
+      href: enable-raw-logs.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon

@@ -3,14 +3,14 @@ title: Azure Activity Log event schema
 description: Describes the event schema for each category in the Azure Activity log.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The [Azure Activity log](activity-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema for each category. 
+The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema for each category. 
 
 The examples below show the schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](resource-logs-stream-event-hubs.md). A mapping of the properties to the [resource logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
@@ -33,7 +33,7 @@ This category contains the record of all create, update, delete, and action oper
         "nbf": "1234567890",
         "exp": "1234567890",
         "_claim_names": "{\"groups\":\"src1\"}",
-        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.microsoft.com/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
         "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
@@ -862,6 +862,6 @@ Following is an example of an event using this schema..
 
 
 ## Next steps
-* [Learn more about the Activity Log](activity-logs-overview.md)
+* [Learn more about the Activity Log](platform-logs-overview.md)
 * [Create a diagnostic setting to send Activity Log to Log Analytics workspace, Azure storage, or event hubs](diagnostic-settings.md)
 

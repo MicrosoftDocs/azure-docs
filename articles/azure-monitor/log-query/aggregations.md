@@ -1,7 +1,6 @@
 ---
 title: Aggregations in Azure Monitor log queries| Microsoft Docs
 description: Describes aggregation functions in Azure Monitor log queries that offer useful ways to analyze your data.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

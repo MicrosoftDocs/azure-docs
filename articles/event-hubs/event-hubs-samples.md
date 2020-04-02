@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 01/15/2020
 ms.author: shvija
 
 ---
@@ -24,30 +24,32 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 
 ## .NET samples
 
-| Sample name | Description | 
-| ----------- | ----------- | 
-| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | This sample shows how to write a .NET Core console application that sends a set of events to an event hub. |
-| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | This sample shows how to write a .NET Core console application that receives a set of events from an event hub by using the Event Processor Host library.  | 
+| Version | Samples location |
+| ------- | ---------------- | 
+| Azure.Messaging.EventHubs version 5 (latest) | [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs Processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
+| Microsoft.Azure.EventHubs version 4 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
 
 ## Java samples
 
-| Sample name | Description | 
-| ----------- | ----------- | 
-| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | This sample illustrates how to ingest batches of events into your event hub. | 
-| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | This sample illustrates how to ingest events into your event hub. |
-| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | This sample illustrates the various options available with Event Hubs to ingest events. |
-| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | This sample illustrates how to receive events from an event hub partition using a specific date-time offset. |
-| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | This sample illustrates how to receive events from an event hub partition using a specific data offset. |  
-| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | This sample illustrates how can receive from an event hub partitions using a sequence number. |   
-| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |This sample illustrates how to receive events from an event hub using the event processor host, which provides automatic partition selection and fail-over across multiple concurrent receivers. | 
-| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | This sample illustrates how an event hub can automatically scale up on high loads. The sample will send events at a rate that just exceed the configured rate of an event hub, causing the event hub to scale up. | 
-| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | This sample allows measuring the ingress rate. | 
+| Version | Samples location |
+| ------- | ---------------- | 
+| azure-messaging-eventhubs version 5 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
+| azure-eventhubs version 3 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
 
 ## Python samples
-You can find Python samples for Azure Event Hubs in the [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub repository.
 
-## Node.js samples
-You can find Node.js samples for Azure Event Hubs in the [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub repository.
+| Version | Samples location |
+| ------- | ---------------- | 
+| azure-eventhub version 5 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
+| azure-eventhub version 1 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
+
+## JavaScript samples
+
+| Version | Samples location |
+| ------- | ---------------- | 
+| azure/event-hubs version 5 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) | 
+| azure/event-hubs version 2 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
+
 
 ## Go samples
 You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.

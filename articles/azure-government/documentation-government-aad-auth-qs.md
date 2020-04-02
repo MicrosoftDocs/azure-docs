@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/2/2017
-ms.author: yujhong
+ms.author: femila
 
 ---
 # Integrate Azure AD Authentication with Web Apps on Azure Government

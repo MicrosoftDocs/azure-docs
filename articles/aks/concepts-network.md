@@ -1,13 +1,10 @@
 ---
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
-services: container-service
-author: mlearned 
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: mlearned
+ms.custom: fasttrack-edit
+
 ---
 
 # Network concepts for applications in Azure Kubernetes Service (AKS)
@@ -41,7 +38,7 @@ To simplify the network configuration for application workloads, Kubernetes uses
 
     ![Diagram showing NodePort traffic flow in an AKS cluster][aks-nodeport]
 
-- **LoadBalancer** - Creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers traffic to reach the application, load balancing rules are created on the desired ports. 
+- **LoadBalancer** - Creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports. 
 
     ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
 
@@ -104,6 +101,8 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported |
 | Default Azure DNS and Private Zones                                                          | Supported | Supported |
 
+Regarding DNS, with both kubenet and Azure CNI plugins DNS is offered by CoreDNS, a daemon set running in AKS. For more information on CoreDNS on Kubernetes see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS is configured per default to forward unknown domains to the node DNS servers, in other words, to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
+
 ### Support scope between network models
 
 Regardless of the network model you use, both kubenet and Azure CNI can be deployed in one of the following ways:
@@ -113,8 +112,8 @@ Regardless of the network model you use, both kubenet and Azure CNI can be deplo
 
 Although capabilities like service endpoints or UDRs are supported with both kubenet and Azure CNI, the [support policies for AKS][support-policies] define what changes you can make. For example:
 
-* If you manually create the virtual network resources for an AKS cluster, you are supported when configuring your own UDRs or service endpoints.
-* If the Azure platform automatically creates the virtual network resources for your AKS cluster, it is not supported to manually change those AKS-managed resources to configure your own UDRs or service endpoints.
+* If you manually create the virtual network resources for an AKS cluster, you're supported when configuring your own UDRs or service endpoints.
+* If the Azure platform automatically creates the virtual network resources for your AKS cluster, it isn't supported to manually change those AKS-managed resources to configure your own UDRs or service endpoints.
 
 ## Ingress controllers
 
@@ -128,7 +127,7 @@ In AKS, you can create an Ingress resource using something like NGINX, or use th
 
 Another common feature of Ingress is SSL/TLS termination. On large web applications accessed via HTTPS, the TLS termination can be handled by the Ingress resource rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as Let's Encrypt. For more information on configuring an NGINX Ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
-You can also configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When a client's request is routed to a container in your AKS cluster via your ingress controller, the original source ip of that request will not be available to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*. If you are using client source IP preservation on your ingress controller, you cannot use SSL pass-through. Client source IP preservation and SSL pass-through can be used with other services, such as the *LoadBalancer* type.
+You can also configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When a client's request is routed to a container in your AKS cluster via your ingress controller, the original source IP of that request won't be available to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*. If you're using client source IP preservation on your ingress controller, you can't use SSL pass-through. Client source IP preservation and SSL pass-through can be used with other services, such as the *LoadBalancer* type.
 
 ## Network security groups
 

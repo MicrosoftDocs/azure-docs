@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description:  This tutorial demonstrates autocompletion and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # C# tutorial: Add autocompletion and suggestions - Azure Cognitive Search

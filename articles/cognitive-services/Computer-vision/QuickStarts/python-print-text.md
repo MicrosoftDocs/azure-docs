@@ -42,6 +42,8 @@ To create and run the sample, do the following steps:
 1. At the prompt, use the `python` command to run the sample. For example, `python get-printed-text.py`.
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline
@@ -95,6 +97,7 @@ for word in word_infos:
                       fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
+plt.show()
 plt.axis("off")
 ```
 

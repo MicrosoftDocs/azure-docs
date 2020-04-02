@@ -35,7 +35,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - An [Azure subscription](https://azure.microsoft.com/free/). 
 - Experience with deploying two managed instances within the same virtual network. 
 - A SQL Server subscriber, either on-premises or an Azure VM. This tutorial uses an Azure VM.  
-- [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
+- [SQL Server Management Studio (SSMS) 18.0 or greater](/sql/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - Port 445, and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall. 
 
@@ -195,7 +195,7 @@ USE [master]
 GO
 
 -- Drop database if it exists
-IF EXISTS (SELECT *FROM sys.sysdatabases WHERE name = 'ReplTutorial')
+IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
     DROP DATABASE ReplTutorial
 END
@@ -385,7 +385,7 @@ Possible solutions:
 
 When adding a new subscription using the **New Subscription** wizard, on the **Publication** page, you may find that there are no databases and publications listed as available options, and you might see the following error message:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 While it's possible that this error message is accurate, and there really aren't publications available on the publisher you connected to, or you're lacking sufficient permissions, this error could also be caused by an older version of SQL Server Management Studio. Try upgrading to SQL Server Management Studio 18.0 or greater to rule this out as a root cause. 
 

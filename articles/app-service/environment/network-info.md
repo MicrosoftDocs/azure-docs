@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -83,7 +83,7 @@ The ASE communicates out to internet accessible addresses on the following ports
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
+| CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
 | Azure SQL | 1433 | 
 | Monitoring | 12000 |
 
@@ -133,7 +133,7 @@ All these IP addresses are visible in the Azure portal from the ASE UI. If you h
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 

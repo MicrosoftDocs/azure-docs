@@ -41,5 +41,6 @@ To complete Parts 1 and 2 of this tutorial, you perform the following tasks:
   - Install [Visual Studio](https://www.visualstudio.com/).
   - Have access to a Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
   - Have an Office 365 account for sending notification e-mails.
+  - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

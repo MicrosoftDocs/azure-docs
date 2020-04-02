@@ -6,14 +6,15 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 03/19/2020
 ms.author: helohr
+manager: lizross
 ---
 # What is Windows Virtual Desktop? 
 
 Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
-Here’s what you can do when you run Windows Virtual Desktop on Azure:
+Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
 * Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
@@ -24,7 +25,7 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+Learn about Windows Virtual Desktop, why it's unique, and what's new in this video:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
@@ -67,7 +68,7 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* An [Azure Active Directory](/azure/active-directory/)
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
@@ -75,23 +76,52 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/active-directory-ds-comparison.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Address|Outbound TCP port|Purpose|Service Tag|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Service traffic|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
+|*.core.windows.net|443|Agent traffic|AzureCloud|
+|*.servicebus.windows.net|443|Agent traffic|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Agent traffic|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Windows activation|Internet|
+
+
+
+>[!IMPORTANT]
+>Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
+
+The following table lists optional URLs that your Azure virtual machines can have access to:
+
+|Address|Outbound TCP port|Purpose|Service Tag|
+|---|---|---|---|
+|*.microsoftonline.com|443|Authentication to MS Online Services|None|
+|*.events.data.microsoft.com|443|Telemetry Service|None|
+|www.msftconnecttest.com|443|Detects if the OS is connected to the internet|None|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
+|login.windows.net|443|Login to MS Online Services, Office 365|None|
+|*.sfx.ms|443|Updates for OneDrive client software|None|
+|*.digicert.com|443|Certificate revocation check|None|
+
 
 >[!NOTE]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+>Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can whitelist to allow network traffic. We only support whitelisting specific URLs at this time.
+>
+>For a list of Office-related URLs, including required Azure Active Directory-related URLs, see [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges).
+>
+>You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
+>
+>1. Register your virtual machines to the Windows Virtual Desktop host pool.
+>2. Open **Event viewer** and navigate to **Windows logs** > **Application** > **WVD-Agent** and look for Event ID 3702.
+>3. Whitelist the URLs that you find under Event ID 3702. The URLs under Event ID 3702 are region-specific. You'll need to repeat the whitelisting process with the relevant URLs for each region you want to deploy your virtual machines in.
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
@@ -105,11 +135,32 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (Preview)](connect-android.md)
+
+> [!IMPORTANT]
+> Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+
+> [!IMPORTANT]
+> Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
+
+The Remote Desktop clients must have access to the following URLs:
+
+|Address|Outbound TCP port|Purpose|Client(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Service traffic|All|
+|*.servicebus.windows.net|443|Troubleshooting data|All|
+|go.microsoft.com|443|Microsoft FWLinks|All|
+|aka.ms|443|Microsoft URL shortener|All|
+|docs.microsoft.com|443|Documentation|All|
+|privacy.microsoft.com|443|Privacy statement|All|
+|query.prod.cms.rt.microsoft.com|443|Client updates|Windows Desktop|
+
+>[!IMPORTANT]
+>Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to the client sites and resources, and don't include URLs for other services like Azure Active Directory.
 
 ## Supported virtual machine OS images
 
@@ -122,7 +173,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 

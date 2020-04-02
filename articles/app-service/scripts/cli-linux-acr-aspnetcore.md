@@ -9,8 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry

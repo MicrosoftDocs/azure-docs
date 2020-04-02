@@ -1,6 +1,6 @@
 ---
 title: Reliable Actors timers and reminders 
-description: Introduction to timers and reminders for Service Fabric Reliable Actors.
+description: Introduction to timers and reminders for Service Fabric Reliable Actors, including guidance on when to use each.
 author: vturecek
 
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
-title: Extended GeoJSON geometries in Azure Maps | Microsoft Docs
-description: Learn how to extend GeoJSON geometries in Azure Maps 
+title: Extended GeoJSON geometries | Microsoft Azure Maps
+description: In this article, you'll learn about how Microsoft Azure Maps extends the GeoJSON spec to represent certain geometries.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -13,10 +13,9 @@ manager:
 
 # Extended GeoJSON geometries
 
-Azure Maps provides a list of powerful APIs to search inside/along geographical features.
-These APIs standardize on [GeoJSON spec][1] for representing the geographical features (for example: state boundaries, routes).  
+Azure Maps provides a list of powerful APIs to search inside and along geographical features. These APIs adhere to the standard [GeoJSON spec][1] of representing geographical features.  
 
-The [GeoJSON spec][1] only supports the following geometries:
+The [GeoJSON spec][1] supports only the following geometries:
 
 * GeometryCollection
 * LineString
@@ -26,7 +25,7 @@ The [GeoJSON spec][1] only supports the following geometries:
 * Point
 * Polygon
 
-Some Azure Maps APIs (for example: [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accept geometries like "Circle", which are not part of the [GeoJSON spec][1].
+Some Azure Maps APIs accept geometries that aren't part of the [GeoJSON spec][1]. For instance, the [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) API accepts Circle and Polygons.
 
 This article provides a detailed explanation on how Azure Maps extends the [GeoJSON spec][1] to represent certain geometries.
 
@@ -34,7 +33,7 @@ This article provides a detailed explanation on how Azure Maps extends the [GeoJ
 
 The `Circle` geometry is not supported by the [GeoJSON spec][1]. We use a `GeoJSON Point Feature` object to represent a circle.
 
-A `Circle` geometry represented using the `GeoJSON Feature` object __must__ contain the following:
+A `Circle` geometry represented using the `GeoJSON Feature` object __must__ contain the following coordinates and properties:
 
 - Center
 
@@ -50,7 +49,7 @@ A `Circle` geometry represented using the `GeoJSON Feature` object __must__ cont
 
 #### Example
 
-Here's how you'll represent a circle centered at (latitude: 47.639754, longitude: -122.126986) with a radius equal to 100 meters, using a `GeoJSON Feature` object:
+Here's how you'll represent a circle using a `GeoJSON Feature` object. Let's center the circle at latitude: 47.639754 and longitude: -122.126986, and assign it a radius equal to 100 meters:
 
 ```json            
 {
@@ -70,15 +69,15 @@ Here's how you'll represent a circle centered at (latitude: 47.639754, longitude
 
 The `Rectangle` geometry is not supported by the [GeoJSON spec][1]. We use a `GeoJSON Polygon Feature` object to represent a rectangle. The rectangle extension is primarily used by the Web SDK's drawing tools module.
 
-A `Rectangle` geometry represented using the `GeoJSON Polygon Feature` object __must__ contain the following:
+A `Rectangle` geometry represented using the `GeoJSON Polygon Feature` object __must__ contain the following coordinates and properties:
 
 - Corners
 
-    The rectangle's corners are represented using the coordinates of a `GeoJSON Polygon` object. There should be five coordinates, one for each corner and a fifth coordinate that is the same as the 1st to close the polygon ring. These coordinates will be assumed to be aligned and rotated as desired by the developer.
+    The rectangle's corners are represented using the coordinates of a `GeoJSON Polygon` object. There should be five coordinates, one for each corner. And, a fifth coordinate that is the same as the first coordinate, to close the polygon ring. It will be assumed that these coordinates align, and that the developer may rotate them as wanted.
 
 - SubType
 
-    The rectangle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and its value should be _Rectangle_
+    The rectangle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties, and its value should be _Rectangle_
 
 ### Example
 

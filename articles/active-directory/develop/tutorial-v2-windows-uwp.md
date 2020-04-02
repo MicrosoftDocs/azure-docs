@@ -16,7 +16,6 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -29,6 +28,9 @@ At the end of this guide, your application calls a protected API by using person
 
 >[!NOTE]
 > This guide requires Visual Studio with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
+
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [Call the Microsoft Graph API from a Universal Windows Platform (UWP) application quickstart](quickstart-v2-uwp.md).
 
 ## How this guide works
 

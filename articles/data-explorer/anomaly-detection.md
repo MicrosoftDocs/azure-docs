@@ -1,5 +1,5 @@
 ---
-title: Time series anomaly detection and forecasting in Azure Data Explorer
+title: Time series anomaly detection & forecasting in Azure Data Explorer
 description: Learn how to analyze time series data for anomaly detection and forecasting using Azure Data Explorer.
 author: orspod
 ms.author: orspodek

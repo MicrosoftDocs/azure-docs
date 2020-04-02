@@ -13,7 +13,6 @@ ms.date: 12/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform developer glossary

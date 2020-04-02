@@ -87,6 +87,14 @@ The scheduled backup will be triggered within 2 hours of the scheduled backup ti
 
 Azure Virtual Machine backup policy supports a minimum retention range of seven days up to 9999 days. Any modification to an existing VM backup policy with less than seven days will require an update to meet the minimum retention range of seven days.
 
+### Can I backup or restore selective disks attached to a VM?
+
+Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.
+
+Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+
+To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
 ## Restore
 
 ### How do I decide whether to restore disks only or a full VM?
@@ -105,16 +113,9 @@ You can use the restore disk option if you want to:
 
 Yes, you can use backups taken before disks were migrated from unmanaged to managed.
 
-- By default, a restore VM job creates an unmanaged VM.
-- However, you can restore disks and use them to create a managed VM.
-
 ### How do I restore a VM to a restore point before the VM was migrated to managed disks?
 
-By default, a restore VM job creates a VM with unmanaged disks. To create a VM with managed disks:
-
-1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+The restore process remains the same. If the recovery point is of a point-in-time when VM had unmanaged disks, you can [restore disks as unmanaged](tutorial-restore-disk.md#unmanaged-disks-restore). If the VM had managed disks then, you can [restore disks as managed disks](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 

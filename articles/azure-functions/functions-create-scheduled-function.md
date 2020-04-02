@@ -48,7 +48,7 @@ Next, you create a function in the new function app.
     | **Name** | Default | Defines the name of your timer triggered function. |
     | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#ncrontab-expressions) that schedules your function to run every minute. |
 
-4. Click **Create**. A function is created in your chosen language that runs every minute.
+4. Click **Create**. A function is created in your chosen language that runs every minute, on the  minute.
 
 5. Verify execution by viewing trace information written to the logs.
 
@@ -64,7 +64,7 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
 ![Functions update timer schedule in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-You now have a function that runs once every hour. 
+You now have a function that runs once every hour, on the hour.
 
 ## Clean up resources
 

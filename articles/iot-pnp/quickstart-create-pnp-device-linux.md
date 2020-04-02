@@ -3,7 +3,7 @@ title: Create an Azure IoT Plug and Play Preview device (Linux) | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
