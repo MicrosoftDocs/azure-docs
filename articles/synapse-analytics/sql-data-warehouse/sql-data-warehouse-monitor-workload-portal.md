@@ -1,6 +1,6 @@
 ---
 title: Monitor workload - Azure portal 
-description: Monitor SQL Analytics using the Azure portal
+description: Monitor Synapse SQL using the Azure portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Monitor workload - Azure portal
 
-This article describes how to use the Azure portal to monitor your workload. This includes setting up Azure Monitor Logs to investigate query execution and workload trends using log analytics for [SQL Analytics](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+This article describes how to use the Azure portal to monitor your workload. This includes setting up Azure Monitor Logs to investigate query execution and workload trends using log analytics for [Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## Prerequisites
 
