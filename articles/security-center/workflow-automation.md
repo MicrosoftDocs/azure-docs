@@ -92,10 +92,11 @@ To view the raw event schemas of the security alerts or recommendations events p
 
 ## Next steps
 
-In this article, you learned about creating Logic Apps, running them manually in Security Center, and automating their execution. 
+In this article, you learned about creating Logic Apps, automating their execution in Security Center, and running them manually. 
 
-For other related material, see the following articles: 
+For other related material, see: 
 
+- [The Microsoft Learn module on how to use workflow automation to automate a security response](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Azure Security Center](security-center-recommendations.md)
 - [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 - [About Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)

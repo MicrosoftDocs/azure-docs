@@ -28,7 +28,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 ## Supported VMs and operating systems
 
-### Supported VM sizes
+### Supported VMs
 
 Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
@@ -40,7 +40,9 @@ Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption i
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory. 
 
-Azure Disk Encryption is also available for VMs with premium storage. 
+Azure Disk Encryption is also available for VMs with premium storage.
+
+Azure Disk Encryption is not available on [Generation 2 VMs](generation-2.md#generation-1-vs-generation-2-capabilities)) and [Lsv2-series VMs](../lsv2-series.md)). For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
 
 ### Supported operating systems
 

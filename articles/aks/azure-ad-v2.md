@@ -44,7 +44,8 @@ az extension update --name aks-preview
 az extension list
 ```
 
-To install kubectl, use the following
+To install kubectl, use the following:
+
 ```azurecli
 sudo az aks install-cli
 kubectl version --client
