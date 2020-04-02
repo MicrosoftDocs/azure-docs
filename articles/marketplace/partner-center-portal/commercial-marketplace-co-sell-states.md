@@ -1,6 +1,6 @@
 ---
-title: Co-sell state codes | Azure Marketplace
-description: Use these state/province codes when providing contact info on your offer's Co-sell page.
+title: Co-sell state and province codes | Azure Marketplace
+description: Use these state and province codes when providing contact info on your offer's Co-sell page.
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ---
 
-# Co-sell state/province codes
+# Co-sell state and province codes
 
 If applicable, use these codes to provide State/Province info when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md#contacts).
 
-## US States & Territories Table
+## US states and territories
 
-|   State/Territory Name              |   Code    |
+|   State and territory name          |   Code    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
 | Alaska                              | US-AK     |
@@ -75,9 +75,9 @@ If applicable, use these codes to provide State/Province info when [providing co
 | United States Minor Outlying Islands | US-UM    |
 | Virgin Islands, U.S.                 | US-VI    |
 
-## Canadian Provinces & Territories Table
+## Canadian provinces and territories
 
-|   Province/Territory Name         |   Code    |
+|   Province and territory name       |   Code    |
 |-------------------------------------|-----------|
 | Alberta                             |  CA-AB    |
 | British Columbia                    |  CA-BC    |
@@ -94,9 +94,9 @@ If applicable, use these codes to provide State/Province info when [providing co
 | Yukon                               |  CA-YT    |
 
 
-## Australian States & Territories Table
+## Australian states and territories
 
-|   State/Territory Name              |   Code    |
+|   State and territory name          |   Code    |
 |-------------------------------------|-----------|
 | New South Wales                     |  AU-NSW   |
 | Queensland                          |  AU-QLD   |
