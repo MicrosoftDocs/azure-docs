@@ -12,12 +12,12 @@ manager: lizross
 ---
 # Install language packs
 
-When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Multi-session virtual machine (VM) image to support as many languages as your organization needs. This article will tell you how to install language packs and capture images that let your users choose their own display languages.
+When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Enterprise Multi-session virtual machine (VM) image to support as many languages as your organization needs. This article will tell you how to install language packs and capture images that let your users choose their own display languages.
 
 Learn more about how to deploy a VM in Azure at [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
 >[!NOTE]
->This article applies to Windows 10 Multi-session VMs.
+>This article applies to Windows 10 Enterprise Multi-session VMs.
 
 ## Install a language pack
 
@@ -142,7 +142,7 @@ You can now deploy a VM using your new image. When you deploy the VM, make sure 
 
 ### How to change display language for standard users
 
-Standard users who aren't admins can change the display language on their VMs.
+Standard users can change the display language on their VMs.
 
 To change the display language:
 
