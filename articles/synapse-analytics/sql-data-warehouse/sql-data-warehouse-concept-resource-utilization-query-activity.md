@@ -38,9 +38,9 @@ The following metrics are available in the Azure portal for Synapse SQL. These m
 | Cache hit percentage    | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
-| Data Storage Size | Total size of data loaded into the database. This includes data residing in CCI and non-CCI tables where the size of non-CCI tables is measured by the total database file size | Sum |
-| Disaster Recovery Size | Total size of the geo-backup taken every 24 hours | Sum |
-| Snapshot Storage size | Total size of snapshots taken to provide database restore points. This includes automated and user-defined snapshots. | Sum |
+| Data Storage Size (GB) | Total size of data loaded into the database. This includes data residing in CCI and non-CCI tables where the size of non-CCI tables is measured by the total database file size | Sum |
+| Disaster Recovery Size (GB) | Total size of the geo-backup taken every 24 hours | Sum |
+| Snapshot Storage size (GB) | Total size of snapshots taken to provide database restore points. This includes automated and user-defined snapshots. | Sum |
 
 Things to consider when viewing metrics and setting alerts:
 
