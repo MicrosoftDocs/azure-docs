@@ -49,7 +49,6 @@ This section contains the following examples:
 > |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
@@ -231,7 +230,6 @@ This section contains the following examples:
 > |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
 > |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
