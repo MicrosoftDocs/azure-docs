@@ -78,22 +78,11 @@ namespace Speech.Recognition
 }
 ```
 
-Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual values from your Speech resource.
-
-- Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, and open the Speech resource
-- Under the **Keys** on the left, there are two available subscription keys
-    - Use either one as the `YourSubscriptionKey` value replacement
-- Under the **Overview** on the left, note the region and map it to the <a href="https://aka.ms/speech/sdkregion" target="_blank">region identifier <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    - Use the **Region identifier** as the `YourServiceRegion` value replacement, for example: `"westus"` for **West US**
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
 ## Code explanation
 
-The `Main` entry point of the application, is `Task` returning which enables the `async` and `await` keywords. The `RecognizeSpeechAsync` function starts by instantiating a <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet" target="_blank">`SpeechConfig` <span class="docon docon-navigate-external x-hidden-focus"></span></a> object from the Speech resource subscription key and region. Using the `config` instance, a <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet" target="_blank">`SpeechRecognizer` <span class="docon docon-navigate-external x-hidden-focus"></span></a> object is created.
-
-The `recognizer` instance exposes multiple ways to recognize speech. In this example, the `RecognizeOnceAsync()` method is demonstrated. This function lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech. Once the `result` is yielded, the code will write the recognition reason to the console.
-
-> [!TIP]
-> The Speech SDK will default to recognizing using `en-us` for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## Build and run your app
 
@@ -105,4 +94,4 @@ Now you're ready to rebuild your app and test the speech recognition functionali
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]

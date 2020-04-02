@@ -1,9 +1,9 @@
 ---
-author: erhopf
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
+ms.date: 04/02/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ ms.author: erhopf
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -38,11 +38,11 @@ Before you get started:
 
 ## Build and run the app
 
-Press F11, or select **Run** > **Debug**.
+Press <kbd>F11</kbd>, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
 ![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]
