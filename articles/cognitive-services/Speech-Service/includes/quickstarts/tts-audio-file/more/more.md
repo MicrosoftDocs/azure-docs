@@ -15,7 +15,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 | C# | [To a speaker][1-speaker] | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
 | C++ | [To a speaker][2-speaker] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
 | Java | [To a speaker][3-speaker] | [Android][java-android], [JRE][java-jre] |
-| JavaScript |  | [Windows, Linux, macOS][js-code] |
+| JavaScript | [Node.js to an audio file][js-node] | [Windows, Linux, macOS][js-code] |
 | Objective-C | [iOS to speaker][obj-iOS-qck], [macOS to speaker][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
 | Python | [To a speaker][4-speaker] | [Windows, Linux, macOS][python] |
 | Swift | [iOS to speaker][swift-iOS-qck], [macOS to speaker][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
@@ -39,6 +39,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android
 [java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre
 
+[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech
 [js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript
 
 [obj-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/text-to-speech
