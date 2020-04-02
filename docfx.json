@@ -130,6 +130,16 @@
       }
     },
     "fileMetadata": {
+      "brand": {
+        "articles/active-directory/**/*.md": "None",
+        "articles/active-directory/**/*.yml": "None",
+        "articles/active-directory-domain-services/**/*.md": "None",
+        "articles/active-directory-domain-services/**/*.yml": "None",
+        "articles/active-directory-b2c/**/*.md": "None",
+        "articles/active-directory-b2c/**/*.yml": "None",
+        "articles/storage/**/*.md": "None",
+        "articles/storage/**/*.yml": "None"
+      },
       "uhfHeaderId": {
         "articles/active-directory/**/*.md": "Azure",
         "articles/active-directory/**/*.yml": "Azure",
