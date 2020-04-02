@@ -52,7 +52,7 @@ The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates acc
 
 In C# code, you access the certificate by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
-```csharp
+```c#
 using System;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -76,6 +76,8 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
 
   // Use certificate
   Console.WriteLine(cert.FriendlyName);
+  
+  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
 }
 ```
 
@@ -109,12 +111,13 @@ The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates ac
 
 The certificate file names are the certificate thumbprints. The following C# code shows how to load a public certificate in a Linux app.
 
-```csharp
+```c#
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
@@ -137,12 +140,13 @@ If you need to load a certificate file that you upload manually, it's better to 
 
 The following C# example loads a public certificate from a relative path in your app:
 
-```csharp
+```c#
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
