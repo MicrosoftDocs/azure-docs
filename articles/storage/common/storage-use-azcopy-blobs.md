@@ -101,18 +101,6 @@ You can upload the contents of a directory without copying the containing direct
 
 You can specify complete file names, or use partial names with wildcard characters (*).
 
-### Tweak your upload operation with optional flags
-
-Here's some example flags that you can use to tweak your upload operations.
-
-|Flag|Scenario|
-|---|---|
-|`--block-blob-tier=[BlockBlob|PageBlob|AppendBlob]`|Upload to a specific access tier (such as the archive tier).|
-|`--blob-type=[None|Hot|Cool|Archive]`|Upload files as Append Blobs or Page Blobs.|
-|`--decompress=[gzip|deflate]`| Automatically decompress files.|
-
-For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
-
 #### Specify multiple complete file names
 
 Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
@@ -140,6 +128,20 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+
+[!TIP]
+>
+> **Tweak your upload operation with optional flags**
+>
+> Here's some example flags that you can use to tweak your upload operations.
+> 
+> |Flag|Scenario|
+> |---|---|
+> |`--block-blob-tier=[BlockBlob|PageBlob|AppendBlob]`|Upload to a specific access tier (such as the archive tier).|
+> |`--blob-type=[None|Hot|Cool|Archive]`|Upload files as Append Blobs or Page Blobs.|
+> |`--decompress=[gzip|deflate]`| Automatically decompress files.|
+>
+> For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Download files
 
