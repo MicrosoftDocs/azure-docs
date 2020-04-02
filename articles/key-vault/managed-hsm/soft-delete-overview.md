@@ -82,6 +82,6 @@ Unless a Managed HSM or object is recovered, at the end of the retention interva
 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
-- [How to use Managed HSMt soft-delete with PowerShell](soft-delete-powershell.md) 
+- [How to use Managed HSM soft-delete with PowerShell](soft-delete-powershell.md) 
 - [How to use Managed HSM soft-delete with CLI](soft-delete-cli.md)
 
