@@ -130,25 +130,15 @@
       }
     },
     "fileMetadata": {
-      "brand": {
-        "articles/active-directory/**/*.md": "None",
-        "articles/active-directory/**/*.yml": "None",
-        "articles/active-directory-domain-services/**/*.md": "None",
-        "articles/active-directory-domain-services/**/*.yml": "None",
-        "articles/active-directory-b2c/**/*.md": "None",
-        "articles/active-directory-b2c/**/*.yml": "None",
-        "articles/storage/**/*.md": "None",
-        "articles/storage/**/*.yml": "None"
-      },
       "uhfHeaderId": {
-        "articles/active-directory/**/*.md": "Azure",
-        "articles/active-directory/**/*.yml": "Azure",
-        "articles/active-directory-domain-services/**/*.md": "Azure",
-        "articles/active-directory-domain-services/**/*.yml": "Azure",
-        "articles/active-directory-b2c/**/*.md": "Azure",
-        "articles/active-directory-b2c/**/*.yml": "Azure",
-        "articles/storage/**/*.md": "Azure",
-        "articles/storage/**/*.yml": "Azure"
+        "articles/active-directory/**/*.md": "azure",
+        "articles/active-directory/**/*.yml": "azure",
+        "articles/active-directory-domain-services/**/*.md": "azure",
+        "articles/active-directory-domain-services/**/*.yml": "azure",
+        "articles/active-directory-b2c/**/*.md": "azure",
+        "articles/active-directory-b2c/**/*.yml": "azure",
+        "articles/storage/**/*.md": "azure",
+        "articles/storage/**/*.yml": "azure"
       },
       "author": {
         "articles/advisor/*.md": "saket-ms",
