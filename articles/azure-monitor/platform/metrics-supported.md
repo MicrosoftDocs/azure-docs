@@ -2414,9 +2414,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 > [!NOTE]
 > **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
 
-> [!IMPORTANT]
-> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
-
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |BytesReceived|Data In|Bytes|Total|Data In|Instance|
