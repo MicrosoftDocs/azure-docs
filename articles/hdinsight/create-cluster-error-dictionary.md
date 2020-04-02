@@ -223,9 +223,7 @@ HDInsight Service cannot connect to your cluster when attempting to create the c
 
 ### Resolution
 
-If you are using custom VNet network security group (NSGs) and user-defined routes (UDRs), ensure that your cluster can communicate with HDInsight management services.
-
-For additional information see [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+If you are using custom VNet network security group (NSGs) and user-defined routes (UDRs), ensure that your cluster can communicate with HDInsight management services. For additional information see [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ---
 
