@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
 ---
 
@@ -83,7 +83,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit | 
 | --- | --- | 
-| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 (fixed)|
+| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 |
 | [Dynamic Manifest Filters](filters-dynamic-manifest-overview.md)|100|
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
