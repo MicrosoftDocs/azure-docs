@@ -1,6 +1,6 @@
 ---
-title: Quotas and limitations in Azure Media Services  
-description: This topic describes quotas and limitations in Microsoft Azure Media Services.
+title: Quotas and limits in Azure Media Services  
+description: This topic describes quotas and limits in Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -75,7 +75,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
 | Max Live Output duration | 25 hours |
 
-<sup>4</sup> For detailed information about Live Event limitations, see [Live Event types comparison and limitations](live-event-types-comparison.md).
+<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison.md).
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 

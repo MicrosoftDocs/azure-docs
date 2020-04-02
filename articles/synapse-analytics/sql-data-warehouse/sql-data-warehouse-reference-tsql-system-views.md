@@ -1,6 +1,6 @@
 ---
 title: System views
-description: Links to the documentation for system views supported in SQL Analytics.
+description: Links to the documentation for system views supported in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -13,10 +13,18 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
+<<<<<<< HEAD
 # System views supported in Azure Synapse Analytics
 In this article, you'll find links to the documentation for T-SQL statements supported in the SQL pool resource of Azure Synapse.
 
 ## SQL pool catalog views
+=======
+# System views supported in Synapse SQL pool
+
+Links to the documentation for T-SQL statements supported in Synapse SQL pool.
+
+## Synapse SQL pool catalog views
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -39,7 +47,12 @@ In this article, you'll find links to the documentation for T-SQL statements sup
 * [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql)
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql)
 
+<<<<<<< HEAD
 ## SQL pool dynamic management views (DMVs)
+=======
+## SQL Data Warehouse dynamic management views (DMVs)
+
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx)
@@ -60,14 +73,16 @@ In this article, you'll find links to the documentation for T-SQL statements sup
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [sys.dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (Preview)
 
-## SQL Server DMVs applicable to SQL pool
-The following DMVs are applicable to SQL pool, but must be executed by connecting to the **master** database.
+## SQL Server DMVs applicable to Synapse SQL pool
+
+The following DMVs are applicable to Synapse SQL pool, but must be executed by connecting to the **master** database.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
 ## SQL Server catalog views
+
 * [sys.all_columns](https://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](https://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](https://msdn.microsoft.com/library/ms190340.aspx)
@@ -140,17 +155,29 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
+<<<<<<< HEAD
 ## SQL Server DMVs available in SQL pool
 SQL pool exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL pool, are reporting the state of SQL Databases running on the distributions.
 
 SQL pool and the Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
+=======
+## SQL Server DMVs available in Synapse SQL pool
+
+Synapse SQL pool exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in Synapse SQL pool, are reporting the state of SQL Databases running on the distributions.
+
+Synapse SQL pool and Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
 
 > [!NOTE]
 > To use these views, insert 'pdw_nodes_' into the name, as shown in the following table:
 > 
 > 
 
+<<<<<<< HEAD
 | DMV name in SQL pool | SQL Server Transact-SQL article|
+=======
+| DMV name in Synapse SQL pool | SQL Server Transact-SQL article|
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -212,8 +239,14 @@ SQL pool and the Analytics Platform System's Parallel Data Warehouse (PDW) use t
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
+<<<<<<< HEAD
 ## SQL Server 2016 PolyBase DMVs available in SQL pool
 The following DMVs are applicable to SQL pool, but must be executed by connecting to the **master** database.
+=======
+## SQL Server 2016 PolyBase DMVs available in Synapse SQL pool
+
+The following DMVs are applicable to Synapse SQL pool, but must be executed by connecting to the **master** database.
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -227,6 +260,7 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## SQL Server INFORMATION_SCHEMA views
+
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
 * [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
@@ -238,4 +272,9 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
+<<<<<<< HEAD
 For more reference information, see [T-SQL statements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-language-elements.md).
+=======
+
+For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Synapse SQL pool](sql-data-warehouse-reference-tsql-language-elements.md).
+>>>>>>> e3bf285641cb265d6b6942f3c9a17ec20f7d6e75
