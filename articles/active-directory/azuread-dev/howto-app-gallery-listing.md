@@ -45,9 +45,9 @@ You can get a free test account with all the premium Azure AD features - 90 days
 
 ## Submit the request in the portal
 
-After you've tested that your application integration works with Azure AD, submit your request for access in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
+After you've tested that your application integration works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-If the following page appears after you sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. The Azure AD team will add the account in the Microsoft Application Network portal.
+If the following page appears after you sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as [name@yourbusiness.com](mailto:name@yourbusiness.com) is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
 
 ![Access request message on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
 
