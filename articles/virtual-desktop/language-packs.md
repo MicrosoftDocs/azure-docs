@@ -140,9 +140,11 @@ To capture an image:
 
 You can now deploy a VM using your new image. When you deploy the VM, make sure to follow the instructions in [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
-### How to change display language within a VM
+### How to change display language for standard users
 
-If you or a user want to change the display language within a VM based on the image you created, here's how:
+Standard users who aren't admins can change the display language on their VMs.
+
+To change the display language:
 
 1. Go to **Language Settings**. If you don't know where that is, you can enter **Language** into the search bar in the Start Menu.
 
