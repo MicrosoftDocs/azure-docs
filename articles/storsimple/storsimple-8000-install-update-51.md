@@ -24,8 +24,11 @@ This tutorial explains how to install Update 5.1 on a StorSimple device running 
 Update 5.1 includes non-disruptive security updates. The non-disruptive or regular updates can be applied through the Azure portal <!--or by the hotfix method-->.
 
 > [!IMPORTANT]
+>
 > * Update 5.1 is a mandatory update and should be installed immediately. For more information, see [Update 5.1 release notes](storsimple-update51-release-notes.md).
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure portal.
+> * If you want to install using the hotfix method, contact [Microsoft Support](mailto:support@microsoft.com).
+
 <!--
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
 
