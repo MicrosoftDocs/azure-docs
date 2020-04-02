@@ -225,7 +225,7 @@ In the `db` object, replace the value of `uri` as show in the following example.
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Cosmos DB requires SSL](connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because of Cosmos DB requirements. For more information, see [Connection string requirements](connect-mongodb-account.md#connection-string-requirements).
 >
 >
 
