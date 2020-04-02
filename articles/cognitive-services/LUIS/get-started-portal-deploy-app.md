@@ -22,7 +22,7 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 
 ## Assign the resource key to the LUIS app in the LUIS portal
 
-Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
+Every time you create a new authoring or query prediction resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
 1. Sign in to the [preview LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
