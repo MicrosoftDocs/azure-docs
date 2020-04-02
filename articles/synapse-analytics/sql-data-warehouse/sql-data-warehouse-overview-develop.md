@@ -1,6 +1,6 @@
 ---
 title: Resources for developing a Synapse SQL pool in Azure Synapse Analytics
-description: Development concepts, design decisions, recommendations and coding techniques for SQL pool.
+description: Development concepts, design decisions, recommendations, and coding techniques for SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
