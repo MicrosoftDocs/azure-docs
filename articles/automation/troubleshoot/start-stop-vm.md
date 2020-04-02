@@ -131,7 +131,7 @@ This error can be caused by one of the following reasons:
 
 Review the following list for potential solutions to your problem or places to look:
 
-* When using the [sequence scenario](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) of the Start/Stop VM during off hours solution, you must make sure each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
+* When using the [sequence scenario](../automation-solution-vm-management.md) of the Start/Stop VM during off hours solution, you must make sure each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -181,7 +181,7 @@ Take the following steps to ensure that the solution is configured correctly.
 2. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
 3. Test your changes by executing the `SequencedStartStop_Parent` runbook with the WHATIF parameter set to True to preview your changes.
 
-For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md).
 
 ## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status
 
