@@ -67,7 +67,6 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
 - Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
-- Fixed a bug that was causing discovery error during import. 
 
 ## 1.4.38.0
 ### Release status
