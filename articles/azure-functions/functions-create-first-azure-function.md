@@ -39,8 +39,6 @@ Next, create a function in the new function app.
 
 1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
 
-    ![HTTP trigger function settings](./media/functions-create-first-azure-function/function-app-http-trigger-settings.png)
-
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
@@ -61,7 +59,7 @@ Next, create a function in the new function app.
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
-1. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to the **Code + Test** page in the portal and select the arrow at the bottom of the screen to expand the **Logs**. Select **Test** from the top menu.
+1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
 
    ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
