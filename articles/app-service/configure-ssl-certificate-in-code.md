@@ -58,6 +58,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
 string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+bool validOnly = false;
 
 using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser))
 {
@@ -67,7 +68,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
                               X509FindType.FindByThumbprint,
                               // Replace below with your certificate's thumbprint
                               certThumbprint,
-                              false);
+                              validOnly);
   // Get the first cert with the thumbprint
   X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
 
