@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/01/2020
+ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -139,7 +139,7 @@ To create a service principal, run the two scripts as described in [create a ser
 
 * The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
 
-* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** or **arcPush** user roles for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)
 
 To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script.
 
