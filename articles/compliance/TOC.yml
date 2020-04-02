@@ -1,0 +1,76 @@
+- name: Compliance Documentation
+  href: index.yml
+
+- name: Compliance offerings
+  expanded: true
+  items:
+  - name: Global
+    items:
+    - name: ISO 20000-1-2011
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011?toc=/azure/compliance/toc.json&bc=/azure/compliance/breadcrumb/toc.json
+    - name: ISO 22301
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-22301
+    - name: ISO 27001
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27001
+    - name: ISO 27017
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017
+    - name: ISO 27018
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018
+    - name: ISO 27701
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27701
+    - name: ISO 9001
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001
+    - name: SOC
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-soc
+    - name: WCAG
+      href: https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-wcag-2-1
+  - name: US Government
+    items:
+    - name: FedRAMP
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp
+    - name: DoD DISA L2, L4, L5 
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5
+  - name: Industry
+    items:
+    - name: HIPPA
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech
+    - name: SOX
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-sox
+  - name: Regional
+    items:
+    - name: GDPR
+      href: https://docs.microsoft.com/microsoft-365/compliance/gdpr
+    - name: G-Cloud (UK)
+      href: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
+
+- name: Privacy and the GDPR
+  expanded: false
+  items:
+  - name: Checklists
+    href: https://docs.microsoft.com/microsoft-365/compliance/gdpr-arc-azure
+  - name: Data subject requests
+    href: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure
+  - name: Breach notification
+    href: https://docs.microsoft.com/microsoft-365/compliance/gdpr-breach-azure-dynamics
+  - name: Data protection impact assessments
+    href: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dpia-azure
+
+- name: Compliance blueprints
+  expanded: false
+  items:
+  - name: CIS benchmarks
+    href: ../governance/blueprints/samples/cis-azure-1.1.0/index.md
+  - name: FedRAMP moderate
+    href: ../governance/blueprints/samples/fedramp-m/index.md
+  - name: HIPPA HITRUST
+    href: ../governance/blueprints/samples/hipaa-hitrust/index.md
+  - name: IRS 1075
+    href: ../governance/blueprints/samples/irs-1075/index.md
+  - name: ISO 27001
+    href: ../governance/blueprints/samples/iso27001/index.md
+  - name: NIST SP 800-53
+    href: ../governance/blueprints/samples/nist-sp-800-53-rev4/index.md
+  - name: PCI-DSS v3.2.1
+    href: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+  - name: UK NHS and UK OFFICIAL (G-Cloud)
+    href: ../governance/blueprints/samples/ukofficial/index.md
