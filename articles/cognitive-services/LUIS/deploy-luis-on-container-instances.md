@@ -20,6 +20,8 @@ Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) conta
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
 ## Create an Azure file share
 
 The LUIS container requires a `.gz` model file that is pulled in at runtime. The container must be able to access this model file via a volume mount from the Container instance. For information on creating an Azure file share, see [create a file share](../../storage/files/storage-how-to-create-file-share.md). Take note of the Azure Storage account name, key, and file share name as you'll need them later.

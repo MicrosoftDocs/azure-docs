@@ -34,5 +34,3 @@ ms.author: dapine
 
 > [!TIP]
 > To use the resources, in the LUIS portal, [assign the resources](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).
-
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
