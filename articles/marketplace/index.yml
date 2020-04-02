@@ -5,7 +5,7 @@ summary: Learn about Microsoft's commercial marketplace, an online applications 
 
 metadata:
   title: Welcome to Microsoft's commercial marketplace
-  description: Learn about Microsoft's commercial marketplace, an online applications and services marketplace that lets startups to enterprises offer solutions to customers around the world.
+  description: Learn about Microsoft’s commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/02/2020
 
 landingContent:
-  - title: Working in the Microsoft commercial marketplace
+  - title: Working in the commercial marketplace
     linkLists:
     - linkListType: get-started
       links:
