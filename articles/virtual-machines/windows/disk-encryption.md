@@ -255,7 +255,7 @@ $keyVaultKey = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
 Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -SourceVaultId $keyVault.ResourceId -KeyUrl $keyVaultKey.Id
 ```
 
-#### Find the server-side encryption status of a disk
+#### Find the status of server-side encryption of a disk
 
 ```PowerShell
 $ResourceGroupName="yourResourceGroupName"
