@@ -61,7 +61,7 @@ Once you've deployed the template, you should find three new resources: a free A
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md#example?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example).
 
 ## Change the time of the scale operation
 

@@ -34,9 +34,9 @@ To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](https://docs.micr
 5. Get the specific deleted data warehouse.
 6. Restore the deleted data warehouse
     1. To restore the deleted SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
-    1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) button to move the logical server to another subscription.
+    1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the logical server to another subscription.
 7. Verify that the restored data warehouse is online.
-8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"

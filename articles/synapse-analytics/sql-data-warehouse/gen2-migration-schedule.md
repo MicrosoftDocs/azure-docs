@@ -76,7 +76,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 **Q: How will the upgrades affect my automation scripts?**
 
-- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
 **Q: How long does a self-upgrade normally take?**
 
