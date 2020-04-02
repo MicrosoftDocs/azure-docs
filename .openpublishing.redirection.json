@@ -29775,6 +29775,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-apply-system-updates.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-investigation.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#security-alerts-investigation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-apply-disk-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-confidence-score.md",
       "redirect_url": "/azure/security-center/security-center-intro",
       "redirect_document_id": false
@@ -47357,6 +47377,11 @@
     {
       "source_path": "articles/active-directory-domain-services/contact-us.md",
       "redirect_url": "https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/compatible-software.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
       "redirect_document_id": false
     },
     {

@@ -110,7 +110,7 @@ Resource groups are used as a way to allocate memory to queries. If you need mor
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
+Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency](resource-classes-for-workload-management.md).
 
