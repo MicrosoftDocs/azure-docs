@@ -86,7 +86,7 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 *  **Number of devices** × **Event emission frequency** × **Size of each event**.
 
-By default, Time Series Insights preview can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Time Series Insights environment**.
+By default, Time Series Insights preview can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Time Series Insights environment**. There are additional limitations [per hub partition](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
 > [!TIP] 
 > * Environment support for ingesting speeds up to 16 MBps can be provided by request.
@@ -106,7 +106,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
     * The environment ingestion rate would be: **60,000 devices * 200 bytes/event * 1 event/sec = 12 MBps**.
     * The per partition rate would be 3 MBps.
-    * Contoso Fleet Analytics can submit a request to Time Series Insights through Azure portal to increase the ingestion rate for their environment.
+    * Contoso Fleet Analytics' ingestion rate is over the environment and partition limits. They can submit a request to Time Series Insights through Azure portal to increase the ingestion rate for their environment, and create an Event Hub with more partitions to be within the Preview limits.
 
 #### Hub partitions and per partition limits
 
