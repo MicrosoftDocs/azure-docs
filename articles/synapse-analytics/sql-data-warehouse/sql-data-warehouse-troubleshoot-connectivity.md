@@ -15,7 +15,8 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Troubleshooting connectivity issues
 
-This article lists common troubleshooting techniques around connecting to your Synapse SQL pool.
+This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
+
 - [Check service availability](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
 - [Check for paused or scaling operation](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Check your firewall settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
