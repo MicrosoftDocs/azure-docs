@@ -146,39 +146,18 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run Ubuntu. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
 
-1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name (FQDN), user name, and password for the virtual machine. In the example, replace \<fqdn> with the public FQDN of the VM, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the VM.
-
-    > [!IMPORTANT]
-    > The following Azure regions do not support attaching a virtual machine using the public IP address of the VM. Instead, use the Azure Resource Manager ID of the VM with the `resource_id` parameter:
-    >
-    > * US East
-    > * US West 2
-    > * US South Central
-    >
-    > The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
-
+1. **Attach**: To attach an existing virtual machine in Azure as a compute target, you must provide the resource id for the virtual machine. The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
-                                                    ssh_port=22,
-                                                    username='<username>',
-                                                    password="<password>")
-   # If in US East, US West 2, or US South Central, use the following instead:
+
    # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
    #                                                 ssh_port=22,
    #                                                 username='<username>',
    #                                                 password="<password>")
-
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
 
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
@@ -205,28 +184,15 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
     
     After the cluster is created, connect to it with the hostname \<clustername>-ssh.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. 
 
-1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the hostname, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<clustername> with the name of your cluster. Replace \<username> and \<password> with the SSH user name and password for the cluster.
+1. **Attach**: To attach an HDInsight cluster in Azure as a compute target, you must provide the resource id for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. The resource ID of the cluster can be constructed using the subscription ID, resource group name, and cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
+In the example, replace \<clustername> with the name of your cluster.
 
-    > [!IMPORTANT]
-    > The following Azure regions do not support attaching an HDInsight cluster using the public IP address of the cluster. Instead, use the Azure Resource Manager ID of the cluster with the `resource_id` parameter:
-    >
-    > * US East
-    > * US West 2
-    > * US South Central
-    >
-    > The resource ID of the cluster can be constructed using the subscription ID, resource group name, and cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
-
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
-                                                          ssh_port=22, 
-                                                          username='<ssh-username>', 
-                                                          password='<ssh-pwd>')
-    # If you are in US East, US West 2, or US South Central, use the following instead:
     # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
     #                                                      ssh_port=22, 
     #                                                      username='<ssh-username>', 
