@@ -693,7 +693,7 @@
         - name: Enable for Azure Red Hat OpenShift v3.3
           href: insights/container-insights-azure-redhat-setup.md
         - name: Enable for Azure Red Hat OpenShift v4.3
-          href: insights/container-insights/azure-redhat-v4-setup.md
+          href: insights/container-insights_azure-redhat-v4-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
       - name: Monitor performance
