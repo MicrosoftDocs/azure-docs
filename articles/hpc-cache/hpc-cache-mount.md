@@ -48,7 +48,7 @@ Example: `sudo mkdir /mnt/hpc-cache-1/target3`
 
 Open the **Mount instructions** page from the **Configure** section of the cache view in the Azure Portal.
 
-![screenshot of an Azure HPC Cache instance in the portal, with the Configure > Mount instructions page loaded](media/draft-mount-instructions.png)
+![screenshot of an Azure HPC Cache instance in the portal, with the Configure > Mount instructions page loaded](media/mount-instructions.png)
 
 The mount command page includes information about the client mount process and prerequisites, plus fields you can use to create a copyable mount command.
 
@@ -99,9 +99,9 @@ For a robust client mount, pass these settings and arguments in your mount comma
 | Recommended mount command settings | |
 --- | ---
 ``hard`` | Soft mounts to Azure HPC Cache are associated with application failures and possible data loss.
-``proto=netid`` | This option supports appropriate handling of NFS network errors.
-``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
-``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
+``proto=tcp`` | This option supports appropriate handling of NFS network errors.
+``mountproto=tcp`` | This option supports appropriate handling of network errors for mount operations.
+``retry=<value>`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
 ### Find mount command components
 
