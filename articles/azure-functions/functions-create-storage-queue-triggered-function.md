@@ -46,7 +46,7 @@ Next, you create a function in the new function app.
 
 1. Select **Create Function** to create your function.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Create the queue storage triggered function." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Create the queue storage triggered function." border="true":::
 
 Next, you connect to your Azure storage account and create the **myqueue-items** storage queue.
 
