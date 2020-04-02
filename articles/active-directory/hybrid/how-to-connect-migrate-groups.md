@@ -20,8 +20,8 @@ This article describes the steps needed to successfully migrate groups from one 
 
 ## Prerequisites
 
-1.	Azure AD Connect version 1.5.18.0 or higher
-2.	Source Anchor attribute is `mS-DS-ConsistencyGuid`
+- Azure AD Connect version 1.5.18.0 or higher
+- Source Anchor attribute is `mS-DS-ConsistencyGuid`
 
 Starting from version 1.5.18.0, Azure AD Connect has started supporting the use of `mS-DS-ConsistencyGuid` for groups. If `mS-DS-ConsistencyGuid` is chosen as the source anchor attribute and the value is populated in AD, Azure AD Connect uses the value of `mS-DS-ConsistencyGuid` as the immutableId. Otherwise, it falls back to using `objectGUID`. However, please note that Azure AD Connect **DOES NOT** write back the value to the `mS-DS-ConsistencyGuid` attribute in AD.
 
