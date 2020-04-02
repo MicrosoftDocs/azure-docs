@@ -309,7 +309,7 @@
   - name: Regions
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
-  - name: Boundaries
+  - name: Limits
     href: luis-boundaries.md
   - name: Application settings
     href: luis-reference-application-settings.md
