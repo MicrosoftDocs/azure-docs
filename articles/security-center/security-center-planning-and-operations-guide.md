@@ -177,7 +177,7 @@ Once you address all recommendations, the **Prevention** section should be green
 
 The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Plan to visit the [threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
+Plan to visit the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
 
 ### Monitoring for new or changed resources
 Most Azure environments are dynamic, with resources regularly being created, spun up or down, reconfigured, and changed. Security Center helps ensure that you have visibility into the security state of these new resources.
@@ -231,7 +231,7 @@ The following example shows a suspicious RDP activity taking place:
 
 This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
-From this page, you can also start an [investigation](https://docs.microsoft.com/azure/security-center/security-center-investigation) to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
+From this page, you can also start an investigation to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
 
 Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
