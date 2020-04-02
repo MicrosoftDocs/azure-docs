@@ -47,7 +47,7 @@ For Azure nodes,
 drift-correction can be done from the portal
 or using Az Automation cmdlets.
 Details about this process are documented in the page
-[Onboarding machines for management by Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
+[Onboarding machines for management by Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#onboard-a-vm-using-azure-portal).
 For hybrid nodes,
 drift-correction can be done using the included Python scripts.
 See the documentation in
