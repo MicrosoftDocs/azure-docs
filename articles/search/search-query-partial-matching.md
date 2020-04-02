@@ -1,24 +1,39 @@
 ---
-title: Match patterns and special characters
+title: Match on partial terms, patterns, and special characters
 titleSuffix: Azure Cognitive Search
-description: Use wildcard and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
+description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/02/2020
 ---
-# Match on patterns and special characters (dashes)
+# Partial term search in Azure Cognitive Search queries (wildcard, regex, fuzzy search, patterns)
 
-For queries that include special characters (`-, *, (, ), /, \, =`),  or for query patterns based on partial terms within a larger term, additional configuration steps are typically needed to ensure that the index contains the expected content, in the right format. 
+A partial term search refers to queries consisting of term fragments, including first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-By default, a phone number like `+1 (425) 703-6214` is tokenized as 
-`"1"`, `"425"`, `"703"`, `"6214"`. As you can imagine, searching on `"3-62"`, partial terms that include a dash, will fail because that content doesn't actually exist in the index. 
+Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial strings and patterns. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, which means pattern queries often fail. For example, a phone number like `+1 (425) 703-6214` is tokenized as `"1"`, `"425"`, `"703"`, `"6214"`, which means a query on `"3-62"` will fail because that content doesn't actually exist in the index. 
 
-When you need to search on partial strings or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, preserving whole terms, necessary when query strings include parts of a term or special characters. Taking a step back, the approach looks like this:
+The solution is to store intact versions of these strings in the index, to specifically support partial search scenarios. Creating an additional field for an intact string, associated with a content-preserving analyzer, is the basis of the solution.
 
+## Partial search in Azure Cognitive Search
+
+In Azure Cognitive Search, partial search is available in these forms:
+
++ Prefix search (`search=sea~`, matching on "seaside", "Seattle", "seam", and so forth)
++ Wildcard search and RegEx search
++ Fuzzy search that infers a valid "near match" query or corrects a misspelled term
++ Autocomplete and "search-as-you-type" suggestions
+
+When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
+
+## Solving partial search problems
+
+When you need to search on patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, preserving whole terms, necessary when query strings include parts of a term or special characters. Taking a step back, the approach looks like this:
+
++ Define a field to store an intact version of the field (assuming you want analyzed and non-analyzed text)
 + Choose a predefined analyzer or define a custom analyzer that produces the desired output
 + Assign the analyzer to the field
 + Build the index and test
@@ -26,9 +41,9 @@ When you need to search on partial strings or special characters, you can overri
 This article walks you through these tasks. The approach described here is useful in other scenarios: wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 > [!TIP]
-> Evaluating analyers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
+> Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
 
-## Choosing an analyzer
+## 1 -Choose an analyzer
 
 When choosing an analyzer that produces whole-term tokens, the following analyzers are common choices:
 
@@ -103,7 +118,7 @@ If you are using a web API test tool like Postman, you can add the [Test Analyze
 > [!Important]
 > Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason. The solution is to add a lwower-case token filter.
 
-## Analyzer definitions
+## 2 - Analyzer configuration
  
 Whether you are evaluating analyzers or moving forward with a specific configuration, you will need to specify the analyzer on the field definition, and possibly configure the analyzer itself if you are not using a built-in analyzer. When swapping analyzers, you typically need to rebuild the index (drop, recreate, and reload). 
 
