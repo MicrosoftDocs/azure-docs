@@ -114,8 +114,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncBasicReadPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for basic read permissions.
-
+Add basic read permissions to the connector account in order to access your Active Directory forest and domain
 ### SYNTAX
 
 #### UserDomain
@@ -287,7 +286,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncExchangeHybridPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for Exchange Hybrid feature.
+Add some permissions to the connector account for Exchange Hybrid feature in your Active Directory forest and domain.
 
 ### SYNTAX
 
@@ -455,7 +454,8 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncExchangeMailPublicFolderPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for Exchange Mail Public Folder feature.
+Add some permissions to the connector account for Exchange Mail Public Folder feature in your Active Directory forest and domain.
+
 
 ### SYNTAX
 
@@ -617,7 +617,8 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncMsDsConsistencyGuidPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for mS-DS-ConsistencyGuid feature.
+Add some permissions to the connector account for mS-DS-ConsistencyGuid feature in your Active Directory forest and domain.
+
 
 ### SYNTAX
 
@@ -778,7 +779,8 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncPasswordHashSyncPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for password hash synchronization.
+Add some permissions to the connector account for password hash synchronization feature in your Active Directory forest and domain.
+
 
 ### SYNTAX
 
@@ -899,7 +901,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncPasswordWritebackPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for password write-back from Azure AD.
+Add some permissions to the connector account for password write-back feature in your Active Directory forest and domain.
 
 ### SYNTAX
 
@@ -1202,7 +1204,7 @@ For more information, see about_CommonParameters (https://go.microsoft.com/fwlin
 ## Set-ADSyncUnifiedGroupWritebackPermissions
 
 ### SYNOPSIS
-Initialize your Active Directory forest and domain for Group writeback from Azure AD.
+Add some permissions to the connector account for Group writeback feature in your Active Directory forest and domain.
 
 ### SYNTAX
 
