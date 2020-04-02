@@ -18,31 +18,7 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 * Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * If you have apps that pre-date Azure resource authentication, [migrate to an Azure resource](luis-migration-authoring.md). Some portal pages look different when email authentication is in effect.
 
-## Create the endpoint resource
-
-You create the prediction endpoint resource in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
-
-1. Sign in and create a resource in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configure the subscription with the following settings:
-
-   |Setting|Value|Purpose|
-   |--|--|--|
-   |Name|`my-luis-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
-   |Subscription|Your subscription|Select one of the subscriptions associated with your account.|
-   |Resource group|`my-resource-group`|Create a new resource group for all your cognitive service resources. When you're done with the resources, you can delete the resource group to clean up your subscription. |
-   |Authoring location|**West US**|The Azure region for authoring.|
-   |Authoring pricing tier|**F0**|The default pricing tier for authoring.|
-   |Runtime location|**West US**|The Azure region for prediction endpoint queries.|
-   |Runtime pricing tier|**S0**|This pricing tier provides for high-traffic websites.|
-   | | | |
-
-    > [!div class="mx-imgBorder"]
-    > ![Azure API choice](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Select **Create** to create the Azure resource.
-
-   In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## Assign the resource key to the LUIS app in the LUIS portal
 

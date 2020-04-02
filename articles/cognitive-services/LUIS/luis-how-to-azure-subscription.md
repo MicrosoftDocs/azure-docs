@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ---
 
-# Using authoring and runtime resource keys
+# Create LUIS resources
 
 Authoring and runtime resources provide authentication to your LUIS app and prediction endpoint.
 
@@ -17,7 +17,6 @@ When you sign in to the LUIS portal, you can choose to continue with:
 
 * a free [trial key](#trial-key) - providing authoring and a few prediction endpoint queries.
 * an Azure [LUIS authoring](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) resource.
-
 
 <a name="starter-key"></a>
 
@@ -36,28 +35,9 @@ The trial (starter) key is provided for you. It is used as your authentication k
 
 It is visible on both the **User Settings** page and the **Manage -> Azure resources** pages in the LUIS portal.
 
-When you are ready to publish your prediction endpoint, create and assign authoring and prediction runtime keys, to replace the starter key functionality.
+When you are ready to publish your prediction endpoint, [create](#create-luis-resources) and [assign](#assign-a-resource-to-an-app) authoring and prediction runtime keys, to replace the starter key functionality.
 
-## Create resources in the Azure portal
-
-1. Use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) to open the Azure portal at for resource creation.
-1. Select **Both** to create an authoring and a prediction endpoint runtime key.
-1. Enter the information required to create the resource then select **Create** to finish the process.
-
-    > [!div class="mx-imgBorder"]
-    > ![Create the language understanding resource](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-    |Name|Purpose|
-    |--|--|
-    |Resource name| A custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.|
-    |Subscription name| the subscription that will be billed for the resource.|
-    |Resource group| A custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management in the same region.|
-    |Authoring location|The region associated with your model.|
-    |Authoring pricing tier|The pricing tier determines the maximum transaction per second and month.|
-    |Runtime location|The region associated with your published prediction endpoint runtime.|
-    |Runtime pricing tier|The pricing tier determines the maximum transaction per second and month.|
-
-    Once both resources are created, assign the resources in the LUIS portal.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## Create resources in Azure CLI
 
