@@ -25,7 +25,7 @@ This article first describes the setup for SSH (using port 22) and then describe
 
 The following figure illustrates how the device-local and service-local proxy applications in this sample enable end-to-end connectivity between the SSH client and SSH daemon processes. Here, we assume that the daemon is running on the same device as the device-local proxy application.
 
-![Local proxy application setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram-big.png)
+![Local proxy application setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
 
 1. The service-local proxy application connects to the IoT hub and initiates a device stream to the target device.
 
