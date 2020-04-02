@@ -27,23 +27,16 @@ Next, you create a function in the new function app.
 
 ## Create a Queue triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
+1. Select **Functions**, and then select **+ Add** to add a new function.
 
-   ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
+   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="true":::
 
-1. Choose **More templates** then **Finish and view templates**.
-
-    ![Functions quickstart choose more templates](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
-
-1. In the search field, type `queue` and then choose the **Queue trigger** template.
-
-1. If prompted, select **Install** to install the Azure Storage extension and any dependencies in the function app. After installation succeeds, select **Continue**.
-
-    ![Install binding extensions](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+1. Choose the **Azure Queue Storage trigger** template.
 
 1. Use the settings as specified in the table below the image.
 
-    ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Name and configure the queue storage triggered function." border="true":::
+
 
     | Setting | Suggested value | Description |
     |---|---|---|
@@ -51,31 +44,62 @@ Next, you create a function in the new function app.
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
-1. Click **Create** to create your function.
+1. Select **Create Function** to create your function.
 
-Next, you connect to your Azure Storage account and create the **myqueue-items** storage queue.
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Create the queue storage triggered function." border="true":::
+
+Next, you connect to your Azure storage account and create the **myqueue-items** storage queue.
 
 ## Create the queue
 
-1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account in Azure Storage Explorer. If you have already connected your storage account, skip to step 4.
+1. In your function, on the **Overview** page, select your resource group.
 
-    ![Get the Storage account connection credentials.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Select your Azure portal resource group." border="true":::
 
-1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+1. Find and select your resource group's storage account.
 
-    ![Run the Storage Account Explorer tool.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Access the storage account." border="true":::
 
-1. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**.
+1. Choose **Queues**, and then choose **+ Queue**. 
 
-    ![Enter the storage credentials and connect.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Add a queue to your storage account in the Azure portal." border="true":::
 
-1. Expand the attached storage account, right-click **Queues**, click **Create Queue**, type `myqueue-items`, and then press enter.
+1. In the **Name** field, type `myqueue-items`, and then select **Create**.
 
-    ![Create a storage queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Name the queue storage container." border="true":::
 
 Now that you have a storage queue, you can test the function by adding a message to the queue.
 
 ## Test the function
+
+1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Expand the log in the Azure portal." border="true":::
+
+1. In a separate browser window, go to your resource group in the Azure portal, and select the storage account.
+
+1. Select **Queues**, and then select the **myqueue-items** container.
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Go to your myqueue-items queue in the Azure portal." border="true":::
+
+1. Select **Add message**, and type "Hello World!" in **Message text**. Select **OK**.
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Go to your myqueue-items queue in the Azure portal." border="true":::
+
+1. Wait for a few seconds, then go back to your function logs and verify that the new message has been read from the queue.
+
+    :::image type="content" source="./media/functions-create-storage-quque-triggered-function/function-app-in-portal-editor.png" alt-text="View message in the logs." border="true":::
+
+
+
+
+
+
+
+
+
+
+
 
 1. Back in the Azure portal, browse to your function, expand the **Logs** at the bottom of the page, and make sure that log streaming isn't paused.
 
