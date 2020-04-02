@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -20,12 +20,67 @@ For more information about blob snapshots in Azure Storage, see [Create and mana
 
 ## Create a snapshot
 
-To create a snapshot of a block blob, use one of the following methods:
+# [.NET version 12.x](#tab/v12)
+
+To create a snapshot of a block blob using version 12.x of the Azure Storage client library for .NET, use one of the following methods:
+
+- [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
+- [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
+
+The following code example shows how to create a snapshot with version 12.x. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Azure AD credentials to authorize requests to the service.
+
+```csharp
+private static async Task CreateBlockBlobSnapshot(string accountName, string containerName, string blobName, Stream data)
+{
+    const string blobServiceEndpointSuffix = ".blob.core.windows.net";
+    Uri containerUri = new Uri("https://" + accountName + blobServiceEndpointSuffix + "/" + containerName);
+
+    // Get a container client object and create the container.
+    BlobContainerClient containerClient = new BlobContainerClient(containerUri,
+        new DefaultAzureCredential());
+    await containerClient.CreateIfNotExistsAsync();
+
+    // Get a blob client object.
+    BlobClient blobClient = containerClient.GetBlobClient(blobName);
+
+    try
+    {
+        // Upload text to create a block blob.
+        await blobClient.UploadAsync(data);
+
+        // Add blob metadata.
+        IDictionary<string, string> metadata = new Dictionary<string, string>
+        {
+            { "ApproxBlobCreatedDate", DateTime.UtcNow.ToString() },
+            { "FileType", "text" }
+        };
+        await blobClient.SetMetadataAsync(metadata);
+
+        // Sleep 5 seconds.
+        System.Threading.Thread.Sleep(5000);
+
+        // Create a snapshot of the base blob.
+        // You can specify metadata at the time that the snapshot is created.
+        // If no metadata is specified, then the blob's metadata is copied to the snapshot.
+        await blobClient.CreateSnapshotAsync();
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
+
+# [.NET version 11.x](#tab/v11)
+
+To create a snapshot of a block blob using version 11.x of the Azure Storage client library for .NET, use one of the following methods:
 
 - [CreateSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
-The following code example shows how to create a snapshot. This example specifies additional metadata for the snapshot when it is created.
+The following code example shows how to create a snapshot with version 11.x. This example specifies additional metadata for the snapshot when it is created.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -50,6 +105,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
         Dictionary<string, string> metadata = new Dictionary<string, string>();
         metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
         await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
+        Console.WriteLine(snapshot.SnapshotQualifiedStorageUri.PrimaryUri);
     }
     catch (StorageException e)
     {
@@ -60,11 +116,30 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 }
 ```
 
+---
+
 ## Delete snapshots
 
 To delete a blob, you must first delete any snapshots of that blob. You can delete a snapshot individually, or specify that all snapshots be deleted when the source blob is deleted. If you attempt to delete a blob that still has snapshots, an error results.
 
-To delete blob snapshots, use one of the following blob deletion methods, and include the [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) enum.
+# [.NET version 12.x](#tab/v12)
+
+To delete a blob and its snapshots using version 12.x of the Azure Storage client library for .NET, use one of the following methods, and include the [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) enum:
+
+- [Delete](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
+- [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
+
+The following code example shows how to delete a blob and its snapshots in .NET, where `blobClient` is an object of type [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)):
+
+```csharp
+await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
+```
+
+# [.NET version 11.x](#tab/v11)
+
+To delete a blob and its snapshots using version 11.x of the Azure Storage client library for .NET, use one of the following blob deletion methods, and include the [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) enum:
 
 - [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
@@ -77,32 +152,10 @@ The following code example shows how to delete a blob and its snapshots in .NET,
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
-## Return the absolute URI to a snapshot
-
-The following code example creates a snapshot and writes out the absolute URI for the primary location.
-
-```csharp
-//Create the blob service client object.
-const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-//Get a reference to a container.
-CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-container.CreateIfNotExists();
-
-//Get a reference to a blob.
-CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
-blob.UploadText("This is a blob.");
-
-//Create a snapshot of the blob and write out its primary URI.
-CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
-Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
-```
+---
 
 ## Next steps
 
 - [Blob snapshots](snapshots-overview.md)
 - [Blob versions (preview)](versioning-overview.md)
-- [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)                
+- [Soft delete for blobs](storage-blob-soft-delete.md)
