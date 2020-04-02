@@ -26,7 +26,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [Preview - Dynamic list entities](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
-| [Phrase list][phrase-list]|500 phrase lists. 10 global phrase lists due to the model as a feature limit. Non-interchangeable phraselist has max of 5,000 phrases. Interchangeable Phraselist has max of 50,000 phrases. Maximum number of total phrases per application  of 500,000 phrases.|
+| [Phrase list][phrase-list]|500 phrase lists. 10 global phrase lists due to the model as a feature limit. Non-interchangeable phrase list has max of 5,000 phrases. Interchangeable phrase list has max of 50,000 phrases. Maximum number of total phrases per application  of 500,000 phrases.|
 | [Prebuilt entities](./luis-prebuilt-entities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
@@ -78,7 +78,7 @@ Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal. 
 |Starter|1 million/month, 5/second|
 |F0 - Free tier |1 million/month, 5/second|
 
-* TPS = Transaction per second
+* TPS = Transactions per second
 
 [Learn more about pricing.][pricing]
 
