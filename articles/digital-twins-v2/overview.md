@@ -79,7 +79,7 @@ Azure Digital Twins is commonly used in combination with other Azure services as
 * Downstream services to handle tasks such as workflow integration (like [MS Flow](https://flow.microsoft.com/)), cold storage, time series integration, or analytics. 
 
 The following diagram shows where Azure Digital Twins lies in the context of a larger Azure IoT solution.
-![Azure Digital Twins in a solution context](./media/overview/solution-context.png)
+![Azure Digital Twins shown connecting to other services in a solution context. Devices connect through IoT Hub to Azure Digital Twins; client apps connect to Azure Digital Twins directly; and Azure Digital Twins exchanges data with other Azure services like compute resources and cold storage.](./media/overview/solution-context.png)
 
 ## Next steps
 
