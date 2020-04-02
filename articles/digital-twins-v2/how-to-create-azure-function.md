@@ -249,16 +249,18 @@ On the identity page, set the *Status* toggle to *On*.
 
 ![Visual Studio: function MSI 2](media/how-to-create-azure-function/visual-studio-msi-2.png)
 
+Also note the **object ID** shown on this page, as it will be used in the next section.
+
 ### Access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
-Use the resource ID along with the Azure function ID in the command below:
+Use the resource ID along with the Azure function's object ID from earlier in the command below:
 
 ```bash
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <Azure-function-ID> --scope <resource-ID>
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <object-ID> --scope <resource-ID>
 ```
 
 ## Next steps

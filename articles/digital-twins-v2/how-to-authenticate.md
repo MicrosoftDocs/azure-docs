@@ -98,19 +98,8 @@ private AuthenticationResult authResult;
 static async Task Authenticate()
 {
     string[] scopes = new[] { adtAppId + "/.default" };
-    var app = PublicClientApplicationBuilder.Create(clientId)
-                                            .WithTenantId(tenantId)
-                                            .WithRedirectUri("http://localhost")
-                                            .Build();
-    var accounts = await app.GetAccountsAsync();
-    try
-    {
-        authResult = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault()).ExecuteAsync();
-    }
-    catch (MsalUiRequiredException)
-    {
-        authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
-    }
+    var app = PublicClientApplicationBuilder.Create(clientId).WithTenantId(tenantId).WithRedirectUri("http://localhost").Build();
+    authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 }
 ```
 
@@ -164,16 +153,8 @@ namespace Azure Digital TwinsGettingStarted
         static async Task Authenticate()
         {
             string[] scopes = new[] { adtAppId + "/.default" };
-            var app = PublicClientApplicationBuilder.Create(clientId).WithRedirectUri("http://localhost").Build();
-            var accounts = await app.GetAccountsAsync();
-            try
-            {
-                authResult = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault()).ExecuteAsync();
-            }
-            catch (MsalUiRequiredException)
-            {
-                authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
-            }
+            var app = PublicClientApplicationBuilder.Create(clientId).WithTenantId(tenantId).WithRedirectUri("http://localhost").Build();
+            authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
         }
     }
 }

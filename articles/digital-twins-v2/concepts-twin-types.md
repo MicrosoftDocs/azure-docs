@@ -25,7 +25,7 @@ You can think of the twin types as nouns in a description of your world.
 
 ## Digital Twin Definition Language (DTDL) for writing twin types
 
-Twin types for Azure Digital Twins are defined using the **Digital Twin Definition Language (DTDL)**. DTDL is based on JSON-LD and is programming-language independent.
+Twin types for Azure Digital Twins are defined using the [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). DTDL is based on JSON-LD and is programming-language independent.
 
 DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. The DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid twin type for use in Azure Digital Twins. 
 

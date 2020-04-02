@@ -44,9 +44,9 @@ You can think of the twin types as nouns in a description of your world, and the
 
 ### Process incoming data and propagate state through the twin graph
 
-Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins provides a convenient data processing framework for you to apply custom code to incoming data streams of IoT and business data. 
+Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
 
-Routing events allows you to:
+Routing data and events through custom code processing allows you to:
 * Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin)
 * Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes)
 * Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters)
