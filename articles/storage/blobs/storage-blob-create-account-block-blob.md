@@ -16,7 +16,7 @@ ms.subservice: blobs
 The BlockBlobStorage account kind lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a BlockBlobStorage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
 > [!NOTE]
-> The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](aka.ms/adlspremiumonboard).
+> The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
 
 For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -114,7 +114,7 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
 8. Choose the **Advanced** tab.
 
-9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespaces** to **Enabled**. Otherwise, leave this option set to it's default value.
+9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespace** to **Enabled**. Otherwise, leave this option set to it's default value.
 
    To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 

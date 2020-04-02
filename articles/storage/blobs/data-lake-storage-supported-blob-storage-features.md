@@ -27,7 +27,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |---------------|-------------------|---|
 |Hot access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Cool access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
-|Events|Generally available|preview|[Reacting to Blob storage events](storage-blob-event-overview.md)|
+|Events|Generally available|Preview|[Reacting to Blob storage events](storage-blob-event-overview.md)|
 |Metrics (Classic)|Generally available|Not supported|[Azure Storage analytics metrics (Classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Metrics in Azure Monitor|Generally available|Preview|[Azure Storage metrics in Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob storage PowerShell commands|Generally available|Preview|[Quickstart: Upload, download, and list blobs with PowerShell](storage-quickstart-blobs-powershell.md)|
