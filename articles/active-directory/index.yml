@@ -26,7 +26,7 @@ highlightedContent:
       url: ./fundamentals/whats-new.md
     - title: Enable security and management for your remote workforce
       itemType: get-started
-      url: https://docs.microsoft.com/mem/intune/remote-work/
+      url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
     - title: Assign roles to users 
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
