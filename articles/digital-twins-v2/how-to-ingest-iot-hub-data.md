@@ -41,10 +41,16 @@ This scenario is outlined in a diagram below:
 
 Before continuing with this example, you'll need to complete the following prerequisites.
 1. Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-2. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription to your Azure function. 
-  - Select *Telemetry* as the event type
-  - Add a filter if desired, using Event Grid filtering
-3. Create at least one Azure Function to process events from IoT Hub. See [Set up an Azure Function](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.
+2. Create at least one Azure Function to process events from IoT Hub. See [Set up an Azure Function](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
+3. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription for your Azure function. 
+
+    ![Add event subscription](media/how-to-ingest-iot-hub-data/add-event-subscription.png)
+
+4. In the *Create Event Subscription* page, fill the fields as follows:
+  * Under *EVENT SUBSCRIPTION DETAILS*, name the subscription what you would like
+  * Under *EVENT TYPES*, choose *Device Telemetry* as the event type to filter on
+      - Add filters to other event types if you would like
+  * Under *ENDPOINT DETAILS*, select your Azure function as an endpoint
 
 ## Create an Azure function in Visual Studio
 
@@ -66,7 +72,7 @@ static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent,
 }
 ```
 
-Next, you'll add specific code to it for processing IoT telemetry events from IoT Hub.  
+In the steps that follow, you'll add specific code to it for processing IoT telemetry events from IoT Hub.  
 
 ## Add telemetry processing
 
