@@ -37,7 +37,7 @@ Windows Server 2012 R2
 
 The symptoms of this freeze are caused by a code defect in the Windows Profile Service Dynamic Link Library (*profsvc.dll*).
 
-> [!Note:]
+> [!NOTE]
 > This defect applies only on Windows Server 2012 and Windows Server 2012 R2.
 
 ### The policy in question
@@ -104,7 +104,7 @@ Once this deadlock occurs, the attempt to acquire the second required lock hangs
 3. Rebuild the VM
 4. Collect the Memory Dump File
 
-   > [!Note:]
+   > [!NOTE]
    > When encountering this boot error, the Guest OS is not operational. You'll be troubleshooting in Offline mode to resolve this issue.
 
 ### Create and Access a Repair VM
