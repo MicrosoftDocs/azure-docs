@@ -20,6 +20,9 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Migrate mainframe closer to Azure
 
+- [Asysco AMT GO](https://www.asysco.com/amt-go/) Cloud based deployment architecture, the only proven platform for high end workloads (beyond 28.000 MIPS equivalent) whilst guaranteeing same or beter quality of service of the migrated applications
+- [Asysco’s AMT COBOL](https://www.asysco.com/cobol/) The only proven development environment that allows unchanged development (Unisys, IBM mainframes, other COBOL dialects such as Micro Focus COBOL) generating readable, maintainable Java and C# code ready to be adopted by development teams 
+- [Asysco’s AMT Transform](https://www.asysco.com/amt-transform/) Technology that converts all the mainframe artefacts (data, code, scripting, security, interfaces) with the least number of defects in the industry
 - [Micro Focus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) development and integration tools.
 - [Micro Focus PL/I](https://www.microfocus.com/campaign/download/pli-modernization/) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
@@ -34,6 +37,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Deploy an emulation environment for online and batch processing
 
+- [Asysco AMT GO]( https://www.asysco.com/amt-go/) Cloud based deployment architecture providing support for all common mainframe environments such as CICS, IMS, TIP, HVTIP and others. 
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
 - [NTT DATA Mainframe Rehosting Development Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) native transaction processing environment.
 - [NTT DATA Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE) including JCL transaction capabilities.
@@ -42,7 +46,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Code conversion
 
-- [Asysco](https://www.asysco.com/azure-cloud/) source code conversion.
+- [Asysco](https://www.asysco.com/azure-cloud/) Entire system conversion technology covering source code, data, batch, scheduling, TP monitors, interfaces, security, management and so on.
 - [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) managed software container for migrating mainframe applications to Linux computers or private, public, and hybrid cloud environments.
 - [Blu Age](https://www.bluage.com/) tools for digitizing legacy business applications and databases.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services to convert mainframe COBOL, CICS, and VSAM to Java.
@@ -52,3 +56,4 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 Microsoft partners with global system integrators (GSIs) who can help large organizations design, build, and manage solutions. 
 
 - [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/)
+- [Asysco AMT Services](https://www.asysco.com/migration-services/) Delivers full end to end services that guarantee 100% success for migration projects. Services range from inventory and analysis, design training, migration to dress rehearsals and ultimate go-live and post migration support
