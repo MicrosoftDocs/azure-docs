@@ -17,8 +17,6 @@ ms.author: mbaldwin
 # Monitor and manage certificate creation
 Applies To: Azure
 
-The following 
-
 The scenarios / operations outlined in this article are:
 
 - Request a KV Certificate with a supported issuer
