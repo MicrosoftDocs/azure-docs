@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/02/2020
 ms.author: dapine
 ---
 
@@ -81,10 +81,10 @@ namespace Speech.Recognition
 Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual values from your Speech resource.
 
 - Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, and open the Speech resource
-- Under the **Keys** blade, there are two available subscription keys
+- Under the **Keys** on the left, there are two available subscription keys
     - Use either one as the `YourSubscriptionKey` value replacement
-- Under the **Overview** blade, note the region and map it to the <a href="https://aka.ms/speech/sdkregion" target="_blank">region identifier <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    - Use the **Region identifier** as the `YourServiceRegion` value replacement, i.e.; `"westus"` for **West US**
+- Under the **Overview** on the left, note the region and map it to the <a href="https://aka.ms/speech/sdkregion" target="_blank">region identifier <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    - Use the **Region identifier** as the `YourServiceRegion` value replacement, for example: `"westus"` for **West US**
 
 ## Code explanation
 
@@ -101,7 +101,7 @@ Now you're ready to rebuild your app and test the speech recognition functionali
 
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
-3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
+3. **Start recognition** - It will prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps
 
