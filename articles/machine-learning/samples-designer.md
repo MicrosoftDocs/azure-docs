@@ -9,7 +9,7 @@ ms.topic: sample
 
 author: peterclu
 ms.author: peterlu
-ms.date: 03/10/2020
+ms.date: 03/29/2020
 ---
 # Designer sample pipelines
 
@@ -25,6 +25,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 
 The designer saves a copy of the sample pipelines to your studio workspace. You can edit the pipeline to adapt it to your needs and save it as your own. Use them as a starting point to jumpstart your projects.
 
+### Open a sample pipeline
+
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
 1. Select **Designer**.
@@ -32,6 +34,31 @@ The designer saves a copy of the sample pipelines to your studio workspace. You 
 1. Select a sample pipeline under the **New pipeline** section.
 
     Select **Show more samples** for a complete list of samples.
+
+### Submit a pipeline run
+
+To run a pipeline, you first have to set default compute target to run the pipeline on.
+
+1. In the **Settings** pane to the right of the canvas, select **Select compute target**.
+
+1. In the dialog that appears, select an existing compute target or create a new one. Select **Save**.
+
+1. Select **Submit** at the top of the canvas to submit a pipeline run.
+
+Depending on the sample pipeline and compute settings, runs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
+
+
+### Review the results
+
+After the pipeline finishes running, you can review the pipeline and view the output for each module to learn more.
+
+Use the following steps to view module outputs:
+
+1. Select a module in the canvas.
+
+1. In the module details pane to the right of the canvas, select **Outputs + logs**. Select the graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to see the results of each module. 
+
+Use the samples as starting points for some of the most common machine learning scenarios.
 
 ## Regression samples
 
