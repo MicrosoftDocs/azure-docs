@@ -64,8 +64,8 @@ To configure and test Azure AD SSO with Trend Micro Web Security(TMWS), complete
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Trend Micro Web Security(TMWS) SSO](#configure-trend-micro-web-security(tmws)-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Trend Micro Web Security(TMWS) test user](#create-trend-micro-web-security(tmws)-test-user)** - to have a counterpart of B.Simon in Trend Micro Web Security(TMWS) that is linked to the Azure AD representation of user.
+1. **[Configure Trend Micro Web Security(TMWS) SSO](#configure-trend-micro-web-security-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Trend Micro Web Security(TMWS) test user](#create-trend-micro-web-security-test-user)** - to have a counterpart of B.Simon in Trend Micro Web Security(TMWS) that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -137,11 +137,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Trend Micro Web Security(TMWS) SSO
+## Configure Trend Micro Web Security SSO
 
 To configure single sign-on on **Trend Micro Web Security(TMWS)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Trend Micro Web Security(TMWS) test user
+### Create Trend Micro Web Security test user
 
 In this section, you create a user called Britta Simon in Trend Micro Web Security(TMWS). Work with [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america) to add the users in the Trend Micro Web Security(TMWS) platform. Users must be created and activated before you use single sign-on.
 
