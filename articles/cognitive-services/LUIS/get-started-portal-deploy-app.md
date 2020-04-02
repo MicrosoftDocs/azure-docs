@@ -1,15 +1,8 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal"
-titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
+ms.date: 04/02/2020
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint.
 ---
 
@@ -44,8 +37,8 @@ You create the prediction endpoint resource in the Azure portal. This resource s
    |Runtime pricing tier|**S0**|This pricing tier provides for high-traffic websites.|
    | | | |
 
-
-   ![Azure API choice](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
+    > [!div class="mx-imgBorder"]
+    > ![Azure API choice](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
 1. Select **Create** to create the Azure resource.
 
