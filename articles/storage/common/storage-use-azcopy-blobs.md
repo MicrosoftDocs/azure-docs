@@ -54,11 +54,13 @@ This section contains the following examples:
 
 > [!TIP]
 > You can tweak your upload operation by using optional flags. Here's a few examples.
+>
 > |Scenario|Flag|
 > |---|---|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Upload a file
