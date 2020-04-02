@@ -62,7 +62,7 @@ CXXABI_1.3.7
 
 The Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. You can find this information by running `ldd libMicrosoft.CognitiveServices.Speech.core.so` on  the Speech SDK libraries from the Linux package.
 
-> [!TIP]
+> [!NOTE]
 > It is recommended that the version of GCC installed on the system is at least **5.4.0**, with matching runtime libraries.
 
 ## Example
