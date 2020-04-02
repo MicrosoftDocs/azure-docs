@@ -149,6 +149,17 @@ This section contains the following examples:
 > * Download the contents of a directory
 > * Download specific files
 
+> [!TIP]
+> You can tweak your download operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |If and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
 
@@ -217,26 +228,6 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
-### Tweak your download operation with optional flags
-
-Here's some example flags that you can use to tweak your download operations.
-
-|Flag|Scenario|
-|---|---|
-|`--decompress=[gzip|deflate]`| Automatically decompress files.|
-|`--log-level[WARNING|ERROR|INFO|NONE]`|Specify how detailed you want your copy-related log entries to be.|
-|`--overwrite[true|false|ifSourceNewer|prompt]`|If and how to overwrite the conflicting files and blobs at the destination.|
-
-For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
-
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Copy to an archive tier.
-- Automatically decompress files.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
 ## Copy blobs between storage accounts
 
 You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
@@ -257,7 +248,18 @@ This section contains the following examples:
 > * Copy a container to another storage account
 > * Copy all containers, directories, and files to another storage account
 
-These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts. 
+These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts.
+
+> [!TIP]
+> You can tweak your upload operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Copy a blob to another storage account
 
@@ -299,18 +301,6 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 | **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 | **Example** (hierarchical namespace)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 
-### Tweak your copy operation with optional flags
-
-Here's some example flags that you can use to tweak your copy operations.
-
-|Flag|Scenario|
-|---|---|
-|`--block-blob-tier=[BlockBlob|PageBlob|AppendBlob]`|Copy to a specific access tier (such as the archive tier).|
-|`--blob-type=[None|Hot|Cool|Archive]`|Copy files as Append Blobs or Page Blobs.|
-|`--decompress=[gzip|deflate]`| Automatically decompress files.|
-
-For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
-
 ## Synchronize files
 
 You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace. 
@@ -324,6 +314,17 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
+
+> [!TIP]
+> You can tweak your sync operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Exclude files based on a pattern.|**--exclude-path**|
+> |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Update a container with changes to a local file system
 
@@ -360,18 +361,6 @@ The first directory that appears in this command is the source. The second one i
 |--------|-----------|
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
 | **Example** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
-
-### Tweak your sync operation with optional flags
-
-Here's some example flags that you can use to tweak your sync operations.
-
-|Flag|Scenario|
-|---|---|
-|`--check-md5[NoCheck|LogOnly|FailIfDifferent|FailIfDifferentOrMissing]`|Specify how strictly MD5 hashes should be validated when downloading.|
-|`--exclude-path`|Exclude files based on a pattern.|
-|`--log-level[WARNING|ERROR|INFO|NONE]`| Specify how detailed you want your copy-related log entries to be.|
-
-For a list of all optional flags, see [azcopy sync](storage-ref-azcopy-sync.md#options).
 
 ## Next steps
 
