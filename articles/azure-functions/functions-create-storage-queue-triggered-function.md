@@ -19,7 +19,7 @@ Learn how to create a function that is triggered when messages are submitted to 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+![Function app successfully created.](./media/functions-create-storage-queue-triggered-function/function-app-create-success.png)
 
 Next, you create a function in the new function app.
 
@@ -29,7 +29,7 @@ Next, you create a function in the new function app.
 
 1. Select **Functions**, and then select **+ Add** to add a new function.
 
-   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="true":::
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="true":::
 
 1. Choose the **Azure Queue Storage trigger** template.
 
