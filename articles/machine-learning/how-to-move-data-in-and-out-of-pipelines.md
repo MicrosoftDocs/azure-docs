@@ -179,7 +179,7 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-If you created your `PipelineData` with the `is_directory` argument set to `True` it would be enough to just perform the `os.makedirs()` call and then you would be free to write whatever files you wished to the path. For more details and other options, see the [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) reference documentation.
+If you created your `PipelineData` with the `is_directory` argument set to `True`, it would be enough to just perform the `os.makedirs()` call and then you would be free to write whatever files you wished to the path. For more details, see the [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) reference documentation.
 
 ### Read `PipelineData` as an input to non-initial steps
 
