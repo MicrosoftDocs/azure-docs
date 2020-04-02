@@ -7,12 +7,12 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: vvasic
-ms.reviewer: jrasnick  
+ms.reviewer: jrasnick   
 ---
 
 # Azure Synapse Analytics SQL resource consumption
 
-This article describes resource consumption models of SQL on-demand (preview) and SQL pool.
+This article describes resource consumption models of Synapse SQL (preview).
 
 ## SQL on-demand
 
@@ -24,7 +24,7 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs) to o
 
 ### What are Data Warehouse Units
 
-A [SQL pool](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#sql-analytics-and-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned when using [SQL Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#sql-analytics-and-sql-pool-in-azure-synapse). Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
