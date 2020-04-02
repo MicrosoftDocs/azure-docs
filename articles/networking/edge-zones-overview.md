@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: ganesr
 
 ---
@@ -129,11 +129,13 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 | Global SIs and Operators | Mobile Operators |
 | --- | --- |
 | Amdocs                       | Etisalat             |
-| American Tower               | Rogers               |
-| Expeto                       | Singtel              |
-| Federated Wireless           | Vodafone             |
-| Infosys                      |      *                |
-| Tech Mahindra                |      *                |
+| American Tower               | NTT Communications   |
+| Century Link                 | Proximus             |
+| Expeto                       | Rogers               |
+| Federated Wireless           | SK Telecom           |
+| Infosys                      | Telefonica           |
+| Tech Mahindra                | Telstra              |
+|        *                     | Vodafone             |
 
 [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
 
