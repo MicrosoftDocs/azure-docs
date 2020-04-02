@@ -21,9 +21,6 @@ Before you begin, see the [Get started with AzCopy](storage-use-azcopy-v10.md) a
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a file share. The example in this section creates a file share named `myfileshare`.
 
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
-
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>'` |
@@ -48,7 +45,7 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
@@ -144,7 +141,7 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
@@ -230,7 +227,7 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
 > |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
