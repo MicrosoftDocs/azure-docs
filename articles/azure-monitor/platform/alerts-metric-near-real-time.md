@@ -81,7 +81,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [App Service Environment Multi-Role Pools](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [App Service Environment Worker Pools](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Yes | No | [App Service Plans](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Yes | No | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites)|
+|Microsoft.Web/sites | Yes | No | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) and [Functions](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Yes | No | [App Service slots](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 ## Payload schema

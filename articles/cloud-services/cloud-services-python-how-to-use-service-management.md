@@ -26,7 +26,7 @@ The Azure Service Management API provides programmatic access to much of the ser
 To use the Service Management API, you need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
-The Azure SDK for Python wraps the [Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
+The Azure SDK for Python wraps the [Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## <a name="Installation"> </a>Installation
 All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install by using pip. For more information about installation (for example, if you're new to Python), see [Install Python and the Azure SDK](/azure/developer/python/azure-sdk-install).
