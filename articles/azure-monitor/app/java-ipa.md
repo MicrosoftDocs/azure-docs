@@ -8,7 +8,7 @@ ms.date: 03/29/2020
 
 # Java codeless application monitoring - public preview
 
-Java codeless application monitoring is all about simplicity - there are no code changes, teh Java agent will be enabled through just a couple of configuration changes.
+Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent will be enabled through just a couple of configuration changes.
 
 The best news ever is that the Java agent work in any environment, and allows to monitor all of your Java applications.
 
@@ -109,7 +109,7 @@ Application Insights Java 3.0 is already listening for telemetry that is sent to
 
 ## Sending custom telemetry using Application Insights Java SDK 2.x
 
-Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice), e.g.
+Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
 ```xml
   <dependency>
@@ -119,7 +119,7 @@ Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions a
   </dependency>
 ```
 
-Create a TelemetryClient, e.g.
+Create a TelemetryClient:
 
   ```java
 private static final TelemetryClient telemetryClient = new TelemetryClient();
@@ -178,6 +178,6 @@ Or you can also use Application Insights Java SDK 2.x:
 
 ## Upgrading from Application Insights Java SDK 2.x
 
-If you are already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you are sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x in order to prevent duplicate capture.
+If you are already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you are sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
 
 Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please reach out to the product team <a href="mailto:asw-node-java-pr@microsoft.com">asw-node-java-pr@microsoft.com</a>. We are still designing the replacement for this functionality in 3.0, and we want to make sure it will cover your use case(s).
