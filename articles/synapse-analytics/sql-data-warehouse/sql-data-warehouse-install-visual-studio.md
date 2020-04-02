@@ -33,16 +33,16 @@ See [Download Visual Studio 2019][] to download and install Visual Studio **16.3
 
 There are times when feature releases for Synapse SQL may not include support for SSDT. The following features are currently unsupported:
 
-- [Materialized views](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (in progress)
-- [Ordered Clustered Columnstore Indexes](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (in progress)
-- [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (in progress)
-- [Workload management](/sql-data-warehouse/sql-data-warehouse-workload-management.md) - workload groups and classifiers (in progress)
-- [Row-level security](/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+- [Materialized views](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Ordered Clustered Columnstore Indexes](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
+- [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (in progress)
+- [Workload management](sql-data-warehouse-workload-management.md) - workload groups and classifiers (in progress)
+- [Row-level security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
   - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) to get the feature supported.
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
   - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported.
-- [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) function
-- [Tables with constraints](/sql-data-warehouse/sql-data-warehouse-table-constraints.md#table-constraints) are not supported. For these table objects, set the build action to "None".
+- [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) function
+- [Tables with constraints](sql-data-warehouse-table-constraints.md#table-constraints) are not supported. For these table objects, set the build action to "None".
 
 ## Next steps
 
