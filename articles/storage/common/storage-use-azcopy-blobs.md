@@ -52,14 +52,6 @@ This section contains the following examples:
 > * Upload the contents of a directory 
 > * Upload specific files
 
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Copy to an archive tier.
-- Automatically decompress files.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
 > The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
@@ -72,10 +64,6 @@ For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 | **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
-
-> [!NOTE]
-> AzCopy by default uploads data as block blobs. To upload files as Append Blobs or Page Blobs, use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-> AzCopy by default uploads your data to inherit the account access tier. To upload files to a specific [access tier](../blobs/storage-blob-storage-tiers.md), use the flag `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### Upload a directory
 
@@ -112,6 +100,24 @@ You can upload the contents of a directory without copying the containing direct
 ### Upload specific files
 
 You can specify complete file names, or use partial names with wildcard characters (*).
+
+### Accomplish more with optional flags
+
+You can tweak your upload operation to accommodate the specific needs of your scenario.  
+
+For example, AzCopy by default uploads data as block blobs. To upload files as Append Blobs or Page Blobs, you can use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`. 
+
+Also, AzCopy by default uploads your data to inherit the account access tier. To upload files to a specific [access tier](../blobs/storage-blob-storage-tiers.md), you can use the flag `--block-blob-tier=[Hot|Cool|Archive]`.
+
+Here's some more example tasks:
+
+|Task|Flag|
+|---|---|
+|Copy to an archive tier|--block-blob-tier|
+|Automatically decompress files|--decompress|
+|Specify how detailed you want your copy-related log entries to be|--log-level|
+
+For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
 
 #### Specify multiple complete file names
 
