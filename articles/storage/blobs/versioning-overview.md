@@ -1,22 +1,20 @@
 ---
 title: Blob versioning (preview)
 titleSuffix: Azure Storage
-description: 
+description: Blob storage versioning (preview) automatically maintains historical versions of an object and identifies them with timestamps. You can  restore a historical version of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Blob versions (preview)
+# Blob versioning (preview)
 
-Applications may create, update, and delete data in Azure Blob storage continuously. A common requirement is the ability to access and manage both current and previous versions of the data. Blob storage versioning (preview) automatically maintains previous versions of an object and identifies them with timestamps.
-
-You can list and access both the current blob and previous versions using version ID timestamps. You can also restore previous versions to recover your data when it is erroneously modified or deleted by an application or other users.
+Blob storage versioning (preview) automatically maintains historical versions of an object and identifies them with timestamps. You can restore a historical version of a blob to recover your data if it is erroneously modified or deleted.
 
 > [!IMPORTANT]
 > Blob versioning cannot prevent accidental deletion of the storage account or of a container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
@@ -115,9 +113,75 @@ You can move any version of a blob, including the current version, to a differen
 
 To automate the process of moving blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
 
+You can enable or disable blob versioning (preview) for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+
+## Enable blob versioning
+
+You can enable or disable blob versioning (preview) for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+
+# [Azure portal](#tab/portal)
+
+???need screenshot here - i have access now, but want grammatical errors in text fixed first
+
+# [PowerShell](#tab/powershell)
+
+???preview module info
+
+To enable blob versioning with PowerShell, call the [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) command and specify **$true** for the `-EnableVersioning` parameter.
+
+```powershell
+Update-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -EnableVersioning $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To enable blob versioning with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command.
+
+```azurecli
+az storage account blob-service-properties update --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --enableVersioning true ???
+```
+
+# [Template](#tab/template)
+
+To enable blob versioning with a template, create a template with the `IsVersioningEnabled` property to **true**. The following steps describe how to create a template in the Azure portal.
+
+1. In the Azure portal, choose **Create a resource**.
+1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+1. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
+1. In the template editor, paste in the following JSON. Replace the `<accountName>` placeholder with the name of your storage account.
+1. Save the template.
+1. Specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable blob versioning.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {},
+        "resources": [
+            {
+                "type": "Microsoft.Storage/storageAccounts/blobServices",
+                "apiVersion": "2019-10-19",
+                "name": "<accountName>/default",
+                "properties": {
+                    "IsVersioningEnabled": true
+                }
+            }
+        ]
+    }
+    ```
+
+For more information about deploying resources with templates in the Azure portal, see [Deploy resources with Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+---
+
 ## Disable blob versioning
 
-When you turn off blob versioning, any existing historical versions remain accessible in your storage account. No new versions are subsequently created.
+Disabling blob versioning does not delete existing blobs, versions, or snapshots. When you turn off blob versioning, any existing historical versions remain accessible in your storage account. No new versions are subsequently created.
 
 If a base blob was created or modified after versioning was enabled on the storage account, then overwriting the base blob creates a new historical version. The updated base blob is no longer a version and does not have a version ID. All subsequent updates to the base blob will overwrite its data.
 
@@ -257,10 +321,49 @@ az feature show --namespace Microsoft.Storage \
 
 ## Pricing and billing
 
-Versions, like snapshots, are billed at the same rate as active data. You only pay for the additional unique blocks or pages if versions and base blobs share common blocks or pages. For more information about how blob versions are billed, see [Understanding how snapshots accrue charges](storage-blob-snapshots.md).
+Enabling blob versioning can result in additional data storage charges to your account. When designing your application, it is important to be aware of how these charges might accrue so that you can minimize costs.
+
+Blob versions, like blob snapshots, are billed at the same rate as active data. If a version shares blocks or pages with its base blob, then you pay only for any additional blocks or pages that are not shared between the version and the base blob.
 
 > [!NOTE]
 > Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
+
+### Important billing considerations
+
+Make sure to consider the following points when enabling blob versioning:
+
+- Your storage account incurs charges for unique blocks or pages, whether they are in the blob or in a historical version. Your account does not incur additional charges for versions associated with a blob until you update the blob on which they are based. After you update the base blob, it diverges from its historical versions. When this happens, you are charged for the unique blocks or pages in each blob or version.
+- When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the historical version. After the block is committed again, it diverges from its counterpart in any version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
+- Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to consider that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
+- When blob versioning is enabled, design update operations on block blobs so that they update the least possible number of blocks. The write operations that permit fine-grained control over blocks are [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list). The [Put Blob](/rest/api/storageservices/put-blob) operation, on the other hand, replaces the entire contents of a blob and so may lead to additional charges.
+
+### Versioning billing scenarios
+
+The following scenarios demonstrate how charges accrue for a block blob and its versions.
+
+#### Scenario 1
+
+In scenario 1, the base blob has not been updated after the version was created, so charges are incurred only for unique blocks 1, 2, and 3.
+
+![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-1.png)
+
+#### Scenario 2
+
+In scenario 2, the base blob has been updated, but the version has not. Block 3 was updated, and even though it contains the same data and the same ID, it is not the same as block 3 in the version. As a result, the account is charged for four blocks.
+
+![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-2.png)
+
+#### Scenario 3
+
+In scenario 3, the base blob has been updated, but the version has not. Block 3 was replaced with block 4 in the base blob, but the historical version still reflects block 3. As a result, the account is charged for four blocks.
+
+![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-3.png)
+
+#### Scenario 4
+
+In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks -- four in the base blob, and four in the historical version. This scenario can occur if you are using an update method such as [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray], because these methods replace all of the contents of a blob.
+
+![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ## See also
 
