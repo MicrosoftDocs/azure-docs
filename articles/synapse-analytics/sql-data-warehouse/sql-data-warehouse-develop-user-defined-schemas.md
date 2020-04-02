@@ -30,19 +30,19 @@ By contrast, SQL pool runs the entire data warehouse workload within one databas
 > 
 
 ## Recommendations
-What follows are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas
+What follows are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
-1. Use one SQL pool database to run your entire data warehouse workload
-2. Consolidate your existing data warehouse environment to use one SQL pool database
-3. Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
+- Use one SQL pool database to run your entire data warehouse workload.
+- Consolidate your existing data warehouse environment to use one SQL pool database.
+- Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
 If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL pool database.
 
 If schemas have already been used, then you have a few options:
 
-1. Remove the legacy schema names and start fresh
-2. Retain the legacy schema names by pre-pending the legacy schema name to the table name
-3. Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
+- Remove the legacy schema names and start fresh.
+- Retain the legacy schema names by pre-pending the legacy schema name to the table name.
+- Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
 
 > [!NOTE]
 > On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in SQL pool. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
