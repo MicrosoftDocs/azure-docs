@@ -156,7 +156,7 @@ This section contains the following examples:
 > |---|---|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-> |If and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+> |Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
@@ -251,7 +251,7 @@ This section contains the following examples:
 These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts.
 
 > [!TIP]
-> You can tweak your upload operation by using optional flags. Here's a few examples.
+> You can tweak your copy operation by using optional flags. Here's a few examples.
 >
 > |Scenario|Flag|
 > |---|---|
@@ -322,9 +322,9 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 > |---|---|
 > |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
 > |Exclude files based on a pattern.|**--exclude-path**|
-> |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > 
-> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+> For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
 ### Update a container with changes to a local file system
 

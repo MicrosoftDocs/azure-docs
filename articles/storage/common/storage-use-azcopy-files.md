@@ -14,6 +14,9 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 Before you begin, see the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and familiarize yourself with the tool.
 
+> [!TIP]
+> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 ## Create file shares
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a file share. The example in this section creates a file share named `myfileshare`.
@@ -40,21 +43,21 @@ This section contains the following examples:
 > * Upload the contents of a directory
 > * Upload a specific file
 
+> [!TIP]
+> You can tweak your upload operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
-
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Persist access control lists (ACLs) in uploaded files.
-- Persist SMB property information in uploaded files.
-- Copy to an archive tier.
-- Automatically decompress files.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Upload a file
 
@@ -136,21 +139,19 @@ This section contains the following examples:
 > * Download the contents of a directory
 > * Download specific files
 
+> [!TIP]
+> You can tweak your download operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > If the `Content-md5` property value of a file contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
-
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Persist access control lists (ACLs) in uploaded files.
-- Persist SMB property information in uploaded files.
-- Copy to an archive tier.
-- Automatically decompress files.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Download a file
 
@@ -224,18 +225,18 @@ This section contains the following examples:
 > * Copy a file share to another storage account
 > * Copy all file shares, directories, and files to another storage account
 
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Persist access control lists (ACLs) in uploaded files.
-- Persist SMB property information in uploaded files.
-- Copy to an archive tier.
-- Automatically decompress files.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your copy operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copy access control lists (ACLs) along with the files.|**----persist-smb-permission**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Copy a file to another storage account
 
@@ -276,16 +277,16 @@ The [sync](storage-ref-azcopy-sync.md) command compares file names and last modi
 
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
-These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
-
-- Specify how strictly MD5 hashes should be validated when downloading.
-- Exclude files based on a pattern or path.
-- Specify how detailed you want your copy-related log entries to be.
-
-For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your sync operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Exclude files based on a pattern.|**--exclude-path**|
+> |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
 ### Update a file share with changes to another file share
 
