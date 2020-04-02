@@ -25,7 +25,7 @@ Azure Synapse has four components:
 - Studio: Unified user experience.  (Preview)
 
 > [!NOTE]
-> To access the preview features of Azure Synapse, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
+> Access [Azure Synapse Analytics (Workspaces](../overview-cheat-sheet.md)) which is currently in public preview.
 
 ## SQL Analytics and SQL pool in Azure Synapse
 
