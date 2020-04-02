@@ -14,6 +14,9 @@ ms.reviewer: dineshm
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with Blob storage.
 
+> [!TIP]
+> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
@@ -26,9 +29,6 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 > For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Create a container
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a container. The examples in this section create a container named `mycontainer`.
 
@@ -53,7 +53,13 @@ This section contains the following examples:
 > * Upload specific files
 
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your upload operation by using optional flags. Here's a few examples.
+> |Scenario|Flag|
+> |---|---|
+> |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Upload a file
 
@@ -129,17 +135,6 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
-> [!TIP]
-> You can tweak your upload operation with optional flags. Here's a few examples.
->
-> |Flag|Scenario|
-> |---|---|
-> |`--block-blob-tier=[BlockBlob|PageBlob|AppendBlob]`|Upload to a specific access tier (such as the archive tier).|
-> |`--blob-type=[None|Hot|Cool|Archive]`|Upload files as Append Blobs or Page Blobs.|
-> |`--decompress=[gzip|deflate]`| Automatically decompress files.|
->
-> For a list of all optional flags, see [options](storage-ref-azcopy-copy.md#options).
-
 ## Download files
 
 You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to download blobs, directories, and containers to your local computer.
@@ -154,9 +149,6 @@ This section contains the following examples:
 
 > [!NOTE]
 > If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Download a file
 
@@ -263,10 +255,7 @@ This section contains the following examples:
 > * Copy a container to another storage account
 > * Copy all containers, directories, and files to another storage account
 
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
-
- These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts. 
+These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts. 
 
 ### Copy a blob to another storage account
 
@@ -333,9 +322,6 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Update a container with changes to a local file system
 
