@@ -234,14 +234,14 @@ Analyze and promote model versions in a controlled fashion using endpoints. You 
 * Configure the __percentage of scoring traffic sent to each endpoint__. For example, route 20% of the traffic to endpoint 'test' and 80% to 'production'.
 
     > [!NOTE]
-    > If you do not account for 100% of the traffic, any remaining percentage is routed to the __default__ endpoint. For example, if you configure endpoint 'test' to get 10% of the traffic, the remaining 90% is sent to the default endpoint.
+    > If you do not account for 100% of the traffic, any remaining percentage is routed to the __default__ endpoint version. For example, if you configure endpoint version 'test' to get 10% of the traffic, and 'prod' for 30%, the remaining 60% is sent to the default endpoint version.
     >
-    > The first endpoint created is automatically configured as the default. You can change this by setting `is_default=True` when creating or updating an endpoint version.
+    > The first endpoint version created is automatically configured as the default. You can change this by setting `is_default=True` when creating or updating an endpoint version.
      
-* Tag an endpoint as either __control__ or __treatment__. For example, the current production endpoint might be the control, while potential new models are deployed as treatments. After evaluating performance of the treatment endpoints, if one outperforms the current control, it might be promoted to the new production/control.
+* Tag an endpoint version as either __control__ or __treatment__. For example, the current production endpoint version might be the control, while potential new models are deployed as treatment versions. After evaluating performance of the treatment versions, if one outperforms the current control, it might be promoted to the new production/control.
 
     > [!NOTE]
-    > You can only have __one__ control endpoint. You can have multiple treatments.
+    > You can only have __one__ control. You can have multiple treatments.
 
 You can enable app insights to view operational metrics of endpoints and deployed versions.
 
@@ -249,7 +249,7 @@ You can enable app insights to view operational metrics of endpoints and deploye
 Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The following example shows how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version, which means that unspecified traffic percentile across all versions will go to the default version.  
 
 > [!TIP]
-> In the following example, the configuration sets this endpoint to handle 20% of the traffic. Since this is the first endpoint, it's also the default endpoint. And since we don't have any other endpoints for the other 80% of traffic, it is routed to the default endpoint. Until other endpoints that take a percentage of traffic are deployed, this one effectively receives 100% of the traffic.
+> In the following example, the configuration sets the initial endpoint version to handle 20% of the traffic. Since this is the first endpoint, it's also the default version. And since we don't have any other versions for the other 80% of traffic, it is routed to the default as well. Until other versions that take a percentage of traffic are deployed, this one effectively receives 100% of the traffic.
 
 ```python
 import azureml.core,
@@ -280,7 +280,7 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment versions to help compare against a single control version.
 
 > [!TIP]
-> The previous endpoint is set to receive 20% of the traffic. It's also the default, so it gets any leftover traffic not handled by other endpoints. The second endpoint version created by the next code snippet accepts 10% of traffic. After it is created, the first endpoint version is configured for 20% of the traffic and the new version for 10%. The remaining 70% is sent to the first endpoint version, because it is also the default version.
+> The second version, created by the following code snippet, accepts 10% of traffic. The first version is configured for 20%, so only 30% of the traffic is configured for specific versions. The remaining 70% is sent to the first endpoint version, because it is also the default version.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -299,7 +299,7 @@ endpoint.wait_for_deployment(True)
 Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile. In the following example, the second version increases its traffic to 40% and is now the default.
 
 > [!TIP]
-> Since the second version is now default, and is configured for 40%, while the original version is configured for 20%. This means that 40% of traffic is not accounted for by version configurations, and will also be routed to the second version. It effectively receives 80% of the traffic.
+> After the following code snippet, the second version is now default. It is now configured for 40%, while the original version is still configured for 20%. This means that 40% of traffic is not accounted for by version configurations. The leftover traffic will be routed to the second version, because it is now default. It effectively receives 80% of the traffic.
 
  ```python
 from azureml.core.webservice import AksEndpoint
