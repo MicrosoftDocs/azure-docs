@@ -12,9 +12,9 @@ ms.date: 04/02/2020
 ---
 # Partial term search in Azure Cognitive Search queries (wildcard, regex, fuzzy search, patterns)
 
-A *partial term search* refers to queries consisting of term fragments, including first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
+A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, which means pattern queries will fail because no match can be found. For example, a phone number like `+1 (425) 703-6214` - tokenized as `"1"`, `"425"`, `"703"`, `"6214"` - won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` - tokenized as `"1"`, `"425"`, `"703"`, `"6214"` - won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
 The solution is to store intact versions of these strings in the index, to specifically support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
@@ -22,10 +22,9 @@ The solution is to store intact versions of these strings in the index, to speci
 
 In Azure Cognitive Search, partial search is available in these forms:
 
-+ Prefix search (`search=sea~`, matching on "seaside", "Seattle", "seam", and so forth)
-+ Wildcard search and RegEx search
-+ Fuzzy search that infers a valid "near match" query or corrects a misspelled term
-+ Autocomplete and "search-as-you-type" suggestions
++ [Simple query expressions](query-simple-syntax.md) that use a fragment
++ [Wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard), such as `search=sea~` or `search=sea*`, matching on "seaside", "Seattle", "seam", and so forth.
++ [Regular expressions](query-lucene-syntax.md#bkmk_regex)
 
 When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
 
@@ -34,11 +33,9 @@ When any of the above query types are needed in your client application, follow 
 When you need to search on patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, preserving whole terms, necessary when query strings include parts of a term or special characters. Taking a step back, the approach looks like this:
 
 + Define a field to store an intact version of the field (assuming you want analyzed and non-analyzed text)
-+ Choose a predefined analyzer or define a custom analyzer that produces the desired output
++ Choose a predefined analyzer or define a custom analyzer to output an intact string
 + Assign the analyzer to the field
 + Build the index and test
-
-This article walks you through these tasks. The approach described here is useful in other scenarios: wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 > [!TIP]
 > Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
@@ -74,7 +71,7 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
 | [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the predefined [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to inspect tokenized output. 
+If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
 You must have an existing index to work with. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
@@ -139,7 +136,7 @@ You must have an existing index to work with. Given an existing index and a fiel
     }
     ```
 > [!Important]
-> Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason. The solution is to add a lwower-case token filter.
+> Be aware that query parsers often lower-case terms in a search expression when building the query tree. If you are using an analyzer that does not lower-case text inputs, and you are not getting expected results, this could be the reason. The solution is to add a lower-case token filter, as described in the "Use custom analyzers" section below.
 
 ## Configure an analyzer
  
@@ -147,7 +144,7 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 ### Use built-in analyzers
 
-Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field.
+Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. For more information about available built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -159,7 +156,6 @@ Built-in or predefined analyzers can be specified by name on an `analyzer` prope
       "analyzer": "whitespace"
     }
 ```
-For more information about all available built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ### Use custom analyzers
 
@@ -168,7 +164,7 @@ If you are using a [custom analyzer](index-add-custom-analyzers.md), define it i
 When the objective is whole-term tokenization, a custom analyzer that consists of a **keyword tokenizer** and **lower-case token filter** is recommended.
 
 + The keyword tokenizer creates a single token for the entire contents of a field.
-+ The lowercase token filter transforms upper-case letters into lower-case text. Query parsers typically lowercase any uppercase text inputs. Lowercasing homogenizes the inputs with the tokenized terms.
++ The lowercase token filter transforms upper-case letters into lower-case text. Query parsers typically lowercase any uppercase text inputs. Lower-casing homogenizes the inputs with the tokenized terms.
 
 The following example illustrates a custom analyzer that provides the keyword tokenizer and a lowercase token filter.
 
@@ -206,7 +202,19 @@ The following example illustrates a custom analyzer that provides the keyword to
 
 ## Build and test
 
-Once you have defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries. Recall that the Test Analyzer API is called against an existing index. Be sure to include this API as part of your test, as verification that terms are tokenized or preserved in the expected format.
+Once you have defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries. 
+
+The previous sections explained the logic. This section steps through each API you should call when testing your solution. As previously noted, if you use an interactive web test tool such as Postman, you can step through these tasks quickly.
+
++ [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index) removes an existing index of the same name so that you can recreate it.
+
++ [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) creates the index structure on your search service, including analyzer definitions and fields with an analyzer specification.
+
++ [Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) imports documents having the same structure as your index, as well as searchable content. After this step, your index is ready to query or test.
+
++ [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) was introduced in [Choose an analyzer](#choose-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
+
++ [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) explains how to construct a query request, using either [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md) for wildcard and regular expressions.
 
 ## Tips and best practices
 
