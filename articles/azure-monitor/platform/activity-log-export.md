@@ -3,7 +3,7 @@ title: Export the Azure Activity Log
 description: Export Azure Activity log to storage for archiving or Azure Event Hubs for exporting outside of Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
@@ -13,7 +13,7 @@ ms.subservice: logs
 # Export Azure Activity log to storage or Azure Event Hubs
 
 > [!IMPORTANT]
-> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Azure Activity log collection and export](diagnostic-settings-legacy.md) for a comparison.
+> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Collect and analyze Azure Activity log in Azure Monitor](activity-log-collect.md) for a comparison.
 
 
 The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
@@ -31,9 +31,10 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ### Storage account
 If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-account-create.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
-The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
-> [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
+The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. 
+
+> [!TIP]
+> See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for providing access to a storage account behind a secured virtual network.
 
 ### Event Hubs
 If you're sending your Activity Log to an event hub, then you need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed Activity Log events to this Event Hubs namespace, then that event hub will be reused.

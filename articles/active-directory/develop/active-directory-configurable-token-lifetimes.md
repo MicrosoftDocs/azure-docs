@@ -6,15 +6,14 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Azure Active Directory (Preview)
 
@@ -28,9 +27,8 @@ In Azure AD, a policy object represents a set of rules that are enforced on indi
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it is not overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
 > [!NOTE]
-> Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
->* The default lifetime for the SharePoint Online access token is 1 hour. 
->* The default max inactive time of the SharePoint Online refresh token is 90 days.
+> Configurable token lifetime policy only applies to mobile and desktop clients that access SharePoint Online and OneDrive for Business resources, and does not apply to web browser sessions.
+> To manage the lifetime of web browser sessions for SharePoint Online and OneDrive for Business, use the [Conditional Access session lifetime](../conditional-access/howto-conditional-access-session-lifetime.md) feature. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 
 ## Token types
 

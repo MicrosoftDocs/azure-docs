@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2019
+ms.date: 1/30/2020
 ms.author: mlottner
 
 ---
@@ -93,7 +93,7 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
 1. On the **Module Twin Settings** tab, add the following configuration:
       
     ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
 
 1. Select **Update**.
@@ -166,7 +166,7 @@ If you encounter an issue, container logs are the best way to learn about the st
    
    | Name | IMAGE |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
    

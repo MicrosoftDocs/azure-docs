@@ -16,6 +16,9 @@ This article provides the properties and schema for blob storage events. For an
 
 For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 ## List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.

@@ -256,6 +256,9 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
+- Moving an encrypted VMs to another subscription.
+- Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
 
 ## Next steps
 

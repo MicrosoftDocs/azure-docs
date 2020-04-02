@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create a host pool with PowerShell
 
@@ -15,7 +16,7 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 ## Use your PowerShell client to create a host pool
 
-First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
 
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 
@@ -55,9 +56,9 @@ Now you can create an Azure virtual machine that can be joined to your Windows V
 
 You can create a virtual machine in multiple ways:
 
-- [Create a virtual machine from an Azure Gallery image](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
-- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
 >If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
@@ -73,7 +74,7 @@ You need to do the following things to prepare your virtual machines before you 
 
 To successfully domain-join, do the following things on each virtual machine:
 
-1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
@@ -88,7 +89,7 @@ Registering the virtual machines to a Windows Virtual Desktop host pool is as si
 
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
-1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
    - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
@@ -99,7 +100,7 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
    - Run the installer.
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).
 
 ## Next steps
 

@@ -1,22 +1,11 @@
 ---
 title: Create a zoned Linux VM with the Azure CLI 
 description: Create a Linux VM in an availability zone with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: 
-tags: 
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.custom: 
 ---
 
 # Create a Linux virtual machine in an availability zone with the Azure CLI
@@ -39,7 +28,7 @@ az vm list-skus --location eastus2 --output table
 
 The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
-```azurecli
+```output
 ResourceType      Locations  Name               [...]    Tier       Size     Zones
 ----------------  ---------  -----------------           ---------  -------  -------
 virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
@@ -74,13 +63,13 @@ Create a virtual machine with the [az vm create](/cli/azure/vm) command.
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `zones` value, which indicates the availability zone in which the VM is running. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -111,7 +100,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 The output shows that the managed disk is in the same availability zone as the VM:
 
-```azurecli
+```output
 {
   "creationData": {
     "createOption": "FromImage",
@@ -159,7 +148,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 
 The output shows that the IP address is in the same availability zone as the VM:
 
-```azurecli
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",

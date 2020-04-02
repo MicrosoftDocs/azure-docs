@@ -2,10 +2,8 @@
 title: Install Istio in Azure Kubernetes Service (AKS)
 description: Learn how to install and use Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ---
@@ -95,7 +93,6 @@ The [Helm][helm] installation approach for Istio will be deprecated in the futur
 
 > [!CAUTION]
 > The [SDS (secret discovery service)][istio-feature-sds] and [Istio CNI][istio-feature-cni] Istio features are currently in [Alpha][istio-feature-stages], so thought should be given before enabling these. In addition, the [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes feature (a requirement for SDS) is not enabled in current AKS versions.
-
 Create a file called `istio.aks.yaml` with the following content. This file will hold the [Istio control plane spec][istio-control-plane] details for configuring Istio.
 
 ```yaml
@@ -416,11 +413,11 @@ To learn how to monitor your AKS application using Application Insights and Isti
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
 [istio-install-istioctl]: https://istio.io/docs/setup/install/istioctl/
 [istio-configuration-profiles]: https://istio.io/docs/setup/additional-setup/config-profiles/
-[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha12.pb/#IstioControlPlane
+[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha1/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
 
 [istio-feature-stages]: https://istio.io/about/feature-stages/
-[istio-feature-sds]: https://istio.io/docs/tasks/security/auth-sds/
+[istio-feature-sds]: https://istio.io/docs/tasks/traffic-management/ingress/secure-ingress-sds/
 [istio-feature-cni]: https://istio.io/docs/setup/additional-setup/cni/
 
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 
@@ -41,7 +41,7 @@ Here are some examples of use cases for daemon apps:
 - Desktop applications (like Windows services on Windows or daemon processes on Linux) that perform batch jobs, or an operating system service that runs in the background
 - Web APIs that need to manipulate directories, not specific users
 
-There's another common case where non-daemon applications use client credentials: even when they act on behalf of users, they need to access a web API or a resource under own their identity for technical reasons. An example is access to secrets in Azure Key Vault or an Azure SQL database for a cache.
+There's another common case where non-daemon applications use client credentials: even when they act on behalf of users, they need to access a web API or a resource under their own identity for technical reasons. An example is access to secrets in Azure Key Vault or an Azure SQL database for a cache.
 
 Applications that acquire a token for their own identities:
 

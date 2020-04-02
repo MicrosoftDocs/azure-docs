@@ -12,19 +12,13 @@ ms.date: 01/17/2020
 
 # Public preview service limits
 
-During the public preview, Azure Digital Twins has the following temporary subscription, instance, and rate limits.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-These constraints exist to help simplify learning about the new service and its many features.
-
-> [!NOTE]
-> These limits will be increased or removed by general availability (GA).
+During the public preview, Azure Digital Twins has the following temporary subscription, instance, and rate limits for existing customers. These constraints exist to help simplify learning about the new service and its many features, and will be increased or removed by general availability (GA).
 
 ## Per-subscription limits
 
-During the public preview, each Azure subscription can create or run only one Azure Digital Twins instance at a time.
-
-> [!TIP]
-> If you delete your instance, you can create a new one.
+During the public preview, each Azure subscription can create or run only one Azure Digital Twins instance at a time. If you delete your instance, you can create a new one.
 
 ## Per-instance limits
 
@@ -66,7 +60,7 @@ The following limits set the total number of all user-defined function calls mad
 The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
 - 100 messages per second across all devices
--	25 messages per second per device
+-    25 messages per second per device
 
 ## Next steps
 

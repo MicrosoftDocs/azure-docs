@@ -7,12 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
 ---
 # Analyze Customer Churn using Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## Overview
 This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio (classic). In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 

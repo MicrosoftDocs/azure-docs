@@ -2,15 +2,14 @@
 title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
 description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 03/31/2020
 ms.custom: mvc
 ---
 
 # Prepare for assessment and migration of Hyper-V VMs to Azure
 
-This article describes how to prepare for assessment and migration of on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md).
+This article describes how to prepare for assessment of on-premises Hyper-V VMs with Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
 
@@ -34,10 +33,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-- Permissions for your Azure account to create an Azure Migrate project.
-- Permissions for your account to register the Azure Migrate appliance. The appliance is used for discovery and assessment of Hyper-V VMs you migrate. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
-    - The first app communicates with Azure Migrate service endpoints.
-    - The second app accesses an Azure Key Vault that's created during registration, to store Azure AD app info and appliance configuration settings.
+**Task** | **Details** 
+--- | --- 
+**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project. | 
+**Register resource providers** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
+**Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication  between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
 
 
 
@@ -54,15 +54,14 @@ Check you have permissions to create an Azure Migrate project.
 
 ### Assign permissions to register the appliance
 
-You can assign permissions for Azure Migrate to create the Azure AD apps created during appliance registration, using one of the following methods:
+You can assign permissions for Azure Migrate to create the Azure AD app during appliance registration, using one of the following methods:
 
 - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
 - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
 
-It's worth noting that:
-
-- The apps don't have any other access permissions on the subscription other than those described above.
-- You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
+> [!NOTE]
+> - The app does not have any other access permissions on the subscription other than those described above.
+> - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
 
 
 #### Grant account permissions
@@ -86,14 +85,14 @@ The tenant/global admin can assign the Application Developer role to an account.
 
 ## Prepare Hyper-V for assessment
 
-You can prepare Hyper-V for VM assessment manually, or using a configuration script. Here's what needs to be prepared, either with the script or [manually](#prepare-hyper-v-manually).
-
+You can prepare Hyper-V for VM assessment manually, or using a configuration script. Preparation steps are as follows:
 - [Verify](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Hyper-V host settings, and make sure that the [required ports](migrate-support-matrix-hyper-v.md#port-access) are open on Hyper-V hosts.
 - Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 - Delegate credentials if VM disks are located on remote SMB shares.
 - Set up an account that the appliance will use to discover VMs on Hyper-V hosts.
-- Set up Hyper-V Integration Services on each VM you want to discover and assess.
+- Set up Hyper-V Integration Services on each VM you want to discover and assess. The default settings when you enable Integration Services are sufficient for Azure Migrate.
 
+    ![Enable Integration Services](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## Prepare with a script
@@ -109,7 +108,7 @@ The script does the following:
 - Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.
 - Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection).
 - Enables PowerShell remoting on the host.
-- Checks that the Hyper-V integration service is enabled on all VMs managed by the host.
+- Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host.
 - Enables CredSSP on the host if needed.
 
 Run the script as follows:
@@ -126,7 +125,7 @@ Run the script as follows:
     SHA256
     ```
 
-4.	After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+4.    After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
@@ -141,7 +140,7 @@ Hash values are:
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## Prepare Hyper-V manually
+## Prepare manually
 
 Follow the procedures in this section to prepare Hyper-V manually, instead of using the script.
 

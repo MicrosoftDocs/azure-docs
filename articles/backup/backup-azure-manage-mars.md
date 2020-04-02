@@ -166,4 +166,4 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
+- Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).

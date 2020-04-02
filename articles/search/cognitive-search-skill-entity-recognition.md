@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-#	Entity Recognition cognitive skill
+#    Entity Recognition cognitive skill
 
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
@@ -31,29 +31,29 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 Parameters are case-sensitive and are all optional.
 
-| Parameter name	 | Description |
+| Parameter name     | Description |
 |--------------------|-------------|
-| categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
-|defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
+| categories    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
+|defaultLanguageCode |    Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Not all entity categories are supported for all languages; see note below.|
 |minimumPrecision | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
 |includeTypelessEntities | Set to `true` if you want to recognize well-known entities that don't fit the current categories. Recognized entities are returned in the `entities` complex output field. For example, "Windows 10" is a well-known entity (a product), but since "Products" is not a supported category, this entity would be included in the entities output field. Default is `false` |
 
 
 ## Skill inputs
 
-| Input name	  | Description                   |
+| Input name      | Description                   |
 |---------------|-------------------------------|
-| languageCode	| Optional. Default is `"en"`.  |
+| languageCode    | Optional. Default is `"en"`.  |
 | text          | The text to analyze.          |
 
 ## Skill outputs
 
 > [!NOTE]
-> Not all entity categories are supported for all languages. Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` types.
+> Not all entity categories are supported for all languages. The `"Person"`, `"Location"`, and `"Organization"` entity category types are supported for the full list of languages above. Only _de_, _en_, _es_, _fr_, and _zh-hans_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, and `"Email"` types. For more information, see [Language and region support for the Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
-| Output name	  | Description                   |
+| Output name      | Description                   |
 |---------------|-------------------------------|
-| persons	   | An array of strings where each string represents the name of a person. |
+| persons       | An array of strings where each string represents the name of a person. |
 | locations  | An array of strings where each string represents a location. |
 | organizations  | An array of strings where each string represents an organization. |
 | quantities  | An array of strings where each string represents a quantity. |
@@ -63,7 +63,7 @@ Parameters are case-sensitive and are all optional.
 | namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (The actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Higher value means it's more to be a real entity)</li></ul> |
 | entities | An array of complex types that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granular view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
 
-##	Sample definition
+##    Sample definition
 
 ```json
   {
@@ -93,7 +93,7 @@ Parameters are case-sensitive and are all optional.
     ]
   }
 ```
-##	Sample input
+##    Sample input
 
 ```json
 {
@@ -110,7 +110,7 @@ Parameters are case-sensitive and are all optional.
 }
 ```
 
-##	Sample output
+##    Sample output
 
 ```json
 {
@@ -183,6 +183,7 @@ Parameters are case-sensitive and are all optional.
 }
 ```
 
+Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), which means if you are using them to index into the original string, you should use the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class in .NET in order to extract the correct content.  [More details can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
 ## Error cases
 If the language code for the document is unsupported, an error is returned and no entities are extracted.

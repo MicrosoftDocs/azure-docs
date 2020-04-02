@@ -1,5 +1,5 @@
 ---
-title: Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server | Microsoft Docs
+title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure

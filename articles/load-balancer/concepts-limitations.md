@@ -16,7 +16,7 @@ ms.author: allensu
 
 ---
 # Load Balancer components and limitations
-Azure Load Balancer contains several key components for it's operation.  These components can be configured in your subscription via the Azure portal, Azure CLI, or Azure PowerShell.  
+Azure Load Balancer contains several key components for its operation.  These components can be configured in your subscription via the Azure portal, Azure CLI, or Azure PowerShell.  
 
 ## Load Balancer components
 
@@ -45,8 +45,11 @@ Basic Load Balancers have limited scope (availability set) can only scale up to 
 * **Load-balancing rules**: Load-Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
-Basic Load Balancer does not support Outbound Rules.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+
+  Basic Load Balancer does not support Outbound Rules.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Transport protocols**: Load Balancer doesn't support ICMP; ICMP pings to a public-facing load balancer will time out. To ping your public-facing load balancer, use TCP Ping
 
 ## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
@@ -68,7 +71,9 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 The following image displays the hash-based distribution:
 
-  ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Hash-based distribution">
+</p>
 
   *Figure: Hash-based distribution*
 
@@ -81,9 +86,9 @@ The following image displays the hash-based distribution:
   * Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
   * Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists.
 
-  Standard Load Balancer utilizes a [robust, scalable, and predictable SNAT algorithm](load-balancer-outbound-connections.md#snat).These are the key tenets to remember when working with Standard Load Balancer:
+  Standard Load Balancer utilizes a [robust, scalable, and predictable SNAT algorithm](load-balancer-outbound-connections.md#snat). These are the key tenets to remember when working with Standard Load Balancer:
 
-    - load-balancing rules infer how SNAT is programmed. Load balancing rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
+    - load-balancing rules infer how SNAT is programmed. Load balancing rules are protocol-specific. SNAT is protocol-specific and configuration should reflect this rather than create a side effect.
 
     - **Multiple frontends**
     When multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports. If you want more SNAT ports because you are expecting or are already experiencing a high demand for outbound connections, you can also add incremental SNAT port inventory by configuring additional frontends, rules, and backend pools to the same virtual machine resources.
@@ -92,13 +97,13 @@ The following image displays the hash-based distribution:
     You can choose and control if you do not wish for a particular frontend to be used for outbound connections. If you want to constrain outbound connections to only originate from a specific frontend IP address, you can optionally disable outbound SNAT on the rule that expresses the outbound mapping.
 
     - **Control outbound connectivity**
-    outbound scenarios are explicit and outbound connectivity does not exist until it has been specified. Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
+    outbound scenarios are explicit and outbound connectivity does not exist until it has been specified. Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
         - assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
         - place the virtual machine resource in the backend pool of a public Standard Load Balancer.
 
         Both will allow outbound connectivity from the virtual network to outside of the virtual network. 
 
-        If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
+        If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
 
         Outbound connectivity of a virtual machine resource not associated with Standard SKUs remains as before.
 
@@ -130,9 +135,11 @@ A public Load Balancer maps the public IP address and port of incoming traffic t
 
 The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and TCP port 80. These three VMs are in a load-balanced set.
 
-![Public Load Balancer example](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Public load balancer">
+</p>
 
-*Figure: Balancing web traffic by using a public Load Balancer*
+*Figure: Balancing web traffic by using a public load balancer*
 
 Internet clients send webpage requests to the public IP address of a web app on TCP port 80. Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about Load Balancer algorithms, see [Load Balancer concepts](concepts-limitations.md#load-balancer-concepts).
 
@@ -149,7 +156,10 @@ An internal Load Balancer enables the following types of load balancing:
 * **For multi-tier applications**: Load balancing for internet-facing multi-tier applications where the back-end tiers aren't internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier. See the next figure.
 * **For line-of-business applications**: Load balancing for line-of-business applications that are hosted in Azure without additional load balancer hardware or software. This scenario includes on-premises servers that are in the set of computers whose traffic is load balanced.
 
-![Internal Load Balancer example](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Public load balancer">
+</p>
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 

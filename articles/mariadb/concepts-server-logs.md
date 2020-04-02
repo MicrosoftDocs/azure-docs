@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 3/18/2020
 ---
 # Slow query logs in Azure Database for MariaDB
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
@@ -45,9 +45,6 @@ See the MariaDB [slow query log documentation](https://mariadb.com/kb/en/library
 
 ## Diagnostic logs
 Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/platform-logs-overview.md).
-
-> [!IMPORTANT]
-> This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).
 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 

@@ -3,7 +3,7 @@ title: Archive Azure resource logs to storage account | Microsoft Docs
 description: Learn how to archive your Azure resource logs for long-term retention in a storage account.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
@@ -27,8 +27,7 @@ Send platform logs to storage and other destinations by creating a diagnostic se
 
 
 ## Collect data from compute resources
-Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). See [Store and view diagnostic data in Azure Storage
-](diagnostics-extension-to-storage.md) for details.
+Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). 
 
 
 ## Schema of platform logs in storage account

@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/28/2019
+ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -227,7 +227,7 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": ""
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
         },
@@ -247,6 +247,9 @@ The following example shows what a valid deployment manifest document may look l
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "env": {
+              "tempLimit": {"value": "100"}
+            },
             "settings": {
               "image": "myacr.azurecr.io/filtermodule:latest",
               "createOptions": "{}"

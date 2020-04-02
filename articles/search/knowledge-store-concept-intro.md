@@ -130,147 +130,11 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 ## API reference
 
-This section is a version of the [Create Skillset (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference doc, modified to include a `knowledgeStore` definition. 
+REST API version `2019-05-06-Preview` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
 
-### Example - knowledgeStore embedded in a Skillset
++ [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
++ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
-The following example shows `knowledgeStore` at the bottom of a skillset definition. 
-
-* Use **POST** or **PUT** to formulate the request.
-* Use the `api-version=2019-05-06-Preview` version of the REST API to access knowledge store functionality. 
-
-```http
-POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
-api-key: [admin key]
-Content-Type: application/json
-```
-
-The body of request is a JSON document that defines a skillset, which includes `knowledgeStore`.
-
-```json
-{
-  "name": "my-skillset-name",
-  "description": "Extract organization entities and generate a positive-negative sentiment score from each document.",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
-  ],
-  "cognitiveServices": 
-    {
-    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-    "description": "mycogsvcs resource in West US 2",
-    "key": "<YOUR-COGNITIVE-SERVICES-KEY>"
-    },
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [  
-                { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
-                { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
-                ], 
-                "objects": [ ], 
-                "files": [  ]       
-            }    
-        ]     
-    } 
-}
-```
-
-### Request body syntax  
-
-The following JSON specifies a `knowledgeStore`, which is part of a [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset), which is invoked by an `indexer` (not shown). If you are already familiar with AI enrichment, a skillset determines the composition of an enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
-
-The syntax for structuring the request payload is as follows.
-
-```json
-{   
-    "name" : "Required for POST, optional for PUT requests which sets the name on the URI",  
-    "description" : "Optional. Anything you want, or null",  
-    "skills" : "Required. An array of skills. Each skill has an odata.type, name, input and output parameters",
-    "cognitiveServices": "A key to Cognitive Services, used for billing.",
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [ 
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    . . .
-                ], 
-                "objects": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>", 
-                    "source": "<DOCUMENT-PATH>", 
-                    }
-                ], 
-                "files": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>",
-                    "source": "/document/normalized_images/*"
-                    }
-                ]  
-            },
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files":  [ ]
-            }  
-        ]     
-    } 
-}
-```
-
-A `knowledgeStore` has two properties: a `storageConnectionString` to an Azure Storage account, and `projections` that defines physical storage. You can use any storage account, but it's cost-effective to use services in the same region.
-
-A `projections` collection contains projection objects. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storage, any relationships among the data, if detected, are preserved. 
-
-Create as many projection objects as you need to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization for specific scenarios by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
-
-|Property      | Applies to | Description|  
-|--------------|------------|------------|  
-|`storageConnectionString`| `knowledgeStore` | Required. In this format: `DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net`|  
-|`projections`| `knowledgeStore` | Required. A collection of property objects consisting of `tables`, `objects`, `files` and their respective properties. Unused projections can be set to null.|  
-|`source`| All projections| The path to the node of the enrichment tree that is the root of the projection. This node is the output of any of the skills in the skillset. Paths start with `/document/`, representing the enriched document but can be extended to `/document/content/` or to nodes within the document tree. Examples: `/document/countries/*` (all countries), or `/document/countries/*/states/*` (all states in all countries). For more information on document paths, see [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).|
-|`tableName`| `tables`| A table to create in Azure Table storage. |
-|`storageContainer`| `objects`, `files`| Name of a container to create in Azure Blob storage. |
-|`generatedKeyName`| `tables`| A column created in the table that uniquely identifies a document. The enrichment pipeline populates this column with generated values.|
-
-
-### Response  
-
- For a successful request, you should see status code "201 Created". By default, the response body will contain the JSON for the skillset definition that was created. Recall that the knowledge store is not created until you invoke an indexer that references this skillset.
 
 ## Next steps
 
@@ -280,3 +144,13 @@ The simplest approach for creating enriched documents is [through the portal](kn
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
+
+To learn more about projections, the capabilities and how you [define them in a skillset](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projections in a knowledge store](knowledge-store-projection-overview.md)
+
+For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

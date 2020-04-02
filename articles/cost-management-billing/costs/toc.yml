@@ -22,6 +22,8 @@
     items:
     - name: Azure Cost Management best practices
       href: cost-mgt-best-practices.md
+    - name: Choose between Cost Management and Cloudyn
+      href: choose-between-azure-cost-management-cloudyn.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
@@ -30,6 +32,8 @@
       href: migrate-cost-management-api.md
   - name: How-to guides
     items:
+    - name: Prevent and analyze unexpected charges
+      href: ../manage/getting-started.md
     - name: Assign access to data
       href: assign-access-acm-data.md
     - name: Use cost analysis for common tasks
@@ -44,6 +48,8 @@
       href: get-started-partners.md
     - name: Connect with Power BI Desktop
       href: /power-bi/desktop-connect-azure-cost-management
+    - name: Analyze Azure costs with the Power BI template app
+      href: analyze-cost-data-azure-cost-management-power-bi-template-app.md
   - name: Reference
     items:
     - name: Azure Cost Management REST API

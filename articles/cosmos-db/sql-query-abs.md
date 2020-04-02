@@ -4,7 +4,7 @@ description: Learn about how the Absolute(ABS) SQL system function in Azure Cosm
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -38,8 +38,11 @@ SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3
   
 ```json
 [{abs1: 1, abs2: 0, abs3: 1}]  
-```  
-  
+```
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

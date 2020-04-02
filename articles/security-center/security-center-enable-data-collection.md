@@ -14,7 +14,7 @@ ms.author: memildin
 # Data collection in Azure Security Center
 Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also copies crash dump files to your workspace.
 
-Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat detections. 
+Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. 
 
 This article describes how to install a Log Analytics Agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. 
 
@@ -80,7 +80,7 @@ To select a workspace created by Security Center:
 > The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
 > Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-For more information about existing log analytics accounts, see [Existing log analytics customers](security-center-faq.md#existingloganalyticscust).
+For more information about existing log analytics accounts, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
 
 ### Using an existing workspace
 
@@ -137,7 +137,7 @@ When you select a workspace in which to store your data, all the workspaces acro
 
 
 ## Data collection tier
-Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat detections, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
+Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat protection, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
 > Storing data in log analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 > 
@@ -177,7 +177,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  To enable data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 > - To collect Windows Filtering Platform [Event ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), you need to enable [Audit Filtering Platform Connection](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -209,7 +209,7 @@ Note - If Operations Manager agent version 2012 is installed, **do not** turn au
 - A pre-existing VM extension is present<br>
     - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from the VM in the workspace already connected, provided that the "security" or "securityFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.  
     - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection. 
-    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](security-center-faq.md#existingloganalyticscust).
+    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Azure Security Center](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
  
 ### Turn off automatic provisioning <a name="offprovisioning"></a>
 You can turn off automatic provisioning from resources at any time by turning off this setting in the security policy. 
@@ -229,7 +229,7 @@ If you switch off auto provision after it was previously on:
 -	Security Center stops collecting data from the default workspace.
  
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms).
+>  Disabling automatic provisioning does not remove the Log Analytics Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents.md#remove-oms).
 >
 	
 ## Manual agent provisioning <a name="manual-agent"></a>
@@ -304,7 +304,7 @@ You can manually install the Log Analytics Agent, so Security Center can collect
 
 - To identify Unmonitored VMs and computers issues:
 
-    A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+    A VM or computer is unmonitored by Security Center if the machine is not running the Log Analytics agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Log Analytics agent extension is required.
 
     For more information about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 
@@ -312,7 +312,7 @@ You can manually install the Log Analytics Agent, so Security Center can collect
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:
 
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+* [Azure Security Center FAQ](faq-general.md)--Find frequently asked questions about using the service.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 
 

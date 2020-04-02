@@ -1,5 +1,5 @@
 - name: Azure Marketplace and AppSource documentation
-  href: index.md
+  href: index.yml
   items:
   - name: Azure Marketplace and AppSource roadmap
     href: ./marketplace-roadmap.md

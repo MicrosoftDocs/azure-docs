@@ -1,8 +1,6 @@
 ---
 title: Use the Azure Application Insights Profiler settings pane | Microsoft Docs
 description: See Profiler status and start profiling sessions
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining

@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -32,11 +32,13 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 For other methods of authenticating, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
@@ -103,6 +105,9 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
+> [!NOTE]
+> The workspace name is case-insensitive.
+
 The output of this command is similar to the following JSON:
 
 ```json
@@ -143,13 +148,13 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
     1. Install the application insights extension:
 
-        ```bash
+        ```azurecli-interactive
         az extension add -n application-insights
         ```
 
     2. Get the ID of your application insight service:
 
-        ```bash
+        ```azurecli-interactive
         az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"
         ```
 
@@ -342,6 +347,17 @@ For more information, see the [az ml workspace delete](https://docs.microsoft.co
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
+### Deleting the Azure Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Visualize data from Azure Data Explorer using a SQL query in Power BI'
+title: 'Visualize data from Azure Data Explorer with a Power BI SQL query'
 description: 'In this article, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
 author: orspod
 ms.author: orspodek

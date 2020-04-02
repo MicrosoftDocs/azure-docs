@@ -107,7 +107,7 @@ For information about supported encoders, see [Encoders](media-services-encode-a
 ## Live Streaming
 In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
 
-* An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision and Tricaster encoders. The ingested streams pass through Channels without any further transcoding and encoding. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision and Tricaster encoders. The ingested streams pass through Channels without any further transcoding and encoding. When requested, Media Services delivers the stream to customers.
 * A single bitrate stream (in one of the following formats: RTMP, or Smooth Streaming (Fragmented MP4)) is sent to the Channel that is enabled to perform live encoding with Media Services. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 ### Channel
@@ -193,10 +193,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### Streaming URLs
 Streaming your content to clients. To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset that contains the content you want to stream. However, to be able to stream this content you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name. Then, append /Manifest and an appropriate format (if needed) to the locator path.
 
-You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Currently, AMS doesn’t support SSL with custom domains.  
+You can also stream your content over a TLS connection. To do this, make sure your streaming URLs start with HTTPS. Currently, AMS doesn’t support TLS with custom domains.  
 
 >[!NOTE]
->You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over SSL.
+>You can only stream over TLS if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) do not support TLS. If your URL is in the old format and you want to be able to stream over TLS, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over TLS.
 
 The following list describes different streaming formats and gives examples:
 

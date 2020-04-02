@@ -21,7 +21,7 @@ In a Resource Manger template, you can specify the child resource either within 
 ]
 ```
 
-The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](create-multiple-instances.md) to create more than one child resource.
+The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
 
 ```json
 "resources": [

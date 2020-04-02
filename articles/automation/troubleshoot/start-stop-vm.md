@@ -104,7 +104,7 @@ Review the following list for potential solutions to your problem or places to l
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
+* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application ID for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
 * VMs may not be started or stopped if they're being explicitly excluded. Excluded VMs at set in the **External_ExcludeVMNames** variable in the Automation Account the solution is deployed to. The following example, shows how you can query that value with PowerShell.
 
@@ -131,7 +131,7 @@ This error can be caused by one of the following reasons:
 
 Review the following list for potential solutions to your problem or places to look:
 
-* When using the [sequence scenario](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) of the Start/Stop VM during off hours solution, you must make sure each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
+* When using the [sequence scenario](../automation-solution-vm-management.md) of the Start/Stop VM during off hours solution, you must make sure each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -143,9 +143,9 @@ Review the following list for potential solutions to your problem or places to l
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* To start and stop VMs, the RunAs account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
+* To start and stop VMs, the RunAs account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application ID for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
-* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
+* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.yml)
 
 * Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**.
 
@@ -181,7 +181,7 @@ Take the following steps to ensure that the solution is configured correctly.
 2. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
 3. Test your changes by executing the `SequencedStartStop_Parent` runbook with the WHATIF parameter set to True to preview your changes.
 
-For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md).
 
 ## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status
 
@@ -197,11 +197,11 @@ This issue can be caused by an improperly configured or expired Run As Account. 
 
 To check your Run As account is properly configured, go to your Automation Account in the Azure portal and select **Run as accounts** under **Account Settings**. Here you will see the status of your run as accounts, if a Run As Account is improperly configured or expired the status will show this.
 
-If your Run As account is [misconfigured](../manage-runas-account.md#misconfiguration), you should delete and recreate your Run As Account.
+If your Run As account is misconfigured, you should delete and re-create your Run As account. See [Manage Azure Automation Run As accounts](../manage-runas-account.md).
 
 If the certificate is expired for your Run As Account, follow the steps listed at [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
 
-The issue may be caused by missing permissions. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
+The issue may be caused by missing permissions. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application ID for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
 ## <a name="other"></a>Scenario: My problem isn't listed above
 

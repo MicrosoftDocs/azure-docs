@@ -1,5 +1,5 @@
 ---
-title: Evaluate options to migrate data from StorSimple 5000-7000 series| Microsoft Docs
+title: Data migration options from StorSimple 5000-7000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 5000-7000 series.
 services: storsimple
 documentationcenter: NA

@@ -1,13 +1,12 @@
 ---
 title: Frequently asked questions and terminology for the Commercial Marketplace analytics in Partner Center
 description: Learn how to address commonly asked questions about Commercial Marketplace analytics. Includes a data dictionary for analytics terminology.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 02/17/2020
 ---
 
 # Frequently asked questions and terminology for Commercial Marketplace analytics
@@ -24,7 +23,6 @@ This section provides answers to commonly asked questions about **No Analytics A
 
 Why you may be getting this message:
 
-- Your offers listed in the marketplace are not SaaS offers. Currently, Partner Center reports analytics for SaaS offers only. Dynamics 365 offers can be published in partner center, but analytics for these offers are not yet enabled in partner center.
 - No acquisitions currently exist for your published offers in marketplace. This can mean that your offers are live in marketplace and gaining views from customers in the product display pages, but customers haven't yet taken action to purchase and deploy them.
 - The publishing of your offer might be in process and isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
 - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to setup page.

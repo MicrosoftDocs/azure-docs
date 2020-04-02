@@ -8,7 +8,7 @@ ms.date: 07/17/2019
 ms.author: tomfitz
 ---
 
-# Azure managed applications in the Marketplace
+# Tutorial: Publish Azure managed applications in the Marketplace
 
 Vendors can use Azure managed applications to offer their solutions to all Azure Marketplace customers. Those vendors can include managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs). Managed applications reduce the maintenance and servicing overhead for customers. Vendors sell infrastructure and software through the marketplace. They can attach services and operational support to managed applications. For more information, see [Managed application overview](overview.md).
 

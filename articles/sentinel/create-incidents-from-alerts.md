@@ -3,7 +3,7 @@ title: Create incidents from alerts in Azure Sentinel | Microsoft Docs
 description: Learn how to create incidents from alerts in Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Automatically create incidents from Microsoft security alerts

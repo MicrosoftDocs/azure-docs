@@ -1,18 +1,16 @@
 ---
 title: Use PowerShell to deploy Azure Spot VMs
 description: Learn how to use Azure PowerShell to deploy Spot VMs to save on costs.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 03/25/2020
 ms.author: cynthn
+#pmcontact: jagaveer
 ---
 
-# Preview: Deploy Spot VMs using Azure PowerShell
+# Deploy Spot VMs using Azure PowerShell
 
 
 Using [Spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
@@ -21,22 +19,12 @@ Pricing for Spot VMs is variable, based on region and SKU. For more information,
 
 You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available.
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
-
 
 ## Create the VM
 
 Create a spotVM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority Spot` and set `-MaxPrice` to either:
 - `-1` so the VM is not evicted based on price.
 - a dollar amount, up to 5 digits. For example, `-MaxPrice .98765` means that the VM will be deallocated once the price for a spotVM goes about $.98765 per hour.
-
-> [!IMPORTANT]
-> For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
 
 
 This example creates a spotVM that will not be deallocated based on pricing (only when Azure needs the capacity back).

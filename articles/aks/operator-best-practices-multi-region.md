@@ -3,8 +3,6 @@ title: High availability and disaster recovery in Azure Kubernetes Service (AKS)
 description: Learn a cluster operator's best practices to achieve maximum uptime for your applications, providing high availability and preparing for disaster recovery in Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
@@ -57,7 +55,7 @@ For information on how to set up endpoints and routing, see [Configure the geogr
 
 ### Layer 7 application routing with Azure Front Door Service
 
-Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include SSL termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
 ### Interconnect regions with global virtual network peering
 

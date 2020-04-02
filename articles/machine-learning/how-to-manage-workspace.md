@@ -1,7 +1,7 @@
 ---
 title: Create Azure Machine Learning workspaces in the portal
 titleSuffix: Azure Machine Learning
-description: Learn how to create, view and delete Azure Machine Learning workspaces in the Azure portal.
+description: Learn how to create, view, and delete Azure Machine Learning workspaces in the Azure portal.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -39,7 +39,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
    Field|Description 
    ---|---
-   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
+   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources to create your workspace.
@@ -47,7 +47,8 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
     ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
 
-1. After you are finished configuring the workspace, select **Create**. 
+1. When you're finished configuring the workspace, select **Review + Create**.
+2. Review the settings and make any additional changes or corrections. When you're satisified with the settings, select **Create**.
 
    > [!Warning] 
    > It can take several minutes to create your workspace in the cloud.
@@ -102,7 +103,6 @@ Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](./media/how-to-manage-workspace/delete-workspace.png)
 
-
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
@@ -112,6 +112,17 @@ Use the Delete button at the top of the workspace you wish to delete.
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
+### Deleting the Azure Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

@@ -30,7 +30,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
 **VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
-**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> **Datastore.LowLevelFileOperations**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Allow creation and management of VM snapshots for replication.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Allow the VM to be powered off during migration to Azure.
+**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.LowLevelFileOperations**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowDiskAccess**: (specifically for vSphere 6.0 and above) Allow opening a disk on a VM for random read access on the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowDiskRandomAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Allow creation and management of VM snapshots for replication.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Allow the VM to be powered off during migration to Azure.
 
 
 
@@ -118,7 +118,15 @@ When you set up the replication appliance using the OVA template provided in the
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about [URLs](migrate-replication-appliance.md#url-access) the replication appliance needs to access.
+- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+
+## Agent-based-ports
+
+**Device** | **Connection**
+--- | ---
+VMs | The Mobility service running on VMs communicates with the on-premises replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
+Process server | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
 
 ## Azure VM requirements
 

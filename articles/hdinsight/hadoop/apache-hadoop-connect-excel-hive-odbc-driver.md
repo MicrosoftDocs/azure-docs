@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/11/2019
+ms.date: 03/02/2020
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver

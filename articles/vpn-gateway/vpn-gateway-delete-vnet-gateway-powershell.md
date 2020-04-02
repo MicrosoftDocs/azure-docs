@@ -25,7 +25,7 @@ There are a couple of different approaches you can take when you want to delete 
 
 ## Before beginning
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ### 1. Download the latest Azure Resource Manager PowerShell cmdlets.
 

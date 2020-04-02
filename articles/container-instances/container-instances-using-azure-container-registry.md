@@ -1,16 +1,16 @@
 ---
 title: Deploy container image from Azure Container Registry
-description: Learn how to deploy containers in Azure Container Instances using container images in an Azure container registry.
+description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Deploy to Azure Container Instances from Azure Container Registry
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to deploy container images stored in an Azure container registry to Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. A recommended way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
 
 ## Prerequisites
 
@@ -23,6 +23,9 @@ ms.custom: mvc
 In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
 Azure Container Registry provides additional [authentication options](../container-registry/container-registry-authentication.md).
+
+> [!NOTE]
+> You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
 
 In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault. 
 
@@ -106,8 +109,7 @@ az container create \
 
 The `--dns-name-label` value must be unique within Azure, so the preceding command appends a random number to the container's DNS name label. The output from the command displays the container's fully qualified domain name (FQDN), for example:
 
-```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+```output
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 

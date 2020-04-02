@@ -25,8 +25,6 @@ Microsoft Azure Media Services allows for content to be served up with HLS, DASH
 > [!NOTE]
 > HTTPS playback is required for Widevine encrypted content.
 
-[Start your free trial](https://azure.microsoft.com/pricing/free-trial/)
-
 ## Use Azure Media Player demo page
 
 ### Start using

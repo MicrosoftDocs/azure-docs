@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
 ---
-# Publish an Azure managed application definition
+# Quickstart: Publish an Azure managed application definition
 
 This quickstart provides an introduction to working with managed applications. You add a managed application definition to an internal catalog for users in your organization. To simplify the introduction, we have already built the files for your managed application. Those files are available through GitHub. You learn how to build those files in the [Create service catalog application](publish-service-catalog-app.md) tutorial.
 

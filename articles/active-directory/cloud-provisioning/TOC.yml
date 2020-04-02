@@ -42,6 +42,8 @@
       href: how-to-install.md
     - name: Cloud provisioning configuration
       href: how-to-configure.md
+    - name: Use Single Sign-On
+      href: how-to-sso.md
   - name: Plan and design
     items:
     - name: Topologies and scenarios for Azure AD Connect cloud provisioning
