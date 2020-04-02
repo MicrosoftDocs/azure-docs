@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
-author: bandersmsft
+author: aparnagkrishnan
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
