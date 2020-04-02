@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: 
 ms.author: 
-ms.reviewer: , estfan, logicappspm
+ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/10/20
 ---
