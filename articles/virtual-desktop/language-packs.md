@@ -12,7 +12,7 @@ manager: lizross
 ---
 # Install language packs
 
-When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Multi-session virtual machine (VM) image to support as many languages as your organization needs. This article will tell you how to install language packs, capture an image of a configured system with language packs, and change the display language within a VM created from that image.
+When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Multi-session virtual machine (VM) image to support as many languages as your organization needs. This article will tell you how to install language packs and capture images that let your users choose their own display languages.
 
 Learn more about how to deploy a VM in Azure at [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
@@ -40,7 +40,7 @@ To install language packs:
 
     Let's run through a quick visual demonstration. The following images show how to install the French and Dutch language packs, then set French as the display language.
 
-    ![A screenshot of the Language page before new languages are added. The selected Windows display language is English.](media/language-page-default.png)
+    ![A screenshot of the Language page at the beginning of the process. The selected Windows display language is English.](media/language-page-default.png)
 
     ![A screenshot of the language selection window. The user has entered "french" into the search bar to find the French language packages.](media/select-language-french.png)
 
@@ -68,7 +68,7 @@ To install language packs:
 
 17.  Select **Change system locale**.
 
-18. In the drop-down menu under **Current system locale**, select your desired locale language. After that, select **OK**.
+18. In the drop-down menu under **Current system locale**, select the locale language you want to use. After that, select **OK**.
 
 19. Select **Restart now** to restart your session once again.
 
@@ -95,7 +95,7 @@ To sysprep your machine:
     .\sysprep.exe
     ```
 
-4. When the System Preparation Tool window opens, select the check box labelled **Generalize**, then go to **Shutdown Options** and select **Shut down** from the drop-down menu.
+4. When the System Preparation Tool window opens, select the check box labeled **Generalize**, then go to **Shutdown Options** and select **Shut down** from the drop-down menu.
 
 >[!NOTE]
 >The syprep process will take a few minutes to finish. As the VM shuts down, your remote session will disconnect.
