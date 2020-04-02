@@ -6,7 +6,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ This template creates a simple Web Application Firewall v2 on Azure Application 
 
 The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-291" highlight="182-289":::
+:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="201-313":::
 
 Multiple Azure resources are defined in the template:
 
@@ -59,11 +59,21 @@ Use IIS to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
-3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections with the backend pool.
+3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections to the backend pool.
 4. Change the custom rule to **Allow traffic**.
+  Run the following Azure PowerShell script, replacing your resource group name:
+   ```azurepowershell
+   $AppGW = Get-AzApplicationGateway -Name myAppGateway -ResourceGroupName <your resource group name>
+   $pol = Get-AzApplicationGatewayFirewallPolicy -Name WafPol01 -ResourceGroupName <your resource group name>
+   $pol[0].customrules[0].action = "allow"
+   $rule = $pol.CustomRules
+   Set-AzApplicationGatewayFirewallPolicy -Name WafPol01 -ResourceGroupName <your resource group name> -CustomRule $rule
+   $AppGW.FirewallPolicy = $pol
+   Set-AzApplicationGateway -ApplicationGateway $AppGW
+   ```
 
 
-   Refresh the browser multiple times and you should see connections to both myVM1 and myVM2.
+   Refresh your browser multiple times and you should see connections to both myVM1 and myVM2.
 
 ## Clean up resources
 
