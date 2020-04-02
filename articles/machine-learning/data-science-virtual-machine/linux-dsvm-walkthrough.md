@@ -9,7 +9,7 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 04/02/2020
 
 ---
 
@@ -42,7 +42,7 @@ If you need more storage space, you can create additional disks and attach them 
 
 To download the data, open a terminal window, and then run this command:
 
-    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget --no-check-certificate https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 The downloaded file doesn't have a header row. Let's create another file that does have a header. Run this command to create a file with the appropriate headers:
 
@@ -167,74 +167,6 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
-
-
-## Deploy a model to Azure Machine Learning Studio (classic)
-
-[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of Azure Machine Learning Studio (classic) is its ability to publish any R function as a web service. The Azure Machine Learning Studio (classic) R package makes deployment easy, right from your R session on the DSVM.
-
-To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio (classic). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
-
-1. In the left menu, select **Settings**. Note the value for **WORKSPACE ID**.
-
-   ![The Azure Machine Learning Studio (classic) workspace ID](./media/linux-dsvm-walkthrough/workspace-id.png)
-
-1. Select the **Authorization Tokens** tab. Note the value for **Primary Authorization Token**.
-
-   ![The Azure Machine Learning Studio (classic) primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
-1. Load the **AzureML** package, and then set values of the variables with your token and workspace ID in your R session on the DSVM:
-
-        if(!require("devtools")) install.packages("devtools")
-        devtools::install_github("RevolutionAnalytics/AzureML")
-        if(!require("AzureML")) install.packages("AzureML")
-        require(AzureML)
-        wsAuth = "<authorization-token>"
-        wsID = "<workspace-id>"
-
-1. Let's simplify the model to make this demonstration easier to implement. Choose the three variables in the decision tree closest to the root and build a new tree by using only those three variables:
-
-        colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
-        smallTrainSet <- trainSet[, colNames]
-        smallTestSet <- testSet[, colNames]
-        model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
-
-1. We need a prediction function that takes the features as an input and returns the predicted values:
-
-        predictSpam <- function(newdata) {
-        predictDF <- predict(model.rpart, newdata = newdata)
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
-        }
-
-1. Create a settings.json file for this workspace:
-
-        vim ~/.azureml/settings.json
-
-1. Make sure the following contents are put inside settings.json:
-
-         {"workspace":{
-           "id": "<workspace-id>",
-           "authorization_token": "<authorization-token>",
-           "api_endpoint": "https://studioapi.azureml.net",
-           "management_endpoint": "https://management.azureml.net"
-         }
-
-
-1. Publish the **predictSpam** function to AzureML by using the **publishWebService** function:
-
-        ws <- workspace()
-        spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
-
-1. This function takes the **predictSpam** function, creates a web service named **spamWebService** that has defined inputs and outputs, and then returns information about the new endpoint.
-
-    Use this command to view details of the latest published web service, including its API endpoint and access keys:
-
-        s<-tail(services(ws, name = "spamWebService"), 1)
-        ep <- endpoints(ws,s)
-        ep
-
-1. To try it out on the first 10 rows of the test set:
-
-        consume(ep, smallTestSet[1:10, ])
 
 <a name="deep-learning"></a>
 
