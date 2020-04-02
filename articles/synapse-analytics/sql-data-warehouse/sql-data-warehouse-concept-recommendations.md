@@ -1,6 +1,6 @@
 ---
-title: SQL Analytics recommendations
-description: Learn about SQL Analytics recommendations and how they are generated
+title: Synapse SQL recommendations
+description: Learn about Synapse SQL recommendations and how they are generated
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# SQL Analytics recommendations
+# Synapse SQL recommendations
 
-This article describes the SQL Analytics recommendations served through Azure Advisor.  
+This article describes the Synapse SQL recommendations served through Azure Advisor.  
 
-SQL Analytics provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). SQL Analytics collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
+Synapse SQL provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Synapse SQL collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
 You can [check your recommendations](https://aka.ms/Azureadvisor) today! Currently this feature is applicable to Gen2 data warehouses only. 
 
