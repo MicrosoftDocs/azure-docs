@@ -28,7 +28,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 ## Create a Key Vault
 
-1. Sign in to [Azure Portal](https://portal.azure.com/).  
+1. Sign in to [Azure portal](https://portal.azure.com/).  
 2. Select **Create a resource > Security > Key Vault**.  
 3. On the **Create key vault** section provide the following information:  
    * **Name:** Provide a unique name for your Key Vault.  
