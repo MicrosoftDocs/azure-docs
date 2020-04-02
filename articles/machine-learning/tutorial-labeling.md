@@ -11,13 +11,13 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 01/15/2020
 
-# Customer intent: As a project administrator, I want to manage the process of tagging images so they can be used in machine learning models.
+# Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 ---
 
 # Tutorial: Create a labeling project for image classification
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of labeling (also referred to as tagging) images to use as data for building machine learning models.  
+This tutorial shows you how an Azure Machine Learning labeling project helps you manage the process of labeling (also referred to as tagging) images to use as data for building machine learning models. 
 
 If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data.
  
@@ -33,10 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
-
-* Images to label.  Use your own images or download these [images of cats and dogs]().  
-
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
 ## Create a workspace
 
@@ -46,79 +43,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-## Create a storage account
-
-You store your image files in a container in a storage account.  You already have a storage account included in your workspace, but here you'll create a new one to use just for your data.  
-
-1. In the upper-left corner of Azure portal, select the menu icon.
-
-1. select **+ Create a resource**.
-
-    ![Create a new resource](media/tutorial-labeling/create-resource.png)
-
-1. Use the search bar to find **Storage account**.
-
-1. Select **Storage account - blob, file, table, queue**.
-
-1. In the **Storage account - blob, file, table, queue** pane, select **Create** to begin.
-
-1. Provide the following information to configure your new workspace:
-
-   Field|Description 
-   ---|---
-   Subscription |Select the same Azure subscription you used above to create your workspace.
-   Resource group | For convenience, use the same resource group you just created for your workspace, **docs-aml**. 
-   Storage account name | The name you pick must be unique across all existing storage account names in Azure.  Try including your initials or some other unique letters to help create the name.  Here we'll use **tutorialstorage**.
-   Location | Select the location closest to your users and the data resources to create your workspace.
-    Performance | Leave the default **Standard** selected.
-
-1. After you're finished configuring the account, select **Review + Create**.
-
-1. Select **Create**.
-
-   > [!Warning] 
-   > It can take several minutes to create your workspace in the cloud.
-
-   When the process is finished, a deployment success message appears. 
- 
- 1. Select **Go to resource**.
-
-### Copy access key
-
-The access key for this storage account is used to associate the account with your workspace.  Copy a key now. You'll use it to create a datastore within your workspace in a few moments.
-
-1. Select **Access keys** on the left of your storage account page in Azure portal.
-
-1. Copy one of the keys.  
-
-### Upload images
-
-Now add your data files to the storage account.  
-
-1. On the left, select **Overview** to go back to the storage account overview.
-
-1. In the middle of the page, select **Containers**.
-
-    ![Select containers](media/tutorial-labeling/select-containers.png)
-
-1. Select **+ Container** to create a new container.
-
-1. Give the container a name, here we'll use **tutorial-images**.
-
-1. Select **OK**.
-
-1. Select the container name in the table to open it.
-
-1. Select **Upload**.  
-
-1. Select the folder icon to find your files.  Select all the images you downloaded as part of the [Prerequisites](#prerequisites).
-
-1. Select **Upload** to add all your images to the storage account.  
-
-
 ## Start a labeling project
-
-You now have an Azure Machine Learning workspace, and the image files you want to label stored in an Azure Storage container.
 
 Next you will manage the data labeling project in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
@@ -126,9 +51,9 @@ Next you will manage the data labeling project in Azure Machine Learning studio,
 
 1. Select your subscription and the workspace you created.
 
-### Create a datastore
+### <a name="create-datastore"></a>Create a datastore
 
-Azure Machine Learning datastores are used to store connection information, like your subscription ID and token authorization. Here you use a datastore to connect to the storage account where your image file are located.
+Azure Machine Learning datastores are used to store connection information, like your subscription ID and token authorization. Here you use a datastore to connect to the storage account that contains the images for this tutorial.
 
 1. On the left side of your workspace, select **Datastores**.
 
@@ -140,12 +65,10 @@ Azure Machine Learning datastores are used to store connection information, like
     ---|---
     Datastore name | Give the datastore a name.  Here we use **labeling_tutorial**.
     Datastore type | Select the type of storage.  Here we use **Azure Blob Storage**, the preferred storage for images.
-    Account selection method | Select **From Azure subscription**.
-    Subscription ID | Select your subscription ID from the list.
-    Storage account | Select the storage account created above, for example, **tutorialstorage (docs-ws)**.
-    Blob container |  Select the blob container name created above, for example, **tutorial-images**
-    Authentication type | Select **Account key**.
-    Account key | Paste the key you copied above when you created the storage account.
+    Account selection method | Select **Enter manually**.
+    URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
+    Authentication type | Select **SAS token**.
+    Account key | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
 1. Select **Create** to create the datastore.
 
@@ -188,16 +111,11 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Use the following input for the **Create dataset from datastore** form:
 
-    Field|Description 
-    ---|---
-    Name | Give the dataset a name, here we'll use **images-for-tutorial**.
-    Dataset type | Select **File** as the type, since each of your images is a file.
-    Datastore | Select the datastore from the list, for example **tutorial_images (Azure Blob Storage)
-    Path | Select **Browse** and verify that your images appear.  Select **Save** to use **/** as the path.
-    Description | Add a description here, for example, **Image files for the tutorial.**
-
-    Select **Next** to confirm details and then **Create** to create the dataset.
-
+    1. On the **Basic info** form, add a name, here we'll use **images-for-tutorial**.  Add a description if you wish.  Then select **Next**.
+    1. On the **Datastore selection** form, use the dropdown to select your **Previously created datastore**, for example **tutorial_images (Azure Blob Storage)**
+    1. Next, still on the **Datastore selection** form, select **Browse** and then select **MultiClass - DogsCats**.  Select **Save** to use **/MultiClass - DogsCats** as the path.
+    1. Select **Next** to confirm details and then **Create** to create the dataset.
+    1. Select the circle next to the dataset name in the list, for example **images-for-tutorial**.
 
 1. Select **Next** to continue creating the project.
 
@@ -212,6 +130,10 @@ Now that you have your list of labelers and access to the data you want to have 
 1. On the **Labeling instructions** form, you can provide a link to a website that provides detailed instructions for your labelers.  We'll leave it blank for this tutorial.
 
 1. You can also add a short description of the task directly on the form.  Type **Labeling tutorial - Cats & Dogs.**
+
+1. Select **Next**.
+
+1. On the **ML assisted labeling** form, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
