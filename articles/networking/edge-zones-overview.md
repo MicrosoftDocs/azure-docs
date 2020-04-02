@@ -70,9 +70,6 @@ Typical use cases include:
 Edge Zones will be offered in partnership with the following operators:
 
 - AT&T (Atlanta, Dallas, and Los Angeles)
-- Etisalat
-- Rogers
-- Vodafone
 
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones
 

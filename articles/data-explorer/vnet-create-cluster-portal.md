@@ -65,7 +65,7 @@ To create the network security group:
     | Name | AllowAzureDataExplorerManagement
     | | |
     
-1. Repeat the previous two steps for all inbound and outbound dependencies according to [dependencies for VNet deployment](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment). Alternatively, outbound rules can be replaced with single rule to allow *Internet* for ports 443 and 80.
+1. Repeat the previous two steps for all inbound and outbound dependencies according to [dependencies for VNet deployment](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment). Alternatively, outbound rules can be replaced with single rule to allow *Internet* for ports 443 and 80.
     
     The NSG rules for inbound and outbound dependencies should look like this:
 
@@ -118,7 +118,7 @@ To create the virtual network and subnet:
     | | | |
 
     > [!NOTE]
-    > For production workloads, plan your subnet size according to [plan subnet size in your VNet](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet)
+    > For production workloads, plan your subnet size according to [plan subnet size in your VNet](/azure/data-explorer/vnet-deployment#plan-subnet-size-in-your-vnet)
 
 1. Select **Review + create** to review your cluster details, and **Create** to provision the cluster.
 
