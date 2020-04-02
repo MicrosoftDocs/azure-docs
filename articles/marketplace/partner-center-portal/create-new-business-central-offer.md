@@ -108,16 +108,11 @@ Provide your own legal terms and conditions in the **Terms and conditions** fiel
 
 ## Offer listing
 
-The Offer listing page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
-
-You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
-
-> [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+The Offer listing page displays the languages in which your offer will be listed. You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Short description
 
@@ -345,7 +340,7 @@ Remember to **Save** before moving on to the next section!
 
 ### Test drive marketplace listings
 
-The **Marketplace listing** option found under the **Test drive** tab displays the languages in which your test drive is available. Currently **English (United States)** is the only location available. Select the language name to enter info that describes the test drive experience.
+The **Marketplace listing** option found under the **Test drive** tab displays the languages in which your test drive is available. Select the language name to enter info that describes the test drive experience.
 
 - **Description** (required): Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field. 
 
