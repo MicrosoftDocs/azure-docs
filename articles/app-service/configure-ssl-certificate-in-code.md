@@ -52,7 +52,7 @@ The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates acc
 
 In C# code, you access the certificate by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
-```c#
+```csharp
 using System;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -111,7 +111,7 @@ The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates ac
 
 The certificate file names are the certificate thumbprints. The following C# code shows how to load a public certificate in a Linux app.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
@@ -140,7 +140,7 @@ If you need to load a certificate file that you upload manually, it's better to 
 
 The following C# example loads a public certificate from a relative path in your app:
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
