@@ -76,7 +76,6 @@ Use IIS to test the application gateway:
    Set-AzApplicationGateway -ApplicationGateway $AppGW
    ```
 
-
    Refresh your browser multiple times and you should see connections to both myVM1 and myVM2.
 
 ## Clean up resources
