@@ -29,8 +29,8 @@ ms.custom: seodec18
 **Bug fixes**
 
 - C#, C++: Fixed an issue so `SendMessageAsync` now sends binary message as binary type. Details for [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
-- Android: Audio buffer size from microphone decreased from 800ms to 100ms to improve latency.
 - C#, C++: Fixed an issue where using `Connection MessageReceived` event may cause crash if `Recognizer` is disposed before `Connection` object. Details for [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
+- Android: Audio buffer size from microphone decreased from 800ms to 100ms to improve latency.
 - Android: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) with x86 Android emulator in Android Studio.
 - JavaScript: Added support for Regions in China with the `fromSubscription` API. Details [here](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
 - JavaScript: Add more error information for connection failures from NodeJS.
