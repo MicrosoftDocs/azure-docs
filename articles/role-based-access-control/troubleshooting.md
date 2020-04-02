@@ -173,7 +173,7 @@ These items require **write** access to the **App Service plan** that correspond
 
 These items require **write** access to the whole **Resource group** that contains your website:  
 
-* SSL Certificates and bindings (SSL certificates can be shared between sites in the same resource group and geo-location)  
+* TLS/SSL Certificates and bindings (TLS/SSL certificates can be shared between sites in the same resource group and geo-location)  
 * Alert rules  
 * Autoscale settings  
 * Application insights components  
