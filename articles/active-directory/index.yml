@@ -24,7 +24,7 @@ highlightedContent:
     - title: What's new in Azure AD? 
       itemType: whats-new 
       url: ./fundamentals/whats-new.md
-    - title: Enable security for your remote workforce
+    - title: Secure your remote workforce
       itemType: get-started
       url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
     - title: Assign roles to users 
