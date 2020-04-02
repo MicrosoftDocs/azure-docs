@@ -447,7 +447,7 @@ This policy rule example uses **value** to check if the result of multiple neste
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
