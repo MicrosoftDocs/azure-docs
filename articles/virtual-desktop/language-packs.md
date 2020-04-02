@@ -10,7 +10,7 @@ ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
 ---
-# Install language packs on Windows 10 Multi-session VMs
+# Install language packs on Windows 10 Multi-session
 
 When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Multi-session VM image to support as many languages as you need. This article will tell you how to install language packs and how users can change the display language.
 
@@ -59,10 +59,6 @@ Learn more about deploy a VM in Azure at [Create a Windows virtual machine in an
 13. Select **OK**.
 14. A window will open and tell you to restart your session. Select **Restart now**.
 
-   ![](media/6c20941b9a73579a37a2fbbfbb730a73.png)
-
-   ![](media/652a8ff39875e3aa1845c64259207572.png)
-
 15. After you've signed back in, go back to **Control Panel** > **Clock and Region** > **Region**.
 
 16. Select the **Administration** tab.
@@ -73,13 +69,7 @@ Learn more about deploy a VM in Azure at [Create a Windows virtual machine in an
 
 19. Select **Restart now** to restart your session once again.
 
-![](media/9ed02275a56cbd8e8554c15a5395b5b7.png)
-
-![](media/30b3c16c8d54cf5245bff6a8af5fdd55.png)
-
 You've finished installing your languages! Before you continue, check one more time that you have the latest versions of Windows and Windows store installed.
-
-![](media/f217a4b6c6ba5cbb851594906b2cbaa8.png)
 
 ## Sysprep
 
@@ -102,11 +92,7 @@ Next, you need to sysprep your machine.
 
 4. The System Preparation Tool window will open. Select the check box labelled **Generalize**, then go to Shutdown Options and select **Shut down** from the drop-down menu.
 
-   ![](media/4bf550f4d5bbc27941454ead589dda56.png)
-
 5. If you encoutner a sysprep error, open **File Exploer**, open **Drive C**, then go to **Windows** > **System32 Sysprep** > **Panther**, then open the **setuperr** file.
-
-   ![](media/bb893522cc0d51833a2373949b6a3ff3.png)
 
    The error will indicate that the specific language package needs to be uninstalled. Copy the language package name to your clipboard.
 
@@ -120,21 +106,15 @@ Next, you need to sysprep your machine.
    Remove-AppxPackage <package name>
    ```
 
-- After it uninstalls, rerun the same command, as shown below, to ensure it has been removed.
+- After it uninstalls, rerun the same command.
 
     >[!NOTE]
     >you will know it has been removed successfully if you receive an error when trying to remove it a second time
 
-![](media/2f7899399e83bc5e2b24be927cce67f5.png)
-
-10. After the language pack is removed, run sysprep again.
-
-![](media/4bf550f4d5bbc27941454ead589dda56.png)
+1.  After the language pack is removed, run sysprep again.
 
 >[!NOTE]
 >The syprep process will take a few minutes to finish. As the VM shuts down, your remote session will disconnect.
-
-![](media/cd0af89f9fbcd7575f2e5ec19a6c17cc.png)
 
 ## Capture the image
 
@@ -154,9 +134,7 @@ To capture an image:
 
 ![](media/f7c76a0278da109f224bc8544029cd76.png)
 
-5. Wait a few minutes for the capture process to finish. When the image is ready, you should see a message in the Notifications Center letting you know the image was captured.
-
-![](media/5b81105c0987de8b3e727958cdc37b87.png)
+1. Wait a few minutes for the capture process to finish. When the image is ready, you should see a message in the Notifications Center letting you know the image was captured.
 
 You can now deploy a VM with your new image. When you deploy your VM, make sure to follow the instructions in [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
