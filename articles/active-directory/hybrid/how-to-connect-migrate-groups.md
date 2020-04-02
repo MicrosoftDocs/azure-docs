@@ -21,15 +21,15 @@ This article describes the steps needed to successfully migrate groups from one 
 ## Prerequisites
 
 1.	Azure AD Connect version 1.5.18.0 or higher
-2.	Source Anchor attribute is mS-DS-ConsistencyGuid
+2.	Source Anchor attribute is `mS-DS-ConsistencyGuid`
 
-Starting from version 1.5.18.0, Azure AD Connect has started supporting the use of mS-DS-ConsistencyGuid for groups. If mS-DS-ConsistencyGuid is chosen as the source anchor attribute and the value is populated in AD, Azure AD Connect uses the value of mS-DS-ConsistencyGuid as the immutableId. Otherwise, it falls back to using objectGUID. However, please note that AAD Connect DOES NOT write back the value to the mS-DS-ConsistencyGuid attribute in AD.
+Starting from version 1.5.18.0, Azure AD Connect has started supporting the use of `mS-DS-ConsistencyGuid` for groups. If `mS-DS-ConsistencyGuid` is chosen as the source anchor attribute and the value is populated in AD, Azure AD Connect uses the value of `mS-DS-ConsistencyGuid` as the immutableId. Otherwise, it falls back to using `objectGUID`. However, please note that Azure AD Connect **DOES NOT** write back the value to the `mS-DS-ConsistencyGuid` attribute in AD.
 
-During a cross-forest move scenario where a group object is moving from one forest (say F1) to another forest (say F2), we will need to copy over either the mS-DS-ConsistencyGuid value (If PRESENT) or objectGUID value from the object in forest F1 to the mS-DS-ConsistencyGuid attribute of the object in F2. 
+During a cross-forest move scenario where a group object is moving from one forest (say F1) to another forest (say F2), we will need to copy over either the `mS-DS-ConsistencyGuid` value (If PRESENT) or `objectGUID` value from the object in forest F1 to the `mS-DS-ConsistencyGuid` attribute of the object in F2. 
 
 Please use the following scripts as guideline to see how you can migrate a single group from forest F1 to forest F2. Please feel free to use this as a guideline to do the migration for multiple groups.
 
-First, we get the objectGUID and mS-DS-ConsistencyGuid of group object in forest F1. These attributes are exported to a CSV file.
+First, we get the `objectGUID` and `mS-DS-ConsistencyGuid` of group object in forest F1. These attributes are exported to a CSV file.
 ```
 <#
 DESCRIPTION
@@ -77,7 +77,7 @@ $results | Export-Csv "$outputCsv" -NoTypeInformation
 
 ```
 
-Next, we use the generated output CSV file to stamp the mS-DS-ConsistencyGuid attribute on the target object in forest F2.
+Next, we use the generated output CSV file to stamp the `mS-DS-ConsistencyGuid` attribute on the target object in forest F2.
 
 
 ```
