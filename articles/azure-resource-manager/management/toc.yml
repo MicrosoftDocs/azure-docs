@@ -52,7 +52,7 @@
       href: region-move-support.md
     - name: Services
       items:
-      - name: Azure IoT hub
+      - name: Azure IoT Hub
         href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure VMs
         href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
@@ -60,7 +60,7 @@
         href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure SQL
         href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
-      - name: Logic Apps
+      - name: Logic apps
         href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/toc.json
       - name: Maintenance Control configuration
         href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/toc.json
