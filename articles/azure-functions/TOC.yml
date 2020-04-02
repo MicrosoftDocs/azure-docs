@@ -177,8 +177,10 @@
           href: functions-create-maven-eclipse.md
         - name: Java using IntelliJ IDEA
           href: functions-create-maven-intellij.md
-        - name: Kotlin using Gradle
+        - name: Kotlin using Maven
           href: functions-create-first-kotlin-maven.md
+        - name: Kotlin using IntelliJ
+          href: functions-create-maven-kotlin-intellij.md
         - name: Linux App Service plan
           href: create-function-app-linux-app-service-plan.md
         - name: Linux Consumption plan
