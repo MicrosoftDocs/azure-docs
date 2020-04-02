@@ -71,18 +71,7 @@ Language Understand has separate resources, one type for authoring, and one type
 
 ### Authoring resource limits
 
-Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal.
-
-Authoring includes tasks associated with:
-* Application management
-    * Import
-    * Export
-    * Train
-    * Publish
-* Version management
-* Model management
-
-LUIS limits 500 applications per Azure authoring resource.
+Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal. LUIS limits 500 applications per Azure authoring resource.
 
 |Authoring resource|Authoring TPS|
 |--|--|
@@ -95,9 +84,7 @@ LUIS limits 500 applications per Azure authoring resource.
 
 ### Query prediction resource limits
 
-Use the _kind_, `LUIS`, when filtering resources in the Azure portal.
-
-The LUIS query prediction endpoint resource, used on the runtime, is only valid for endpoint queries.
+Use the _kind_, `LUIS`, when filtering resources in the Azure portal.The LUIS query prediction endpoint resource, used on the runtime, is only valid for endpoint queries.
 
 |Query Prediction resource|Query TPS|
 |--|--|
