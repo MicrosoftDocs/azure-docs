@@ -9,6 +9,26 @@ ms.date: 04/02/2020
 
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
+## Supported configurations
+
+The following is officially supported with Azure Monitor for containers.
+
+* Environments: 
+
+    * Kubernetes on-premises
+    
+    * AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.3 on-premises or other cloud environment. 
+
+* Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
+
+* Container Runtime: Docker and Moby
+
+* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
+
+* Access control supported: Kubernetes RBAC and non-RBAC
+
 ## Prerequisites
 
 Before you start, make sure that you have the following:
@@ -40,16 +60,6 @@ Before you start, make sure that you have the following:
 
 >[!IMPORTANT]
 >The minimum agent version supported for monitoring hybrid Kubernetes clusters is ciprod10182019 or later.
-
-## Supported configurations
-
-The following is officially supported with Azure Monitor for containers.
-
-- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack, and OpenShift version 4.3. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
-- Container Runtime: Docker and Moby
-- Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
-- Access control supported: Kubernetes RBAC and non-RBAC
 
 ## Enable monitoring
 
