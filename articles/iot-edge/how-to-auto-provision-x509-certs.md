@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/06/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -78,7 +78,7 @@ For more information about enrollments in the Device Provisioning Service, see [
 
    * **Primary Certificate .pem or .cer file**: Upload the public file from the device identity certificate. If you used the scripts to generate a test certificate, choose the following file:
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
    * **IoT Hub Device ID**: Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the common name (CN) in the X.509 certificate is used.
 
