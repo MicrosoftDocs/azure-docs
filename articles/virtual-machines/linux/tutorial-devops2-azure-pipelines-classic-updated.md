@@ -78,7 +78,7 @@ Here is the step-by-step walkthrough.
 14. From the configuration pane on the right, you can see that by default the pipeline is configured to do a rolling update to all targets in parallel. You can configure the deployments to happen either one at a time or in terms of percentage by using the slider.  
   
   
-**Canary Deployments** reduces the risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
+**Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
 You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
@@ -94,7 +94,7 @@ Here is the step-by-step walkthrough.
 
 
 
-**Blue-Green** reduces deployment downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
+**Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
 You can configure Blue-Green deployments to your “**virtual machines**” from the Azure portal using the continuous delivery option. 
 
 Here is the step-by-step walkthrough.
