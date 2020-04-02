@@ -69,7 +69,7 @@ with your Key Vault key. The underlay ADX cluster storage uses the
 managed identity that\'s associated with the *Cluster* resource to
 authenticate and access your Azure Key Vault via Azure Active Directory.
 
-![CMK Overview](media/customer-managed-keys/cmk-overview.png)
+![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
 1.    Customer's Key Vault.
 2.    Customer's Log Analytics *Cluster* resource having managed identity with permissions to Key Vault – The identity is supported at the data-store (ADX cluster) level.
 3.    Azure Monitor dedicated ADX cluster.
