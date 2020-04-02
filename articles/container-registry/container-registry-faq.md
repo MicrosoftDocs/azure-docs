@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
 ---
 
@@ -99,7 +99,8 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [How to enable TLS 1.2?](#how-to-enable-tls-12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access)
 
 ### How do I access Docker Registry HTTP API V2?
 
@@ -247,13 +248,18 @@ With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have 
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### How do I enable anonymous pull access?
+
+Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 ## Diagnostics and health checks
 
 - [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login` succeeds, but docker commands fails with error: unauthorized: authentication required](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
+- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -319,13 +325,13 @@ Details of `--signature-verification` can be found by running `man dockerd`.
 
 Make sure you use an all lowercase server URL, for example, `docker push myregistry.azurecr.io/myimage:latest`, even if the registry resource name is uppercase or mixed case, like `myRegistry`.
 
-### Enable and get the debug logs of the Docker daemon	
+### Enable and get the debug logs of the Docker daemon    
 
 Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
 
 ```json
-{	
-    "debug": true	
+{    
+    "debug": true    
 }
 ```
 
@@ -335,12 +341,12 @@ Then, restart the daemon. For example, with Ubuntu 14.04:
 sudo service docker restart
 ```
 
-Details can be found in the [Docker documentation](https://docs.docker.com/engine/admin/#enable-debugging).	
+Details can be found in the [Docker documentation](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * The logs may be generated at different locations, depending on your system. For example, for Ubuntu 14.04, it's `/var/log/upstart/docker.log`.	
-See [Docker documentation](https://docs.docker.com/engine/admin/#read-the-logs) for details.	
+ * The logs may be generated at different locations, depending on your system. For example, for Ubuntu 14.04, it's `/var/log/upstart/docker.log`.    
+See [Docker documentation](https://docs.docker.com/engine/admin/#read-the-logs) for details.    
 
- * For Docker for Windows, the logs are generated under %LOCALAPPDATA%/docker/. However it may not contain all the debug information yet.	
+ * For Docker for Windows, the logs are generated under %LOCALAPPDATA%/docker/. However it may not contain all the debug information yet.    
 
    In order to access the full daemon log, you may need some extra steps:
 
