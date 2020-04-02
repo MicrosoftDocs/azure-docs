@@ -2,14 +2,14 @@
 title: Azure Peering Service Preview overview
 description: Learn about Azure Peering Service overview
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: derekol
 ---
 
 # Azure Peering Service Preview Overview

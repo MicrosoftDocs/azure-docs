@@ -1,6 +1,6 @@
 ---
 title: Call a web api from a web app - Microsoft identity platform | Azure
-description: Learn how to build a Web app that calls web APIs (calling a web API)
+description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,17 +15,16 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
-# Web app that calls web APIs - call a web API
+# A web app that calls web APIs: Call a web API
 
 Now that you have a token, you can call a protected web API.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Here is a simplified code of the action of the `HomeController`. This code gets a token to call the Microsoft Graph. This time code was added, showing how to call Microsoft Graph as a REST API. The URL for the graph API is provided in the `appsettings.json` file and read in a variable named `webOptions`:
+Here's simplified code for the action of the `HomeController`. This code gets a token to call Microsoft Graph. Code has been added to show how to call Microsoft Graph as a REST API. The URL for the Microsoft Graph API is provided in the appsettings.json file and is read in a variable named `webOptions`:
 
 ```JSon
 {
@@ -45,10 +44,10 @@ public async Task<IActionResult> Profile()
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
- // Get the account
+ // Get the account.
  IAccount account = await application.GetAccountAsync(accountIdentifier);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
+ // Special case for guest users, because the guest ID / tenant ID are not surfaced.
  if (account == null)
  {
   var accounts = await application.GetAccountsAsync();
@@ -60,7 +59,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
 
- // Calls the web API (here the graph)
+ // Calls the web API (Microsoft Graph in this case).
  HttpClient httpClient = new HttpClient();
  httpClient.DefaultRequestHeaders.Authorization =
      new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
@@ -82,7 +81,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > You can use the same principle to call any web API.
 >
-> Most Azure web APIs provide an SDK that simplifies calling it. This is also the case of the Microsoft Graph. You'll learn in the next article where to find a tutorial illustrating these aspects.
+> Most Azure web APIs provide an SDK that simplifies calling the API. This is  also true of Microsoft Graph. In the next article, you'll learn where to find a tutorial that illustrates API use.
 
 # [Java](#tab/java)
 
@@ -118,7 +117,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

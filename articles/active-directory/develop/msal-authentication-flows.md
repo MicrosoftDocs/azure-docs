@@ -3,19 +3,18 @@ title: MSAL authentication flows | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the authentication flows and grants used by the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
-ms.author: twhitney
+ms.date: 01/30/2020
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the types of authentication flows so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Authentication flows
@@ -149,7 +148,7 @@ By using the device code flow, the application obtains tokens through a two-step
 
 In the preceding diagram:
 
-1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to go to a URL (for example, https://microsoft.com/devicelogin). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
+1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to go to a URL (for example, `https://microsoft.com/devicelogin`). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
 
 2. Upon successful authentication, the command-line app receives the required tokens through a back channel, and uses them to perform the web API calls it needs.
 

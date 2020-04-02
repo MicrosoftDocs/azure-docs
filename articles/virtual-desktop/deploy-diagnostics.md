@@ -6,11 +6,17 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/20/2020
 ms.author: helohr
+manager: lizross
 ---
 
 # Deploy the diagnostics tool
+
+>[!IMPORTANT]
+>As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
+>
+>Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics.md) for continued monitoring.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
@@ -32,8 +38,8 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Azure AD module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Azure AD module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Make sure you have your Subscription ID ready for when you sign in.
 
@@ -113,7 +119,7 @@ Here's how to manually configure the recommended performance counters:
 Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
->Any additional counters you configure won’t show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
+>Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
 
 ## Validate the script results in the Azure portal
 
@@ -124,10 +130,9 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 To make sure your app registration has API permissions:
 
 1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to **App registrations** and look for your Azure AD App registration.
-
-      ![The API permissions page.](media/api-permissions-page.png)
-
+2. Go to **Azure Active Directory**.
+3. Go to **App registrations** and select **All Applications**.
+4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 
 ### Review your Log Analytics workspace
 
@@ -139,7 +144,7 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 4. Make sure the following counters are preconfigured:
 
    - LogicalDisk(\*)\\%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
-   - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn’t exceed 2 for more than a short period of time.
+   - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn't exceed 2 for more than a short period of time.
    - Memory(\*)\\Available Mbytes: The available memory for the system in megabytes.
    - Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
    - User Input Delay per Session(\*)\\Max Input Delay
@@ -249,7 +254,7 @@ You can also interact with users on the session host:
 
     - Threshold: Higher than 80% is marked as unhealthy.
 
-- [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [User Input Delay per Session(\*)\\Max Input Delay](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Threshold: Higher than 2000 ms is marked as unhealthy.
 

@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Multiclass Logistic Regression module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a logistic regression model that can be used to predict multiple values.
 
@@ -35,7 +35,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
     + **Single Parameter**: Use this option if you know how you want to configure the model, and provide a specific set of values as arguments.
 
-    + **Parameter Range**: Use this option if you are not sure of the best parameters, and want to use a parameter sweep.
+    + **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
 
 3. **Optimization tolerance**, specify the threshold value for optimizer convergence. If the improvement between iterations is less than the threshold, the algorithm stops and returns the current model.
 
@@ -53,7 +53,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-9. Run the pipeline.
+9. Submit the pipeline.
 
 
 

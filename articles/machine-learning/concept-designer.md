@@ -12,7 +12,7 @@ ms.date: 11/12/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
-# What is Azure Machine Learning designer? 
+# What is Azure Machine Learning designer (preview)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
@@ -112,7 +112,7 @@ The designer creates the same [PublishedPipeline](https://docs.microsoft.com/pyt
 
 ## Moving from the visual interface to the designer
 
-The visual interface (preview) has been updated and is now Azure Machine Learning designer. The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
+The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
 
 As a result of these updates, some concepts and terms for the visual interface have been changed or renamed. See the table below for the most important conceptual changes. 
 
@@ -131,13 +131,5 @@ You can convert existing visual interface experiments and web services to pipeli
 ## Next steps
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
-* Use one of the samples and modify to suite your needs:
-
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+* Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.
 

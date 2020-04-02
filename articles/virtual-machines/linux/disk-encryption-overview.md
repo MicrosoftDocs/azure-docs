@@ -2,11 +2,11 @@
 title: Enable Azure Disk Encryption for Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
 ms.custom: seodec18
 
 ---
@@ -28,7 +28,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 ## Supported VMs and operating systems
 
-### Supported VM sizes
+### Supported VMs
 
 Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
@@ -40,7 +40,9 @@ Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption i
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory. 
 
-Azure Disk Encryption is also available for VMs with premium storage. 
+Azure Disk Encryption is also available for VMs with premium storage.
+
+Azure Disk Encryption is not available on [Generation 2 VMs](generation-2.md#generation-1-vs-generation-2-capabilities)) and [Lsv2-series VMs](../lsv2-series.md)). For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
 
 ### Supported operating systems
 
@@ -75,7 +77,9 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SLES | 12-SP3 | Data disk |
 
 > [!NOTE]
-> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. 
+> The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  
+>
+> ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## Additional VM requirements
 

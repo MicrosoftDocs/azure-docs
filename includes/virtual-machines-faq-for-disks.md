@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/13/2019
+ ms.date: 03/31/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -51,10 +51,6 @@ No.
 **Are there any scale limitations for customers that use managed disks?**
 
 Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit is 50,000 managed disks per region and per disk type for a subscription.
-
-**Can I take an incremental snapshot of a managed disk?**
-
-No. The current snapshot capability makes a full copy of a managed disk.
 
 **Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
 
@@ -142,29 +138,60 @@ Generation 1 images can only use GPT partitioning on data disks, not OS disks. O
 
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
-### Disk reservation
+**What are Azure disk reservations?**
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**What is Azure disk reservation?**
-Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost.
+**What options does Azure disk reservation offer?**    
+Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.    
 
-**What options does Azure disk reservation offer?**
-Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.
+Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
-Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divvy that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
+**How is Azure disk reservation applied?**    
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
 
-**How will I be billed for Azure disk reservation?**
-- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure disks reservations. In scenarios where EA customers have used all their monetary commitment, disk reservations may still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+**Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
+Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
 
-- For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
-
-**How is Azure disk reservation applied?**
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 
-
-**Can I use my data storage purchased through Azure disks reservation across multiple regions?**
-Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.
-
-**What happens when my Azure disks reservation expires?**
+**What happens when my Azure disks reservation expires?**    
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### Azure shared disks
+
+**Is the shared disks feature supported for unmanaged disks or page blobs?**
+
+No, it is only supported for premium SSD managed disks.
+
+**What regions support shared disks?**
+
+Currently only West Central US.
+
+**Can shared disks be used as an OS disk?**
+
+No, shared disks are only supported for data disks.
+
+**What disk sizes support shared disks?**
+
+Only premium SSDs that are P15 or greater support shared disks.
+
+**If I have an existing premium SSD, can I enable shared disks on it?**
+
+All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
+
+**If I no longer want to use a disk in shared mode, how do I disable it?**
+
+Unmount the disk from all VMs that it is attached to. Then edit the maxShare property on the disk to 1.
+
+**Can you resize a shared disk?**
+
+Yes.
+
+**Can I enable write accelerator on a disk that also has shared disks enabled?**
+
+No.
+
+**Can I enable host caching for a disk that has shared disk enabled?**
+
+The only supported host caching option is 'None'.
 
 ## Ultra disks
 
@@ -379,11 +406,11 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What regions support bursting capability for applicable premium SSD disk size?**
 
-The bursting capability is currently supported in Azure West Central US.
+The bursting capability is currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
 
-These new disk sizes are currently supported in Azure West Central US.
+These new disk sizes are currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
 
@@ -414,7 +441,7 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
 |Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
 |Azure CLI v2     | Version number 2.0.12: July 2017 release or later|
-|AzCopy	          | Version number 6.1.0: June 2017 release or later|
+|AzCopy              | Version number 6.1.0: June 2017 release or later|
 
 **Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
 
@@ -434,7 +461,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB is not yet available.
+The largest disk size supported by Azure Backup is 32 TiB (4 TiB for encrypted disks). The largest disk size supported by Azure Site Recovery is 8 TiB. Support for the larger disks up to 32 TiB is not yet available in Azure Site Recovery.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
@@ -450,7 +477,7 @@ The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under globa
 
 **Do we support enabling Host Caching on all disk sizes?**
 
-We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4 TiB. For disk sizes more than 4 TiB, we don’t support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4 TiB. For disk sizes more than 4 TiB, we don't support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
 ## What if my question isn't answered here?
 

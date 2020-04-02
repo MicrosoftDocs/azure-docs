@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to build your first C# search app step-by-step. The tutorial provides both a link to a working app on GitHub, and the complete process to build the app from scratch. Learn about the essential components of Azure Cognitive Search.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # C# tutorial: Create your first app - Azure Cognitive Search

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2019
+ms.date: 02/13/2020
 ---
 
 # How a reservation discount is applied to Azure Database for MySQL
 
-After you buy an Azure Database for MySQL reserved capacity, the reservation discount is automatically applied to MySQL servers that match the attributes and quantity of the reservation. A reservation covers only the compute costs of your Azure Database for MySQL. You're charged for storage and networking at the normal rates. 
+After you buy an Azure Database for MySQL reserved capacity, the reservation discount is automatically applied to MySQL servers that match the attributes and quantity of the reservation. A reservation covers only the compute costs of your Azure Database for MySQL. You're charged for storage and networking at the normal rates.
 
 ## How reservation discount is applied
 

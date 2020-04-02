@@ -1,15 +1,14 @@
 ### YamlMime:Hub
 title: Azure Cost Management + Billing documentation
-summary: Azure Cost Management and Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+summary: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 
 metadata:
   ms.service: cost-management-billing
-  description: Azure Cost Management and Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+  description: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.topic: hub-page
   author: bandersmsft
   ms.author: banders
-  manager: dougeby
-  ms.date: 12/17/2019
+  ms.date: 01/24/2019
 
 highlightedContent:
   items:
@@ -18,7 +17,7 @@ highlightedContent:
       url: cost-management-billing-overview.md
     - title: Analyze costs and create budgets
       itemType: learn
-      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
     - title: Cost Management best practices
       itemType: concept
       url: ./costs/cost-mgt-best-practices.md
@@ -132,7 +131,10 @@ conceptualContent:
       links:
         - url: https://feedback.azure.com/forums/906772-cost-management
           itemType: how-to-guide
-          text: Request a Cost Management service feature
+          text: Cost Management feedback
+        - url: https://twitter.com/azurecostmgmt
+          itemType: how-to-guide
+          text: Cost Management on Twitter
         - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
           itemType: how-to-guide
           text: Azure Cost Management Tech Community

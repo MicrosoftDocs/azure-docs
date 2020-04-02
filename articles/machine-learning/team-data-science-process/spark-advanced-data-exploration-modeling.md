@@ -3,12 +3,12 @@ title: Advanced data exploration and modeling with Spark - Team Data Science Pro
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -25,21 +25,23 @@ The modeling steps also contain code showing how to train, evaluate, and save ea
 
 **Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term. 
 
-A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This consists of performing an exhaustive search through the values a specified subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that the model retains the capacity to apply to the general set of data from which the training data was extracted.
+A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This search goes through a subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that the model retains the capacity to apply to the general set of data from which the training data was extracted.
 
 The models we use include logistic and linear regression, random forests, and gradient boosted trees:
 
 * [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
 * [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
 * [Random forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
-* [Gradient boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+* [Gradient boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS train decision trees iteratively to minimize a loss function. GBTS is used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
 Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.   
 
+<!-- -->
+
 > [!NOTE]
 > Although the Spark MLlib toolkit is designed to work on large datasets, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used here for convenience. The exercise given here runs efficiently (in about 10 minutes) on an HDInsight cluster with 2 worker nodes. The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory and changing the cluster size.
-> 
-> 
+
+<!-- -->
 
 ## Setup: Spark clusters and notebooks
 Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 and 2.0 to be run in the pyspark kernel of the Jupyter Notebook server:
@@ -203,10 +205,12 @@ This query retrieves the trips by passenger count.
 
 This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
 
+<!-- -->
+
 > [!NOTE]
 > This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
-> 
-> 
+
+<!-- -->
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -298,7 +302,7 @@ This section describes and provides the code for procedures used to prepare data
 * Create a new feature by partitioning hours into traffic time bins
 * Index and on-hot encode categorical features
 * Create labeled point objects for input into ML functions
-* Create a random sub-sampling of the data and split it into training and testing sets
+* Create a random subsampling of the data and split it into training and testing sets
 * Feature scaling
 * Cache objects in memory
 
@@ -380,7 +384,7 @@ Here is the code to index and encode categorical features:
 Time taken to execute above cell: 3.14 seconds
 
 ### Create labeled point objects for input into ML functions
-This section contains code that shows how to index categorical text data as a labeled point data type and how to encode it. This prepares it to be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
+This section contains code that shows how to index categorical text data as a labeled point data type and how to encode it. This transformation prepares text data to be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
 
 Here is the code to index and encode text features for binary classification.
 
@@ -428,8 +432,8 @@ Here is the code to encode and index categorical text features for linear regres
         return  labPt
 
 
-### Create a random sub-sampling of the data and split it into training and testing sets
-This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample the data here. Then you know how to use it for your own problem if needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
+### Create a random subsampling of the data and split it into training and testing sets
+This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample the data here. Then you know how to use it for your own problem if needed. When samples are large, sampling can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -470,7 +474,7 @@ This code creates a random sampling of the data (25% is used here). Although it 
 
 **OUTPUT**
 
-Time taken to execute above cell: 0.31 seconds
+Time taken to execute above cell: 0.31 second
 
 ### Feature scaling
 Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD). SGD is a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
@@ -542,7 +546,7 @@ The time taken for training and testing of ML algorithms can be reduced by cachi
 
 **OUTPUT** 
 
-Time taken to execute above cell: 0.13 seconds
+Time taken to execute above cell: 0.13 second
 
 ## Predict whether or not a tip is paid with binary classification models
 This section shows how use three models for the binary classification task of predicting whether or not a tip is paid for a taxi trip. The models presented are:
@@ -559,20 +563,22 @@ Each model building code section is split into steps:
 
 We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
-1. Using **generic** custom code which can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
-2. Using the **pySpark CrossValidator pipeline function**. Note that CrossValidator has a few limitations for Spark 1.5.0: 
+1. Using **generic** custom code that can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
+2. Using the **pySpark CrossValidator pipeline function**. CrossValidator has a few limitations for Spark 1.5.0: 
    
-   * Pipeline models cannot be saved/persisted for future consumption.
+   * Pipeline models cannot be saved or persisted for future consumption.
    * Cannot be used for every parameter in a model.
    * Cannot be used for every MLlib algorithm.
 
 ### Generic cross validation and hyperparameter sweeping used with the logistic regression algorithm for binary classification
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.   
 
+<!-- -->
+
 > [!NOTE]
 > The execution of this custom CV code can take several minutes.
-> 
-> 
+
+<!-- -->
 
 **Train the logistic regression model using CV and hyperparameter sweeping**
 
@@ -795,10 +801,12 @@ Time taken to execute above cell: 34.57 seconds
 ### Use MLlib's CrossValidator pipeline function with logistic regression (Elastic regression) model
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.   
 
+<!-- -->
+
 > [!NOTE]
 > The execution of this MLlib CV code can take several minutes.
-> 
-> 
+
+<!-- -->
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -992,11 +1000,19 @@ These models were described in the introduction. Each model building code sectio
 2. **Model evaluation** on a test data set with metrics
 3. **Saving model** in blob for future consumption   
 
-> AZURE NOTE: Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
-> 
-> AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
-> 
-> 
+<!-- -->
+
+> [!NOTE] 
+> Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
+
+<!-- -->
+
+<!-- -->
+
+> [!NOTE] 
+> In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
+
+<!-- -->
 
 ### Linear regression with SGD
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
@@ -1059,10 +1075,12 @@ Time taken to execute above cell: 38.62 seconds
 ### Random Forest regression
 The code in this section shows how to train, evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.   
 
+<!-- -->
+
 > [!NOTE]
 > Cross-validation with parameter sweeping using custom code is provided in the appendix.
-> 
-> 
+
+<!-- -->
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
 
@@ -1404,7 +1422,7 @@ Use `unpersist()` to delete objects cached in memory.
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Printout path to model files to be used in the consumption notebook. **
+**Output path to model files to be used in the consumption notebook. **
 To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

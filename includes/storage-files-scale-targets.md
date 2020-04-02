@@ -21,4 +21,4 @@ ms.author: rogarana
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |
 | Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |
 
-\* Not available in all regions, see [Regional availability](../articles/storage/files/storage-files-planning.md#regional-availability) for a list of available regions.
+\* Available in most regions, see [Regional availability](../articles/storage/files/storage-files-planning.md#regional-availability) for the details on available regions.

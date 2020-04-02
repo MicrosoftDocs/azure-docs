@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -29,7 +29,9 @@ You can purchase Azure Storage reserved capacity in units of 100 TB and 1 PB per
 
 ### Reservation scope
 
-Azure Storage reserved capacity is available for a single subscription or for a shared resource group. When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription. A reservation cannot be split across multiple subscriptions.
+Azure Storage reserved capacity is available for a single subscription or for multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context.
+
+When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription. A reservation cannot be split across multiple subscriptions.
 
 An Azure Storage reservation covers only the amount of data that is stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of at the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
 
@@ -50,7 +52,7 @@ To purchase reserved capacity:
 
 - You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
-- For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
+- For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Blob Storage reserved capacity.
 
 ## Determine required capacity before purchase
 

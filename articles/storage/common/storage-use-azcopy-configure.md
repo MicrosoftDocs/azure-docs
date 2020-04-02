@@ -4,7 +4,7 @@ description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -36,6 +36,14 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 ## Optimize performance
 
 You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
+
+This section helps you perform these optimization tasks:
+
+> [!div class="checklist"]
+> * Run benchmark tests
+> * Optimize throughput
+> * Optimize memory use 
+> * Optimize file synchronization
 
 ### Run benchmark tests
 
@@ -93,6 +101,14 @@ Express this value in gigabytes (GB).
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
+### Optimize file synchronization
+
+The [sync](storage-ref-azcopy-sync.md) command identifies all files at the destination, and then compares file names and last modified timestamps before the starting the sync operation. If you have a large number of files, then you can improve performance by eliminating this up-front processing. 
+
+To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
+
+The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`. 
+
 ## Troubleshoot issues
 
 AzCopy creates log and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. 
@@ -100,6 +116,8 @@ AzCopy creates log and plan files for every job. You can use the logs to investi
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
 By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location if you want.
+
+The relevant error isn't necessarily the first error that appears in the file. For errors such as network errors, timeouts and Server Busy errors, AzCopy will retry up to 20 times and usually the retry process succeeds.  The first error that you see might be something harmless that was successfully retried.  So instead of looking at the first error in the file, look for the errors that are near `UPLOADFAILED`, `COPYFAILED`, or `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.

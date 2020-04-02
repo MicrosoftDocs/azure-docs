@@ -18,7 +18,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -98,7 +98,7 @@ This is a known issue with the implementation of SMB client on Linux.
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every **fsync** call. For Azure Files, this option does not interfere with data consistency, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
 ## High latencies for metadata heavy workloads involving extensive open/close operations.
 
@@ -190,7 +190,7 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
   > [!NOTE]
   > If the file share is a standard file share, the dimension values drop-down will be blank because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account. 
 
-8. Define the **alert parameters** (threshold, operator, aggregration granularity and frequency) which are used to evaluate the metric alert rule and click **Done**.
+8. Define the **alert parameters** (threshold, operator, aggregation granularity and frequency) which are used to evaluate the metric alert rule and click **Done**.
 
   > [!TIP]
   > If you are using a static threshold, the metric chart can help determine a reasonable threshold if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.

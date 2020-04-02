@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
-description: Overview of Service Bus message payloads
+description: This article provides an overview of Azure Service Bus messages, payloads, message routing, and serialization. 
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

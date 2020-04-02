@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
 description: In this tutorial, you will learn how to search for points of interest on a map using Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -242,7 +242,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
     ```JavaScript
     function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
 
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();

@@ -2,8 +2,8 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+ms.date: 02/06/2020
+ms.author: tanmaygore
 ---
 
 This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure classic deployment model to the Azure Resource Manager stack.
@@ -159,13 +159,15 @@ Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded
 After you complete the migration process, you may want to move the VM to another subscription. However, if you have a secret/certificate on the VM that references a Key Vault resource, the move is currently not supported. The below instructions will allow you to workaround the issue. 
 
 #### PowerShell
+
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
+
 #### Azure CLI
 
-```bash
+```azurecli
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 ```

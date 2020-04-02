@@ -2,15 +2,15 @@
 title: FAQ - Azure Database Migration Service
 description: Frequently asked questions about using Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 02/20/2020
 ---
 
 # FAQ about using Azure Database Migration Service
@@ -41,7 +41,7 @@ You can use Azure Database Migration Service to perform offline and online migra
 > Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information, see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
 
 **Q. How does Azure Database Migration Service compare to other Microsoft database migration tools such as the Database Migration Assistant (DMA) or SQL Server Migration Assistant (SSMA)?**
-Azure Database Migration Service is the preferred method for database migration to Microsoft Azure at scale. For more detail on how Azure Database Migration Service compares to other Microsoft database migration tools and for recommendations on using the service for various scenarios, see the blog posting [Differentiating Microsoft’s Database Migration Tools and Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
+Azure Database Migration Service is the preferred method for database migration to Microsoft Azure at scale. For more detail on how Azure Database Migration Service compares to other Microsoft database migration tools and for recommendations on using the service for various scenarios, see the blog posting [Differentiating Microsoft’s Database Migration Tools and Services](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529).
 
 **Q. How does Azure Database Migration Service compare to the Azure Migrate offering?**
 Azure Migrate assists with migration of on-premises virtual machines to Azure IaaS. The service assesses migration suitability and performance-based sizing, and it provides cost estimates for running your on-premises virtual machines in Azure. Azure Migrate is useful for lift-and-shift migrations of on-premises VM-based workloads to Azure IaaS VMs. However, unlike Azure Database Migration Service, Azure Migrate isn’t a specialized database migration service offering for Azure PaaS relational database platforms such as Azure SQL Database or Azure SQL Database Managed Instance.
@@ -91,7 +91,7 @@ During a typical, simple database migration, you:
 1. Create a target database(s).
 2. Assess your source database(s).
     * For homogenous migrations, assess your existing database(s) by using [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * For heterogenous migrations (from compete sources), assess your existing database(s) with [SSMA](https://aka.ms/get-ssma). You also use SSMA to convert database objects and migrate the schema to your target platform.
+    * For heterogeneous migrations (from compete sources), assess your existing database(s) with [SSMA](https://aka.ms/get-ssma). You also use SSMA to convert database objects and migrate the schema to your target platform.
 3. Create an instance of Azure Database Migration Service.
 4. Create a migration project specifying the source database(s), target database(s), and the tables to migrate.
 5. Start the full load.

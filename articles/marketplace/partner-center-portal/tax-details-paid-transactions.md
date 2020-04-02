@@ -1,11 +1,10 @@
 ---
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
 title: Tax details | Azure Marketplace
-ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.date: 2/13/2020
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ---
 
@@ -17,7 +16,7 @@ To understand your tax considerations for price selection, and tax responsibilit
 > The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of affected countries/regions.
 
 > [!IMPORTANT]
-> Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit C of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
+> Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit A of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
 > Note that the **Payout implication** column only applies to publishers. Tax rates noted in this column are subject to change at any time, and Microsoft cannot guarantee that the rates in the tables below will always be accurate.
 
 

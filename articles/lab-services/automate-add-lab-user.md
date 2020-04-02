@@ -1,6 +1,6 @@
 ---
 title: Automate adding a lab user in Azure DevTest Labs | Microsoft Docs
-description: Learn how to automate adding a lab user to a lab in Azure DevTest Labs. 
+description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---

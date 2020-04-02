@@ -26,7 +26,7 @@ In this walkthrough, we analyze the [spambase](https://archive.ics.uci.edu/ml/da
 Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](linux-dsvm-intro.md#x2go).
 * For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning account**. If you don't already have one, sign up for a new account on the [Azure Machine Learning home page](https://azure.microsoft.com/free/services/machine-learning//).
@@ -184,6 +184,8 @@ To deploy the decision tree code from the preceding section, sign in to Azure Ma
    ![The Azure Machine Learning Studio (classic) primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Load the **AzureML** package, and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -203,9 +205,23 @@ To deploy the decision tree code from the preceding section, sign in to Azure Ma
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Create a settings.json file for this workspace:
+
+        vim ~/.azureml/settings.json
+
+1. Make sure the following contents are put inside settings.json:
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Publish the **predictSpam** function to AzureML by using the **publishWebService** function:
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. This function takes the **predictSpam** function, creates a web service named **spamWebService** that has defined inputs and outputs, and then returns information about the new endpoint.
@@ -518,7 +534,7 @@ If you want to do machine learning by using data stored in a PostgreSQL database
 
 ### SQL Data Warehouse
 
-Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 To connect to the data warehouse and create the table, run the following command from a command prompt:
 

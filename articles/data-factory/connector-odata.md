@@ -36,7 +36,7 @@ You can copy data from an OData source to any supported sink data store. For a l
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **AAD service principal**.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User based OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. | Yes |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |

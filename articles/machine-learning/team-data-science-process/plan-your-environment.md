@@ -3,12 +3,12 @@ title: Identify scenarios and plan the analytics process - Team Data Science Pro
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -43,7 +43,7 @@ Is your data local or in the cloud? Possible locations include:
 * a publicly available HTTP address
 * a local or network file location
 * a SQL Server database
-* an Azure storage container
+* an Azure Storage container
 
 ### What is the Azure destination?
 
@@ -70,11 +70,11 @@ Consider using Azure Data Factory (ADF) when data needs to be continually migrat
 * a hybrid scenario that involves both on-premises and cloud resources
 * a scenario where the data is transacted, modified, or changed by business logic in the course of being migrated
 
-For further information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md).
+For more information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md).
 
 ### How much of the data is to be moved to Azure?
 
-Extremely large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio (classic) in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
+Large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio (classic) in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
 
 ## Data characteristics questions: type, format, and size
 

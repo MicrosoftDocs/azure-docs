@@ -21,7 +21,7 @@
     - name: Chef
       items:
       - name: Create a Windows VM
-        href: /azure/virtual-machines/windows/chef-automation
+        href: ./chef-automation.md
 - name: Reference
   items:
     - name: Azure Chef Extension

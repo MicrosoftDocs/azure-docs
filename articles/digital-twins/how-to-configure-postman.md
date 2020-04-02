@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -24,49 +24,19 @@ Get started on Azure Digital Twins by using a REST client tool such as [Postman]
 
 [Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI.
 
-Through the Postman client, solutions developers can specify the kind of HTTP request (*POST*, *GET*, *UPDATE*, *PATCH*, and *DELETE*), API endpoint to call, and use of SSL. Postman also supports adding HTTP request headers, parameters, form-data, and bodies.
+Through the Postman client, solutions developers can specify the kind of HTTP request (*POST*, *GET*, *UPDATE*, *PATCH*, and *DELETE*), API endpoint to call, and use of TLS. Postman also supports adding HTTP request headers, parameters, form-data, and bodies.
 
 ## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
-Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant flow.
-
-1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for:
-    
-    1. `Azure Digital Twins`. Select the **Azure Digital Twins** API.
-
-        [![Search API or Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
-
-    1. Alternatively, search for `Azure Smart Spaces Service`. Select the **Azure Smart Spaces Service** API.
-
-        [![Search API for Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
-
-    > [!IMPORTANT]
-    > The Azure AD API name and ID that will appear depends on your tenant:
-    > * Test tenant and customer accounts should search for `Azure Digital Twins`.
-    > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
-
-1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
-
-    [![Add API permissions for Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
-
-1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
-
-    [![Configure admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
-
-1. Configure a second **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
+1. Follow the steps in [the Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) to create and configure an Azure Active Directory application. Alternatively, you can reuse an existing app registration.
 
     [![Configure a new Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
+1. Now, add a **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
 
-    Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
+1. Select the **Implicit grant** > **Access tokens** check box to allow the OAuth 2.0 implicit grant flow to be used. Select **Configure**, then **Save**.
 
-    [![Public client configuration setting](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
-
-1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
-
-   [![Azure Active Directory application ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
-
+1. Copy the **Client ID** of your Azure Active Directory app.
 
 ## Obtain an OAuth 2.0 token
 
@@ -74,7 +44,6 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 Set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
-1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 1. Verify that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
@@ -83,15 +52,17 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
     | Name  | Replace with | Example |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
+    | YOUR_AZURE_TENANT | The name of your tenant or organization. Use the human-friendly name instead of the alphanumeric **Tenant ID** of your Azure Active Directory app registration. | `microsoft` |
 
-1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
+1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
+
+1. We want to make GET request. Select the **Authorization** tab, select OAuth 2.0, and then select **Get New Access Token**.
 
     | Field  | Value |
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Use the **Authorization URL** from **step 2** |
+    | Auth URL | Use the **Authorization URL** from **step 1** |
     | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or reused from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |

@@ -2,8 +2,8 @@
 title: 'Quickstart: Onboard in Azure Sentinel'
 description: Learn how to collect data in Azure Sentinel by following this Quickstart document.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel

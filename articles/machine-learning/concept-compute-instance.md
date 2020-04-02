@@ -22,9 +22,6 @@ Use a compute instance as your fully configured and managed development environm
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
-> [!NOTE]
-> Compute instances are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 ## Why use a compute instance?
 
@@ -113,14 +110,14 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 
 You can perform the following actions:
 
-* Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
+* Create a compute instance. Specify the name, Azure VM type including GPUs (please note VM type can not be changed after creation), enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
 * Refresh the compute instances tab
 * Start, stop and restart a compute instance
 * Delete a compute instance
 
 For each compute instance in your workspace you can:
 
-* Access Jupyter, JupyterLab, RStudio, VS Code URIs on the compute instance
+* Access Jupyter, JupyterLab, RStudio on the compute instance
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
 * Get details about a specific compute instance such as IP address, and region.
 
@@ -141,11 +138,11 @@ You can use compute instance as a local inferencing deployment target for testin
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
 
-Compute instances are replacing the Notebook VM.  In regions where compute instances are not available yet, you can continue to use Notebook VMs with full functionality and create new Notebook VMs.
+Compute instances are replacing the Notebook VM.  
 
 Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from a compute instance. However, any custom packages previously installed on a Notebook VM will need to be re-installed on the compute instance. Quota limitations which apply to compute clusters creation will apply to compute instance creation as well. 
 
-In regions where compute instances are available, new Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs. 
+New Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs. 
 
 
 ## Next steps

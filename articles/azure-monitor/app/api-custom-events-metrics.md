@@ -1,11 +1,7 @@
 ---
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/27/2019
 
 ---
@@ -58,11 +54,14 @@ Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
 For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
 
+If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow this document: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+
 *C#*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+For anyone seeing this method is obsolete messages please visit [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) for further details.
 
 *Visual Basic*
 

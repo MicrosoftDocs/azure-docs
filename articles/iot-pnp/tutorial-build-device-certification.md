@@ -66,7 +66,7 @@ To include the **Device Information** interface in your device model, add the in
     "urn:yourcompanyname:sample:Thermostat:1",
     "urn:azureiot:DeviceManagement:DeviceInformation:1"
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -86,7 +86,7 @@ To view the **Device Information** interface using the Azure CLI:
 
 1. Use the following Azure CLI command to show an interface with the Device Information interface ID:
 
-    ```cmd/sh
+    ```azurecli
     az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
     ```
 

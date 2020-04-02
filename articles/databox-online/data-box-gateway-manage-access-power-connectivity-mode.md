@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Gateway device access, power, and connectivity mode | Microsoft Docs 
+title: Azure Data Box Gateway device access, power, and connectivity mode
 description: Describes how to manage access, power, and connectivity mode for the Azure Data Box Gateway device that helps transfer data to Azure
 services: databox
 author: alkohli
@@ -54,16 +54,16 @@ The reset workflow does not require the user to recall the old password and is u
 
 To create your Data Box Edge/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
 
-### Manage Microsoft Azure Active Directory Graph API permissions
+### Manage Microsoft Graph API permissions
 
-When generating the activation key for the Data Box Edge device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
+When generating the activation key for the Data Box Edge device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Data Box Edge device, creation of a user will all fail.
 
-For more information on how to provide access to users to Azure Active Directory Graph API, see [Default access for administrators, users, and guest users](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
 ### Register resource providers
 

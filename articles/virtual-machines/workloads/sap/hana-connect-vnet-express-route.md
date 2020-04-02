@@ -3,8 +3,8 @@ title: Connectivity set up from virtual network to SAP HANA on Azure (large inst
 description: Connectivity set up from virtual network to use SAP HANA on Azure (large instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor:
 
 ms.service: virtual-machines-linux
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -1,6 +1,6 @@
 ﻿---
 title: Disable the guest OS Firewall in Azure VM | Microsoft Docs
-description: 
+description: Learn a workaround method for troubleshooting situations where a guest operating system firewall is filtering partial or complete traffic to a VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -97,7 +97,7 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remove Service Console.
+3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remote Service Console.
 
 4.	Open an instance of **Services.msc**.
 
@@ -145,7 +145,7 @@ If you have a situation in which you cannot reach the VM by any method, Custom S
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'

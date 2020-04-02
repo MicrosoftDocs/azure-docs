@@ -60,7 +60,7 @@ App Service authentication and authorization support multiple authentication pro
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
 - **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](app-service-web-tutorial-connect-msi.md).
-- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
 

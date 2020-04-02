@@ -165,7 +165,7 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     ```
 
 > [!TIP]
-> To receive information about all available configurations use `%config KQLmagic`. To troubleshoot and capture Kusto errors, such as connection issues and incorrect queries, use `%config Kqlmagic.short_errors=False`
+> To receive information about all available configurations use `%config Kqlmagic`. To troubleshoot and capture Kusto errors, such as connection issues and incorrect queries, use `%config Kqlmagic.short_errors=False`
 
 ## Next steps
 

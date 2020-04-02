@@ -3,14 +3,13 @@ title: Develop apps with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy an application that uses the Speech SDK on supported platforms.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
 ---
 
@@ -48,7 +47,7 @@ The required Speech SDK files can be deployed in the same directory as your appl
 
 ## Linux
 
-The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, and Debian 9 distributions.
+The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 distributions.
 For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
 
@@ -69,6 +68,16 @@ On Debian 9 install these packages:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+On RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## Next steps
 

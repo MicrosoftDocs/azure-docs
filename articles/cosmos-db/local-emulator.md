@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/26/2019
+ms.date: 01/31/2020
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing
@@ -100,7 +100,7 @@ As with the Azure Cosmos DB, the Azure Cosmos Emulator supports only secure comm
 
 You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](#command-line-syntax), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
 
-To enable network access for the first time the user should shut down the emulator and delete the emulator’s data directory (%LOCALAPPDATA%\CosmosDBEmulator).
+To enable network access for the first time the user should shut down the emulator and delete the emulator's data directory (%LOCALAPPDATA%\CosmosDBEmulator).
 
 ## Developing with the emulator
 
@@ -125,7 +125,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### Table API
 
-Once you have the Azure Cosmos Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with “/EnableTableEndpoint”. Next run the following code to connect to the table API account:
+Once you have the Azure Cosmos Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -144,7 +144,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### Cassandra API
 
-Start emulator from an administrator command prompt with “/EnableCassandraEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+Start emulator from an administrator command prompt with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
 * [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
@@ -174,11 +174,11 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 ### Gremlin API
 
-Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Start emulator from an administrator command prompt with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Install apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
+* [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
-* In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+* In the emulator's Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
 * Run the following commands in a regular command prompt window:
 
@@ -408,29 +408,13 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 .\importcert.ps1
 ```
 
-Closing the interactive shell once the emulator has been started will shut down the emulator’s container.
+Closing the interactive shell once the emulator has been started will shut down the emulator's container.
 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
-If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, in this case you can’t connect to the Azure Cosmos account from the emulator. Because the app is not running on the host machine, the certificate registered on the Linux container that matches the emulator’s endpoint cannot be added. 
-
-As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't supported with the `Microsoft.Azure.Cosmos` Nuget package:
- 
- ```csharp
-var httpHandler = new HttpClientHandler()
-{
-    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
-};
- 
-using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
-{
-    RunDatabaseDemo(client).GetAwaiter().GetResult();
-}
-```
-
-In addition to disabling the SSL certificate validation, it is important that you start the emulator with the `/allownetworkaccess` option and the emulator’s endpoint is accessible from the host IP address rather than `host.docker.internal` DNS.
+If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, please follow the below section for Linux to import the certificate into the Linux docker container.
 
 ## Running on Mac or Linux<a id="mac"></a>
 
@@ -442,47 +426,59 @@ Within the Windows VM run the command below and make note of the IPv4 address.
 ipconfig.exe
 ```
 
-Within your application you need to change the URI for the DocumentClient object to use the IPv4 address returned by `ipconfig.exe`. The next step is to work around the CA validation when constructing the DocumentClient object. For this you will need to provide an HttpClientHandler to the DocumentClient constructor, which has it's own implementation for ServerCertificateCustomValidationCallback.
+Within your application you need to change the URI used as Endpoint to use the IPv4 address returned by `ipconfig.exe` instead of `localhost`.
 
-Below is an example of what the code should look like.
-
-```csharp
-using System;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using System.Net.Http;
-
-namespace emulator
-{
-    class Program
-    {
-        static async void Main(string[] args)
-        {
-            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
-            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-
-            //Work around the CA validation
-            var httpHandler = new HttpClientHandler()
-            {
-                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
-            };
-
-            //Pass http handler to document client
-            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
-            {
-                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
-                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
-            }
-        }
-    }
-}
-```
-
-Finally, from the within the Windows VM, launch the Cosmos emulator from the command line using the following options.
+The next step, from the within the Windows VM, launch the Cosmos emulator from the command line using the following options.
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
+
+Finally, we need to import the Emulator CA certificate into the Linux or Mac environment.
+
+### Linux
+
+If you are working on Linux, .NET relays on OpenSSL to do the validation:
+
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX is available when choosing to export the private key). 
+
+1. Copy that PFX file into your Linux environment.
+
+1. Convert the PFX file into a CRT file
+
+   ```bash
+   openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
+   ```
+
+1. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+
+   ```bash
+   cp YourCTR.crt /usr/local/share/ca-certificates/
+   ```
+
+1. Update the CA certificates, which will update the `/etc/ssl/certs/` folder.
+
+   ```bash
+   update-ca-certificates
+   ```
+
+### Mac OS
+
+Use the following steps if you are working on Mac:
+
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX is available when choosing to export the private key).
+
+1. Copy that PFX file into your Mac environment.
+
+1. Open the *Keychain Access* application and import the PFX file.
+
+1. Open the list of Certificates and identify the one with the name `localhost`.
+
+1. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
+
+   ![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
+
+After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 
 ## Troubleshooting
 

@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Composite entity tutorial - LUIS"
-titleSuffix: Azure Cognitive Services
 description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/31/2020
 ---
 
 # Tutorial: Group and extract related data
@@ -103,11 +95,11 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Train the app so the changes to the intent can be tested
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
 
-## Publish the app so the trained model is queryable from the endpoint
+## Publish the app to access it from the HTTP endpoint
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## Get intent and entity prediction from endpoint
 
@@ -181,9 +173,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
    This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 

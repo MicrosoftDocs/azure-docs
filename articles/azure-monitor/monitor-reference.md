@@ -1,7 +1,6 @@
 ---
 title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -38,7 +37,7 @@ Solutions are based on log queries and views customized for a particular applica
 |:---|:---|
 | [Agent health](insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
 | [Alert management](platform/alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
-| [Service Map](insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. The same functionality is provided in   |
+| [Service Map](insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. |
 
 
 
@@ -193,14 +192,14 @@ Other solutions are available for monitoring different applications and services
 
 | Solution | Description |
 |:---|:---|
-| [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
+| [Active Directory health check](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
 | [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
-| [Activity log analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
+| [Activity log analytics](platform/activity-log-view.md#azure-portal) | View Activity Log entries. |
 | [DNS Analytics (preview)](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
 | [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
 | [On-Demand Assessments](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |
-| [SQL assessment](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
+| [SQL health check](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
 

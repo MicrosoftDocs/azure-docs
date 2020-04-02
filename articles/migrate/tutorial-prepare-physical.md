@@ -36,10 +36,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-- Permissions for your Azure account to create an Azure Migrate project.
-- Permissions for your account to register the Azure Migrate appliance. The appliance is used for Hyper-V discovery and migration. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
-    - The first app communicates with Azure Migrate service endpoints.
-    - The second app accesses an Azure Key Vault that's created during registration, to store Azure AD app info and appliance configuration settings.
+**Task** | **Details** 
+--- | --- 
+**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project. | 
+**Register resource providers** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
+**Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication  between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
 
 
 
@@ -56,15 +57,14 @@ Check you have permissions to create an Azure Migrate project.
 
 ### Assign permissions to register the appliance
 
-You can assign permissions for Azure Migrate to create the Azure AD apps creating during appliance registration, using one of the following methods:
+You can assign permissions for Azure Migrate to create the Azure AD app during appliance registration, using one of the following methods:
 
 - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
 - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
 
-It's worth noting that:
-
-- The apps don't have any other access permissions on the subscription other than those described above.
-- You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
+> [!NOTE]
+> - The app does not have any other access permissions on the subscription other than those described above.
+> - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
 
 
 #### Grant account permissions

@@ -4,15 +4,10 @@ description: Learn about the advantages that App Service brings to your enterpri
 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 Azure App Service is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios. 
 

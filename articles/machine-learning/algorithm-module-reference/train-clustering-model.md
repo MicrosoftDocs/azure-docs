@@ -7,20 +7,20 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
 ---
 # Train Clustering Model
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to train a clustering model.
 
 The module takes an untrained clustering model that you have already configured using the [K-Means Clustering](k-means-clustering.md) module, and trains the model using a labeled or unlabeled data set. The module creates both a trained model that you can use for prediction, and a set of cluster assignments for each case in the training data.
 
 > [!NOTE]
-> A clustering model cannnot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
+> A clustering model cannot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
   
 ## How to use Train Clustering Model  
 
@@ -38,7 +38,7 @@ The module takes an untrained clustering model that you have already configured 
 
     If you deselect this option, only the cluster assignments are output. 
 
-7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
+7. Submit the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### Results
 

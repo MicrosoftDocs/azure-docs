@@ -8,7 +8,7 @@ ms.date: 07/29/2019
 
 # Common questions about backing up files and folders
 
-This article has answers to common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
+This article answers common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
 
 ## Configure backups
 
@@ -54,6 +54,10 @@ Backup data is sent to the datacenter of the vault in which the server is regist
 
 Yes. The MARS agent converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the vault.
 
+### Do I need administrator permissions to install and configure the MARS agent?
+
+Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
+
 ## Manage backups
 
 ### What happens if I rename a Windows machine configured for backup?
@@ -86,7 +90,7 @@ This warning can appear even though you've configured a backup policy, when the 
 The size of the cache folder determines the amount of data that you are backing up.
 
 * The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
-* If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space.
+* If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space by following [these steps](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * If you backup Windows System State, you'll need an additional 30-35 GB of free space in the volume containing the cache folder.
 
 ### How to check if scratch folder is valid and accessible?
@@ -94,35 +98,35 @@ The size of the cache folder determines the amount of data that you are backing 
 1. By default scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Make sure the path of your scratch folder location matches with the values of the registry key entries shown below:
 
-  | Registry path | Registry Key | Value |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
+    | Registry path | Registry Key | Value |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
 
 ### How do I change the cache location for the MARS agent?
 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```Net stop obengine```
-
 2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
-3. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
-4. Update the following registry entries with the path of the new cache folder.
+3. By default, the scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Copy the entire `\Scratch` folder to a different drive that has sufficient space. Ensure the contents are copied, not moved.
+5. Update the following registry entries with the path of the newly moved scratch folder.
 
     | Registry path | Registry Key | Value |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New scratch folder location* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New scratch folder location* |
 
-5. Restart the Backup engine at an elevated command prompt:
+6. Restart the Backup engine at an elevated command prompt:
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
+7. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 ### Where should the cache folder be located?
 
@@ -145,7 +149,7 @@ The cache folder and the metadata VHD don't have the necessary attributes for th
 
 ### Is there a way to adjust the amount of bandwidth used for backup?
 
-Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling).
+Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## Restore
 

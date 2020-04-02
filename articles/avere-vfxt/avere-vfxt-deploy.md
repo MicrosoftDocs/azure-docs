@@ -10,7 +10,7 @@ ms.author: rohogue
 
 # Deploy the vFXT cluster
 
-This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these steps:
+This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these tasks:
 
 * Creates the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
 * Sets up resource group and virtual network infrastructure, including creating new elements.
@@ -23,10 +23,10 @@ After following the instructions in this document, you will have a virtual netwo
 
 Before using the creation template, make sure you have addressed these prerequisites:  
 
-1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deployments that use an existing virtual network and create blob storage
+* [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deployments that use an existing virtual network and create blob storage
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 

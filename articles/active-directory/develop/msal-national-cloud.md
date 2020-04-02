@@ -15,7 +15,6 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library works in national cloud scenarios so I can decide if this platform meets my application development needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Use MSAL in a national cloud environment

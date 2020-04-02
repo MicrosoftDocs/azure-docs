@@ -128,7 +128,7 @@ module.exports = async function(context, req) {
     context.log(`Started orchestration with ID = '${instanceId}'.`);
 
     let durableOrchestrationStatus = await client.getStatus(instanceId);
-    while (status.customStatus.toString() !== "London") {
+    while (durableOrchestrationStatus.customStatus.toString() !== "London") {
         await new Promise((resolve) => setTimeout(resolve, 200));
         durableOrchestrationStatus = await client.getStatus(instanceId);
     }

@@ -2,11 +2,10 @@
 title: Webhook actions for log alerts in Azure alerts
 description: This article describes how to create a log alert rule by using the Log Analytics workspace or Application Insights, how the alert pushes data as an HTTP webhook, and the details of the different customizations that are possible.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
 ---
 

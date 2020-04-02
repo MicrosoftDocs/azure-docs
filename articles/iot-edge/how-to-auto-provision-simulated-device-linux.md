@@ -21,9 +21,6 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 * Create an individual enrollment for the device
 * Install the IoT Edge runtime and connect the device to IoT Hub
 
-> [!NOTE]
-> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
-
 > [!TIP]
 > This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
 >
@@ -35,41 +32,44 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 * An active IoT Hub.
 * If using a simulated TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 
+> [!NOTE]
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
+
 ## Create a Linux virtual machine with a virtual TPM
 
-In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge. 
+In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge.
 
 ### Create a virtual switch
 
 A virtual switch enables your virtual machine to connect to a physical network.
 
-1. Open Hyper-V Manager on your Windows machine. 
+1. Open Hyper-V Manager on your Windows machine.
 
-2. In the **Actions** menu, select **Virtual Switch Manager**. 
+2. In the **Actions** menu, select **Virtual Switch Manager**.
 
-3. Choose an **External** virtual switch, then select **Create Virtual Switch**. 
+3. Choose an **External** virtual switch, then select **Create Virtual Switch**.
 
 4. Give your new virtual switch a name, for example **EdgeSwitch**. Make sure that the connection type is set to **External network**, then select **Ok**.
 
-5. A pop-up warns you that network connectivity may be disrupted. Select **Yes** to continue. 
+5. A pop-up warns you that network connectivity may be disrupted. Select **Yes** to continue.
 
-If you see errors while creating the new virtual switch, ensure that no other switches are using the ethernet adaptor, and that no other switches use the same name. 
+If you see errors while creating the new virtual switch, ensure that no other switches are using the ethernet adaptor, and that no other switches use the same name.
 
 ### Create virtual machine
 
-1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server](https://www.ubuntu.com/download/server). 
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server](https://www.ubuntu.com/download/server).
 
 2. In Hyper-V Manager again, select **New** > **Virtual Machine** in the **Actions** menu.
 
 3. Complete the **New Virtual Machine Wizard** with the following specific configurations:
 
    1. **Specify Generation**: Select **Generation 2**. Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
-   2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section. 
+   2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section.
    3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
 4. Select **Finish** in the wizard to create the virtual machine.
 
-It may take a few minutes to create the new VM. 
+It may take a few minutes to create the new VM.
 
 ### Enable virtual TPM
 
@@ -77,11 +77,11 @@ Once your VM is created, open its settings to enable the virtual trusted platfor
 
 1. Select the virtual machine, then open its **Settings**.
 
-2. Navigate to **Security**. 
+2. Navigate to **Security**.
 
 3. Uncheck **Enable Secure Boot**.
 
-4. Check **Enable Trusted Platform Module**. 
+4. Check **Enable Trusted Platform Module**.
 
 5. Click **OK**.  
 
@@ -144,34 +144,34 @@ On your device, build a tool that you can use to retrieve the device's provision
 
 Create a new instance of the IoT Hub Device Provisioning Service in Azure, and link it to your IoT hub. You can follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
-After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime. 
+After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
 ## Create a DPS enrollment
 
-Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service. 
+Retrieve the provisioning information from your virtual machine, and use that to create an individual enrollment in Device Provisioning Service.
 
-When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
+When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md).
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
-2. Under **Settings**, select **Manage enrollments**. 
+2. Under **Settings**, select **Manage enrollments**.
 
 3. Select **Add individual enrollment** then complete the following steps to configure the enrollment:  
 
-   1. For **Mechanism**, select **TPM**. 
+   1. For **Mechanism**, select **TPM**.
 
    2. Provide the **Endorsement key** and **Registration ID** that you copied from your virtual machine.
 
       > [!TIP]
       > If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-   3. Select **True** to declare that this virtual machine is an IoT Edge device. 
+   3. Select **True** to declare that this virtual machine is an IoT Edge device.
 
-   4. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy. 
+   4. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
 
    5. Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
 
-   6. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. For example: 
+   6. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. For example:
 
       ```json
       {
@@ -184,52 +184,52 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
       }
       ```
 
-   7. Select **Save**. 
+   7. Select **Save**.
 
-Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. 
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation.
 
 ## Install the IoT Edge runtime
 
-The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine. 
+The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine.
 
-Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
+Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
 [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## Give IoT Edge access to the TPM
 
-In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM. 
+In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM.
 
-You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the **iotedge** service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access. 
+You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the **iotedge** service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Find the file path to the TPM hardware module on your device and save it as a local variable. 
+1. Find the file path to the TPM hardware module on your device and save it as a local variable.
 
    ```bash
    tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
    ```
 
-2. Create a new rule that will give the IoT Edge runtime access to tpm0. 
+2. Create a new rule that will give the IoT Edge runtime access to tpm0.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Open the rules file. 
+3. Open the rules file.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copy the following access information into the rules file. 
+4. Copy the following access information into the rules file.
 
-   ```input 
+   ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
    ```
 
-5. Save and exit the file. 
+5. Save and exit the file.
 
-6. Trigger the udev system to evaluate the new rule. 
+6. Trigger the udev system to evaluate the new rule.
 
    ```bash
    /bin/udevadm trigger $tpm
@@ -247,33 +247,33 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
    crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev. 
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
 
 ## Restart the IoT Edge runtime
 
-Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device. 
+Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-Check to see that the IoT Edge runtime is running. 
+Check to see that the IoT Edge runtime is running.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again. 
+If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again.
 
    ```bash
    sudo systemctl daemon-reload
    ```
-   
-Or, try restarting your virtual machine to see if the changes take effect on a fresh start. 
+
+Or, try restarting your virtual machine to see if the changes take effect on a fresh start.
 
 ## Verify successful installation
 
-If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules. 
+If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
 
 Check the status of the IoT Edge Daemon.
 
@@ -293,7 +293,7 @@ List running modules.
 iotedge list
 ```
 
-You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed. 
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: How to attach a managed data disk to a Windows VM by using the Azur
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
 
@@ -43,4 +43,4 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 ## Next steps
 
 - You can also [attach a data disk by using PowerShell](attach-disk-ps.md).
-- If your application needs to use the *D:* drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- If your application needs to use the *D:* drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md).

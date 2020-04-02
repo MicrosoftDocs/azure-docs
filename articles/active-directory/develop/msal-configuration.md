@@ -14,7 +14,6 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Android Microsoft Authentication Library configuration file
@@ -85,11 +84,11 @@ The list of authorities that are known and trusted by you. In addition to the au
 
 | Type | Audience | Tenant ID | Authority_Url | Resulting Endpoint | Notes |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
-| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
-| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
-| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Only Microsoft accounts can use this endpoint. |
-| B2C | | | See Resulting Endpoint | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Only Microsoft accounts can use this endpoint. |
+| B2C | | | See Resulting Endpoint | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
 
 > [!NOTE]
 > Authority validation cannot be enabled and disabled in MSAL.

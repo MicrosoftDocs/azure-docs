@@ -28,7 +28,8 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 Certain limitations apply when you deploy container groups to a virtual network.
 
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
-* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+* You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+* You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically slower than deploying a standard container instance.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -255,11 +256,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### Delete network resources
 
-
-> [!NOTE]
-> If you receive an error while attempting to remove the network profile, allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the network profile, [open a support request](https://azure.microsoft.com/support/create-ticket/).
-
-This feature currently requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
+This feature currently requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources. The script assumes that your resource group contains a single virtual network with a single network profile.
 
 Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. Update the name of the virtual network if you did not use the `aci-vnet` name suggested earlier. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
 
@@ -268,9 +265,11 @@ Before executing the script, set the `RES_GROUP` variable to the name of the res
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
+# Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
 
 # Get network profile ID
+# Assumes one profile in virtual network
 NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile

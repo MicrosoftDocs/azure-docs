@@ -1,20 +1,12 @@
 ---
 title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
-services: virtual-machines-linux
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
+author: ju-shim
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
+ms.date: 02/11/2020
+ms.author: jushiman
 ---
 
 # Support for generation 2 VMs on Azure
@@ -27,21 +19,21 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [DC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
-* [Dsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) and [Dsv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
-* [Esv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
-* [Fsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
+* [DC-series](../dcv2-series.md)
+* [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
+* [Esv3-series](../ev3-esv3-series.md)
+* [Fsv2-series](../fsv2-series.md)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
-* [HB-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
-* [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
-* [Ls-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) and [Lsv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
-* [Mv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
-* [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
-* [ND-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [HB-series](../hb-series.md)
+* [HC-series](../hc-series.md)
+* [Ls-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)
+* [Mv2-series](../mv2-series.md)
+* [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
+* [ND-series](../nd-series.md)
+* [NVv3-series](../nvv3-series.md)
 
 > [!NOTE]
 > The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
@@ -55,7 +47,9 @@ Generation 2 VMs support the following Marketplace images:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.0
+* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
+* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Oracle Linux 7.7, 7.7-CI
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -99,16 +93,17 @@ In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketp
 
 #### Azure portal
 
-Generation 2 images for Windows and SLES are included in the same server offer as the Gen1 images. What that means from a flow perspective is that, you select the Offer and the SKU from the Portal for your VM. If the SKU supports both generation 1 and generation 2 images, you can select to create a generation 2 VM from the *Advanced* tab in the VM creation flow.
+Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
-Currently, the following SKUs support both generation 1 and generation 2 images:
-
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
-
-When you select a Windows Server SKU as the offer, in the **Advanced** tab, there's an option to create either a **Gen 1** (BIOS) or **Gen 2** (UEFI) VM. If you select **Gen 2**, ensure the VM size selected in the **Basics** tab is [supported for generation 2 VMs](#generation-2-vm-sizes).
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Select **Create a resource**.
+1. Click **See all** from the Azure Marketplace on the left.
+1. Select an image which supports Gen2.
+1. Click **Create**.
+1. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
+1. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** blade.
+1. Select a [supported generation 2 VM](#generation-2-vm-sizes).
+1. Go through the [Azure portal creation flow](quick-create-portal.md) to finish creating the VM.
 
 ![Select Gen 1 or Gen 2 VM](./media/generation-2/gen1-gen2-select.png)
 
@@ -120,6 +115,12 @@ For example, use the following PowerShell cmdlet to get a list of the SKUs in th
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which look like this:
@@ -186,6 +187,13 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 
 * **Can I migrate a VM from generation 1 to generation 2?**  
     No, you can't change the generation of a VM after you create it. If you need to switch between VM generations, create a new VM of a different generation.
+
+* **Why is my VM size not enabled in the size selector when I try to create a Gen2 VM?**
+
+    This may be solved by doing the following:
+
+    1. Verify that the **VM generation** property is set to **Gen 2** in the **Advanced** tab.
+    1. Verify you are searching for a [VM size which supports Gen2 VMs](#generation-2-vm-sizes).
 
 ## Next steps
 

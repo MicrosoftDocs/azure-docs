@@ -2,12 +2,9 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
+
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
@@ -64,9 +61,9 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
+The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale out the number of nodes in your AKS cluster to meet demand.
 
-In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
+In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
 
 If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
@@ -95,14 +92,14 @@ To maintain node performance and functionality, resources are reserved on each n
 
 1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This is a reactive action once available memory decreases beyond the 750Mi threshold.
 
-2. The second value is a progressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
+2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
     - 20% of the next 4 GB of memory (up to 8 GB)
     - 10% of the next 8 GB of memory (up to 16 GB)
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-The above rules for memory and CPU allocation are used to keep agent nodes healthy, some hosting system pods critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
+The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
 For example, if a node offers 7 GB, it will report 34% of memory not allocatable on top of the 750Mi hard eviction threshold.
 
@@ -117,7 +114,7 @@ For associated best practices, see [Best practices for basic scheduler features 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
 > [!NOTE]
-> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
+> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool.
 
 When you scale or upgrade an AKS cluster, the action is performed against the default node pool. You can also choose to scale or upgrade a specific node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
@@ -220,7 +217,7 @@ There are two Kubernetes resources that let you manage these types of applicatio
 
 ### StatefulSets
 
-Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
+Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet (as replicas are rescheduled) the naming convention, network names, and storage persist.
 
 You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains even when the StatefulSet is deleted.
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 03/27/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -247,7 +247,7 @@ In this section, you use Azure PowerShell to create an Azure-SSIS IR.
 Copy and paste the following script. Specify values for the variables. 
 
 ```powershell
-### Azure Data Factory information
+### Azure Data Factory info
 # If your input contains a PSH special character like "$", precede it with the escape character "`" - for example, "`$"
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
@@ -256,7 +256,7 @@ $DataFactoryName = "[your data factory name]"
 # For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $DataFactoryLocation = "EastUS"
 
-### Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages.
+### Azure-SSIS integration runtime info - This is a Data Factory compute resource for running SSIS packages.
 $AzureSSISName = "[your Azure-SSIS IR name]"
 $AzureSSISDescription = "[your Azure-SSIS IR description]"
 # For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
@@ -271,11 +271,15 @@ $AzureSSISEdition = "Standard" # Standard by default, whereas Enterprise lets yo
 $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit option
 # For a Standard_D1_v2 node, up to 4 parallel executions per node are supported. For other nodes, up to (2 x number of cores) are currently supported.
 $AzureSSISMaxParallelExecutionsPerNode = 8
-# Custom setup info
-$SetupScriptContainerSasUri = "" # OPTIONAL to provide the SAS URI of the blob container where your custom setup script and its associated files are stored
-# Virtual network info: classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with virtual network service endpoints or a managed instance with a private endpoint, or if you require on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+# Custom setup info: Standard/express custom setups
+$SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or managed instance name.DNS prefix.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you do not use SSISDB]" # WARNING: If you use SSISDB, ensure that there's no existing SSISDB on your database server, so we can prepare and manage one on your behalf
@@ -284,6 +288,11 @@ $SSISDBServerAdminUserName = "[your server admin username for SQL authentication
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for Azure AD authentication]"
 # For the basic pricing tier, specify "Basic," not "B." For standard, premium, and elastic pool tiers, specify "S0," "S1," "S2," "S3," etc. See https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database server or leave it empty for managed instance]"
+
+### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
+$DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 ```
 
 ### Sign in and select a subscription
@@ -368,8 +377,8 @@ Run the following command to create a data factory.
 
 ```powershell
 Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
-                         -Location $DataFactoryLocation `
-                         -Name $DataFactoryName
+    -Location $DataFactoryLocation `
+    -Name $DataFactoryName
 ```
 
 ### Create an integration runtime
@@ -386,27 +395,27 @@ If you use Azure AD authentication with the managed identity for your data facto
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Description $AzureSSISDescription `
-                                           -Type Managed `
-                                           -Location $AzureSSISLocation `
-                                           -NodeSize $AzureSSISNodeSize `
-                                           -NodeCount $AzureSSISNodeNumber `
-                                           -Edition $AzureSSISEdition `
-                                           -LicenseType $AzureSSISLicenseType `
-                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Description $AzureSSISDescription `
+    -Type Managed `
+    -Location $AzureSSISLocation `
+    -NodeSize $AzureSSISNodeSize `
+    -NodeCount $AzureSSISNodeNumber `
+    -Edition $AzureSSISEdition `
+    -LicenseType $AzureSSISLicenseType `
+    -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
 	   
 # Add the CatalogServerEndpoint, CatalogPricingTier, and CatalogAdminCredential parameters if you use SSISDB
 if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                               -DataFactoryName $DataFactoryName `
-                                               -Name $AzureSSISName `
-                                               -CatalogServerEndpoint $SSISDBServerEndpoint `
-                                               -CatalogPricingTier $SSISDBPricingTier
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -CatalogServerEndpoint $SSISDBServerEndpoint `
+        -CatalogPricingTier $SSISDBPricingTier
 
     if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
     {
@@ -414,19 +423,103 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
 
         Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                                   -DataFactoryName $DataFactoryName `
-                                                   -Name $AzureSSISName `
-                                                   -CatalogAdminCredential $serverCreds
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -CatalogAdminCredential $serverCreds
     }
 }
 
-# Add the SetupScriptContainerSasUri parameter if you use custom setup
+# Add custom setup parameters if you use standard/express custom setups
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                               -DataFactoryName $DataFactoryName `
-                                               -Name $AzureSSISName `
-                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
+if(![string]::IsNullOrEmpty($ExpressCustomSetup))
+{
+    if($ExpressCustomSetup -eq "RunCmdkey")
+    {
+        $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
+        $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
+        $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
+    }
+    if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+    {
+        $variableName = "YourVariableName"
+        $variableValue = "YourVariableValue"
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+    }
+    if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+    {
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
+    }
+    if($ExpressCustomSetup -eq "KingswaySoft.IntegrationToolkit")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "KingswaySoft.ProductivityPack")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }    
+    if($ExpressCustomSetup -eq "Theobald.XtractIS")
+    {
+        $jsonData = Get-Content -Raw -Path YourLicenseFile.json
+        $jsonData = $jsonData -replace '\s',''
+        $jsonData = $jsonData.replace('"','\"')
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    # Create an array of one or more express custom setups
+    $setups = New-Object System.Collections.ArrayList
+    $setups.Add($setup)
+
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -ExpressCustomSetup $setups
+}
+
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
+{
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
+        -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
+
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
+}
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
 }
 ```
 
@@ -437,9 +530,9 @@ Run the following commands to start the Azure-SSIS integration runtime.
 ```powershell
 write-host("##### Starting #####")
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 
 write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
@@ -457,7 +550,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 Here's the full script that creates an Azure-SSIS integration runtime.
 
 ```powershell
-### Azure Data Factory information
+### Azure Data Factory info
 # If your input contains a PSH special character like "$", precede it with the escape character "`" - for example, "`$"
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
@@ -466,7 +559,7 @@ $DataFactoryName = "[your data factory name]"
 # For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $DataFactoryLocation = "EastUS"
 
-### Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages.
+### Azure-SSIS integration runtime info - This is a Data Factory compute resource for running SSIS packages.
 $AzureSSISName = "[your Azure-SSIS IR name]"
 $AzureSSISDescription = "[your Azure-SSIS IR description]"
 # For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
@@ -481,11 +574,15 @@ $AzureSSISEdition = "Standard" # Standard by default, whereas Enterprise lets yo
 $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from the Azure Hybrid Benefit option
 # For a Standard_D1_v2 node, up to four parallel executions per node are supported. For other nodes, up to (2 x number of cores) are currently supported.
 $AzureSSISMaxParallelExecutionsPerNode = 8
-# Custom setup info
-$SetupScriptContainerSasUri = "" # OPTIONAL to provide the SAS URI of the blob container where your custom setup script and its associated files are stored
-# Virtual network info: classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with virtual network service endpoints or a managed instance with a private endpoint, or if you require on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+# Custom setup info: Standard/express custom setups
+$SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or managed instance name.DNS prefix.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you do not use SSISDB]" # WARNING: If you use SSISDB, ensure that there's no existing SSISDB on your database server, so we can prepare and manage one on your behalf
@@ -494,6 +591,11 @@ $SSISDBServerAdminUserName = "[your server admin username for SQL authentication
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for Azure AD authentication]"
 # For the basic pricing tier, specify "Basic," not "B." For standard, premium, and elastic pool tiers, specify "S0," "S1," "S2," "S3," etc. See https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database server or leave it empty for managed instance]"
+
+### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
+$DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 
 ### Sign in and select a subscription
 Connect-AzAccount
@@ -548,32 +650,32 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
 ### Create a data factory
 Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
-                         -Location $DataFactoryLocation `
-                         -Name $DataFactoryName
+    -Location $DataFactoryLocation `
+    -Name $DataFactoryName
 
 ### Create an integration runtime
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Description $AzureSSISDescription `
-                                           -Type Managed `
-                                           -Location $AzureSSISLocation `
-                                           -NodeSize $AzureSSISNodeSize `
-                                           -NodeCount $AzureSSISNodeNumber `
-                                           -Edition $AzureSSISEdition `
-                                           -LicenseType $AzureSSISLicenseType `
-                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Description $AzureSSISDescription `
+    -Type Managed `
+    -Location $AzureSSISLocation `
+    -NodeSize $AzureSSISNodeSize `
+    -NodeCount $AzureSSISNodeNumber `
+    -Edition $AzureSSISEdition `
+    -LicenseType $AzureSSISLicenseType `
+    -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
 	   
 # Add CatalogServerEndpoint, CatalogPricingTier, and CatalogAdminCredential parameters if you use SSISDB
 if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                               -DataFactoryName $DataFactoryName `
-                                               -Name $AzureSSISName `
-                                               -CatalogServerEndpoint $SSISDBServerEndpoint `
-                                               -CatalogPricingTier $SSISDBPricingTier
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -CatalogServerEndpoint $SSISDBServerEndpoint `
+        -CatalogPricingTier $SSISDBPricingTier
 
     if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
     {
@@ -581,27 +683,111 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
 
         Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                                   -DataFactoryName $DataFactoryName `
-                                                   -Name $AzureSSISName `
-                                                   -CatalogAdminCredential $serverCreds
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -CatalogAdminCredential $serverCreds
     }
 }
 
-# Add the SetupScriptContainerSasUri parameter when you use custom setup
+# Add custom setup parameters if you use standard/express custom setups
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                               -DataFactoryName $DataFactoryName `
-                                               -Name $AzureSSISName `
-                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
+if(![string]::IsNullOrEmpty($ExpressCustomSetup))
+{
+    if($ExpressCustomSetup -eq "RunCmdkey")
+    {
+        $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
+        $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
+        $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
+    }
+    if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+    {
+        $variableName = "YourVariableName"
+        $variableValue = "YourVariableValue"
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+    }
+    if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+    {
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
+    }
+    if($ExpressCustomSetup -eq "KingswaySoft.IntegrationToolkit")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "KingswaySoft.ProductivityPack")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }    
+    if($ExpressCustomSetup -eq "Theobald.XtractIS")
+    {
+        $jsonData = Get-Content -Raw -Path YourLicenseFile.json
+        $jsonData = $jsonData -replace '\s',''
+        $jsonData = $jsonData.replace('"','\"')
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    # Create an array of one or more express custom setups
+    $setups = New-Object System.Collections.ArrayList
+    $setups.Add($setup)
+
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -ExpressCustomSetup $setups
+}
+
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
+{
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
+        -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
+
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
+}
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
 }
 
 ### Start the integration runtime
 write-host("##### Starting #####")
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 
 write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
@@ -669,9 +855,9 @@ In this section, you use an Azure Resource Manager template to create the Azure-
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
-                                                 -DataFactoryName "<Data Factory Name>" `
-                                                 -Name "<Azure SSIS IR Name>" `
-                                                 -Force
+        -DataFactoryName "<Data Factory Name>" `
+        -Name "<Azure SSIS IR Name>" `
+        -Force
     ```
 
 > [!NOTE]
@@ -700,4 +886,7 @@ See other Azure-SSIS IR topics in this documentation:
 - [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides information about integration runtimes in general, including Azure-SSIS IR.
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve and understand information about your Azure-SSIS IR.
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes.
-- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides information about joining your Azure-SSIS IR to a virtual network.
+- [Deploy, run, and monitor SSIS packages in Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
+- [Connect to SSISDB in Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
+- [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
+- [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)

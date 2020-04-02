@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/14/2019
+ms.date: 1/14/2020
 ms.author: allensu
 
 ---
 
 # What is Azure Load Balancer?
 
-*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. Azure offers a [variety of load balancing options](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that you can choose from based on your need. This document covers the Azure Load Balancer.
+*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. 
 
 Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
@@ -27,13 +27,18 @@ A **[public load balancer](./concepts-limitations.md#publicloadbalancer)** can p
 
 An **[internal (or private) load balancer](./concepts-limitations.md#internalloadbalancer)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-<div align="center">
-  <img src='./media/load-balancer-overview/IC744147.png'>
-</div>
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+</p>
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
+
+>[!NOTE]
+> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you need high-performance, low-latency, Layer-7 load balancing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
+>
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Load Balancer?
 With Standard Load Balancer, you can scale your applications and create highly available services. 
@@ -63,7 +68,7 @@ Key scenarios that you can accomplish using Standard Load Balancer include:
 
 ### <a name="securebydefault"></a>Secure by default
 
-Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit and whitelist allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
+Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 Basic Load Balancer is open to the internet by default.
 
 

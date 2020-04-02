@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Data Explorer cluster and database by using PowerShell'
+title: 'Create an Azure Data Explorer cluster & DB using Powershell'
 description: Learn how to create an Azure Data Explorer cluster and database by using PowerShell
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe

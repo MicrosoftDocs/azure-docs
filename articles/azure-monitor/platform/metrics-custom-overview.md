@@ -3,7 +3,7 @@ title: Custom metrics in Azure Monitor
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
@@ -30,7 +30,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!NOTE]  
-> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is https://monitoring.azure.com/. Be sure to include the trailing '/'.
+> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing '/'.
 
 ### Subject
 This property captures which Azure resource ID the custom metric is reported for. This information will be encoded in the URL of the API call being made. Each API can only submit metric values for a single Azure resource.
@@ -147,17 +147,21 @@ In the following example, you create a custom metric called **Memory Bytes in Us
 There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource the metric is emitted against via the metric definitions.
 
 > [!NOTE]  
-> Azure Monitor doesn’t yet support defining **Units** for a custom metric.
+> Azure Monitor doesn't yet support defining **Units** for a custom metric.
 
 ## Using custom metrics
 After custom metrics are submitted to Azure Monitor, you can browse them via the Azure portal and query them via the Azure Monitor REST APIs. You can also create alerts on them to notify you when certain conditions are met.
+
+> [!NOTE]
+> You need to be a reader or contributor role to view custom metrics.
+
 ### Browse your custom metrics via the Azure portal
-1.	Go to the [Azure portal](https://portal.azure.com).
-2.	Select the **Monitor** pane.
-3.	Select **Metrics**.
-4.	Select a resource you've emitted custom metrics against.
-5.	Select the metrics namespace for your custom metric.
-6.	Select the custom metric.
+1.    Go to the [Azure portal](https://portal.azure.com).
+2.    Select the **Monitor** pane.
+3.    Select **Metrics**.
+4.    Select a resource you've emitted custom metrics against.
+5.    Select the metrics namespace for your custom metric.
+6.    Select the custom metric.
 
 ## Supported regions
 During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:

@@ -14,12 +14,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 

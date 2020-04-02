@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 1/27/2020
 ms.author: mlottner
 
 ---
@@ -76,31 +76,7 @@ Use security groups to group your devices into logical categories. After creatin
  
 ## Alerts available for customization
 
-The following table provides a summary of alerts available for customization.
-
-
-| Severity | Name | Data Source | Description | Suggested remediation|
-|---|---|---|---|---|
-| Low      | Custom alert - number of cloud to device messages in AMQP protocol is outside the allowed range          | IoT Hub     | Number of cloud to device messages (AMQP protocol) within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is outside the allowed range | IoT Hub     | Number of cloud to device messages (AMQP protocol) rejected by the device, within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of device to cloud messages in AMQP protocol is outside the allowed range      | IoT Hub     | The amount of device to cloud messages (AMQP protocol) within a specific time window is outside the currently configured and allowable range.|   |
-| Low      | Custom alert - number of direct method invokes is outside the allowed range | IoT Hub     | The amount of direct method invokes within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of file uploads is outside the allowed range | IoT Hub     | The amount of file uploads within a specific time window is outside the currently configured and allowable range.| |
-| Low      | Custom alert - number of cloud to device messages in HTTP protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom alert - number of rejected cloud to device messages in HTTP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) within a specific time window is outside the currently configured and allowable range. |
-| Low      | Custom alert - number of device to cloud messages in HTTP protocol is outside the allowed range | IoT Hub| The amount of device to cloud messages (HTTP protocol)within a specific time window is outside the currently configured and allowable range.|    |
-| Low      | Custom alert - number of cloud to device messages in MQTT protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) within a specific time window is outside the currently configured and allowable range.|   |
-| Low      | Custom alert - number of rejected cloud to device messages in MQTT protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) rejected by the device within a specific time window is outside the currently configured and allowable range. |
-| Low      | Custom alert - number of device to cloud messages in MQTT protocol is outside the allowed range          | IoT Hub     | The amount of device to cloud messages (MQTT protocol) within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of command queue purges is outside the allowed range                               | IoT Hub     | The amount of command queue purges within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of module twin updates is outside the allowed range                                       | IoT Hub     | The amount of module twin updates within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of unauthorized operations is outside the allowed range  | IoT Hub     | The amount of unauthorized operations within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of active connections is outside the allowed range  | Agent       | Number of active connections within a specific time window is outside the currently configured and allowable range.|  Investigate the device logs. Learn where the connection originated and determine if it is benign or malicious. If malicious, remove possible malware and understand source. If benign, add the source to the allowed connection list.  |
-| Low      | Custom alert - outbound connection created to an IP that isn't allowed                             | Agent       | An outbound connection was created to an IP that is outside your allowed IP list. |Investigate the device logs. Learn where the connection originated and determine if it is benign or malicious. If malicious, remove possible malware and understand source. If benign, add the source to the allowed IP list.                        |
-| Low      | Custom alert - number of failed local logins is outside the allowed range                               | Agent       | The amount of failed local logins within a specific time window is outside the currently configured and allowable range. |   |
-| Low      | Custom alert - login of a user that is not on the allowed user list | Agent       | A local user outside your allowed user list, logged in to the device.|  If you are saving raw data, navigate to your log analytics account and use the data to investigate the device, identify the source and then fix the allow/block list for those settings. If you are not currently saving raw data, go to the device and fix the allow/block list for those settings.|
-| Low      | Custom alert - a process was executed that is not allowed | Agent       | A process that is not allowed was executed on the device. |If you are saving raw data, navigate to your log analytics account and use the data to investigate the device, identify the source and then fix the allow/block list for those settings. If you are not currently saving raw data, go to the device and fix the allow/block list for those settings.  |
-|
+Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received. 
 
 
 ## Next steps

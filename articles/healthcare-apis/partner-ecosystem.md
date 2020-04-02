@@ -18,7 +18,7 @@ When creating an end-to-end solution built around Azure API for FHIR, you may re
 
 | Partner          | Capabilities                               | Supported Countries         | Contact                                                                                                                                |
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](https://www.medal.com/contact-us/)                                                                                           |
+| Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](http://www.medal.com/)                                                                                           |
 | Rhapsody         | Legacy-FHIR conversion                     | USA, Australia, New Zealand | [Contact](https://rhapsody.health/contact-us)                                                                                          |
 | iNTERFACEWARE    | Legacy-FHIR conversion                     | USA, Canada                 | [Contact](https://www.interfaceware.com/contact.html)                                                                                  |
 | Darena Solutions | Application Development, System Integrator | USA                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |

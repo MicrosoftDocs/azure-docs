@@ -11,8 +11,8 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2019
+ms.topic: how-to
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -37,6 +37,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     6. Select **Save**.
 
         ![New lab window](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > You see an option to select a location for your lab if the lab account was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option. 
 4. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab.
     1. Specify the **name of the user** for all VMs in the lab.
     2. Specify the **password** for the user. 
@@ -48,12 +51,14 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
         A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
 
         ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Make a note of user name and password. They won't be shown again.    
     4. Then, select **Next** on the **Virtual machine credentials** page. 
-5. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
+5. On the **Lab policies** page, do the following steps:
+    1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab. 
+    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
+    3. Then, select **Finish**. 
 
-    ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)

@@ -4,14 +4,14 @@ titleSuffix: Azure
 description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ---
 # What is Machine Learning Studio (classic)?
 
@@ -22,6 +22,9 @@ Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-d
 Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
 ## The Machine Learning Studio (classic)  interactive workspace
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
 Azure Machine Learning Studio (classic) gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio (classic). To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
@@ -29,30 +32,6 @@ Azure Machine Learning Studio (classic) gives you an interactive, visual workspa
 There is no programming required, visually connect datasets and modules to construct your predictive analysis model.
 
 ![Azure Machine Learning Studio (classic) diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
-
-<a name="compare"></a>
-## How does Machine Learning Studio (classic) differ from Azure Machine Learning?
-
-[Azure Machine Learning](../overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
-
-Here is a quick comparison:
-
-|| Machine Learning Studio (classic) | Azure Machine Learning |
-|---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer](../concept-designer.md) |
-| Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-| Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../concept-compute-target.md#train))|
-|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../how-to-deploy-and-where.md)) |
-| ML Pipeline | Not supported | [Pipelines](../concept-ml-pipelines.md) supported |
-| MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
-| Model format | Proprietary format, Studio (classic) only | Standard format depending on training job type |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../concept-automated-ml.md)) | 
-
-Try out the designer with [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md)
-
-> [!NOTE]
-> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 ## Download the Machine Learning Studio (classic) overview diagram
 Download the **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio (classic). To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).

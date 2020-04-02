@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus diagnostics logs | Microsoft Docs
-description: Learn how to set up diagnostics logs for Service Bus in Azure.
+description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Service Bus. 
 keywords:
 documentationcenter: .net
 services: service-bus-messaging
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

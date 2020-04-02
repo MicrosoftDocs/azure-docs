@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 02/17/2020
 ---
 
 # Query Apache Hive through the JDBC driver in HDInsight
@@ -20,17 +20,29 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 
 ## Prerequisites
 
-* An HDInsight Hadoop cluster. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* An HDInsight Hadoop cluster. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Ensure that service HiveServer2 is running.
 * The [Java Developer Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) or higher.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
 ## JDBC connection string
 
-JDBC connections to an HDInsight cluster on Azure are made over port 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
+JDBC connections to an HDInsight cluster on Azure are made over port 443, and the traffic is secured using TLS/SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Replace `CLUSTERNAME` with the name of your HDInsight cluster.
+
+Or you can get the connection through **Ambari UI > Hive > Configs > Advanced**.
+
+![Get JDBC connection string through Ambari](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+
+### Host name in connection string
+
+Host name 'CLUSTERNAME.azurehdinsight.net' in the connection string is the same as your cluster URL. You can get it through Azure portal. 
+
+### Port in connection string
+
+You can only use **port 443** to connect to the cluster from some places outside of the Azure virtual network. HDInsight is a managed service, which means that all connections to the cluster are managed via a secure Gateway. You cannot connect to HiveServer 2 directly on ports 10001 or 10000 because these ports are not exposed to the outside. 
 
 ## Authentication
 
@@ -133,6 +145,15 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 1. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system, perhaps `C:\Program Files\squirrel-sql-4.0.0\lib`. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
 
 1. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
+
+### Connection disconnected by HDInsight
+
+**Symptoms**: When trying to download huge amount of data (say several GBs) through JDBC/ODBC, the connection is disconnected by HDInsight unexpectedly while downloading. 
+
+**Cause**: This error is caused by the limitation on Gateway nodes. When getting data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway is not designed to download a huge amount of data, so the connection might be closed by the Gateway if it cannot handle the traffic.
+
+**Resolution**: Avoid using JDBC/ODBC driver to download huge amounts of data. Copy data directly from blob storage instead.
+
 
 ## Next steps
 

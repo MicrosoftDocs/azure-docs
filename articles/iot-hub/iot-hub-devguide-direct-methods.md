@@ -31,7 +31,7 @@ Direct methods are implemented on the device and may require zero or more inputs
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 300 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
+Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable between 5 and 300 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
 
 Direct methods are HTTPS-only from the cloud side, and MQTT or AMQP from the device side.
 
@@ -45,7 +45,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devicemethod/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -68,7 +68,10 @@ Direct method invocations on a device are HTTPS calls that are made up of the fo
     }
     ```
 
-Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+The value provided as `responseTimeoutInSeconds` in the request is the amount of time that IoT Hub service must await for completion of a direct method execution on a device. Set this timeout to be at least as long as the expected execution time of a direct method by a device. If timeout is not provided, it the default value of 30 seconds is used. The minimum and maximum values for `responseTimeoutInSeconds` are 5 and 300 seconds, respectively.
+
+The value provided as `connectTimeoutInSeconds` in the request is the amount of time upon invocation of a direct method that IoT Hub service must await for a disconnected device to come online. The default value is 0, meaning that devices must already be online upon invocation of a direct method. The maximum value for `connectTimeoutInSeconds` is 300 seconds.
+
 
 #### Example
 
@@ -93,7 +96,10 @@ curl -X POST \
 
 The back-end app receives a response that is made up of the following items:
 
-* *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected.
+* *HTTP status code*:
+  * 200 indicates successful execution of direct method;
+  * 404 indicates that either device ID is invalid, or that the device was not online upon invocation of a direct method and for `connectTimeoutInSeconds` thereafter (use accompanied error message to understand the root cause);
+  * 504 indicates gateway timeout caused by device not responding to a direct method call within `responseTimeoutInSeconds`.
 
 * *Headers* that contain the ETag, request ID, content type, and content encoding.
 
@@ -167,9 +173,9 @@ The AMQP message arrives on the receive link that represents the method request.
 
 The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-The method’s response is returned on the sending link and is structured as follows:
+The method's response is returned on the sending link and is structured as follows:
 
-* The correlation ID property, which contains the request ID passed in the method’s request message.
+* The correlation ID property, which contains the request ID passed in the method's request message.
 
 * An application property named `IoThub-status`, which contains the user supplied method status.
 

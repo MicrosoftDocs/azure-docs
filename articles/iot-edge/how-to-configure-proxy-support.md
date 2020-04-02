@@ -3,7 +3,7 @@ title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
 author: kgremban
 ms.author: kgremban
-ms.date: 11/19/2019
+ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ This article walks through the following four steps to configure and then manage
 
 1. **Install the IoT Edge runtime on your device.**
 
-   The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For detailed steps, see the [Install the runtime through a proxy](#install-the-runtime-through-a-proxy) section of this article. For Windows devices, the installation script also provides an [Offline installation](how-to-install-iot-edge-windows.md#offline-installation) option.
+   The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For detailed steps, see the [Install the runtime through a proxy](#install-the-runtime-through-a-proxy) section of this article. For Windows devices, the installation script also provides an [Offline installation](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) option.
 
    This step is a one-time process performed on the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime.
 
@@ -35,7 +35,7 @@ This article walks through the following four steps to configure and then manage
 
 4. **For all future module deployments, set environment variables for any module communicating through the proxy.**
 
-   Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article. 
+   Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article.
 
    This step is an ongoing process performed remotely so that every new module or deployment update maintains the device's ability to communicate through the proxy server.
 
@@ -65,7 +65,7 @@ If you're installing the IoT Edge runtime on a Windows device, you need to go th
 
 The following steps demonstrate an example of a windows installation using the `-proxy` argument:
 
-1. The Invoke-WebRequest command needs proxy information to access the installer script. Then the Deploy-IoTEdge command needs the proxy information to download the installation files. 
+1. The Invoke-WebRequest command needs proxy information to access the installer script. Then the Deploy-IoTEdge command needs the proxy information to download the installation files.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
@@ -161,13 +161,13 @@ Restart-Service iotedge
 
 The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
 
-This step takes place once on the IoT Edge device during initial device setup. 
+This step takes place once on the IoT Edge device during initial device setup.
 
-1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file. 
+1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file.
 
-2. In the config.yaml file, find the **Edge Agent module spec** section. The IoT Edge agent definition includes an **env** parameter where you can add environment variables. 
+2. In the config.yaml file, find the **Edge Agent module spec** section. The IoT Edge agent definition includes an **env** parameter where you can add environment variables.
 
-3. Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces. 
+3. Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces.
 
    ```yaml
    https_proxy: "<proxy URL>"
@@ -181,7 +181,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
    ![edgeAgent definition with environment variables](./media/how-to-configure-proxy-support/edgeagent-edited.png)
 
-5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect. 
+5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect.
 
    * Linux:
 
@@ -197,13 +197,13 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 ## Configure deployment manifests  
 
-Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the environment variables in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
+Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the HTTPS_PROXY environment variable in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
 
 Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section.
 
-Other IoT Edge modules that connect to the internet should be configured to communicate through the proxy server, too. However, modules that route their messages through edgeHub or that only communicate with other modules on the device don't need the proxy server details.
+In addition to the edgeAgent and edgeHub modules, other modules may need the proxy configuration. These are modules that need to access Azure resources besides the IoT Hub, such as blob storage, and must have the HTTPS_PROXY variable specified for that module in the deployment manifest file.
 
-This step is ongoing throughout the life of the IoT Edge device.
+The following procedure is applicable throughout the life of the IoT Edge device.
 
 ### Azure portal
 

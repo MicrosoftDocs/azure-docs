@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 
 # Decision Forest Regression module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a regression model based on an ensemble of decision trees.
 
@@ -56,6 +56,8 @@ For more information about the theoretical framework for this algorithm and its 
 
       If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by experimentation or received them as guidance.
 
+    - **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results. 
+
 
 
 4. For **Number of decision trees**, indicate the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
@@ -78,7 +80,7 @@ For more information about the theoretical framework for this algorithm and its 
 
    
 
-10. Run the pipeline.
+10. Submit the pipeline.
 
 ### Results
 

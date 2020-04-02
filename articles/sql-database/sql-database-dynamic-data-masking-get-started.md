@@ -1,19 +1,20 @@
 ---
 title: Dynamic data masking
-description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for SQL Database and Data Warehouse
+description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for SQL Database and Azure Synapse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/04/2019
+ms.date: 02/06/2020
+tags: azure-synpase
 ---
-# Dynamic data masking for Azure SQL Database and Data Warehouse
+# Dynamic data masking for Azure SQL Database and Azure Synapse Analytics
 
 SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 
@@ -23,7 +24,7 @@ For example, a service representative at a call center may identify callers by s
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade. This feature cannot be set by using portal for SQL DW (Please use Powershell or REST API)
+You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade. This feature cannot be set by using portal for Azure Synapse (Please use Powershell or REST API)
 
 ### Dynamic data masking permissions
 

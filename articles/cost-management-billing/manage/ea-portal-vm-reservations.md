@@ -1,13 +1,12 @@
 ---
 title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
+ms.reviewer: boalcsva
 ---
 
 # Azure EA VM reserved instances
@@ -53,10 +52,12 @@ You can view your reserved instance purchase details via the _Reservations_ menu
 
 ### How can I change the subscription associated with reserved instance or transfer my reserved instance benefits to a subscription under the same account?
 
-At any given time, only one subscription can receive reserved instance benefits. You can change the subscription that receives reserved instance benefits by:
+You can change the subscription that receives reserved instance benefits by:
 
-- Logging into the [Azure portal](https://aka.ms/reservations).
-- Updating the applied subscription scope by associating a different subscription under same account.
+- Signing in to the [Azure portal](https://aka.ms/reservations).
+- Updating the applied subscription scope by associating a different subscription under the same account.
+
+For more information about changing the scope of a reservation, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### How to view reserved instance usage details
 
