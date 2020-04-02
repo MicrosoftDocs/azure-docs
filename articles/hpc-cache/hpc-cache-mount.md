@@ -10,7 +10,7 @@ ms.author: rohogue
 
 # Mount the Azure HPC Cache
 
-After the cache is created, NFS clients can access it with a simple mount command. The command connects a specific storage target path on the Azure HPC Cache to a local directory on the client machine.
+After the cache is created, NFS clients can access it with a simple `mount` command. The command connects a specific storage target path on the Azure HPC Cache to a local directory on the client machine.
 
 The mount command is made up of these elements:
 
@@ -19,7 +19,7 @@ The mount command is made up of these elements:
 * The local path to use on the client
 * Command parameters that optimize the success of this kind of NFS mount
 
-The **Mount instructions** page for your cache collects the information and the recommended options for you, and creates a prototype mount command that you can copy. Read [Use the mount instructions utility](#use-the-mount-instructions-utility), below, for details.
+The **Mount instructions** page for your cache collects the information and the recommended options for you, and creates a prototype mount command that you can copy. Read [Use the mount instructions utility](#use-the-mount-instructions-utility) for details.
 
 ## Prepare clients
 
@@ -54,12 +54,12 @@ The mount command page includes information about the client mount process and p
 
 To use this page, follow this procedure:
 
-1. Review the client prerequisites and install the utilities needed to use the NFS `mount` command as described above in [Prepare clients](#prepare-clients).
-
 <!--1.  In step one of **Mounting your file system**, enter the path that the client will use to access the Azure HPC Cache storage target.
 
    * This path is local to the client.
    * After you provide the directory name, the field populates with a command you can copy. Use this command on the client directly or in a setup script to create the directory path on the client VM. -->
+
+1. Review the client prerequisites and install the utilities needed to use the NFS `mount` command as described above in [Prepare clients](#prepare-clients).
 
 1. Step one of **Mounting your file system**<!-- label will change --> gives an example command for creating the local path on the client. This is the path that the client will use to access the content from the Azure HPC Cache.
 

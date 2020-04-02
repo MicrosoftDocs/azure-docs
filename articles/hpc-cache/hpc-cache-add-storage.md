@@ -74,7 +74,7 @@ Steps to add the RBAC roles:
 1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
 
    > [!NOTE]
-   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the previews (before GA) might need to use the older name for the service principal.
+   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who participated in previews (before GA) might need to use the older name for the service principal.
 
 1. Click the **Save** button at the bottom.
 
@@ -124,7 +124,7 @@ When finished, click **OK** to add the storage target.
 ### Choose a usage model
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
+When you create a storage target that points to an NFS storage system, you need to choose the usage model for that target. This model determines how your data is cached.
 
 There are three options:
 
