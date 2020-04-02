@@ -21,6 +21,8 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A twin type is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Twin types have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Twin types are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
+You can think of the twin types as nouns in a description of your world.
+
 ## Digital Twin Definition Language (DTDL) for writing twin types
 
 Twin types for Azure Digital Twins are defined using the **Digital Twin Definition Language (DTDL)**. DTDL is based on JSON-LD and is programming-language independent.
@@ -35,11 +37,20 @@ The technical term for a twin type's DTDL implementation is its **interface**. A
 * **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
 * **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a digital twin; it is more like a stream of data events ready to be sent somewhere.
 * **Command** - Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. 
+* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. 
 * **Component** - Components allow you to build your twin type interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a twin type for a *phone*. You must first define an interface for *frontCamera* as though it were its own twin type, and then you can reference it when defining *Phone*.
 
 >[!TIP] 
 > Use a **component** to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different twin types, connected by **relationships**.
+
+### Preview constraints
+
+DTDL and twin types have several constraints while in preview:
+* While the DTDL language specification allows for inline definitions of interfaces, this is not supported in the current version of the Azure Digital Twins service.
+* Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid inside the interface that contains them.
+* Azure Digital Twins currently only allows a single level of component nesting—so an interface that is used as a component cannot have any further components itself.  
+* Azure Digital Twins does not currently support the execution of commands on digital twins.
+* Azure Digital Twins does not support standalone relationships (that is, relationships defined as independent graph elements). All relationships must be defined inline as part of a twin type.
 
 ## Create a twin type
 
@@ -163,15 +174,6 @@ In this example, *CelestialBody* contributes a name, a mass, and a telemetry to 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
 The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
-
-### Preview constraints
-
-DTDL and twin types have several constraints while in preview:
-* While the DTDL language specification allows for inline definitions of interfaces, this is not supported in the current version of the Azure Digital Twins service.
-* Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid inside the interface that contains them.
-* Azure Digital Twins currently only allows a single level of component nesting—so an interface that is used as a component cannot have any further components itself.  
-* Azure Digital Twins does not currently support the execution of commands on digital twins.
-* Azure Digital Twins does not support standalone relationships (that is, relationships defined as independent graph elements). All relationships must be defined inline as part of a twin type.
 
 ## Next steps
 

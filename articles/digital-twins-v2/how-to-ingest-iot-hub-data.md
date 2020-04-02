@@ -60,12 +60,11 @@ The heart of the skeleton function is this:
 
 ```csharp
 [FunctionName("Function1")]
-static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, 
-                      ILogger log)
+static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
 {
     await Authenticate(log);
     log.LogInformation(eventGridEvent.Data.ToString());
-    if (client!=null)
+    if (client != null)
     {
         // Add your code here
     }

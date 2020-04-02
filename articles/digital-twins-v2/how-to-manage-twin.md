@@ -98,7 +98,7 @@ To update properties a digital twin, you write the information you want to repla
 
 `await client.DigitalTwins.UpdateAsync(id, patch);`.
 
-Here is an example of JSON Patch code. This document replaces the *mass* and *temperature* property values of the digital twin it is applied to.
+Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
 ```json
 [
@@ -109,7 +109,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *te
   },
   {
     "op": "replace",
-    "path": "/temperature",
+    "path": "/radius",
     "value": 0.800
   }
 ]
@@ -150,23 +150,23 @@ For example, consider the following JSON Patch document that replaces the digita
 This operation will only succeed if the digital twin being modified by the patch conforms with the new twin type. 
 
 Consider the following example:
-1. Imagine a digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
-2. The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
-3. After the patch, the digital twin must have both a temperature and humidity property. 
+1. Imagine a digital twin with a twin type of *foo_old*. *foo_old* defines a required property *mass*.
+2. The new twin type *foo_new* defines a property mass, and adds a new required property *temperature*.
+3. After the patch, the digital twin must have both a mass and temperature property. 
 
-The patch for this situation needs to update both the model and the humidity property, like this:
+The patch for this situation needs to update both the twin type and the twin's temperature property, like this:
 
 ```json
 [
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "urn:contosocom:example:foo"
+    "value": "urn:contosocom:example:foo_new"
   },
   {
     "op": "add",
-    "path": "humidity",
-    "value": 100
+    "path": "temperature",
+    "value": 60
   }
 ]
 ```

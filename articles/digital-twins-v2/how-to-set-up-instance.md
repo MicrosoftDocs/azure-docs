@@ -72,19 +72,20 @@ The output of this command displays information about your newly created instanc
 
 Before you can use the newly created Azure Digital Twins instance, there is one more step: setting up access control for the instance. 
 
-Every principal that you want to give access to the Azure Digital Twins instance must have an assigned role for that instance. Azure Digital Twins currently has two built-in roles, "Admin" and "Owner". There is also a "Reader" option, and you can also create your own custom roles via the access control (IAM) pane in the Azure Digital Twins page in the Azure portal.  
+Every identity (users or service principals) that you want to give access to the Azure Digital Twins instance must have an assigned role for that instance. Azure Digital Twins currently has two built-in roles, "Admin" and "Owner". There is also a "Reader" option, and you can also create your own custom roles via the access control (IAM) pane in the Azure Digital Twins page in the Azure portal.  
 
-To assign a role for a service principal, use this Azure CLI for Azure Digital Twins command:
-
-```bash
- az dt rbac assign-role -n <your-instance-name> --role admin -g <your-resource-group> --assignee <service-principal-to-grant-access>
-```
-
-Note that the service principal name may not be your actual login name for Azure. If you don't know the principal name, you can find it using:
+To assign a role to a service principal, use this Azure Digital Twins CLI command:
 
 ```bash
-az ad user show --displayName <login-name>
+ az dt rbac assign-role -n <your-instance-name> --role admin -g <your-resource-group-name> --assignee <service-principal-name>
 ```
+
+> [!TIP] 
+> The service principal name may not be your actual login name for Azure. If you don't know the principal name, you can find it with this command:
+>
+> ```bash
+> az ad user show --displayName <login-name>
+> ```
 
 You now have an Azure Digital Twins instance ready to go.
 

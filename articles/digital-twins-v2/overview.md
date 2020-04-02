@@ -18,11 +18,11 @@ ms.service: digital-twins
 
 Azure Digital Twins is a developer platform for next-generation IoT solutions that lets you create, run, and manage digital representations of your business environment, securely and efficiently in the cloud. With Azure Digital Twins, creating live operational state representations is quick and cost-effective, and digital representations stay current with real-time data from IoT and other data sources.
 
-Using Azure Digital Twins' flexible twin type definitions, you can make Azure Digital Twins solutions that represent a large variety of business scenarios: buildings, factory floors, energy grids, construction processes, bulk manufacturing processes in chemistry, and more. Digital twin-based IoT solutions can support many insights, such as remote monitoring, maintenance, prediction, forecasting, simulation, and optimization of operations. 
+Using Azure Digital Twins' flexible twin type definitions, you can make Azure Digital Twins solutions that represent a large variety of business scenarios: buildings, factory floors, energy grids, construction processes, bulk manufacturing processes, and more. Digital twin-based IoT solutions can support many insights, such as remote monitoring, maintenance, prediction, forecasting, simulation, and optimization of operations. 
 
 Here are some more uses of Azure Digital Twins:
 
-![Uses for Azure Digital Twins](./media/overview/use-cases.png)
+![Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management](./media/overview/use-cases.png)
  
 Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
 
@@ -57,8 +57,8 @@ Routing events allows you to:
 Once you have created a graph of digital twins, you can run queries against the digital twins, their states, and their relationships. Depending on the state information you represented and the sensors you have connected to drive your digital representation, queries might be used to answer a broad range of questions about your environment.
 
 Here are some examples of insights you can gather:
-* Which zones or floors in building 7 are warmer than 75 degrees F? 
 * Which campus contains meeting room 47?
+* Which assembly lines had an average temperature outside the range of 77 and 79 degrees F?
 * Which power station has surplus capacity that is accessible to a particular customer?   
 
 ### Manage access
@@ -83,10 +83,10 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Next steps
 
-If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [Differences from Public Preview 1](overview-differences.md)
-
 To start learning about the key elements of Azure Digital Twins, visit:
 * [Create a twin type](concepts-twin-types.md)
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 * [Azure Digital Twins query language](concepts-query-language.md)
+
+If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
+* [Differences from Public Preview 1](overview-differences.md)
