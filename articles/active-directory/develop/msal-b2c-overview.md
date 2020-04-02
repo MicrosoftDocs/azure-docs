@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 ```JavaScript
 const clientID = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
 const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantIdGuid = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 775527ff-9a37-4307-8b3d-cc311f58d925>";
+const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
@@ -76,7 +76,7 @@ The following steps demonstrate how a **single-page application** can use Azure 
 
 ### Step 1: Register your application
 
-To implement authentication, you first need to register your application. See [Register your application](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) for detailed steps.
+To implement authentication, you first need to register your application. See [Register your application](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) for detailed steps.
 
 ### Step 2: Download the sample application
 
@@ -127,11 +127,6 @@ There are two points of interest in configuring your application:
     const loginRequest = {
         scopes: ["openid", "profile"],
     };
-
-    // Add here scopes for access token to be used at the API endpoints.
-    const tokenRequest = {
-        scopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"] //API scopes you exposed during api registration
-    };
    ```
 
 For more information, check out this [JavaScript B2C single-page application sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
@@ -142,5 +137,5 @@ For more information, check out this [JavaScript B2C single-page application sam
 
 Learn more about:
 - [User flows](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)
-- [Custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)
 - [UX customization](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input)
