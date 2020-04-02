@@ -38,12 +38,12 @@ The Azure resource defined in this template:
 
 Select the following image to sign in to Azure and open a template. The template creates an Azure Cognitive Search resource.
 
-[![Deploy to Azure](/search/media/search-get-started-arm/arm-deploybuttona.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Deploy to Azure](articles\search\media\search-get-started-arm\arm-deploybuttona.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 The portal displays a form that allows you to easily provide parameter values. Some parameters are pre-filled with the default values from the template. You will need to provide your subscription, resource group, location, and service name. If you want to use Cognitive Services in an [AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) pipeline, for example to analyze binary image files for text, choose a location that offers both Cognitive Search and Cognitive Services. Both services are required to be in the same region for AI enrichment workloads. Once you have completed the form, you will need to agree to the terms and conditions and then select the purchase button to complete your deployment.
 
 > [!div class="mx-imgBorder"]
-> ![Azure portal display of template](/search/media/search-get-started-arm/arm-portalscrnsht.png)
+> ![Azure portal display of template](\articles\search\media\search-get-started-arm\arm-portalscrnsht.png)
 
 ## Review deployed resources
 
