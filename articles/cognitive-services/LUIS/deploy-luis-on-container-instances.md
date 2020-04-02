@@ -20,7 +20,7 @@ Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) conta
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Create an Azure file share
 
