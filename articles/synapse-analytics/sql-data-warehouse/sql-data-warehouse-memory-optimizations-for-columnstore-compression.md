@@ -85,7 +85,7 @@ where short-string-columns use string data types of <= 32 bytes and long-string-
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the
-video [SQL Analytics scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+video [Synapse SQL scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 
@@ -137,4 +137,4 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
-To find more ways to improve performance for SQL Analytics, see the [Performance overview](cheat-sheet.md).
+To find more ways to improve performance for Synapse SQL, see the [Performance overview](cheat-sheet.md).
