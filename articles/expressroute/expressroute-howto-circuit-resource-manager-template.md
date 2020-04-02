@@ -2,13 +2,12 @@
 title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
 description: Create, provision, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
+author: charwen
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
+ms.author: charwen
 
 ---
 
