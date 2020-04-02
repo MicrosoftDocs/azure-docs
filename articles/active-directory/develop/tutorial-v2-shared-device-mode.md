@@ -92,9 +92,9 @@ If you set `"account_mode":"SINGLE"` in the MSAL config file, you can safely cas
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -105,12 +105,12 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### Detect single vs. multiple account mode
 
-If you're writing an app that will only be used for firstline workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won’t need to be accommodated.
+If you're writing an app that will only be used for firstline workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won't need to be accommodated.
 
 If your app supports multiple accounts as well as shared device mode, you must perform a type check and cast to the appropriate interface as shown below.
 
@@ -130,7 +130,7 @@ private IPublicClientApplication mApplication;
 
 The `loadAccount` method retrieves the account of the signed in user. The `onAccountChanged` method determines if the signed-in user has changed, and if so, clean up:
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -153,12 +153,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### Globally sign in a user
@@ -225,15 +225,15 @@ Download the Microsoft Authenticator App from the Google Play store. If you alre
 
 ### Authenticator app settings & registering the device in the cloud
 
-Launch the Authenticator App and navigate to main account page. Once you see the **Add Account** page, you’re ready to make the device shared.
+Launch the Authenticator App and navigate to main account page. Once you see the **Add Account** page, you're ready to make the device shared.
 
 ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  Go to the **Settings** pane using the right-hand menu bar. Select **Device Registration** under **Work & School accounts**.
- 
+
  ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
- When you click this button, you'll be asked to authorize access to device contacts. This is due to Android’s account integration on the device. Choose **allow**.
+ When you click this button, you'll be asked to authorize access to device contacts. This is due to Android's account integration on the device. Choose **allow**.
 
  ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
 
@@ -251,16 +251,16 @@ The device is now in shared mode.
 
 ## View the shared device in the Azure portal
 
-Once you’ve put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
+Once you've put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
 
 ![All devices blade in the Azure portal](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
 
 ## Running the sample app
 
-The Sample Application is a simple app that will call the Graph API of your organization. n first run you’ll be prompted to consent as the application is new to your employee account.
+The Sample Application is a simple app that will call the Graph API of your organization. On first run you'll be prompted to consent as the application is new to your employee account.
 
 ![App config info screen](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 
 ## Next steps
 
-Learn more about shared mode at [Shared device mode for Android devices](shared-device-mode.md)
+Learn more about shared mode at [Shared device mode for Android devices](msal-android-shared-devices.md)

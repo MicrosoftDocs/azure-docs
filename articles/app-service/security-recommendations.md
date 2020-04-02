@@ -1,12 +1,12 @@
 ---
 title: Security recommendations
 description: Implement the security recommendations to help fulfill your security obligations as stated in our shared responsibility model. Improve the security of your app.
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
