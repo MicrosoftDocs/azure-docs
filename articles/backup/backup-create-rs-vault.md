@@ -85,18 +85,26 @@ For this process, there are pricing implications as it is at the storage level.
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
 >- The Cross Region Restore (CRR) feature is currently only available in the following regions: 
 >    - West Central US
+>    - West US
 >    - West US 2
 >    - South Central US
 >    - East US
+>    - East US 2
+>    - North Central US
 >    - Canada Central
 >    - Canada East
 >    - Australia East
 >    - Australia Southeast
+>    - Central India
+>    - South India
+>    - India West
 >    - Japan East
 >    - Japan West
 >    - Southeast Asia
 >    - UK South
 >    - UK West
+>    - West Europe
+>    - North Europe
 >    - France Central
 >    - Korea Central
 >    - Korea South

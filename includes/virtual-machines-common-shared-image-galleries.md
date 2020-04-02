@@ -228,7 +228,7 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
    To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
-   ```bash
+   ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 

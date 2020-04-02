@@ -7,7 +7,7 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -69,21 +69,13 @@ If you don't have an Azure subscription, you can create one in the Microsoft Par
 
 To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## Region
+## Location
 
-Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
-
-To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) page.
-
-> [!Note]
-> Once you choose a region, you cannot later move your application to a different region.
+**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create the application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. Once you choose a location, you can't later move your application to a different location.
 
 ## Application template
 
 Choose the application template you want to use for your application.
-
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Fivetran and data warehouse" 
 description: Get started with Fivetran and an Azure Synapse Analytics data warehouse.  
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: integration
+ms.subservice: 
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
@@ -21,7 +21,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 1. Find the fully qualified server name and database name that you use to connect to your data warehouse.
     
-    If you need help finding this information, see [Connect to your data warehouse](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+    If you need help finding this information, see [Connect to your data warehouse](sql-data-warehouse-connect-overview.md).
 
 2. In the setup wizard, choose whether to connect your database directly or by using an SSH tunnel.
 
@@ -67,7 +67,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    For more information, read about [memory and concurrency limits](memory-concurrency-limits.md) and [resource classes](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    For more information, read about [memory and concurrency limits](memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## Sign in to Fivetran

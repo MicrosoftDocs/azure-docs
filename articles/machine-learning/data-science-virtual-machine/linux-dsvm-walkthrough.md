@@ -26,7 +26,7 @@ In this walkthrough, we analyze the [spambase](https://archive.ics.uci.edu/ml/da
 Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](linux-dsvm-intro.md#x2go).
 * For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning account**. If you don't already have one, sign up for a new account on the [Azure Machine Learning home page](https://azure.microsoft.com/free/services/machine-learning//).
@@ -534,7 +534,7 @@ If you want to do machine learning by using data stored in a PostgreSQL database
 
 ### SQL Data Warehouse
 
-Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 To connect to the data warehouse and create the table, run the following command from a command prompt:
 

@@ -16,17 +16,17 @@ ms.date: 11/05/2019
 
 This Azure CLI script example configures Transparent Data Encryption (TDE) with customer-managed key for Azure SQL Managed Instance, using a key from Azure Key Vault. This is often referred to as a Bring Your Own Key scenario for TDE. To learn more about the TDE with customer-managed key, see [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
-## Prerequisites
-
-- An existing Managed Instance. See [Use Azure CLI to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-cli.md).
-
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+### Prerequisites
+
+An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-cli.md).
 
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -46,14 +46,14 @@ Use the following command to remove the resource group and all resources associa
 az group delete --name $resource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| | |
 |---|---|
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Creates a failover group. |
+| [az sql db](/cli/azure/sql/db) | Database commands. |
+| [az sql failover-group](/cli/azure/sql/failover-group) | Failover group commands. |
 
 ## Next steps
 

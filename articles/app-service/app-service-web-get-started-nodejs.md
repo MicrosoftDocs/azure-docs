@@ -4,8 +4,7 @@ description: Deploy your first Node.js Hello World to Azure App Service in minut
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
-ms.custom: mvc, devcenter
-ms.custom: seodec18
+ms.custom: mvc, devcenter, seodec18
 
 experimental: false
 experiment_id: a231f2b4-2625-4d

@@ -1,11 +1,11 @@
 ---
 title: Configure workload importance 
 description: Learn how to set request level importance in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
-ms.subservice: workload-management
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Configure workload importance in Azure Synapse Analytics
 
-Setting importance in SQL Analytics for Azure Synapse allows you to influence the scheduling of queries. Queries with higher importance will be scheduled to run before queries with lower importance. To assign importance to queries, you need to create a workload classifier.
+Setting importance in Synapse SQL for Azure Synapse allows you to influence the scheduling of queries. Queries with higher importance will be scheduled to run before queries with lower importance. To assign importance to queries, you need to create a workload classifier.
 
 ## Create a Workload Classifier with Importance
 
@@ -45,8 +45,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## Next Steps
-- For more information about workload management, see [Workload Classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md)
-- For more information on Importance, see [Workload Importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md)
+- For more information about workload management, see [Workload Classification](sql-data-warehouse-workload-classification.md)
+- For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Manage and monitor Workload Importance](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

@@ -79,7 +79,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
    npm start
    ```
 
-1. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
+1. You can view your new application by navigating your browser to `http://localhost:3000`.
    
    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -355,7 +355,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 ## <a name="_Toc395783181"></a>Build a user interface
 
-Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
+Now let's build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use Twitter Bootstrap, which is a toolkit used to design a website.  
 

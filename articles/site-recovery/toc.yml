@@ -399,7 +399,7 @@
     - name: Dynamics AX
       href: site-recovery-dynamicsax.md
     - name: RDS
-      href: site-recovery-workload.md#protect-rds
+      href: site-recovery-workload.md#protect-remote-desktop-services
     - name: Exchange
       href: site-recovery-workload.md#protect-exchange
     - name: SAP

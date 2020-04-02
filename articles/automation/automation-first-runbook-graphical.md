@@ -123,9 +123,10 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. Navigate to your runbook and select **Edit** on the **MyFirstRunbook-Graphical** page.
 1. You don't need the `Write Hello World to output` entry any more. Just click the ellipsis and select **Delete**.
 1. In the Library control, expand **ASSETS**, then **Connections**. Add `AzureRunAsConnection` to the canvas by selecting **Add to canvas**.
+1. Rename `AzureRunAsConnection` to `Get Run As Connection`.
 1. In the Library control, type `Connect-AzAccount` in the search field.
 1. Add `Connect-AzAccount` to the canvas.
-1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Connect-AzAccount` to form a link. The runbook starts with `Get Run As Connection` and then runs `Connect-AzAccount`.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. Hover over `Get Run As Connection` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Connect-AzAccount` to form a link. The runbook starts with `Get Run As Connection` and then runs `Connect-AzAccount`.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. On the canvas, select `Connect-AzAccount`. In the Configuration control pane, type **Login to Azure** in the **Label** field.
 1. Click **Parameters**, and the Activity Parameter Configuration page appears.
 1. The `Connect-AzAccount` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **ServicePrincipalCertificateWithSubscriptionId**.

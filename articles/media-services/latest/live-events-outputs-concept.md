@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -172,7 +172,11 @@ Once you have the stream flowing into the Live Event, you can begin the streamin
 
 For detailed information about Live Outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Ask questions, give feedback, get updates
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
+
+## Ask questions and get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

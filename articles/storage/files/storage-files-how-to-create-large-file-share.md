@@ -74,7 +74,7 @@ First, [install the latest version of PowerShell](https://docs.microsoft.com/pow
 
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
-```PowerShell
+```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
@@ -108,7 +108,7 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
 
-```PowerShell
+```powershell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
@@ -138,7 +138,7 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 To create a large file share, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"
@@ -171,7 +171,7 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 To set the quota to the maximum size, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"

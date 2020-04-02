@@ -46,8 +46,8 @@ For a training to succeed, the table below shows the minimum number of sentences
 | Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|
 | Training   | 10,000                                     | No upper limit                 |
-| Tuning     | 5,000                                      | 2,500                          |
-| Testing    | 5,000                                      | 2,500                          |
+| Tuning     | 500                                      | 2,500       |
+| Testing    | 500                                      | 2,500  |
 | Dictionary | 0                                          | No upper limit                 |
 
 > [!NOTE]

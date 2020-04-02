@@ -1,12 +1,12 @@
 ---
 title: Backup and restore - snapshots, geo-redundant 
 description: Learn how backup and restore works in Azure Synapse Analytics SQL pool. Use backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -85,9 +85,9 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (SQL pool)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
 
-To restore a data warehouse, see [Restore a SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
+To restore a data warehouse, see [Restore a SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted or paused data warehouse, you can [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Cross subscription restore
 
@@ -95,7 +95,7 @@ If you need to directly restore across subscription, vote for this capability [h
 
 ## Geo-redundant restore
 
-You can [restore your SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
+You can [restore your SQL pool](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.

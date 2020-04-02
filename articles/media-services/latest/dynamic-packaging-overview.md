@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/09/2020 
+ms.date: 03/17/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -68,11 +68,14 @@ Your streaming client can specify the following Smooth Streaming formats:
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2.0 (legacy manifest)|By default, Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the `r-tag`. Clients with these players can use a format that disables the r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
+> [!NOTE]
+> Smooth Streaming requires that both audio and video should be present in your stream.
+
 ## On-demand streaming workflow
 
 The following steps show a common Media Services streaming workflow where Dynamic Packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. Upload an input file such as a QuickTime/MOV or MXF file. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+1. Upload an input file such as a QuickTime/MOV or MXF file. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
@@ -89,7 +92,7 @@ The following articles show examples of [how to encode a video with Media Servic
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
 * [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
 
-See the list of Media Encoder Standard [formats and codecs](media-encoder-standard-formats.md).
+See the list of Standard Encoder [formats and codecs](media-encoder-standard-formats.md).
 
 ## Live streaming workflow
 

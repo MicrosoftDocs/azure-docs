@@ -123,6 +123,19 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
+### Schedule a runbook in the Azure portal
+
+When your runbook has been published, you can schedule it for operation.
+
+1. Open the runbook in the Azure portal.
+2. Select **Schedules** under **Resources**.
+3. Select **Add a schedule**.
+4. In the Schedule Runbook pane, select **Link a schedule to your runbook**.
+5. Choose **Create a new schedule** in the Schedule pane.
+6. Enter a name, description, and other parameters in the New schedule pane. 
+7. Once the schedule is created, highlight it and click **OK**. It should now be linked to your runbook.
+8. Look for an email in your mailbox to notify you of the runbook status.
+
 ## Next steps
 
 * To learn how you can benefit from the Runbook and PowerShell Module Gallery, see [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).

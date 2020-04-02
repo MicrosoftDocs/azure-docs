@@ -34,7 +34,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using the default view or *Classic*.
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 
 ## Basics
 
@@ -190,7 +190,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 ![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
 
-You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
+You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
 ### Node configuration
 

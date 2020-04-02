@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -211,6 +211,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
+|ctldl.windowsupdate.com:80 |
+|ctldl.windowsupdate.com:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -221,6 +223,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
 | \*.identity.azure.net:443 |
+| \*.ctldl.windowsupdate.com:80 |
+| \*.ctldl.windowsupdate.com:443 |
 
 #### Linux dependencies 
 

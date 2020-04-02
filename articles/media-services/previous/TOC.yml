@@ -393,7 +393,6 @@
       href: media-services-deliver-asset-download.md
     - name: Failover streaming scenario
       href: media-services-implement-failover.md
-      displayName: 
       displayName: HA, high availability
   - name: Consume
     items:
