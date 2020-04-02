@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -69,7 +69,7 @@ az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
     --object-id $storage_account_principal \
-    --key-permissions get recover unwrapKey wrapKey
+    --key-permissions get unwrapKey wrapKey
 ```
 
 ## Create a new key
@@ -81,6 +81,8 @@ az keyvault key create
     --name <key> \
     --vault-name <key-vault>
 ```
+
+Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## Configure encryption with customer-managed keys
 

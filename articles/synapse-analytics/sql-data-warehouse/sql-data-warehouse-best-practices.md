@@ -16,8 +16,6 @@ ms.reviewer: igorstan
 
 This article is a collection of best practices to help you to achieve optimal performance from your [SQL pool](sql-data-warehouse-overview-what-is.md) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  
 
-Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
-
 ## Reduce cost with pause and scale
 
 For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 

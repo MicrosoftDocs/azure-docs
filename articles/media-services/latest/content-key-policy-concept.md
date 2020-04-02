@@ -30,7 +30,7 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 > [!IMPORTANT]
 > Please review the following recommendations.
 
-* You should design a limited set of policies for your Media Service account and reuse them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+* You should design a limited set of policies for your Media Service account and reuse them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
 * Content key policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
 
    By updating the policy, you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
