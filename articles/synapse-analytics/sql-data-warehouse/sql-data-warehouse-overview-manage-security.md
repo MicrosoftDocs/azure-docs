@@ -1,7 +1,6 @@
 ---
 title: Secure a database
-description: Tips for securing a database and developing solutions in the SQL pool resource of SQL Analytics.
-services: synapse-analytics
+description: Tips for securing a database and developing solutions in a Synapse SQL pool resource.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -15,6 +14,7 @@ tags: azure-synapse
 ---
 
 # Secure a database in Azure Synapse
+
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
 > * [Authentication](sql-data-warehouse-authentication.md)
@@ -23,9 +23,10 @@ tags: azure-synapse
 > 
 > 
 
-This article will walk you through the basics of securing your SQL pool within SQL Analytics. In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities on a database provisioned using SQL pool.
+This article will walk you through the basics of securing your Synapse SQL pool. In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities on a database provisioned using SQL pool.
 
 ## Connection security
+
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
 Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that haven't been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell. 
@@ -37,11 +38,12 @@ Azure Synapse Analytics uses server-level IP firewall rules. It doesn't support 
 Connections to your SQL pool are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
 ## Authentication
+
 Authentication refers to how you prove your identity when connecting to the database. SQL pool currently supports SQL Server Authentication with a username and password, and with Azure Active Directory. 
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
-However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
+However, as a best practice, your organization's users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
 To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  It's a good idea to also create a user in the master database. Creating a user in master allows a user to log in using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
 
