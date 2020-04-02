@@ -28,7 +28,7 @@ When using [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/
 
 ## Cause
 
-This happens because a core file can't be created on the file system. Based on this error code in this case, the operating system is unable to write any files to the disk.
+A core file can't be created in the file system. The operating system is unable to write files to the disk.
 
 ## Resolution
 
@@ -49,19 +49,19 @@ This happens because a core file can't be created on the file system. Based on t
 
 ### Free up space on the hard disk
 
-If the disk isn't already 1 Tb, you will need to resize the disk. Once the disk is 1 TB, you need to perform a disk cleanup and then do a defragmentation on the drive.
+If the disk isn't already 1 Tb, you must resize it. Once the disk is 1 TB, perform a disk cleanup and a defragmentation of the drive.
 
 1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Once the disk is 1 Tb, perform a disk cleanup.
     - [Detach the data disk from the broken VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
     - [Attach the data disk to a functioning VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
     - Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
-3. Once resizing and cleanup are finished, defragment the drive:
+3. After resizing and cleanup, defragment the drive:
 
     ```
     defrag <LETTER ASSIGN TO THE OS DISK>: /u /x /g
     ```
-    Depending upon the level of fragmentation, this could take hours.
+    Depending on the level of fragmentation, this could take hours.
 
 ### Recommended: Before rebuilding the VM, enable serial console and memory dump collection
 
