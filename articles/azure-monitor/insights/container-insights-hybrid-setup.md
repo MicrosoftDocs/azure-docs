@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 04/02/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -34,7 +34,7 @@ Before you start, make sure that you have the following:
     |*.blob.core.windows.net |Port 443 |  
     |*.dc.services.visualstudio.com |Port 443 |
 
-* The containerized agent requires Kubelet’s `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet’s cAdvisor if it’s not configured already.
+* The containerized agent requires Kubelet's `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet's cAdvisor if it's not configured already.
 
 * The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
@@ -45,7 +45,7 @@ Before you start, make sure that you have the following:
 
 The following is officially supported with Azure Monitor for containers.
 
-- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack, and OpenShift version 4.3. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 - Container Runtime: Docker and Moby
 - Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
@@ -236,7 +236,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 ## Install the chart
 
-To enable the HELM chart, do the following:
+There are two methods to enable the Helm chart, running Helm commands or by specifying an addon in the AKS engine cluster specification json file.
+
+### Enable the Helm chart using Helm commands
 
 1. Add the Azure charts repository to your local list by running the following command:
 
@@ -264,6 +266,28 @@ To enable the HELM chart, do the following:
     $ helm install --name myrelease-1 \
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+### Enable the Helm chart using the API Model
+
+You can specify an addon in the AKS engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics Workspace where the collected monitoring data is stored.
+
+Supported API definitions for the Azure Stack Hub cluster can be found in this example - [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Specifically, find the **addons** property in **kubernetesConfig**:
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## Configure agent data collection
 
