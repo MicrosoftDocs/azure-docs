@@ -28,7 +28,10 @@ Stored procedures are a great way for encapsulating your SQL code, which is stor
 
 SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure isn't pre-compiled code. 
 
-In general, for data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It's more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. So, it's helpful to think of stored procedures as containers for SQL logic.     
+In general, for data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It's more important to ensure the stored procedure code is correctly optimized for large queries. 
+
+> [!TIP]
+> The goal is to save hours, minutes, and seconds, not milliseconds. So, it's helpful to think of stored procedures as containers for SQL logic.     
 
 When SQL pool executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
 

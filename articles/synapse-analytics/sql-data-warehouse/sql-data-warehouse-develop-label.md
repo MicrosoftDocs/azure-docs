@@ -33,7 +33,7 @@ Querying for labels provides a mechanism for locating problem queries and helpin
 
 A good naming convention really helps. For example, starting the label with PROJECT, PROCEDURE, STATEMENT, or COMMENT uniquely identifies the query among all the code in source control.
 
-The following query uses a dynamic management view to search by label.
+The following query uses a dynamic management view to search by label:
 
 ```sql
 SELECT  *

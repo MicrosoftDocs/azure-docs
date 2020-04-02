@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019
 Get connected to SQL pool.
 
 ## Find your server name
-The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
+The server name in the following example is sqlpoolservername.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Click on **Azure Synapse Analytics**.

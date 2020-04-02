@@ -14,11 +14,11 @@ ms.custom: seo-lt-2019
 ---
 
 # Dynamic SQL in Synapse SQL pool
-Tips for development solutions using dynamic SQL in SQL pool.
+Included in this article are tips for development solutions using dynamic SQL in SQL pool.
 
 ## Dynamic SQL Example
 
-When developing application code for SQL pool, you may need to use Dynamic SQL to help deliver flexible, generic, and modular solutions. SQL pool doesn't support blob data types at this time. 
+When developing application code for SQL pool, you may need to use dynamic SQL to help deliver flexible, generic, and modular solutions. SQL pool doesn't support blob data types at this time. 
 
 Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. 
 
