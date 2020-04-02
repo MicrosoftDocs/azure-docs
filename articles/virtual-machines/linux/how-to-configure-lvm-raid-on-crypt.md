@@ -42,25 +42,26 @@ In a similar way, the RAID device is created on top of the encrypted layer on th
 
 We recommend that you use LVM-on-crypt. RAID is an option when LVM can't be used because of specific application or environment limitations.
 
-You'll use the **EncryptFormatAll** option. For more information, see [Use the EncryptFormatAll feature for data disks on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+You'll use the **EncryptFormatAll** option. For more information about this option, see [Use the EncryptFormatAll feature for data disks on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Although you can use this method when you're also encrypting the OS, we're just encrypting data drives here.
 
-This procedure assumes you already reviewed the prerequisites mentioned in [Azure Disk Encryption scenarios on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+The procedures assume that you already reviewed the prerequisites mentioned in [Azure Disk Encryption scenarios on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
 
 The Azure Disk Encryption dual-pass version is on a deprecation path and should no longer be used on new encryptions.
 
 ## General steps
 
-When you're using the "on crypt" configurations, use the process outlined in the following procedures.
+When you're using the "on-crypt" configurations, use the process outlined in the following procedures.
 
 >[!NOTE] 
 >We're using variables throughout the article. Replace the values accordingly.
 
 ### Deploy a VM 
-The following commands are optional, but we recommend that you to apply them on a newly deployed virtual machine (VM).
+The following commands are optional, but we recommend that you apply them on a newly deployed virtual machine (VM).
 
 PowerShell:
+
 ```powershell
 New-AzVm -ResourceGroupName ${RGNAME} `
 -Name ${VMNAME} `
@@ -71,6 +72,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 -Verbose
 ```
 Azure CLI:
+
 ```bash
 az vm create \
 -n ${VMNAME} \
@@ -83,9 +85,10 @@ az vm create \
 -o table
 ```
 ### Attach disks to the VM
-Repeat the following commands for `$N` number of new disks you want to attach to the VM.
+Repeat the following commands for `$N` number of new disks that you want to attach to the VM.
 
-PowerShell
+PowerShell:
+
 ```powershell
 $storageType = 'Standard_LRS'
 $dataDiskName = ${VMNAME} + '_datadisk0'
@@ -95,7 +98,9 @@ $vm = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 0
 Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 ```
+
 Azure CLI:
+
 ```bash
 az vm disk attach \
 -g ${RGNAME} \
@@ -105,9 +110,9 @@ az vm disk attach \
 --new \
 -o table
 ```
+
 ### Verify that the disks are attached to the VM
 PowerShell:
-
 ```powershell
 $VM = Get-AzVM -ResourceGroupName ${RGNAME} -Name ${VMNAME}
 $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
@@ -154,7 +159,7 @@ for disk in c d e f; do echo mkfs.ext4 -F /dev/sd${disk}; done |bash
 ```
 ![Creation of an ext4 file system](./media/disk-encryption/lvm-raid-on-crypt/005-lvm-raid-create-temp-fs.png)
 
-Find the universally unique identifier (UUID) of the file systems that you recently created, create a temporary folder to mount it, add the corresponding entries on /etc/fstab, and mount all the file systems.
+Find the universally unique identifier (UUID) of the file systems that you recently created, create a temporary folder, add the corresponding entries on /etc/fstab, and mount all the file systems.
 
 This command also iterates on each disk defined on the "in" part of the "for" cycle:
 
@@ -172,7 +177,7 @@ lsblk
 ```
 ![List of mounted temporary file systems](./media/disk-encryption/lvm-raid-on-crypt/006-lvm-raid-verify-temp-fs.png)
 
-Also very that the disks are configured:
+Also verify that the disks are configured:
 
 ```bash
 cat /etc/fstab
@@ -218,25 +223,25 @@ PowerShell:
 ```powershell
 Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 ```
-![Encryption status through PowerShell](./media/disk-encryption/lvm-raid-on-crypt/008-lvm-raid-verify-encryption-status-ps.png)
+![Encryption status in PowerShell](./media/disk-encryption/lvm-raid-on-crypt/008-lvm-raid-verify-encryption-status-ps.png)
 
 Azure CLI:
 
 ```bash
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
-![Encryption status through the Azure CLI](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)
+![Encryption status in the Azure CLI](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)
 
 Portal:
 
-![Encryption status through the portal](./media/disk-encryption/lvm-raid-on-crypt/010-lvm-raid-verify-encryption-status-portal.png)
+![Encryption status in the portal](./media/disk-encryption/lvm-raid-on-crypt/010-lvm-raid-verify-encryption-status-portal.png)
 
 OS level:
 
 ```bash
 lsblk
 ```
-![Encryption status through the OS](./media/disk-encryption/lvm-raid-on-crypt/011-lvm-raid-verify-encryption-status-os.png)
+![Encryption status in the OS](./media/disk-encryption/lvm-raid-on-crypt/011-lvm-raid-verify-encryption-status-os.png)
 
 The extension will add the file systems to /var/lib/azure_disk_encryption_config/azure_crypt_mount (an old encryption) or to /etc/crypttab (new encryptions).
 
@@ -286,10 +291,10 @@ echo "y" | pvcreate /dev/mapper/6712ad6f-65ce-487b-aa52-462f381611a1
 echo "y" | pvcreate /dev/mapper/ea607dfd-c396-48d6-bc54-603cf741bc2a
 echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ```
-![Verification that a physical volume was craeted](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
+![Verification that a physical volume was created](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->The /dev/mapper/device names here need to be replaced for your actual values based on the output of lsblk.
+>The /dev/mapper/device names here need to be replaced for your actual values based on the output of **lsblk**.
 
 #### Verify the information for physical volumes
 ```bash
@@ -367,10 +372,10 @@ It's important to make sure that the **nofail** option is added to the mount poi
 
 If you don't use the **nofail** option:
 
-- The OS will never get into the stage where Azure Disk Encryption is started, and the data disks are unlocked and mounted. 
+- The OS will never get into the stage where Azure Disk Encryption is started and the data disks are unlocked and mounted. 
 - The encrypted disks will be unlocked at the end of the boot process. The LVM volumes and file systems will be automatically mounted until Azure Disk Encryption unlocks them. 
 
-You can test rebooting the VM and validate that the file systems are also automatically getting mounted after boot time. This process might take several minutes, depending on the number and the sizes of file systems.
+You can test rebooting the VM and validate that the file systems are also automatically getting mounted after boot time. This process might take several minutes, depending on the number and sizes of file systems.
 
 #### Reboot the VM and verify after reboot
 
@@ -399,7 +404,7 @@ mdadm --create /dev/md10 \
 >[!NOTE] 
 >The /dev/mapper/device names here need to be replaced with your actual values, based on the output of **lsblk**.
 
-### Check/monitor the RAID creation
+### Check/monitor RAID creation
 ```bash
 watch -n1 cat /proc/mdstat
 mdadm --examine /dev/mapper/[]
@@ -422,7 +427,7 @@ mount -a; \
 done
 ```
 
-Verify that the new file systems are mounted:
+Verify that the new file system is mounted:
 
 ```bash
 lsblk -fs
@@ -434,10 +439,10 @@ It's important to make sure that the **nofail** option is added to the mount poi
 
 If you don't use the **nofail** option:
 
-- The OS will never get into the stage where Azure Disk Encryption is started, and the data disks are unlocked and mounted.
+- The OS will never get into the stage where Azure Disk Encryption is started and the data disks are unlocked and mounted.
 - The encrypted disks will be unlocked at the end of the boot process. The RAID volumes and file systems will be automatically mounted until Azure Disk Encryption unlocks them.
 
-You can test rebooting the VM and validate that the file systems are also automatically getting mounted after boot time. This process might take several minutes, depending on the number and the sizes of file systems.
+You can test rebooting the VM and validate that the file systems are also automatically getting mounted after boot time. This process might take several minutes, depending on the number and sizes of file systems.
 
 ```bash
 shutdown -r now
