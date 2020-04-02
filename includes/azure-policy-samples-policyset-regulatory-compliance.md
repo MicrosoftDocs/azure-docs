@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.author: dacoulte
 ---
 
@@ -20,5 +20,5 @@ ms.author: dacoulte
 |[Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |This initiative includes audit and VM Extension deployment policies that address a subset of Azure Security Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, please visit https://aka.ms/azsecbm. |148 |2.0.0-preview |
 |[Audit DoD Impact Level 4 controls and deploy specific VM Extensions to support audit requirements](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |This initiative includes audit and VM Extension deployment policies that address a subset of DoD Impact Level 4 controls. Additional policies will be added in upcoming releases. For more information, please visit https://aka.ms/DoDIL4-blueprint. |108 |3.0.0-preview |
 |[Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |This initiative includes audit and VM Extension deployment policies that address a subset of FedRAMP H controls. Additional policies will be added in upcoming releases. For more information, please visit https://aka.ms/fedramph-blueprint. |80 |2.0.0-preview |
-|[Audit HITRUST/HIPAA controls and deploy specific VM Extensions to support audit requirements](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |This initiative includes policies that address a subset of HITRUST/HIPAA controls. Additional policies will be added in upcoming releases. [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint) |57 |1.0.0 |
+|[Audit HITRUST/HIPAA controls and deploy specific VM Extensions to support audit requirements](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |This initiative includes policies that address a subset of HITRUST/HIPAA controls. Additional policies will be added in upcoming releases. https://aka.ms/hipaa-blueprint |57 |1.0.0 |
 |[Audit Motion Picture Association of America (MPAA) controls and deploy specific VM Extensions to support audit requirements](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |This initiative includes policies that address a subset of Motion Picture Association of America (MPAA) security and guidelines controls. Additional policies will be added in upcoming releases. For more information, please visit https://aka.ms/mpaa-blueprint |45 |1.0.0-preview |
