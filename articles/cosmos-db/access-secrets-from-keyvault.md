@@ -14,7 +14,7 @@ ms.reviewer: sngun
 # Secure Azure Cosmos keys using Azure Key Vault 
 
 >[!IMPORTANT]
-> The recommended solution to access Azure Cosmos DB keys is to use [service-managed identities](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md).
+> The recommended solution to access Azure Cosmos DB keys is to use [service-managed identities](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the key vault solution below.
 
 When using Azure Cosmos DB for your applications, you can access the database, collections, documents by using the endpoint and the key within the app's configuration file.  However, it's not safe to put keys and URL directly in the application code because they are available in clear text format to all the users. You want to make sure that the endpoint and keys are available but through a secured mechanism. This is where Azure Key Vault can help you to securely store and manage application secrets.
 
