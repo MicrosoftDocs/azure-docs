@@ -1,14 +1,14 @@
 ---
 title: Install Visual Studio 2019 
-description: Install Visual Studio and SQL Server Development Tools (SSDT) for SQL Analytics
-services: sql-data-warehouse
+description: Install Visual Studio and SQL Server Development Tools (SSDT) for Synapse SQL
+services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
@@ -29,7 +29,7 @@ See [Download Visual Studio 2019][] to download and install Visual Studio **16.3
 
 ## Unsupported features in SSDT
 
-There are times when feature releases for SQL Analytics may not include support for SSDT. The following features are currently unsupported:
+There are times when feature releases for Synapse SQL may not include support for SSDT. The following features are currently unsupported:
 
 - [Materialized views](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (in progress)
 - [Ordered Clustered Columnstore Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (in progress)

@@ -1,12 +1,12 @@
 ---
 title: Continuous integration and deployment 
 description: Enterprise-class Database DevOps experience for data warehousing with built-in support for continuous integration and deployment using Azure Pipelines.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: integration
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
@@ -56,7 +56,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Next steps
 
-- Explore [SQL Analytics MPP architecture](massively-parallel-processing-mpp-architecture.md)
+- Explore [Synapse SQL pool MPP architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a SQL pool](create-data-warehouse-portal.md)
 - [Load sample data](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)

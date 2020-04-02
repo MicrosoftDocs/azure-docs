@@ -52,7 +52,7 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
 * **Reset password**
 * **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
-* **Extended rights** on either:
+* **Extended rights** for "Unexpire Password" on either:
    * The root object of *each domain* in that forest
    * The user organizational units (OUs) you want to be in scope for SSPR
 

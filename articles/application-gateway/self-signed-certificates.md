@@ -14,7 +14,7 @@ ms.author: victorh
 
 The Application Gateway v2 SKU introduces the use of Trusted Root Certificates to allow backend servers. This removes authentication certificates that were required in the v1 SKU. The *root certificate* is a Base-64 encoded X.509(.CER) format root certificate from the backend certificate server. It identifies the root certificate authority (CA) that issued the server certificate and the server certificate is then used for the SSL communication.
 
-Application Gateway trusts your website’s certificate by default if it's signed by a well-known CA (for example, GoDaddy or DigiCert). You don’t need to explicitly upload the root certificate in that case. For more information, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom CA and create a self-signed certificate with it. 
+Application Gateway trusts your website's certificate by default if it's signed by a well-known CA (for example, GoDaddy or DigiCert). You don't need to explicitly upload the root certificate in that case. For more information, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom CA and create a self-signed certificate with it. 
 
 > [!NOTE]
 > Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
@@ -70,7 +70,7 @@ Create your root CA certificate using OpenSSL.
 
 Next, you'll create a server certificate using OpenSSL.
 
-### Create the certificate’s key
+### Create the certificate's key
 
 Use the following command to generate the key for the server certificate.
 
@@ -83,7 +83,7 @@ Use the following command to generate the key for the server certificate.
 The CSR is a public key that is given to a CA when requesting a certificate. The CA issues the certificate for this specific request.
 
 > [!NOTE]
-> The CN (Common Name) for the server certificate must be different from the issuer’s domain. For example, in this case, the CN for the issuer is `www.contoso.com` and the server certificate’s CN is `www.fabrikam.com`.
+> The CN (Common Name) for the server certificate must be different from the issuer's domain. For example, in this case, the CN for the issuer is `www.contoso.com` and the server certificate's CN is `www.fabrikam.com`.
 
 
 1. Use the following command to generate the CSR:
@@ -96,7 +96,7 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
 
    ![Server certificate](media/self-signed-certificates/server-cert.png)
 
-### Generate the certificate with the CSR and the key and sign it with the CA’s root key
+### Generate the certificate with the CSR and the key and sign it with the CA's root key
 
 1. Use the following command to create the certificate:
 
@@ -120,9 +120,9 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
    - fabrikam.crt
    - fabrikam.key
 
-## Configure the certificate in your web server’s SSL settings
+## Configure the certificate in your web server's SSL settings
 
-In your web server, configure SSL using the fabrikam.crt and fabrikam.key files. If your web server can’t take two files, you can combine them to a single .pem or .pfx file using OpenSSL commands.
+In your web server, configure SSL using the fabrikam.crt and fabrikam.key files. If your web server can't take two files, you can combine them to a single .pem or .pfx file using OpenSSL commands.
 
 ### IIS
 
@@ -152,7 +152,7 @@ The following configuration is an example [NGINX server block](https://nginx.org
 
 ## Access the server to verify the configuration
 
-1. Add the root certificate to your machine’s trusted root store. When you access the website, ensure the entire certificate chain is seen in the browser.
+1. Add the root certificate to your machine's trusted root store. When you access the website, ensure the entire certificate chain is seen in the browser.
 
    ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
 
@@ -170,7 +170,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 ![OpenSSL certificate verification](media/self-signed-certificates/openssl-verify.png)
 
-## Upload the root certificate to Application Gateway’s HTTP Settings
+## Upload the root certificate to Application Gateway's HTTP Settings
 
 To upload the certificate in Application Gateway, you must export the .crt certificate into a .cer format Base-64 encoded. Since .crt already contains the public key in the base-64 encoded format, just rename the file extension from .crt to .cer. 
 
@@ -225,9 +225,9 @@ $probe = Get-AzApplicationGatewayProbeConfig `
   -Name testprobe `
   -ApplicationGateway $gw
 
-## Add the configuration to the HTTP Setting and don’t forget to set the “hostname” field
+## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server’s certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that SSL handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -257,12 +257,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### Verify the application gateway backend health
 
 1. Click the **Backend Health** view of your application gateway to check if the probe is healthy.
-1.	You should see that the Status is **Healthy** for the HTTPS probe.
+1. You should see that the Status is **Healthy** for the HTTPS probe.
 
-    ![HTTPS probe](media/self-signed-certificates/https-probe.png)
+![HTTPS probe](media/self-signed-certificates/https-probe.png)
 
 ## Next steps
 
