@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Configure workload importance in Azure Synapse Analytics
 
-Setting importance in SQL Analytics for Azure Synapse allows you to influence the scheduling of queries. Queries with higher importance will be scheduled to run before queries with lower importance. To assign importance to queries, you need to create a workload classifier.
+Setting importance in Synapse SQL for Azure Synapse allows you to influence the scheduling of queries. Queries with higher importance will be scheduled to run before queries with lower importance. To assign importance to queries, you need to create a workload classifier.
 
 ## Create a Workload Classifier with Importance
 
