@@ -2,12 +2,12 @@
 title: 'ExpressRoute: Route filters - Microsoft peering:Azure portal'
 description: This article describes how to configure route filters for Microsoft peering using the Azure portal.
 services: expressroute
-author: ganesr
+author: charwen
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/01/2019
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
 
 ---
