@@ -44,6 +44,9 @@ The following table lists the API version for the resources used in this example
 
 The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
 
+> [!WARNING]
+> The following template creates a Log Analytics workspace and configures data collection. This may change your billing settings. Review [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) to understand billing for data collected in a Log Analytics workspace before applying it in your Azure environment.
+
 For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
 
 - Once you set the reservation limit, you cannot change to a different SKU within 31 days.
@@ -71,7 +74,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -127,7 +130,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-		  "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -141,16 +144,15 @@ For capacity reservation, you define a selected capacity reservation for ingesti
     }
     ```
 
-> [Information]
-> for capacity reservation settings, use these properties under "sku":
+   >[!NOTE]
+   >For capacity reservation settings, use these properties under "sku":
+   >* "name": "CapacityReservation",
+   >* "capacityReservationLevel": 100
 
->   "name": "CapacityReservation",
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 
->   "capacityReservationLevel": 100
-
-
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
+
 4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command. The workspace name must be globally unique across all Azure subscriptions.
 
    * For PowerShell use the following commands from the folder containing the template:
@@ -173,7 +175,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace
-2. Create saved searches. To ensure that deployments don't override saved searches accidently, an eTag property should be added in the "savedSearches" resource to override and maintain the idempotency of saved searches.
+2. Create saved searches. To ensure that deployments don't override saved searches accidentally, an eTag property should be added in the "savedSearches" resource to override and maintain the idempotency of saved searches.
 3. Create a computer group
 4. Enable collection of IIS logs from computers with the Windows agent installed
 5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
@@ -194,7 +196,7 @@ The following template sample illustrates how to:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -274,7 +276,7 @@ The following template sample illustrates how to:
     "metadata": {
       "description": "The custom log name"
       }
-	 }
+     }
     },
     "variables": {
       "Updates": {
@@ -303,7 +305,7 @@ The following template sample illustrates how to:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -602,7 +604,7 @@ The following template sample illustrates how to:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

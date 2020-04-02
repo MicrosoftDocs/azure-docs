@@ -1,19 +1,18 @@
 ---
 title: Configure Microsoft authentication
-description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service app.
-
+description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
+ms.custom: [seodec18, fasttrack-edit]
 
 ---
 
-# Configure your App Service app to use Microsoft Account login
+# Configure your App Service or Azure Functions app to use Microsoft Account login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use AAD to support personal Microsoft account logins.
+This topic shows you how to configure Azure App Service or Azure Functions to use AAD to support personal Microsoft account logins.
 
 > [!NOTE]
 > Both personal Microsoft accounts and organizational accounts use the AAD identity provider. At this time, is not possible to configure this identity provider to support both types of log-ins.
