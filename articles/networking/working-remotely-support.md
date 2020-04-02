@@ -67,7 +67,7 @@ The following Azure services can help enable employees to access your globally d
 
 ## Scale customer connectivity to frontend resources
 
-During times when more people go online, many corporate websites experience increased customer traffic. Azure Application Gateway can help manage this increased frontend workload. For more information, see [Application Gateway high traffic support](https://go.microsoft.com/fwlink/?linkid=2123940).
+During times when more people go online, many corporate websites experience increased customer traffic. Azure Application Gateway can help manage this increased frontend workload. For more information, see [Application Gateway high traffic support](../application-gateway/high-traffic-support.md).
 
 ## Microsoft support for multi-cloud traffic
 
@@ -79,13 +79,13 @@ The following articles discuss how different Azure networking features can be us
 
 | **Article** | **Last update** |
 | --- | --- |
-| [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770) | March 23, 2020 |
-| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769) | March 23, 2020 |
-| [Application Gateway high traffic support](https://go.microsoft.com/fwlink/?linkid=2123940) | March 23, 2020 |
-| [Network Virtual Appliance (NVA) considerations for remote work](https://go.microsoft.com/fwlink/?linkid=2123771)| March 23, 2020 |
+| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | March 23, 2020 |
+| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | March 23, 2020 |
+| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | March 23, 2020 |
+| [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)| March 23, 2020 |
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
-| [Working remotely using Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
-| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
+| [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | March 23, 2020 |
+| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | March 23, 2020 |
 | [Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|
 
 <!--Link References-->
