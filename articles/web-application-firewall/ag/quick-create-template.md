@@ -43,7 +43,6 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : two for the virtual machines
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : to configure IIS and the web pages
 
-
 ### Deploy the template
 
 Deploy Resource Manager template to Azure:
