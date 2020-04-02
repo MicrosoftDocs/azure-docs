@@ -1,6 +1,6 @@
 ---
 title: Create a function in Azure triggered by queue messages 
-description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to an Azure Storage queue.
+description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to a queue in Azure.
 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
@@ -11,11 +11,7 @@ ms.custom: mvc, cc996988-fb4f-47
 
 Learn how to create a function that is triggered when messages are submitted to an Azure Storage queue.
 
-![View message in the logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
-
 ## Prerequisites
-
-- Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
