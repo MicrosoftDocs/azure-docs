@@ -10,9 +10,21 @@
  ms.custom: include file
 ---
 
-While in preview, managed disks that have shared disks enabled are subject to the following limitations:
+While in preview, enabling shared disks is only available to a subset of disk types. Currently only ultra disks and premium SSDs can enable shared disks. Each managed disks that have shared disks enabled are subject to the following limitations, organized by disk type:
 
-- Currently only available with premium SSDs.
+### Ultra disks (preview)
+
+Ultra disks are currently in preview, and have their own separate list of limitations. For that list, refer to 
+
+- Currently only supported in West US.
+- Currently limited to ARM or SDK support.
+- Can only be enabled on data disks, not OS disks.
+- Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+- ReadOnly host caching is not available for premium SSDs with `maxShares>1`.
+- Azure Backup and Azure Site Recovery support is not yet available.
+
+### Premium SSDs
+
 - Currently only supported in the West Central US region.
 - All virtual machines sharing a disk must be deployed in the same [proximity placement groups](../articles/virtual-machines/windows/proximity-placement-groups.md).
 - Can only be enabled on data disks, not OS disks.
