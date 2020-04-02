@@ -18,7 +18,7 @@ Partial search can be problematic because the index itself does not typically st
 
 The solution is to store intact versions of these strings in the index, to specifically support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
-## Partial search in Azure Cognitive Search
+## What is partial search in Azure Cognitive Search
 
 In Azure Cognitive Search, partial search is available in these forms:
 
