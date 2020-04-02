@@ -16,7 +16,7 @@ Adding the Application Insights Java SDK to your application is no longer requir
 
 You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the autocollected telemetry.
 
-## Quick start
+## Quickstart
 
 **1. Download the agent**
 
@@ -26,7 +26,7 @@ Download [applicationinsights-agent-3.0.0-PREVIEW.jar](https://github.com/micros
 
 Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to your application's JVM args
 
-If you run into any trouble adding this to your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+For additional help with your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
 
 **3. Point the agent to your Application Insights resource**
 
@@ -103,9 +103,9 @@ Our goal in 3.0+ is to allow you to send your custom telemetry using standard AP
 
 We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the autocollected telemetry.
 
-For this reason, we are not planning to release an SDK with Application Insights 3.0 at this time.
+For this reason, we're not planning to release an SDK with Application Insights 3.0 at this time.
 
-Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until OpenTelemetry API is GA.
+Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until OpenTelemetry API is GA.
 
 ## Sending custom telemetry using Application Insights Java SDK 2.x
 
@@ -178,6 +178,6 @@ Or you can also use Application Insights Java SDK 2.x:
 
 ## Upgrading from Application Insights Java SDK 2.x
 
-If you are already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you are sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
+If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
 
-Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please reach out to the product team <a href="mailto:asw-node-java-pr@microsoft.com">asw-node-java-pr@microsoft.com</a>. We are still designing the replacement for this functionality in 3.0, and we want to make sure it will cover your use case(s).
+Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please contact the product team <a href="mailto:asw-node-java-pr@microsoft.com">asw-node-java-pr@microsoft.com</a>. We're still designing the replacement for this functionality in 3.0, and we want to make sure it will cover your use case(s).
