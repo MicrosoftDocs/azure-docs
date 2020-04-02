@@ -1,6 +1,6 @@
 ---
 title: Use transactions in Synapse SQL pool
-description: This article includes tips for implementing transactions and developing solutions in SQL pool.
+description: This article includes tips for implementing transactions and developing solutions in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
