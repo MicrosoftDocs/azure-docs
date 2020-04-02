@@ -1,7 +1,6 @@
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
-  items:
   items: 
   - name: Compliance                      # Original doc set name
     tocHref: /microsoft-365/compliance/                   # Destination doc set route
