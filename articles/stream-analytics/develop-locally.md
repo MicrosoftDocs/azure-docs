@@ -5,6 +5,7 @@ ms.author: mamccrea
 author: mamccrea
 ms.topic: conceptual
 ms.date: 03/31/2020
+ms.service: stream-analytics
 ---
 
 # Develop and debug Azure Stream Analytics jobs locally
@@ -28,4 +29,4 @@ The environments in the following table support local development:
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
 * [Test Stream Analytics queries locally with Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing)
+* [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md)
