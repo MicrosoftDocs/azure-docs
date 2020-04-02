@@ -68,7 +68,7 @@ For clusters running on Azure, you also can secure access to management endpoint
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
 
 * Use Azure Active Directory for client identity
-* A certificate for server identity and SSL encryption of http communication
+* A certificate for server identity and TLS encryption of http communication
 
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for node-to-node security is to use a Cluster certificate to authenticate nodes.
 
@@ -97,13 +97,13 @@ Some important things to consider:
 
 These certificates (one primary and optionally a secondary) are required to secure a cluster and prevent unauthorized access to it. These certificates provide cluster and server authentication.
 
-Cluster authentication authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster. Server authentication authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster and not a 'man in the middle'. This certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS. When a client or node authenticates a node, one of the initial checks is the value of the common name in the **Subject** field. Either this common name or one of the certificates' Subject Alternative Names (SANs) must be present in the list of allowed common names.
+Cluster authentication authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster. Server authentication authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster and not a 'man in the middle'. This certificate also provides a TLS for the HTTPS management API and for Service Fabric Explorer over HTTPS. When a client or node authenticates a node, one of the initial checks is the value of the common name in the **Subject** field. Either this common name or one of the certificates' Subject Alternative Names (SANs) must be present in the list of allowed common names.
 
 The certificate must meet the following requirements:
 
 * The certificate must contain a private key. These certificates typically have extensions .pfx or .pem  
 * The certificate must be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
-* The **certificate's subject name must match the domain that you use to access the Service Fabric cluster**. This matching is required to provide an SSL for the cluster's HTTPS management endpoint and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the *.cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+* The **certificate's subject name must match the domain that you use to access the Service Fabric cluster**. This matching is required to provide a TLS for the cluster's HTTPS management endpoint and Service Fabric Explorer. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the *.cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 Some other things to consider:
 
