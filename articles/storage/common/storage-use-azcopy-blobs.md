@@ -129,12 +129,9 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
-[!TIP]
+> [!TIP]
+> You can tweak your upload operation with optional flags. Here's a few examples.
 >
-> **Tweak your upload operation with optional flags**
->
-> Here's some example flags that you can use to tweak your upload operations.
-> 
 > |Flag|Scenario|
 > |---|---|
 > |`--block-blob-tier=[BlockBlob|PageBlob|AppendBlob]`|Upload to a specific access tier (such as the archive tier).|
