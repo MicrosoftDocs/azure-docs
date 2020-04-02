@@ -1,6 +1,6 @@
 ---
-title: Single User/Password Rotation Tutorial
-description: Use this tutorial for automating rotation of single user/password
+title: Single user/password rotation tutorial
+description: Use this tutorial to learn how to automate the rotation of a secret for resources with single user/password authentication.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -15,57 +15,55 @@ ms.author: mbaldwin
 ---
 # Automate the rotation of a secret for resources with single user/password authentication
 
-Although the best way to authenticate to Azure services is by using an [managed identity](managed-identity.md), there are some scenarios where this is not an option. In these cases, access keys or secrets are used. Access keys or secrets should be periodically rotated.
+The best way to authenticate to Azure services is by using a [managed identity](managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial demonstrates how to automate the periodic rotation of secrets for databases and services with single user/password authentication. Specifically, this scenario rotates SQL server passwords stored in key vault using a function triggered by Event Grid notification:
+This tutorial demonstrates how to automate the periodic rotation of secrets for databases and services with single user/password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
-![Rotation diagram](./media/rotate1.png)
+![Diagram of rotation solution](./media/rotate1.png)
 
-1. Thirty days before the expiration date of a secret, Key Vault publish the "near expiry" event to Event Grid.
-1. Event Grid checks the event subscriptions and, using http post, calls the Function App endpoint subscribed to this event.
-1. The function App receives the secret information, generates a new random password, and creates a new version for the secret with a new password in Key Vault.
-1. The function App updates SQL with new password.
+1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
+1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
+1. The function app receives the secret information, generates a new random password, and creates a new version for the secret with the new password in Key Vault.
+1. The function app updates SQL Server with the new password.
 
 > [!NOTE]
-> There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. 
-> In case of failure in any of the steps Event Grid retries for 2 hours.
+> There could be a lag between steps 3 and 4. During that time, the secret in Key Vault won't be able to authenticate to SQL Server. 
+> In case of a failure of any of the steps, Event Grid retries for two hours.
 
-## Setup
+## Create a key vault and SQL Server instance
 
-## Create a key vault and SQL server
+The first step is to create a key vault and a SQL Server instance and database and store the SQL Server admin password in Key Vault.
 
-Before we begin, we must create a Key Vault, create a SQL Server and database, and store the SQL Server admin password in Key Vault.
+This tutorial uses an existing Azure Resource Manager template to create components. You can find the code here: [Basic Secret Rotation Template Sample](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
 
-This tutorial uses a pre-created Azure Resource Manager template to create components. You can find entire code here: [Basic Secret Rotation Template Sample](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
-
-1. Click Azure template deployment link: 
+1. Select the Azure template deployment link: 
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. For "Resource Group", select "Create New" and give it the name "simplerotation".
-1. Select "Purchase".
+1. Under **Resource group**, select **Create new**. Name the group **simplerotation**.
+1. Select **Purchase**.
 
-    ![Create new resource group](./media/rotate2.png)
+    ![Create a resource group](./media/rotate2.png)
 
-After completing these steps, you will have a key vault, a SQL server, and a SQL database. You can verify this in an Azure CLI terminal by running:
+You will now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in Azure CLI by running this command:
 
 ```azurecli
 az resource list -o table
 ```
 
-The results will look something this:
+The result will look something the following output:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-simplerotation-kv             simplerotation             eastus      Microsoft.KeyVault/vaults
-simplerotation-sql            simplerotation             eastus      Microsoft.Sql/servers
-simplerotation-sql/master     simplerotation             eastus      Microsoft.Sql/servers/databases
+simplerotation-kv          simplerotation      eastus      Microsoft.KeyVault/vaults
+simplerotation-sql         simplerotation      eastus      Microsoft.Sql/servers
+simplerotation-sql/master  simplerotation      eastus      Microsoft.Sql/servers/databases
 ```
 
-## Create Function App
+## Create a function app
 
-Create a Function App with a system-managed identity, as well as the additional required components: 
+Create a function app with a system-managed identity, in addition to the other required components.
 
-Function app requires below components and configuration:
+The function app requires these components and configuration:
 - App Service Plan
 - Storage Account
 - Access policy to access secrets in Key Vault using Function App Managed Identity
