@@ -379,6 +379,7 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
+|prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
 |maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
 |autoComplete|true|Whether the trigger should immediately mark the message as complete (autocomplete) or wait for function to exit successfully to call complete.|
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
