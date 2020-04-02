@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/01/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -36,6 +36,14 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## March 2020
+
+### Unmanaged Azure Active Directory accounts in B2B update for March, 2021
+
+**Type:** Plan for change  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+**Beginning on March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure Active Directory (Azure AD) accounts and tenants for B2B collaboration scenarios. In preparation for this, we encourage you to opt in to [email one-time passcode authentication](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode).
 
 ### Users with the default access role will be in scope for provisioning
 

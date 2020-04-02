@@ -1996,6 +1996,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-java.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-node.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-python.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -2902,7 +2922,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/overview-more-machine-learning.md",
-      "redirect_url": "/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning",
       "redirect_document_id": false
     },
     {
@@ -2982,7 +3002,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/support-for-aml-services.md",
-      "redirect_url": "https://aka.ms/aml-forum-service",
+      "redirect_url": "https://social.msdn.microsoft.com/Forums/home?forum=AzureMachineLearningService",
       "redirect_document_id": false
     },
     {
@@ -3072,17 +3092,17 @@
     },
     {
       "source_path": "articles/machine-learning/studio/live-chat.md",
-      "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
+      "redirect_url": "https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/studio/datamarket-deprecation.md",
-      "redirect_url": "https://microsoft.com/cognitive",
+      "redirect_url": "https://azure.microsoft.com/services/cognitive-services/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/r-developers-guide.md",
-      "redirect_url": "/azure/architecture/data-guide/technology-choices/r-developers-guide",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/r-developers-guide",
       "redirect_document_id": false
     },
     {
@@ -5108,6 +5128,11 @@
     {
       "source_path": "articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/shared-device-mode.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-shared-devices",
       "redirect_document_id": true
     },
     {
@@ -15156,7 +15181,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-portal-experiments",
+      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
       "redirect_document_id": false
     },
     {
@@ -47325,6 +47350,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/compatible-software.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshooting.md",
       "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
       "redirect_document_id": false
@@ -50498,6 +50528,16 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-managed-instance"
+    },
+    {
+      "source_path": "articles/aks/integrate-azure.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
     }
   ]
 }

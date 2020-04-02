@@ -411,6 +411,8 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
 - Moving an encrypted VM to another subscription.
 - Kernel Crash Dump (kdump).
+- Oracle ACFS (ASM Cluster File System)
+- Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
 
 ## Next steps

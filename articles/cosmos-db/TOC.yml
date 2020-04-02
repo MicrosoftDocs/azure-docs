@@ -39,6 +39,8 @@
           href: sql-api-java-get-started.md
         - name: Async Java
           href: sql-api-async-java-get-started.md
+        - name: Async Java end-to-end sample app
+          href: create-sql-api-java-changefeed.md
         - name: Node.js
           href: sql-api-nodejs-get-started.md
       - name: Build a web app
@@ -729,7 +731,7 @@
       items:
       - name: Overview
         items:
-        - name: What is Germlin API in Cosmos DB?
+        - name: What is Gremlin API in Cosmos DB?
           href: graph-introduction.md
         - name: Wire protocol support
           href: gremlin-support.md
