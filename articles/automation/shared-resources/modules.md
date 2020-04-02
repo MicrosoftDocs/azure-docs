@@ -230,7 +230,7 @@ Include a synopsis, description, and help URI for every cmdlet in your module. I
 
 ### Connection type
 
-If the module connects to an external service, define a [connection type](#add-a-connection-type-to-your-module). Each cmdlet in the module should accept a connection object (an instance of that connection type) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called `ContosoConnection` to access Contoso resources and return data from the external service.
+If the module connects to an external service, define a [connection type](#adding-a-connection-type-to-your-module). Each cmdlet in the module should accept a connection object (an instance of that connection type) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called `ContosoConnection` to access Contoso resources and return data from the external service.
 
   In the following example, the fields are mapped to the `UserName` and `Password` properties of a `PSCredential` object and then passed to the cmdlet.
 
