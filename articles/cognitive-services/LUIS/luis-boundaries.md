@@ -1,16 +1,8 @@
 ---
 title: Limits - LUIS
-titleSuffix: Azure Cognitive Services
 description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several boundary areas. Model boundary controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/07/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 04/02/2020
 ---
 # Boundaries for your LUIS model and keys
 LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
@@ -71,26 +63,54 @@ Do not use the following characters in the following names.
 |Intent, entity, and role names|`:`<br>`$` <br> `&`|
 |Version name|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## Key usage
+## Resource usage and limits
 
-Language Understand has separate keys, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
 
 <a name="key-limits"></a>
 
-## Resource key limits
+### Authoring resource limits
 
-The resource keys have different limits for authoring and endpoint. The LUIS prediction query endpoint key is only valid for endpoint queries.
+Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal.
 
-* 500 applications per Azure authoring resource
+Authoring includes tasks associated with:
+* Application management
+    * Import
+    * Export
+    * Train
+    * Publish
+* Version management
+* Model management
 
-|Key|Authoring|Endpoint|Purpose|
-|--|--|--|--|
-|Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
-|F0 - Free tier |1 million/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|S0 - Basic tier|-|50/second|Querying your LUIS endpoint|
-|S0 - Standard tier|-|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Adding sentiment information including key phrase data extraction is provided without requiring another Azure resource. |
-|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 thousand endpoint requests per unit cost|Convert spoken utterance to text utterance and return LUIS results|
+LUIS limits 500 applications per Azure authoring resource.
+
+|Authoring resource|Authoring TPS|
+|--|--|
+|Starter|1 million/month, 5/second|
+|F0 - Free tier |1 million/month, 5/second|
+
+* TPS = Transaction per second
+
+[Learn more about pricing.][pricing]
+
+### Query prediction resource limits
+
+Use the _kind_, `LUIS`, when filtering resources in the Azure portal.
+
+The LUIS query prediction endpoint resource, used on the runtime, is only valid for endpoint queries.
+
+|Query Prediction resource|Query TPS|
+|--|--|
+|F0 - Free tier |10 thousand/month, 5/second|
+|S0 - Standard tier|50/second|
+
+### Sentiment analysis
+
+[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis), which provides sentiment information, is provided without requiring another Azure resource.
+
+### Speech integration
+
+[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md) provides 1 thousand endpoint requests per unit cost.
 
 [Learn more about pricing.][pricing]
 
