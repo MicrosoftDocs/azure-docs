@@ -46,7 +46,7 @@ You'll use the **EncryptFormatAll** option. For more information about this opti
 
 Although you can use this method when you're also encrypting the OS, we're just encrypting data drives here.
 
-The procedures assume that you already reviewed the prerequisites mentioned in [Azure Disk Encryption scenarios on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+The procedures assume that you already reviewed the prerequisites in [Azure Disk Encryption scenarios on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
 
 The Azure Disk Encryption dual-pass version is on a deprecation path and should no longer be used on new encryptions.
 
@@ -250,7 +250,7 @@ The extension will add the file systems to /var/lib/azure_disk_encryption_config
 
 This file will take care of activating these disks during the boot process so that LVM or RAID can use them later. 
 
-Don't worry about the mount points on this file. Azure Disk Encryption will lose the ability to get the disks mounted as a normal file system after we create a physical volume or a RAID device on top of those encrypted devices. (This will get rid of the file system format that we used during the preparation process.)
+Don't worry about the mount points on this file. Azure Disk Encryption will lose the ability to get the disks mounted as a normal file system after we create a physical volume or a RAID device on top of those encrypted devices. (This will remove the file system format that we used during the preparation process.)
 
 ### Remove the temporary folders and temporary fstab entries
 You unmount the file systems on the disks that will be used as part of LVM.
@@ -277,7 +277,7 @@ cat /etc/fstab
 ![Verification that temporary fstab entries are removed](./media/disk-encryption/lvm-raid-on-crypt/013-lvm-raid-verify-fstab-temp-removed.png)
 
 ## Steps for LVM-on-crypt
-Now that the underlying disks are encrypted, you can proceed to create the LVM structures.
+Now that the underlying disks are encrypted, you can create the LVM structures.
 
 Instead of using the device name, use the /dev/mapper paths for each of the disks to create a physical volume (on the crypt layer on top of the disk, not on the disk itself).
 
