@@ -19,7 +19,7 @@ Learn how to create a function that is triggered when messages are submitted to 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-storage-queue-triggered-function/function-app-create-success.png)
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-create-success.png" alt-text="Function app successfully created.." border="true":::
 
 Next, you create a function in the new function app.
 
