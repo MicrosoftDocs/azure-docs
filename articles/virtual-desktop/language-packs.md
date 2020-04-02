@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/02/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -116,9 +116,9 @@ If you see an error message during the sysprep process, here's what you should d
    Remove-AppxPackage <package name>
    ```
 
-3. Check to make sure you've removed the package by running the `Remove-AppxPackage` cmdlet again. If you've successfully removed it, you should see a message that says the package you're trying to remove isn't there.
+3. Check to make sure you've removed the package by running the `Remove-AppxPackage` cmdlet again. If you've successfully removed the package, you should see a message that says the package you're trying to remove isn't there.
 
-4.  After the language pack is removed, run the `sysprep.exe` cmdlet again.
+4. Run the `sysprep.exe` cmdlet again.
 
 ## Capture the image
 
@@ -126,11 +126,11 @@ Now that your system is ready, you can capture an image so that other users can 
 
 To capture an image:
 
-1. Go to the Azure portal and select the name of the machine you just ran sysprep on.
+1. Go to the Azure portal and select the name of the machine you configured in [Install a language pack](#install-a-language-pack) and [sysprep](#sysprep).
 
-2. Select **Capture** to start creating an image of the machine, as shown in the following screenshot.
+2. Select **Capture**.
 
-3. Enter a name for your image and assign it to the resource group of your choosing, as shown in the following image.
+3. Enter a name for your image into the **Name** field and assign it to the resource group using the **Resource group** drop-down menu, as shown in the following image.
 
    ![A screenshot of the Create image window. The name the user has given to this test image is "vmwvd-image-fr," and they've assigned it to the "testwvdimagerg" resource group.](media/create-image.png)
 
