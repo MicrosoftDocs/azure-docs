@@ -140,7 +140,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | Brazil South | 23.98.145.105 |
 | Canada Central | 168.61.212.201 |
 | Canada East | 168.61.212.201 |
-| Central India | 23.99.5.162 |
+| Central India | 23.99.5.162, 104.211.98.159 |
 | Central US | 168.61.212.201 |
 | Central US EUAP | 168.61.212.201 |
 | East Asia | 168.63.212.33 |
@@ -158,14 +158,14 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | South Africa North | 104.211.224.189 |
 | South Africa West | 104.211.224.189 |
 | South Central US | 23.98.145.105 |
-| South India | 23.99.5.162 |
+| South India | 23.99.5.162, 104.211.224.189 |
 | Southeast Asia | 168.63.173.234 |
 | UK South | 23.97.212.5 |
 | UK West | 23.97.212.5 |
 | West Central US | 168.61.212.201 |
 | West Europe | 23.97.212.5 |
-| West India | 23.99.5.162 |
-| West US | 23.99.5.162 |
+| West India | 23.99.5.162, 104.211.160.120 |
+| West US | 23.99.5.162, 104.210.32.14 |
 | West US 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### Azure Monitor configuration endpoint addresses
