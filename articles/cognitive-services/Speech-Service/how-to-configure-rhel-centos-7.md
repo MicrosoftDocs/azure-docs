@@ -1,5 +1,5 @@
 ---
-title: How to configure RHEL/CentOS 7
+title: How to configure RHEL/CentOS 7 - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure RHEL/CentOS 7 so that the Speech SDK can be used.
 services: cognitive-services
@@ -8,31 +8,31 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/02/2020
 ms.author: pankopon
 ---
 
 # Configure RHEL/CentOS 7 for Speech SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64 are officially supported from the Speech SDK version 1.10.0 onwards. It is also possible to use the Speech SDK on RHEL/CentOS 7 x64, but this requires updating the C++ compiler (for C++ development) and the shared C++ runtime library on the system.
+Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64 are officially supported by the Speech SDK version 1.10.0 and later. It is also possible to use the Speech SDK on RHEL/CentOS 7 x64, but this requires updating the C++ compiler (for C++ development) and the shared C++ runtime library on your system.
 
-To check the C++ compiler version, run a command:
+To check the C++ compiler version, run:
 
 ```bash
 g++ --version
 ```
 
-If the compiler is installed, the output on vanilla RHEL/CentOS 7 should be like:
+If the compiler is installed, the output should look like this:
 
-```
+```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-i.e. GCC major version 4. This does not have full support for the C\+\+11 standard that Speech SDK uses, and an attempt to compile a C++ program with Speech SDK headers will result in compilation errors.
+This message lets you know that GCC major version 4 is installed. This version doesn't have full support for the C++ 11 standard, which the Speech SDK uses. Trying to compile a C++ program with this GCC version and the Speech SDK headers will result in compilation errors.
 
-Another thing to check is the version of the shared C++ runtime library (libstdc++). Most of Speech SDK is implemented as native C++ libraries, thus it depends on libstdc++ regardless of the actual application development language.
+It's also important to check is the version of the shared C++ runtime library (libstdc++). Most of the Speech SDK is implemented as native C++ libraries, meaning it depends on libstdc++ regardless of the language you use to develop applications.
 
-To find the location of libstdc++ on the system, run a command:
+To find the location of libstdc++ on your system, run:
 
 ```bash
 ldconfig -p | grep libstdc++
@@ -44,13 +44,13 @@ The output on vanilla RHEL/CentOS 7 (x64) is:
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-Based on the above, check the version definitions with a command:
+Based on this message, you'll want to check the version definitions with this command:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 ```
 
-The output on vanilla RHEL/CentOS 7 (with only the highest version definitions shown):
+The output should be:
 
 ```
 ...
@@ -60,14 +60,14 @@ CXXABI_1.3.7
 ...
 ```
 
-The Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. (This can be seen e.g. by running `ldd libMicrosoft.CognitiveServices.Speech.core.so` on Speech SDK libraries from the Linux package.)
+The Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. You can find this information by running `ldd libMicrosoft.CognitiveServices.Speech.core.so` on  the Speech SDK libraries from the Linux package.
 
-[!TIP]
-It is recommended that the version of GCC installed on the system is at least **5.4.0**, with matching runtime libraries.
+> [!TIP]
+> It is recommended that the version of GCC installed on the system is at least **5.4.0**, with matching runtime libraries.
 
 ## Example
 
-To configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with the SpeechSDK 1.10.0 or later, consider the following example command set.
+This is a sample command that illustrates how to configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with the Speech SDK 1.10.0 or later:
 
 ```bash
 # Only run ONE of the following two commands
