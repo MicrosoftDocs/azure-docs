@@ -558,7 +558,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
 |Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
 |Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|[Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
 |OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
 |OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
 |OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
