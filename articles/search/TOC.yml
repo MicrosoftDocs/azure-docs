@@ -233,7 +233,7 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Special characters and partial terms
+    - name: Partial terms and special characters
       href: search-query-partial-matching.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
@@ -273,7 +273,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Add capacity
+    - name: Adjust capacity
       href: search-capacity-planning.md
     - name: Scale for performance
       href: search-performance-optimization.md
