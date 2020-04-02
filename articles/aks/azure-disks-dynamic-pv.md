@@ -31,7 +31,7 @@ A storage class is used to define how a unit of storage is dynamically created w
 Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks:
 
 * The *default* storage class provisions a standard Azure disk.
-    * Standard storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost-effective development and test workload.
+    * Standard storage is backed by HDDs and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost-effective dev and test workload.
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
