@@ -1,4 +1,4 @@
-- name: Azure Synapse Analytics (workspace preview) documentation
+- name: Azure Synapse Analytics (Workspaces)
   href:
 - name: Switch to Azure Synapse (SQL DW)
   href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
