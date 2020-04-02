@@ -72,6 +72,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
 |[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround|Mar 2020|
@@ -95,6 +96,12 @@ The following features are enabled in Managed instance deployment model in H1 20
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in managed instance||Resolved|Aug 2019|
+
+### Permissions on resource group not applied to managed instance
+
+Managed Instance Contributor RBAC role when applied to a resource group (RG) is not applied to Managed Instance and has no effect.
+
+**Workaround**: Setup Managed Instance Contributor role for users at the subscription level.
 
 ### Limitation of manual failover via portal for failover groups
 

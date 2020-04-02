@@ -2,12 +2,12 @@
 title: 'ExpressRoute: Route filters- Microsoft peering:Azure PowerShell'
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 services: expressroute
-author: ganesr
+author: charwen
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
 
 ---
