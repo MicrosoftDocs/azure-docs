@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.service: azure-government
 ms.workload: Azure-government
-ms.date: 3/17/2020
+ms.date: 4/2/2020
 ms.author: beellis
 
 ---
 # Considerations for Naming Azure Resources
 Customers should not include sensitive or restricted information in Azure Resource Names because they may be stored or accessed outside the compliance boundary to facilitate support and troubleshooting.
 Azure Resource Names include information provided by you, or on your behalf, that is used to identify or configure Online Service resources, such as software, systems, or containers, but does **not** include customer-created content or metadata inside the resource (for example, database column/table names).  Azure Resource Names include the names a customer assigns to ARM-level objects and resources deployed in Azure.  Examples include the names of resources such as:
-*    vNETs (Virtual Networks)
+*    VNets (Virtual Networks)
 *    Virtual Hard Disks (VHDs)
 *    Database Servers & Databases
 *    Virtual Network Interface
