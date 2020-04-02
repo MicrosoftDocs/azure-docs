@@ -1,11 +1,11 @@
 ---
 title: Manage and monitor workload importance
 description: Learn how to manage and monitor request level importance in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
-ms.subservice: workload-management
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Manage and monitor workload importance in Azure Synapse Analytics
 
-Manage and monitor SQL Analytics request level importance in Azure Synapse using DMVs and catalog views.
+Manage and monitor Synapse SQL request level importance in Azure Synapse using DMVs and catalog views.
 
 ## Monitor importance
 

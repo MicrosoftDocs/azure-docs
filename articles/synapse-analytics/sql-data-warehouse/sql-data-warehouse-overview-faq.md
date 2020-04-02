@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions 
 description: This article lists out frequently asked questions about Azure Synapse Analytics (formerly SQL DW) from customers and developers
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -24,9 +24,9 @@ Q. What happened to Azure SQL Data Warehouse?
 
 A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse and automatically benefit from the new capabilities, which are in preview. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. What is SQL Analytics?
+Q. What is Synapse SQL pool?
 
-A. SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Synapse SQL pool refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. How do I get started with Azure Synapse?
 
@@ -43,9 +43,9 @@ First, choose by Compliance title. Then expand Azure in the Microsoft in-scope c
 
 Q. Can I connect Power BI?
 
-A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+A. Yes! Though Power BI supports direct query with Azure Synapse, it's not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
-Q. What are SQL Analytics capacity limits?
+Q. What are Synapse SQL pool capacity limits?
 
 A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.md) page. 
 
@@ -79,17 +79,16 @@ A. Many features are supported. Features that aren't supported can be found in [
 
 ## Tooling and administration
 
-Q. Does SQL Analytics support REST APIs?
+Q. Does Synapse SQL pool support REST APIs?
 
-A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Analytics. You can find API information within REST documentation pages or
+A. Yes. Most REST functionality that can be used with SQL Database is also available with Synapse SQL pool. You can find API information within REST documentation pages or
 [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
 
 ## Loading
 
 Q. What client drivers do you support?
 
-A. Driver support for SQL Analytics can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
+A. Driver support for Synapse SQL pool can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
 
 Q: What file formats are supported by PolyBase?
 
@@ -105,7 +104,8 @@ A: No, PolyBase only interacts with the storage components.
 
 Q: Can I connect to HDI?
 
-A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a SQL Analytics data warehouse. However, you cannot generate pushdown computation to the HDI instance. 
+A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a Synapse SQL pool. However, you cannot generate pushdown computation to the HDI instance. 
 
 ## Next steps
+
 For more information on Azure Synapse as a whole, see our [Overview](sql-data-warehouse-overview-faq.md) page.

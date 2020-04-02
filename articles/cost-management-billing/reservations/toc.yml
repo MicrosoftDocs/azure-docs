@@ -6,6 +6,7 @@
   - name: What are Azure Reservations?
     href: save-compute-costs-reservations.md
 - name: How-to guides
+  expanded: true
   items:
   - name: Determine what to purchase
     items:
@@ -13,10 +14,8 @@
       href: determine-reservation-purchase.md
   - name: Buy reservations
     items:
-    - name: Prepare to buy an Azure reservation
+    - name: Buy an Azure reservation
       href: prepare-buy-reservation.md
-    - name: Buy a reservation with monthly payments
-      href: monthly-payments-reservations.md
     - name: App Service
       href: prepay-app-service-isolated-stamp.md
     - name: Azure Cache for Redis reservation
@@ -41,14 +40,14 @@
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Manage reservations after purchase
+  - name: View, Manage and Optimize after purchase
     items:
+    - name: View reservations and utilization
+      href: view-reservations.md
     - name: Manage reservations
       href: manage-reserved-vm-instance.md
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-    - name: View reservations
-      href: view-reservations.md
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
   - name: Renew reservations
@@ -56,6 +55,7 @@
     - name: Renew a reservation
       href: reservation-renew.md
 - name: Concepts
+  expanded: true
   items:
   - name: How reservation recommendations are created
     href: reserved-instance-purchase-recommendations.md

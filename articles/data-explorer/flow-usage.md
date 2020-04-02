@@ -19,8 +19,6 @@ For more information, see [Microsoft Flow connector (Preview)](flow.md).
 * [Push data to Power BI dataset](#push-data-to-power-bi-dataset)
 * [Conditional queries](#conditional-queries)
 * [Email multiple Azure Data Explorer Flow charts](#email-multiple-azure-data-explorer-flow-charts)
-* [Send a different email to different contacts](#send-a-different-email-to-different-contacts)
-* [Create a custom HTML table](#create-a-custom-html-table)
 
 ## Microsoft Flow connector and SQL
 
@@ -96,93 +94,31 @@ Visualize this information as a pie chart and email it to the team.
 
 ## Email multiple Azure Data Explorer Flow charts
 
-1. Create a new Flow with "Recurrence" trigger, and define the interval of the Flow and the frequency. 
+1. Create a new Flow with the recurrence trigger, and define the interval of the Flow and the frequency. 
 1. Add a new step, with one or more Kusto - Run query and visualize results actions. 
 
     ![Run several queries in a flow](./media/flow-usage/flow-severalqueries.png)
 1. For each Kusto - Run query and visualize result, define the following fields:
-    * Cluster URL (in the *Cluster Name* field)
+    * Cluster URL
     * Database Name
-    * Query and Chart Type (HTML Table/ Pie Chart/ Time Chart/ Bar Chart/ Enter Custom Value).
+    * Query and Chart Type (HTML table, pie chart, time chart, bar chart, or enter a custom value).
 
     ![Visualize results with multiple attachments](./media/flow-usage/flow-visualizeresultsmultipleattachments.png)
 
-    > [!IMPORTANT]
-    > In the *Cluster Name* fields, enter the cluster URL.
-
-1. Add a Send an email action. 
-    * In the *Body* field, insert the required body so that the visualized result of the query is included in the body of the email.
-    * To add an attachment to the email, add Attachment Name and Attachment Content.
+1. Add a Send an email (v2) action: 
+    1. In the body section, select the code view icon.
+    1. In the **Body** field, insert the required BodyHtml so that the visualized result of the query is included in the body of the email.
+    1. To add an attachment to the email, add Attachment Name and Attachment Content.
     
-    ![Email multiple attachments](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![Email multiple attachments](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    For full instructions about creating an email action, see [Email Kusto query results](flow.md#email-kusto-query-results). 
 
 Results:
 
 [![](./media/flow-usage/flow-resultsmultipleattachments.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
 
 [![](./media/flow-usage/flow-resultsmultipleattachments2.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
-
-## Send a different email to different contacts
-
-You can leverage Microsoft Flow to send different customized emails to different contacts. The email addresses and the email contents are a result of a Kusto query.
-
-Example:
-
-![Dynamic email using a Kusto query](./media/flow-usage/flow-dynamicemailkusto.png)
-
-> [!IMPORTANT]
-> In the *Cluster Name* field, enter the cluster URL.
-
-![Dynamic email in the flow action](./media/flow-usage/flow-dynamicemail.png)
-
-## Create a custom HTML table
-
-You can leverage Microsoft Flow to create and use custom HTML elements, such as a custom HTML table.
-
-The following example demonstrates how to create a custom HTML table. The HTML table will have its rows colored by log level (the same as in Azure Data Explorer).
-
-Follow these instructions to create a similar Flow:
-
-1. Create a new Kusto - Run query and list results action.
-
-    ![List results for an HTML table](./media/flow-usage/flow-listresultforhtmltable.png)
-
-> [!IMPORTANT]
-> In the *Cluster Name* field, enter the cluster URL.
-
-1. Loop over the query results and create the HTML table body: 
-    1. To create a variable to hold the HTML string, select **New step**
-    1. Select **Add an action** and search for Variables. 
-    1. Select **Variables - Initialize variable**. 
-    1. Initialize a string variable as follows:
-
-    ![Initialize a variable](./media/flow-usage/flow-initializevariable.png)
-
-1. Loop over the results:
-    1. Select **New step**.
-    1. Select **Add an action**.
-    1. Search for Variables. 
-    1. Select **Variables - Append to string variable**. 
-    1. Select the variable name that you initialized before, and create the HTML table rows using the query results. 
-    When selecting the query results, Apply to each is automatically added.
-
-    In the example below, the `if` expression is used to define the style of each row:
-
-    ```if(equals(items('Apply_to_each')?['Level'], 'Warning'), 'Yellow', if(equals(items('Apply_to_each')?['Level'], 'Error'), 'red', 'white'))```
-
-    [![](./media/flow-usage/flow-createhtmltableloopcontent.png "Create HTML table loop content")](./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
-
-1. Create the full HTML content: 
-    1. Add a new action outside Apply to each. 
-    In the following example the action used is Send an email.
-    1. Define your HTML table using the variable from the previous steps. 
-    1. If you're sending an email, select **Show advanced options** and, under Is HTML, select **Yes**.
-
-    ![Custom HTML table email](./media/flow-usage/flow-customhtmltablemail.png)
-
-Result:
-
-![Custom HTML table email result](./media/flow-usage/flow-customhtmltableresult.png)
 
 ## Next steps
 

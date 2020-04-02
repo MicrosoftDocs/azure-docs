@@ -413,7 +413,8 @@ no related resources or if the resources defined by **ExistenceCondition** don't
 The duration of the deployment depends on the complexity of resources included in the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
-are marked as non-compliant, but no action is taken on that resource.
+are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
+resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
 
 ### DeployIfNotExists properties
 
@@ -532,16 +533,17 @@ not, then a deployment to enable is executed.
 This effect is used with a policy definition *mode* of `Microsoft.Kubernetes.Data`. It's used to
 pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
+to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to self-managed Kubernetes clusters
+on Azure.
 
 > [!NOTE]
-> [Azure Policy for Kubernetes](aks-engine.md) is in Preview and only supports built-in policy
-> definitions.
+> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports built-in
+> policy definitions.
 
 ### EnforceOPAConstraint evaluation
 
 The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### EnforceOPAConstraint properties
 
@@ -562,8 +564,8 @@ Gatekeeper v3 admission control rule.
 
 ### EnforceOPAConstraint example
 
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
-Kubernetes.
+Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
+Engine.
 
 ```json
 "if": {
@@ -602,11 +604,9 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!IMPORTANT]
-> [Azure Policy for Kubernetes](rego-for-aks.md) is in Preview and only supports built-in policy
-> definitions. Built-in policies are in the **Kubernetes** category. The **EnforceRegoPolicy**
-> effect and related **Kubernetes Service** category policies are being _deprecated_. Instead, use
-> the updated [EnforceOPAConstraint](#enforceopaconstraint) effect.
+> [!NOTE]
+> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports built-in policy
+> definitions
 
 ### EnforceRegoPolicy evaluation
 
