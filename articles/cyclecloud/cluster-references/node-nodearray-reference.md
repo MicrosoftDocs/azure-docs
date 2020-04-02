@@ -174,7 +174,8 @@ All of the attributes for a node are valid for a nodearray, but a node array is 
 Attribute | String | Definition
 ------ | ----- | ----------
 Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
-Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes, and put all VMs in a single placement group in the VMSS
+Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes, and put all VMs in a single placement group in the VMSS.
+Azure.Overprovision | Boolean | Use the Overprovision feature of VMSS. Cyclecloud will dynamically set depending on the scenario. This is an override.
 Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. Default: `40`.
 InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
