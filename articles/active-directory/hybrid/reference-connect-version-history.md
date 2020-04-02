@@ -159,11 +159,11 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 >[!IMPORTANT]
 >There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the O365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
 >
-> To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` powershell cmdlet on the Azure AD Connect server.  You can use the following steps:
+> To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
 >
->1.	Open Powershell in administator mode
->2.	Run `Import-Module "ADSync"`
->3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>1.	Open PowerShell in administator mode.
+>2.	Run `Import-Module "ADSync"`.
+>3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
 ### Release status 
 
@@ -171,7 +171,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### Fixed issues 
 
-- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two powershell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
+- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two PowerShell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## 1.3.20.0 
 
@@ -276,8 +276,8 @@ This hotfix build fixes a regression in the previous build where Password Writeb
 
 
 - Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  Under certain scenarios, Azure AD was overwriting the msExchUcVoicemailSettings attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
-- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through Powershell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
-- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through Powershell using the Start-ConnectivityValidation function in the ADConnectivityTools Powershell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through PowerShell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through PowerShell using the Start-ConnectivityValidation function in the ADConnectivityTools PowerShell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
 - Added an AD schema version pre-check for Hybrid Azure Active Directory Join and device write-back 
 - Changed the Directory Extension page attribute search to be non-case sensitive.
 -	Added full support for TLS 1.2. This release supports all other protocols being disabled and only TLS 1.2 being enabled on the machine where Azure AD Connect is installed.  For more information see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
@@ -673,7 +673,7 @@ Status: September 05 2017
 
 ### AD FS Management
 #### Fixed issues
-* The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep powershell module was incorrectly applying ACLs to the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
+* The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep PowerShell module was incorrectly applying ACLs to the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
 
 #### New features and improvements
 * The AAD Connect Verify ADFS Login task was updated so that it verifies logins against Microsoft Online and not just token retrieval from ADFS.
