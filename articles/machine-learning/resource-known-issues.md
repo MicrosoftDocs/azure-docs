@@ -43,16 +43,6 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **Error message: No matching distribution found for azureml-dataprep-native**
-
-    Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-    
-    This can be worked around by creating a new Conda Environment using this command:
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
-
 * **Databricks failure when installing packages**
 
     Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
@@ -84,10 +74,9 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 * **Databricks FailToSendFeather**: If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
+    * Upgrade `azureml-sdk[automl]` package to the latest version.
+    * Add `azureml-dataprep` version 1.1.8 or above.
+    * Add `pyarrow` version 0.11 or above.
 
 ## Create and manage workspaces
 
@@ -108,9 +97,7 @@ If you receive an error `Unable to upload project files to working directory in 
 
 If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
 
-### Datasets and Data Preparation
-
-These are known issues for Azure Machine Learning Datasets.
+### Passing data as input
 
 *  **TypeError: FileNotFound: No such file or directory**: This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
     
@@ -123,8 +110,7 @@ These are known issues for Azure Machine Learning Datasets.
 
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
-### Data labeling projects issues
-
+### Data labeling projects
 
 |Issue  |Resolution  |
 |---------|---------|
@@ -133,9 +119,9 @@ These are known issues for Azure Machine Learning Datasets.
 |When reviewing images, newly labeled images are not shown     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
-## Azure Machine Learning designer issues
+## Azure Machine Learning designer
 
-Known issues with the designer.
+Known issues:
 
 * **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
 
@@ -201,7 +187,7 @@ Take these actions for the following errors:
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
-You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when reattaching the cluster. 
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -222,7 +208,7 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-If you no longer have the SSL certificate and private key, or you are using a certificate generated by Azure Machine Learning, you can retrieve the files prior to detaching the cluster by connecting to the cluster using `kubectl` and retrieving the secret `azuremlfessl`.
+If you no longer have the TLS/SSL certificate and private key, or you are using a certificate generated by Azure Machine Learning, you can retrieve the files prior to detaching the cluster by connecting to the cluster using `kubectl` and retrieving the secret `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
