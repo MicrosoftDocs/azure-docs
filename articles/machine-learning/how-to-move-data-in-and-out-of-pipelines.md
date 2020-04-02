@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
+# As a data scientist using Python, I want to get data into my pipeline and flowing between steps
 ---
 
 # Moving data into and between ML pipeline steps (Python)
@@ -21,7 +22,6 @@ This article will show you how to:
 
 - Use `Dataset` objects for pre-existing data
 - Access data within your steps
-- Move between `Dataset` representations and Pandas and Apache Spark representations
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create a `PipelineData` object to transfer data to the next pipeline step
 - Use `PipelineData` objects as input to pipeline steps
