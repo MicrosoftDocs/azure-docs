@@ -34,7 +34,7 @@ If you find it is taking too long to update all of your statistics, you may want
 > [!TIP]
 > You will gain the most benefit by having updated statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CREATE STATISTICS](sql-data-warehouse-tables-statistics.md), and [UPDATE STATISTICS](sql-data-warehouse-tables-statistics.md#updating-statistics).
+See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CREATE STATISTICS](sql-data-warehouse-tables-statistics.md), and [UPDATE STATISTICS](sql-data-warehouse-tables-statistics.md#update-statistics).
 
 ## Hash distribute large tables
 By default, tables are Round Robin distributed.  This design makes it easy for users to get started creating tables without having to decide how their tables should be distributed.  
