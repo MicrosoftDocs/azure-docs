@@ -204,6 +204,6 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
 - With monitoring enabled to collect health and resource utilization of your RedHat OpenShift version 4.3 cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
 
-- By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](../azure-monitor/insights/container-insights-agent-config.md) to configure desired data collection settings using ConfigMap. 
+- By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](../azure-monitor/insights/container-insights-agent-config.md) to configure desired data collection settings to your  ConfigMap configurations file. 
 
 - To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](container-insights-optout-openshift.md).
