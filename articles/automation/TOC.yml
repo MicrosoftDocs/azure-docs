@@ -15,26 +15,26 @@
     - name: Manage Automation Run As account
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: Configure authentication with AWS
-      href: automation-config-aws-account.md
+    - name: Manage role-based access control
+      href: automation-role-based-access-control.md
+      displayName: RBAC
     - name: Use Azure AD in Azure Automation to authenticate to Azure
       href: automation-use-azure-ad.md
     - name: Manage Office 365 services using Azure Automation
       href: manage-office-365.md
+    - name: Configure authentication with AWS
+      href: automation-config-aws-account.md
     - name: Encrypt secure assets in Azure Automation
       href: automation-secure-asset-encryption.md
-    - name: Manage role-based access control
-      href: automation-role-based-access-control.md
-      displayName: RBAC
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
     - name: Automate onboarding of Automation Services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Supported Regions for Log Analytics Workspace Mappings
-      href: how-to/region-mappings.md
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
+    - name: Supported Regions for Log Analytics Workspace Mappings
+      href: how-to/region-mappings.md
     - name: Troubleshoot
       items:  
         - name: Automation account troubleshooting

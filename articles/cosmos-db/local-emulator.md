@@ -94,7 +94,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > [!NOTE]
 > If you have started the emulator with the /Key option, then use the generated key instead of `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. For more information about /Key option, see [Command-line tool reference.](#command-line)
 
-As with the Azure Cosmos DB, the Azure Cosmos Emulator supports only secure communication via SSL.
+As with the Azure Cosmos DB, the Azure Cosmos Emulator supports only secure communication via TLS.
 
 ## Running on a local network
 
@@ -210,17 +210,17 @@ Start emulator from an administrator command prompt with "/EnableGremlinEndpoint
   :> g.V()
   ```
 
-## Export the SSL certificate
+## Export the TLS/SSL certificate
 
 .NET languages and runtime use the Windows Certificate Store to securely connect to the Azure Cosmos DB local emulator. Other languages have their own method of managing and using certificates. Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
 
 In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store, you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in [Export the Azure Cosmos Emulator Certificates](./local-emulator-export-ssl-certificates.md). Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
-![Azure Cosmos DB local emulator SSL certificate](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+![Azure Cosmos DB local emulator TLS/SSL certificate](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
 The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Once the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
-When connecting to the emulator from Python and Node.js SDKs, SSL verification is disabled.
+When connecting to the emulator from Python and Node.js SDKs, TLS verification is disabled.
 
 ## <a id="command-line"></a>Command-line tool reference
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
@@ -255,8 +255,8 @@ To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at th
 | StopTraces     | Stop collecting debug trace logs using LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  Start collecting debug trace logs using Windows Performance Recording tool. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | Stop collecting debug trace logs using Windows Performance Recording tool. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
-|FailOnSslCertificateNameMismatch | By default the Emulator regenerates its self-signed SSL certificate, if the certificate's SAN does not include the Emulator host's domain name, local IPv4 address, 'localhost', and '127.0.0.1'. With this option, the emulator will fail at startup instead. You should then use the /GenCert option to create and install a new self-signed SSL certificate. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Generate and install a new self-signed SSL certificate. optionally including a comma-separated list of additional DNS names for accessing the Emulator over the network. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: Optional comma-separated list of additional dns names  |
+|FailOnSslCertificateNameMismatch | By default the Emulator regenerates its self-signed TLS/SSL certificate, if the certificate's SAN does not include the Emulator host's domain name, local IPv4 address, 'localhost', and '127.0.0.1'. With this option, the emulator will fail at startup instead. You should then use the /GenCert option to create and install a new self-signed TLS/SSL certificate. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | Generate and install a new self-signed TLS/SSL certificate. optionally including a comma-separated list of additional DNS names for accessing the Emulator over the network. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: Optional comma-separated list of additional dns names  |
 | DirectPorts |Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Comma-delimited list of 4 ports |
 | Key |Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<key\>: Key must be the base-64 encoding of a 64-byte vector|
 | EnableRateLimiting | Specifies that request rate limiting behavior is enabled. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
@@ -393,7 +393,7 @@ powershell .\importcert.ps1
 Starting interactive shell
 ```
 
-Now use the endpoint and master key-in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
+Now use the endpoint and master key-in from the response in your client and import the TLS/SSL certificate into your host. To import the TLS/SSL certificate, do the following from an admin command prompt:
 
 From the command-line:
 
@@ -522,7 +522,7 @@ To collect debugging traces, run the following commands from an administrative c
 
 ## Next steps
 
-In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to export emulator SSL certificates.
+In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to export emulator TLS/SSL certificates.
 
 > [!div class="nextstepaction"]
 > [Export the Azure Cosmos Emulator certificates](local-emulator-export-ssl-certificates.md)
