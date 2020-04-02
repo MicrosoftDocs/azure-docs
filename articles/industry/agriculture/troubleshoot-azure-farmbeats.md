@@ -143,7 +143,7 @@ While you're deleting a device, you might encounter one of the following common 
 
 ### FarmBeats internal error
 
-**Message**: "FarmBeats internal error, see troubleshooting guide for more details".
+**Message**: "FarmBeats internal error, see troubleshooting guide for more details."
 
 **Corrective action**
 This issue might result from a temporary failure in the data pipeline. Create the job again. If the error persists, contact us with the error message/logs.
@@ -154,14 +154,14 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 **Issue**: You receive an error while you're adding a role assignment.
 
-**Message**: "No matching users found".
+**Message**: "No matching users found."
 
 **Corrective action**
 Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID, which is registered for that user in the Active Directory. If the error persists, contact us with the error message/logs.
 
 ### Unable to log in to Accelerator
 
-**Message**: "Error: You are not authorized to call the service. Contact the administrator for authorization".
+**Message**: "Error: You are not authorized to call the service. Contact the administrator for authorization."
 
 **Corrective action**
 Ask the administrator to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
@@ -191,7 +191,7 @@ This error occurs because of service worker persistence in the browser. Do the f
 
 ### Wrong username or password
 
-**Job failure message**: "Full authentication is required to access this resource".
+**Job failure message**: "Full authentication is required to access this resource."
 
 **Corrective action**: Do one of the following:
 
@@ -222,7 +222,7 @@ This error occurs because of service worker persistence in the browser. Do the f
 
 ### Sentinel hub: Wrong URL or site not accessible
 
-**Job failure message**: "Oops, something went wrong. The page you were trying to access is (temporarily) unavailable".
+**Job failure message**: "Oops, something went wrong. The page you were trying to access is (temporarily) unavailable."
 
 **Corrective action**:
 
