@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW)
 
-This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
+This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
 
 ## Reduce cost with pause and scale
 
