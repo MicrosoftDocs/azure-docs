@@ -1,6 +1,6 @@
 ---
 title: Develop on Azure Kubernetes Service (AKS) with Draft
-description: Use Draft with AKS and Azure Container Registry
+description: Use Draft with AKS and Azure Container Registry to package and run application containers in a cluster.
 services: container-service
 author: zr-msft
 ms.topic: article
