@@ -85,7 +85,7 @@ We retired all three screens shown in the preceding steps. Your data remains ava
 
 ### Classic Identity & Access (Preview) - the new experience
 
-The Log Analytics dashboard has shown insights on a single workspace. However, native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them. You can access an easy-to use view that lets you focus on what’s important with recommendations ranked according to their Secure Score.
+The Log Analytics dashboard has shown insights on a single workspace. However, native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them. You can access an easy-to use view that lets you focus on what's important with recommendations ranked according to their Secure Score.
 
 All the features of the **Identity & Access** dashboard in Log Analytics can be reached by selecting **Identity & access (Preview)** within Security Center.
 
@@ -144,7 +144,7 @@ Your existing data remains available in the Log Analytics security solution and 
 
 ### Investigation - the new experience
 
-We encourage you to transition to [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for a rich investigation experience. Azure Sentinel provides powerful search and query tools to hunt for security threats across your organization’s data sources.
+We encourage you to transition to [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for a rich investigation experience. Azure Sentinel provides powerful search and query tools to hunt for security threats across your organization's data sources.
 
 ## Subset of security solutions<a name="menu_solutions"></a>
 
