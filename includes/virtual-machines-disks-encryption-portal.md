@@ -36,7 +36,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
     ![Screenshot of the Key Vault resource settings pane. Shows the generate/import button inside settings.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2080**.
+1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
 
     ![Screenshot of the create a key blade that appears once generate/import button is selected](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)

@@ -1,6 +1,6 @@
 ---
 title: T-SQL language elements
-description: Links to the documentation for T-SQL statements supported in SQL Analytics.
+description: Links to the documentation for T-SQL statements supported in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,10 +13,12 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# T-SQL language elements supported in SQL Analytics
-Links to the documentation for T-SQL language elements supported in SQL Analytics.
+# T-SQL language elements supported in Synapse SQL pool
+
+Links to the documentation for T-SQL language elements supported in Synapse SQL pool.
 
 ## Core elements
+
 * [syntax conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [object naming rules](https://msdn.microsoft.com/library/ms175874.aspx)
 * [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
@@ -32,6 +34,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [USE](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## Batches, control-of-flow, and variables
+
 * [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 * [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
 * [DECLARE @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
@@ -43,6 +46,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## Operators
+
 * [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (String Concatenation)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Negative)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -52,6 +56,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## Wildcard character(s) to match
+
 * [= (Equals)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Greater than)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Less than)](https://msdn.microsoft.com/library/ms179873.aspx)
@@ -69,6 +74,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### Bitwise operators
+
 * [& (Bitwise AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitwise OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Bitwise exclusive OR)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -78,6 +84,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [&= (Bitwise AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## Functions
+
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -222,12 +229,15 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## Transactions
+
 * [transactions](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## Diagnostic sessions
+
 * [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## Procedures
+
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -251,6 +261,7 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## SET statements
+
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -273,5 +284,6 @@ Links to the documentation for T-SQL language elements supported in SQL Analytic
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL statements in SQL Analytics](sql-data-warehouse-reference-tsql-statements.md), and [System views in SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](sql-data-warehouse-reference-tsql-system-views.md).
 
