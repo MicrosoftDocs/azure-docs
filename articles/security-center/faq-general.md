@@ -21,7 +21,7 @@ ms.author: memildin
 ## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center uses the Microsoft Monitoring Agent to collect and store data. For in-depth details, see [Data collection in Azure Security Center](security-center-enable-data-collection.md).
+Security Center uses the Log Analytics agent to collect and store data. For in-depth details, see [Data collection in Azure Security Center](security-center-enable-data-collection.md).
 
 
 ## How do I get Azure Security Center?
@@ -34,16 +34,17 @@ Azure Security Center monitors the following Azure resources:
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Virtual machine scale sets
 * Azure Virtual Networks
+* Containers
 * Azure SQL service
 * Azure Storage account
 * Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
 
-In addition, non-Azure (including on-premises) computers can also be monitored by Azure Security Center (Both [Windows computers](./quick-onboard-windows-computer.md) and [Linux computers](./quick-onboard-linux-computer.md) are supported)
+In addition, non-Azure (including on-premises) machines can also be monitored by Azure Security Center. Both [Windows machines](./quick-onboard-windows-computer.md) and [Linux machines](./quick-onboard-linux-computer.md) are supported.
 
 
 ## How can I see the current security state of my Azure resources?
-The **Security Center Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing if any potential security vulnerabilities have been identified. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
+The **Security Center Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
 
 
 

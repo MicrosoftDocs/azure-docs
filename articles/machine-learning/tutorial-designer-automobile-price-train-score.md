@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
+ms.date: 03/12/2020
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
@@ -99,7 +99,7 @@ You can visualize the data to understand the dataset that you'll use.
 
 1. Select the **Automobile price data (Raw)** module.
 
-1. In the module details pane to the right of the canvas, select **Outputs**.
+1. In the module details pane to the right of the canvas, select **Outputs + log**.
 
 1. Select the graph icon to visualize the data.
 
@@ -164,6 +164,12 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
 1. Select the **Clean Missing Data** module.
 
+1. In the module details pane to the right of the canvas, select **Edit Column**.
+
+1. In the **Columns to be cleaned** window that appears, expand the drop-down menu next to **Include**. Select, **All columns**
+
+1. Select **Save**
+
 1. In the module details pane to the right of the canvas, select **Remove entire row** under **Cleaning mode**.
 
 1. In the module details pane to the right of the canvas, select the **Comment** box, and enter *Remove missing value rows*. 
@@ -209,9 +215,11 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
 
-1. Find and drag the **Train Model** module to the pipeline canvas. 
-
 1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
+
+1. In the module palette, expand the section **Module training**, and drag the **Train Model** module to the canvas.
+
+1. Select the **Train Model** module, and drag it to the pipeline canvas.
 
 1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
     
@@ -220,8 +228,6 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
     ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. In the module palette, expand the section **Module training**, and drag the **Train Model** module to the canvas.
-
 1. Select the **Train Model** module.
 
 1. In the module details pane to the right of the canvas, select **Edit column** selector.
@@ -229,6 +235,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**. 
 
 1. In the text box, enter *price* to specify the value that your model is going to predict.
+
+    >[!IMPORTANT]
+    > Make sure you enter the column name exactly. Do not capitalize **price**. 
 
     Your pipeline should look like this:
 
@@ -254,22 +263,24 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
     ![Screenshot showing the correct configuration of the pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## Run the pipeline
+## Submit the pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline run.
+Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a valid pipeline run at any point, which can be used to review changes to your pipeline during development.
 
-1. At the top of the canvas, select **Run**.
+1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog box, select **+ New experiment** for the **Experiment**.
+1. In the **Set up pipeline run** dialog box, select **Create new**.
 
     > [!NOTE]
     > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
 
-    1. Enter a descriptive name for **Experiment Name**.
+    1. Enter a descriptive name for **New experiment Name**.
 
-    1. Select **Run**.
+    1. Select **Submit**.
     
     You can view run status and details at the top right of the canvas.
+    
+    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
 
 ### View scored labels
 
@@ -277,7 +288,7 @@ After the run completes, you can view the results of the pipeline run. First, lo
 
 1. Select the **Score Model** module to view its output.
 
-1. In the module details pane to the right of the canvas, select **Outputs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
+1. In the module details pane to the right of the canvas, select **Outputs + logs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
@@ -289,7 +300,7 @@ Use the **Evaluate Model** to see how well the trained model performed on the te
 
 1. Select the **Evaluate Model** module to view its output.
 
-1. In the module details pane to the right of the canvas, select **Output** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
+1. In the module details pane to the right of the canvas, select **Outputs + logs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
 
 The following statistics are shown for your model:
 

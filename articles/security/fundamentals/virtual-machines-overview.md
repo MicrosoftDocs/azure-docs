@@ -57,7 +57,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint protection and response](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automated investigation and remediation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Secure score](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Secure score](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Advanced hunting](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)

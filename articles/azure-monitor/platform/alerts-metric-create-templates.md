@@ -2,11 +2,10 @@
 title: Create a metric alert with a Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: harelbr
+ms.author: harelbr
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.author: harelbr
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -1513,6 +1512,10 @@ This section will describe Azure Resource Manager templates for three scenarios 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
 - Monitoring all virtual machines (in one Azure region) in a subscription.
 - Monitoring a list of virtual machines (in one Azure region) in a subscription.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 

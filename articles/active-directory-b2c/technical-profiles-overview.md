@@ -3,14 +3,14 @@ title: Overview of technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how technical profiles are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
-ms.author: marsma
+ms.date: 03/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -24,19 +24,21 @@ A technical profile provides a framework with a built-in mechanism to communicat
 
 A technical profile enables these types of scenarios:
 
+- [Application Insights](application-insights-technical-profile.md) - Sending event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) - Provides support for the Azure Active Directory B2C user management.
+- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -  provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). 
+- [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
 - [JWT token issuer](jwt-issuer-technical-profile.md) -  Emits a JWT token that is returned back to the relying party application.
-- **Phone factor provider** - Multi-factor authentication.
 - [OAuth1](oauth1-technical-profile.md) - Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md) - Federation with any OAuth 2.0 protocol identity provider.
+- [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password.
 - [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
-- [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
+- [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
+- [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
-- [Application Insights](../azure-monitor/app/usage-overview.md)
-- [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password. 
 
 ## Technical profile flow
 
@@ -44,7 +46,7 @@ All types of technical profiles share the same concept. You send input claims, r
 
 ![Diagram illustrating the technical profile flow](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Single sign-on (SSO) session management** - Restores technical profile's session state, using [SSO session management](custom-policy-reference-sso.md). 
+1. **Single sign-on (SSO) session management** - Restores technical profile's session state, using [SSO session management](custom-policy-reference-sso.md).
 1. **Input claims transformation** - Input claims of every  input [claims transformation](claimstransformations.md) are picked up from the claims bag.  The output claims of an input claims transformation can be input claims of a subsequent input claims transformation.
 1. **Input claims** - Claims are picked up from the claims bag and are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure Active Directory uses input claim as a unique identifier to read, update, or delete an account.
 1. **Technical profile execution** - The technical profile exchanges the claims with the configured party. For example:
@@ -60,7 +62,7 @@ All types of technical profiles share the same concept. You send input claims, r
 
 ## Technical profile inclusion
 
-A technical profile can include another technical profile to change settings or add new functionality.  The `IncludeTechnicalProfile` element is a reference to the base technical profile from which a technical profile is derived. There is no limit on the number of levels. 
+A technical profile can include another technical profile to change settings or add new functionality.  The `IncludeTechnicalProfile` element is a reference to the base technical profile from which a technical profile is derived. There is no limit on the number of levels.
 
 For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical profile includes the **AAD-UserReadUsingAlternativeSecurityId**. This technical profile sets the `RaiseErrorIfClaimsPrincipalDoesNotExist` metadata item to `true`, and raises an error if a social account does not exist in the directory. **AAD-UserReadUsingAlternativeSecurityId-NoError** overrides this behavior, and disables that error message.
 

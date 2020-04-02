@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # What is the Azure Face service?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 The Azure Cognitive Services Face service provides algorithms that are used to detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios are security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
 The Face service provides several different functions. Each function is outlined in the following sections. Read on to learn more about them.

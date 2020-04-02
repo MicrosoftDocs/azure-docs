@@ -1,9 +1,12 @@
 - name: Custom Vision Service Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Custom Vision?
     href: home.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Using the web portal
@@ -54,6 +57,8 @@
     href: test-your-model.md
   - name: Improve your classifier
     href: getting-started-improving-your-classifier.md
+  - name: Select a domain
+    href: select-domain.md
   - name: Use the prediction API
     href: use-prediction-api.md
   - name: Use Smart Labeler

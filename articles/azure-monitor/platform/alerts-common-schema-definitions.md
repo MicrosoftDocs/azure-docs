@@ -1,11 +1,9 @@
 ---
 title: Common alert schema definitions for Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
-ms.service:  azure-monitor
-ms.subservice: alerts
-ms.topic: conceptual
 author: ofirmanor
-ms.author: robb
+ms.topic: conceptual
+ms.subservice: alerts
 ms.date: 03/14/2019
 
 ---

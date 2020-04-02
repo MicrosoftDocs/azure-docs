@@ -97,6 +97,8 @@
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -176,6 +178,8 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
@@ -242,10 +246,16 @@
     items:
     - name: Azure portal
       href: howto-data-encryption-portal.md
+    - name: Azure CLI
+      href: howto-data-encryption-cli.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
       href: howto-configure-sign-in-azure-ad-authentication.md
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
   - name: Restart server
     items:
     - name: Azure portal

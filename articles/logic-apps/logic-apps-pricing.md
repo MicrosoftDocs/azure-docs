@@ -59,7 +59,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
   For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
-If you choose the Premium ISE SKU, the base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
+If you choose the Premium ISE SKU, the base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
 
 For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 

@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
 description: Application Insights automatically collect and visualize dependencies
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: nikmd23
 ms.author: nimolnar

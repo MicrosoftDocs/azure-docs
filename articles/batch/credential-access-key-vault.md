@@ -37,7 +37,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Next, use the `makecert` tool to create self-signed certificate files called `batchcertificate.cer` and `batchcertificate.pvk`. The common name (CN) used isn't important for this application, but it's helpful to make it something that tells you what the certificate is used for.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 Batch requires a `.pfx` file. Use the [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) tool to convert the `.cer` and `.pvk` files created by `makecert` to a single `.pfx` file.

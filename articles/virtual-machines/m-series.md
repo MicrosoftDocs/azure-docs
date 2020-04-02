@@ -2,24 +2,28 @@
  title: M-series - Azure Virtual Machines
  description: Specifications for the M-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: ayshakeen
  ms.service: virtual-machines
  ms.topic: article
- ms.date: 02/05/2019
- ms.author: lahugh
+ ms.date: 03/31/2020
+ ms.author: jushiman
 ---
 
 # M-series
 
-The M-series offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It’s also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. M-series sizes are based on the Intel® Xeon® CPU E7-8890 v3 @ 2.50GHz
+The M-series offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It's also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. M-series sizes are supported both on the Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2.50GHz and on the Intel&reg; Xeon&reg; Platinum 8280M 2.7GHz (Cascade Lake).
 
-M-series VM’s feature Intel® Hyper-Threading Technology
+M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
 ACU: 160-180
 
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -40,7 +44,7 @@ Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machine
 | Standard_M128 <sup>1</sup>       | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 | Standard_M128m <sup>1</sup>      | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 
-<sup>1</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
+<sup>1</sup> More than 64 vCPU's require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
 
 <sup>2</sup> Constrained core sizes available.
 

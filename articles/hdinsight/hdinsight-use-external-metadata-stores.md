@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/02/2020
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -49,6 +49,8 @@ HDInsight also supports custom metastores, which are recommended for production 
 * You pay for the cost of a metastore (Azure SQL DB) according to the performance level you choose.
 
 * You can scale up the metastore as needed.
+
+* The cluster and the external metastore must be hosted in the same region.
 
 ![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 

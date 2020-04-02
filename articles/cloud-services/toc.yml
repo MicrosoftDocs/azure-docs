@@ -1,5 +1,5 @@
-- name: Cloud Services Documentation
-  href: index.md
+- name: Cloud Services documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Cloud Services?

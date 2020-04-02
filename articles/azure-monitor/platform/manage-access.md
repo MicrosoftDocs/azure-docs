@@ -1,7 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -22,7 +21,7 @@ This article explains how to manage access to logs and to administer the workspa
 
 ## Configure access control mode
 
-You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+You can view the [access control mode](design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
 * Azure portal
 
@@ -85,6 +84,7 @@ if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null
 else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+}
 ```
 
 ### Using a Resource Manager template

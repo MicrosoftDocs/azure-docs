@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -55,6 +55,7 @@ Combined registration supports the following authentication methods and actions:
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords | Yes | No | Yes |
+| FIDO2 security keys<br />*Managed mode only from the [Security info](https://mysignins.microsoft.com/security-info) page*| Yes | Yes | Yes |
 
 > [!NOTE]
 > App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.

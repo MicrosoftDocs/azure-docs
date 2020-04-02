@@ -15,7 +15,8 @@ If the QnA Maker knowledge base manager is not the Active Directory manager, you
 
 ## Prerequisites
 
-QnA Maker uses Microsoft Graph for permissions. If your SharePoint is on-premises, you won't be able to extract from SharePoint because Microsoft Graph won't be able to determine permissions.
+* Cloud-based SharePoint - QnA Maker uses Microsoft Graph for permissions. If your SharePoint is on-premises, you won't be able to extract from SharePoint because Microsoft Graph won't be able to determine permissions.
+* URL format - QnA Maker only supports SharePoint urls which are generated for sharing and are of format `https://\*.sharepoint.com`
 
 ## Add supported file types to knowledge base
 
@@ -26,7 +27,7 @@ You can add all QnA Maker-supported [file types](../Concepts/content-types.md) f
 
    ![Get the SharePoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. In the QnA Maker portal, on the **Settings** page, [add the URL](edit-knowledge-base.md#add-datasource) to the knowledge base.
+1. In the QnA Maker portal, on the **Settings** page, [add the URL](manage-knowledge-bases.md#edit-knowledge-base) to the knowledge base.
 
 ### Images with SharePoint files
 

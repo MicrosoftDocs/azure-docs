@@ -7,14 +7,15 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 03/31/2020
 ms.author: kfollis
 ---
+
 # How to create an Azure support request
 
 ## Overview
 
-Azure customers can create and manage support requests in the [Azure portal](https://portal.azure.com).
+Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
 
 > [!NOTE]
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
@@ -37,7 +38,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Role-based access control
 
-To create a support request, you must be an admin or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role.
+To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example Azure Active Directory (AAD) scenario, you must be an [Admin](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### Go to Help + support from the global header
 

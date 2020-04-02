@@ -131,7 +131,7 @@ You haveâ€¯exhausted the local storage quota for writing to the log directory.â€
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### How do I enable WAD logging for Cloud Services?

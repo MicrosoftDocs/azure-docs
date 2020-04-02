@@ -14,7 +14,7 @@ ms.author: memildin
 # Data collection in Azure Security Center
 Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also copies crash dump files to your workspace.
 
-Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat detections. 
+Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. 
 
 This article describes how to install a Log Analytics Agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. 
 
@@ -137,7 +137,7 @@ When you select a workspace in which to store your data, all the workspaces acro
 
 
 ## Data collection tier
-Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat detections, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
+Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat protection, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
 > Storing data in log analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 > 
@@ -304,7 +304,7 @@ You can manually install the Log Analytics Agent, so Security Center can collect
 
 - To identify Unmonitored VMs and computers issues:
 
-    A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+    A VM or computer is unmonitored by Security Center if the machine is not running the Log Analytics agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Log Analytics agent extension is required.
 
     For more information about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 

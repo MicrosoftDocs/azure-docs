@@ -1,7 +1,6 @@
 ---
 title: Azure Diagnostics extension overview
 description: Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric
-ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
@@ -82,7 +81,7 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 
 
 ## Installation and configuration
-The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) and [Virtual machine extensions and features for Linux](/virtual-machines/extensions/features-linux) for general details on installing and maintaining virtual machine extensions.
+The Diagnostic extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md) for general details on installing and maintaining virtual machine extensions.
 
 You can also install and configure both the Windows and Linux diagnostic extension in the Azure portal under **Diagnostic settings** in the **Monitoring** section of the virtual machine's menu.
 

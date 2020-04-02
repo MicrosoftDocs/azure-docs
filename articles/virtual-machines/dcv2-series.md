@@ -2,23 +2,27 @@
  title: DC-series - Azure Virtual Machines
  description: Specifications for the DC-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: susaxen
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/20/2020
  ms.author: lahugh
 ---
 
-# Preview: DCv2-series
+# Preview: DCsv2-series
 
 
-The DCv2-series can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
+The DCsv2-series can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCsv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
 Example use cases include confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
 
 Premium Storage: Supported*
 
 Premium Storage caching: Supported*
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 *Except for Standard_DC8_v2
 
@@ -31,8 +35,10 @@ Premium Storage caching: Supported*
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2                                            |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
-- DCv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
-
+- DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+- Currently available in UK South and Canada Central only.
+- Previous generation of Confidential Compute VMs: [DC Series](sizes-previous-gen.md)
+- Create DCsv2 VMs using Azure Portal [Create VM - Portal](./linux/quick-create-portal.md)
 
 
 

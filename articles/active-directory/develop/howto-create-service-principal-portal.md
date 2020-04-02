@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
@@ -81,7 +81,7 @@ Daemon applications can use two forms of credentials to authenticate with Azure 
 
 ### Upload a certificate
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -89,8 +89,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Export this certificate to a file using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
+1. Select **Run** from the **Start** menu, and then enter **certmgr.msc**.
+
+   The Certificate Manager tool for the current user appears.
+
+1. To view your certificates, under **Certificates - Current User** in the left pane, expand the **Personal** directory.
+1. Right-click on the cert you created, select **All tasks->Export**.
+1. Follow the Certificate Export wizard.  Do not export the private key, and export to a .CER file.
+
 To upload the certificate:
 
+1. Select **Azure Active Directory**.
+1. From **App registrations** in Azure AD, select your application.
 1. Select **Certificates & secrets**.
 1. Select **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
 
@@ -142,15 +152,21 @@ In your Azure subscription, your account must have `Microsoft.Authorization/*/Wr
 
 To check your subscription permissions:
 
-1. Select your account in the upper right corner, and select **... -> My permissions**.
+1. Search for and select **Subscriptions**, or select **Subscriptions** on the **Home** page.
 
-   ![Select your account and your user permissions](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. From the drop-down list, select the subscription you want to create the service principal in. Then, select **Click here to view complete access details for this subscription**.
+1. Select the subscription you want to create the service principal in.
+
+   ![Select subscription for assignment](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the portal.
+
+1. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
 
    ![Select the subscription you want to create the service principal in](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
+1. Select **View** in **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
 
    ![This example shows the user is assigned the Owner role](./media/howto-create-service-principal-portal/view-user-role.png)
 

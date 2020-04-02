@@ -12,11 +12,12 @@ ms.author: irenehua
 # Upgrade Azure Internal Load Balancer - Outbound Connection Required
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
 
-There are three stages in a upgrade:
+There are four stages in a upgrade:
 
 1. Migrate the configuration to Standard Public Load Balancer
 2. Add VMs to backend pools of Standard Public Load Balancer
-3. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
+3. Create an outbound rule on the Load Balancer for outbound connection
+4. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -78,7 +79,7 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to backend pools of Standard Load Balancer
@@ -104,6 +105,12 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
     * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### Create an outbound rule for outbound connection
+
+Follow the [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) to create an outbound rule so you can
+* Define outbound NAT from scratch.
+* Scale and tune the behavior of existing outbound NAT.
 
 ### Create NSG rules for VMs which to refrain communication from or to the Internet
 If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.

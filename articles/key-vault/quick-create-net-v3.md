@@ -5,6 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 
 ---
@@ -112,7 +113,6 @@ This operation will return a series of key / value pairs.
   "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"
@@ -149,13 +149,26 @@ This .NET quickstart relies on environment variables to store credentials that s
 
 Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 
+**Windows**
+
 ```console
-setx akvClientId <your-clientID>
+setx akvClientId "<your-clientID>"
+setx akvClientSecret "<your-clientSecret>"
+```
 
-setx akvClientSecret <your-clientSecret>
-````
+**Linux**
 
-Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
+
+**MacOS**
+
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
 
 Assign these environment variables to strings in your code, and then authenticate your application by passing them to the [KeyVaultClient class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
 

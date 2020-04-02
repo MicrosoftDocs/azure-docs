@@ -23,7 +23,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the Batch account up and running?</li><li>Has the pool quota been exceeded for this batch account?</li></ul>|
 
-## Microsoft.CacheRedis/Redis
+## Microsoft.Cache/Redis
 |Executed Checks|
 |---|
 |<ul><li>Are all the Cache nodes up and running?</li><li>Can the Cache be reached from within the datacenter?</li><li>Has the Cache reached the maximum number of connections?</li><li> Has the cache exhausted its available memory? </li><li>Is the Cache experiencing a high number of page faults?</li><li>Is the Cache under heavy load?</li></ul>|
@@ -36,17 +36,22 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
 |<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
+## Microsoft.compute/hostgroups/hosts
+|Executed Checks|
+|---|
+|<ul><li>Is the host up and  running</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
+
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
 ## Microsoft.datafactory/factories
 |Executed Checks|
@@ -183,6 +188,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
+
+## Microsoft.ServiceFabric/clusters
+|Executed Checks|
+|---|
+|<ul><li>Is the Service Fabric cluster up and running?</li><li>Can the Service Fabric cluster be managed through Azure Resource Manager?</li></ul>|
 
 ## Microsoft.SQL/managedInstances/databases
 |Executed Checks|
