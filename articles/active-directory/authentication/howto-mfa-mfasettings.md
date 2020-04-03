@@ -5,7 +5,7 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 
 ms.author: iainfou
@@ -159,7 +159,7 @@ Sample scripts for creating custom messages.
 | Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
 | Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
 | Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
-| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Fraud reported    A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
 | Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
 | Authentication denied retry | Verification denied. |
 | Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
