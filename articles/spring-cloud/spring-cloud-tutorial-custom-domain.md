@@ -51,7 +51,7 @@ When you have successfully imported your certificate, you'll see it on the list 
 You can use a CNAME record to map a custom DNS name to Azure Spring Cloud. 
 
 > [NOTE] 
-> The A record is not supported because the IP may change. 
+> The A record is not supported. 
 
 ### Create the CNAME record
 Go to your DNS provider and add a CNAME record to map your domain to the <service_name>.azuremicroservices.io, where <service_name> is the name of your Azure Spring Cloud instance. We support wildcard domain and sub domain. 
@@ -80,7 +80,7 @@ One app can have multiple domains, but one domain can only map to one app. When 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
 >[!NOTE]
-> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
+> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive and error or warning.
 
 ## Add SSL binding
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
@@ -101,15 +101,10 @@ In your app page, in the left navigation, select **Custom Domain**. Then, set **
 ![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
 
 When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
-* http://contoso.com
 * http://www.contoso.com
 
 ## See also
-* [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-secure-web-server)
-* [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Use Azure Key Vault with an Azure web app in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app)
-* [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](spring-cloud-github-actions-key-vault.md)
 * [Import a certificate](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
-* [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)
+* [Launch your Spring Cloud App using the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
+
