@@ -13,7 +13,7 @@ ms.date: 03/07/2019
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
-# Best practices to use Key Vault
+# Best practices to use Managed HSM
 
 ## Control Access to your vault
 
