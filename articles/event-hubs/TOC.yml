@@ -166,6 +166,8 @@
         href: apache-kafka-developer-guide.md
       - name: Kafka migration guide for Event Hubs
         href: apache-kafka-migration-guide.md            
+      - name: Kafka troubleshooting guide for Event Hubs
+        href: apache-kafka-troubleshooting-guide.md        
       - name: Mirror a Kafka broker in an event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Connect Apache Spark to an event hub
@@ -178,8 +180,6 @@
         href: event-hubs-kafka-akka-streams-tutorial.md
       - name: FAQ - Event Hubs for Kafka
         href: apache-kafka-frequently-asked-questions.md        
-      - name: Kafka troubleshooting guide for Event Hubs
-        href: apache-kafka-troubleshooting-guide.md        
   - name: Manage and monitor
     items:
     - name: Monitor Event Hubs with Azure Monitoring
