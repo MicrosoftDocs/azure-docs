@@ -61,7 +61,7 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
-1. Accept the name for app in the **Name** field, or assign your own.
+1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Assign a unique identifier for the **Artifact**, such as *gs-spring-boot-azure*.
 1. Select the **Subscription** and **Spring Cloud** service instance.
 1. Select **Create app...**. (You can also deploy an existing application.)
