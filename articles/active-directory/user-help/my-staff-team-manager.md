@@ -30,7 +30,7 @@ If you manage more than one location or group of staff members, the first time y
 If your organization has given you permission, you can reset passwords for your staff members.
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff mamber's profile.
+1. Open a staff member's profile.
 1. Select **Reset password**.
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
     ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password.png)
@@ -44,7 +44,7 @@ If your organization has given you permission, you can manage phone numbers for 
 ### Add a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff mamber's profile.
+1. Open a staff member's profile.
 1. Select **Add phone number**.
 1. Add the phone number and select **Save**.
 
@@ -55,11 +55,11 @@ After you register a phone number for a user, they can use it to sign in with SM
 ### To edit an existing phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff mamber's profile.
+1. Open a staff member's profile.
 1. Select **Edit phone number**.
 1. Change the phone number and select **Edit**.
 
-    ![Edit a staff mamber phone number in My Staff](media/my-staff-team-manager/edit-number.png)
+    ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/edit-number.png)
 
 ### To remove a phone number
 
