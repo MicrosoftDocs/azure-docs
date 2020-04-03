@@ -84,7 +84,7 @@ Use the following table to get an overview of the steps that are required for yo
 | Configure service connection point | ![Check][1] | ![Check][1] | ![Check][1] |
 | Set up issuance of claims |     | ![Check][1] | ![Check][1] |
 | Enable non-Windows 10 devices |       |        | ![Check][1] |
-| Verify joined devices | ![Check][1] | ![Check][1] | [Check][1] |
+| Verify joined devices | ![Check][1] | ![Check][1] | ![Check][1] |
 
 ## Configure a service connection point
 
