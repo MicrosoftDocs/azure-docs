@@ -1,0 +1,2820 @@
+[1mdiff --git a/articles/security/benchmarks/security-control-data-protection.md b/articles/security/benchmarks/security-control-data-protection.md[m
+[1mindex e924b806c81..e591e69a0b4 100644[m
+[1m--- a/articles/security/benchmarks/security-control-data-protection.md[m
+[1m+++ b/articles/security/benchmarks/security-control-data-protection.md[m
+[36m@@ -1,12 +1,12 @@[m
+ ---[m
+[31m-title: Azure Security Control - Data Protection[m
+[32m+[m[32mtitle: Security Control - Data Protection[m
+ description: Security Control Data Protection[m
+ author: msmbaldwin[m
+ manager: rkarlin[m
+ [m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+ ms.custom: security-recommendations[m
+ [m
+[36m@@ -14,8 +14,6 @@[m [mms.custom: security-recommendations[m
+ [m
+ # Security Control: Data Protection[m
+ [m
+[31m-Data protection recommendations focus on addressing issues related to encryption, access control lists, identity-based access control, and audit logging for data access.[m
+[31m-[m
+ ## 4.1: Maintain an inventory of sensitive Information[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+[36m@@ -24,9 +22,17 @@[m [mData protection recommendations focus on addressing issues related to encryption[m
+ [m
+ Use Tags to assist in tracking Azure resources that store or process sensitive information.[m
+ [m
+[31m-How to create and use Tags:[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+[32m+[m
+[32m+[m[32m## 4.1: Maintain an inventory of sensitive Information[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.1 | 13.1 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Tags to assist in tracking Azure resources that store or process sensitive information.[m
+[32m+[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+ ## 4.2: Isolate systems storing or processing sensitive information[m
+ [m
+[36m@@ -36,42 +42,68 @@[m [mhttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag[m
+ [m
+ Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.[m
+ [m
+[31m-How to create additional Azure subscriptions:[m
+[32m+[m[32m- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)[m
+[32m+[m
+[32m+[m[32m- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)[m
+[32m+[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+[32m+[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+[32m+[m
+[32m+[m[32m- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+[32m+[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+[32m+[m
+[32m+[m[32m- [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)[m
+[32m+[m
+[32m+[m[32m## 4.2: Isolate systems storing or processing sensitive information[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.2 | 13.2 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/billing/billing-create-subscription[m
+[32m+[m[32mImplement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.[m
+ [m
+[31m-How to create Management Groups:[m
+[32m+[m[32m- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/management-groups/create[m
+[32m+[m[32m- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)[m
+ [m
+[31m-How to create and use Tags:[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+ [m
+[31m-How to create a Virtual Network:[m
+[32m+[m[32m- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/quick-create-portal[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+ [m
+[31m-How to create an NSG with a Security Config:[m
+[32m+[m[32m- [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic[m
+[32m+[m[32m## 4.3: Monitor and block unauthorized transfer of sensitive information[m
+ [m
+[31m-How to deploy Azure Firewall:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.3 | 13.3 | Shared |[m
+ [m
+[31m-https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal[m
+[32m+[m[32mDeploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.[m
+ [m
+[31m-How to configure alert or alert and deny with Azure Firewall:[m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and[m
+[32m+[m[32m capabilities.[m
+ [m
+[31m-https://docs.microsoft.com/azure/firewall/threat-intel[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+ [m
+ ## 4.3: Monitor and block unauthorized transfer of sensitive information[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 4.3 | 13.3 | Customer |[m
+[32m+[m[32m| 4.3 | 13.3 | Shared |[m
+ [m
+ Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.[m
+ [m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and[m
+[32m+[m[32m capabilities.[m
+[32m+[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+[32m+[m
+ ## 4.4: Encrypt all sensitive information in transit[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+[36m@@ -82,15 +114,25 @@[m [mEncrypt all sensitive information in transit. Ensure that any clients connecting[m
+ [m
+ Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.[m
+ [m
+[31m-Understand encryption in transit with Azure:[m
+[32m+[m[32m- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit[m
+[32m+[m[32m## 4.4: Encrypt all sensitive information in transit[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.4 | 14.4 | Shared |[m
+[32m+[m
+[32m+[m[32mEncrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater.[m
+[32m+[m
+[32m+[m[32mFollow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.[m
+[32m+[m
+[32m+[m[32m- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)[m
+ [m
+ ## 4.5: Use an active discovery tool to identify sensitive data[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 4.5 | 14.5 | Customer |[m
+[32m+[m[32m| 4.5 | 14.5 | Shared |[m
+ [m
+ When no feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.[m
+ [m
+[36m@@ -98,13 +140,33 @@[m [mUse Azure Information Protection for identifying sensitive information within Of[m
+ [m
+ Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.[m
+ [m
+[31m-How to implement Azure SQL Data Discovery:[m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.[m
+[32m+[m
+[32m+[m[32m- [How to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)[m
+ [m
+[31m-https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification[m
+[32m+[m[32m- [How to implement Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)[m
+ [m
+[31m-How to implement Azure Information Protection:[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+ [m
+[31m-https://docs.microsoft.com/azure/information-protection/deployment-roadmap[m
+[32m+[m[32m## 4.5: Use an active discovery tool to identify sensitive data[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.5 | 14.5 | Shared |[m
+[32m+[m
+[32m+[m[32mWhen no feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.[m
+[32m+[m
+[32m+[m[32mUse Azure Information Protection for identifying sensitive information within Office 365 documents.[m
+[32m+[m
+[32m+[m[32mUse Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.[m
+[32m+[m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.[m
+[32m+[m
+[32m+[m[32m- [How to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)[m
+[32m+[m
+[32m+[m[32m- [How to implement Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)[m
+[32m+[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+ [m
+ ## 4.6: Use Azure RBAC to control access to resources[m
+ [m
+[36m@@ -114,21 +176,41 @@[m [mhttps://docs.microsoft.com/azure/information-protection/deployment-roadmap[m
+ [m
+ Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.[m
+ [m
+[31m-Understand Azure RBAC:[m
+[32m+[m[32m- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/overview[m
+[32m+[m[32m## 4.6: Use Azure RBAC to control access to resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.6 | 14.6 | Customer |[m
+ [m
+[31m-How to configure RBAC in Azure:[m
+[32m+[m[32mUse Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal[m
+[32m+[m[32m- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)[m
+ [m
+ ## 4.7: Use host-based data loss prevention to enforce access control[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 4.7 | 14.7 | Customer |[m
+[32m+[m[32m| 4.7 | 14.7 | Shared |[m
+[32m+[m
+[32m+[m[32mIf required for compliance on compute resources, implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.[m
+[32m+[m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.[m
+ [m
+[31m-Implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+[32m+[m
+[32m+[m[32m## 4.7: Use host-based data loss prevention to enforce access control[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.7 | 14.7 | Shared |[m
+[32m+[m
+[32m+[m[32mIf required for compliance on compute resources, implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.[m
+[32m+[m
+[32m+[m[32mFor the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.[m
+[32m+[m
+[32m+[m[32m- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)[m
+ [m
+ ## 4.8: Encrypt sensitive information at rest[m
+ [m
+[36m@@ -136,15 +218,23 @@[m [mImplement a third-party tool, such as an automated host-based Data Loss Preventi[m
+ |--|--|--|[m
+ | 4.8 | 14.8 | Customer |[m
+ [m
+[31m-Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. [m
+[32m+[m[32mUse encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.[m[41m [m
+[32m+[m
+[32m+[m[32m- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)[m
+[32m+[m
+[32m+[m[32m- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)[m
+[32m+[m
+[32m+[m[32m## 4.8: Encrypt sensitive information at rest[m
+ [m
+[31m-Understand encryption at rest in Azure:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.8 | 14.8 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest[m
+[32m+[m[32mUse encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.[m[41m [m
+ [m
+[31m-How to configure customer managed encryption keys:[m
+[32m+[m[32m- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)[m
+ [m
+[31m-https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal[m
+[32m+[m[32m- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)[m
+ [m
+ ## 4.9: Log and alert on changes to critical Azure resources[m
+ [m
+[36m@@ -154,10 +244,15 @@[m [mhttps://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal[m
+ [m
+ Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.[m
+ [m
+[31m-How to create alerts for Azure Activity Log events:[m
+[32m+[m[32m- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)[m
+[32m+[m
+[32m+[m[32m## 4.9: Log and alert on changes to critical Azure resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 4.9 | 14.9 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log[m
+[32m+[m[32mUse Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32m- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)[m
+ [m
+[31m-See the next security control: [Vulnerability Management](security-control-vulnerability-management.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-data-recovery.md b/articles/security/benchmarks/security-control-data-recovery.md[m
+[1mindex a310800d93d..fd2f4f6ff75 100644[m
+[1m--- a/articles/security/benchmarks/security-control-data-recovery.md[m
+[1m+++ b/articles/security/benchmarks/security-control-data-recovery.md[m
+[36m@@ -1,12 +1,12 @@[m
+ ---[m
+[31m-title: Azure Security Control - Data Recovery[m
+[32m+[m[32mtitle: Security Control - Data Recovery[m
+ description: Security Control Data Recovery[m
+ author: msmbaldwin[m
+ manager: rkarlin[m
+ [m
+ ms.service: security[m
+ ic: conceptual[m
+ms.dat[m
+\ No newline at end of file[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32me: 04/03/2020[m
+ms.aut[m
+\ No newline at end of file[m
+ hor: mbaldwin[m
+ms.cus[m
+\ No newline at end of file[m
+ tom: security-benchmark[m
+
+[31m---[m
+
+# Secu[m
+\ No newline at end of file[m
+ r[m
+\ No newline at end of file[m
+[36m@@ -14,7 +14,15 @@[m [mms.custom: security-recommendations[m
+ C[m
+\ No newline at end of file[m
+ ontrol: Data Recovery[m
+
+## 9.1: Ens[m
+\ No newline at end of file[m
+ u[m
+\ No newline at end of file[m
+[31m-Ensure that all system data, configurations, and secrets are automatically backed up on a regular basis.[m
+[32m+[m[32mre regular automated back ups[m
+
+| Azure ID [m
+\ No newline at end of file[m
+[32m+[m[32m|[m
+\ No newline at end of file[m
+[32m+[m[32m CIS IDs | Responsibility |[m
+|--|--|--|[m
+|[m
+\ No newline at end of file[m
+[32m+[m[32m 9.1 | 10.1[m
+\ No newline at end of file[m
+[32m+[m[32m | Customer |[m
+
+Enable Azur[m
+\ No newline at end of file[m
+[32m+[m[32me[m
+\ No newline at end of file[m
+[32m+[m[32m Backup and configure the backup source (Azure VMs, SQL Server, or File Shares), as well as the desired frequency and retention period.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+[32m+[m[32mn[m
+\ No newline at end of file[m
+[32m+[m[32mable Azure Backup](https://docs.microsoft.com/azure/backup/)[m
+
+## 9.1: Ens[m
+\ No newline at end of file[m
+ u[m
+\ No newline at end of file[m
+ re regular automated back ups[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[36m@@ -24,9 +32,19 @@[m [mEnsure that all system data, configurations, and secrets are automatically backe[m
+ e[m
+\ No newline at end of file[m
+  Backup and configure the backup source (Azure VMs, SQL Server, or File Shares), as well as the desired frequency and retention period.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+ n[m
+\ No newline at end of file[m
+[31m-How to enable Azure Backup:[m
+[32m+[m[32mable Azure Backup](https://docs.microsoft.com/azure/backup/)[m
+
+## 9.2: Per[m
+\ No newline at end of file[m
+[32m+[m[32mf[m
+\ No newline at end of file[m
+[32m+[m[32morm complete system backups and backup any customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/azure/backup/[m
+[32m+[m[32m CIS IDs | Responsibility |[m
+|--|--|--|[m
+|[m
+\ No newline at end of file[m
+[32m+[m[32m 9.2 | 10.2[m
+\ No newline at end of file[m
+[32m+[m[32m | Customer |[m
+
+Enable Azur[m
+\ No newline at end of file[m
+[32m+[m[32me[m
+\ No newline at end of file[m
+[32m+[m[32m Backup and target VM(s), as well as the desired frequency and retention periods. Backup customer managed keys within Azure Key Vault.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+[32m+[m[32mn[m
+\ No newline at end of file[m
+[32m+[m[32mable Azure Backup](https://docs.microsoft.com/azure/backup/)[m
+
+[31m- [How to b[m
+\ No newline at end of file[m
+[32m+[m[32ma[m
+\ No newline at end of file[m
+[32m+[m[32mckup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)[m
+
+## 9.2: Per[m
+\ No newline at end of file[m
+ f[m
+\ No newline at end of file[m
+ orm complete system backups and backup any customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[36m@@ -36,13 +54,21 @@[m [mhttps://docs.microsoft.com/azure/backup/[m
+ e[m
+\ No newline at end of file[m
+  Backup and target VM(s), as well as the desired frequency and retention periods. Backup customer managed keys within Azure Key Vault.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+ n[m
+\ No newline at end of file[m
+[31m-How to enable Azure Backup:[m
+[32m+[m[32mable Azure Backup](https://docs.microsoft.com/azure/backup/)[m
+
+[31m- [How to b[m
+\ No newline at end of file[m
+ a[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/azure/backup/[m
+[32m+[m[32mckup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)[m
+
+## 9.3: Val[m
+\ No newline at end of file[m
+ i[m
+\ No newline at end of file[m
+[31m-How to backup key vault keys in Azure:[m
+[32m+[m[32mdate all backups including customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0[m
+[32m+[m[32m CIS IDs | Responsibility |[m
+|--|--|--|[m
+|[m
+\ No newline at end of file[m
+[32m+[m[32m 9.3 | 10.3[m
+\ No newline at end of file[m
+[32m+[m[32m | Customer |[m
+
+Ensure abil[m
+\ No newline at end of file[m
+[32m+[m[32mi[m
+\ No newline at end of file[m
+[32m+[m[32mty to periodically perform data restoration of content within Azure Backup. If necessary, test restore to an isolated VLAN. Test restoration of backed up customer managed keys.[m
+
+[31m- [How to r[m
+\ No newline at end of file[m
+[32m+[m[32me[m
+\ No newline at end of file[m
+[32m+[m[32mcover files from Azure Virtual Machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)[m
+
+[31m- [How to r[m
+\ No newline at end of file[m
+[32m+[m[32me[m
+\ No newline at end of file[m
+[32m+[m[32mstore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)[m
+
+## 9.3: Val[m
+\ No newline at end of file[m
+ i[m
+\ No newline at end of file[m
+ date all backups including customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[36m@@ -52,13 +78,19 @@[m [mhttps://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau[m
+ i[m
+\ No newline at end of file[m
+ ty to periodically perform data restoration of content within Azure Backup. If necessary, test restore to an isolated VLAN. Test restoration of backed up customer managed keys.[m
+
+[31m- [How to r[m
+\ No newline at end of file[m
+ e[m
+\ No newline at end of file[m
+[31m-How to recover files from Azure Virtual Machine backup:[m
+[32m+[m[32mcover files from Azure Virtual Machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)[m
+
+[31m- [How to r[m
+\ No newline at end of file[m
+ e[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm[m
+[32m+[m[32mstore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)[m
+
+## 9.4: Ens[m
+\ No newline at end of file[m
+ u[m
+\ No newline at end of file[m
+[31m-How to restore key vault keys in Azure:[m
+[32m+[m[32mre protection of backups and customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0[m
+[32m+[m[32m CIS IDs | Responsibility |[m
+|--|--|--|[m
+|[m
+\ No newline at end of file[m
+[32m+[m[32m 9.4 | 10.4[m
+\ No newline at end of file[m
+[32m+[m[32m | Customer |[m
+
+For on-prem[m
+\ No newline at end of file[m
+[32m+[m[32mi[m
+\ No newline at end of file[m
+[32m+[m[32mses backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+[32m+[m[32mn[m
+\ No newline at end of file[m
+[32m+[m[32mable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)[m
+
+## 9.4: Ens[m
+\ No newline at end of file[m
+ u[m
+\ No newline at end of file[m
+ re protection of backups and customer managed keys[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[36m@@ -68,10 +100,13 @@[m [mhttps://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva[m
+ i[m
+\ No newline at end of file[m
+ ses backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.[m
+
+[31m- [How to e[m
+\ No newline at end of file[m
+ n[m
+\ No newline at end of file[m
+[31m-How to enable Soft-Delete in Key Vault:[m
+[32m+[m[32mable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)[m
+
+## 9.5: Ens[m
+\ No newline at end of file[m
+[32m+[m[32mu[m
+\ No newline at end of file[m
+[32m+[m[32mre Backups Have At least One Non-Continuously Addressable Destination[m
+
+| Azure ID [m
+\ No newline at end of file[m
+ |[m
+\ No newline at end of file[m
+[31m-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal[m
+[32m+[m[32m CIS IDs | Responsibility |[m
+|--|--|--|[m
+|[m
+\ No newline at end of file[m
+[32m+[m[32m 9.5 | 10.5[m
+\ No newline at end of file[m
+[32m+[m[32m | Customer |[m
+
+Azure Backu[m
+\ No newline at end of file[m
+ p[m
+\ No newline at end of file[m
+[31m-## Next steps[m
+[32m+[m[32m data is stored in a Recovery Service vault, separate from the storage location (VM, SQL Server, File Share). Contents of the vault are not directly accessible via the source/OS.[m
+
+source/OS.[m
+ [m
+[31m-See the next security control: [Incident Response](security-control-incident-response.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-identity-access-control.md b/articles/security/benchmarks/security-control-identity-access-control.md[m
+[1mindex ea2dced571e..e05681c743b 100644[m
+[1m--- a/articles/security/benchmarks/security-control-identity-access-control.md[m
+[1m+++ b/articles/security/benchmarks/security-control-identity-access-control.md[m
+[36m@@ -1,20 +1,28 @@[m
+ ---[m
+ title: Azure Security Control - Identity and Access Control[m
+[31m-description: Security Control Identity and Access Control[m
+[32m+[m[32mdescription: Azure Security Control Identity and Access Control[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Identity and Access Control[m
+ [m
+[31m-Identity and access management recommendations focus on addressing issues related to identity-based access control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.[m
+[32m+[m[32m## 3.1: Maintain an inventory of administrative accounts[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.1 | 4.1 | Customer |[m
+[32m+[m
+[32m+[m[32mAzure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.[m
+[32m+[m
+[32m+[m[32m- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)[m
+[32m+[m
+[32m+[m[32m- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)[m
+ [m
+ ## 3.1: Maintain an inventory of administrative accounts[m
+ [m
+[36m@@ -24,13 +32,17 @@[m [mIdentity and access management recommendations focus on addressing issues relate[m
+ [m
+ Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.[m
+ [m
+[31m-How to get a directory role in Azure AD with PowerShell:[m
+[32m+[m[32m- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0[m
+[32m+[m[32m- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)[m
+[32m+[m
+[32m+[m[32m## 3.2: Change default passwords where applicable[m
+ [m
+[31m-How to get members of a directory role in Azure AD with PowerShell:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.2 | 4.2 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0[m
+[32m+[m[32mAzure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.[m
+ [m
+ ## 3.2: Change default passwords where applicable[m
+ [m
+[36m@@ -50,7 +62,19 @@[m [mCreate standard operating procedures around the use of dedicated administrative[m
+ [m
+ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. [m
+ [m
+[31m-Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/[m
+[32m+[m[32m- [Learn more](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)[m
+[32m+[m
+[32m+[m[32m## 3.3: Use dedicated administrative accounts[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.3 | 4.3 | Customer |[m
+[32m+[m
+[32m+[m[32mCreate standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.[m
+[32m+[m
+[32m+[m[32mYou can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.[m[41m [m
+[32m+[m
+[32m+[m[32m- [Learn more](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)[m
+ [m
+ ## 3.4: Use single sign-on (SSO) with Azure Active Directory[m
+ [m
+[36m@@ -60,9 +84,17 @@[m [mLearn more: https://docs.microsoft.com/azure/active-directory/privileged-identit[m
+ [m
+ Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.[m
+ [m
+[31m-Understand SSO with Azure AD:[m
+[32m+[m[32m- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on[m
+[32m+[m[32m## 3.4: Use single sign-on (SSO) with Azure Active Directory[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.4 | 4.4 | Customer |[m
+[32m+[m
+[32m+[m[32mWherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.[m
+[32m+[m
+[32m+[m[32m- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)[m
+ [m
+ ## 3.5: Use multi-factor authentication for all Azure Active Directory based access[m
+ [m
+[36m@@ -72,13 +104,21 @@[m [mhttps://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sig[m
+ [m
+ Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.[m
+ [m
+[31m-How to enable MFA in Azure:[m
+[32m+[m[32m- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted[m
+[32m+[m[32m- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)[m
+ [m
+[31m-How to monitor identity and access within Azure Security Center:[m
+[32m+[m[32m## 3.5: Use multi-factor authentication for all Azure Active Directory based access[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-identity-access[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.5 | 4.5, 11.5, 12.11, 16.3 | Customer |[m
+[32m+[m
+[32m+[m[32mEnable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.[m
+[32m+[m
+[32m+[m[32m- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)[m
+[32m+[m
+[32m+[m[32m- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)[m
+ [m
+ ## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks[m
+ [m
+[36m@@ -88,14 +128,33 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-identity-access[m
+ [m
+ Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.[m
+ [m
+[31m-Learn about Privileged Access Workstations:[m
+[32m+[m[32m- [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)[m
+[32m+[m
+[32m+[m[32m- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)[m
+ [m
+[31m-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations[m
+[32m+[m[32m## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.6 | 4.6, 11.6, 12.12 | Customer |[m
+[32m+[m
+[32m+[m[32mUse PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.[m
+[32m+[m
+[32m+[m[32m- [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)[m
+[32m+[m
+[32m+[m[32m- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)[m
+[32m+[m
+[32m+[m[32m## 3.7: Log and alert on suspicious activity from administrative accounts[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.7 | 4.8, 4.9 | Customer |[m
+ [m
+[31m-How to enable MFA in Azure:[m
+[32m+[m[32mUse Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted[m
+[32m+[m[32m- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)[m
+ [m
+[32m+[m[32m- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)[m
+ [m
+ ## 3.7: Log and alert on suspicious activity from administrative accounts[m
+ [m
+[36m@@ -105,13 +164,21 @@[m [mhttps://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst[m
+ [m
+ Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.[m
+ [m
+[31m-How to identify Azure AD users flagged for risky activity:[m
+[32m+[m[32m- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)[m
+[32m+[m
+[32m+[m[32m- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)[m
+[32m+[m
+[32m+[m[32m## 3.7: Log and alert on suspicious activity from administrative accounts[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.7 | 4.8, 4.9 | Customer |[m
+ [m
+[31m-How to monitor users' identity and access activity in Azure Security Center:[m
+[32m+[m[32mUse Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-identity-access[m
+[32m+[m[32m- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)[m
+[32m+[m
+[32m+[m[32m- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)[m
+ [m
+ ## 3.8: Manage Azure resources from only approved locations[m
+ [m
+[36m@@ -121,9 +188,17 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-identity-access[m
+ [m
+ Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.[m
+ [m
+[31m-How to configure Named Locations in Azure:[m
+[32m+[m[32m- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)[m
+[32m+[m
+[32m+[m[32m## 3.8: Manage Azure resources from only approved locations[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.8 | 11.7 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations[m
+[32m+[m[32m- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)[m
+ [m
+ ## 3.9: Use Azure Active Directory[m
+ [m
+[36m@@ -133,9 +208,17 @@[m [mhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-[m
+ [m
+ Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.[m
+ [m
+[31m-How to create and configure an AAD instance:[m
+[32m+[m[32m- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)[m
+[32m+[m
+[32m+[m[32m## 3.9: Use Azure Active Directory[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.[m
+[32m+[m
+[32m+[m[32m- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)[m
+ [m
+ ## 3.10: Regularly review and reconcile user access[m
+ [m
+[36m@@ -145,13 +228,21 @@[m [mhttps://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-[m
+ [m
+ Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. [m
+ [m
+[31m-Azure AD Reporting:[m
+[32m+[m[32m- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/reports-monitoring/[m
+[32m+[m[32m- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)[m
+ [m
+[31m-How to use Azure Identity Access Reviews:[m
+[32m+[m[32m## 3.10: Regularly review and reconcile user access[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.10 | 16.9, 16.10 | Customer |[m
+[32m+[m
+[32m+[m[32mAzure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.[m[41m [m
+[32m+[m
+[32m+[m[32m- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)[m
+[32m+[m
+[32m+[m[32m- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)[m
+ [m
+ ## 3.11: Monitor attempts to access deactivated accounts[m
+ [m
+[36m@@ -163,9 +254,19 @@[m [mYou have access to Azure AD Sign-in Activity, Audit and Risk Event log sources,[m
+ [m
+ You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.[m
+ [m
+[31m-How to integrate Azure Activity Logs into Azure Monitor:[m
+[32m+[m[32m- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)[m
+[32m+[m
+[32m+[m[32m## 3.11: Monitor attempts to access deactivated accounts[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.11 | 16.12 | Customer |[m
+[32m+[m
+[32m+[m[32mYou have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool.[m
+[32m+[m
+[32m+[m[32mYou can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.[m
+[32m+[m
+[32m+[m[32m- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)[m
+ [m
+ ## 3.12: Alert on account login behavior deviation[m
+ [m
+[36m@@ -175,17 +276,25 @@[m [mhttps://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ[m
+ [m
+ Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.[m
+ [m
+[31m-How to view Azure AD risky sign-ins:[m
+[32m+[m[32m- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins[m
+[32m+[m[32m- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)[m
+ [m
+[31m-How to configure and enable Identity Protection risk policies:[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies[m
+[32m+[m[32m## 3.12: Alert on account login behavior deviation[m
+ [m
+[31m-How to onboard Azure Sentinel:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.12 | 16.13 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.[m
+ [m
+[31m-https://docs.microsoft.com/azure/sentinel/quickstart-onboard[m
+[32m+[m[32m- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)[m
+[32m+[m
+[32m+[m[32m- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)[m
+[32m+[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+ ## 3.13: Provide Microsoft with access to relevant customer data during support scenarios[m
+ [m
+[36m@@ -195,10 +304,17 @@[m [mhttps://docs.microsoft.com/azure/sentinel/quickstart-onboard[m
+ [m
+ In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review, and approve or reject customer data access requests.[m
+ [m
+[31m-Understand Customer Lockbox:[m
+[32m+[m[32m- [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)[m
+[32m+[m
+[32m+[m[32m## 3.13: Provide Microsoft with access to relevant customer data during support scenarios[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 3.13 | 16 | Customer |[m
+[32m+[m
+[32m+[m[32mIn support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review, and approve or reject customer data access requests.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview[m
+[32m+[m[32m- [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32m-overview)[m
+ [m
+[31m-See the next security control: [Data Protection](security-control-data-protection.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-incident-response.md b/articles/security/benchmarks/security-control-incident-response.md[m
+[1mindex 29b9f69b70c..de0872a73a9 100644[m
+[1m--- a/articles/security/benchmarks/security-control-incident-response.md[m
+[1m+++ b/articles/security/benchmarks/security-control-incident-response.md[m
+[36m@@ -1,20 +1,32 @@[m
+ ---[m
+ title: Azure Security Control - Incident Response[m
+[31m-description: Security Control Incident Response[m
+[32m+[m[32mdescription: Azure Security Control Incident Response[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Incident Response[m
+ [m
+[31m-Protect the organization's information, as well as its reputation, by developing and implementing an incident response infrastructure (e.g., plans, defined roles, training, communications, management oversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.[m
+[32m+[m[32m## 10.1: Create an incident response guide[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.1 | 19.1, 19.2, 19.3 | Customer |[m
+[32m+[m
+[32m+[m[32mBuild out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.[m
+[32m+[m
+[32m+[m[32m- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)[m
+[32m+[m
+[32m+[m[32m- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)[m
+[32m+[m
+[32m+[m[32m- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)[m
+[32m+[m
+[32m+[m[32m- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)[m
+ [m
+ ## 10.1: Create an incident response guide[m
+ [m
+[36m@@ -24,21 +36,23 @@[m [mProtect the organization's information, as well as its reputation, by developing[m
+ [m
+ Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.[m
+ [m
+[31m-How to configure Workflow Automations within Azure Security Center:[m
+[32m+[m[32m- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide[m
+[32m+[m[32m- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)[m
+ [m
+[31m-Guidance on building your own security incident response process:[m
+[32m+[m[32m- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)[m
+ [m
+[31m-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/[m
+[32m+[m[32m- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)[m
+ [m
+[31m-Microsoft Security Response Center's Anatomy of an Incident:[m
+[32m+[m[32m## 10.2: Create an incident scoring and prioritization procedure[m
+ [m
+[31m-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.2 | 19.8 | Customer |[m
+ [m
+[31m-Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan:[m
+[32m+[m[32mSecurity Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.[m
+ [m
+[31m-https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf[m
+[32m+[m[32mAdditionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.[m
+ [m
+ ## 10.2: Create an incident scoring and prioritization procedure[m
+ [m
+[36m@@ -58,9 +72,17 @@[m [mAdditionally, clearly mark subscriptions (for ex. production, non-prod) and crea[m
+ [m
+ Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.[m
+ [m
+[31m-Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:[m
+[32m+[m[32m- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)[m
+[32m+[m
+[32m+[m[32m## 10.3: Test security response procedures[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.3 | 19 | Customer |[m
+[32m+[m
+[32m+[m[32mConduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.[m
+ [m
+[31m-https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf[m
+[32m+[m[32m- [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)[m
+ [m
+ ## 10.4: Provide security incident contact details and configure alert notifications for security incidents[m
+ [m
+[36m@@ -68,11 +90,19 @@[m [mhttps://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf[m
+ |--|--|--|[m
+ | 10.4 | 19.5 | Customer |[m
+ [m
+[31m-Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.[m
+[32m+[m[32mSecurity incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.[m
+[32m+[m
+[32m+[m[32m- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)[m
+[32m+[m
+[32m+[m[32m## 10.4: Provide security incident contact details and configure alert notifications for security incidents[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.4 | 19.5 | Customer |[m
+ [m
+[31m-How to set the Azure Security Center Security Contact:[m
+[32m+[m[32mSecurity incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details[m
+[32m+[m[32m- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)[m
+ [m
+ ## 10.5: Incorporate security alerts into your incident response system[m
+ [m
+[36m@@ -82,13 +112,21 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-provide-securit[m
+ [m
+ Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.[m
+ [m
+[31m-How to configure continuous export:[m
+[32m+[m[32m- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)[m
+[32m+[m
+[32m+[m[32m- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)[m
+[32m+[m
+[32m+[m[32m## 10.5: Incorporate security alerts into your incident response system[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.5 | 19.6 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/continuous-export[m
+[32m+[m[32mExport your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.[m
+ [m
+[31m-How to stream alerts into Azure Sentinel:[m
+[32m+[m[32m- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)[m
+ [m
+[31m-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center[m
+[32m+[m[32m- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)[m
+ [m
+ ## 10.6: Automate the response to security alerts[m
+ [m
+[36m@@ -96,12 +134,19 @@[m [mhttps://docs.microsoft.com/azure/sentinel/connect-azure-security-center[m
+ |--|--|--|[m
+ | 10.6 | 19 | Customer |[m
+ [m
+[31m-Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.[m
+[32m+[m[32mUse the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.[m
+[32m+[m
+[32m+[m[32m- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)[m
+[32m+[m
+[32m+[m[32m## 10.6: Automate the response to security alerts[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 10.6 | 19 | Customer |[m
+ [m
+[31m-How to configure Workflow Automation and Logic Apps:[m
+[32m+[m[32mUse the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/workflow-automation[m
+[32m+[m[32m- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mutomation)[m
+ [m
+[31m-See the next security control: [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)[m
+\ No newline at end of file[m
+[1mdiff --git a/articles/security/benchmarks/security-control-inventory-asset-management.md b/articles/security/benchmarks/security-control-inventory-asset-management.md[m
+[1mindex 9495db7725d..2e179931343 100644[m
+[1m--- a/articles/security/benchmarks/security-control-inventory-asset-management.md[m
+[1m+++ b/articles/security/benchmarks/security-control-inventory-asset-management.md[m
+[36m@@ -1,20 +1,32 @@[m
+ ---[m
+ title: Azure Security Control - Inventory and Asset Management[m
+[31m-description: Security Control Inventory and Asset Management[m
+[32m+[m[32mdescription: Azure Security Control Inventory and Asset Management[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Inventory and Asset Management[m
+ [m
+[31m-Inventory and Asset Management recommendations focus on addressing issues related to actively managing (inventory, track, and correct) all Azure resources so that only authorized resources are given access, and unauthorized and unmanaged resources are identified and removed.[m
+[32m+[m[32m## 6.1: Use Azure Asset Discovery[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.[m
+[32m+[m
+[32m+[m[32mAlthough classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.[m
+[32m+[m
+[32m+[m[32m- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)[m
+[32m+[m
+[32m+[m[32m- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)[m
+ [m
+ ## 6.1: Use Azure Asset Discovery[m
+ [m
+[36m@@ -22,21 +34,25 @@[m [mInventory and Asset Management recommendations focus on addressing issues relate[m
+ |--|--|--|[m
+ | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |[m
+ [m
+[31m-Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.[m
+[32m+[m[32mUse Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.[m
+ [m
+ Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.[m
+ [m
+[31m-How to create queries with Azure Resource Graph:[m
+[32m+[m[32m- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)[m
+[32m+[m
+[32m+[m[32m- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal[m
+[32m+[m[32m- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)[m
+ [m
+[31m-How to view your Azure Subscriptions:[m
+[32m+[m[32m## 6.2: Maintain asset metadata[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.2 | 1.5 | Customer |[m
+ [m
+[31m-Understand Azure RBAC:[m
+[32m+[m[32mApply tags to Azure resources giving metadata to logically organize them into a taxonomy.[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/overview[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+ ## 6.2: Maintain asset metadata[m
+ [m
+[36m@@ -46,9 +62,21 @@[m [mhttps://docs.microsoft.com/azure/role-based-access-control/overview[m
+ [m
+ Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.[m
+ [m
+[31m-How to create and use Tags:[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+[32m+[m
+[32m+[m[32m## 6.3: Delete unauthorized Azure resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.3 | 1.6 | Customer |[m
+[32m+[m
+[32m+[m[32mUse tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.[m
+[32m+[m
+[32m+[m[32m- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)[m
+[32m+[m
+[32m+[m[32m- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+ ## 6.3: Delete unauthorized Azure resources[m
+ [m
+[36m@@ -58,17 +86,19 @@[m [mhttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag[m
+ [m
+ Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.[m
+ [m
+[31m-How to create additional Azure subscriptions:[m
+[32m+[m[32m- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)[m
+ [m
+[31m-https://docs.microsoft.com/azure/billing/billing-create-subscription[m
+[32m+[m[32m- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)[m
+ [m
+[31m-How to create Management Groups:[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/management-groups/create[m
+[32m+[m[32m## 6.4: Maintain an inventory of approved Azure resources and software titles[m
+ [m
+[31m-How to create and use Tags:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.4 | 2.1 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags[m
+[32m+[m[32mDefine approved Azure resources and approved software for compute resources.[m
+ [m
+ ## 6.4: Maintain an inventory of approved Azure resources and software titles[m
+ [m
+[36m@@ -86,15 +116,25 @@[m [mDefine approved Azure resources and approved software for compute resources.[m
+ [m
+ Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).[m
+ [m
+[31m-Use Azure Resource Graph to query/discover resources within their subscription(s). &nbsp;Ensure that all Azure resources present in the environment are approved.[m
+[32m+[m[32mUse Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.[m
+[32m+[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)[m
+[32m+[m
+[32m+[m[32m## 6.5: Monitor for unapproved Azure resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.5 | 2.3, 2.4 | Customer |[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32mUse Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32mUse Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.[m
+ [m
+[31m-How to create queries with Azure Graph:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal[m
+[32m+[m[32m- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)[m
+ [m
+ ## 6.6: Monitor for unapproved software applications within compute resources[m
+ [m
+[36m@@ -102,11 +142,19 @@[m [mhttps://docs.microsoft.com/azure/governance/resource-graph/first-query-portal[m
+ |--|--|--|[m
+ | 6.6 | 2.3/2.4 | Customer |[m
+ [m
+[31m-Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.[m
+[32m+[m[32mUse Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.[m
+ [m
+[31m-How to enable Azure virtual machine Inventory:[m
+[32m+[m[32m- [How to enable Azure virtual machine Inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)[m
+ [m
+[31m-https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software[m
+[32m+[m[32m## 6.6: Monitor for unapproved software applications within compute resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.6 | 2.3/2.4 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.[m
+[32m+[m
+[32m+[m[32m- [How to enable Azure virtual machine Inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)[m
+ [m
+ ## 6.7: Remove unapproved Azure resources and software applications[m
+ [m
+[36m@@ -114,19 +162,27 @@[m [mhttps://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa[m
+ |--|--|--|[m
+ | 6.7 | 2.5 | Customer |[m
+ [m
+[31m-Use Azure Security Center's File Integrity Monitoring (Change Tracking) and virtual machine Inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.[m
+[32m+[m[32mUse Azure Security Center's File Integrity Monitoring (Change Tracking) and virtual machine inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.[m
+ [m
+[31m-How to use File Integrity Monitoring:[m
+[32m+[m[32m- [How to use File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring[m
+[32m+[m[32m- [Understand Azure Change Tracking](https://docs.microsoft.com/azure/automation/change-tracking)[m
+ [m
+[31m-Understand Azure Change Tracking:[m
+[32m+[m[32m- [How to enable Azure virtual machine inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)[m
+ [m
+[31m-https://docs.microsoft.com/azure/automation/change-tracking[m
+[32m+[m[32m## 6.7: Remove unapproved Azure resources and software applications[m
+ [m
+[31m-How to enable Azure virtual machine inventory:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.7 | 2.5 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center's File Integrity Monitoring (Change Tracking) and virtual machine inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.[m
+[32m+[m
+[32m+[m[32m- [How to use File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Change Tracking](https://docs.microsoft.com/azure/automation/change-tracking)[m
+ [m
+[31m-https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software[m
+[32m+[m[32m- [How to enable Azure virtual machine inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)[m
+ [m
+ ## 6.8: Use only approved applications[m
+ [m
+[36m@@ -136,9 +192,17 @@[m [mhttps://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa[m
+ [m
+ Use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.[m
+ [m
+[31m-How to use Azure Security Center Adaptive Application Controls:[m
+[32m+[m[32m- [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-adaptive-application[m
+[32m+[m[32m## 6.8: Use only approved applications[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.8 | 2.6 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.[m
+[32m+[m
+[32m+[m[32m- [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)[m
+ [m
+ ## 6.9: Use only approved Azure services[m
+ [m
+[36m@@ -148,39 +212,65 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-adaptive-applic[m
+ [m
+ Use Azure Policy to restrict which services you can provision in your environment.[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32m## 6.9: Use only approved Azure services[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.9 | 2.6 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Policy to restrict which services you can provision in your environment.[m
+ [m
+[31m-How to deny a specific resource type with Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types[m
+[32m+[m[32m- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)[m
+ [m
+ ## 6.10: Implement approved application list[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 6.1 | 2.7 | Customer |[m
+[32m+[m[32m| 6.10 | 2.7 | Customer |[m
+ [m
+ Use Azure Security Center Adaptive Application Controls to specify which file types a rule may or may not apply to.[m
+ [m
+ Implement third party solution if this does not meet the requirement.[m
+ [m
+[31m-How to use Azure Security Center Adaptive Application Controls:[m
+[32m+[m[32m- [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-adaptive-application[m
+[32m+[m[32m## 6.10: Implement approved application list[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.10 | 2.7 | Customer |[m
+ [m
+[31m-## 6.11: Limit users' ability to interact with Azure Resource Manager via scripts[m
+[32m+[m[32mUse Azure Security Center Adaptive Application Controls to specify which file types a rule may or may not apply to.[m
+[32m+[m
+[32m+[m[32mImplement third party solution if this does not meet the requirement.[m
+[32m+[m
+[32m+[m[32m- [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)[m
+[32m+[m
+[32m+[m[32m## 6.11: Limit users' ability to interact with AzureResources Manager via scripts[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+ | 6.11 | 2.8 | Customer |[m
+ [m
+[31m-Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.[m
+[32m+[m[32mUse Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.[m
+[32m+[m
+[32m+[m[32m- [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)[m
+ [m
+[31m-How to configure Conditional Access to block access to Azure Resource Manager:[m
+[32m+[m[32m## 6.11: Limit users' ability to interact with AzureResources Manager via scripts[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.11 | 2.8 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.[m
+[32m+[m
+[32m+[m[32m- [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)[m
+ [m
+ ## 6.12: Limit users' ability to execute scripts within compute resources[m
+ [m
+[36m@@ -190,9 +280,17 @@[m [mhttps://docs.microsoft.com/azure/role-based-access-control/conditional-access-az[m
+ [m
+ Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.[m
+ [m
+[31m-For example, how to control PowerShell script execution in Windows Environments:[m
+[32m+[m[32m- [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6[m
+[32m+[m[32m## 6.12: Limit users' ability to execute scripts within compute resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.12 | 2.8 | Customer |[m
+[32m+[m
+[32m+[m[32mUse operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.[m
+[32m+[m
+[32m+[m[32m- [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)[m
+ [m
+ ## 6.13: Physically or logically segregate high risk applications[m
+ [m
+[36m@@ -202,14 +300,21 @@[m [mhttps://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e[m
+ [m
+ Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.[m
+ [m
+[31m-How to create a virtual network:[m
+[32m+[m[32m- [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+[32m+[m
+[32m+[m[32m- [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+[32m+[m
+[32m+[m[32m## 6.13: Physically or logically segregate high risk applications[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 6.13 | 2.9 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/quick-create-portal[m
+[32m+[m[32mSoftware that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.[m
+ [m
+[31m-How to create an NSG with a security config:[m
+[32m+[m[32m- [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic[m
+[32m+[m[32m- [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mk-traffic)[m
+ [m
+[31m-See the next security control: [Secure Configuration](security-control-secure-configuration.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-logging-monitoring.md b/articles/security/benchmarks/security-control-logging-monitoring.md[m
+[1mindex 67ad35a2bfa..2cf3fdee999 100644[m
+[1m--- a/articles/security/benchmarks/security-control-logging-monitoring.md[m
+[1m+++ b/articles/security/benchmarks/security-control-logging-monitoring.md[m
+[36m@@ -1,20 +1,26 @@[m
+ ---[m
+ title: Azure Security Control - Logging and Monitoring[m
+[31m-description: Security Control Logging and Monitoring[m
+[32m+[m[32mdescription: Azure Security Control Logging and Monitoring[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Logging and Monitoring[m
+ [m
+[31m-Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services.[m
+[32m+[m[32m## 2.1: Use approved time synchronization sources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.1 | 6.1 | Microsoft |[m
+[32m+[m
+[32m+[m[32mMicrosoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources.[m
+[32m+[m
+[32m+[m[32m- [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)[m
+ [m
+ ## 2.1: Use approved time synchronization sources[m
+ [m
+[36m@@ -24,9 +30,23 @@[m [mSecurity logging and monitoring focuses on activities related to enabling, acqui[m
+ [m
+ Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources.[m
+ [m
+[31m-How to configure time synchronization for Azure compute resources:[m
+[32m+[m[32m- [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-machines/windows/time-sync[m
+[32m+[m[32m## 2.2: Configure central security log management[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.2 | 6.5, 6.6 | Customer |[m
+[32m+[m
+[32m+[m[32mIngest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.[m
+[32m+[m
+[32m+[m[32m- [Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+[32m+[m
+[32m+[m[32m- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)[m
+[32m+[m
+[32m+[m[32m- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)[m
+[32m+[m
+[32m+[m[32m- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)[m
+ [m
+ ## 2.2: Configure central security log management[m
+ [m
+[36m@@ -36,21 +56,25 @@[m [mhttps://docs.microsoft.com/azure/virtual-machines/windows/time-sync[m
+ [m
+ Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.[m
+ [m
+[31m-Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. How to onboard Azure Sentinel:[m
+[32m+[m[32m- [Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+[31m-https://docs.microsoft.com/azure/sentinel/quickstart-onboard[m
+[32m+[m[32m- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)[m
+ [m
+[31m-How to collect platform logs and metrics with Azure Monitor:[m
+[32m+[m[32m- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings[m
+[32m+[m[32m- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)[m
+ [m
+[31m-How to collect Azure Virtual Machine internal host logs with Azure Monitor:[m
+[32m+[m[32m## 2.3: Enable audit logging for Azure resources[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.3 | 6.2, 6.3 | Customer |[m
+[32m+[m
+[32m+[m[32mEnable Diagnostic Settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.[m
+ [m
+[31m-How to get started with Azure Monitor and third-party SIEM integration:[m
+[32m+[m[32m- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)[m
+ [m
+[31m-https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/[m
+[32m+[m[32m- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)[m
+ [m
+ ## 2.3: Enable audit logging for Azure resources[m
+ [m
+[36m@@ -60,13 +84,21 @@[m [mhttps://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/[m
+ [m
+ Enable Diagnostic Settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.[m
+ [m
+[31m-How to collect platform logs and metrics with Azure Monitor:[m
+[32m+[m[32m- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)[m
+[32m+[m
+[32m+[m[32m- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)[m
+[32m+[m
+[32m+[m[32m## 2.4: Collect security logs from operating systems[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.4 | 6.2, 6.3 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings[m
+[32m+[m[32mIf the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.[m
+ [m
+[31m-Understand logging and different log types in Azure:[m
+[32m+[m[32m- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview[m
+[32m+[m[32m- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)[m
+ [m
+ ## 2.4: Collect security logs from operating systems[m
+ [m
+[36m@@ -74,15 +106,21 @@[m [mhttps://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview[m
+ |--|--|--|[m
+ | 2.4 | 6.2, 6.3 | Customer |[m
+ [m
+[31m-If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS Logs(Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.[m
+[32m+[m[32mIf the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.[m
+[32m+[m
+[32m+[m[32m- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)[m
+ [m
+[31m-How to collect Azure Virtual Machine internal host logs with Azure Monitor:[m
+[32m+[m[32m- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)[m
+[32m+[m
+[32m+[m[32m## 2.5: Configure security log storage retention[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.5 | 6.4 | Customer |[m
+ [m
+[31m-Understand Azure Security Center data collection:[m
+[32m+[m[32mWithin Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection[m
+[32m+[m[32m- [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)[m
+ [m
+ ## 2.5: Configure security log storage retention[m
+ [m
+[36m@@ -92,9 +130,23 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-enable-data-col[m
+ [m
+ Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.[m
+ [m
+[31m-How to set log retention parameters for Log Analytics Workspaces:[m
+[32m+[m[32m- [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)[m
+[32m+[m
+[32m+[m[32m## 2.6: Monitor and review Logs[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.6 | 6.7 | Customer |[m
+[32m+[m
+[32m+[m[32mAnalyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.[m
+[32m+[m
+[32m+[m[32mAlternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.[m[41m [m
+[32m+[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+[32m+[m
+[32m+[m[32m- [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period[m
+[32m+[m[32m- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)[m
+ [m
+ ## 2.6: Monitor and review Logs[m
+ [m
+[36m@@ -106,17 +158,27 @@[m [mAnalyze and monitor logs for anomalous behavior and regularly review results. Us[m
+ [m
+ Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. [m
+ [m
+[31m-How to onboard Azure Sentinel:[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+[31m-https://docs.microsoft.com/azure/sentinel/quickstart-onboard[m
+[32m+[m[32m- [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)[m
+ [m
+[31m-Understand Log Analytics Workspace:[m
+[32m+[m[32m- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)[m
+[32m+[m
+[32m+[m[32m## 2.7: Enable alerts for anomalous activity[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.7 | 6.8 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center with Log Analytics Workspace for monitoring and alerting on anomalous activity found in security logs and events.[m
+[32m+[m
+[32m+[m[32mAlternatively, you may enable and on-board data to Azure Sentinel.[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+[31m-How to perform custom queries in Azure Monitor:[m
+[32m+[m[32m- [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries[m
+[32m+[m[32m- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)[m
+ [m
+ ## 2.7: Enable alerts for anomalous activity[m
+ [m
+[36m@@ -128,17 +190,25 @@[m [mUse Azure Security Center with Log Analytics Workspace for monitoring and alerti[m
+ [m
+ Alternatively, you may enable and on-board data to Azure Sentinel.[m
+ [m
+[31m-How to onboard Azure Sentinel:[m
+[32m+[m[32m- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)[m
+ [m
+[31m-https://docs.microsoft.com/azure/sentinel/quickstart-onboard[m
+[32m+[m[32m- [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)[m
+ [m
+[31m-How to manage alerts in Azure Security Center:[m
+[32m+[m[32m- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts[m
+[32m+[m[32m## 2.8: Centralize anti-malware logging[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.8 | 8.6 | Customer |[m
+ [m
+[31m-How to alert on log analytics log data:[m
+[32m+[m[32mEnable antimalware event collection for Azure Virtual Machines and Cloud Services.[m
+[32m+[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)[m
+[32m+[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response[m
+[32m+[m[32m- [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+ [m
+ ## 2.8: Centralize anti-malware logging[m
+ [m
+[36m@@ -148,17 +218,19 @@[m [mhttps://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response[m
+ [m
+ Enable antimalware event collection for Azure Virtual Machines and Cloud Services.[m
+ [m
+[31m-How to configure Microsoft Antimalware for Virtual Machines:[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)[m
+ [m
+[31m-How to configure Microsoft Antimalware for Cloud Services:[m
+[32m+[m[32m- [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+ [m
+[31m-https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0[m
+[32m+[m[32m## 2.9: Enable DNS query logging[m
+ [m
+[31m-Understand Microsoft Antimalware:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.9 | 8.7 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/antimalware[m
+[32m+[m[32mImplement a third-party solution for DNS logging.[m
+ [m
+ ## 2.9: Enable DNS query logging[m
+ [m
+[36m@@ -172,10 +244,17 @@[m [mImplement a third-party solution for DNS logging.[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 2.1 | 8.8 | Customer |[m
+[32m+[m[32m| 2.10 | 8.8 | Customer |[m
+[32m+[m
+[32m+[m[32mManually configure console logging and PowerShell Transcription on a per-node basis.[m
+[32m+[m
+[32m+[m[32m## 2.10: Enable command-line audit logging[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 2.10 | 8.8 | Customer |[m
+ [m
+ Manually configure console logging and PowerShell Transcription on a per-node basis.[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mode basis.[m
+ [m
+[31m-See the next security control: [Identity and Access Control](security-control-identity-access-control.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-malware-defense.md b/articles/security/benchmarks/security-control-malware-defense.md[m
+[1mindex f3306f48c74..371c81f96f6 100644[m
+[1m--- a/articles/security/benchmarks/security-control-malware-defense.md[m
+[1m+++ b/articles/security/benchmarks/security-control-malware-defense.md[m
+[36m@@ -1,20 +1,26 @@[m
+ ---[m
+ title: Azure Security Control - Malware Defense[m
+[31m-description: Security Control Malware Defense[m
+[32m+[m[32mdescription: Azure Security Control Malware Defense[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Malware Defense[m
+ [m
+[31m-Control the installation, spread, and execution of malicious code at multiple points the environment, while optimizing the use of automation to enable rapid updating of defense, data gathering, and corrective action.[m
+[32m+[m[32m## 8.1: Use centrally managed anti-malware software[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 8.1 | 8.1 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Microsoft Antimalware for Azure Cloud Services and Virtual Machines to continuously monitor and defend your resources. For Linux, use third party antimalware solution.[m
+[32m+[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+ [m
+ ## 8.1: Use centrally managed anti-malware software[m
+ [m
+[36m@@ -24,9 +30,23 @@[m [mControl the installation, spread, and execution of malicious code at multiple po[m
+ [m
+ Use Microsoft Antimalware for Azure Cloud Services and Virtual Machines to continuously monitor and defend your resources. For Linux, use third party antimalware solution.[m
+ [m
+[31m-How to configure Microsoft Antimalware for Cloud Services and Virtual Machines:[m
+[32m+[m[32m- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+[32m+[m
+[32m+[m[32m## 8.2: Pre-scan files to be uploaded to non-compute Azure resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 8.2 | 8.1 | Customer |[m
+[32m+[m
+[32m+[m[32mMicrosoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on your content.[m
+[32m+[m
+[32m+[m[32mPre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc.[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center's Threat detection for data services to detect malware uploaded to storage accounts.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/antimalware[m
+[32m+[m[32m- [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Security Center's Threat detection for data services](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)[m
+ [m
+ ## 8.2: Pre-scan files to be uploaded to non-compute Azure resources[m
+ [m
+[36m@@ -40,13 +60,19 @@[m [mPre-scan any files being uploaded to non-compute Azure resources, such as App Se[m
+ [m
+ Use Azure Security Center's Threat detection for data services to detect malware uploaded to storage accounts.[m
+ [m
+[31m-Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:[m
+[32m+[m[32m- [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Security Center's Threat detection for data services](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/antimalware[m
+[32m+[m[32m## 8.3: Ensure anti-malware software and signatures are updated[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 8.3 | 8.2 | Customer |[m
+ [m
+[31m-Understand Azure Security Center's Threat detection for data services:[m
+[32m+[m[32mMicrosoft Antimalware will automatically install the latest signatures and engine updates by default. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. For Linux, use third party antimalware solution.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services[m
+[32m+[m[32m- [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+ [m
+ ## 8.3: Ensure anti-malware software and signatures are updated[m
+ [m
+[36m@@ -54,12 +80,25 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-alerts-data-ser[m
+ |--|--|--|[m
+ | 8.3 | 8.2 | Customer |[m
+ [m
+[31m-Microsoft Antimalware will automatically install the latest signatures and engine updates by default. Follow recommendations in Azure Security Center: &quot;Compute &amp; Apps&quot; to ensure all endpoints are up to date with the latest signatures. For Linux, use third party antimalware solution.[m
+[32m+[m[32mMicrosoft Antimalware will automatically install the latest signatures and engine updates by default. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. For Linux, use third party antimalware solution.[m
+[32m+[m
+[32m+[m[32m- [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)[m
+[32m+[m
+[32m+[m[32m## 8.4: Enable operating system anti-exploitation features/deploy anti-exploit technologies[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 8.4 | 8.3 | Customer |[m
+[32m+[m
+[32m+[m[32mEnsure that IaaS/compute resources have DEP and ASLR enabled.[m
+[32m+[m
+[32m+[m[32mLearn more about DEP:[m
+[32m+[m
+[32m+[m[32mhttps://docs.microsoft.com/windows/win32/memory/data-execution-prevention[m
+ [m
+[31m-How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines:[m
+[32m+[m[32mLearn more about ASLR:[m
+ [m
+[31m-https://docs.microsoft.com/azure/security/fundamentals/antimalware[m
+[32m+[m[32mhttps://docs.microsoft.com/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10#address-space-layout-randomization[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mdomization[m
+ [m
+[31m-See the next security control: [Data Recovery](security-control-data-recovery.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-network-security.md b/articles/security/benchmarks/security-control-network-security.md[m
+[1mindex 9c8f9b0a715..d412101c860 100644[m
+[1m--- a/articles/security/benchmarks/security-control-network-security.md[m
+[1m+++ b/articles/security/benchmarks/security-control-network-security.md[m
+[36m@@ -1,20 +1,36 @@[m
+ ---[m
+ title: Azure Security Control - Network Security[m
+[31m-description: Security Control Network Security[m
+[32m+[m[32mdescription: Azure Security Control Network Security[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Network Security[m
+ [m
+[31m-Network security recommendations focus on specifying which network protocols, TCP/UDP ports, and network connected services are allowed or denied access to Azure services.[m
+[32m+[m[32m## 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.1 | 9.2, 9.4, 14.1-14.3 | Customer |[m
+[32m+[m
+[32m+[m[32mEnsure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. When available, use Private Endpoints with Private Link to secure your Azure service resources to your virtual network by extending VNet identity to the service. When Private Endpoints and Private Link not available, use Service Endpoints. For service specific requirements, please refer to the security recommendation for that specific service. (Note: Before using Private Link for production workloads, ensure that it is no longer in Preview.)[m
+[32m+[m
+[32m+[m[32mAlternatively, if you have a specific use case, requirement may be met by implementing Azure Firewall.[m
+[32m+[m
+[32m+[m[32m- [Understand Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)[m
+[32m+[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+[32m+[m
+[32m+[m[32m- [How to create an NSG with a security configuration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+[32m+[m
+[32m+[m[32m- [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+ [m
+ ## 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network[m
+ [m
+[36m@@ -22,25 +38,33 @@[m [mNetwork security recommendations focus on specifying which network protocols, TC[m
+ |--|--|--|[m
+ | 1.1 | 9.2, 9.4, 14.1-14.3 | Customer |[m
+ [m
+[31m-Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. Use Azure Services with Private Link enabled, deploy the service inside your Vnet, or connect privately using Private Endpoints. For service specific requirements, please refer to the security recommendation for that specific service.[m
+[32m+[m[32mEnsure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. When available, use Private Endpoints with Private Link to secure your Azure service resources to your virtual network by extending VNet identity to the service. When Private Endpoints and Private Link not available, use Service Endpoints. For service specific requirements, please refer to the security recommendation for that specific service. (Note: Before using Private Link for production workloads, ensure that it is no longer in Preview.)[m
+ [m
+[31m-Alternatively, if you have a specific use case, requirements can be met by implementing Azure Firewall.[m
+[32m+[m[32mAlternatively, if you have a specific use case, requirement may be met by implementing Azure Firewall.[m
+ [m
+[31m-General Information on Private Link:[m
+[32m+[m[32m- [Understand Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)[m
+ [m
+[31m-https://docs.microsoft.com/azure/private-link/private-link-overview[m
+[32m+[m[32m- [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)[m
+ [m
+[31m-How to create a Virtual Network:[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/quick-create-portal[m
+[32m+[m[32m- [How to create an NSG with a security configuration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+ [m
+[31m-How to create an NSG with a security configuration:[m
+[32m+[m[32m- [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic[m
+[32m+[m[32m## 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs[m
+ [m
+[31m-How to deploy and configure Azure Firewall:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.2 | 9.3, 12.2 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.[m
+ [m
+[31m-https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal[m
+[32m+[m[32m- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)[m
+[32m+[m
+[32m+[m[32m- [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)[m
+[32m+[m
+[32m+[m[32m- [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)[m
+ [m
+ ## 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs[m
+ [m
+[36m@@ -48,15 +72,23 @@[m [mhttps://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal[m
+ |--|--|--|[m
+ | 1.2 | 9.3, 12.2 | Customer |[m
+ [m
+[31m-Use Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit.[m
+[32m+[m[32mUse Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.[m
+[32m+[m
+[32m+[m[32m- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)[m
+ [m
+[31m-How to Enable NSG Flow Logs:[m
+[32m+[m[32m- [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)[m
+ [m
+[31m-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal[m
+[32m+[m[32m- [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)[m
+[32m+[m
+[32m+[m[32m## 1.3: Protect critical web applications[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.3 | 9.5 | Customer |[m
+ [m
+[31m-Understand Network Security provided by Azure Security Center:[m
+[32m+[m[32mDeploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-network-recommendations[m
+[32m+[m[32m- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)[m
+ [m
+ ## 1.3: Protect critical web applications[m
+ [m
+[36m@@ -66,9 +98,31 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-network-recomme[m
+ [m
+ Deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.[m
+ [m
+[31m-How to deploy Azure WAF:[m
+[32m+[m[32m- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)[m
+[32m+[m
+[32m+[m[32m## 1.4: Deny communications with known malicious IP addresses[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.4 | 12.3 | Customer |[m
+[32m+[m
+[32m+[m[32mEnable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses.[m
+[32m+[m
+[32m+[m[32mDeploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.[m
+ [m
+[31m-https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag[m
+[32m+[m[32m- [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)[m
+[32m+[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)[m
+ [m
+ ## 1.4: Deny communications with known malicious IP addresses[m
+ [m
+[36m@@ -78,31 +132,33 @@[m [mhttps://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a[m
+ [m
+ Enable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses.[m
+ [m
+[31m-Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to &quot;Alert and deny&quot; for malicious network traffic.[m
+[32m+[m[32mDeploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.[m
+ [m
+ Use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.[m
+ [m
+ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.[m
+ [m
+[31m-How to configure DDoS protection:[m
+[32m+[m[32m- [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+ [m
+[31m-How to deploy Azure Firewall:[m
+[32m+[m[32m- [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)[m
+ [m
+[31m-https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal[m
+[32m+[m[32m- [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)[m
+ [m
+[31m-Understand Azure Security Center Integrated Threat Intelligence:[m
+[32m+[m[32m- [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer[m
+[32m+[m[32m## 1.5: Record network packets and flow logs[m
+ [m
+[31m-Understand Azure Security Center Adaptive Network Hardening:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.5 | 12.5, 15.8 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening[m
+[32m+[m[32mRecord NSG flow logs into a storage account to generate flow records. If required for investigating anomalous activity, enable Network Watcher packet capture.[m
+ [m
+[31m-Understand Azure Security Center Just In Time Network Access Control:[m
+[32m+[m[32m- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-just-in-time[m
+[32m+[m[32m- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)[m
+ [m
+ ## 1.5: Record network packets and flow logs[m
+ [m
+[36m@@ -112,13 +168,25 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-just-in-time[m
+ [m
+ Record NSG flow logs into a storage account to generate flow records. If required for investigating anomalous activity, enable Network Watcher packet capture.[m
+ [m
+[31m-How to Enable NSG Flow Logs:[m
+[32m+[m[32m- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal[m
+[32m+[m[32m- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)[m
+ [m
+[31m-How to enable Network Watcher:[m
+[32m+[m[32m## 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)[m
+ [m
+[31m-https://docs.microsoft.com/azure/network-watcher/network-watcher-create[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.6 | 12.6, 12.7 | Customer |[m
+[32m+[m
+[32m+[m[32mSelect an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.[m
+[32m+[m
+[32m+[m[32mDeploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic.[m
+[32m+[m
+[32m+[m[32m- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)[m
+[32m+[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+[32m+[m
+[32m+[m[32m- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)[m
+ [m
+ ## 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)[m
+ [m
+[36m@@ -126,13 +194,15 @@[m [mhttps://docs.microsoft.com/azure/network-watcher/network-watcher-create[m
+ |--|--|--|[m
+ | 1.6 | 12.6, 12.7 | Customer |[m
+ [m
+[31m-Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to &quot;Alert and deny&quot; for malicious network traffic.[m
+[32m+[m[32mSelect an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.[m
+[32m+[m
+[32m+[m[32mDeploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic.[m
+[32m+[m
+[32m+[m[32m- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)[m
+ [m
+[31m-How to deploy Azure Firewall:[m
+[31m-https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal[m
+[32m+[m[32m- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)[m
+ [m
+[31m-How to configure alerts with Azure Firewall:[m
+[31m-https://docs.microsoft.com/azure/firewall/threat-intel[m
+[32m+[m[32m- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)[m
+ [m
+ ## 1.7: Manage traffic to web applications[m
+ [m
+[36m@@ -142,17 +212,25 @@[m [mhttps://docs.microsoft.com/azure/firewall/threat-intel[m
+ [m
+ Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.[m
+ [m
+[31m-How to deploy Application Gateway:[m
+[32m+[m[32m- [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/application-gateway/quick-create-portal[m
+[32m+[m[32m- [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)[m
+ [m
+[31m-How to configure Application Gateway to use HTTPS:[m
+[32m+[m[32m- [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)[m
+ [m
+[31m-https://docs.microsoft.com/azure/application-gateway/create-ssl-portal[m
+[32m+[m[32m## 1.7: Manage traffic to web applications[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.7 | 12.9, 12.10 | Customer |[m
+[32m+[m
+[32m+[m[32mDeploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.[m
+ [m
+[31m-Understand layer 7 load balancing with Azure web application gateways:[m
+[32m+[m[32m- [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/application-gateway/overview[m
+[32m+[m[32m- [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)[m
+[32m+[m
+[32m+[m[32m- [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)[m
+ [m
+ ## 1.8: Minimize complexity and administrative overhead of network security rules[m
+ [m
+[36m@@ -162,9 +240,25 @@[m [mhttps://docs.microsoft.com/azure/application-gateway/overview[m
+ [m
+ Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.[m
+ [m
+[31m-Understand and use Service Tags:[m
+[32m+[m[32mYou may also use Application Security Groups to help simplify complex security configuration. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups.[m
+[32m+[m
+[32m+[m[32m- [Understand and use Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)[m
+[32m+[m
+[32m+[m[32m- [Understand and use Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)[m
+[32m+[m
+[32m+[m[32m## 1.8: Minimize complexity and administrative overhead of network security rules[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.8 | 1.5 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.[m
+[32m+[m
+[32m+[m[32mYou may also use Application Security Groups to help simplify complex security configuration. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups.[m
+[32m+[m
+[32m+[m[32m- [Understand and use Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/service-tags-overview[m
+[32m+[m[32m- [Understand and use Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)[m
+ [m
+ ## 1.9: Maintain standard security configurations for network devices[m
+ [m
+[36m@@ -174,39 +268,65 @@[m [mhttps://docs.microsoft.com/azure/virtual-network/service-tags-overview[m
+ [m
+ Define and implement standard security configurations for network resources with Azure Policy.[m
+ [m
+[31m-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and fine-tune control and management through versioning.[m
+[32m+[m[32mYou may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32m- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)[m
+ [m
+[31m-Azure Policy samples for networking:[m
+[32m+[m[32m- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network[m
+[32m+[m[32m## 1.9: Maintain standard security configurations for network devices[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.9 | 11.1 | Customer |[m
+[32m+[m
+[32m+[m[32mDefine and implement standard security configurations for network resources with Azure Policy.[m
+ [m
+[31m-How to create an Azure Blueprint:[m
+[32m+[m[32mYou may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)[m
+[32m+[m
+[32m+[m[32m- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)[m
+ [m
+ ## 1.10: Document traffic configuration rules[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 1.1 | 11.2 | Customer |[m
+[32m+[m[32m| 1.10 | 11.2 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.[m
+[32m+[m
+[32m+[m[32mUse any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.[m
+[32m+[m
+[32m+[m[32mYou may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.[m
+[32m+[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+ [m
+[31m-Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the &quot;Description&quot; field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+ [m
+[31m-How to create and use Tags:[m
+[32m+[m[32m- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags[m
+[32m+[m[32m## 1.10: Document traffic configuration rules[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.10 | 11.2 | Customer |[m
+ [m
+[31m-How to create a Virtual Network:[m
+[32m+[m[32mUse Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/quick-create-portal[m
+[32m+[m[32mUse any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.[m
+ [m
+[31m-How to create an NSG with a Security Config:[m
+[32m+[m[32mYou may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic[m
+[32m+[m[32m- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)[m
+[32m+[m
+[32m+[m[32m- [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)[m
+[32m+[m
+[32m+[m[32m- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)[m
+ [m
+ ## 1.11: Use automated tools to monitor network resource configurations and detect changes[m
+ [m
+[36m@@ -214,16 +334,23 @@[m [mhttps://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic[m
+ |--|--|--|[m
+ | 1.11 | 11.3 | Customer |[m
+ [m
+[31m-Use Azure Policy to validate (and/or remediate) configuration for network resources.[m
+[32m+[m[32mUse Azure Activity Log to monitor network resource configurations and detect changes. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.[m
+[32m+[m
+[32m+[m[32m- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)[m
+[32m+[m
+[32m+[m[32m## 1.11: Use automated tools to monitor network resource configurations and detect changes[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 1.11 | 11.3 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32mUse Azure Activity Log to monitor network resource configurations and detect changes. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.[m
+ [m
+[31m-Azure Policy samples for networking:[m
+[32m+[m[32m- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network[m
+[32m+[m[32m- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mivity-log)[m
+ [m
+[31m-- See the next security control: [Logging and Monitoring](security-control-logging-monitoring.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md b/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md[m
+[1mindex 1fe8340416f..da829037c3e 100644[m
+[1m--- a/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md[m
+[1m+++ b/articles/security/benchmarks/security-control-penetration-tests-red-team-exercises.md[m
+[36m@@ -1,35 +1,36 @@[m
+ ---[m
+ title: Azure Security Control - Penetration Tests and Red Team Exercises[m
+[31m-description: Security Control Penetration Tests and Red Team Exercises[m
+[32m+[m[32mdescription: Azure Security Control Penetration Tests and Red Team Exercises[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Penetration Tests and Red Team Exercises[m
+ [m
+[31m-Test the overall strength of an organization's defense (the technology, the processes, and the people) by simulating the objectives and actions of an attacker.[m
+[31m-[m
+ ## 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+ | 11.1 | 20.1-20.8 | Shared |[m
+ [m
+[31m-Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:[m
+[32m+[m[32m- [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)[m
+[32m+[m
+[32m+[m[32m- [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)[m
+[32m+[m
+[32m+[m[32m## 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days[m
+ [m
+[31m-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 11.1 | 20.1-20.8 | Shared |[m
+ [m
+[31m-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:[m
+[32m+[m[32m- [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)[m
+ [m
+[31m-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e[m
+[32m+[m[32m- [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32m-b837392e)[m
+ [m
+[31m-Read more about [Azure Security Controls](overview.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-secure-configuration.md b/articles/security/benchmarks/security-control-secure-configuration.md[m
+[1mindex 0c0ab809b81..1821c7e6900 100644[m
+[1m--- a/articles/security/benchmarks/security-control-secure-configuration.md[m
+[1m+++ b/articles/security/benchmarks/security-control-secure-configuration.md[m
+[36m@@ -1,21 +1,17 @@[m
+ ---[m
+ title: Azure Security Control - Secure Configuration[m
+[31m-description: Security Control Secure Configuration[m
+[32m+[m[32mdescription: Azure Security Control Secure Configuration[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Secure Configuration[m
+ [m
+[31m-Establish, implement, and actively manage (track, report on, correct) the security configuration of Azure resources in order to prevent attackers from exploiting vulnerable services and settings.[m
+[31m-[m
+ ## 7.1: Establish secure configurations for all Azure resources[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+[36m@@ -24,9 +20,17 @@[m [mEstablish, implement, and actively manage (track, report on, correct) the securi[m
+ [m
+ Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m## 7.1: Establish secure configurations for all Azure resources[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.1 | 5.1 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.[m
+[32m+[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+ ## 7.2: Establish secure operating system configurations[m
+ [m
+[36m@@ -34,15 +38,23 @@[m [mhttps://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+ |--|--|--|[m
+ | 7.2 | 5.1 | Customer |[m
+ [m
+[31m-Use Azure Security Center recommendation &quot;Remediate Vulnerabilities in Security Configurations on your Virtual Machines&quot; to maintain security configurations on all compute resources.[m
+[32m+[m[32mUse Azure Security Center recommendation "Remediate Vulnerabilities in Security Configurations on your Virtual Machines" to maintain security configurations on all compute resources.[m
+[32m+[m
+[32m+[m[32m- [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)[m
+[32m+[m
+[32m+[m[32m- [How to remediate Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)[m
+[32m+[m
+[32m+[m[32m## 7.2: Establish secure operating system configurations[m
+ [m
+[31m-How to monitor Azure Security Center recommendations:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.2 | 5.1 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-recommendations[m
+[32m+[m[32mUse Azure Security Center recommendation "Remediate Vulnerabilities in Security Configurations on your Virtual Machines" to maintain security configurations on all compute resources.[m
+ [m
+[31m-How to remediate Azure Security Center recommendations:[m
+[32m+[m[32m- [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations[m
+[32m+[m[32m- [How to remediate Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)[m
+ [m
+ ## 7.3: Maintain secure Azure resource configurations[m
+ [m
+[36m@@ -52,13 +64,21 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-remediate-recom[m
+ [m
+ Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32m- [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)[m
+ [m
+[31m-Understand Azure Policy Effects:[m
+[32m+[m[32m## 7.3: Maintain secure Azure resource configurations[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/concepts/effects[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.3 | 5.2 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.[m
+[32m+[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)[m
+ [m
+ ## 7.4: Maintain secure operating system configurations[m
+ [m
+[36m@@ -68,15 +88,25 @@[m [mhttps://docs.microsoft.com/azure/governance/policy/concepts/effects[m
+ [m
+ Base operating system images are managed and maintained by Microsoft.[m
+ [m
+[31m-However, you can apply security settings required by your organization using Azure Resource Manager templates and/or Desired State Configuration.[m
+[32m+[m[32mHowever, you can apply security settings required by your organization using Azure Resources Manager templates and/or Desired State Configuration.[m
+[32m+[m
+[32m+[m[32m- [How to create an Azure Virtual Machine from an Azure Resources Manager template](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)[m
+ [m
+[31m-How to create an Azure Virtual Machine from an Azure Resource Manager template:[m
+[32m+[m[32m- [Understand Desired State Configuration for Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview)[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-machines/windows/ps-template[m
+[32m+[m[32m## 7.4: Maintain secure operating system configurations[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.4 | 5.2 | Shared |[m
+[32m+[m
+[32m+[m[32mBase operating system images are managed and maintained by Microsoft.[m
+ [m
+[31m-Understand Desired State Configuration for Azure Virtual Machines:[m
+[32m+[m[32mHowever, you can apply security settings required by your organization using Azure Resources Manager templates and/or Desired State Configuration.[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview[m
+[32m+[m[32m- [How to create an Azure Virtual Machine from an Azure Resources Manager template](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)[m
+[32m+[m
+[32m+[m[32m- [Understand Desired State Configuration for Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview)[m
+ [m
+ ## 7.5: Securely store configuration of Azure resources[m
+ [m
+[36m@@ -86,13 +116,21 @@[m [mhttps://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview[m
+ [m
+ If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.[m
+ [m
+[31m-How to store code in Azure DevOps:[m
+[32m+[m[32m- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)[m
+[32m+[m
+[32m+[m[32m- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)[m
+[32m+[m
+[32m+[m[32m## 7.5: Securely store configuration of Azure resources[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.5 | 5.3 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops[m
+[32m+[m[32mIf using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.[m
+ [m
+[31m-Azure Repos Documentation:[m
+[32m+[m[32m- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)[m
+ [m
+[31m-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops[m
+[32m+[m[32m- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)[m
+ [m
+ ## 7.6: Securely store custom operating system images[m
+ [m
+[36m@@ -102,17 +140,25 @@[m [mhttps://docs.microsoft.com/azure/devops/repos/index?view=azure-devops[m
+ [m
+ If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.[m
+ [m
+[31m-Understand RBAC in Azure:[m
+[32m+[m[32m- [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles[m
+[32m+[m[32m- [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)[m
+ [m
+[31m-Understand RBAC for Container Registry:[m
+[32m+[m[32m- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)[m
+ [m
+[31m-https://docs.microsoft.com/azure/container-registry/container-registry-roles[m
+[32m+[m[32m## 7.6: Securely store custom operating system images[m
+ [m
+[31m-How to configure RBAC in Azure:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.6 | 5.3 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal[m
+[32m+[m[32mIf using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.[m
+[32m+[m
+[32m+[m[32m- [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)[m
+[32m+[m
+[32m+[m[32m- [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)[m
+[32m+[m
+[32m+[m[32m- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)[m
+ [m
+ ## 7.7: Deploy system configuration management tools[m
+ [m
+[36m@@ -122,9 +168,17 @@[m [mhttps://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-rol[m
+ [m
+ Use Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.[m
+ [m
+[31m-How to configure and manage Azure Policy:[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+[32m+[m
+[32m+[m[32m## 7.7: Deploy system configuration management tools[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.7 | 5.4 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+[32m+[m[32mUse Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.[m
+[32m+[m
+[32m+[m[32m- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)[m
+ [m
+ ## 7.8: Deploy system configuration management tools for operating systems[m
+ [m
+[36m@@ -134,9 +188,17 @@[m [mhttps://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage[m
+ [m
+ Use Azure compute extensions such as PowerShell Desired State Configuration for Windows compute or Linux Chef Extension for Linux.[m
+ [m
+[31m-How to install Virtual Machine Extensions in Azure:[m
+[32m+[m[32m- [How to install Virtual Machine Extensions in Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension)[m
+[32m+[m
+[32m+[m[32m## 7.8: Deploy system configuration management tools for operating systems[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.8 | 5.4 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure compute extensions such as PowerShell Desired State Configuration for Windows compute or Linux Chef Extension for Linux.[m
+ [m
+[31m-https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension[m
+[32m+[m[32m- [How to install Virtual Machine Extensions in Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension)[m
+ [m
+ ## 7.9: Implement automated configuration monitoring for Azure services[m
+ [m
+[36m@@ -146,23 +208,39 @@[m [mhttps://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-[m
+ [m
+ Use Azure Security Center to perform baseline scans for your Azure Resources[m
+ [m
+[31m-How to remediate recommendations in Azure Security Center:[m
+[32m+[m[32m- [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations[m
+[32m+[m[32m## 7.9: Implement automated configuration monitoring for Azure services[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.9 | 5.5 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center to perform baseline scans for your Azure Resources[m
+[32m+[m
+[32m+[m[32m- [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)[m
+ [m
+ ## 7.10: Implement automated configuration monitoring for operating systems[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[31m-| 7.1 | 5.5 | Customer |[m
+[32m+[m[32m| 7.10 | 5.5 | Customer |[m
+ [m
+ Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.[m
+ [m
+[31m-Understand Azure Security Center container recommendations:[m
+[32m+[m[32m- [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)[m
+[32m+[m
+[32m+[m[32m## 7.10: Implement automated configuration monitoring for operating systems[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.10 | 5.5 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure Security Center to perform baseline scans for OS and Docker Settings for containers.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-container-recommendations[m
+[32m+[m[32m- [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)[m
+ [m
+[31m-## 7.11: Manage Azure secrets securely [m
+[32m+[m[32m## 7.11: Manage Azure secrets securely[m
+ [m
+ | Azure ID | CIS IDs | Responsibility |[m
+ |--|--|--|[m
+[36m@@ -170,17 +248,25 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-container-recom[m
+ [m
+ Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.[m
+ [m
+[31m-How to integrate with Azure Managed Identities:[m
+[32m+[m[32m- [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)[m
+ [m
+[31m-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity[m
+[32m+[m[32m- [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)[m
+ [m
+[31m-How to create a Key Vault:[m
+[32m+[m[32m- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)[m
+ [m
+[31m-https://docs.microsoft.com/azure/key-vault/quick-create-portal[m
+[32m+[m[32m## 7.11: Manage Azure secrets securely[m
+ [m
+[31m-How to provide Key Vault authentication with a managed identity:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.11 | 13.1 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/key-vault/managed-identity[m
+[32m+[m[32mUse Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.[m
+[32m+[m
+[32m+[m[32m- [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)[m
+[32m+[m
+[32m+[m[32m- [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)[m
+[32m+[m
+[32m+[m[32m- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)[m
+ [m
+ ## 7.12: Manage identities securely and automatically[m
+ [m
+[36m@@ -190,9 +276,17 @@[m [mhttps://docs.microsoft.com/azure/key-vault/managed-identity[m
+ [m
+ Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.[m
+ [m
+[31m-How to configure Managed Identities:[m
+[32m+[m[32m- [How to configure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)[m
+[32m+[m
+[32m+[m[32m## 7.12: Manage identities securely and automatically[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.12 | 4.1 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm[m
+[32m+[m[32mUse Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.[m
+[32m+[m
+[32m+[m[32m- [How to configure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)[m
+ [m
+ ## 7.13: Eliminate unintended credential exposure[m
+ [m
+[36m@@ -202,10 +296,17 @@[m [mhttps://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou[m
+ [m
+ Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. [m
+ [m
+[31m-How to setup Credential Scanner:[m
+[32m+[m[32m- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)[m
+[32m+[m
+[32m+[m[32m## 7.13: Eliminate unintended credential exposure[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 7.13 | 13.3 | Customer |[m
+[32m+[m
+[32m+[m[32mImplement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.[m[41m [m
+ [m
+[31m-https://secdevtools.azurewebsites.net/helpcredscan.html[m
+[32m+[m[32m- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32mscan.html)[m
+ [m
+[31m-See the next security control: [Malware Defense](security-control-malware-defense.md)[m
+[1mdiff --git a/articles/security/benchmarks/security-control-vulnerability-management.md b/articles/security/benchmarks/security-control-vulnerability-management.md[m
+[1mindex cbaf4a41a32..86d05b144af 100644[m
+[1m--- a/articles/security/benchmarks/security-control-vulnerability-management.md[m
+[1m+++ b/articles/security/benchmarks/security-control-vulnerability-management.md[m
+[36m@@ -1,20 +1,28 @@[m
+ ---[m
+ title: Azure Security Control - Vulnerability Management[m
+[31m-description: Security Control Vulnerability Management[m
+[32m+[m[32mdescription: Azure Security Control Vulnerability Management[m
+ author: msmbaldwin[m
+[31m-manager: rkarlin[m
+[31m-[m
+ ms.service: security[m
+ ms.topic: conceptual[m
+[31m-ms.date: 12/30/2019[m
+[32m+[m[32mms.date: 04/03/2020[m
+ ms.author: mbaldwin[m
+[31m-ms.custom: security-recommendations[m
+[32m+[m[32mms.custom: security-benchmark[m
+ [m
+ ---[m
+ [m
+ # Security Control: Vulnerability Management[m
+ [m
+[31m-Vulnerability management recommendations focus on addressing issues related to continuously acquiring, assessing, and acting on new information in order to identify and remediate vulnerabilities as well as minimizing the window of opportunity for attackers.[m
+[32m+[m[32m## 5.1: Run automated vulnerability scanning tools[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 5.1 | 3.1, 3.2, 3.3 | Customer |[m
+[32m+[m
+[32m+[m[32mFollow recommendations from Azure Security Center on performing vulnerability assessments on your Azure virtual machines, container images, and SQL servers.[m
+[32m+[m
+[32m+[m[32mUse a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.[m
+[32m+[m
+[32m+[m[32m- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)[m
+ [m
+ ## 5.1: Run automated vulnerability scanning tools[m
+ [m
+[36m@@ -26,9 +34,19 @@[m [mFollow recommendations from Azure Security Center on performing vulnerability as[m
+ [m
+ Use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.[m
+ [m
+[31m-How to implement Azure Security Center vulnerability assessment recommendations:[m
+[32m+[m[32m- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)[m
+[32m+[m
+[32m+[m[32m## 5.2: Deploy automated operating system patch management solution[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 5.2 | 3.4 | Customer |[m
+[32m+[m
+[32m+[m[32mUse Azure "Update Management" to ensure the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations[m
+[32m+[m[32m- [How to configure Update Management for virtual machines in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)[m
+[32m+[m
+[32m+[m[32m- [Understand Azure security policies monitored by Security Center](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)[m
+ [m
+ ## 5.2: Deploy automated operating system patch management solution[m
+ [m
+[36m@@ -36,15 +54,19 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-vulnerability-a[m
+ |--|--|--|[m
+ | 5.2 | 3.4 | Customer |[m
+ [m
+[31m-Use Azure &quot;Update Management&quot; to ensure the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.[m
+[32m+[m[32mUse Azure "Update Management" to ensure the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.[m
+[32m+[m
+[32m+[m[32m- [How to configure Update Management for virtual machines in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)[m
+ [m
+[31m-How to configure Update Management for virtual machines in Azure:[m
+[32m+[m[32m- [Understand Azure security policies monitored by Security Center](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)[m
+ [m
+[31m-https://docs.microsoft.com/azure/automation/automation-update-management[m
+[32m+[m[32m## 5.3: Deploy automated third-party software patch management solution[m
+ [m
+[31m-Understand Azure security policies monitored by Security Center:[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 5.3 | 3.5 | Customer |[m
+ [m
+[31m-https://docs.microsoft.com/azure/security-center/security-center-policy-definitions[m
+[32m+[m[32mUse a third-party patch management solution. Customers already leveraging System Center Configuration Manager in their environment may leverage System Center Updates Publisher, allowing them to publish custom updates into Windows Server Update Service. This allows Update Manager to patch machines that use System Center Configuration Manager as their update repository with third-party software.[m
+ [m
+ ## 5.3: Deploy automated third-party software patch management solution[m
+ [m
+[36m@@ -52,7 +74,15 @@[m [mhttps://docs.microsoft.com/azure/security-center/security-center-policy-definiti[m
+ |--|--|--|[m
+ | 5.3 | 3.5 | Customer |[m
+ [m
+[31m-Use a third-party patch management solution. Customers already leveraging Configuration Manager in their environment may leverage System Center Updates Publisher, allowing them to publish custom updates into Windows Server Update Service. This allows Update Manager to patch machines that use Configuration Manager as their update repository with third-party software.[m
+[32m+[m[32mUse a third-party patch management solution. Customers already leveraging System Center Configuration Manager in their environment may leverage System Center Updates Publisher, allowing them to publish custom updates into Windows Server Update Service. This allows Update Manager to patch machines that use System Center Configuration Manager as their update repository with third-party software.[m
+[32m+[m
+[32m+[m[32m## 5.4: Compare back-to-back vulnerability scans[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 5.4 | 3.6 | Customer |[m
+[32m+[m
+[32m+[m[32mExport scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you may pivot into the selected solution's portal to view historical scan data.[m
+ [m
+ ## 5.4: Compare back-to-back vulnerability scans[m
+ [m
+[36m@@ -70,6 +100,13 @@[m [mExport scan results at consistent intervals and compare the results to verify th[m
+ [m
+ Use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.[m
+ [m
+[31m-## Next steps[m
+[32m+[m[32m## 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities[m
+[32m+[m
+[32m+[m[32m| Azure ID | CIS IDs | Responsibility |[m
+[32m+[m[32m|--|--|--|[m
+[32m+[m[32m| 5.5 | 3.7 | Customer |[m
+[32m+[m
+[32m+[m[32mUse a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.[m
+[32m+[m
+[32m+[m[32mning tool.[m
+ [m
+[31m-See the next security control: [Inventory and Asset Management](security-control-inventory-asset-management.md)[m
