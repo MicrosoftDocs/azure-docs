@@ -5,7 +5,7 @@ description: Microsoft Azure Multi-Factor Authentication deployment planning
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -134,7 +134,7 @@ A text message that contains a verification code is sent to the user, the user i
 
 ## Plan registration policy
 
-Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it’s a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure MFA will allow your users to be registered to use both features.
+Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it's a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure MFA will allow your users to be registered to use both features.
 
 ### Registration with Identity Protection
 
@@ -272,7 +272,7 @@ If you have an NPS instance deployed and in use already, reference [Integrate yo
 
 #### Prepare NPS for users that aren't enrolled for MFA
 
-Choose what happens when users that aren’t enrolled with MFA try to authenticate. Use the registry setting `REQUIRE_USER_MATCH` in the registry path `HKLM\Software\Microsoft\AzureMFA` to control the feature behavior. This setting has a single configuration option.
+Choose what happens when users that aren't enrolled with MFA try to authenticate. Use the registry setting `REQUIRE_USER_MATCH` in the registry path `HKLM\Software\Microsoft\AzureMFA` to control the feature behavior. This setting has a single configuration option.
 
 | Key | Value | Default |
 | --- | --- | --- |
@@ -333,7 +333,7 @@ Now that you have planned your solution, you can implement by following the step
    1. [Combined MFA and SSPR](howto-registration-mfa-sspr-combined.md)
    1. With [Identity Protection](../identity-protection/howto-mfa-policy.md)
 1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
-1. [Keep track of who’s enrolled](#identify-non-registered-users)
+1. [Keep track of who's enrolled](#identify-non-registered-users)
 
 > [!TIP]
 > Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
