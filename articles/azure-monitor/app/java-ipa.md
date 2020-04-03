@@ -185,4 +185,5 @@ Or you can also use Application Insights Java SDK 2.x:
 
 If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
 
-Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please contact the product team <a href="mailto:asw-node-java-pr@microsoft.com">asw-node-java-pr@microsoft.com</a>. We're still designing the replacement for this functionality in 3.0, and we want to make sure it will cover your use case(s).
+> ![NOTE]
+> Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please contact the product team <a href="mailto:asw-node-java-pr@microsoft.com">asw-node-java-pr@microsoft.com</a>. We're still designing the replacement for this functionality in 3.0, and we want to make sure it will cover your use case(s).
