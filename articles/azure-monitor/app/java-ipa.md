@@ -45,7 +45,7 @@ Create a configuration file named `ApplicationInsights.json`, and place it in th
 
 You can find your connection string in your Application Insights resource:
 
-<img src="https://github.com/trask/docs-work-in-progress/raw/master/connectionstring.png" alt="Application Insights Connection String" width="75%"/><br>
+<img src="https://docs.microsoft.com/en-us/azure/azure-monitor/app/media/java-ipa/connectionstring.png" alt="Application Insights Connection String" width="75%"/><br>
 
 
 **4. That's it!**
