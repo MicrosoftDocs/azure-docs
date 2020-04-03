@@ -139,9 +139,9 @@ To create a service principal, run the two scripts as described in [create a ser
 
 * The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
 
-* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
 
-To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script.
+To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
 
 * For the username or client ID, specify the service principal ID.
 
