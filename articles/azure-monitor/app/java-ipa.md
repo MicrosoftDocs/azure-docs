@@ -48,7 +48,11 @@ You can find your connection string in your Application Insights resource:
 
 **4. That's it!**
 
-Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data. Note: it may take a couple of minutes for your monitoring data to show up in the portal.
+Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data.
+
+> [!NOTE]
+> It may take a couple of minutes for your monitoring data to show up in the portal.
+
 
 ## Configuration options
 
