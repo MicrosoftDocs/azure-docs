@@ -9,4 +9,4 @@ ms.author: dapine
 With this base knowledge of Speech recognition, continue exploring the basics to learn about common functionality and tasks within the Speech SDK.
 
 > [!div class="nextstepaction"]
-> [Explore Speech recognition basics](../../../../speech-to-text-basics.md)
+> [Explore Speech recognition basics](../../../speech-to-text-basics.md)
