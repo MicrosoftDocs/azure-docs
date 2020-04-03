@@ -15,7 +15,8 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Troubleshooting connectivity issues
 
-This article lists common troubleshooting techniques around connecting to your Synapse SQL pool.
+This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
+
 - [Check service availability](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
 - [Check for paused or scaling operation](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Check your firewall settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
@@ -50,15 +51,15 @@ If you see that your service is paused or scaling, check to see it isn't during 
 
 ![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the Synapse SQL pool instance, follow the steps outlined [here](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL Analytics instance, follow [these steps](pause-and-resume-compute-portal.md).
 
 ## Check your firewall settings
 
-Synapse SQL pool communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+SQL Analytics database communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
@@ -66,22 +67,22 @@ If you're receiving Errors 40914 and 40615, see [error description and resolutio
 
 Check to make sure you're using the latest tools to connect to your Synapse SQL pool:
 
-* SSMS
-* Azure Data Studio
-* SQL Server Data Tools (Visual Studio)
+- SSMS
+- Azure Data Studio
+- SQL Server Data Tools (Visual Studio)
 
 ### Drivers
 
 Check to make sure you're using the latest driver versions.  Using an older version of the drivers could result in unexpected behaviors as the older drivers may not support new features.
 
-* [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
-* [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-* [OLE DB](https://docs.microsoft.com/sql/connect/oledb/download-oledb-driver-for-sql-server)
-* [PHP](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server)
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
 
 ADO.NET connection string
 
@@ -113,7 +114,8 @@ Check to see if you're experiencing heavy load on the server with a high number 
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Errors 40914 and 40615, see the [error description and resolution here](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
-Create a [support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) so the engineering team can support you.
+
+Create a [support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) so the engineering team can support you.
