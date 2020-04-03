@@ -174,7 +174,7 @@ Use **Ctrl**-**C** to stop the host.
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-1. Once the image is running in a local container, browse to [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), which should display the same "hello" message as before. As before, function key authorization isn't enforced when running locally, this time in the container.  
+1. Once the image is running in a local container, browse to [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
 1. After you have verified the function app in the container, stop docker with **Ctrl**+**C**.
