@@ -13,6 +13,8 @@ ms.reviewer: jrasnick
 
 # What is Azure Synapse
 
+[!INCLUDE [preview](includes/note-preview.md)]
+
 Today enterprise analytics requires operating at massive scale on any kind of data--raw, refined, or highly curated. To build these kinds of analytics solutions, enterprises have needed to stitch together big data and data warehousing technologies such as Spark and SQL. Then integrate them into rich data pipelines that work across data in relational stores and data lakes.  Solutions like this are difficult to build, configure, secure, and maintain and delay enterprises from quickly getting the insights they need.
 
 **Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** to orchestrate activities and data movement. Azure Synapse comes with a web-native **Studio** user experience that provides a single experience and model for management, monitoring, coding, and security.
