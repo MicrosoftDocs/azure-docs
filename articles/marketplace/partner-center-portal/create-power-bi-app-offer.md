@@ -1,6 +1,6 @@
 ---
 title: Create a Power BI app offer - Azure Marketplace
-description: Learn how to create and publish a Power BI App offer to Microsoft AppSource.
+description: Learn how to create and publish a Power BI app offer to Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace 
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ---
 
-# Create a Power BI App
+# Create a Power BI app
 
 > [!IMPORTANT]
-> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create a Power BI App offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) for Cloud Partner Portal to manage your offers.
+> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create a Power BI app offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish a Power BI App offer to the Microsoft [AppSource](https://appsource.microsoft.com/).
+This article describes how to create and publish a Power BI app offer to the Microsoft [AppSource](https://appsource.microsoft.com/).
 
 Before you can create a Power BI app offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) account.
 
