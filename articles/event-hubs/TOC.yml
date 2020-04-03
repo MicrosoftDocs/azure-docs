@@ -163,7 +163,9 @@
   - name: Integrate with Apache Kafka
     items:
       - name: Kafka developer guide for Event Hubs
-        href: apache-kafka-developer-guide.md    
+        href: apache-kafka-developer-guide.md
+      - name: Kafka migration guide for Event Hubs
+        href: apache-kafka-migration-guide.md            
       - name: Mirror a Kafka broker in an event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Connect Apache Spark to an event hub
@@ -174,6 +176,10 @@
         href: event-hubs-kafka-connect-tutorial.md
       - name: Connect Akka Streams to an event hub
         href: event-hubs-kafka-akka-streams-tutorial.md
+      - name: FAQ
+        href: apache-kafka-frequently-asked-questions.md        
+      - name: Troubleshoot issues with Event Hubs for Apache Kafka
+        href: apache-kafka-troubleshooting-guide.md        
   - name: Manage and monitor
     items:
     - name: Monitor Event Hubs with Azure Monitoring
