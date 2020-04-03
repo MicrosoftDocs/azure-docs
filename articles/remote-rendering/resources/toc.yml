@@ -2,3 +2,5 @@
   href: tools/toc.yml
 - name: Troubleshoot
   href: troubleshoot.md
+- name: Provide product feedback
+  href: https://feedback.azure.com/forums/928696-azure-remote-rendering
