@@ -89,5 +89,5 @@ Note that when an order is placed with the issuer provider, it may honor or over
  Authorization: Requires the certificates/create permission.
 
 ## See Also
- - [About keys, secrets and certificates](../general/about-keys-secrets-and-certificates.md)
+
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

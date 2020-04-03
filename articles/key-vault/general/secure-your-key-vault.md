@@ -149,7 +149,7 @@ New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Te
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-The security team creates a key vault and sets up logging and access permissions. For details about Key Vault access policy permissions, see [About Azure Key Vault keys, secrets, and certificates](about-keys-secrets-and-certificates.md).
+The security team creates a key vault and sets up logging and access permissions.
 
 ```powershell
 # Create a key vault and enable logging

@@ -1,8 +1,31 @@
-- name: Key Vault Documentation - Keys
+- name: Keys
   href: index.yml
-- name: How to generate and transfer HSM-protected keys
-  href: hsm-protected-keys.md
-- name: How to generate and transfer HSM-protected keys - Legacy
-  href: hsm-protected-keys-legacy.md
-- name: How to generate and transfer HSM-protected keys for Azure Key Vault
-  href: hsm-protected-keys-vendor-agnostic-byok.md
+- name: Overview 
+  items:
+  - name: About Key Vault keys
+    href: about-keys.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: Portal
+    href: quick-create-portal.md
+  - name: Python
+    href: quick-create-python.md
+- name: Tutorials 
+  items:
+  - name: Import HSM-protected keys
+    href: hsm-protected-keys.md
+  - name: Import HSM-protected keys (preview)
+    href: hsm-protected-keys-vendor-agnostic-byok.md
+  - name: Import HSM-protected keys(legacy)
+    href: hsm-protected-keys-legacy.md
+- name: Concepts 
+  items:
+- name: How-to guides
+  items:
+- name: Reference
+  items:
+- name: Resources
+  items:

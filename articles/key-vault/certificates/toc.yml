@@ -1,8 +1,31 @@
-- name: Key Vault Documentation - Certificates
+- name: Certificates
   href: index.yml
-- name: Get started with Key Vault certificates
-  href: certificate-scenarios.md
-- name: Monitor and manage certificate creation
-  href: create-certificate-scenarios.md
-- name: Certificate creation methods
-  href: create-certificate.md
+- name: Overview 
+  items:
+  - name: About certificates
+    href: about-certificates.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: Portal
+    href: quick-create-portal.md
+  - name: Python
+    href: quick-create-python.md
+- name: Tutorials 
+  items:
+  - name: Get started with Key Vault certificates
+    href: certificate-scenarios.md
+  - name: Monitor and manage certificate creation
+    href: create-certificate-scenarios.md
+  - name: Certificate creation methods  
+    href: create-certificate.md
+- name: Concepts 
+  items:
+- name: How-to guides
+  items:
+- name: Reference
+  items:
+- name: Resources
+  items:

@@ -112,5 +112,3 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   resource: The name of the resource (`https://vault.azure.net`) to use in the authorization request.  
 
-## See Also  
- [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)

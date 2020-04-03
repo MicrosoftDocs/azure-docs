@@ -157,5 +157,4 @@ In this quickstart, you created a key vault and a secret using an Azure Resource
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Get more info on [keys, secrets, and certificates](../general/about-keys-secrets-and-certificates.md)
 - Review [Azure Key Vault best practices](../general/best-practices.md)

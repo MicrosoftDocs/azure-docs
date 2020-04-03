@@ -470,6 +470,3 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 }
 
 ```
-
-## See Also
-- [About keys, secrets, and certificates](../general/about-keys-secrets-and-certificates.md)

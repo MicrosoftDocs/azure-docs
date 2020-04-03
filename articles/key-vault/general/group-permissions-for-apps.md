@@ -21,11 +21,11 @@ The simplest way to authenticate a cloud-based application to Key Vault is with 
 
 Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a "principal":   For example, this is how the console app in the [Azure Key Vault client library for .NET quickstart](../secrets/quick-create-net.md) accesses the key vault.
 
-For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on [Keys, Secrets, and Certificates](about-keys-secrets-and-certificates.md) access control, see: 
+For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on access control, see: 
 
-- [Keys access control](about-keys-secrets-and-certificates.md#key-access-control)
-- [Secrets access control](about-keys-secrets-and-certificates.md#secret-access-control)
-- [Certificates access control](about-keys-secrets-and-certificates.md#certificate-access-control)
+- [Keys](../keys/index.yml)
+- [Secrets access control](../secrets/index.yml)
+- [Certificates access control](../certificates/index.yml)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -223,7 +223,6 @@ The application also needs at least one Identity and Access Management (IAM) rol
 
 - [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
 - [Provide Key Vault authentication with an App Service managed identity](managed-identity.md)
-- [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
 - [Secure your key vault](secure-your-key-vault.md)).
 - [Azure Key Vault developer's guide](developers-guide.md)
 - Review [Azure Key Vault best practices](best-practices.md)
