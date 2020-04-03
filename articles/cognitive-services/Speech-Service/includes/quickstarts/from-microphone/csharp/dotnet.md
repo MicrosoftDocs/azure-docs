@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/02/2020
+ms.date: 04/03/2020
 ms.author: dapine
 ---
 
@@ -22,7 +22,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 1. Launch **Visual Studio 2019**.
 2. Load your project and open *Program.cs*.
 
-## Update source code
+## Source code
 
 Replace the contents of the *Program.cs* file with the following C# code.
 
