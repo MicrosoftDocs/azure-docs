@@ -1321,7 +1321,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 How to enable Soft-Delete in Azure Key Vault:
 
-https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete
+https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 
 **Azure Security Center monitoring**: Currently not available
 
