@@ -29765,6 +29765,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-apply-system-updates.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-investigation.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#security-alerts-investigation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-apply-disk-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-confidence-score.md",
       "redirect_url": "/azure/security-center/security-center-intro",
       "redirect_document_id": false
