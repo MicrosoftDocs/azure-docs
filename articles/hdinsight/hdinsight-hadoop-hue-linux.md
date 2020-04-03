@@ -46,7 +46,7 @@ Use the information in the table below for your Script Action. See [Customize HD
 
 ## Use Hue with HDInsight clusters
 
-You can only have one user account with Hue, as a workaround, you can use Ranger on an [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) cluster. SSH Tunneling is the only way to access Hue on the cluster once it's running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
+You can only have one user account with Hue on regular clusters. For multi-user access, enable [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) on the cluster. SSH Tunneling is the only way to access Hue on the cluster once it's running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
 
 > [!NOTE]  
 > We recommend using Firefox web browser to follow the instructions below.
