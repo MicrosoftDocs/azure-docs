@@ -227,7 +227,7 @@ Note the following guidelines on availability group listener in Azure using inte
 
 * If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
 
-* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Great access from a virtual network](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Great access from a virtual network](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## For more information
 For more information, see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
