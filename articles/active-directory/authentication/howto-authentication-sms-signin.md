@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/03/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -45,7 +45,9 @@ To complete this article, you need the following resources and privileges:
 During the public preview of SMS-based authentication, the following limitations apply:
 
 * SMS-based authentication isn't currently compatible with Azure Multi-Factor Authentication.
-* With the exception of Teams, SMS-based authentication isn't currently compatible with Office applications.
+* With the exception of Teams, SMS-based authentication isn't currently compatible with native Office applications.
+* SMS-based authentication isn't recommended for B2B accounts.
+* Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 
 ## Enable the SMS-based authentication method
 
