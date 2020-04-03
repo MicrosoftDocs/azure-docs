@@ -130,8 +130,8 @@ Update to [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 
 
 Update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) or later of the HDInsight SDK for Java. Minimal code modifications may be required if you are using a method affected by these changes:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) will **no longer return sensitive parameters** like storage keys (core-site) or HTTP credentials (gateway).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) is now deprecated.
+- `ConfigurationsInner.get` will **no longer return sensitive parameters** like storage keys (core-site) or HTTP credentials (gateway).
+- `ConfigurationsInner.update` is now deprecated.
 
 ### SDK For Go
 
@@ -190,11 +190,11 @@ You can alternatively use the Azure portal to add the HDInsight Cluster Operator
 
 Cluster configurations are now behind granular role-based access control and require the `Microsoft.HDInsight/clusters/configurations/*` permission to access them. To obtain this permission, assign the HDInsight Cluster Operator, Contributor, or Owner role to the user or service principal trying to access configurations.
 
-### Why do I see “Insufficient privileges to complete the operation” when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
+### Why do I see "Insufficient privileges to complete the operation" when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
 
-In addition to having the Owner role, the user or service principal executing the command needs to have sufficient AAD permissions to look up the object IDs of the assignee. This message indicates insufficient AAD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) for more info.
+In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Azure AD permissions to look up the object IDs of the assignee. This message indicates insufficient Azure AD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) for more info.
 
-If this still doesn’t work, contact your AAD admin to acquire the correct permissions.
+If this still doesn't work, contact your Azure AD admin to acquire the correct permissions.
 
 ### What will happen if I take no action?
 
