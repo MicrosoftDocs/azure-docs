@@ -103,10 +103,4 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 If your Event Hubs Kafka cluster has events, you now start receiving them from the consumer.
 
 ## Next steps
-In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see the following articles and samples:
-
-- [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Quickstarts for Event Hubs for Kafka on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
-- [Tutorials for Event Hubs for Kafka on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
-- Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-- Learn how to stream into Event Hubs using [Apache Flink](event-hubs-kafka-flink-tutorial.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
