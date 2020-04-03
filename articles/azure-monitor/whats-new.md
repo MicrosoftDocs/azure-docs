@@ -17,6 +17,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### General
 - [Azure Monitor overview](overview.md) - Added Azure Monitor overview video.
 - [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - General updates.
+- [Azure Monitor data reference](/azure/azure-monitor/reference) - New site.
 
 ### Alerts
 
