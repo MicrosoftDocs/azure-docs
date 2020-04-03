@@ -66,6 +66,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](https://aka.ms/asr_workload).
+Machine name | Display name is not case sensitive. Ensure that no two devices with same name are protected under same configuration server. Ex: Machines with names "tEstMachines", "testmachines" cannot be protected via same configuration server. <br/><br/> Ensure that the display name of machine does not fall into [Azure reserved resource names](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)
 Windows Server 2019 | Supported from [Update rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards.
 Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Experience.
 Windows Server 2012 R2 / Windows Server 2012 | Supported.
@@ -270,11 +271,11 @@ The following table provides the Azure Site Recovery limits.
 
 **Replication target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
-Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB    | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 
