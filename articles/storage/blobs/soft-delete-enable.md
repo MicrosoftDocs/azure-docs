@@ -1,13 +1,13 @@
 ---
 title: Enable soft delete for blobs
 titleSuffix: Azure Storage 
-description: Enable soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
+description: Enable soft delete for blob objects to more easily recover your data when it is erroneously modified or deleted.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
