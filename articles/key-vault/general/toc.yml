@@ -1,42 +1,22 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 - name: General
   href: index.yml
 - name: Overview 
   items:
-- name: Azure Key Vault Overview - Azure Key Vault
-  href: overview.md
+  - name: what is Azure Key Vault?
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
 - name: Tutorials 
   items:
-- name: Use Azure Key Vault with an Azure web app in .NET
-  href: tutorial-net-create-vault-azure-web-app.md
-- name: Use Azure Key Vault with a Windows virtual machine in .NET
-  href: tutorial-net-windows-virtual-machine.md
-- name: Use Azure Key Vault with a Windows virtual machine in Python
-  href: tutorial-python-windows-virtual-machine.md
-- name: Receive and respond to key vault notifications with Azure Event Grid 
-  href: event-grid-tutorial.md
+  - name: Use Azure Key Vault with an Azure web app in .NET
+    href: tutorial-net-create-vault-azure-web-app.md
+  - name: Use Azure Key Vault with a Windows virtual machine in .NET
+    href: tutorial-net-windows-virtual-machine.md
+  - name: Use Azure Key Vault with a Windows virtual machine in Python
+    href: tutorial-python-windows-virtual-machine.md
+  - name: Receive and respond to key vault notifications with Azure Event Grid 
+    href: event-grid-tutorial.md
 - name: Concepts 
   items:
   - name: Basic concepts
