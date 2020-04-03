@@ -1,19 +1,19 @@
 ---
-title: Rooms
+title: Media and Media Devices
 description: TODO
-author: mikben    
-manager: jken
+author: mikben
+manager: mikben
 services: azure-project-spool
 
 ms.author: mikben
 ms.date: 03/10/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-project-spool
-
 ---
 
+
 -  Customer intent statements: 
-   - I want to know what Spool Rooms are and how they help me help my customers.
+   - I want to know how to think about Media and Media Devices when I'm developing on spool.
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -22,11 +22,11 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - {shawn} This might not be a concept… you might only use it when using VOIP…
+  - TODO
 
 - TODOs:
   - Draft initial content
 
-# Rooms
+# Media and Media Devices
 
-Rooms are where conversations happen.
+TODO

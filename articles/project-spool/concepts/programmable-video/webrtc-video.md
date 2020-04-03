@@ -1,5 +1,5 @@
 ---
-title: Rooms
+title: WebRTC and Video
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 -  Customer intent statements: 
-   - I want to know what Spool Rooms are and how they help me help my customers.
+   - TODO
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -22,11 +22,9 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - {shawn} This might not be a concept… you might only use it when using VOIP…
-
+  - TODO
+  
 - TODOs:
   - Draft initial content
 
-# Rooms
-
-Rooms are where conversations happen.
+# WebRTC and Video

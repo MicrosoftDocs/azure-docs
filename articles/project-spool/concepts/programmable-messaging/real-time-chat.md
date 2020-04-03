@@ -1,5 +1,5 @@
 ---
-title: WebRTC
+title: Real-Time Chat
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 -  Customer intent statements: 
-   - I want to know what WebRTC is and how it helps me help my customers.
+   - I want to know what "Chat" means in the context of Spool
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -27,4 +27,4 @@ ms.service: azure-project-spool
 - TODOs:
   - Draft initial content
 
-# WebRTC
+# Real-Time Chat

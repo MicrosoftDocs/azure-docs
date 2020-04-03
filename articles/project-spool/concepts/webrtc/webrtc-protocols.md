@@ -1,5 +1,5 @@
 ---
-title: Chat
+title: WebRTC Protocols
 description: TODO
 author: mikben    
 manager: jken
@@ -13,13 +13,13 @@ ms.service: azure-project-spool
 ---
 
 -  Customer intent statements: 
-   - I want to know what "Chat" means in the context of Spool
+   - I want to know what WebRTC protocols are.
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
 
 - Gold Standard Docs:
-  - TODO
+  - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Protocols
 
 - Discussion:
   - TODO
@@ -27,4 +27,4 @@ ms.service: azure-project-spool
 - TODOs:
   - Draft initial content
 
-# Chat
+# WebRTC Protocols

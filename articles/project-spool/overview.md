@@ -1,7 +1,7 @@
 ---
-title: About Project Spool
+title: What Is Project Spool?
 description: Learn how Project Spool helps you develop rich user experiences with real-time communications.
-author: mikben    
+author: mikben
 manager: jken
 services: azure-project-spool
 
@@ -23,42 +23,37 @@ ms.service: azure-project-spool
 
 ---
 
+# What Is Project Spool?
 
-# Project Spool overview
+Project Spool allows you to easily add real-time communications features to your applications without worrying about the underlying infrastructure. It's a communications platform as a service (CPaaS) that allows you to focus on your customer experience while Azure handles the heavy lifting behind the scenes.
 
-Project Spool allows you to easily add calling and messaging to your apps without worrying about real-time communications infrastructure. 
+When you use Spool, you're building on top of the same infrastructure that powers Skype and Teams. This allows you to seamlessly scale and integrate your offerings with other Azure services like Cortana, Microsoft Graph, Cognitive Services, Bot Framework, and Machine Learning.
 
-When you use Spool, you're building on top of the same infrastructure that powers Skype and Teams. This gives you the option to seamlessly scale and integrate your communications functionality with other Azure services like Cortana, Microsoft Graph, Cognitive Services, Bot Framework, and Machine Learning.
+You'll use the Spool SDKs to connect your users to cross-platform sessions that facilitate real-time voice, video, and messaging.
 
-The Spool SDK is used to create cross-platform "sessions" that clients then connect to. These sessions facilitate real-time messaging, voice, and video communications between clients and networks.
+There are three primary capabilities that Spool offers: Programmable Voice, Programmable Video, and Programmable Messaging. Each of these are highly configurable and offer a rich subset of features and integration possibilities.
 
+~
 
-## Examples
+// brain dump
 
-Some example use cases enabled by Project Spool include:
+Spool is a communications platform as a service. There are a lot of different ways to begin thinking about how this might help you help your customers.
 
-- **E-Learning**: Connect students to teachers so that they can review material together with real-time video chat and white-boarding.
-- **Call Centers**: Reserve a phone number via Spool and connect your customers to your staff.
-- **Home Security**: Build an app that live-streams webcam footage to all of your devices while storing media whenever motion is detected.
-- **Group Chat**: Build an internal Skype clone that integrates with your organization's ecosystem.
-- **Telehealth**: Easily connect healthcare providers to their patients.
-- **Disaster Response**: Build an app that connects first responders to remote emergency response teams.
-- **Tech Support**: Allow your customers to share their screens with your staff for a seamless customer support experience.
+Let's start by thinking about your customers. Your customers have phones, laptops, computers, tablets, and other media devices that they can use to connect to you and/or other people via some combination of voice, video, and messaging. As you build real-time communications into your products, you want to ensure that your user experience is simple, reliable, and scalable. You also want to ensure that your developer experience is pleasant, because high-quality developer experience translates to low-cost development, testing, and maintenance.
 
-Project Spool is a managed Azure service that you build upon by using the Spool server-side and client-side SDKs.
+One of the most popular ways to connect your users is with WebRTC - an incredibly empowering technology that facilitates real-time peer-to-peer video, voice, and data transmission. Delivering a high-quality user experience with WebRTC can be challenging because WebRTC is hard to get right, especially when you start considering firewalls, NAT traversal, signaling infrastructure, scaling, security, and other challenges that all but the most fledgling products are likely to encounter.
+
+As a developer, you'd ideally be able to connect your users without worrying about what device(s) they have or what infrastructure you need. You'd simply authenticate, authorize, and connect your users without spending your time on protocol implementation and infrastructure design.
+
+That's where Spool comes in.
+
+~
 
 ## Next steps
 
-Create your first app with Project Spool.
-
-> [!div class="nextstepaction"]
-> [TODO](unity-overview.yml)
-
-> [!div class="nextstepaction"]
-> [TODO](quickstarts/get-started-ios.md)
-
-> [!div class="nextstepaction"]
-> [TODO](quickstarts/get-started-android.md)
-
-> [!div class="nextstepaction"]
-> [TODO](quickstarts/get-started-hololens.md)
+ - Review our Conceptual Overview
+ - Review our Programmable Voice guidance
+ - Review our Programmable Video guidance
+ - Review our Programmable Messaging guidance
+ - Review our Quickstarts Overview
+ - Review our Samples Overview

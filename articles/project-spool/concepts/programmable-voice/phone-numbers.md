@@ -1,5 +1,5 @@
 ---
-title: VOIP
+title: Phone Numbers
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 -  Customer intent statements: 
-   - I want to know what VOIP is and how it helps me help my customers.
+   - TODO
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -23,8 +23,8 @@ ms.service: azure-project-spool
 
 - Discussion:
   - TODO
-
+  
 - TODOs:
   - Draft initial content
 
-# WebRTC
+# Phone Numbers

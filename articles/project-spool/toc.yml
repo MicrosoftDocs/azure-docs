@@ -40,47 +40,94 @@
     href: tutorials/configure-call-routing.md
 - name: Samples
   items:
-  - name: TODO
-    href: https://github.com/Azure/azure-spatial-anchors-samples
+  - name: Samples Overview
+    href: samples/samples-overview.md
 - name: Concepts
   expanded: true
   items:
-  - name: Communications Technologies
+  - name: Conceptual Overview
+    href: concepts/conceptual-overview.md
+  - name: Programmable Voice
+    items:
+      - name: About Programmable Voice
+        href: concepts/programmable-voice/programmable-voice.md
+      - name: Phone Numbers
+        href: concepts/programmable-voice/phone-numbers.md
+      - name: WebRTC and Voice
+        href: concepts/programmable-voice/webrtc-voice.md
+      - name: SIP, VOIP, and PSTN
+        href: concepts/programmable-voice/sip-voip-pstn.md
+      - name: Phone Trees
+        href: concepts/programmable-voice/phone-trees.md
+      - name: Call Detail Records
+        href: concepts/programmable-voice/call-detail-records.md
+      - name: Call Analytics
+        href: concepts/programmable-voice/call-analytics.md
+      - name: Spam and Robocall Protection
+        href: concepts/programmable-voice/spam-robocall.md
+  - name: Programmable Video
     items: 
-      - name: WebRTC
-        href: concepts/WebRTC.md
-      - name: VOIP
-        href: concepts/VOIP.md
-      - name: PSTN
-        href: concepts/PSTN.md
-      - name: Signaling
-        href: concepts/Signaling.md
-  - name: SDKs
-    href: concepts/sdk.md
+      - name: About Programmable Video
+        href: concepts/programmable-video/programmable-video.md
+      - name: WebRTC and Video
+        href: concepts/programmable-video/webrtc-video.md
+  - name: Programmable Messaging
+    items: 
+      - name: About Programmable Messaging
+        href: concepts/programmable-messaging/programmable-messaging.md
+      - name: Real-Time Chat
+        href: concepts/programmable-messaging/real-time-chat.md
+      - name: SMS and MMS
+        href: concepts/programmable-messaging/sms-mms.md
+  - name: WebRTC
+    items: 
+      - name: About WebRTC
+        href: concepts/webrtc/about-webrtc.md
+      - name: WebRTC Protocols
+        href: concepts/webrtc/webrtc-protocols.md
+      - name: Data Channels
+        href: concepts/webrtc/data-channels.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
+  - name: Signaling
+    href: concepts/signaling.md
+  - name: Rooms
+    href: concepts/rooms.md
+  - name: Media and Media Devices
+    href: concepts/media-devices.md
+  - name: SDK Options
+    href: concepts/sdk-options.md
+  - name: Security Model
+    href: concepts/security-model.md
+  - name: Authentication and Authorization
+    href: concepts/authentication.md
+  - name: Testing Model
+    href: concepts/testing.md
   - name: Patterns and Practices
     href: concepts/patterns-practices.md
+  - name: Fraud Detection
+    href: concepts/fraud-detection.md
+  - name: Logging and Diagnostics
+    href: concepts/logging-diagnostics.md
+
+
+
   - name: Calling
     href: concepts/calling.md
   - name: Chat
     href: concepts/chat.md
-  - name: Rooms
-    href: concepts/Rooms.md
+
   - name: IVR Trees
     href: concepts/IVR-Trees.md
   - name: Call Detail Records
     href: concepts/call-detail-records.md
   - name: Call Analytics
     href: concepts/call-analytics.md
-  - name: Fraud Detection
-    href: concepts/fraud-detection.md
+
   - name: Spam and Robocall Protection
     href: concepts/spam-and-robocall-protection.md
-  - name: Authentication and Authorization
-    href: concepts/authentication.md
-  - name: Logging and Diagnostics
-    href: concepts/logging-diagnostics.md
+
+
 - name: References
   items:
   - name: Client SDK for C#
