@@ -42,13 +42,13 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Catchpoint supports SP-initiated and IDP-initiated SSO.
 * Catchpoint supports just-in-time (JIT) user provisioning.
-* After you configure Catchpoint, you can enforce session control. This procedure protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Catchpoint, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control is an extension of Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Catchpoint from the gallery
 
-To configure the integration of Catchpoint into Azure AD, you need to add Catchpoint to your list of managed SaaS apps.
+To configure the integration of Catchpoint into Azure AD, add Catchpoint to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a work or school account, or a personal Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a work, school, or personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add a new application, select **New application**.
@@ -57,7 +57,7 @@ To configure the integration of Catchpoint into Azure AD, you need to add Catchp
 
 ## Configure and test Azure AD single sign-on for Catchpoint
 
-For SSO to work, you need to link an Azure AD user with the same user in Catchpoint. For this tutorial, we'll configure a test user called **B.Simon**. 
+For SSO to work, you need to link an Azure AD user with a user in Catchpoint. For this tutorial, we'll configure a test user called **B.Simon**. 
 
 Complete the following sections:
 
@@ -72,10 +72,10 @@ Complete the following sections:
 
 Follow these steps in the Azure portal to enable Azure AD SSO.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On the **Catchpoint** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set Up Single Sign-On with SAML** page, select the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set Up Single Sign-On with SAML** page, select the pen icon to edit the **Basic SAML Configuration** settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -98,7 +98,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
 
     ![User Attributes & Claims list screenshot](common/default-attributes.png)
 
-1. Also, the Catchpoint application expects another attribute to be passed in a SAML response. See the following table. This attribute is also pre-populated, but you can review it as per your requirements.
+1. Also, the Catchpoint application expects another attribute to be passed in a SAML response. See the following table. This attribute is also pre-populated, but you can review and update it to fit your requirements.
 
     | Name | Source Attribute|
     | ------------ | --------- |
@@ -111,7 +111,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
 
     ![The Certificate download link](common/certificatebase64.png)
 
-1. In the **Set up Catchpoint** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Catchpoint** section, copy the URLs that you need in a later step.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -119,19 +119,19 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
 
 In this section, you use the Azure portal to create an Azure AD test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select the **Show password** check box. Note the displayed password value.
    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable B.Simon to use Azure single sign-on by granting access to Catchpoint.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **Catchpoint**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
@@ -141,7 +141,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
     ![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, then click **Select** at the bottom of the screen.
+1. In the **Users and groups** dialog box, select **B.Simon** from the users list. Click **Select** at the bottom of the screen.
 1. If you expect a role value in the SAML assertion, look in the **Select Role** dialog box and choose the user's role from the list. Click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
@@ -160,9 +160,9 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
    Field | Value
    ----- | ----- 
    **Namespace** | valid namespace value
-   **Identity Provider Issuer** | `Azure AD Identifier` from the Azure portal
-   **Single Sign On Url** | `Login URL` from the Azure portal
-   **Certificate** | Downloaded `Certificate (Base64)` file from the Azure portal. Use Notepad to view and copy.
+   **Identity Provider Issuer** | The `Azure AD Identifier` value from the Azure portal
+   **Single Sign On Url** | The `Login URL` value from the Azure portal
+   **Certificate** | The contents of the downloaded `Certificate (Base64)` file from the Azure portal. Use Notepad to view and copy.
 
    You might also upload the **Federation Metadata XML** by selecting the **Upload Metadata** option.
 
@@ -176,12 +176,12 @@ Catchpoint supports just-in-time user provisioning, which is enabled by default.
 
 In this section, you test your Azure AD single sign-on configuration using the My Apps portal.
 
-When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO set up. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO configured. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 > [!NOTE]
 > When you are signed into the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** field and select **Login**.
-
-![Catchpoint configuration](./media/catchpoint-tutorial/loginimage.png)
+> 
+> ![Catchpoint configuration](./media/catchpoint-tutorial/loginimage.png)
 
 ## Additional resources
 
