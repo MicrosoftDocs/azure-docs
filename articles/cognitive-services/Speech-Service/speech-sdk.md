@@ -8,35 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 ms.author: dapine
 ---
 
 # About the Speech SDK
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications. There are various SDKs available in many programming languages. All of the Speech SDKs are cross-platform, with the exception of the Objective-C SDK (which is only available on iOS and macOS).
+The Speech software development kit (SDK) exposes many of the Speech service capabilities, to empower you to develop speech-enabled applications. The Speech SDK is available in many programming languages, all of which work cross-platform, except for Objective-C, which is only available on iOS and macOS.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## Scenario capabilities
 
-The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated to scenarios. It's ideal for both real-time and non-real-time scenarios, using local devices, files, and even input and output streams. There are [known limitations](#known-limitations) with the Speech SDK, where feature gaps exist. When a scenario is unachievable with the Speech SDK, look for a REST API alternative.
+The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated with scenarios. The Speech SDK is ideal for both real-time and non-real-time scenarios, using local devices, files, Azure blob storage, and even input and output streams. When a scenario is not achievable with the Speech SDK, look for a REST API alternative.
 
 ### Speech-to-text
 
-Speech-to-text (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis) to derive user intents from transcribed speech and act on voice commands. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
+[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
 
 ### Text-to-speech
 
-Text-to-speech (also known as *speech synthesis*) converts text into human-like synthesized speech, using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
-
-### Keyword spotting
-
-The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+[Text-to-speech](text-to-speech.md) (also known as *speech synthesis*) converts text into human-like synthesized speech. The input text is either string literals or using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
 
 ### Voice assistants
 
-Voice assistants using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion.
+Voice assistants using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Additionally, voice assistants can be created using the [Custom Voice Portal](https://aka.ms/customvoice) to create a unique voice experience.
+
+#### Keyword spotting
+
+The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
 ### Meeting scenarios
 
@@ -44,11 +44,11 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
 #### Conversation Transcription
 
-Enables real-time (and asynchronous) speech recognition, speaker identification, and sentence attribution to each speaker (also known as *diarization*). It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
+[Conversation Transcription](conversation-transcription.md) enables real-time (and asynchronous) speech recognition, speaker identification, and sentence attribution to each speaker (also known as *diarization*). It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
 
 #### Multi-device Conversation
 
-Connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
+With [Multi-device Conversation](multi-device-conversation.md), connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
 
 ### Custom / agent scenarios
 
@@ -60,23 +60,34 @@ A common scenario for speech-to-text is transcribing large volumes of telephony 
 
 ### Codec compressed audio input
 
-Several of the Speech SDKs' support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
-## Known limitations
+## REST API
 
-While the Speech SDK covers many feature capabilities with various scenarios, there are known limitations. Certain functionalities are only available from the Azure portal, Custom Speech portal, Custom voice portal, or the REST API. As an example, endpoint management is not possible through the Speech SDK.
+While the Speech SDK covers many feature capabilities of the Speech Service, for some scenarios you might want to use the REST API. Certain functionalities are only available from the Azure portal, Custom Speech portal, Custom Voice portal, or the REST API. As an example, endpoint management is only exposed via the REST API.
+
+> [!TIP]
+> When relying on the REST API, use the <a href="https://editor.swagger.io/" target="_blank">Swagger Editor <span class="docon docon-navigate-external x-hidden-focus"></span></a> to automatically generate client libraries.
+> For example, to generate a Batch transcription client library:
+> 1. Select **File** > **Import URL**
+> 1. Paste `https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A`
+> 1. Select **Generate Client** and choose your desired programming language
 
 ### Batch transcription
 
-Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. It is a REST-based service however, which uses the same endpoint as customization and model management. Batch transcription is only possible from the REST API.
+[Batch transcription](batch-transcription.md) enables asynchronous speech-to-text transcription of large volumes of data. Batch transcription is only possible from the REST API.
+
+## Customization
+
+The Speech Service delivers great functionality with its default models across speech-to-text, text-to-speech, and speech-translation. Sometimes you may want to increase the baseline performance to work even better with your unique use case. The Speech Service has a variety of no-code customization tools that make it easy, and allow you to create a competitive advantage with custom models based on your own data. These models will only be available to you and your organization.
 
 ### Custom Speech-to-text
 
-When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of Custom Speech models is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK. However, once the Custom Speech model is published it can be consumed by the Speech SDK.
+When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](https://aka.ms/customspeech). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 
-Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. The creation and management of Custom Voice models is only available through the [Custom Voice Portal](https://aka.ms/customvoice), and not the Speech SDK. However, once the Custom Voice model is published it can be consumed by the Speech SDK.
+Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. The creation and management of no-code Custom Voice models is available through the [Custom Voice Portal](https://aka.ms/customvoice). Once the Custom Voice model is published, it can be consumed by the Speech SDK.
 
 ## Get the SDK
 
