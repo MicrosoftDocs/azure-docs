@@ -58,7 +58,7 @@ Here's how to set up Azure File Sync in a way that's compatible with bulk migrat
 ## Syncing the share
 After you create your server endpoint, sync will start. The sync process determines whether each file on the server also exists in the staging share where Data Box deposited the files. If the file exists there, the sync process copies the file from the staging share rather than uploading it from the server. If the file doesn't exist in the staging share, or if a newer version is available on the local server, the sync process uploads the file from the local server.
 
-Sync will always transport missing file attributes, permissions and timestamps from the local server and add that to files coming from the DataBox share. That's done to ensure each file and folder arrives with all possible fidelity in the final, syncing Azure file share.
+When syncing the share, sync will merge any missing file attributes, permissions, or timestamps from the file variants on the local server, combining them with their file counterparts from the DataBox share. This ensures each file and folder arrives with all possible file fidelity in the Azure file share.
 
 > [!IMPORTANT]
 > You can enable the bulk migration mode only while you're creating a server endpoint. After you establish a server endpoint, you can't integrate bulk-migrated data from an already syncing server into the namespace.
