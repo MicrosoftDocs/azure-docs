@@ -279,7 +279,7 @@ There are two methods to enable the Helm chart, running Helm commands or by spec
 
 ### Enable the Helm chart using the API Model
 
-You can specify an addon in the AKS engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics Workspace where the collected monitoring data is stored.
+You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics Workspace where the collected monitoring data is stored.
 
 Supported API definitions for the Azure Stack Hub cluster can be found in this example - [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Specifically, find the **addons** property in **kubernetesConfig**:
 
