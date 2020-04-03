@@ -114,7 +114,7 @@ namespace adtIngestFunctionSample
 {
     public static class Function1
     {
-        const string AdtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+        const string AdtAppId = "https://api.azuredigitaltwins.net/";
         const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
@@ -175,7 +175,7 @@ namespace adtIngestFunctionSample
 {
     public static class Function1
     {
-        const string AdtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+        const string AdtAppId = "https://api.azuredigitaltwins.net/";
         const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
