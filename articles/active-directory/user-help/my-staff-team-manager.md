@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 03/20/2020
+ms.date: 04/03/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -21,7 +21,7 @@ Your organization can use **My Staff** to delegate user management tasks to figu
 
 ## Manage your staff in My Staff
 
-Managing your team members in My Staff is simple. To start, go to [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the team members in a location are determined by your IT administrator and you can't change them.
+Managing your team members in My Staff is simple. To start, [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the team members in a location are determined by your IT administrator and you can't change them.
 
 If you manage more than one location or group of staff members, the first time you visit My Staff you must select a location to see the list of staff who are part of your location or team.
 
@@ -30,8 +30,8 @@ If you manage more than one location or group of staff members, the first time y
 If your organization has given you permission, you can reset passwords for your staff members.
 
 1. [Open My Staff](https://aka.ms/mystaff).
+1. Open a user's profile.
 1. Select **Reset password**.
-1. Select one or more users, and touch **Select**.
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
 
 After you have reset the user's password, give the user the temporary password. When the user signs in with their temporary password, they are required to change it.
@@ -44,22 +44,24 @@ If your organization has given you permission, you can manage phone numbers for 
 
 1. [Open My Staff](https://aka.ms/mystaff).
 1. Open a user's profile.
-1. Select **Devices**.
-1. If the user doesn't have a phone number registered, select **+** to add their phone number.
-1. To edit the phone number, select the pencil icon and enter their new number.
+1. Select **Add phone number**.
+1. Add the phone number and select **Save**.
 
 After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 
-### To enable phone for SMS sign-in
+### To edit an existing phone number
 
-
+1. [Open My Staff](https://aka.ms/mystaff).
+1. Open a user's profile.
+1. Select **Edit phone number**.
+1. Change the phone number and select **Edit**.
 
 ### To remove a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
 1. Open a user's profile.
-1. Select **Devices**.
-1. Select the trash can to remove the phone number.
+1. Select **Remove phone number**.
+1. Confirm your intent.
 
 ## Next steps
 
