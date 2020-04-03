@@ -152,7 +152,7 @@
       - name: Versioning
         href: versioning-overview.md
       - name: Soft delete
-        href: storage-blob-soft-delete.md
+        href: soft-delete-overview.md
       - name: Snapshots
         href: snapshots-overview.md  
     - name: Access and performance tiers

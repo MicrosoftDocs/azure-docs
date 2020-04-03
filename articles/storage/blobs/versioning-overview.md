@@ -147,7 +147,8 @@ You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest
 
 A blob snapshot is a read-only copy of a blob that's taken at a specific point in time. Blob snapshots and blob versions are similar, but a snapshot is created manually by you or your application, while a blob version is created automatically on a write or delete operation when blob versioning is enabled for your storage account.
 
-If versioning is enabled for your storage account, all block blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs.
+> [!IMPORTANT]
+> Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs. If versioning is enabled for your storage account, all block blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity.
 
 ### Snapshot a blob when versioning is enabled
 
