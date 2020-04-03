@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application **template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python3 --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python3** command at the Windows command prompt.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -58,7 +58,7 @@ The following steps show you how to create a Python client application that conn
     import os
     import json
     import datetime
-    from random import random
+    import random
 
     from azure.iot.device.aio import ProvisioningDeviceClient
     from azure.iot.device.aio import IoTHubDeviceClient
@@ -129,8 +129,8 @@ The following steps show you how to create a Python client application that conn
       async def send_telemetry():
         print(f'Sending telemetry from the provisioned device every {delay} seconds')
         while True:
-          temp = random() * 15
-          humid = 70 + random() * 10
+          temp = random.randrange(1, 75)
+          humid = random.randrange(30, 99)
           payload = json.dumps({'temp': temp, 'humid': humid})
           msg = Message(payload)
           await device_client.send_message(msg, )
@@ -284,8 +284,8 @@ The following steps show you how to create a Python client application that conn
 
 To start the device client application, run the following command in your command-line environment:
 
-```cmd/sh
-node environmental_sensor.py
+```cmd
+python3 environmental_sensor.py
 ```
 
 You can see the device connects to your Azure IoT Central application and starts sending telemetry:

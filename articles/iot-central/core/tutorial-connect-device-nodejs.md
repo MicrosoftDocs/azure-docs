@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application **template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A development machine with [Node.js](https://nodejs.org/) version 10.0.0 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
