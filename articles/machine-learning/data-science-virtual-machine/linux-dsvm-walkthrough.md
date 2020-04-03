@@ -91,6 +91,7 @@ To see summary statistics about each column:
 
 ```R
 summary(data)
+```
 
 For a different view of the data:
 
