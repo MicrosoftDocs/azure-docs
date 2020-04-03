@@ -32,8 +32,6 @@ You'll need to train a Form Recognizer model with your input forms before you us
 
 Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository to your local machine. Then navigate to **Vision/AnalyzeForm/** and open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
-<!-- TBD you don't change those variables, you add debug env variables to the project -->
-
 Open _PowerSkills.sln_ in Visual Studio and locate the **AnalyzeForm** project on the left pane. Then make the following changes.
 * Add project-level environment variables. Right-click the project file and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
   * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
