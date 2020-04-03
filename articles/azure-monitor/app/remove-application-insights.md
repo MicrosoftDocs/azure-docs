@@ -77,7 +77,7 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
 
 ## What is created when you add Application Insights
 
-When you add Application Insights to your project it creates files and adds code to some of your files. Only removing the NuGet Packages won't always remove these files and code. To fully remove Application Insights you should check and manually remove the added code or files from you projects along with any API calls you added in your project.
+When you add Application Insights to your project, it creates files and adds code to some of your files. Only removing the NuGet Packages won't always remove these files and code. To fully remove Application Insights, you should check and manually remove the added code or files from you projects along with any API calls you added in your project.
 
 # [.NET](#tab/net)
 
