@@ -41,6 +41,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "projects.md",
+            "redirect_url": "how-to/projects.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "usage.md",
             "redirect_url": "concepts/usage-tracking.md",
             "redirect_document_id": true

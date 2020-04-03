@@ -110,6 +110,8 @@
       href: ./how-to/availability-sets.md
     - name: Use Environments
       href: ./how-to/environments.md
+    - name: Use Projects
+      href: ./how-to/projects.md
   - name: Node Preparation
     items:
     - name: Install Jetpack
