@@ -86,7 +86,7 @@ Added support for the following new recommended partner encoders for RTMP live s
 ### File Encoding enhancements
 
 - A new Content Aware Encoding preset is now available. It produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content. It uses those results to determine the optimal number of layers, appropriate bit rate, and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low-complexity and medium-complexity videos, where the output files are at lower bit rates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved. For more information, see the [open API specs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Improved performance and multi-threading for the re-sizer in Media Encoder Standard. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
+- Improved performance and multi-threading for the re-sizer in Standard Encoder. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
 - Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps for example should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
 
@@ -174,7 +174,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 Added updates that include Media Services performance improvements.
 
-* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* The maximum file size supported for processing was updated. See, [Quotas and limits](limits-quotas-constraints.md).
 * [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## April 2019

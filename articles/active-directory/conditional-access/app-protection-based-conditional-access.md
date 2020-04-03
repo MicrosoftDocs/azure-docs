@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -56,7 +56,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
-   - **Require one of the selected controls**
+   - **Require all the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 

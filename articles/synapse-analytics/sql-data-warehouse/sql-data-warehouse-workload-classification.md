@@ -1,12 +1,12 @@
 ---
 title: Workload classification 
 description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: workload-management
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Azure Synapse Analytics workload classification
 
-This article explains the workload classification process of assigning a workload group and importance to incoming requests with SQL Analytics in Azure Synapse.
+This article explains the workload classification process of assigning a workload group and importance to incoming requests with Synapse SQL pools in Azure Synapse.
 
 ## Classification
 
@@ -31,7 +31,7 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification for SQL Analytics in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Analytics users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
+Classification for Synapse SQL pool in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, Synapse SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
 
 > [!NOTE]
 > Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
@@ -82,7 +82,7 @@ JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 
 --for each row returned run
-sp_droprolemember ‘[Resource Class]’, membername
+sp_droprolemember '[Resource Class]', membername
 ```
 
 ## Next steps

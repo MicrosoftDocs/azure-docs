@@ -1,12 +1,12 @@
 ---
 title: Restore a deleted SQL pool 
 description: How to guide for restoring a deleted SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: anumjs
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -34,16 +34,16 @@ To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](https://docs.micr
 5. Get the specific deleted data warehouse.
 6. Restore the deleted data warehouse
     1. To restore the deleted SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
-    1. To restore to a different subscription, use the [Move](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) button to move the logical server to another subscription.
-1. Verify that the restored data warehouse is online.
-1. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+    1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the logical server to another subscription.
+7. Verify that the restored data warehouse is online.
+8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -81,5 +81,6 @@ $RestoredDatabase.status
     ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## Next Steps
+
 - [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)

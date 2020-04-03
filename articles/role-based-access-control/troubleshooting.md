@@ -5,7 +5,6 @@ services: azure-portal
 documentationcenter: na
 author: rolyon
 manager: mtillman
-
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.workload: identity
@@ -86,7 +85,7 @@ If you assign a role to a security principal (user, group, service principal, or
 
 If you list this role assignment using Azure PowerShell, you will see an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 
-```azurepowershell
+```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
 DisplayName        :
@@ -100,7 +99,7 @@ CanDelegate        : False
 
 Similarly, if you list this role assignment using Azure CLI, you will see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
 
-```azurecli
+```
 {
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
@@ -118,7 +117,7 @@ It isn't a problem to leave these role assignments, but you can remove them usin
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following shows an example of the error message:
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
@@ -131,7 +130,7 @@ At line:1 char:1
 
 If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
@@ -174,7 +173,7 @@ These items require **write** access to the **App Service plan** that correspond
 
 These items require **write** access to the whole **Resource group** that contains your website:  
 
-* SSL Certificates and bindings (SSL certificates can be shared between sites in the same resource group and geo-location)  
+* TLS/SSL Certificates and bindings (TLS/SSL certificates can be shared between sites in the same resource group and geo-location)  
 * Alert rules  
 * Autoscale settings  
 * Application insights components  
@@ -214,4 +213,3 @@ A reader can click the **Platform features** tab and then click **All settings**
 - [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
 - [View activity logs for RBAC changes to Azure resources](change-history-report.md)
-

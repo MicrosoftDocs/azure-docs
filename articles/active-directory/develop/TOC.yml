@@ -26,6 +26,8 @@
   - name: Single-page apps
     displayName: SPA
     items:
+    - name: Angular
+      href: quickstart-v2-angular.md
     - name: JavaScript
       href: quickstart-v2-javascript.md
   - name: Web apps
@@ -69,6 +71,8 @@
   - name: Single-page apps
     displayName: SPA
     items:
+    - name: Angular
+      href: tutorial-v2-angular.md
     - name: JavaScript
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
@@ -219,8 +223,12 @@
         href: scenario-mobile-app-configuration.md
       - name: Mobile platforms specific config
         items:
+        - name: Microsoft Enterprise SSO plug-in for Apple devices
+          href: apple-sso-plugin.md
         - name: Shared device mode for Android devices
-          href: shared-device-mode.md
+          href: msal-android-shared-devices.md
+        - name: Shared device mode for iOS devices
+          href: msal-ios-shared-devices.md
         - name: Xamarin Android
           href: msal-net-xamarin-android-considerations.md
         - name: System browser on Android
@@ -308,6 +316,17 @@
       href: msal-handling-exceptions.md
     - name: Logging
       href: msal-logging.md
+    - name: Shared devices
+      items:
+      - name: Overview - shared devices
+        href: msal-shared-devices.md
+        displayName: shared device mode, firstline worker, frontline worker
+      - name: Shared device mode for iOS devices
+        href: msal-ios-shared-devices.md
+        displayName: firstline worker, frontline worker
+      - name: Shared device mode for Android devices
+        href: msal-android-shared-devices.md
+        displayName: firstline worker, frontline worker
     - name: Single sign-on
       displayName: SSO
       items:

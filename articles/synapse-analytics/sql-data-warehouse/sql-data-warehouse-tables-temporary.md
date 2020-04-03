@@ -1,23 +1,29 @@
 ---
 title: Temporary tables
-description: Essential guidance for using temporary tables in Azure SQL Data Warehouse, highlighting the principles of session level temporary tables. 
-services: sql-data-warehouse
+description: Essential guidance for using temporary tables in Synapse SQL pool, highlighting the principles of session level temporary tables. 
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Temporary tables in SQL Data Warehouse
-This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
+# Temporary tables in Synapse SQL pool
+This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
+
+Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance.
 
 ## What are temporary tables?
-Temporary tables are useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse, temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In SQL pool, temporary tables exist at the session level.  
+
+Temporary tables are only visible to the session in which they were created and are automatically dropped when that session logs off.  
+
+Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
 ## Create a temporary table
 Temporary tables are created by prefixing your table name with a `#`.  For example:
@@ -86,7 +92,9 @@ GROUP BY
 > 
 
 ## Dropping temporary tables
-When a new session is created, no temporary tables should exist.  However, if you are calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful a simple pre-existence check with a `DROP` can be used as in the following example:
+When a new session is created, no temporary tables should exist.  
+
+If you're calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, a simple pre-existence check with a `DROP` can be used as in the following example:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -95,14 +103,18 @@ BEGIN
 END
 ```
 
-For coding consistency, it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development, it is common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
+For coding consistency, it's a good practice to use this pattern for both tables and temporary tables.  It's also a good idea to use `DROP TABLE` to remove temporary tables when you've finished with them in your code.  
+
+In stored procedure development, it's common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## Modularizing code
-Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the following stored procedure generates DDL to update all statistics in the database by statistic name.
+Since temporary tables can be seen anywhere in a user session, this capability can be leveraged to help you modularize your application code.  
+
+For example, the following stored procedure generates DDL to update all statistics in the database by statistic name:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -176,7 +188,13 @@ FROM    t1
 GO
 ```
 
-At this stage, the only action that has occurred is the creation of a stored procedure that generates a temporary table, #stats_ddl, with DDL statements.  This stored procedure drops #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the following example:
+At this stage, the only action that has occurred is the creation of a stored procedure that generates a temporary table, #stats_ddl, with DDL statements.  
+
+This stored procedure drops an existing #stats_ddl to ensure it doesn't fail if run more than once within a session.  
+
+However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
+
+In SQL pool, unlike other SQL Server databases, it's possible to use the temporary table outside of the procedure that created it.  SQL pool temporary tables can be used **anywhere** inside the session. This feature can lead to more modular and manageable code as in the following example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -198,7 +216,9 @@ DROP TABLE #stats_ddl;
 ```
 
 ## Temporary table limitations
-SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
+SQL pool does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.  
+
+Also, views can't be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
 ## Next steps
 To learn more about developing tables, see the [Table Overview](sql-data-warehouse-tables-overview.md).

@@ -50,8 +50,8 @@ See the following articles for information about network connectivity requiremen
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware)
-- **Hyper-V VM**: [performance data](migrate-appliance.md#collected-performance-data-hyper-v) and [metadata](migrate-appliance.md#collected-metadata-hyper-v)
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **Hyper-V VM**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
 
 ## How is data stored?
 
@@ -89,6 +89,9 @@ No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-ap
 
 ## Can an Azure Migrate project have multiple appliances?
 A project can have multiple appliances attached to it. However, an appliance can only be associated with one project. 
+
+## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
+Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of VMware VMs) to the same vCenter server.
 
 
 ## How many VMs or servers can I discover with an appliance?
