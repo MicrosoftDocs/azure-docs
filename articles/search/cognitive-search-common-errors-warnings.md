@@ -75,7 +75,7 @@ Indexer read the document from the data source, but there was an issue convertin
 <a name="Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'"/>
 
 ## Error: Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'
-Applying output mappings failed possibly because of incompatibility between the output data format and the format expected by mapping function. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either retry the operation without specifying mapping function or ensure that the mapping function is compatible with the output field data type. 
+Applying output mappings failed possibly because of incompatibility between the output data format and the format expected by mapping function. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either retry the operation without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 <a name="could-not-execute-skill"/>
 
@@ -310,10 +310,11 @@ For more information, see [Indexer limits](search-limits-quotas-capacity.md#inde
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## Warning: Could not map output field 'X' to search index
-Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This could happen if the skills output does not conform to the path of output source field mapping expression/path. Please double check the paths for extra or missing * provided in the output source field name and ensure that the field value conforms to the given path. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
+| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This could happen if the skills output does not conform to the path of output source field-mapping expression/path. Please double check the paths for extra or missing * provided in the output source field name and ensure that the field value conforms to the given path. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
 | Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Please double check the paths provided in the output source field names and the field value for the warned field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
