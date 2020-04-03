@@ -42,7 +42,7 @@ The [free App Service Managed Certificate](#create-a-free-certificate-preview) o
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates in the certificate chain
 
-To secure a custom domain in an TLS binding, the certificate has additional requirements:
+To secure a custom domain in a TLS binding, the certificate has additional requirements:
 
 * Contains an [Extended Key Usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1)
 * Signed by a trusted certificate authority
