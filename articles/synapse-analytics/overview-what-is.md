@@ -24,7 +24,7 @@ Azure Synapse provides the simplest and fastest way for an enterprise to get ins
 
 ### Industry-leading SQL
 
-* *Synapse SQL** is a distributed query system, enabling enterprises to implement data warehousing and data virtualization 
+* **Synapse SQL** is a distributed query system, enabling enterprises to implement data warehousing and data virtualization 
 scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to 
 address streaming and machine learning scenarios.
 
@@ -74,7 +74,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
 * Integrate with enterprise CI/CD processes
 
-### Next steps
+## Next steps
 
 * Explore [Azure Synapse architecture](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
 * Quickly [create a SQL pool](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
