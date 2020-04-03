@@ -15,11 +15,11 @@ ms.custom: azure-synapse
 
 # Workload management with resource classes in Azure Synapse Analytics
 
-Guidance for using resource classes to manage memory and concurrency for SQL Analytics queries in Azure Synapse.  
+Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse.  
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in SQL Analytics that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Synapse SQL pool that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -60,7 +60,7 @@ The dynamic resource classes are implemented with these pre-defined database rol
 - largerc
 - xlargerc
 
-The memory allocation for each resource class is as follows. 
+The memory allocation for each resource class is as follows.
 
 | Service Level  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
@@ -71,13 +71,11 @@ The memory allocation for each resource class is as follows.
 | DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c to<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
-
-
 ### Default resource class
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Analytics instance with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new Synapse SQL pool with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
@@ -280,8 +278,8 @@ IF @DWU IS NULL
 BEGIN
 -- Selecting proper DWU for the current DB if not specified.
 
-SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500 
-  ELSE Mem*100 
+SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500
+  ELSE Mem*100
   END AS VARCHAR(10)) +'c'
     FROM (
       SELECT Nodes=count(distinct n.pdw_node_id), Mem=max(i.committed_target_kb/1000/1000/60)
@@ -590,4 +588,3 @@ GO
 ## Next steps
 
 For more information about managing database users and security, see [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
-
