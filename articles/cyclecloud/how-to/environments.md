@@ -2,7 +2,7 @@
 title: Environment Resource
 description: Learn about Azure CycleCloud Environments using Azure Resource Manager
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 04/01/2018
 ms.author: adjohnso
 ---
 
@@ -49,8 +49,8 @@ TemplatePath = arm/azure.deploy.json​
 ManagedLifecycle = false​
 Azure.ResourceGroup = preexisting-rg​
 ```
-​
-## Refer to an Environment Defined in Another ACC Cluster
+
+## Refer to an Environment Defined in Another CycleCloud Cluster
 
 ``` ini
 [environmentref envname]​

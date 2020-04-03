@@ -108,6 +108,8 @@
       href: ./how-to/network-security.md
     - name: Use Availability Sets
       href: ./how-to/availability-sets.md
+    - name: Use Environments
+      href: ./how-to/environments.md
   - name: Node Preparation
     items:
     - name: Install Jetpack

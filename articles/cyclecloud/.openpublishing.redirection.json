@@ -32,7 +32,12 @@
         },
         {
             "source_path": "autoscale.md",
-            "redirect_url": "concepts/scheduling.md",
+            "redirect_url": "how-to/configure-autoscaling.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "environments.md",
+            "redirect_url": "how-to/environments.md",
             "redirect_document_id": false
         },
         {
