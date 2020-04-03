@@ -1,5 +1,5 @@
 ---
-title: 'Moving Application Authentication from AD FS to Azure Active Directory'
+title: 'Moving application authentication from AD FS to Azure Active Directory'
 description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
 author: barbaraselden
@@ -15,7 +15,7 @@ ms.author: baselden
 ms.collection: M365-identity-device-management
 ---
 
-# Moving Application Authentication from Active Directory Federation Services to Azure Active Directory
+# Moving application authentication from Active Directory Federation Services to Azure Active Directory
 
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Standardizing your application (app) authentication and authorization to Azure AD enables the benefits these capabilities provide. 
 
@@ -25,6 +25,7 @@ ms.collection: M365-identity-device-management
 ## Introduction
 
 If you have an on-premises directory that contains user accounts, you likely have many applications to which users authenticate. Each of these apps is configured for users to access using their identities. 
+
 
 Users may also authenticate directly with your on-premises Active Directory. Active Directory Federation Services (AD FS) is a standards based on-premises identity service. AD FS extends the ability to use single sign-on (SSO) functionality between trusted business partners without requiring users to sign-in separately to each application. This is known as Federation.
 
@@ -83,13 +84,13 @@ Update the configuration of your production application to point to your product
 
  Apps that authenticate with AD FS may use Active Directory groups for permissions. Use [Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) to synchronize identity data between your on-premises environment and Azure AD before you begin migration. Verify those groups and membership before migration so that you can grant access to the same users when the application is migrated.
 
-### Line of Business (LOB) apps
+### Line of business (LOB) apps
 
 LOB apps are developed internally by your organization or available as a standard packaged product that's installed in your data center. Examples include apps built on Windows Identity Foundation and SharePoint apps (not SharePoint Online). 
 
 LOB apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) on the enterprise applications page in the [Azure portal](https://portal.azure.com/).
 
-## SAML-based Single Sign-On
+## SAML-based single sign-On
 
 Apps that use SAML 2.0 for authentication can be configured for [SAML-based single sign-on](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SAML-based SSO). With [SAML-based SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on), you can map users to specific application roles based on rules that you define in your SAML claims. 
 
@@ -116,7 +117,7 @@ Keep in mind the following limitations when mapping attributes:
 
  
 
-### Software as a Service (SaaS) apps
+### Software as a service (SaaS) apps
 
 If your user's sign in to SaaS apps such as Salesforce, ServiceNow, or Workday, and are integrated with AD FS, you're using federated sign-on for SaaS apps. 
 
@@ -228,7 +229,7 @@ Configure your applications to point to Azure AD versus AD FS for SSO. Here, we'
 
 SaaS apps need to know where to send authentication requests and how to validate the received tokens. The following table describes the elements to configure SSO settings in the app, and their values or locations within AD FS and Azure AD
 
-| Configuration Setting| AD FS| How to configure in Azure AD |
+| Configuration setting| AD FS| How to configure in Azure AD |
 | - | - | - |
 | **IdP Sign-on URL** <p>Sign-on URL of the IdP from the app's perspective (where the user is redirected for login).| The AD FS sign-on URL is the AD FS federation service name followed by "/adfs/ls/." <p>For example: [https://fs.contoso.com/adfs/ls/](https://fs.contoso.com/adfs/ls/)| Replace {tenant-id} with your tenant ID. <p> ‎For apps that use the SAML-P protocol: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **IdP sign-out URL**<p>Sign-out URL of the IdP from the app's perspective (where the user is redirected when they choose to sign out of the app).| The sign-out URL is either the same as the sign-on URL, or the same URL with "wa=wsignout1.0" appended. For example: [https://fs.contoso.com/adfs/ls/?wa=wsignout1.0](https://fs.contoso.com/adfs/ls/?wa=wsignout1.0)| Replace {tenant-id} with your tenant ID.<p>For apps that use the SAML-P protocol:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> ‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
@@ -440,12 +441,11 @@ No matter how your existing external users are configured, they likely have perm
 Follow the migration process detailed in this article.
 
 Then go to the [Azure portal](https://aad.portal.azure.com/) to test if the migration was a success. Follow the instructions below:
+1. Select **Enterprise Applications** > **All applications** and find your app from the list.
 
-* Select **Enterprise Applications** > **All applications** and find your app from the list.
+1. Select **Manage** > **Users and groups** to assign at least one user or group to the app.
 
-* Select **Manage** > **Users and groups** to assign at least one user or group to the app.
-
-* Select **Manage** > **Conditional Access**. Review your list of policies and ensure that you are not blocking access to the application with a [conditional access policy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+1. Select **Manage** > **Conditional Access**. Review your list of policies and ensure that you are not blocking access to the application with a [conditional access policy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 Depending on how you configure your app, verify that SSO works properly. 
 
