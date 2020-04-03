@@ -18,9 +18,6 @@
   items:
   - name: Studio & Designer
     items:
-    - name: Label image data
-      displayName: tag, tagging, images
-      href: tutorial-labeling.md
     - name: 'Designer: 1. Train a regression model'
       displayName: studio
       href: tutorial-designer-automobile-price-train-score.md
@@ -35,6 +32,9 @@
       - name: Forecast demand with automated ML (Bike share data)
         displayName: automl, automated, auto ml, portal, ui
         href: tutorial-automated-ml-forecast.md
+    - name: Label image data
+      displayName: tag, tagging, images
+      href: tutorial-labeling.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
