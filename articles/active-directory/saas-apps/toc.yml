@@ -1178,8 +1178,6 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
-      - name: Qualtrics
-        href: qualtrics-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -1278,6 +1276,8 @@
         href: saphana-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
+      - name: SAP Qualtrics
+        href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
