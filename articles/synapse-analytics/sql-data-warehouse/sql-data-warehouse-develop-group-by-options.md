@@ -1,6 +1,6 @@
 ---
 title: Using group by options 
-description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
+description: Tips for implementing group by options in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,26 +13,24 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# GROUP BY options in SQL Analytics
-SQL Analytics allows for developing solutions by implementing different GROUP BY options. 
+# Group by options in Synapse SQL pool
 
-## What does GROUP BY do
+In this article, you'll find tips for implementing group by options in SQL pool.
 
-The [GROUP BY](https://docs.microsoft.com/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15) T-SQL clause aggregates data to a summary set of rows.
+## What does GROUP BY do?
 
-SQL on-demand supports the whole range of GROUP BY options. SQL pool supports a limited number of GROUP BY options. 
-
-## GROUP BY options supported in SQL pool
-GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
 * GROUP BY with CUBE
 
-### Rollup and grouping sets options
-The simplest option here is to use UNION ALL to execute the rollup rather than relying on the explicit syntax. The result is exactly the same
+## Rollup and grouping sets options
 
-The following example uses the GROUP BY statement with the ROLLUP option:
+The simplest option here is to use UNION ALL to perform the rollup rather than relying on the explicit syntax. The result is exactly the same.
+
+The following example using the GROUP BY statement with the ROLLUP option:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -81,11 +79,13 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
-### Cube options
+## Cube options
+
 It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
+Using the previous example, the first step is to define the 'cube' that defines all the levels of aggregation that we want to create.
 
-The first step is to define the 'cube' that defines all the levels of aggregation that we want to create. Take note of the CROSS JOIN of the two derived tables as it generates all levels. The rest of the code is there for formatting.
+Take note of the CROSS JOIN of the two derived tables since this generates all the levels for us. The rest of the code is there for formatting:
 
 ```sql
 CREATE TABLE #Cube
@@ -116,7 +116,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-The following image shows the results of [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7):
+The following image shows the results of the CTAS:
 
 ![Group by cube](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
@@ -143,7 +143,7 @@ WITH
 ;
 ```
 
-The third step is to loop over the cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table. Results are stored in the #Results temp table:
+The third step is to loop over our cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table. The results are stored in the #Results temp table:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -179,5 +179,5 @@ ORDER BY 1,2,3
 By breaking up the code into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

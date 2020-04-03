@@ -22,7 +22,7 @@ ms.custom: aaddev, identityplatformtop40
 # Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA)
 
 > [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 This guide demonstrates how an Angular single-page application (SPA) can:
 - Sign in personal accounts, as well as work and school accounts

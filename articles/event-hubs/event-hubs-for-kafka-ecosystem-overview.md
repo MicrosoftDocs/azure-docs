@@ -90,16 +90,6 @@ Here is the list of Kafka features that are not yet supported:
 *	Kafka Streams
 
 ## Next steps
-
-This article provided an introduction to Event Hubs for Kafka. To learn more, see the following links:
-
-- [How to create an event hub](event-hubs-create.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
-- [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
 
 
