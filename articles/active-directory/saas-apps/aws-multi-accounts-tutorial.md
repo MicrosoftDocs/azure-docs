@@ -124,9 +124,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Name  | Source Attribute  | Namespace |
 	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  https://aws.amazon.com/SAML/Attributes |
+	| RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
+	| Role 			  | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
+	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -233,7 +233,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Now sign into [Azure portal](https://portal.azure.com/) and navigate to **Groups**.
 
-1. Create new groups with the same name as that of IAM Roles created earlier and note down the **Object Ids** of these new groups.
+1. Create new groups with the same name as that of IAM Roles created earlier and note down the **Object IDs** of these new groups.
 
 	![Select Administrator Access](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
@@ -274,7 +274,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Microsoft Graph Explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Object id** which you have copied from Azure AD Properties page to get to the respective Service Principal.
+	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Object ID** which you have copied from Azure AD Properties page to get to the respective Service Principal.
 
 	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
