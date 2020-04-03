@@ -80,14 +80,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `<YOURWEBSITEURL>`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://auth.iws-hybrid.trendmicro.com/([0-9a-f]{16})`
 
+    b. In the **Reply URL** text box, type a URL:
+    `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Trend Micro Web Security(TMWS) Client support team](https://success.trendmicro.com/contact-support-north-america) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Trend Micro Web Security(TMWS) Client support team](https://success.trendmicro.com/contact-support-north-america) to get Identifier value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Trend Micro Web Security(TMWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -97,6 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name | Source Attribute|
 	| --------------- | --------- |
+    | sAMAccountName | user.onpremisessamaccountname |
 	| uPN | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
@@ -137,6 +138,39 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+### Configure user and group synchronization settings in Azure AD. 
+
+1. From the left navigation, click **Azure Active Directory**.
+
+1. Under **Manage**, click **App registrations** and then click your new enterprise application under the **All applications** area.
+
+1. Under **Manage**, click **Certificates & secrets**.
+
+1. Under the Client secrets area that appears, click **New client secret**.
+
+1. On the Add a client secret screen that appears, optionally add a description and select an expiration period for this client secret, and then click **Add**. The newly added client secret appears under the Client secrets area.
+
+1. Record the value. Later, you will type the information into TMWS.
+
+1. Under **Manage**, click **API permissions**. 
+
+1. On the API permissions screen that appears, click **Add a permission**.
+
+1. On the Microsoft APIs tab of the Request API permissions screen that appears, click **Microsoft Graph** and then **Application permissions**.
+
+1. Locate and add the following permissions: 
+
+    * Group.Read.All
+    * User.Read.All
+
+1. Click **Add permissions**. A message appears to confirm that your settings were saved successfully. The newly added permissions appear on the API permissions screen.
+
+1. Under the Grant consent area, click **Grant admin consent for < your administrator account > (Default Directory)** and then **Yes**. A message appears to confirm that the admin consent for the requested permissions was successfully granted.
+
+1. Click **Overview**. 
+
+1. In the right pane that appears, record the Application (client) ID and Directory (tenant) ID. Later, you will type the information into TMWS. You can also click **Custom domain names** under Azure **Active Directory > Manage** and record the domain name in the right pane.
+
 ## Configure Trend Micro Web Security SSO
 
 To configure single sign-on on **Trend Micro Web Security(TMWS)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america). They set this setting to have the SAML SSO connection set properly on both sides.
@@ -147,9 +181,21 @@ In this section, you create a user called Britta Simon in Trend Micro Web Securi
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Once you successfully configured the Azure AD service and specified Azure AD as the user authentication method, you can log on to the TMWS proxy server to verify your setup. After the Azure AD logon verifies your account, you can visit the Internet.
 
-When you click the Trend Micro Web Security(TMWS) tile in the Access Panel, you should be automatically signed in to the Trend Micro Web Security(TMWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+> [!NOTE]
+> TMWS does not support testing single sign-on from the Azure AD portal, under Overview > Single sign-on > Set up Single Sign-on with SAML > Test of your new enterprise application.
+
+1. Clear the browser of all cookies and then restart the browser. 
+
+1. Point your browser to the TMWS proxy server. 
+For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/enterprise/trend-micro-web-security-online-help/administration_001/pac-files/traffic-forwarding-u.aspx#GUID-A4A83827-7A29-4596-B866-01ACCEDCC36B).
+
+1. Visit any Internet website. TMWS will direct you to the TMWS captive portal.
+
+1. Specify an Active Directory account (format: domain\sAMAccountName or sAMAccountName@domain), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
+
+1. On the Azure AD logon, type your AD account credentials. You should successfully log on to TMWS.
 
 ## Additional resources
 
