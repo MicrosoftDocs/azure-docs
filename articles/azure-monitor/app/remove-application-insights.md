@@ -245,6 +245,8 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 # [.NET Core](#tab/netcore)
 
+There are currently no known issues with uninstalling the ASP.NET Core SDKs if the steps above are followed.
+
 ---
 
 ## Next Steps
