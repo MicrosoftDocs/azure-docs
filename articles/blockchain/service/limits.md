@@ -57,7 +57,7 @@ Decreasing ledger and log storage size is not supported.
 
 ## Performance
 
-Do not use *eth.estimate* gas function for each transaction submission. The *eth.estimate* function is memory intensive. Calling it multiple times reduces transactions per second drastically.
+Do not use *eth.estimate* gas function for each transaction submission. The *eth.estimate* function is memory intensive. Calling the function multiple times reduces transactions per second drastically.
 
 If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimate*.
 
