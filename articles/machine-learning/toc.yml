@@ -18,15 +18,15 @@
   items:
   - name: Studio & Designer
     items:
-      - name: 'Tutorial: Label image data'
-        displayName: tag, tagging, images
-        href: tutorial-labeling.md
-      - name: 'Designer: 1. Train a regression model'
-        displayName: studio
-        href: tutorial-designer-automobile-price-train-score.md
-      - name: 'Designer: 2. Deploy that model'
-        displayName: studio
-        href: tutorial-designer-automobile-price-deploy.md
+    - name: 'Tutorial: Label image data'
+      displayName: tag, tagging, images
+      href: tutorial-labeling.md
+    - name: 'Designer: 1. Train a regression model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-train-score.md
+    - name: 'Designer: 2. Deploy that model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-deploy.md
     - name: Automated ML (UI)
       items:
       - name: Create an automated ML experiment
