@@ -32265,11 +32265,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/key-vault/automation-manage-key-vault.md",
       "redirect_url": "/azure/key-vault/",
       "redirect_document_id": false
@@ -50558,6 +50553,10 @@
       "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
       "redirect_url": "/azure/aks/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
     }
   ]
 }
