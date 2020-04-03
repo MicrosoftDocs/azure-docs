@@ -14,7 +14,7 @@ ms.custom: subject-armqs
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. This quickstart shows you how to create a budget using a Resource Manager template.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ One Azure resource is defined in the template:
 
    ![Resource Manager template, budget, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Validate the deployment
 
@@ -107,7 +107,6 @@ Get-AzureRmConsumptionBudget
 
 In this quickstart, you created an Azure budget the deployment. To learn more about Azure Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
 
-- Read the [Cost Management and Billing](../cost-management-billing.md) overview
+- Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-
