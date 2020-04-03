@@ -136,11 +136,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure TickitLMS Learn SSO
 
-To configure single sign-on on **TickitLMS Learn** side, you need to send the **App Federation Metadata Url** to [TickitLMS Learn support team](mailto:zac.newnham@absorblearning.co.uk). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **TickitLMS Learn** side, you need to send the **App Federation Metadata Url** to [TickitLMS Learn support team](mailto:support@tickitlms.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create TickitLMS Learn test user
 
-In this section, you create a user called Britta Simon in TickitLMS Learn. Work with [TickitLMS Learn support team](mailto:zac.newnham@absorblearning.co.uk) to add the users in the TickitLMS Learn platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in TickitLMS Learn. Work with [TickitLMS Learn support team](mailto:support@tickitlms.com) to add the users in the TickitLMS Learn platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
