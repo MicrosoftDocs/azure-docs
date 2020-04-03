@@ -73,7 +73,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
 
 Site Recovery sends replicated data to the cache storage account. You might experience network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds.
 
-To check for a problem related to latency, use [AzCopy](/azure/storage/common/storage-use-azcopy-v10). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
+To check for a problem related to latency, use [AzCopy](/azure/storage/common/storage-use-azcopy). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
 
 We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA. For more information, see [Network virtual appliance configuration](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
