@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 04/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -186,7 +186,7 @@ The **Protocol** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. Do not use a SAML token in production. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. |
 
 ## OutputClaims
 
