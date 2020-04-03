@@ -61,7 +61,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
 > [!NOTE]
 > Even if you don't move your currently selected individual users to a group, they can still see LinkedIn information in Microsoft apps.
 
-## Move currently selected users to a group
+### Move currently selected users to a group
 
 1. Create a CSV file of the users who are selected for LinkedIn account connections.
 1. Sign into Microsoft 365 with your administrator account.
