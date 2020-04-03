@@ -1,6 +1,6 @@
 ---
-title: Single-user password rotation tutorial
-description: Use this tutorial to learn how to automate the rotation of a secret for resources that use single-user password authentication.
+title: Single-user/single-password rotation tutorial
+description: Use this tutorial to learn how to automate the rotation of a secret for resources that use single-user/single-password authentication.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,11 +13,11 @@ ms.date: 01/26/2020
 ms.author: mbaldwin
 
 ---
-# Automate the rotation of a secret for resources that use single-user password authentication
+# Automate the rotation of a secret for resources that use single-user/single-password authentication
 
 The best way to authenticate to Azure services is by using a [managed identity](managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use single-user password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use single-user/single-password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
 ![Diagram of rotation solution](./media/rotate1.png)
 
@@ -227,7 +227,7 @@ Open the **sqluser** secret and view the original and rotated versions:
 
 ![Open the sqluser secret](./media/rotate9.png)
 
-## Create a web app
+### Create a web app
 
 To verify the SQL credentials, create a web app. This web app will get the secret from Key Vault, extract SQL database information and credentials from the secret, and test the connection to SQL Server.
 
@@ -240,7 +240,7 @@ The web app requires these components:
 1. Select the **simplerotation** resource group.
 1. Select **Purchase**.
 
-## Deploy the web app
+### Deploy the web app
 
 You can find source code for the web app on [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp).
 
@@ -254,7 +254,7 @@ To deploy the web app, complete these steps:
    az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
    ```
 
-## Open the web app
+### Open the web app
 
 Go to the deployed application and select the URL:
  
