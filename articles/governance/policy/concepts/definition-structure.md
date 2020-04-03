@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -447,7 +447,7 @@ This policy rule example uses **value** to check if the result of multiple neste
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -695,6 +695,10 @@ use within a policy rule, except the following functions and user-defined functi
 - resourceId()
 - variables()
 
+> [!NOTE]
+> These functions are still available within the `details.deployment.properties.template` portion of
+> the template deployment in a **deployIfNotExists** policy definition.
+
 The following function is available to use in a policy rule, but differs from use in an Azure
 Resource Manager template:
 
@@ -711,12 +715,15 @@ The following functions are only available in policy rules:
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition
-  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
+    fields on the resource that are being evaluated. An example of this use can be seen in the
+    [DeployIfNotExists example](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`). This will be the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+    This will be the API version that was used in the PUT/PATCH request for evaluations on resource
+    creation/update. The latest API version is always used during compliance evaluation on existing
+    resources.
   
-
-
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
@@ -841,8 +848,6 @@ This sample rule checks for any matches of **ipRules\[\*\].value** to **10.0.4.1
     }
 }
 ```
-
-
 
 For more information, see [evaluating the [\*]
 alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).

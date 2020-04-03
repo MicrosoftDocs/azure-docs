@@ -24,9 +24,9 @@ highlightedContent:
     - title: What's new in Azure AD? 
       itemType: whats-new 
       url: ./fundamentals/whats-new.md
-    - title: Top 5 ways Azure AD simplifies remote work
-      itemType: overview
-      url: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/top-5-ways-your-azure-ad-can-help-you-enable-remote-work/ba-p/1144691
+    - title: Secure your remote workforce
+      itemType: get-started
+      url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
     - title: Assign roles to users 
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md

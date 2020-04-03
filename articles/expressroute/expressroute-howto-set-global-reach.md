@@ -35,7 +35,7 @@ Before you start configuration, confirm the following:
 1. To start the configuration, sign in to your Azure account and select the subscription that you want to use.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identify the ExpressRoute circuits that you want use. You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries/regions and were created at different peering locations. 
+2. Identify the ExpressRoute circuits that you want use. You can enable ExpressRoute Global Reach between the private peering of any two ExpressRoute circuits, as long as they're located in the supported countries/regions and were created at different peering locations. 
 
    * If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections.
    * If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
