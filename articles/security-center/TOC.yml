@@ -31,6 +31,8 @@
 
 - name: Tutorials
   items:
+  - name: Planning and operations guide
+    href: security-center-planning-and-operations-guide.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
   - name: Respond to incidents
@@ -74,8 +76,8 @@
       href: security-center-incident.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
-    - name: Security alerts map and threat intelligence
-      href: security-center-threat-intel.md       
+    - name: Threat reports
+      href: security-center-threat-report.md
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
 
@@ -153,6 +155,8 @@
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
+    - name: Manage investigation user data
+      href: security-center-investigation-user-data.md
   - name: Apply cloud defenses
     items:
     - name: Manage just-in-time access
@@ -163,23 +167,6 @@
       href: security-center-file-integrity-monitoring.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
-      
-  - name: Archive
-    items:
-    - name: Apply disk encryption
-      href: security-center-apply-disk-encryption.md
-    - name: Apply system updates
-      href: security-center-apply-system-updates.md
-    - name: Threat reports
-      href: security-center-threat-report.md
-    - name: Alert confidence score
-      href: security-center-confidence-score.md
-    - name: Investigation
-      href: security-center-investigation.md
-    - name: Manage investigation user data
-      href: security-center-investigation-user-data.md
-    - name: Planning and operations
-      href: security-center-planning-and-operations-guide.md
 
 - name: Reference
   items:

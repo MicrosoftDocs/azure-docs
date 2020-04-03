@@ -338,6 +338,8 @@
       href: backup-rm-template-samples.md
   - name: Security
     items:
+    - name: Overview
+      href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
     - name: Security for cloud workloads
@@ -384,6 +386,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Compliance 
+    href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
