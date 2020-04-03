@@ -18,18 +18,22 @@
   items:
   - name: Studio & Designer
     items:
-    - name: 'Designer: 1. Train a regression model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 'Designer: 2. Deploy that model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-    - name: Create an automated ML experiment
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
-    - name: Forecast demand with automated ML (Bike share data)
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-automated-ml-forecast.md
+    - name: Designer (drag-and-drop)
+      items:
+      - name: 'Designer: 1. Train a regression model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-train-score.md
+      - name: 'Designer: 2. Deploy that model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-deploy.md
+    - name: Automated ML (UI)
+      items:
+      - name: Create an automated ML experiment
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-first-experiment-automated-ml.md
+      - name: Forecast demand with automated ML (Bike share data)
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -141,6 +145,9 @@
         - name: Use virtual networks
           displayName: vnet, blob
           href: how-to-enable-virtual-network.md
+        - name: Use Private Link
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
         - name: Use Azure AD identity in AKS deployments
@@ -257,8 +264,6 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-    - name: Chainer
-      href: how-to-train-chainer.md
   - name: Interpret models
     displayName: interpretability
     items:

@@ -104,7 +104,7 @@ You can onboard Linux servers running on-premises or in other cloud environments
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - To find the registration key and registration URL for your Automation account, see the [Onboarding securely using registration](#onboarding-securely-using-registration) section if this article.
+   - To find the registration key and registration URL for your Automation account, see the [Onboarding securely using registration](#onboarding-securely-using-registration) section of this article.
 
 3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to onboard machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
 

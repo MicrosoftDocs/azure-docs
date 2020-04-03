@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS) 
-description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in SQL Analytics for developing solutions.
+description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in Synapse SQL for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,17 +13,17 @@ ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
 ---
 
-# CREATE TABLE AS SELECT (CTAS) in SQL Analytics
+# CREATE TABLE AS SELECT (CTAS)
 
-This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in SQL Analytics for developing solutions. The article also provides code examples.
+This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Synapse SQL for developing solutions. The article also provides code examples.
 
 ## CREATE TABLE AS SELECT
 
-The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
+The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
 
 ## SELECT...INTO vs. CTAS
 
-CTAS is a more customizable version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql) statement.
+CTAS is a more customizable version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement.
 
 The following is an example of a simple SELECT...INTO:
 
@@ -118,7 +118,7 @@ DROP TABLE FactInternetSales_old;
 
 ## Use CTAS to work around unsupported features
 
-You can also use CTAS to work around a number of the unsupported features listed below. This method can often prove helpful, because not only will your code be compliant, but it will often run faster on SQL Analytics. This performance is a result of its fully parallelized design. Scenarios include:
+You can also use CTAS to work around a number of the unsupported features listed below. This method can often prove helpful, because not only will your code be compliant, but it will often run faster on Synapse SQL. This performance is a result of its fully parallelized design. Scenarios include:
 
 * ANSI JOINS on UPDATEs
 * ANSI JOINs on DELETEs
@@ -169,7 +169,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Analytics doesn't support ANSI joins in the `FROM` clause of an `UPDATE` statement, so you can't use the previous example without modifying it.
+Synapse SQL doesn't support ANSI joins in the `FROM` clause of an `UPDATE` statement, so you can't use the previous example without modifying it.
 
 You can use a combination of a CTAS and an implicit join to replace the previous example:
 
@@ -203,7 +203,7 @@ DROP TABLE CTAS_acs;
 
 ## ANSI join replacement for delete statements
 
-Sometimes the best approach for deleting data is to use CTAS, especially for `DELETE` statements that use ANSI join syntax. This is because SQL Analytics doesn't support ANSI joins in the `FROM` clause of a `DELETE` statement. Rather than deleting the data, select the data you want to keep.
+Sometimes the best approach for deleting data is to use CTAS, especially for `DELETE` statements that use ANSI join syntax. This is because Synapse SQL doesn't support ANSI joins in the `FROM` clause of a `DELETE` statement. Rather than deleting the data, select the data you want to keep.
 
 The following is an example of a converted `DELETE` statement:
 
@@ -399,7 +399,7 @@ SELECT
 , [product]
 , [store]
 , [quantity]
-, [price]   
+, [price]
 , ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
 FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
@@ -407,9 +407,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 You can see that type consistency and maintaining nullability properties on a CTAS is an engineering best practice. It helps to maintain integrity in your calculations, and also ensures that partition switching is possible.
 
-CTAS is one of the most important statements in SQL Analytics. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS is one of the most important statements in Synapse SQL. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Next steps
 
 For more development tips, see the [development overview](sql-data-warehouse-overview-develop.md).
-

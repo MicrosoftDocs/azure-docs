@@ -19,7 +19,7 @@ In this article, learn about how to use Azure Machine Learning to manage the lif
 
 ## What is MLOps?
 
-Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principals to the machine learning process, with the goal of:
+Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principles to the machine learning process, with the goal of:
 
 * Faster experimentation and development of models
 * Faster deployment of models into production
