@@ -18,6 +18,9 @@
   items:
   - name: Studio & Designer
     items:
+    - name: 'Tutorial: Label image data'
+      displayName: tag, images
+      href: tutorial-labeling.md
     - name: 'Designer: 1. Train a regression model'
       displayName: studio
       href: tutorial-designer-automobile-price-train-score.md
