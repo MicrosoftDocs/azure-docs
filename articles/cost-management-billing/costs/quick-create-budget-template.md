@@ -76,7 +76,7 @@ One Azure resource is defined in the template:
 
    ![Resource Manager template, budget, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment templates, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Validate the deployment
 
