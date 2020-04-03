@@ -23,7 +23,7 @@ The solution is to store intact versions of these strings in the index so that y
 In Azure Cognitive Search, partial search is available in these forms:
 
 + [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simply query syntax for prefix search.
-+ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. For example, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) for a suffix query. Wildcard and regular expressions require the full Lucene syntax.
++ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. For example, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) for a suffix query match on that term. Wildcard and regular expressions require the full Lucene syntax.
 
 When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
 
