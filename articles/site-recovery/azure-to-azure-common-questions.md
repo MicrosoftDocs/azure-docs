@@ -68,7 +68,7 @@ Yes, adding new disks to replicated VMs and enabling replication for them is sup
 
 - If you enable protection for the added disks, the warning will disappear after the initial replication.
 - If you don't enable replication for the disk, you can dismiss the warning.
-- If you fail over a VM that has an added disk and replication enabled, there are replication points. The replication points will show the disks that are available for recovery. 
+- If you fail over a VM that has an added disk and replication enabled, there are replication points. The replication points will show the disks that are available for recovery.
 
 For example, let's say a VM has a single disk and you add a new one. There might be a replication point that was created before you added the disk. This replication point will show that it consists of "1 of 2 disks."
 
@@ -88,7 +88,7 @@ By using Site Recovery, you can replicate and recover VMs between any two region
 
 ### Does Site Recovery require internet connectivity?
 
-No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
 
 ### Can I replicate an application that has a separate resource group for separate tiers?
 
@@ -188,6 +188,10 @@ You can replicate 16 virtual machines together in a replication group.
 
 Because multi-VM consistency is CPU intensive, enabling it can affect workload performance. Use multi-VM consistency only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have multi-VM consistency for the SQL Server instances only.
 
+### Can you add an already replicating VM to a replication group?
+
+You can add a VM to a new replication group while enabling replication. You can also add a VM to an existing replication group while enabling replication. However, you cannot add an already replicating VM to a new replication group or existing replication group.
+
 ## Failover
 
 ### How is capacity ensured in the target region for Azure VMs?
@@ -202,7 +206,7 @@ Failover isn't automatic. You can start failovers with a single click in the por
 
 You can't keep the public IP address of the production application after a failover.
 
-When you bring up a workload as part of the failover process, you need to assign an Azure public IP resource to the workload. The Azure public IP resource has to be available in the target region. You can assign the Azure public IP resource manually, or you can automate it with a recovery plan. Learn how to [set up public IP addresses after failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
+When you bring up a workload as part of the failover process, you need to assign an Azure public IP resource to the workload. The Azure public IP resource has to be available in the target region. You can assign the Azure public IP resource manually, or you can automate it with a recovery plan. Learn how to [set up public IP addresses after failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
 
 ### Can I keep a private IP address during a failover?
 
@@ -290,7 +294,7 @@ Yes, you can purchase [reserved Azure VMs](https://azure.microsoft.com/pricing/r
 
 ### Is replication data sent to the Site Recovery service?
 
-No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your VMs. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your VMs. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.
 
 Site Recovery is ISO 27001:2013, 27018, HIPAA, and DPA certified. The service is undergoing SOC2 and FedRAMP JAB assessments.
 

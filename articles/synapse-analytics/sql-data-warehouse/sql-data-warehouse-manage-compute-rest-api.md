@@ -1,12 +1,12 @@
 ---
 title: Pause, resume, scale with REST APIs
 description: Manage compute power in Azure Synapse Analytics data warehouse through REST APIs.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: 
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -14,10 +14,12 @@ ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # REST APIs for Azure SQL Data Warehouse
+
 REST APIs for managing compute in Azure Synapse Analytics data warehouse.
 
 ## Scale compute
-To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+
+To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/databases/createorupdate?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -32,7 +34,7 @@ Content-Type: application/json; charset=UTF-8
 
 ## Pause compute
 
-To pause a database, use the [Pause Database](/rest/api/sql/databases/pause) REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
+To pause a database, use the [Pause Database](/rest/api/sql/databases/pause?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -40,7 +42,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## Resume compute
 
-To start a database, use the [Resume Database](/rest/api/sql/databases/resume) REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+To start a database, use the [Resume Database](/rest/api/sql/databases/resume?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -56,7 +58,8 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## Get maintenance schedule
-Check the maintenance schedule that has been set for a data warehouse. 
+
+Check the maintenance schedule that has been set for a data warehouse.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -64,6 +67,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## Set maintenance schedule
+
 To set and update a maintenance schedule on an existing data warehouse.
 
 ```
@@ -88,7 +92,6 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ```
 
-
 ## Next steps
-For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).
 
+For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).

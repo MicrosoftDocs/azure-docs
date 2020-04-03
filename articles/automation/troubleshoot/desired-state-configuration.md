@@ -42,7 +42,7 @@ For information on using xDscDiagnostics, see [Using xDscDiagnostics to analyze 
 
 ### 3. Ensure that nodes and the Automation workspace have required modules
 
-DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
+DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 ## Common errors when working with DSC
 
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### Cause
 
-This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-registering-a-node).
 
 ### Resolution
 
@@ -271,8 +271,8 @@ Treat the cross-subscription node as though it lives in a separate cloud, or on-
 
 Follow the steps below to register the node.
 
-* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
-* Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
 

@@ -34,7 +34,7 @@ In the table below the following assumptions have been made:
 
 ## Gen2
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -55,7 +55,7 @@ In the table below the following assumptions have been made:
 
 ## Gen1
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -72,7 +72,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
 
-To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md) article.
+To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
@@ -81,7 +81,7 @@ To optimize and minimize the amount of data written to the log, please refer to 
 > 
 
 ## Transaction state
-SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
+SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
 > The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
@@ -199,5 +199,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).
 

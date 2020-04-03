@@ -24,6 +24,8 @@
        href: cloud-governed-management-for-on-premises.md
      - name: Four steps to a strong identity foundation
        href: four-steps.md
+     - name: Choose a hybrid identity authentication method
+       href: choose-ad-authn.md
    - name: Azure AD Connect and Connect Health
      items:
      - name: What is Azure AD Connect and Connect Health?
@@ -149,6 +151,8 @@
             href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
             href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Move groups from one forest to another
+            href: how-to-connect-migrate-groups.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview

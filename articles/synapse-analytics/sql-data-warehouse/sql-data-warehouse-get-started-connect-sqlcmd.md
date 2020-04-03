@@ -1,19 +1,19 @@
 ---
 title: Connect with sqlcmd 
-description: Use sqlcmd command-line utility to connect to and query an Azure SQL Data Warehouse.
-services: sql-data-warehouse
+description: Use sqlcmd command-line utility to connect to and query a Synapse SQL pool.
+services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Connect to SQL Data Warehouse with sqlcmd
+# Connect to Synapse SQL pool with sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -23,14 +23,14 @@ ms.custom: seo-lt-2019
 > 
 > 
 
-Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.  
+Use the [sqlcmd][sqlcmd] command-line utility to connect to and query a SQL pool.  
 
 ## 1. Connect
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
+To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL pool database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name.
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL pool instance.
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 
@@ -79,14 +79,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## Next steps
-See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
-
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+For more about details about the options available in sqlcmd, see [sqlcmd documentation](https://msdn.microsoft.com/library/ms162773.aspx) .

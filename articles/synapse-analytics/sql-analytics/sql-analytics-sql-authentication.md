@@ -17,7 +17,7 @@ To authorize to SQL Analytics, you can use two authorization types:
 - AAD authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. On the other hand, SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
+AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
 
 ## Administrative accounts
 
@@ -141,14 +141,14 @@ In Azure SQL Database, use the `ALTER ROLE` statement.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In Azure SQL Data Warehouse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+In SQL pool use [EXEC sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-ver15).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 
 > [!NOTE]
-> One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](../../sql-database/sql-database-geo-replication-security-config.md).
+> One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Configuring the database-level firewall
 

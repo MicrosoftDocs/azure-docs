@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/06/2020
+ms.date: 04/01/2020
 ms.author: victorh
 ---
 
@@ -91,6 +91,10 @@ Yes. In addition to multiple instances of a given Application Gateway deployment
 
 A single subnet can't support both Standard_v2 and Standard Application Gateway together.
 
+### Does Application Gateway v2 support user-defined routes (UDR)?
+
+Yes, but only specific scenarios. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
 ### Does Application Gateway support x-forwarded-for headers?
 
 Yes. See [Modifications to a request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
@@ -103,7 +107,15 @@ Most deployments that use the v2 SKU take around 6 minutes to provision. However
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
-No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. 
+No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+### Will the Application Gateway v1 SKU continue to be supported?
+
+Yes. The Application Gateway v1 SKU will continue to be supported. However, it is strongly recommended that you move to v2 to take advantage of the feature updates in that SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## Performance
 
@@ -194,10 +206,6 @@ Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azu
 ### Can I use the same port for both public-facing and private-facing listeners?
 
 No.
-
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 ### Does Application Gateway support IPv6?
 
@@ -321,10 +329,6 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
-
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?
@@ -344,11 +348,11 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. It contains one record per application gateway.
 * **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
 * **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+All logs are collected every 60 seconds. For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
 ### How do I know if my backend pool members are healthy?
 
@@ -385,24 +389,24 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 
 ### How do I use Application Gateway V2 with only private frontend IP address?
 
-Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
+Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
 * Private IP and Public IP
 * Public IP only
 
 But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
 1. Create an Application Gateway with both public and private frontend IP address
-2. Do not create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
+2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
 3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
     
     a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
     
-    b. Allow traffic from Source as **AzureLoadBalancer** service tag and Destination and destination port as **Any**
+    b. Allow traffic from Source as **AzureLoadBalancer** service tag and destination port as **Any**
     
-    c. Deny all inbound traffic from Source as **Internet** service tag and Destination and destination port as **Any**. Give this rule the *least priority* in the inbound rules
+    c. Deny all inbound traffic from Source as **Internet** service tag and destination port as **Any**. Give this rule the *least priority* in the inbound rules
     
-    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address is not blocked
+    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
     
-    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, etc.
+    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, and so on.
 
 Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
