@@ -137,8 +137,13 @@ If VSS is disabled:
 
 Use the following commands to reinstall VSS Provider:
 
-1. Uninstall existing provider: _C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd_.
-1. Reinstall VSS Provider: _C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd_.
+1. Uninstall existing provider:
+
+   `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd"`
+
+1. Reinstall VSS Provider:
+
+   `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 Verify that the startup type of the VSS Provider service is set to **Automatic**.
 
