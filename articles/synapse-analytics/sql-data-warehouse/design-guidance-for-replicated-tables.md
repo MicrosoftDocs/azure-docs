@@ -134,7 +134,7 @@ Rebuilds are not required after:
 
 The rebuild does not happen immediately after data is modified. Instead, the rebuild is triggered the first time a query selects from the table.  The query that triggered the rebuild reads immediately from the master version of the table while the data is asynchronously copied to each Compute node. Until the data copy is complete, subsequent queries will continue to use the master version of the table.  If any activity happens against the replicated table that forces another rebuild, the data copy is invalidated and the next select statement will trigger data to be copied again.
 
-### Use indexes conservativel
+### Use indexes conservatively
 
 Standard indexing practices apply to replicated tables. SQL Analytics rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.
 
