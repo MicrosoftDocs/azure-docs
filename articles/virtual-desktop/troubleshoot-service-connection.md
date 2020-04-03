@@ -58,7 +58,7 @@ There are a few things you can do to fix the NoHeartBeat status.
 
 ### Update FSLogix
 
-If your FSLogix isn't up to date, especially if it's version 2.9.7205.27375 of frxdrvvt.sys, it could cause a deadlock. Make sure to [update FSLogix to the latest version](https://go.microsoft.com/fwlink/?linkid=2084562).
+If your FSLogix isn't up to date, especially if it's version 2.9.7205.27375 of frxdrvvt.sys, it could cause a deadlock. Make sure to [update FSLogix to the latest version](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
 
 ### Disable BgTaskRegistrationMaintenanceTask
 
