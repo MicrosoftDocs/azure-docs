@@ -1,13 +1,13 @@
 ---
-title:  How to use IntelliJ to deploy Azure Spring Cloud applications
-description: How to use IntelliJ to deploy applications.
+title:  Tutorial - Use IntelliJ to deploy Azure Spring Cloud applications
+description: Use IntelliJ to deploy applications to Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 03/26/2020
 ---
-# How to use IntelliJ to deploy Azure Spring Cloud applications
+# Use IntelliJ to deploy Azure Spring Cloud applications
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ## Prerequisites
