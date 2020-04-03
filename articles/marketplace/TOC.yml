@@ -486,6 +486,12 @@
       items:
       - name: Create a Managed Service offer
         href: ./partner-center-portal/create-new-managed-service-offer.md
+    - name: Power BI app offers
+      items:
+      - name: Publish overview
+        href: ./partner-center-portal/create-power-bi-app-overview.md
+      - name: Create Power BI app offer
+        href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
       - name: SaaS offer creation checklist
