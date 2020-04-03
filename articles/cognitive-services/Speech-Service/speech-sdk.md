@@ -14,7 +14,7 @@ ms.author: dapine
 
 # About the Speech SDK
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, to empower you to develop speech-enabled applications. The Speech SDK is available in many programming languages, all of which work cross-platform, except for Objective-C, which is only available on iOS and macOS.
+The Speech software development kit (SDK) exposes many of the Speech service capabilities, to empower you to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -56,7 +56,7 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 #### Call Center Transcription
 
-A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The latest speech recognition models from the Speech service excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand.
+[Call Center Transcription](call-center-transcription.md) is common scenario for speech-to-text for transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The latest speech recognition models from the Speech service excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand.
 
 ### Codec compressed audio input
 
@@ -64,13 +64,16 @@ Several of the Speech SDK programming languages support codec compressed audio i
 
 ## REST API
 
-While the Speech SDK covers many feature capabilities of the Speech Service, for some scenarios you might want to use the REST API. Certain functionalities are only available from the Azure portal, Custom Speech portal, Custom Voice portal, or the REST API. As an example, endpoint management is only exposed via the REST API.
+While the Speech SDK covers many feature capabilities of the Speech Service, for some scenarios you might want to use the REST API. As an example, endpoint management is only exposed via the REST API.
 
 > [!TIP]
-> When relying on the REST API, use the <a href="https://editor.swagger.io/" target="_blank">Swagger Editor <span class="docon docon-navigate-external x-hidden-focus"></span></a> to automatically generate client libraries.
-> For example, to generate a Batch transcription client library:
-> 1. Select **File** > **Import URL**
-> 1. Paste `https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A`
+> When relying on the REST API, use the Swagger Editor to automatically generate client libraries. For example, to generate a Batch transcription client library.
+> 1. Copy the example URL below:
+>     ```http
+>     https://westus.cris.ai/docs/v2.0/swagger
+>     ```
+> 1. Navigate to the <a href="https://editor.swagger.io/" target="_blank">Swagger Editor <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> 1. Select **File** > **Import URL** and paste the URL
 > 1. Select **Generate Client** and choose your desired programming language
 
 ### Batch transcription
@@ -89,78 +92,7 @@ When using speech-to-text for recognition and transcription in a unique environm
 
 Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. The creation and management of no-code Custom Voice models is available through the [Custom Voice Portal](https://aka.ms/customvoice). Once the Custom Voice model is published, it can be consumed by the Speech SDK.
 
-## Get the SDK
-
-# [Windows](#tab/windows)
-
-> [!WARNING]
-> The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not supported**.
-
-The Speech SDK requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span></a> on the system.
-
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
-For microphone input, the Media Foundation libraries must be installed. These libraries are part of Windows 10 and Windows Server 2016. It's possible to use the Speech SDK without these libraries, as long as a microphone isn't used as the audio input device.
-
-The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (x86/x64) that matches your application.
-
-| Name                                            | Function                                             |
-|-------------------------------------------------|------------------------------------------------------|
-| `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, required for native and managed deployment |
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment                      |
-
-> [!NOTE]
-> Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
-
-> [!NOTE]
-> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the `Application Files` button and find corresponding libraries from the scroll down list. Make sure the value is set to `Included`. Visual Studio will include the file when project is published/deployed.
-
-For Windows, we support the following languages:
-
-* C# (UWP and .NET), C++:
-  You can reference and use the latest version of our Speech SDK NuGet package. The package includes 32-bit and 64-bit client libraries and managed (.NET) libraries. The SDK can be installed in Visual Studio by using NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
-
-* Java:
-  You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` as a dependency.
-
-# [Linux](#tab/linux)
-
-> [!NOTE]
-> Currently, we only support the following distributions and development languages/platforms:
->
-> | Distribution | Development |
-> |:-|:-|
-> |Ubuntu 16.04 x86     |C++|
-> |Ubuntu 16.04 x64     |C++, Java, .NET Core, Python|
-> |Ubuntu 16.04 ARM32   |C++, Java, .NET Core|
-> |Ubuntu 16.04 ARM64   |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
-> |Ubuntu 18.04 x86     |C++|
-> |Ubuntu 18.04 x64     |C++, Java, .NET Core, Python|
-> |Ubuntu 18.04 ARM32   |C++, Java, .NET Core|
-> |Ubuntu 18.04 ARM64   |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
-> |Debian 9 x86         |C++|
-> |Debian 9 x64         |C++, Java, .NET Core, Python|
-> |Debian 9 ARM32       |C++, Java, .NET Core|
-> |Debian 9 ARM64       |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
-> |Red Hat Enterprise Linux (RHEL) 7 x64[<sup>[2]</sup>](#footnote2) |C++, Java, .NET Core, Python|
-> |Red Hat Enterprise Linux (RHEL) 8 x64                             |C++, Java, .NET Core, Python|
-> |CentOS 7 x64[<sup>[2]</sup>](#footnote2) |C++, Java, .NET Core, Python|
-> |CentOS 8 x64                             |C++, Java, .NET Core, Python|
->
-> **[<a name="footnote1">1</a>]** Linux ARM64 requires .NET Core 3.x (dotnet-sdk-3.x package) for proper ARM64 support.<br>
-> **[<a name="footnote2">2</a>]** Follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-
-
-Make sure you have the required libraries installed by running the following shell commands:
-
-On Ubuntu:
-
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2
-```
+## Get the Speech SDK
 
 # [Windows](#tab/windows)
 
