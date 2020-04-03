@@ -142,4 +142,4 @@ To learn more about Event Hubs for Kafka, see the following articles:
 - [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
 - [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide-event-hubs.md)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)

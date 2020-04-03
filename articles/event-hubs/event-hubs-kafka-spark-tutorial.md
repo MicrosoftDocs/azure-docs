@@ -102,5 +102,5 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide-event-hubs.md)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
 

@@ -178,4 +178,4 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
 
 
 ## Next steps
-In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs for Apache Kafka, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide-event-hubs.md). 
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs for Apache Kafka, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 

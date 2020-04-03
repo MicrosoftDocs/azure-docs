@@ -90,6 +90,6 @@ Here is the list of Kafka features that are not yet supported:
 *	Kafka Streams
 
 ## Next steps
-This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide-event-hubs.md).
+This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
 
 

@@ -103,4 +103,4 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 If your Event Hubs Kafka cluster has events, you now start receiving them from the consumer.
 
 ## Next steps
-In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide-event-hubs.md). 
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
