@@ -221,7 +221,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-Your script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
 
