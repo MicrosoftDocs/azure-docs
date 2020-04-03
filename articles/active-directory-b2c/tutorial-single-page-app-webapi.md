@@ -96,7 +96,7 @@ app.use((req, res, next) => {
 
 ### Configure the single-page application
 
-The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and by default, calls the Node.js web API protected by the *frabrikamb2c* demo tenant.
+The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and by default, calls the Node.js web API protected by the *fabrikamb2c* demo tenant.
 
 In this section, you update the single-page web application to call the Node.js web API protected by *your* Azure AD B2C tenant (and which you run on your local machine).
 
