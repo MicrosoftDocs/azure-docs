@@ -1,6 +1,6 @@
 ---
 title: Private Atlas for indoor maps| Microsoft Azure Maps 
-description:This article introduces concepts that apply to Private Atlas such as DWG package uploading and conversion, creating, updating and deleting indoor map data structures such as Datasets, Tilesets, and Feature Statesets.
+description: This article introduces concepts that apply to Private Atlas such as DWG package uploading and conversion, creating, updating and deleting indoor map data structures such as Datasets, Tilesets, and Feature Statesets.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/30/2020
