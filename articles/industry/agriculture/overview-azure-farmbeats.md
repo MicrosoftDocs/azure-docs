@@ -53,9 +53,9 @@ An administrator can add multiple partners as data providers to Azure FarmBeats.
 
 | Partner Type    |   Actions  | Scope |
 | ---- | -------- | -------- |
-| Sensor Partner  |   Create, Read, Update <br/> Read, Update | DeviceModel, Device, SensorModel, Sensor <br/> ExtendedType |
-| Imagery Partner  |   Create, Read, Update <br/> Read, Update <br/> Read | Scene, SceneFile <br/> ExtendedType <br/> Farm |
-| Imagery Partner  |   Create, Read, Update <br/> Read, Update <br/> Read | WeatherDataModel, WeatherDataLocation, JobType <br/> ExtendedType <br/> Farm |
+| Sensor Partner  |   Create, Read, Update <br/> <br/> Read, Update | DeviceModel, Device, SensorModel, Sensor <br/> <br/> ExtendedType |
+| Imagery Partner  |   Create, Read, Update <br/> <br/> Read, Update <br/> <br/> Read | Scene, SceneFile <br/> <br/> ExtendedType <br/> <br/> Farm |
+| Imagery Partner  |   Create, Read, Update <br/> <br/> Read, Update <br/> <br/> Read | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> Farm |
 
 ## Resources
 
