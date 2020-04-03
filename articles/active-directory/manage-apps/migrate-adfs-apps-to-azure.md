@@ -305,7 +305,7 @@ The following are examples of types of MFA rules in AD FS, and how you can map t
 
 MFA rule settings in AD FS:
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-mfa-basedon-location-1.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-mfa-basedon-location-1.png)
 
 
 #### Example 1: Enforce MFA based on users/groups
@@ -353,7 +353,7 @@ Specify MFA rules based on a user's location in Azure AD:
 
 1. Configure the **Conditions rules** to specify the locations for which you would like to enforce MFA.
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-1.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-1.png)
 
 5. Configure the **Access controls** options as shown below:
 
@@ -365,14 +365,14 @@ Specify MFA rules based on a user's location in Azure AD:
 
 Here is an example of how attributes are mapped in AD FS:
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
 
 
 This is how the rule maps to Azure AD:
 
 In the [Azure portal](https://portal.azure.com/), select **Enterprise Applications**, **Single sign-on**, and add **SAML Token Attributes** as shown below:
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
 
 
 
@@ -380,12 +380,12 @@ In the [Azure portal](https://portal.azure.com/), select **Enterprise Applicatio
 
 AD FS 2016 has several built-in access control policies that you can choose from:
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
+![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
  
 To implement built-in policies in Azure AD, you can use a [new conditional access policy](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json) and configure the access controls, or you can use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
 
-![AD MFA settings](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
+![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 
 
 
@@ -402,7 +402,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 
 An example of how to configure the Exclude option for trusted locations in the Azure Portal:
 
-![Screen shot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
+![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 
 
 
@@ -460,9 +460,8 @@ Depending on how you configure your app, verify that SSO works properly.
 | Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)for further assistance.  
 ‎ |
 
-
 > [!NOTE]
-> Cookies from the old AD FS environment will still be persistent on the user's machines. These cookies might cause problems with the migration as users could be directed to the old AD FS login environment versus the new AZURE AD login. You may need to clear the user browser cookies manually or using a script. You can also use the System Center Configuration Manager or a similar platform.
+> Cookies from the old AD FS environment will still be persistent on the user's machines. These cookies might cause problems with the migration as users could be directed to the old AD FS login environment versus the new Azure AD login. You may need to clear the user browser cookies manually or using a script. You can also use the System Center Configuration Manager or a similar platform.
 
 ### Troubleshoot
 
