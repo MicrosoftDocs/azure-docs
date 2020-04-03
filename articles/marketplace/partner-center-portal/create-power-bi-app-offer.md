@@ -23,7 +23,7 @@ Before you can create a Power BI app offer, you must have a commercial marketpla
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
 
-    :::image type="content" source="media/powerbi-menu-overview.png" alt-text="overview of the commercial marketplace menu" border="false":::
+    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="overview of the commercial marketplace menu" border="false":::
 
 3. Select **+ New offer** > **Power BI App**. The **New offer** dialog box appears.
 
@@ -181,7 +181,7 @@ Here are some tips for writing your description:
 
 To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
 
-:::image type="content" source="media/powerbi-rich-text-editor.png" alt-text="illustrates the rich text editor" border="false":::
+:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="illustrates the rich text editor" border="false":::
 
 ### Search keywords
 

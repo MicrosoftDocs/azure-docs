@@ -25,7 +25,7 @@ Benefits of publishing to the commercial marketplace:
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams.
 
-## Overview of Power BI app offer publishing steps
+## Overview
 
 :::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="overview of the steps to publish a Power BI app" border="false":::
 
@@ -73,10 +73,6 @@ The business requirements include procedural, contractual, and legal obligations
 - Be a registered commercial marketplace publisher. If you're not registered, follow the steps in [Become a Commercial Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 - Provide content that meets the criteria for your offering to be listed on AppSource. For more information, see [Have an app to list on AppSource? Here's how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Agree to and follow the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
-
-## Create and publish a Power BI Service app checklist
-
-- Before you can create a Power BI app, you must [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), and select the **Overview** tab.
 
 ## Next steps
 
