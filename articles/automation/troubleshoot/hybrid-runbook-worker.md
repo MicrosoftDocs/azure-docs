@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting - Azure Automation Hybrid Runbook Workers
-description: This article provides information troubleshooting Azure Automation Hybrid Runbook Workers
+description: This article provides information for troubleshooting Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -125,7 +125,9 @@ The worker's initial registration phase fails and you receive the following erro
 #### Cause
 
 The following are possible causes:
+
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
+
 * The Hybrid Runbook Worker can't download the configuration, causing an account linking error. When Azure enables solutions, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date and/or time is set on the computer. If the time is +/-15 minutes from the current time, onboarding fails.
 
 #### Resolution
@@ -137,7 +139,7 @@ To verify if the agent's workspace ID or workspace key has been mistyped, see [A
 
 Your Log Analytics workspace and Automation account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
 
-You might also need to update the date and or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
+You might also need to update the date and/or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
 
 ## Linux
 
@@ -214,6 +216,35 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 Logs are stored locally on each hybrid worker at **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects onboarding of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
+
+### <a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe can't connect to Office 365 through proxy
+
+#### Issue
+
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+
+If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
+
+#### Cause
+
+The connection to the Active Directory Federation Services (ADFS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or MMA proxy settings, but not for handling other custom proxy settings. 
+
+#### Resolution
+
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure AD modules instead of the MSOnline module for PowerShell cmdlets. See [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }​
+```
+
+This code change starts an entirely new PowerShell session under the context of the specified credentials. It should enable the traffic to flow through a proxy server that is authenticating the active user.
+
+>[!NOTE]
+>This solution makes it unnecessary to manipulate the sandbox configuration file. Even if you succeed in making the configuration file work with your script, the file gets wiped out each time the Hybrid Runbook Worker agent is updated.​
 
 ### <a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker not reporting
 

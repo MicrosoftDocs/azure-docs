@@ -399,7 +399,7 @@ SELECT
 , [product]
 , [store]
 , [quantity]
-, [price]   
+, [price]
 , ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
 FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
@@ -412,4 +412,3 @@ CTAS is one of the most important statements in Synapse SQL. Make sure you thoro
 ## Next steps
 
 For more development tips, see the [development overview](sql-data-warehouse-overview-develop.md).
-
