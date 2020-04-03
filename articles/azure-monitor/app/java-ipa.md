@@ -10,7 +10,7 @@ ms.date: 03/29/2020
 
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
- The Java agent works in any environment, and allows you to monitor all of your Java applications.
+ The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on prem, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
 
 Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent autocollects requests, dependencies and logs all on its own.
 
