@@ -73,7 +73,7 @@ Perform the following steps:
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Authentication**. Under **Implicit grant**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service.
 1. (Optional) Select **Branding**. In **Home page URL**, enter the URL of your App Service app and select **Save**.
-1. Select **Expose an API** > **Set**. Paste in the URL of your App Service app and select **Save**.
+1. Select **Expose an API** > **Set**. For single-tenant app, paste in the URL of your App Service app and select **Save** and for multi-tenant app, paste in the URL which is based on one of tenant verified domains and then select **Save**.
 
    > [!NOTE]
    > This value is the **Application ID URI** of the app registration. If your web app requires access to an API in the cloud, you need the **Application ID URI** of the web app when you configure the cloud App Service resource. You can use this, for example, if you want the cloud service to explicitly grant access to the web app.
