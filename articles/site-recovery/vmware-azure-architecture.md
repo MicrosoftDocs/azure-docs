@@ -30,7 +30,6 @@ The following table and graphic provide a high-level view of the components used
 ![Components](./media/vmware-azure-architecture/arch-enhanced.png)
 
 
-
 ## Replication process
 
 1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. Note the following:
@@ -41,7 +40,7 @@ The following table and graphic provide a high-level view of the components used
         - **App-consistent snapshots**. App-consistent snapshot can be take every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
 
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
-3. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
+3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
 4. Communication happens as follows:
 
     - VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
@@ -50,12 +49,21 @@ The following table and graphic provide a high-level view of the components used
     - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as asr seed disk). The recovery points are created on this disk.
 
-
-
-
 **VMware to Azure replication process**
 
 ![Replication process](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+
+## Resynchronization process
+
+1. At times, during initial replication or while transferring delta changes, there can be network connectivity issues between source machine to process server or between process server to Azure. Either of these can lead to failures in data transfer to Azure momentarily.
+2. To avoid data integrity issues amd minimize data transfer costs, Site Recovery marks a machine for resynchronization.
+3. A machine can also be marked for resynchronization in situations like following to maintain consistency of between source machine and data stored in Azure
+    - If a machines undergoes force shut down
+    - If a machine undergoes configurational changes like disk resizing (modifying the size of disk from 2 TB to 4TB)
+4. Resynchronization sends only delta data to Azure. It minimizes the amount of data sent by computing checksums of data between source machine and data stored in Azure.
+5. By default resynchronization is scheduled to run automatically outside office hours. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. To do this, go to Azure portal, select the VM > **Resynchronize**.
+6. If default resynchronization fails outside office hours and a manual intervention is required, then an error is generated on the specific machine in Azure portal. You can resolve the error and trigger the resynchronization manually.
+7. After completion of resynchronization, replication of delta changes will resume.
 
 ## Failover and failback process
 
