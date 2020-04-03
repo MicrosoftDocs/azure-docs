@@ -479,7 +479,7 @@
       - name: Publish overview
         href: ./partner-center-portal/create-power-bi-app-overview.md
       - name: Create Power BI app offer
-        href: ./partner-center-portal/create-powerBI-app-offer.md
+        href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
       - name: SaaS offer creation checklist
