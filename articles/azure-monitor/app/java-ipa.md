@@ -1,12 +1,12 @@
 ---
-title: Monitor Java applications on any environment 
+title: Monitor Java applications on any environment - Azure Monitor Application Insights
 description: Application performance monitoring for Java applications running in any environment without instrumenting the app. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 03/29/2020
 
 ---
 
-# Java codeless application monitoring - public preview
+# Java codeless application monitoring Azure Monitor Application Insights - public preview
 
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
