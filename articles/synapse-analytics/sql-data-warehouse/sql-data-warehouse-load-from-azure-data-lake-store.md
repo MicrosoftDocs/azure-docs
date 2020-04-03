@@ -18,7 +18,7 @@ ms.custom: azure-synapse
 This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data for best performance.
 
 > [!NOTE]  
-> An alternative to loading is the [COPY statement](sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) currently in public preview.  The COPY statement provides the most flexibility. To provide feedback on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
+> An alternative to loading is the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) currently in public preview.  The COPY statement provides the most flexibility. To provide feedback on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 >
