@@ -2,7 +2,7 @@
 title: Tutorial - Cluster Templates and Persistent Storage
 description: In this tutorial, you will modify a cluster template to add storage to the cluster's NFS server.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 04/01/2020
 ms.author: adjohnso
 ---
 

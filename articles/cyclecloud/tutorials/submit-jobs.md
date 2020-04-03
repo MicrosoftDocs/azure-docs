@@ -2,13 +2,13 @@
 title: Tutorial - Submit jobs to CycleCloud cluster
 description: Learn how to submit jobs to a CycleCloud cluster
 author: adriankjohnson
-ms.date: 08/01/2018
+ms.date: 04/01/2020
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud Quickstart 3: Submit and Auto Scale Jobs
+# Azure CycleCloud Tutorial 3: Submit and Auto Scale Jobs
 
-If you've completed Quickstarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This quickstart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behavior.
+If you've completed Tutorial 1, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This tutorial will walk you through logging into the Master node, submitting a job, and observing the autoscaling behavior.
 
 ## Master Node
 
@@ -64,14 +64,14 @@ Until this point, no execute nodes have been provisioned because the cluster is 
 
 Return to the web interface to see the execute nodes being provisioned. After provisioning, the status bars will turn green and the job's tasks will start running. For non-tightly coupled jobs, where the individual tasks can independently execute, jobs will start running as soon as any VM is ready. For tightly coupled jobs (i.e. MPI jobs), jobs will not start executing until every VM associated with the jobs is ready.
 
-Verify that the job is complete by running `qstat -Q` in your shell periodically. The Queued column (Que) should be 0, indicating that no more jobs are awaiting execution. In this quickstart, jobs typically finish in a minute or two.
+Verify that the job is complete by running `qstat -Q` in your shell periodically. The Queued column (Que) should be 0, indicating that no more jobs are awaiting execution. In this tutorial, jobs typically finish in a minute or two.
 
 Once the job queue has been empty for five minutes, the execute nodes will begin to auto-stop and your cluster will return to just having the master node.
 
-Quickstart 3 is complete. In this exercise, you've submitted a job containing 1000 tasks to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
+Tutorial 2 is complete. In this exercise, you've submitted a job containing 1000 tasks to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
 
 > [!NOTE]
-> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](./tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
+> If you want to continue to use this Azure CycleCloud installation for additional CycleCloud Tutorials you do not need to follow Tutorial 3. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
 
 > [!div class="nextstepaction"]
-> [Continue to Quickstart 4](quickstart-clean-up-resources.md)
+> [Continue to Tutorial 3](./clean-up.md)

@@ -12,13 +12,9 @@
   items:
   - name: 1. Create a Cluster
     href: ./tutorials/create-cluster.md
-  - name: 2. Install Job Application
-    href: ./tutorials/install-application.md
-  - name: 3. Submit Jobs & Scale Cluster
+  - name: 2. Submit Jobs & Scale Cluster
     href: ./tutorials/submit-jobs.md
-  - name: 4. Validate Results
-    href: ./tutorials/validate-results.md
-  - name: 5. Autostop & Clean-up
+  - name: 3. Autostop & Clean-up
     href: ./tutorials/clean-up.md
   - name: Modify a Cluster Template
     href: ./tutorials/modify-cluster-template.md
