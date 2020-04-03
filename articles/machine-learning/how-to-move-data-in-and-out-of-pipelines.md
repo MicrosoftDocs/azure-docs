@@ -16,7 +16,7 @@ ms.date: 04/01/2020
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Import, transform, and move data between steps in a machine learning pipeline. Machine learning pipelines allow you to create flexible, efficient, and modular ML solutions. Making data flow into, out from, and between pipeline steps is central to developing pipelines. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
+Data is central to machine learning pipelines. This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
 
 This article will show you how to:
 
