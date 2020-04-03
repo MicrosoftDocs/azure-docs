@@ -1,8 +1,8 @@
 ---
 title: Storage - Blobs and Lockers
-description: Project and User Blobs for storage within Azure CycleCloud.
+description: How to use Project and User Blobs for storage within Azure CycleCloud.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 04/01/2018
 ms.author: adjohnso
 ---
 
@@ -18,7 +18,7 @@ There are two types of blob: **project blobs** and **user blobs**.
 
 Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the _blobs_ directory of a project, and when uploaded to a locker they will be located at _/project/blobs_.
 
-To add blobs to projects, add the file(s) to your **project.ini**:
+To add blobs to projects, add the file(s) to your _project.ini_:
 
 ``` ini
 [[blobs optionalname]]
@@ -38,11 +38,11 @@ To download any blob, use the `jetpack download` command from the CLI, or the `j
 
 ## Blob Download
 
-Use `project download` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the [locker] parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
+Use `project download` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the `[locker]` parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
 
 ## Lockers
 
-Project contents are stored within a **locker**, which is an Azure Storage container configured in CycleCloud. To upload a project via the CLI, run `cyclecloud project upload [locker]` from that project's directory. After uploading, your project will be stored in your locker at _projects/[project]/[version]/[spec]_. You can list the currently configured lockers by running `cyclecloud locker list` and show details for a specific locker using `cyclecloud locker show [locker]`.
+Project contents are stored within a **locker**, which is an Azure Storage container configured in CycleCloud. To upload a project via the CLI, run `cyclecloud project upload [locker]` from that project's directory. After uploading, your project will be stored in your locker at *projects/[project]/[version]/[spec]*. You can list the currently configured lockers by running `cyclecloud locker list` and show details for a specific locker using `cyclecloud locker show [locker]`.
 
 You can also set a default project from the command line. To do this, run `cyclecloud project default_locker [locker]` from your project's directory. Once this is set, `cyclecloud project upload` will work with no locker specified. To set a global default locker across all of your projects, run `cyclecloud project default_locker --global [locker]`.
 

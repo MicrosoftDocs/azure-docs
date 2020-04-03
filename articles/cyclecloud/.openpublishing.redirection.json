@@ -191,6 +191,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "storage-blobs.md",
+            "redirect_url": "how-to/storage-blobs.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "container-distribution.md",
             "redirect_url": "how-to/run-in-container.md",
             "redirect_document_id": true
