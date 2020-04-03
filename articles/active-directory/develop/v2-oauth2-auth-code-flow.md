@@ -39,7 +39,7 @@ At a high level, the entire authentication flow for an application looks a bit l
 
 ## Setup required for single-page apps
 
-The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.  
+The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal.md), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.  
 
 If you attempt to use the authorization code flow and see this error: 
 
