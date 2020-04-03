@@ -194,9 +194,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-This example doesn't return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. To obtain those values, use the `-FetchProperty` parameter. 
-
-The following example lists the contents of the same directory, but it also uses the `-FetchProperty` parameter to return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. 
+The following example lists the `ACL`, `Permissions`, `Group`, and `Owner` properties of each item in the directory. The `-FetchProperty` parameter is required to get values for the `ACL` property. 
 
 ```powershell
 $filesystemName = "my-file-system"
