@@ -28,7 +28,7 @@ The table contains the possible error codes you may come across. Click on an err
 | [missingManifest](#missingmanifest) | [Manifest](#manifest-errors) |
 | [conflict](#conflict) | [Manifest](#manifest-errors) |
 | [invalidGeoreference](#invalidgeoreference) | [Manifest](#manifest-errors) |
-| [wallError](#wallError) | [wall](#wall-errors) |
+| [wallError](#wallerror) | [wall](#wall-errors) |
 | [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration](#vertical-penetration-errors) |
 
 The table lists the possible warning codes you may meet. Click on a warning category or a specific warning to see more details. The Conversion service will let you convert your designs into map data with warnings, but it's recommended you resolve all warnings. Failing to resolve the warnings could mean your map won't render as expected.
@@ -42,8 +42,8 @@ The table lists the possible warning codes you may meet. Click on a warning cate
 | [wallOutsideLevel](#walloutsidelevel ) | [Level](#level-warnings) |
 | [unitOutsideLevel](#unitoutsidelevel) | [Unit](#unit-warnings) |
 | [partiallyOverlappingUnit](#partiallyoverlappingunit) | [Unit](#unit-warnings) |
-| [doorOutsideLevel](#doorOutsideLevel) | [Door](#door-warnings) |
-| [zoneWarning](#zoneWarning ) | [Zone](#zone-warnings) |
+| [doorOutsideLevel](#dooroutsidelevel) | [Door](#door-warnings) |
+| [zoneWarning](#zonewarning ) | [Zone](#zone-warnings) |
 
 ## General warnings
 
@@ -192,8 +192,6 @@ The following two images show the error in red. The interior wall is outside the
 
     ![Exterior wall goes outside the level boundary](./media/dwg-conversion-error-codes/exterior-wall-outside-level-boundary.png)
 
-
-
 To fix `wallOutsideLevel` warnings, expand the level geometry to include all walls. Or, modify walls to fit inside level.
 
 ## Unit warnings
@@ -202,10 +200,7 @@ To fix `wallOutsideLevel` warnings, expand the level geometry to include all wal
 
 Unit geometry occurs outside the bounds of the level outline. The image below shows one example. The red segments of the unit are outside the level yellow boundary.
 
-
-
     ![Unit goes outside the level boundary](./media/dwg-conversion-error-codes/unit-outside-level-boundary.png)
-
 
 Expand level geometry to include all units or modify unit to fit inside level.
 
@@ -215,8 +210,7 @@ The Conversion service came across a unit that's partially overlapping on anothe
 
     ![Unit overlap](./media/dwg-conversion-error-codes/unit-overlap.png)
 
-
-The Conversion service doesn't support partially overlapping units. Redraw each partially overlapping unit, so that it doesn't overlap any other units.
+The Conversion service ignores any partially overlapping units. Redraw each partially overlapping unit, so that it doesn't overlap any other units.
 
 ## Wall errors
 

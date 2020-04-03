@@ -32,7 +32,7 @@ To use the Azure Maps Private Atlas APIs:
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Check that your DWG package meets the [DWG package requirements](dwg-requirements.md)
 
-This tutorial uses the [Postman]() application, but you may choose a different API development environment.
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Upload a DWG package
 
@@ -83,13 +83,10 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 
 5. Once the request completes successfully, you'll see a success status message in the response body. Copy the `udid` for the converted package. It's also known as the conversion ID, and it's used by other APIs to access the converted map data.
 
-    <center>
-
     ![data-management](./media/tutorial-private-atlas-indoor-maps/conversion-data-udid-response.png)
 
-    </center>
 
-> [!Note]
+> [!NOTE]
 > The user interface of the Postman application is not perfectly synchronized with the API response. If you notice a long delay while making a **GET** request at the status URL, click the **send** button again. The request will be resent and you'll see the status at the time of clicking the button.
 
 If you meet errors while you're converting your DWG package, see the [DWG conversion errors and warnings](dwg-conversion-error-codes.md). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [DWG error visualizer](azure-maps-dwg-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
@@ -112,17 +109,14 @@ The data set is a collection of map data entities, such as buildings. To make a 
 
 5. Copy the `datasetId` in the response body.
 
-    <center>
-
     ![data-management](./media/tutorial-private-atlas-indoor-maps/dataset-ID.png)
 
-    </center>
 
 Use the [Dataset List API]() to view details of the data sets in your Private Atlas. When you're done using a data set, you can remove it using the [Dataset Delete API](). 
 
 Don't delete your data set yet. The next section shows you how to produce a tile set from the data in your data set.
 
-> [!Caution]
+> [!CAUTION]
 > The Dataset Create API doesn't prevent you from appending duplicate data blobs into a data set.
 
 ## Create a tile set
@@ -141,11 +135,8 @@ A tile set is a set of vector tiles that render on the map. It's produced from t
 
 4. Upon a successful request, you'll receive the tile set `udid` in the response body. It may also be referred to as the tile set ID.
 
-    <center>
-
     ![data-management](./media/tutorial-private-atlas-indoor-maps/tileset-udid.png)
 
-    </center>
 
 To delete your tile set, use the [Tileset Delete API](). If you delete an in-use tile set, then those tiles won't render on the map at the application runtime. Use the [Tileset List API]() to see all the tile sets in your Azure Maps Private Atlas.
 
@@ -191,12 +182,10 @@ Learn about your map features by calling the [WFS API](). The steps below show y
     ```
 
 5. Familiarize yourself with your map features. Choose a feature that has style properties that can be dynamically modified. Copy its **ID**. For example, we'll copy the feature **ID** for a unit because the unit occupancy status and temperature can by dynamically updated.
-
-    <center>
+  
 
     ![data-management](./media/tutorial-private-atlas-indoor-maps/feature-id.png)
 
-    </center>
 
 We'll refer to the style properties of this feature as states, and we'll use the feature to make a state set.
 

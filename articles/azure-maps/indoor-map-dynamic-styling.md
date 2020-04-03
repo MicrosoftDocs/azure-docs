@@ -1,10 +1,10 @@
 ---
 title: Implement dynamic styling for Private Atlas Indoor Maps | Microsoft Azure Maps
 description: Learn how to Implement dynamic styling for Private Atlas Indoor Maps
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
@@ -158,11 +158,8 @@ Create a new feature state set containing the feature ID you want in your featur
 
 7. Refresh your HTML page, and you should see that the unit you selected is now rendered as red. Indicating that the occupancy status is busy, like in the image below:
 
-    <center>
-
     ![busy room](./media/indoor-map-dynamic-styling/busy-room.png)
 
-    </center>
 
 8. Redo step 5 and 6 using the other feature ID, with the following JSON. Refresh your HTML page when you're done.
 
@@ -180,11 +177,8 @@ Create a new feature state set containing the feature ID you want in your featur
 
 9. You should see another room rendered in green, indicating that the room is available. Your map layout is probably different, but here's how our layout looks like:
 
-    <center>
-
     ![busy room](./media/indoor-map-dynamic-styling/free-room.png)
 
-    </center>
 
 ## Next steps
 
