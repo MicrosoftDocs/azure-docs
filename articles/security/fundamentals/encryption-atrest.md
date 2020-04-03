@@ -271,7 +271,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Translator Text                  | Yes                | Yes                | -                  |
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | -                  | -                  |
+| Azure Stream Analytics           | Yes                | N/A\*            | -                  |
 | Event Hubs                       | Yes                | Yes, all RSA Lengths. | -                  |
 | Functions                        | Yes                | Yes, all RSA Lengths. | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
@@ -320,26 +320,33 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
 | IoT Hub                          | Yes                | Yes                | Yes                |
+| IoT Hub Device Provisioning      | Yes                | Yes                | -                  |
 | **Management and Governance**    |                    |                    |                    |
 | Azure Site Recovery              | Yes                | -                  | -                  |
 | Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | -                  | Yes                |
 | **Security**                     |                    |                    |                    |
+| Azure Security Center for IoT    | Yes                | Yes                | -                  |
 | Azure Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Premium Blob Storage             | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Disk Storage                     | Yes                | Yes                | -                  |
+| Ultra Disk Storage               | Yes                | Yes                | -                  |
 | Managed Disk Storage             | Yes                | Yes                | -                  |
 | File Storage                     | Yes                | Yes, RSA 2048-bit  | -                  |
+| File Premium Storage             | Yes                | Yes, RSA 2048-bit  | -                  |
+| File Sync                        | Yes                | Yes, RSA 2048-bit  | -                  |
 | Queue Storage                    | Yes                | Yes                | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
-| Azure NetApp Files               | Yes                | -                  | -                  |
+| Azure NetApp Files               | Yes                | Yes                | -                  |
 | Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
 | StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
+\* Service does not persist data. Transient caches, if any are encrypted with a Microsoft key.
 
 ## Conclusion
 
