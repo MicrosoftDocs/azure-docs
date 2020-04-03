@@ -2,7 +2,8 @@
 title: FAQ - Azure Disk Encryption for Linux VMs 
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
@@ -31,7 +32,7 @@ To get started, read the [Azure Disk Encryption overview](disk-encryption-overvi
 
 ## What VM sizes and operating systems support Azure Disk Encryption?
 
-The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vm-sizes) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
+The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vms) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
@@ -48,7 +49,7 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 >[!WARNING]
-> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use Azure Disk Encryption on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from AAD application for this encrypted VM isn't supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -95,7 +96,7 @@ You can't apply Azure Disk Encryption on your custom Linux image. Only the galle
 
 ## Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
-Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Linux package management behind a firewall](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall).
+Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Azure Disk Encryption on an isolated network](disk-encryption-isolated-network.md).
 
 ## What is the recommended Azure disk encryption workflow for Linux?
 

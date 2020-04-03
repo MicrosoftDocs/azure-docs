@@ -1,12 +1,12 @@
 ---
-title: Working with the change feed processor library in Azure Cosmos DB 
-description: Using the Azure Cosmos DB change feed processor library. 
+title: Change feed processor library in Azure Cosmos DB 
+description: Learn how to use the Azure Cosmos DB change feed processor library to read the change feed, the components of the change feed processor
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 ms.reviewer: sngun
 ---
 
@@ -43,6 +43,7 @@ The point of entry is always the monitored container, from a `Container` instanc
 Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that will handle changes. 
 
 An example of a delegate would be:
+
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 

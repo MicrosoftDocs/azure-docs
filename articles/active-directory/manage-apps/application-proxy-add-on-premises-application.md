@@ -1,5 +1,5 @@
 ---
-title: Add an on-premises app - Application Proxy in Azure Active Directory  | Microsoft Docs
+title: 'Tutorial - Add an on-premises app - Application Proxy in Azure AD'
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: msmimart
@@ -85,7 +85,7 @@ Open the following ports to **outbound** traffic.
 
    | Port number | How it's used |
    | --- | --- |
-   | 80 | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+   | 80 | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
    | 443 | All outbound communication with the Application Proxy service |
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
@@ -97,8 +97,8 @@ Allow access to the following URLs:
 | URL | How it's used |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | The connector uses these URLs during the registration process. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | The connector uses these URLs to verify certificates. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | The connector uses these URLs during the registration process. |
 
 You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
@@ -212,8 +212,9 @@ To add a test user:
 
 To test the sign-on to the application:
 
-1. In your browser, navigate to the external URL that you configured during the publish step. You should see the start screen.
-1. Sign in as the user you created in the previous section.
+1. From the application you want to test, select **Application Proxy**.
+2. At the top of the page, select **Test Application** to run a test on the application and check for any configuration issues.
+3. Make sure to first launch the application to test signing into the application, then download the diagnostic report to review the resolution guidance for any detected issues.
 
 For troubleshooting, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).
 

@@ -1,15 +1,15 @@
 ---
-title: Integration of Azure MFA Server and Active Directory - Azure Active Directory
+title: Azure MFA Server and Active Directory - Azure Active Directory
 description: How to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -45,7 +45,7 @@ The following table describes the LDAP configuration settings.
 
 | Feature | Description |
 | --- | --- |
-| Server |Enter the hostname or IP address of the server running the LDAP directory.  A backup server may also be specified separated by a semi-colon. <br>Note: When Bind Type is SSL, a fully qualified hostname is required. |
+| Server |Enter the hostname or IP address of the server running the LDAP directory.  A backup server may also be specified separated by a semi-colon. <br>Note: When Bind Type is SSL (TLS), a fully qualified hostname is required. |
 | Base DN |Enter the distinguished name of the base directory object from which all directory queries start.  For example, dc=abc,dc=com. |
 | Bind type - Queries |Select the appropriate bind type for use when binding to search the LDAP directory.  This is used for imports, synchronization, and username resolution. <br><br>  Anonymous - An anonymous bind is performed.  Bind DN and Bind Password are not used.  This only works if the LDAP directory allows anonymous binding and permissions allow the querying of the appropriate records and attributes.  <br><br> Simple - Bind DN and Bind Password are passed as plain text to bind to the LDAP directory.  This is for testing purposes, to verify that the server can be reached and that the bind account has the appropriate access. After the appropriate cert has been installed, use SSL instead.  <br><br> SSL - Bind DN and Bind Password are encrypted using SSL to bind to the LDAP directory.  Install a cert locally that the LDAP directory trusts.  <br><br> Windows - Bind Username and Bind Password are used to securely connect to an Active Directory domain controller or ADAM directory.  If Bind Username is left blank, the logged-on user's account is used to bind. |
 | Bind type - Authentications |Select the appropriate bind type for use when performing LDAP bind authentication.  See the bind type descriptions under Bind type - Queries.  For example, this allows for Anonymous bind to be used for queries while SSL bind is used to secure LDAP bind authentications. |

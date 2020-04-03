@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get image insights using Bing Visual Search REST API and Ruby"
+title: "Quickstart: Get image insights using the REST API and Ruby - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
+ms.date: 12/17/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
@@ -24,7 +24,7 @@ To run this quickstart:
 * Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
 * Get a subscription key:
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Project and required modules
 

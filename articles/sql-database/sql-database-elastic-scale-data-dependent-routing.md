@@ -141,8 +141,8 @@ try {
 int customerId = 12345;
 int newPersonId = 4321;
 
-Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
-{
+Configuration.SqlRetryPolicy.ExecuteAction(() -> {
+
     // Connect to the shard for a customer ID.
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate))
     {

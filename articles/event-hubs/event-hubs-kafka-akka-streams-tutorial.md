@@ -1,24 +1,22 @@
 ---
 title: Using Akka Streams for Apache Kafka - Azure Event Hubs| Microsoft Docs
-description: This article provides information on how to connect Akka Streams to an Apache Kafka enabled Azure event hub. 
+description: This article provides information on how to connect Akka Streams to an Azure event hub. 
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
 
 ---
 
 # Using Akka Streams with Event Hubs for Apache Kafka
-This tutorial shows you how to connect Akka Streams to Kafka-enabled event hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for the Kafka supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+This tutorial shows you how to connect Akka Streams to an event hub without changing your protocol clients or running your own clusters. Azure Event Hubs for the Kafka supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -46,11 +44,11 @@ To complete this tutorial, make sure you have the following prerequisites:
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace is required to send or receive from any Event Hubs service. See [Create Kafka Enabled Event Hubs](event-hubs-create-kafka-enabled.md) for information about getting an Event Hubs Kafka endpoint. Make sure to copy the Event Hubs connection string for later use.
+An Event Hubs namespace is required to send or receive from any Event Hubs service. See [Create an event hub](event-hubs-create.md) for detailed information. Make sure to copy the Event Hubs connection string for later use.
 
 ## Clone the example project
 
-Now that you have a Kafka-enabled Event Hubs connection string, clone the Azure Event Hubs for Kafka repository and navigate to the `akka` subfolder:
+Now that you have a Event Hubs connection string, clone the Azure Event Hubs for Kafka repository and navigate to the `akka` subfolder:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -92,11 +90,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-The producer begins sending events to the Kafka-enabled event hub at topic `test`, and prints the events to stdout.
+The producer begins sending events to the event hub at topic `test`, and prints the events to stdout.
 
 ## Run Akka Streams consumer
 
-Using the provided consumer example, receive messages from the Kafka-enabled event hubs.
+Using the provided consumer example, receive messages from the event hub.
 
 ### Provide an Event Hubs Kafka endpoint
 
@@ -132,27 +130,16 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-If the Kafka-enabled event hub has events (for instance, if your producer is also running), then the consumer begins receiving events from topic `test`. 
+If the event hub has events (for instance, if your producer is also running), then the consumer begins receiving events from topic `test`. 
 
 Check out the [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) for more detailed information about Akka Streams.
 
 ## Next steps
-In this tutorial, you learned how to connect Akka Streams to Kafka-enabled event hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for the Kafka supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html). You did the following actions as part of this tutorial: 
+To learn more about Event Hubs for Kafka, see the following articles:  
 
-> [!div class="checklist"]
-> * Create an Event Hubs namespace
-> * Clone the example project
-> * Run Akka Streams producer 
-> * Run Akka Streams consumer
-
-To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
-
-- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mirror a Kafka broker in a Kafka-enabled event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
-- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md)
+- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
+- [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)

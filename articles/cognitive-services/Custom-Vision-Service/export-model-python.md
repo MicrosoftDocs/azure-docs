@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
 ---
 
@@ -27,7 +27,7 @@ To use the tutorial, you need to do the following:
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
 
-Next, you will need to install the following packages:
+Next, you'll need to install the following packages:
 
 ```
 pip install tensorflow
@@ -64,7 +64,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## Prepare an image for prediction
 
-There are a few steps for preparing the image so that it's the right shape for prediction. These steps mimic the image manipulation performed during training:
+There are a few steps you need to take to prepare the image for prediction. These steps mimic the image manipulation performed during training:
 
 ### Open the file and create an image in the BGR color space
 

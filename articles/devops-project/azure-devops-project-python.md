@@ -21,21 +21,22 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for Python with Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Python app.  
+In this quickstart, you use the simplified Azure DevOps Projects experience to set up a continuous integration (CI) and continuous delivery (CD) pipeline for your Python app in Azure Pipelines. You can use Azure DevOps Projects to set up everything you need for developing, deploying, and monitoring your app. 
 
-If you don't have an Azure subscription, you can get one for free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- An [Azure DevOps](https://azure.microsoft.com/services/devops/) account and organization.
 
 ## Sign in to the Azure portal
 
- DevOps Projects creates a CI/CD pipeline in Azure Pipelines.  You can create a free new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
-1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com), and in the left pane, select **Create a resource**. 
 
-2. Select the **Create a resource** icon in the left pane, and then search for **DevOps Projects**.  
+   ![Create an Azure resource in Azure portal](_img/azure-devops-project-python/fullbrowser.png)
 
-3. Select **Create**.
-
-   	![Starting Continuous Delivery configuration](_img/azure-devops-project-python/fullbrowser.png)
+1. Search for and select **DevOps Projects**, and then select **Create**.
 
 ## Select a sample application and Azure service
 

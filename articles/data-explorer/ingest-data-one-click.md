@@ -1,89 +1,74 @@
 ---
-title: Use one-click ingestion to Ingest data into Azure Data Explorer
-description: Learn about how to ingest (load) data into Azure Data Explorer simply using one-click ingestion.
+title: Use one-click ingestion to ingest data into Azure Data Explorer
+description: Overview of ingesting (loading) data into Azure Data Explorer simply, using one-click ingestion.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 10/31/2019
+ms.topic: overview
+ms.date: 03/29/2020
 ---
 
-# Use one-click ingestion to ingest data into Azure Data Explorer
+# What is one-click ingestion? 
 
-This article shows how to use one-click ingestion for quick ingestion of a new table in json or csv formats from storage into Azure Data Explorer. Once the data is ingested, you can edit the table and run queries using the Web UI.
+One-click ingestion enables you to quickly ingest data and automatically suggest tables and mapping structures, based on a data source in Azure Data Explorer. 
+
+Using the Azure Data Explorer Web UI, you can ingest data from storage (blob file), a local file, or a container (up to 10,000 blobs). You can also define an event grid on a container for continuous ingestion. The data can be ingested into an existing or new table in JSON, CSV, and [other formats](#file-formats). One click ingestion can suggest a structure for a new table and table mapping, based on the data source, and provide an intuitive platform to adjust the table structure of an existing table and table mapping. One click ingestion will ingest the data into the table within only a few minutes.
+
+One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Sign in to [the application](https://dataexplorer.azure.com/).
-* Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
-* Sign in to the [Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters)
-* Source of data in Azure Storage.
+* Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md).
+* Sign in to the [Azure Data Explorer Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters).
 
-## Ingest new data
+## File formats
 
-1. Right-click on the *database* or *table* row in left hand menu of the Web UI and select **Ingest new data (Preview)**
+One-click ingestion supports ingesting a new table from source data in any of the following formats:
+* JSON
+* CSV
+* TSV
+* SCSV
+* SOHSV
+* TSVE
+* PSV
 
-    ![select one click ingestion in web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
- 
-1. In the **Ingest new data (preview)** window, in **Source** tab, complete the **Project Details**:
+## One-click ingestion wizard
 
-    * **Table**: Select existing table name from drop-down or select **Create new** to make a new table.
-	* Select **Ingestion type** > **from storage** or **from file**.
-	    * If you selected **from storage**, enter **Link to storage** to add the url to storage. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
-        * If you selected **from file**, select **Browse** and drag the file into the box.
-    * Select **Edit schema** to view and edit your table column configuration.
- 
-    ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
+The one-click ingestion wizard guides you through the one-click ingestion process. 
 
-    > [!TIP]
-    > If you select **Ingest new data (Preview)** on a *table* row, the selected table name will appear in the **Project Details**.
+> [!Note]
+> This section describes the wizard in general. The options you select depend on whether you are ingesting into a new or existing table. 
+> For more information, see:
+    > * Ingest into [a new table](one-click-ingestion-new-table.md)
+    > * Ingest into an [existing table](one-click-ingestion-existing-table.md) 
+    
+1. To access the wizard, right-click the *database* or *table* row in left menu of the Azure Data Explorer web UI and select **Ingest new data (preview)**.
 
-1. If you selected an existing table, the **Map columns** window opens to map source data columns to target table columns. 
-    * Use **Omit column** to remove a target column from the table. 
-    * Use **New column** to add a new column to your table. 
+    ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
 
-    ![Map columns window](media/ingest-data-one-click/one-click-map-columns-window.png)
+1. The wizard guides you through the following options:
+       * Ingest into an [existing table](one-click-ingestion-existing-table.md)
+       * Ingest into [a new table](one-click-ingestion-new-table.md)
+       * Ingest data from:
+              * Blob storage
+              * A local file
+              * A container
+       * Enter the sample size, from 1 to 10,000 rows (from container only)
+       
+1. When you have successfully selected the data source, a preview of the data is displayed. 
+    If you are ingesting data from a container, you can filter the data so that only files with specific prefixes or file extensions are ingested. For example, you might only want to ingest files with filenames beginning with the word *Europe*, or only files with the extension *.json*. 
 
-1. In **Schema** tab:
+1. Click **Edit schema**. If you are ingesting data into a specific table, you can map the source columns to the target columns and decide whether or not to include column names.
 
-    * Select **Compression type** from drop-down > **Uncompressed** or **GZip**.
-    * Select **Data format** from drop-down > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**, or **PSV**. 
-        * When you select **JSON** format, select **JSON levels**: 1-10. The levels affect the table column data depiction. 
-        * If you select a format other than JSON: select checkbox **Include column names** to ignore heading row of file.    
-    * **Mapping name** is set automatically but can be edited.
-    * If you selected an existing table, you can select **Map columns** button to open the **Map columns** window.
+1. Start the data ingestion process.
 
-    ![one click ingestion csv format schema.png](media/ingest-data-one-click/one-click-csv-format.png)
-
-1. In **Editor**, select **V** on the right to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
-
-1.	In table: 
-    * Right-click on new column headers to **Change data type**, **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns only data sorting is available. 
-    * Double-click on the new column name to edit.
-
-1. Select **Start ingestion** to create table, create mapping, and data ingestion.
-
-    ![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png) 
- 
-## Query data
-
-1. In the **Data ingestion completed** window, all three steps will be marked with green checkmarks, if data ingestion completed successfully. 
- 
-    ![one click data ingestion complete](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
-
-1. Select **V** to open query. Copy to Web UI to edit the query.
-
-1. The menu on the right contains **Quick queries** and **Tools**. 
-
-    * **Quick queries** includes links to Web UI with example queries.
-    * **Tools** includes link to Web UI with **Drop commands** that allow you to troubleshoot issues by running the relevant `.drop` command.
-
-    > [!TIP]
-    > Data may be lost using `.drop` commands. Use them carefully.
+> [!Note]
+> If your data source is a container, note that Azure Data Explorer's data ingestion aggregation (batching) policy is designed to optimize the ingestion process. By default, the policy is configured to 5 minutes or 500 MB of data, so you may experience latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options. When ingesting data from other sources, the ingestion will take immediate effect.
 
 ## Next steps
 
-* [Query data in Azure Data Explorer Web UI](web-query-data.md)
-* [Write queries for Azure Data Explorer using Kusto Query Language](write-queries.md)
+* Decide if you will use one-click ingestion to ingest data into [an existing table](one-click-ingestion-existing-table.md) or [a new table](one-click-ingestion-new-table.md)
+* [Query data in Azure Data Explorer Web UI](/azure/data-explorer/web-query-data)
+* [Write queries for Azure Data Explorer using Kusto Query Language](/azure/data-explorer/write-queries)

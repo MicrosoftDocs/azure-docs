@@ -228,7 +228,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 ### Limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the retrieve device twin API. This API always contains the latest values and has higher throttling limits.
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
@@ -435,7 +435,7 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | binary_operator | Any binary operator listed in the [Operators](#operators) section. |
 | function_name| Any function listed in the [Functions](#functions) section. |
 | decimal_literal |A float expressed in decimal notation. |
-| hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
+| hexadecimal_literal |A number expressed by the string '0x' followed by a string of hexadecimal digits. |
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
@@ -463,7 +463,7 @@ In routes conditions, the following math functions are supported:
 | ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
 | EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
 | POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
-| SQUARE(x)	| Returns the square of the specified numeric value. |
+| SQUARE(x)    | Returns the square of the specified numeric value. |
 | CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
 | SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|
@@ -476,7 +476,7 @@ In routes conditions, the following type checking and casting functions are supp
 | AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |

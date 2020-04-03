@@ -81,7 +81,7 @@ We want to make sure that available quotas in the target subscription are suffic
 
 **Task** | **Details** | **Action**
 --- | --- | ---
-**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) about increasing quotas.
+**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) about increasing quotas.
 **Check failover limits** | The number of failovers mustn't exceed Site Recovery failover limits. |  If failovers exceed the limits, you can add subscriptions, and fail over to multiple subscriptions, or increase quota for a subscription. 
 
 

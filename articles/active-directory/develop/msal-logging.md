@@ -1,25 +1,20 @@
 ---
-title: Logging in Microsoft Authentication Library (MSAL) applications 
+title: Logging in MSAL apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/11/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about logging so I can diagnose and troubleshoot my apps.
-ms.collection: M365-identity-device-management
 ---
 
 # Logging in MSAL applications
@@ -317,7 +312,7 @@ Providing correlation IDs and timestamps are helpful for tracking down issues. T
 
 ## MSAL for Java logging
 
-MSAL for Java (MSAL4J) allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL4j uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time.
+MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time.
 
 For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
 

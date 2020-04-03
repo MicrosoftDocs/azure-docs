@@ -1,16 +1,10 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Java - QnA Maker"
-titleSuffix: Azure Cognitive Services 
 description: This Java REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 10/02/2019
-ms.author: diberry
+ms.date: 02/08/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 
 ---
 
@@ -24,19 +18,19 @@ This quickstart calls QnA Maker APIs:
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
-* This sample uses the Apache [HTTP client](https://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project: 
+* This sample uses the Apache [HTTP client](https://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project:
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
 * [Visual Studio Code](https://code.visualstudio.com/)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
-* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* QnA Maker knowledge base (KB) ID found in the URL in the `kbid` query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
-> [!NOTE] 
+> [!NOTE]
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-java** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Java file
@@ -56,7 +50,7 @@ After the dependencies, add the following class:
 ```Go
 public class PublishKB {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
     }
 }
@@ -94,11 +88,11 @@ Build and run the program from the command line. It will automatically send the 
     java -cp ".;lib/*" PublishKB
     ```
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).  
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-java.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

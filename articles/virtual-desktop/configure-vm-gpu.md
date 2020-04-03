@@ -33,9 +33,9 @@ You must also configure an app group, or use the default desktop app group (name
 
 ## Install supported graphics drivers in your virtual machine
 
-To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install NVIDIA graphics drivers. Follow the instructions at [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup) to install drivers, either manually or using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) to install drivers from the appropriate graphics vendor, either manually or using an Azure VM extension.
 
-Note that only [NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distributed by Azure are supported for Windows Virtual Desktop.
+Only drivers distributed by Azure are supported for Windows Virtual Desktop. Additionaly, for Azure VMs with NVIDIA GPUs, only [NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) are supported for Windows Virtual Desktop.
 
 After driver installation, a VM restart is required. Use the verification steps in the above instructions to confirm that graphics drivers were successfully installed.
 
@@ -70,7 +70,7 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 To verify that apps are using the GPU for rendering, try any of the following:
 
-* Use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
+* For Azure VMs with an NVIDIA GPU, use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
 * On supported operating system versions, you can use the Task Manager to check for GPU utilization. Select the GPU in the "Performance" tab to see whether apps are utilizing the GPU.
 
 ## Verify GPU-accelerated frame encoding
@@ -78,7 +78,7 @@ To verify that apps are using the GPU for rendering, try any of the following:
 To verify that Remote Desktop is using GPU-accelerated encoding:
 
 1. Connect to the desktop of the VM using Windows Virtual Desktop client.
-2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Operational**
+2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
 4. To determine if AVC 444 mode is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
 
@@ -86,5 +86,5 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 
 These instructions should have you up and running with GPU acceleration on a single session host VM. Some additional considerations for enabling GPU acceleration across a larger host pool:
 
-* Consider using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) to simplify driver installation and updates across a number of VMs.
+* Consider using a [VM extension](/azure/virtual-machines/extensions/overview) to simplify driver installation and updates across a number of VMs. Use the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for VMs with NVIDIA GPUs, and use the AMD GPU Driver Extension (coming soon) for VMs with AMD GPUs.
 * Consider using Active Directory Group Policy to simplify group policy configuration across a number of VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](https://go.microsoft.com/fwlink/p/?LinkId=620889).

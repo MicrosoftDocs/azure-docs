@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry Tasks reference - YAML
+title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/23/2019
-ms.author: danlep
 ---
 
 # ACR Tasks reference: YAML
@@ -80,7 +74,7 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
 | `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
-| `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `$HOME` |
+| `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `/workspace` |
 | `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | None |
 | `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | None |
 | `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. | None |
@@ -380,7 +374,7 @@ Each step type supports several properties appropriate for its type. The followi
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
-| `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `$HOME` |
+| `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `/workspace` |
 
 ### Examples: Task step properties
 
@@ -529,7 +523,7 @@ The following task aliases are available to use in place of [run variables](#run
 
 In task steps, precede an alias with the `$` directive, as in this example:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
@@ -542,13 +536,13 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 | Alias | Image |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
-| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
-| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
+| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
+| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world

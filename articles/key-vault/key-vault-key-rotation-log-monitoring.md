@@ -7,6 +7,7 @@ manager: rkarlin
 tags: ''
 
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
@@ -18,21 +19,16 @@ ms.author: mbaldwin
 
 After you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. A key vault allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities for your key and secret management.
 
->[!IMPORTANT]
-> The examples in this article are provided for illustration purposes only. They're not intended for production use. 
+This article walks through how to implement a scheduled rotation of storage account keys, monitor the key vault audit logs, and raise alerts when unexpected requests are made. 
 
-This article walks through:
+You must first create a key vault using the method of your choice:
 
-- An example of using Azure Key Vault to store a secret. In this article, the secret stored is the Azure storage account key accessed by an application. 
-- How to implement a scheduled rotation of that storage account key.
-- How to monitor the key vault audit logs and raise alerts when unexpected requests are made.
+- [Set and retrieve a secret from Azure Key Vault using Azure CLI](quick-create-cli.md)
+- [Set and retrieve a secret from Azure Key Vault using Azure PowerShell](quick-create-powershell.md)
+- [Set and retrieve a secret from Azure Key Vault using Azure portal](quick-create-portal.md)
 
-> [!NOTE]
-> This article doesn't explain in detail the initial setup of your key vault. For this information, see [What is Azure Key Vault?](key-vault-overview.md). For cross-platform command-line interface instructions, see [Manage Key Vault using the Azure CLI](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## Set up Key Vault
+## Store a secret
 
 To enable an application to retrieve a secret from Key Vault, you must first create the secret and upload it to your vault.
 
@@ -310,7 +306,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
         else
         {
             dtPrev = DateTime.UtcNow;
-            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+            log.Verbose($"Sync point file didn't have a date. Setting to now.");
         }
     }
 

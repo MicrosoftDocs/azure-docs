@@ -9,7 +9,7 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 09/13/2019
+ms.date: 12/18/2019
 ms.author: aahi
 #Customer intent: As a developer, I want to integrate Bing's image search capabilities into my app, so that I can provide relevant, engaging images to my users.
 ms.custom: seodec2018
@@ -29,7 +29,7 @@ While the Bing Image Search API provides image-only search results, you can comb
 | [Filter and restrict image results](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filter the images that Bing returns by editing query parameters.                                                                                                       |
 | [Crop, resize, and display thumbnails](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Edit and display thumbnail previews for the images returned by Bing Image Search.                                                                                      |
 | [Pivot & expand user search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Expand your search capabilities by including and displaying Bing-suggested search terms to queries.                                                                    |
-| [Get trending images](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Customize a search for trending images from around the world.                                                                                                          |
+| [Get trending images](trending-images.md)                                                                     | Customize a search for trending images from around the world.                                                                                                          |
 
 ## Workflow
 
@@ -63,4 +63,4 @@ To quickly get started with your first API request, you can learn to:
 
 * The [Sending and working with search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) article describes how to make, customize, and pivot search queries.
 
-* [Compare the Bing Search APIs](../Bing-web-search/bing-api-comparison.md)
+* Visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.

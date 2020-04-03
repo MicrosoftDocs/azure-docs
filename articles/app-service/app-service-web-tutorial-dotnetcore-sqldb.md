@@ -1,23 +1,13 @@
 ---
-title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
+title: 'Tutorial: ASP.NET Core with SQL Database' 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
@@ -45,7 +35,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 
@@ -69,8 +59,8 @@ The sample project contains a basic CRUD (create-read-update-delete) app using [
 Run the following commands to install the required packages, run database migrations, and start the application.
 
 ```bash
-dotnet restore
-dotnet ef database update
+dotnet tool install -g dotnet-ef --version 3.1.1
+dotnet-ef database update
 dotnet run
 ```
 

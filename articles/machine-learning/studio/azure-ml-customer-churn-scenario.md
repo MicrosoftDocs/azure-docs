@@ -7,12 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
 ---
 # Analyze Customer Churn using Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## Overview
 This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio (classic). In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 
@@ -66,7 +69,7 @@ An interesting addition here is big data analytics. Today's telecommunication an
  
 
 ## Implementing the modeling archetype in Machine Learning Studio (classic)
-Given the problem described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using the classic version of Azure Machine Learning Studio.  
+Given the problem described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio (classic).  
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
@@ -131,7 +134,7 @@ We also submitted the scoring dataset to a comparable model built by using the d
 In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
 
 ### Accuracy and precision of scoring
-Generally, the implementation in the classic version of Azure Machine Learning Studio is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+Generally, the implementation in Azure Machine Learning Studio (classic) is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
@@ -196,13 +199,13 @@ This important observation is often overlooked in business, which generally pref
 
 However, the promise of self-service analytics by using Machine Learning Studio (classic) is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
 
-Another exciting capability coming in the classic version of Azure Machine Learning Studio is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of the classic version of Azure Machine Learning Studio in the market place.  
+Another exciting capability coming in Azure Machine Learning Studio (classic) is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning Studio (classic) in the market place.  
 
 We hope to continue this topic in the future, especially related to big data analytics.
   
 
 ## Conclusion
-This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using the classic version of Azure Machine Learning Studio. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
+This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning Studio (classic). Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
 
  
 

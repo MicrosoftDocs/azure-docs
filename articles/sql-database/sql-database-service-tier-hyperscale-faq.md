@@ -1,5 +1,5 @@
 ---
-title: Hyperscale FAQ
+title: Azure SQL Database Hyperscale FAQ
 description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer:
-ms.date: 10/12/2019
+ms.date: 03/03/2020
 ---
 # Azure SQL Database Hyperscale FAQ
 
@@ -151,7 +151,7 @@ The transaction log with Hyperscale is practically infinite. You do not need to 
 
 ### Does my `tempdb` scale as my database grows
 
-Your `tempdb` database is located on local SSD storage and is configured based on the compute size that you provision. Your `tempdb` is optimized to provide maximum performance benefits. `tempdb` size is not configurable and is managed for you.
+Your `tempdb` database is located on local SSD storage and is sized proportionally to the compute size that you provision. Your `tempdb` is optimized to provide maximum performance benefits. `tempdb` size is not configurable and is managed for you.
 
 ### Does my database size automatically grow, or do I have to manage the size of data files
 
@@ -159,7 +159,7 @@ Your database size automatically grows as you insert/ingest more data.
 
 ### What is the smallest database size that Hyperscale supports or starts with
 
-10 GB.
+40 GB. A Hyperscale database is created with a starting size of 10 GB. Then, it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB. Each of these 10 GB chucks is allocated in a different page server in order to provide more IOPS and higher I/O parallelism. Because of this optimization, even if you choose initial database size smaller than 40 GB, the database will grow to at least 40 GB automatically.
 
 ### In what increments does my database size grow
 
@@ -262,15 +262,15 @@ Yes.
 
 The RPO is 0 min. The RTO goal is less than 10 minutes, regardless of database size. 
 
-### Do backups of large databases affect compute performance on my primary
+### Does database backup affect compute performance on my primary or secondary replicas
 
-No. Backups are managed by the storage subsystem, and leverage storage snapshots. They do not impact user workload on the primary.
+No. Backups are managed by the storage subsystem, and leverage storage snapshots. They do not impact user workloads.
 
-### Can I perform Geo-Restore with a Hyperscale database
+### Can I perform geo-restore with a Hyperscale database
 
-Yes.  Geo-Restore is fully supported.
+Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) with the region of the source database.
 
-### Can I set up Geo-Replication with Hyperscale database
+### Can I set up geo-replication with Hyperscale database
 
 Not at this time.
 
@@ -290,7 +290,7 @@ No. Polybase is not supported in Azure SQL Database.
 
 ### Does Hyperscale have support for R and Python
 
-No. R and Python are not supported in Azure SQL Database.
+Not at this time.
 
 ### Are compute nodes containerized
 
@@ -300,11 +300,11 @@ No. Hyperscale processes run on a [Service Fabric](https://azure.microsoft.com/s
 
 ### How much write throughput can I push in a Hyperscale database
 
-Transaction log throughput limit is set to 100 MB/s for any Hyperscale compute size. The ability to achieve this rate depends on multiple factors, including but not limited to workload type, client configuration, and having sufficient compute capacity on the primary compute replica to produce log at this rate.
+Transaction log throughput cap is set to 100 MB/s for any Hyperscale compute size. The ability to achieve this rate depends on multiple factors, including but not limited to workload type, client configuration, and having sufficient compute capacity on the primary compute replica to produce log at this rate.
 
 ### How many IOPS do I get on the largest compute
 
-IOPS and IO latency will vary depending on the workload patterns. If the data being accessed is cached on the compute replica, you will see the same IO performance as with local SSD.
+IOPS and IO latency will vary depending on the workload patterns. If the data being accessed is cached on the compute replica, you will see similar IO performance as with local SSD.
 
 ### Does my throughput get affected by backups
 
@@ -312,7 +312,11 @@ No. Compute is decoupled from the storage layer. This eliminates performance imp
 
 ### Does my throughput get affected as I provision additional compute replicas
 
-Because the storage is shared and there is no direct physical replication happening between primary and secondary compute replicas, technically, the throughput on primary replica will not be affected by adding secondary replicas. However, we may throttle continuous aggressively writing workload to allow log apply on secondary replicas and page servers to catch up, and avoid poor read performance on secondary replicas.
+Because the storage is shared and there is no direct physical replication happening between primary and secondary compute replicas, the throughput on primary replica will not be directly affected by adding secondary replicas. However, we may throttle continuous aggressively writing workload on the primary to allow log apply on secondary replicas and page servers to catch up, to avoid poor read performance on secondary replicas.
+
+### How do I diagnose and troubleshoot performance problems in a Hyperscale database
+
+For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](sql-database-hyperscale-performance-diagnostics.md).
 
 ## Scalability Questions
 
@@ -362,7 +366,7 @@ No. You can only connect to Read Scale-out replicas by specifying `ApplicationIn
 
 ### Does the system do intelligent load balancing of the read workload
 
-No. A connection with read-only intent is redirected to an arbitrary Read Scale-out replica.
+No. A new connection with read-only intent is redirected to an arbitrary Read Scale-out replica.
 
 ### Can I scale up/down the secondary compute replicas independently of the primary replica
 
@@ -378,7 +382,7 @@ No. Hyperscale databases have shared storage, meaning that all compute replicas 
 
 ### How much delay is there going to be between the primary and secondary compute replicas
 
-From the time a transaction is committed on the primary, depending on current log generation rate, it can either be instantaneous or in low milliseconds.
+Data latency from the time a transaction is committed on the primary to the time it is visible on a secondary depends on current log generation rate. Typical data latency is in low milliseconds.
 
 ## Next Steps
 

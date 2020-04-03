@@ -1,34 +1,29 @@
 ---
 title: Monitor Kubernetes cluster health with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the health of your AKS and non-AKS clusters with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
+ms.date: 12/01/2019
 ---
 
 # Understand Kubernetes cluster health with Azure Monitor for containers
 
-With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics. 
+With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics.
+
+>[!NOTE]
+>The Health feature is in public preview at this time.
+>
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
 >[!NOTE]
 >To support AKS Engine clusters, verify it meets the following:
 >- It is using the latest version of the [HELM client](https://helm.sh/docs/using_helm/).
->- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## Overview
 
-In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. Monitors evaluating the health of your cluster run on the containerized agent in your cluster, and the health data is written to the **KubeHealth** table in your Log Analytics workspace. 
+In Azure Monitor for containers, the Health (preview) feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. Monitors evaluating the health of your cluster run on the containerized agent in your cluster, and the health data is written to the **KubeHealth** table in your Log Analytics workspace. 
 
 Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
@@ -67,7 +62,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View health of an AKS or non-AKS cluster
 
-Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
+Access to the Azure Monitor for containers Health (preview) feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
 
 To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, select **Azure Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.  On the multi-cluster page, select the non-AKS cluster from the list.
 

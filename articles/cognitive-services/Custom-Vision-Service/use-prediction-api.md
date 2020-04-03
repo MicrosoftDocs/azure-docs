@@ -13,7 +13,7 @@ ms.date: 04/02/2019
 ms.author: anroth
 ---
 
-# Use your Model with the Prediction API
+# Use your model with the prediction API
 
 After you've train your model, you can test images programmatically by submitting them to the Prediction API endpoint.
 

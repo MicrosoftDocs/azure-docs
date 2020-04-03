@@ -1,9 +1,9 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster | Microsoft Docs
+title: Patch the Windows operating system in your Service Fabric cluster 
 description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
+ms.author: atsenthi
 
 ---
 
@@ -432,6 +432,10 @@ It might also be possible that node patching is blocked because it's stuck in *D
 **Q: Why must the node be disabled when POA is patching it?**
 
 A: POA disables the node with a *Restart* intent, which stops or reallocates all the Service Fabric services that are running on the node. POA does this to ensure that applications don't end up using a mix of new and old DLLs, so we recommend not patching a node without disabling it.
+
+**Q: What is the maximum number of nodes that can be updated by using POA?**
+
+A: POA uses Service Fabric Repair Manager to create repair tasks for nodes for updates. However, no more than 250 repair tasks can be present at the same time. Currently, POA creates repair tasks for each node at the same time, so POA can update no more than 250 nodes in a cluster. 
 
 ## Disclaimers
 

@@ -1,28 +1,18 @@
 ---
-title: Configure Google authentication - Azure App Service
-description: Learn how to configure Google authentication for your App Service app.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
+title: Configure Google authentication
+description: Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/02/2019
-ms.author: cephalin
-ms.custom: seodec18
+ms.custom: [seodec18, fasttrack-edit]
 
 ---
 
-# Configure your App Service app to use Google login
+# Configure your App Service or Azure Functions app to use Google login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use Google as an authentication provider.
+This topic shows you how to configure Azure App Service or Azure Functions to use Google as an authentication provider.
 
 To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 

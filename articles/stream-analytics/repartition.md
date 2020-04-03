@@ -16,11 +16,11 @@ This article shows you how to use repartitioning to scale your Azure Stream Anal
 You might not be able to use [parallelization](stream-analytics-parallelization.md) if:
 
 * You don't control the partition key for your input stream.
-* Your source "sprays" input across multiple partitions that later need to be merged. 
-
-## How to repartition
+* Your source "sprays" input across multiple partitions that later need to be merged.
 
 Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to a natural input scheme, such as **PartitionId** for Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
+
+## How to repartition
 
 To repartition, use the keyword **INTO** after a **PARTITION BY** statement in your query. The following example partitions the data by **DeviceID** into a partition count of 10. Hashing of **DeviceID** is used to determine which partition shall accept which substream. The data is flushed independently for each partitioned stream, assuming the output supports partitioned writes, and has 10 partitions.
 

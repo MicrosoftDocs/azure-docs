@@ -17,7 +17,7 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 
-You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
 
 ### How many datasources/items can be protected in a vault?
 
@@ -102,7 +102,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 data disks<br/><br/> Data disk up to 4095 GB
+Azure VM | 16 data disks<br/> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com <br><br> Data disk up to 32 TB
 
 ### How is the data source size determined?
 
@@ -118,7 +118,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the amount of data you can back up using a Recovery Services vault.
+There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 
@@ -171,7 +171,7 @@ Azure Backup storage architecture gives you the best of both worlds by optimally
 
 You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 
-- Learn more about [backup and retention](./backup-overview.md#backup-and-retention).
+- Learn more about [backup and retention](./backup-support-matrix.md).
 
 ### How many times can I recover data that's backed up to Azure?
 

@@ -21,7 +21,7 @@ ms.author: zakramer
 # Azure Government storage
 
 ## Azure Storage
-Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, [click here](documentation-government-get-started-connect-to-storage.md). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.yml).
+Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](documentation-government-get-started-connect-to-storage.md). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.yml).
 
 ### Storage pairing in Azure Government
 The following map shows the primary and secondary region pairings used for geo-redundant storage and read-access geo-redundant storage accounts in Azure Government.
@@ -37,7 +37,6 @@ To view the current secondary region of your geo-redundant storage or read-acces
 
 ![Storage account overview](./media/documentation-government-services-storage-accountoverview.png)
 
-
 ### Storage service and feature availability by Azure Government region
 
 | Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
@@ -47,9 +46,9 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
-| [Locally redundant storage](../storage/common/storage-redundancy-lrs.md) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant storage](../storage/common/storage-redundancy-grs.md) |GA |GA |GA |GA |GA |GA |
-| [Read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Locally redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Read-access geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
 | [Premium Storage](../virtual-machines/windows/disks-types.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
@@ -69,7 +68,7 @@ These are the URLs for storage accounts in Azure Government:
 >
 >
 
-For more information on APIs, see the [Cloud Storage Account Constructor](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.cloudstorageaccount).
+For more information on APIs, see the [Cloud Storage Account Constructor](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
@@ -78,7 +77,7 @@ The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 >
 >
 
-When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ URL for the Azure Government portal. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.md).
+When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ URL for the Azure Government portal. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
@@ -99,14 +98,15 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
-For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Managing storage accounts](../storage/common/storage-account-manage.md#access-keys).
+For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating your Import/Export job and shipping information that's used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
 ## Azure Backup Service
-For detailed documentation on using the Azure Backup Service in Azure Government, [click here](documentation-government-services-backup.md). 
+For detailed documentation on using the Azure Backup Service in Azure Government, see [Azure Government Backup](documentation-government-services-backup.md).
+
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>

@@ -1,11 +1,11 @@
 ---
-title: Create and manage read replicas in Azure Database for MariaDB - AZURE CLI, REST API
+title: Manage read replicas - Azure CLI, REST API - Azure Database for MariaDB
 description: This article describes how to set up and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 3/18/2020
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API

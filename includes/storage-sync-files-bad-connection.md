@@ -25,5 +25,6 @@ This error can occur whenever the Azure File Sync service is inaccessible from t
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
     ```
-    
-4. Contact your network administrator for additional assistance troubleshooting network connectivity.
+4. Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
+
+5. Contact your network administrator for additional assistance troubleshooting network connectivity.

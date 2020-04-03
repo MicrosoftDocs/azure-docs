@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
 ---
 
@@ -28,21 +28,23 @@ From the Azure portal, open your cache instance and click **Storage targets** on
 
 A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud file system format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
+You can create a new container from this page just before adding it.
+
 To define an Azure Blob container, enter this information.
 
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
-
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
-* **Storage account** - Select the account with the container that you want to use.
+* **Storage account** - Select the account that you want to use.
 
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
 
   For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Storage container** - Select the Blob container for this target.
+* **Storage container** - Select the Blob container for this target, or click **Create new**.
+
+  ![screenshot of dialog to specify name and access level (private) for new container](media/add-blob-new-container.png)
 
 * **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 

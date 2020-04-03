@@ -2,7 +2,7 @@
 title: View and search your recent sign-in activity from the My Sign-in (preview) page - Azure Active Directory | Microsoft Docs
 description: Details about how to view and search your recent sign-in activity from the My Sign-ins page of the My Account portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: rhicock
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # View and search your recent sign-in activity from the My Sign-ins (preview) page
@@ -45,7 +44,7 @@ Before you determine something is incorrect, make sure you're not seeing a false
 
 ### If you see an Unsuccessful sign-in
 
-An unsuccessful sign-in, with no session activity, means that your primary authentication method (username/password) failed. This could mean that you mistyped your username or password, but it could also mean that an attacker was trying to guess your password. If you think it was attacker trying unsuccessfully to guess your password, you don't have to change your password, but we strongly suggest that you register for Azure Multi-Factor Authentication (MFA). With MFA, even if the hacker eventually guesses your password, it won't be enough to access your account.
+An unsuccessful sign-in, with no session activity, means that your primary verification method (username/password) failed. This could mean that you mistyped your username or password, but it could also mean that an attacker was trying to guess your password. If you think it was attacker trying unsuccessfully to guess your password, you don't have to change your password, but we strongly suggest that you register for Azure Multi-Factor Authentication (MFA). With MFA, even if the hacker eventually guesses your password, it won't be enough to access your account.
 
 If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication (username/password) succeeded, but MFA failed. If this was an attacker, they correctly guessed your password but were still unable to pass the MFA challenge. In this case, we recommend that you still change your password, since the attacker got that part right, and then go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
 

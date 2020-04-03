@@ -3,7 +3,7 @@ title: Microsoft Azure Data Encryption-at-Rest | Microsoft Docs
 description: This article provides an overview of Microsoft Azure data  encryption at-rest, the overall capabilities, and general considerations.
 services: security
 documentationcenter: na
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 editor: TomSh
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2019
-ms.author: barclayn
+ms.date: 03/23/2020
+ms.author: mbaldwin
 
 ---
 # Azure Data Encryption-at-Rest
@@ -45,9 +45,9 @@ Encryption at rest provides data protection for stored data (at rest). Attacks a
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker obtains a hard drive with encrypted data but not the encryption keys, the attacker must defeat the encryption to read the data. This attack is much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations.
 
-Encryption at rest may also be required by an organization’s need for data governance and compliance efforts. Industry and government regulations such as HIPAA, PCI and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations.
+Encryption at rest may also be required by an organization’s need for data governance and compliance efforts. Industry and government regulations such as HIPAA, PCI and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations. For more information on Microsoft's approach to FIPS 140-2 validation, see [Federal Information Processing Standard (FIPS) Publication 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
 
-In addition to satisfying compliance and regulatory requirements, encryption at rest provides defense-in-depth protection. Microsoft Azure provides a compliant platform for services, applications, and data. It also provides comprehensive facility and physical security, data access control, and auditing. However, it's important to provide additional “overlapping” security measures in case one of the other security measures fails and encryption at rest provides such a security measure
+In addition to satisfying compliance and regulatory requirements, encryption at rest provides defense-in-depth protection. Microsoft Azure provides a compliant platform for services, applications, and data. It also provides comprehensive facility and physical security, data access control, and auditing. However, it's important to provide additional “overlapping” security measures in case one of the other security measures fails and encryption at rest provides such a security measure.
 
 Microsoft is committed to encryption at rest options across cloud services and giving customers control of encryption keys and logs of key use. Additionally, Microsoft is working towards encrypting all customer data at rest by default.
 
@@ -258,36 +258,48 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed Key**      |
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search                     | Yes                | Preview            | -                  |
-| Azure Machine Learning   | Yes                | -                  | -                  |
+| Azure Cognitive Search           | Yes                | Yes                | -                  |
+| Azure Machine Learning           | Yes                | Yes                | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
-| Event Hubs                       | Yes                | Preview, all RSA Lengths. | -                  |
+| Event Hubs                       | Yes                | Yes, all RSA Lengths. | -                  |
+| Functions                        | Yes                | Yes, all RSA Lengths. | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
-| Azure Data Explorer              | Yes                | -                  | -                  |
+| Azure Monitor Application Insights | Yes                | Yes                | -                  |
+| Azure Monitor Log Analytics | Yes                | Yes                | -                  |
+| Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Yes                | -                  | -                  |
-| Container Registry               | Yes                | -                  | -                  |
+| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Container Instances              | Yes                | Yes                | -                  |
+| Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
 | Virtual Machine Scale Set        | Yes                | Yes, RSA 2048-bit  | -                  |
 | SAP HANA                         | Yes                | Yes, RSA 2048-bit  | -                  |
+| App Service                      | Yes                | Yes                | -                  |
+| Automation                       | Yes                | Yes                | -                  |
+| Azure Portal                     | Yes                | Yes                | -                  |
+| Logic Apps                       | Yes                | Yes                | -                  |
+| Azure Managed Applications       | Yes                | Yes                | -                  |
+| Service Bus                      | Yes                | Yes                | -                  |
+| Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
-| Azure SQL Database for MySQL     | Yes                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Yes                | -                  | -                  |
-| Azure SQL Data Warehouse         | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
+| Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
+| Azure Synapse Analytics          | Yes                | Yes, RSA 2048-bit  | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Table Storage                    | Yes                | -                  | Yes                |
-| Azure Cosmos DB                  | Yes                | -                  | -                  |
+| Table Storage                    | Yes                | Yes                | Yes                |
+| Azure Cosmos DB                  | Yes                | Yes                | -                  |
+| Azure Databricks                 | Yes                | Yes                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Yes                | -                  | Yes                |
 | Azure Repos                      | Yes                | -                  | Yes                |
@@ -295,27 +307,28 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | Yes          | Yes, RSA 2048-bit  | -                  |
 | **Integration**                  |                    |                    |                    |
-| Service Bus                      | Yes                | -                  | Yes                |
+| Service Bus                      | Yes                | Yes                | Yes                |
 | Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
-| IoT Hub                          | Yes                | -                  | Yes                |
+| IoT Hub                          | Yes                | Yes                | Yes                |
 | **Management and Governance**    |                    |                    |                    |
-| Azure Site Recovery              | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Site Recovery              | Yes                | -                  | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | -                  | Yes                |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Disk Storage                     | Yes                | -                  | -                  |
-| Managed Disk Storage             | Yes                | -                  | -                  |
+| Disk Storage                     | Yes                | Yes                | -                  |
+| Managed Disk Storage             | Yes                | Yes                | -                  |
 | File Storage                     | Yes                | Yes, RSA 2048-bit  | -                  |
-| Queue Storage                    | Yes                | -                  | Yes                |
+| Queue Storage                    | Yes                | Yes                | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure NetApp Files               | Yes                | -                  | -                  |
 | Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
 | StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Azure Backup                     | Yes                | -                  | Yes                |
+| Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
+| Data Box Edge                    | Yes                | Yes                | -                  |
 
 ## Conclusion
 

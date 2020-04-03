@@ -7,12 +7,12 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 01/03/2020
 ---
 
-# Routing events and messages
+# Routing IoT events and messages
 
-IoT solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
+Internet of Things solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
 
 ## Route types  
 
@@ -48,7 +48,7 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 
 > [!IMPORTANT]  
 > Not all **EndpointTypes** support all **EventTypes**.
-> See the following table for the **EventTypes** that are allowed for each **EndpointType**.
+> Review the following table for the **EventTypes** that are allowed for each **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -57,10 +57,10 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->For more information on how to create endpoints and examples of events' schema, see [Egress and endpoints](how-to-egress-endpoints.md).
+>For more information on how to create endpoints and examples of events' schema, read [Egress and endpoints](how-to-egress-endpoints.md).
 
 ## Next steps
 
-- To learn about Azure Digital Twins preview limits, see [Public preview service limits](concepts-service-limits.md).
+- To learn about Azure Digital Twins preview limits, read [Public preview service limits](concepts-service-limits.md).
 
-- To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, read the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).

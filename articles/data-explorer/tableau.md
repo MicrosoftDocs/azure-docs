@@ -1,5 +1,5 @@
 ---
-title: Use Open Database Connectivity (ODBC) connection to Azure Data Explorer to visualize data with Tableau
+title: Use Azure Data Explorer ODBC connector to visualize Tableau data
 description: In this article, you learn how to use an Open Database Connectivity (ODBC) connection to Azure Data Explorer connection to visualize data with Tableau. 
 author: orspod
 ms.author: orspodek

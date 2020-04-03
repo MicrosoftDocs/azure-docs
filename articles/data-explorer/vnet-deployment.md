@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Data Explorer into your Virtual Network (Preview)
+title: Deploy Azure Data Explorer into your Virtual Network
 description: Learn how to deploy Azure Data Explorer into your Virtual Network
 author: basaba
 ms.author: basaba
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ---
 
-# Deploy Azure Data Explorer into your Virtual Network (Preview)
+# Deploy Azure Data Explorer cluster into your Virtual Network
 
 This article explains the resources that are present when you deploy an Azure Data Explorer cluster into a custom Azure Virtual Network. This information will help you deploy a cluster into a subnet in your Virtual Network (VNet). For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
@@ -20,9 +20,6 @@ Azure Data Explorer supports deploying a cluster into a subnet in your Virtual N
 * Enforce [Network Security Group](/azure/virtual-network/security-overview) (NSG) rules on your Azure Data Explorer cluster traffic.
 * Connect your on-premises network to Azure Data Explorer cluster's subnet.
 * Secure your data connection sources ([Event Hub](/azure/event-hubs/event-hubs-about) and [Event Grid](/azure/event-grid/overview)) with [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
-
-> [!NOTE]
-> The Virtual Network integration and deployment is in preview mode. To enable this feature, open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Access your Azure Data Explorer cluster in your VNet
 
@@ -58,6 +55,9 @@ The total number of IP addresses:
 
 [Azure Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) enables you to secure your Azure multi-tenant resources to your virtual network.
 Deploying Azure Data Explorer cluster into your subnet allows you to setup data connections with [Event Hub](/azure/event-hubs/event-hubs-about) or [Event Grid](/azure/event-grid/overview) while restricting the underlying resources for Azure Data Explorer subnet.
+
+> [!NOTE]
+> When using EventGrid setup with [Storage](/azure/storage/common/storage-introduction) and [Event Hub], the storage account used in the subscription can be locked with service endpoints to Azure Data Explorer's subnet while allowing trusted Azure platform services in the [firewall configuration](/azure/storage/common/storage-network-security), but the Event Hub can't enable Service Endpoint since it doesn't support trusted [Azure platform services](/azure/event-hubs/event-hubs-service-endpoints).
 
 ## Dependencies for VNet deployment
 
@@ -101,7 +101,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | BrazilSouth | 191.233.25.183 |
 | Canada Central | 40.82.188.208 |
 | Canada East | 40.80.255.12 |
-| Central India | 40.81.249.251 |
+| Central India | 40.81.249.251, 104.211.98.159 |
 | Central US | 40.67.188.68 |
 | Central US EUAP | 40.89.56.69 |
 | East Asia | 20.189.74.103 |
@@ -120,12 +120,12 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | South Africa West | 102.133.0.97 |
 | South Central US | 20.45.3.60 |
 | Southeast Asia | 40.119.203.252 |
-| South India | 40.81.72.110 |
+| South India | 40.81.72.110, 104.211.224.189 |
 | UK South | 40.81.154.254 |
 | UK West | 40.81.122.39 |
 | West Central US | 52.159.55.120 |
 | West Europe | 51.145.176.215 |
-| West India | 40.81.88.112 |
+| West India | 40.81.88.112, 104.211.160.120 |
 | West US | 13.64.38.225 |
 | West US2 | 40.90.219.23 |
 
@@ -166,7 +166,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | West Europe | 23.97.212.5 |
 | West India | 23.99.5.162 |
 | West US | 23.99.5.162 |
-| West US 2 | 23.99.5.162 |	
+| West US 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### Azure Monitor configuration endpoint addresses
 
@@ -184,7 +184,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 | Central US EUAP | 13.90.43.231 |
 | East Asia | 13.75.117.221 |
 | East US | 13.90.43.231 |
-| East US 2 | 13.68.89.19 |	
+| East US 2 | 13.68.89.19 |    
 | East US 2 EUAP | 13.68.89.19 |
 | France Central | 52.174.4.112 |
 | France South | 52.174.4.112 |
@@ -209,7 +209,7 @@ Deploying Azure Data Explorer cluster into your subnet allows you to setup data 
 
 ## ExpressRoute setup
 
-Use ExpressRoute to connect on premises network to the Azure Virtual Network. A common setup is to advertise the default route (0.0.0.0/0) through the Border Gateway Protocol (BGP) session. This forces traffic coming out of the Virtual Network to be forwarded to the customer’s premise network that may drop the traffic, causing outbound flows to break. To overcome this default, [User Defined Route (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) (0.0.0.0/0) can be configured and next hop will be *Internet*. Since the UDR takes precedence over BGP, the traffic will be destined to the Internet.
+Use ExpressRoute to connect on premises network to the Azure Virtual Network. A common setup is to advertise the default route (0.0.0.0/0) through the Border Gateway Protocol (BGP) session. This forces traffic coming out of the Virtual Network to be forwarded to the customer's premise network that may drop the traffic, causing outbound flows to break. To overcome this default, [User Defined Route (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) (0.0.0.0/0) can be configured and next hop will be *Internet*. Since the UDR takes precedence over BGP, the traffic will be destined to the Internet.
 
 ## Securing outbound traffic with firewall
 
@@ -228,7 +228,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

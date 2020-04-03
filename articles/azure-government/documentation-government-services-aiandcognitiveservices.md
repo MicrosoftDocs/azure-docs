@@ -113,7 +113,9 @@ See details of supported locales by features in [Language and region support for
 Variations in Azure Government:
 
 - Endpoint:  https://api.cognitive.microsofttranslator.us
-- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Auth Token Service: 
+     - https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+     - https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: S1
 - Custom Translator and Translator Hub are not supported.
  
@@ -168,7 +170,6 @@ Some Bot Service features available in the public cloud are not yet available in
 
 Commonly used services in bot applications that are currently unavailable in Azure Government:
 - Application Insights
-- Azure Search
 - Speech Services
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.

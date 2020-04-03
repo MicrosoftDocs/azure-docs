@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -28,14 +28,14 @@ In this tutorial, you learn how to:
 > * Configure secure LDAP for use over the public internet
 > * Bind and test secure LDAP for an Azure AD DS managed domain
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -61,16 +61,16 @@ The certificate you request or create must meet the following requirements. Your
 
 * **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public CA or an Enterprise CA trusted by these computers.
 * **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
-* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *contoso.com*, the certificate's subject name must be **.contoso.com*.
+* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *aaddscontoso.com*, the certificate's subject name must be **.aaddscontoso.com*.
     * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with the Azure AD Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
-* **Certificate purpose** - The certificate must be valid for SSL server authentication.
+* **Certificate purpose** - The certificate must be valid for TLS server authentication.
 
-In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *contoso.com*:
+There are several tools available to create self-signed certificate such as OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
-$dnsName="contoso.com"
+$dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
 $lifetime=Get-Date
@@ -92,7 +92,7 @@ PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 
 Thumbprint                                Subject
 ----------                                -------
-959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=contoso.com
+959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aaddscontoso.com
 ```
 
 ## Understand and export required certificates
@@ -112,18 +112,18 @@ These two keys, the *private* and *public* keys, make sure that only the appropr
 
 Before you can use the digital certificate created in the previous step with your Azure AD DS managed domain, export the certificate to a *.PFX* certificate file that includes the private key.
 
-1. To open the *Run* dialog, select the **Windows** and **R** keys.
+1. To open the *Run* dialog, select the **Windows** + **R** keys.
 1. Open the Microsoft Management Console (MMC) by entering **mmc** in the *Run* dialog, then select **OK**.
-1. On the **User Account Control** prompt, click **Yes** to launch MMC as administrator.
-1. From the **File** menu, click **Add/Remove Snap-in...**
+1. On the **User Account Control** prompt, then select **Yes** to launch MMC as administrator.
+1. From the **File** menu, select **Add/Remove Snap-in...**
 1. In the **Certificates snap-in** wizard, choose **Computer account**, then select **Next**.
 1. On the **Select Computer** page, choose **Local computer: (the computer this console is running on)**, then select **Finish**.
-1. In the **Add or Remove Snap-ins** dialog, click **OK** to add the certificates snap-in to MMC.
+1. In the **Add or Remove Snap-ins** dialog, select **OK** to add the certificates snap-in to MMC.
 1. In the MMC window, expand **Console Root**. Select **Certificates (Local Computer)**, then expand the **Personal** node, followed by the **Certificates** node.
 
     ![Open the personal certificates store in the Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. The self-signed certificate created in the previous step is shown, such as *contoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
+1. The self-signed certificate created in the previous step is shown, such as *aaddscontoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
 
     ![Export certificate in the Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
@@ -140,7 +140,7 @@ Before you can use the digital certificate created in the previous step with you
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your Azure AD DS managed domain.
-1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*.
+1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
 
@@ -148,7 +148,7 @@ Before you can use the digital certificate created in the previous step with you
 
 Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Azure AD DS. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate. In this tutorial you use a self-signed certificate, and generated a certificate that includes the private key in the previous step. Now let's export and then install the self-signed certificate into the trusted certificate store on the client computer:
 
-1. Go back to the MMC for *Certificates (Local Computer) > Personal > Certificates* store. The self-signed certificate created in a previous step is shown, such as *contoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
+1. Go back to the MMC for *Certificates (Local Computer) > Personal > Certificates* store. The self-signed certificate created in a previous step is shown, such as *aaddscontoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
 1. In the **Certificate Export Wizard**, select **Next**.
 1. As you don't need the private key for clients, on the **Export Private Key** page choose **No, do not export the private key**, then select **Next**.
 1. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER)** as the file format for the exported certificate:
@@ -175,10 +175,7 @@ The *.CER* certificate file can now be distributed to client computers that need
 With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your Azure AD DS managed domain. To enable secure LDAP on an Azure AD DS managed domain, perform the following configuration steps:
 
 1. In the [Azure portal](https://portal.azure.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
-
-    ![Search for and select your Azure AD DS managed domain in the Azure portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
-1. Choose your managed domain, such as *contoso.com*.
+1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side of the Azure AD DS window, choose **Secure LDAP**.
 1. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 1. Secure LDAP access to your managed domain over the internet is disabled by default. When you enable public secure LDAP access, your domain is susceptible to password brute force attacks over the internet. In the next step, a network security group is configured to lock down access to only the required source IP address ranges.
@@ -206,7 +203,7 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
 1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
-1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Security > Inbound security rules**.
+1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
     | Setting                           | Value        |
@@ -233,24 +230,24 @@ With secure LDAP access enabled over the internet, update the DNS zone so that c
 
 Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc*
 
-The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for *ldaps.contoso.com* to the external IP address of *40.121.19.239*:
+The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for *ldaps.aaddscontoso.com* to the external IP address of *168.62.205.103*:
 
 ```
-40.121.19.239    ldaps.contoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## Test queries to the managed domain
 
-To connect and bind to your Azure AD DS managed domain and search over LDAP, you use the *LDP.exe* too. This tool is included in the Remote Server Administration Tools (RSAT) package. For more information, see [install Remote Server Administration Tools][rsat].
+To connect and bind to your Azure AD DS managed domain and search over LDAP, you use the *LDP.exe* tool. This tool is included in the Remote Server Administration Tools (RSAT) package. For more information, see [install Remote Server Administration Tools][rsat].
 
 1. Open *LDP.exe* and connect to the managed domain. Select **Connection**, then choose **Connect...**.
-1. Enter the secure LDAP DNS domain name of your managed domain created in the previous step, such as *ldaps.contoso.com*. To use secure LDAP, set **Port** to *636*, then check the box for **SSL**.
+1. Enter the secure LDAP DNS domain name of your managed domain created in the previous step, such as *ldaps.aaddscontoso.com*. To use secure LDAP, set **Port** to *636*, then check the box for **SSL**.
 1. Select **OK** to connect to the managed domain.
 
 Next, bind to your Azure AD DS managed domain. Users (and service accounts) can't perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD DS instance. For more information on disabling NTLM password hash synchronization, see [Secure your Azure AD DS managed domain][secure-domain].
 
 1. Select the **Connection** menu option, then choose **Bind...**.
-1. Provide the credentials of a user account belonging to the *AAD DC Administrators* group, such as *contosoadmin*. Enter the user account's password, then enter your domain, such as *contoso.com*.
+1. Provide the credentials of a user account belonging to the *AAD DC Administrators* group, such as *contosoadmin*. Enter the user account's password, then enter your domain, such as *aaddscontoso.com*.
 1. For **Bind type**, choose the option for *Bind with credentials*.
 1. Select **OK** to bind to your Azure AD DS managed domain.
 
@@ -259,11 +256,11 @@ To see of the objects stored in your Azure AD DS managed domain:
 1. Select the **View** menu option, and then choose **Tree**.
 1. Leave the *BaseDN* field blank, then select **OK**.
 1. Choose a container, such as *AADDC Users*, then right-select the container and choose **Search**.
-1. Leave the pre-populated fields set, then select **Run**. The results of the query are shown in the right-hand window.
+1. Leave the pre-populated fields set, then select **Run**. The results of the query are displayed in the right-hand window, as shown in the following example output:
 
     ![Search for objects in your Azure AD DS managed domain using LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
-To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=CONTOSO,DC=COM* or *OU=AADDC Computers,DC=CONTOSO,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics].
+To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* or *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics].
 
 ## Clean up resources
 
@@ -271,7 +268,7 @@ If you added a DNS entry to the local hosts file of your computer to test connec
 
 1. On your local machine, open *Notepad* as an administrator
 1. Browse to and open the file *C:\Windows\System32\drivers\etc*
-1. Delete the line for the record you added, such as `40.121.19.239    ldaps.contoso.com`
+1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## Next steps
 

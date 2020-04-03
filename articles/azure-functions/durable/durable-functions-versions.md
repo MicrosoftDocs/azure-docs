@@ -2,8 +2,6 @@
 title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
@@ -52,10 +50,14 @@ Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x
 Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
 
 * `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
-* `"tracking"` for tracking and logging configuration.
+* `"tracing"` for tracing and logging configuration.
 * `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
 
 See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
+
+#### Default taskhub name changes
+
+In version 1.x, if a task hub name was not specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default task hub name is now derived from the name of the function app. Because of this, if you have not specified a task hub name when upgrading to 2.x, your code will be operating with new task hub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your task hub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
 
 #### Public interface changes (.NET only)
 

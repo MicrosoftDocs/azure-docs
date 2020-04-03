@@ -19,7 +19,7 @@ This article helps you verify and troubleshoot ExpressRoute connectivity. Expres
 -  	Microsoft Datacenter
 
 > [!NOTE]
-> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly connect to Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
+> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), customers can directly connect to Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
 >
 
 
@@ -272,7 +272,7 @@ The following example shows the response of the command for a peering that does 
 ## Confirm the traffic flow
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
-	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+	Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
 
 A sample output of the command is:
 

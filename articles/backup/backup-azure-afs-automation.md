@@ -1,13 +1,13 @@
 ---
-title: Back up and restore Azure Files with PowerShell
-description: In this article, learn how to back up and restore Azure Files using the Azure Backup service and PowerShell. 
+title: Back up Azure Files with PowerShell
+description: In this article, learn how to back up Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: conceptual
 ms.date: 08/20/2019
 ---
 
-# Back up and restore Azure Files with PowerShell
+# Back up Azure Files with PowerShell
 
-This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
+This article describes how to use Azure PowerShell to back up an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
 
 This article explains how to:
 
@@ -17,13 +17,11 @@ This article explains how to:
 > * Create a Recovery Services vault.
 > * Configure backup for an Azure file share.
 > * Run a backup job.
-> * Restore a backed up Azure file share, or an individual file from a share.
-> * Monitor backup and restore jobs.
 
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the preview capabilities for [backing up Azure file shares](backup-azure-files.md).
+* Read about the preview capabilities for [backing up Azure file shares](backup-afs.md).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
@@ -41,6 +39,13 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 Set up PowerShell as follows:
 
 1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.0.0.
+
+> [!WARNING]
+> The minimum version of PS required for preview was 'Az 1.0.0'. Due to upcoming changes for GA, the minimum PS version required will be 'Az.RecoveryServices 2.6.0'. It is very important to upgrade all existing PS versions to this version. Otherwise, the existing scripts will break after GA. Install the minimum version with the following PS commands
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 
@@ -238,19 +243,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## Important notice - Backup item identification for AFS backups
+
+This section outlines an important change in AFS backup in preparation for GA.
+
+While enabling the backup for AFS, user supplies the customer friendly File share name as the entity name and a backup item is created. The backup item's 'name' is a unique identifier created by Azure Backup service. Usually the identifier involves user friendly name. But to handle the important scenario of soft-delete, where a file share can be deleted and another file-share can be created with the same name, the unique identity of Azure file share will now be an ID instead of customer friendly name. In order to know the unique identity/name of each item, just run the ```Get-AzRecoveryServicesBackupItem``` command with the relevant filters for backupManagementType and WorkloadType to get all the relevant items and then observe the name field in the returned PS object/response. It is always recommended to list items and then retrieve their unique name from 'name' field in response. Use this value to filter the items with the 'Name' parameter. Otherwise use the FriendlyName parameter to retrieve the item with it's customer friendly name/identifier.
+
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. With this version, the 'friendlyName' filter is available for ```Get-AzRecoveryServicesBackupItem``` command. Pass the Azure File Share name to friendlyName parameter. If you pass the Azure File Share name to the 'Name' parameter, this version throws a warning to pass this friendly name to the friendly name parameter. Not installing this minimum version might result in failure of existing scripts. Install the minimum version of PS with the following command.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## Trigger an on-demand backup
 
 Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) to run an on-demand backup for a protected Azure file share.
 
-1. Retrieve the storage account and file share from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Retrieve the storage account from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. To start a backup job, you obtain information about the Azure file share with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Run the on-demand backup as follows:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -268,150 +286,11 @@ Azure file share snapshots are used while the backups are taken, so usually the 
 
 On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
 
-If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
+If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
 
-### Modify the protection policy
-
-To change the policy used for backing up the Azure file share, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Specify the relevant backup item and the new backup policy.
-
-The following example changes the **testAzureFS** protection policy from **dailyafs** to **monthlyafs**.
-
-```powershell
-$monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
-$afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType AzureFiles -Name "testAzureFS"
-Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
-```
-
-## Restore Azure file shares and files
-
-You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
-
-### Fetch recovery points
-
-Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed-up item.
-
-In the following script:
-
-* The variable **$rp** is an array of recovery points for the selected backup item from the past seven days.
-* The array is sorted in reverse order of time with the latest recovery point at index **0**.
-* Use standard PowerShell array indexing to pick the recovery point.
-* In the example, **$rp[0]** selects the latest recovery point.
-
-```powershell
-$startDate = (Get-Date).AddDays(-7)
-$endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-
-$rp[0] | fl
-```
-
-The output is similar to the following.
-
-```powershell
-FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
-                       00Z
-RecoveryPointType    : FileSystemConsistent
-RecoveryPointTime    : 11/20/2018 12:31:05 AM
-RecoveryPointId      : 86593702401459
-ItemName             : testAzureFS
-Id                   : /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Micros                      oft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;teststorageRG;testStorageAcct/protectedItems/AzureFileShare;testAzureFS/recoveryPoints/86593702401462
-WorkloadType         : AzureFiles
-ContainerName        : storage;teststorageRG;testStorageAcct
-ContainerType        : AzureStorage
-BackupManagementType : AzureStorage
-```
-
-After the relevant recovery point is selected, you restore the file share or file to the original location, or to an alternate location.
-
-### Restore an Azure file share to an alternate location
-
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location:
-
-* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
-* **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
-
-Run the cmdlet with the parameters as follows:
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
-```
-
-The command returns a job with an ID to be tracked, as shown in the following example.
-
-```powershell
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
-```
-
-### Restore an Azure file to an alternate location
-
-Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
-
-* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
-* **SourceFilePath**: The absolute path of the file, to be restored within the file share, as a string. This path is the same path used in the **Get-AzStorageFile** PowerShell cmdlet.
-* **SourceFileType**: Whether a directory or a file is selected. Accepts **Directory** or **File**.
-* **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
-
-The additional parameters (SourceFilePath and SourceFileType) are related only to the individual file you want to restore.
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-This command returns a job with an ID to be tracked, as shown in the previous section.
-
-### Restore Azure file shares and files to the original location
-
-When you restore to an original location, you don't need to specify destination- and target-related parameters. Only **ResolveConflict** must be provided.
-
-#### Overwrite an Azure file share
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
-```
-
-#### Overwrite an Azure file
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-## Track backup and restore jobs
-
-On-demand backup and restore operations return a job along with an ID, as shown when you [ran an on-demand backup](#trigger-an-on-demand-backup). Use the [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet to track the job progress and details.
-
-```powershell
-$job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
-
- $job | fl
-
-
-IsCancellable        : False
-IsRetriable          : False
-ErrorDetails         : {Microsoft.Azure.Commands.RecoveryServices.Backup.Cmdlets.Models.AzureFileShareJobErrorInfo}
-ActivityId           : 00000000-5b71-4d73-9465-8a4a91f13a36
-JobId                : 00000000-6c46-496e-980a-3740ccb2ad75
-Operation            : Restore
-Status               : Failed
-WorkloadName         : testAFS
-StartTime            : 12/10/2018 9:56:38 AM
-EndTime              : 12/10/2018 11:03:03 AM
-Duration             : 01:06:24.4660027
-BackupManagementType : AzureStorage
-
-$job.ErrorDetails
-
- ErrorCode ErrorMessage                                          Recommendations
- --------- ------------                                          ---------------
-1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
-```
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups in your automation runbooks. You will have to replace the old 'AzureRM' module with 'Az' module. With this version, the 'friendlyName' filter is available for ```Get-AzRecoveryServicesBackupItem``` command. Pass the azure file share name to friendlyName parameter. If you pass the azure file share name to the 'Name' parameter, this version throws a warning to pass this friendly name to the friendly name parameter.
 
 ## Next steps
 
-[Learn about](backup-azure-files.md) backing up Azure Files in the Azure portal.
+[Learn about](backup-afs.md) backing up Azure Files in the Azure portal.

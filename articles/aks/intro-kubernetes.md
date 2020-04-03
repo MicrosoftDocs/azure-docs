@@ -2,12 +2,9 @@
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: mlearned
+
 ms.custom: mvc
 ---
 
@@ -20,6 +17,8 @@ You can create an AKS cluster in the Azure portal, with the Azure CLI, or templa
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or [with the Azure CLI][aks-cli].
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Access, security, and monitoring
 

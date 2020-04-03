@@ -1,6 +1,6 @@
 ---
 title: 'Overview: What is Azure Time Series Insights Preview? - Azure Time Series Insights | Microsoft Docs'
-description: Learn about key improvements in Azure Time Series Insights Preview.  
+description: Learn about changes, improvements, and features in Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/29/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
 ---
 

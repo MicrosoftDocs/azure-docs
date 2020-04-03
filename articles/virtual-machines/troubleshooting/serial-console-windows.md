@@ -26,7 +26,7 @@ Serial Console works in the same manner for VMs and virtual machine scale set in
 For serial console documentation for Linux, see [Azure Serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
+> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
 
 
 ## Prerequisites
@@ -57,7 +57,7 @@ Alternatively, to manually enable the serial console for Windows VMs/virtual mac
 
 1. Connect to your Windows virtual machine by using Remote Desktop
 1. From an administrative command prompt, run the following commands:
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on`, or `bcdedit /ems '{current}' on` if you are using PowerShell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Reboot the system for the SAC console to be enabled.
 
@@ -99,15 +99,15 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 
     ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.	Enter `cmd` to create a channel that has a CMD instance.
+1.    Enter `cmd` to create a channel that has a CMD instance.
 
-1.	Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
+1.    Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
 
-1.	Press **Enter**, and then enter sign-in credentials with administrative permissions.
+1.    Press **Enter**, and then enter sign-in credentials with administrative permissions.
 
-1.	After you've entered valid credentials, the CMD instance opens.
+1.    After you've entered valid credentials, the CMD instance opens.
 
-1.	To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
+1.    To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
 
     ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

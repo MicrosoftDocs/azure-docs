@@ -53,6 +53,11 @@ Not all operations are created equal. Here are the credit costs of each of the o
 | Data operations (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 credit per message |
 | Management operations (Create, Read, Update, Delete on Queues, Topics, Subscriptions, Filters) | 10 credits |
 
+> [!NOTE]
+> Please note that when sending to a Topic, each message is evaluated against filter(s) before being made available on the Subscription.
+> Each filter evaluation also counts against the credit limit (i.e. 1 credit per filter evaluation).
+>
+
 ### How will I know that I'm being throttled?
 
 When the client application requests are being throttled, the below server response will be received by your application and logged.

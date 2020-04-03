@@ -1,16 +1,17 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 09/09/2019
-ms.topic: conceptual
+ms.date: 02/26/2020
+ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
 
 Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
 compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
 run the **deployIfNotExists** effect or the tag **operations** of the assigned policy on your
-existing resources. This article shows the steps needed to understand and accomplish remediation
-with Azure Policy.
+existing resources, whether that assignment is to a management group, a subscription, a resource
+group, or an individual resource. This article shows the steps needed to understand and accomplish
+remediation with Azure Policy.
 
 ## How remediation security works
 
@@ -18,8 +19,9 @@ When Azure Policy runs the template in the **deployIfNotExists** policy definiti
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, this error is displayed
-during the assignment of the policy or an initiative. When using the portal, Azure Policy will
-automatically grant the managed identity the listed roles once assignment is started.
+during the assignment of the policy or an initiative. When using the portal, Azure Policy
+automatically grants the managed identity the listed roles once assignment starts. The _location_ of
+the managed identity doesn't impact it's operation with Azure Policy.
 
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
 
@@ -185,8 +187,8 @@ To create a **remediation task**, follow these steps:
    ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
-   policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks
-   progress.
+   policy compliance page opens to the **Remediation tasks** tab to show the state of the tasks
+   progress. Deployments created by the remediation task begin right away.
 
    ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
 
@@ -241,5 +243,5 @@ module.
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

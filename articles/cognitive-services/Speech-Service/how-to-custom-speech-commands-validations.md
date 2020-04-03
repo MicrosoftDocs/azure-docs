@@ -1,9 +1,9 @@
 ---
 title: 'How To: Add validations to Custom Command parameters (Preview)'
 titleSuffix: Azure Cognitive Services
-description: In this article, add validations to Custom Command parameters
+description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -38,10 +38,10 @@ To demonstrate validations, let's create a new Command allowing the user to set 
    | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
    | Name              | Temperature                                              | A descriptive name for your Command parameter                                                    |
    | Required          | true                                                     | Checkbox indicating whether a value for this parameter is required before completing the Command |
-   | Response template | "What temperature would you like?"                       | A prompt to ask for the value of this parameter when it isn't known                              |
+   | Response template | "- What temperature would you like?"                     | A prompt to ask for the value of this parameter when it isn't known                              |
    | Type              | Number                                                   | The type of parameter, such as Number, String, or Date Time                                      |
-   | Validation        | Min Value: 60, Max Value: 80                             | For Number parameters, the allowed range of values for the parameter                              |
-   | Response template | "Sorry, I can only set between 60 and 80 degrees"        | Prompt to ask for an updated value if the validation fails                                       |
+   | Validation        | Min Value: 60, Max Value: 80                             | For Number parameters, the allowed range of values for the parameter                             |
+   | Response template | "- Sorry, I can only set between 60 and 80 degrees"      | Prompt to ask for an updated value if the validation fails                                       |
 
 1. Add some sample sentences
 
@@ -54,11 +54,11 @@ To demonstrate validations, let's create a new Command allowing the user to set 
 
 1. Add a Completion rule to confirm result
 
-   | Setting    | Suggested value                                         | Description                                        |
-   | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-   | Rule Name  | Confirmation Message                                    | A name describing the purpose of the rule          |
-   | Conditions | Required Parameter - Temperature                        | Conditions that determine when the rule can run    |
-   | Actions    | SpeechResponse - "Ok, setting to {Temperature} degrees" | The action to take when the rule condition is true |
+   | Setting    | Suggested value                                           | Description                                        |
+   | ---------- | --------------------------------------------------------- | -------------------------------------------------- |
+   | Rule Name  | Confirmation Message                                      | A name describing the purpose of the rule          |
+   | Conditions | Required Parameter - Temperature                          | Conditions that determine when the rule can run    |
+   | Actions    | SpeechResponse - "- Ok, setting to {Temperature} degrees" | The action to take when the rule condition is true |
 
 > [!TIP]
 > This example uses a speech response to confirm the result. For examples on completing the Command with a client action see:
@@ -75,3 +75,8 @@ Select the Test panel and try a few interactions.
 - Output: "Sorry, I can only set between 60 and 80 degrees"
 - Input: make it 72 degrees instead
 - Output: "Ok, setting to 72 degrees"
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [How To: Add a confirmation to a Custom Command (Preview)](./how-to-custom-speech-commands-confirmations.md)

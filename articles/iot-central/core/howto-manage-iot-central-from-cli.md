@@ -1,12 +1,12 @@
 ---
 title: Manage IoT Central from Azure CLI | Microsoft Docs
-description: This article describes how to create and manage your IoT Central application using CLI. You can view, modify and remove the application using CLI.
+description: This article describes how to create and manage your IoT Central application using CLI. You can view, modify, and remove the application using CLI.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -24,6 +24,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI](/cli/azure/install-azure-cli). When you run Azure CLI locally, use the **az login** command to sign in to Azure before you try the commands in this article.
 
+> [!TIP]
+> If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+
+## Install the extension
+
+The commands in this article are part of the **azure-iot** CLI extension. Run the following command to install the extension:
+
+```azurecli-interactive
+az extension add --name azure-iot
+```
+
 ## Create an application
 
 Use the [az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) command to create an IoT Central application in your Azure subscription. For example:
@@ -39,7 +50,7 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku S1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-pnp-preview@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
@@ -48,23 +59,14 @@ These commands first create a resource group in the east US region for the appli
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **East US**, **West US**, **North Europe**, or **West Europe** regions, or in the **Australia** or **Asia Pacific** geographies. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
 | name              | The name of the application in the Azure portal. |
-| subdomain         | The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
-| sku               | Currently, the only value is **S1** (standard tier). See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
-| template          | The application template to use. For more information, see the following table: |
+| subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
+| sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+| template          | The application template to use. For more information, see the following table. |
 | display-name      | The name of the application as displayed in the UI. |
 
-**Application templates**
-
-| Template name            | Description |
-| ------------------------ | ----------- |
-| iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices. |
-| iotc-demo@1.0.0          | Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
-
-> [!NOTE]
-> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## View your applications
 

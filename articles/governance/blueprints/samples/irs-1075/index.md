@@ -1,5 +1,5 @@
 ---
-title: IRS 1075 blueprint sample - Overview
+title: IRS 1075 blueprint sample overview
 description: Overview of the IRS 1075 blueprint sample. This blueprint sample helps customers assess specific IRS 1075 controls.
 ms.date: 11/19/2019
 ms.topic: sample
@@ -25,6 +25,7 @@ following articles to learn about the control mapping and how to deploy this sam
 
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Control mapping](./control-mapping.md)
+> [IRS 1075 blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

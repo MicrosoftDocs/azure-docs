@@ -25,6 +25,7 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
   > [!NOTE]
   > - When going through this tutorial, ensure you are configuring your resources with the [prerequisites for setting up failover groups for managed instance](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Managed instances participating in a failover group require either [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or two connected VPN gateways. This tutorial provides steps for creating and connecting the VPN gateways. Skip these steps if you already have ExpressRoute configured. 
 
 
 ## Prerequisites
@@ -722,7 +723,9 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 ---
 
 ## 4 - Create primary gateway 
-For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal. 
+For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#7---create-a-failover-group).  
+
+This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
 
 # [Portal](#tab/azure-portal)
@@ -747,7 +750,7 @@ Create the gateway for the virtual network of your primary managed instance usin
     | --- | --- |
     | **Subscription** |  The subscription where your primary managed instance is. |
     | **Name** | The name for your virtual network gateway, such as `primary-mi-gateway`. | 
-    | **Region** | The region where your secondary managed instance is. |
+    | **Region** | The region where your primary managed instance is. |
     | **Gateway type** | Select **VPN**. |
     | **VPN Type** | Select **Route-based** |
     | **SKU**| Leave default of `VpnGw1`. |
@@ -1005,7 +1008,7 @@ In this step, you will fail your failover group over to the secondary server, an
 Test failover using the Azure portal. 
 
 
-1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
+1. Navigate to your _secondary_ managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected. 
 
@@ -1015,7 +1018,7 @@ Test failover using the Azure portal.
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Select **Failover** once again to fail the primary instance back to the primary role. 
+1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role. 
 
 
 # [PowerShell](#tab/azure-powershell)
@@ -1069,7 +1072,7 @@ Clean up resources by first deleting the managed instance, then the virtual clus
 
 # [Portal](#tab/azure-portal)
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
-1. Select the managed instance and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it"s done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
+1. Select the managed instance(s) and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it's done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
 1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 

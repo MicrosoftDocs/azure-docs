@@ -11,11 +11,16 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 07/02/2019
+ms.date: 03/09/2020
 ---
 # Azure SQL Connectivity Architecture
+> [!NOTE]
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
-This article explains the Azure SQL Database and SQL Data Warehouse connectivity architecture as well as how the different components function to direct traffic to your instance of Azure SQL. These connectivity components function to direct network traffic to the Azure SQL Database or SQL Data Warehouse with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
+> [!IMPORTANT]
+> This article does *not* apply to **Azure SQL Database Managed Instance**. Refer to [Connectivity architecture for a managed instance](sql-database-managed-instance-connectivity-architecture.md).
+
+This article explains architecture of various components that direct network traffic to the Azure SQL Database or SQL Data Warehouse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure. 
 
 ## Connectivity architecture
 
@@ -33,9 +38,15 @@ The following steps describe how a connection is established to an Azure SQL dat
 
 Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
-- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags) for ports 11000-11999, not just the Azure SQL Database gateway IP addresses on port 1433. Because packets go directly to the database, latency and throughput have improved performance.
-- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.
-- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The effective policy depends on whether connections originate from within Azure (`Redirect`) or outside of Azure (`Proxy`).
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput. For connections to use this mode, clients need to:
+   - Allow outbound communication from the client to all Azure IP addresses in the region on ports in the range of 11000 11999. Use the Service Tags for SQL to make this easier to manage.  
+   - Allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+
+- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways,leading to increased latency and reduced throughput. For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+
+- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and `Proxy`for all client connections originating outside (for example, connections from your local workstation).
+
+ We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## Connectivity from within Azure
 
@@ -48,6 +59,10 @@ If you are connecting from within Azure your connections have a connection polic
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+
+> [!IMPORTANT]
+> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
 
 ## Azure SQL Database gateway IP addresses
 
@@ -85,6 +100,8 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Korea South          | 52.231.200.86      |
 | North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Norway East          | 51.120.96.0        |
+| Norway West          | 51.120.216.0       |
 | South Africa North   | 102.133.152.0      |
 | South Africa West    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
@@ -99,78 +116,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | West US 2            | 13.66.226.202      |
 |                      |                    |
 
-## Change Azure SQL Database connection policy
 
-To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) command.
-
-- If your connection policy is set to `Proxy`, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of `Proxy` has more latency than a setting of `Redirect`.
-- If your connection policy is setting `Redirect`, all network packets flow directly to the database cluster. For this setting, you need to allow outbound to multiple IPs.
-
-## Script to change connection settings via PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
-
-The following PowerShell script shows how to change the connection policy.
-
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
-
-# Set URI
-$id="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
-
-# Update connection policy
-Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
-```
-
-## Script to change connection settings via Azure CLI
-
-> [!IMPORTANT]
-> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### Azure CLI in a bash shell
-
-> [!IMPORTANT]
-> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-The following CLI script shows how to change the connection policy in a bash shell.
-
-```azurecli-interactive
-# Get SQL Server ID
-sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
-
-# Set URI
-ids="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-az resource show --ids $ids
-
-# Update connection policy
-az resource update --ids $ids --set properties.connectionType=Proxy
-```
-
-### Azure CLI from a Windows command prompt
-
-> [!IMPORTANT]
-> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
-
-```azurecli
-# Get SQL Server ID and set URI
-FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
-
-# Get current connection policy
-az resource show --ids %sqlserverid%
-
-# Update connection policy
-az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
-```
 
 ## Next steps
 

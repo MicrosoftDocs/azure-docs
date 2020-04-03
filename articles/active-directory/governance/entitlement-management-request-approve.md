@@ -1,5 +1,5 @@
 ---
-title: Approve or deny access requests in Azure AD entitlement management - Azure Active Directory
+title: Approve or deny access requests - Azure AD entitlement management
 description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -41,7 +41,7 @@ The first step to approve or deny access requests is to find and open the access
 
 If you don't have the email, you can find the access requests pending your approval by following these steps.
 
-1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (For US Government, the domain in the My Access portal link will be `myaccess.microsoft.us`.)
 
 1. In the left menu, click **Approvals** to see a list of access requests pending approval.
 

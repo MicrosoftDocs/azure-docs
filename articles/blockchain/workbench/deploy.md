@@ -1,16 +1,10 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-#customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
+#Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
 # Deploy Azure Blockchain Workbench Preview
 
@@ -136,7 +130,7 @@ Once the deployment of the Blockchain Workbench has completed, a new resource gr
 
     ![App service essentials](media/deploy/app-service.png)
 
-To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../../app-service/configure-domain-traffic-manager.md).
 
 ## Azure AD configuration script
 
@@ -148,7 +142,7 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
     ![Launch AAD script](media/deploy/launch-aad-script.png)
 
 1. Choose the Azure AD tenant where you deployed Blockchain Workbench.
-1. In Cloud Shell, paste and run the command.
+1. In Cloud Shell PowerShell environment, paste and run the command.
 1. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench.
 
     > [!IMPORTANT]
@@ -168,13 +162,15 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 
 1. After consent, the Blockchain Workbench web app can be used.
 
+You have completed your Azure Blockchain Workbench deployment. See [Next steps](#next-steps) for suggestions to get started using your deployment.
+
 ## Azure AD configuration
 
 If you choose to manually configure or verify Azure AD settings prior to deployment, complete all steps in this section. If you prefer to automatically configure Azure AD settings, use [Azure AD configuration script](#azure-ad-configuration-script) after you deploy Blockchain Workbench.
 
 ### Blockchain Workbench API app registration
 
-Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications, grant Graph API permissions, and allow guest access within an Azure AD tenant. If you do not have sufficient permissions in an existing Azure AD tenant create a new tenant.
+Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications, grant Graph API permissions, and allow guest access within an Azure AD tenant. If you do not have sufficient permissions in an existing Azure AD tenant, create a new tenant.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -194,7 +190,7 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 Next, you need to modify the manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. You need to generate a GUID for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Another option is to use a GUID generator website.
+1. A GUID is required for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Another option is to use a GUID generator website.
 1. For the application you registered, select **Manifest** in the **Manage** section.
 1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
 
@@ -232,8 +228,15 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
 1. In the *Blockchain API* app registration, select **API permissions**. By default, the Graph API **User.Read** permission is added.
+1. The Workbench application requires read access to users' basic profile information. In *Configured permissions*, select **Add a permission**. In **Microsoft APIs**, select **Microsoft Graph**.
+1. Since the Workbench application uses the authenticated user credentials, select **Delegated permissions**.
+1. In the *User* category, choose **User.ReadBasic.All** permission.
 
-1. In **Grant consent**, select **Grant admin consent** for the domain then select **Yes** for the verification prompt.
+    ![Azure AD app registration configuration showing adding the Microsoft Graph User.ReadBasic.All delegated permission](media/deploy/add-graph-user-permission.png)
+
+    Select **Add permissions**.
+
+1. In *Configured permissions*, select **Grant admin consent** for the domain then select **Yes** for the verification prompt.
 
    ![Grant permissions](media/deploy/client-app-grant-permissions.png)
 

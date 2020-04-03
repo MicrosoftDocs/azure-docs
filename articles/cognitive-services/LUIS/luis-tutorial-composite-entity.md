@@ -1,30 +1,20 @@
 ---
 title: "Tutorial: Composite entity tutorial - LUIS"
-titleSuffix: Azure Cognitive Services
-description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 ms.topic: tutorial
-ms.date: 10/14/2019
-ms.author: diberry
+ms.date: 03/31/2020
 ---
 
 # Tutorial: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. 
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created.
 
 The composite entity is a good fit for this type of data because the data:
 
-* Are related to each other. 
+* Are related to each other.
 * Use a variety of entity types.
 * Need to be grouped and processed by client app as a unit of information.
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -32,7 +22,7 @@ The composite entity is a good fit for this type of data because the data:
 > [!div class="checklist"]
 > * Import example app
 > * Create intent
-> * Add composite entity 
+> * Add composite entity
 > * Train
 > * Publish
 > * Get intents and entities from endpoint
@@ -41,17 +31,18 @@ The composite entity is a good fit for this type of data because the data:
 
 ## Import example app
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) from the List entity tutorial.
+1.  Download and save the [app JSON file](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) from the List entity tutorial.
 
-2. Import the JSON into a new app.
+2. Import the JSON into a new app using the [LUIS portal](https://www.luis.ai).
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Composite entity
 
-In this app, the department name is defined in the **Department** list entity and includes synonyms. 
+In this app, the department name is defined in the **Department** list entity and includes synonyms.
 
-The **TransferEmployeeToDepartment** intent has example utterances to request an employee be moved to a new department. 
+The **TransferEmployeeToDepartment** intent has example utterances to request an employee be moved to a new department.
 
 Example utterances for this intent include:
 
@@ -59,12 +50,12 @@ Example utterances for this intent include:
 |--|
 |move John W. Smith to the accounting department|
 |transfer Jill Jones from to R&D|
- 
-The move request should include the department name, and the employee name. 
+
+The move request should include the department name, and the employee name.
 
 ## Add the PersonName prebuilt entity to help with common data type extraction
 
-LUIS provides several prebuilt entities for common data extraction. 
+LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **Build** from the top navigation, then select **Entities** from the left navigation menu.
 
@@ -82,11 +73,11 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **TransferEmployeeToDepartment** from the intents list.
 
-1. In the utterance `place John Jackson in engineering`, select the personName entity, `John Jackson`, then select **Wrap in composite entity** in the pop-up menu list for the following utterance. 
+1. In the utterance `place John Jackson in engineering`, select the personName entity, `John Jackson`, then select **Wrap in composite entity** in the pop-up menu list for the following utterance.
 
     ![Screenshot of selecting wrap composite in drop down dialog](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. Then immediately select the last entity, `engineering` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 
+1. Then immediately select the last entity, `engineering` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter.
 
     ![Screenshot of entering composite name in drop down dialog](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
@@ -98,23 +89,23 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
-1. Select the last word in the composite entity then select **TransferEmployeeInfo** from the pop-up menu. 
+1. Select the last word in the composite entity then select **TransferEmployeeInfo** from the pop-up menu.
 
-1. Verify all utterances in the intent are labeled with the composite entity. 
+1. Verify all utterances in the intent are labeled with the composite entity.
 
-## Train the app so the changes to the intent can be tested 
+## Train the app so the changes to the intent can be tested
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
 
-## Publish the app so the trained model is queryable from the endpoint
+## Publish the app to access it from the HTTP endpoint
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## Get intent and entity prediction from endpoint 
+## Get intent and entity prediction from endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Move Jill Jones to DevOps`. The last querystring parameter is `q`, the utterance query. 
+2. Go to the end of the URL in the address and enter `Move Jill Jones to DevOps`. The last querystring parameter is `q`, the utterance query.
 
     Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
@@ -180,11 +171,9 @@ LUIS provides several prebuilt entities for common data extraction.
     }
     ```
 
-   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
+   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 
@@ -197,7 +186,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 ## Next steps
 
-This tutorial created a composite entity to encapsulate existing entities. This allows the client application to find a group of related data in different datatypes to continue the conversation. A client application for this Human Resources app could ask what day and time the move needs to begin and end. It could also ask about other logistics of the move such as a physical phone. 
+This tutorial created a composite entity to encapsulate existing entities. This allows the client application to find a group of related data in different datatypes to continue the conversation. A client application for this Human Resources app could ask what day and time the move needs to begin and end. It could also ask about other logistics of the move such as a physical phone.
 
-> [!div class="nextstepaction"] 
-> [Learn how to add a simple entity with a phrase list](luis-quickstart-primary-and-secondary-data.md)  
+> [!div class="nextstepaction"]
+> [Fix unsure predictions by reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)

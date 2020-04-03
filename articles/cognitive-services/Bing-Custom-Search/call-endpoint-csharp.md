@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/15/2019
-ms.author: maheshb
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using C# 
@@ -74,7 +74,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. `url` can be the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +

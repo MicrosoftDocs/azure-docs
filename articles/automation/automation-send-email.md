@@ -2,13 +2,9 @@
 title: Send an email from an Azure Automation runbook
 description: Learn how to use SendGrid to send an email from within a runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 07/15/2019
 ms.topic: tutorial
-manager: carmonm
 ---
 # Tutorial: Send an email from an Azure Automation runbook
 
@@ -156,7 +152,7 @@ it for different scenarios.
 
 7. Select **Publish** to save and publish the runbook.
 
-To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#test-a-runbook) or [Start a runbook](start-runbooks.md).
+To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#testing-a-runbook) or [Start a runbook](start-runbooks.md).
 If you do not initially see your test email, check your **Junk** and **Spam** folders.
 
 ## Clean Up

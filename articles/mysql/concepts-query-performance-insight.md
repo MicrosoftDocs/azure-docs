@@ -1,11 +1,11 @@
 ---
-title: Query Performance Insight in Azure Database for MySQL
+title: Query Performance Insight - Azure Database for MySQL
 description: This article describes the Query Performance Insight feature in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 3/18/2020
 ---
 # Query Performance Insight in Azure Database for MySQL
 

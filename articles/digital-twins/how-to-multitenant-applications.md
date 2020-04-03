@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 01/17/2020
 ---
 
 # Enable multitenant applications with Azure Digital Twins
@@ -49,7 +49,7 @@ To solve the previous problem scenario, the following actions are needed to crea
 
 - On the [Azure portal](https://portal.azure.com), **CUSTOMER**'s Azure Active Directory tenant admin takes the following steps:
 
-  1. Open **Subscriptions**.
+  1. Search for **Subscriptions** in the top Azure search field. Select **Subscriptions**.
   1. Select the subscription that has the Azure Active Directory tenant to be used in **DEVELOPER**'s application.
 
      [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)

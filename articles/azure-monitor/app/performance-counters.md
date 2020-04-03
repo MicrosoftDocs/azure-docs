@@ -1,11 +1,7 @@
 ---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/13/2018
 
 ---
@@ -135,7 +131,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 ## Performance counters for applications running in Azure Web Apps
 
-Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
 ## Performance counters in ASP.NET Core applications
 

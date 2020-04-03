@@ -1,18 +1,19 @@
 ---
-title: 'Transform data using Azure Data Factory '
+title: Transform data
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 07/31/2018
 ---
+
 # Transform data in Azure Data Factory
+
 > [!div class="op_single_selector"]
 > * [Mapping data flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
@@ -90,7 +91,7 @@ The Azure Databricks Python Activity in a Data Factory pipeline runs a Python fi
 ### Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ### Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 

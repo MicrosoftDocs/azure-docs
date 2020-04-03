@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
@@ -20,8 +21,8 @@ Azure Key Vault helps solve the following problems:
 
 - **Secrets Management** - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
 - **Key Management** - Azure Key Vault can also be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data. 
-- **Certificate Management** - Azure Key Vault is also a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with Azure and your internal connected resources. 
-- **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validates HSMs
+- **Certificate Management** - Azure Key Vault is also a service that lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources. 
+- **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validated HSMs
 
 ## Why use Azure Key Vault?
 
@@ -55,9 +56,9 @@ You have control over your logs and you may secure them by restricting access an
 
 ### Simplified administration of application secrets
 
-When storing valuable data, you must take several steps. Security information must be secured, it must follow a life cycle, it must be highly available. Azure Key Vault simplifies the process of meeting these requirements by:
+When storing valuable data, you must take several steps. Security information must be secured, it must follow a life cycle, and it must be highly available. Azure Key Vault simplifies the process of meeting these requirements by:
 
-- Removing the need for in-house knowledge of Hardware Security Modules
+- Removing the need for in-house knowledge of Hardware Security Modules.
 - Scaling up on short notice to meet your organization’s usage spikes.
 - Replicating the contents of your Key Vault within a region and to a secondary region. Data replication ensures high availability and takes away the need of any action from the administrator to trigger the failover.
 - Providing standard Azure administration options via the portal, Azure CLI and PowerShell.

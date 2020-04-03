@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in C#
+title: Quickstart - Send a query to the API in C# using Bing Local Business Search
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "restaurant in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -55,7 +55,7 @@ The Bing Local Business Search API returns localized search results from the Bin
 3. Replace the accessKey value with an access key valid for your subscription.
 4. Run the program.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

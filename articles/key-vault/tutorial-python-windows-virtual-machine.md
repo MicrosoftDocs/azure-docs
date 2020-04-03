@@ -6,6 +6,7 @@ author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
@@ -31,13 +32,13 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## About Managed Service Identity
 
@@ -113,7 +114,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -133,7 +134,7 @@ To log on to the virtual machine, follow the instructions in [Connect and log on
 
 ## Create and run a sample Python app
 
-In the next section is an example file named *Sample.py*. It uses a [requests](http://docs.python-requests.org/en/master/) library to make HTTP GET calls.
+In the next section is an example file named *Sample.py*. It uses a [requests](https://2.python-requests.org/en/master/) library to make HTTP GET calls.
 
 ## Edit Sample.py
 
@@ -144,7 +145,7 @@ The code presents a two-step process:
   Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
 
-```
+```python
     # importing the requests library 
     import requests 
 
@@ -166,7 +167,7 @@ The code presents a two-step process:
 
 You can display the secret value by running the following code: 
 
-```
+```console
 python Sample.py
 ```
 

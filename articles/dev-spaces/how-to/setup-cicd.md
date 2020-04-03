@@ -1,14 +1,12 @@
 ---
 title: "Using CI/CD with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"
 ms.topic: "conceptual"
 manager: gwallace
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to set up continuous integration/continuous deployment using Azure DevOps with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 

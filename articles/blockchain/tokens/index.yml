@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Blockchain Tokens Documentation
+title: Azure Blockchain Tokens documentation
 summary: Learn how to create, issue, and manage blockchain tokens.
 
 metadata:
-  title: Azure Blockchain Tokens Documentation - Tutorials, API Reference
+  title: Azure Blockchain Tokens documentation
   description: Learn how to issue and manage blockchain tokens. Tutorials, API references, and other documentation show you how to use Azure Blockchain Tokens to create and manage blockchain tokens on Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
