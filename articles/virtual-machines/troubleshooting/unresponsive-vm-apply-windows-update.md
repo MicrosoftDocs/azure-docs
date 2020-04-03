@@ -24,7 +24,7 @@ This article provides steps to resolve issues where Windows Update (KB) generate
 
 When using [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the Windows Update (KB) in progress is displayed, but fails with error code: 'C01A001D'.
 
-![unresponsive Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive_windows_update.png)
+![unresponsive Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
 ## Cause
 
