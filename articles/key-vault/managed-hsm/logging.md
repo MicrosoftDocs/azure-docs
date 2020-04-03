@@ -13,7 +13,7 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
-# Managed HSM logging
+# Managed HSM logging  (MAKE THIS CLI NOT PS)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
