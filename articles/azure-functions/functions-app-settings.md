@@ -27,7 +27,7 @@ The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECT
 
 |Key|Sample value|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=55555555-af77-484b-9032-64f83bb83bb;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
