@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript in a browser"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser to create a container and a blob in Blob (object) storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
+description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 03/25/2020
+ms.date: 04/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -36,7 +36,7 @@ In this quickstart, you learn to manage blobs by using JavaScript in a browser. 
 
 Before your web application can access a blob storage from the client, you must configure your account to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
 
-Return to the Azure portal and select your storage account. To define a new CORS rule, navigate to the **Settings** section and click on the **CORS** link. Next, click the **Add** button to open the **Add CORS rule** window. For this quickstart, you create an open CORS rule:
+Return to the Azure portal and select your storage account. To define a new CORS rule, navigate to the **Settings** section and click on the **CORS** link. For this quickstart, you create an open CORS rule:
 
 ![Azure Blob Storage Account CORS settings](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -50,18 +50,16 @@ The following table describes each CORS setting and explains the values used to 
 | Exposed headers | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header.  |
 | Max age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
+After you fill in the fields with the values from this table, click the **Save** button.
+
 > [!IMPORTANT]
 > Ensure any settings you use in production expose the minimum amount of access necessary to your storage account to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
-
-Next, you use the Azure cloud shell to create a security token.
-
-[!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a shared access signature
 
 The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
-You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure portal or Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
+You can create a SAS using the Azure CLI, the Azure portal, or Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -89,18 +87,18 @@ You may find the series of values after each parameter a bit cryptic. These para
 | *resource-types* | sco     | The resources affected by the SAS are *service*, *container*, and *object*. |
 | *services*       | b       | The service affected by the SAS is the *blob* service. |
 
-Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
+Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you'll need to remove the initial `?` if it's present. This character is a URL separator that is already provided where the SAS is used.
 
 > [!IMPORTANT]
 > In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
-In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code debug the page. Before you can launch, you'll need to use Node.js to start a local web server to serve the page to your browser. Next, you'll add JavaScript code to call various blob storage APIs and display results. You can also see the results of these calls in the [Azure portal](https://portal.azure.com).
 
 ### Set up the web application
 
-First, create a new folder called *Azure-Blobs-JavaScript* and open it in VS Code. Then create a new file in VS Code, add the following HTML, and save it as *index.html* in the *Azure-Blobs-JavaScript* folder.
+First, create a new folder called *azure-blobs-javaScript* and open it in VS Code. Then create a new file in VS Code, add the following HTML, and save it as *index.html* in the *azure-blobs-javaScript* folder.
 
 ```html
 <!DOCTYPE html>
@@ -178,11 +176,11 @@ Follow the process in [Bundling Azure SDK libraries for a browser](https://githu
 <script src="./dist/main.js"></script>
 ```
 
-Each time you make an update to the JavaScript code, run the command to recreate the bundle. This will incorporate your updates. See the [Run and test the web application](#run-and-test-the-web-application) section for more information.
+Each time you make an update to the JavaScript code, run the command to recreate the bundle. This command will incorporate your updates. For more information, see the [Run and test the web application](#run-and-test-the-web-application) section.
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 * The storage account
 * A container in the storage account
@@ -200,7 +198,7 @@ Use the following JavaScript classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for JavaScript:
+These example code snippets show you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
 
 * [Add the initial JavaScript code](#add-the-initial-javascript-code)
 * [Add your storage account info](#add-your-storage-account-info)
@@ -259,8 +257,6 @@ const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.cor
 // Get a container client from the BlobServiceClient
 const containerClient = blobServiceClient.getContainerClient(containerName);
 ```
-
-This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance, which is useful for creating and manipulating a storage container.
 
 ### Create and delete a storage container
 
@@ -351,7 +347,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise. Each Promise is added to a list so that they can all be awaited together, causing the files to upload in parallel.
 
 ### Delete blobs
 
@@ -402,7 +398,7 @@ rollup --config
 parcel index.html
 ```
 
-At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur (for example, when you try to list files before you've created the container), the **Status** pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
+At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur, the **Status** pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
 
 ## Clean up resources
 
