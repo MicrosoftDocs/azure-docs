@@ -25,11 +25,13 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Troubleshooting Azure Monitor alerts and notifications](platform/alerts-troubleshoot.md) - New article
 
 ### Application Insights
-- [Continuous export of telemetry from Application Insights](app/export-telemetry.md) - Add table with details of export structure.
-- [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added standard metrics.
 - [Automate Azure Application Insights with PowerShell](app/powershell.md) - Added ARMClient examples.
-- [Manage usage and costs for Azure Application Insights](app/pricing.md) - Added information on data cap alert.
+- [Continuous export of telemetry from Application Insights](app/export-telemetry.md) - Add table with details of export structure.
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](app/snapshot-debugger-appservice.md) - Added Resource Manager template example.
+- [Manage usage and costs for Azure Application Insights](app/pricing.md) - Added information on data cap alert.
+- [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added standard metrics.
+- [Source map support for JavaScript applications - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - New article.
+
 
 ### Containers
 - [Azure Monitor FAQ](faq.md) - Update for Azure Monitor for containers.
@@ -44,6 +46,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Updated for new Azure Monitor connector.
 
 ### Metrics
+- [Disk metrics deprecation in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - New article.
 - [Tutorial - Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - Added video.
 
 ### Platform logs
