@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/03/2020
 ---
 
 # Prepare your IoT Edge module technical assets
@@ -16,7 +16,7 @@ ms.date: 03/26/2020
 
 This article describes the requirements that your Internet of Things (IoT) Edge module technical assets must meet before being published in Azure Marketplace.
 
-## Understanding IoT Edge modules and getting started
+## Get started
 
 An IoT Edge module is a Docker-compatible container that runs on an IoT Edge device.
 
@@ -46,7 +46,7 @@ Your module must support a subset (at least one) of Tier 1 platforms supported b
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool) if more than one platform is supported. Manifest tags are optional only when one platform is supported.
 - Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/).
 
-:::image type="content" source="media/IoTEdgeModuleTechnicalAssets-Offer-Listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
+:::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="This is an image of the Offer Listing section within Partner Center":::
 
 ### Device dimensions
 
@@ -135,7 +135,7 @@ Partners must update and recertify their offers by re-publishing them in [Partne
 
 Your offer will also be recertified if you update it, such as adding new image tags.
 
-## Host your IoT Edge module in an Azure Container Registry
+## Host module in Azure Container Registry
 
 To upload your IoT Edge module to Azure Marketplace, you first need to host it in an [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). The module must include all the tags that you want to publish, including the image tags that are referenced by a manifest tag. For more information, see the tutorial [Create an Azure container registry and push a container image](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr).
 

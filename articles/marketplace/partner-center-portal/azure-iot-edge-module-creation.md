@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/03/2020
 ---
 
 # Create an IoT Edge module offer
@@ -70,7 +70,8 @@ When publishing your offer to the marketplace with Partner Center, you can optio
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
     - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-    **Note**: If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+    > [!NOTE]
+    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -111,7 +112,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
 
-![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](./media/iot-edge-module-creation/AzureIoTEgeModuleCreation-StandardContractCheckbox.png)
+![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
 
 ##### Your own terms and conditions
 
@@ -243,19 +244,19 @@ The following examples show how the offer listing fields appear in different pla
 
 This screenshot shows the **Offer listing** page in Azure Marketplace.
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-OfferListingPage.png" alt-text="Illustrates the Offer listing page in Azure Marketplace.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Illustrates the Offer listing page in Azure Marketplace.":::
 
 This screenshot shows the search results in Azure Marketplace:
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzureMarketplaceSearchResults.png" alt-text="Illustrates the search results in Azure Marketplace.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Illustrates the search results in Azure Marketplace.":::
 
 This screenshot shows the **Offer listing** page in the Azure portal.
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-OfferListingPageAzurePortal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
 
 This screenshot shows search results in the Azure portal.
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzurePortalSearchResults.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
 
 Select **Save draft** before proceeding to the next section, Preview.
 
@@ -316,11 +317,12 @@ This tab lets you configure which clouds the plan is available in. Your answers 
 
 Your plan must be available in at least one cloud using Azure IoT Hub.
 
-Select the **Azure Global** option so your plan can be used by customers in all public Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://aka.ms/AzureGovCurrencies).
+Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://aka.ms/AzureGovCurrencies).
 
 Select the [Azure Government Cloud](https://aka.ms/WhatIsAzureGovernment) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://aka.ms/azuregovpublish) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://aka.ms/AzureGovernmentTrial).
 
-**Note**: After your plan is published and available in a specific cloud, you can't remove that cloud.
+> [!NOTE]
+> After your plan is published and available in a specific cloud, you can't remove that cloud.
 
 #### Azure Government Cloud certifications
 
@@ -352,11 +354,11 @@ The following examples show how the plan listing fields appear in different view
 
 These are the fields in Azure Marketplace when viewing plan details:
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzureMarketplacePlanDetails.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
 
 These are plan details on the Azure portal:
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzurePortalPlanDetails.png" alt-text="Illustrates plan details on the Azure portal.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Illustrates plan details on the Azure portal.":::
 
 ## Availability
 
@@ -391,11 +393,11 @@ You'll provide the following information on the **Image repository details** tab
 
 **Admin username for the Azure Container Registry**: Provide the [admin username](https://aka.ms/AdminAccountContainerRegistry) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AdminUser.png" alt-text="Illustrates the Update container registry dialog box.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustrates the Update container registry dialog box.":::
 
 **Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://aka.ms/azacrcredentialshow)
 
-:::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-UsernamePassword.png" alt-text="Illustrates the access key screen in Azure Portal.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustrates the access key screen in Azure portal.":::
 
 **Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://aka.ms/ContainerRegistry) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://aka.ms/ContainerRegistryRepositoriesAzure). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
 
