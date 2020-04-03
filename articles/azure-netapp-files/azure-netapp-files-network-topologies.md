@@ -34,10 +34,11 @@ The features below are currently unsupported for Azure NetApp Files:
 * User-defined routes (UDRs) with address prefix as Azure NetApp files subnet
 * Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Load balancers for Azure NetApp Files traffic
+* Active/Active Gateways in Site to Site VPNs in Hub/Spoke topologies
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. In the interim, if you require for more IPs, reach out to our support team with your use case and required limit.
+* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
