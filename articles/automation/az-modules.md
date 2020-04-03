@@ -9,24 +9,31 @@ ms.topic: conceptual
 
 # Az module support in Azure Automation
 
-Azure Automation supports the use of [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your runbooks. The rollup Az module is not imported automatically in any new or existing Automation accounts. 
+Azure Automation supports the use of the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your runbooks. The rollup Az module is not imported automatically in any new or existing Automation accounts. 
 
 ## Considerations
 
-There are many things to take into consideration when using the rollup Az module in Azure Automation. Runbooks and modules can be used by higher-level solutions in your Automation account. Editing runbooks or upgrading modules can potentially cause issues with your runbooks. You should test all runbooks and solutions carefully in a separate Automation account before importing new Az modules. Any modifications to modules can negatively affect the [Start/Stop](automation-solution-vm-management.md) solution. We don't recommend altering modules and runbooks in Automation accounts that contain any solutions. This behavior isn't specific to the Az modules. It should be taken into consideration when introducing any changes to your Automation account.
+There are several things to take into consideration when using the Az modules in Azure Automation:
 
-Importing an Az module in your Automation account doesn't automatically import the module in the PowerShell session that the runbooks use. Modules are imported into the PowerShell session in the following situations:
+* Higher-level solutions in your Automation account can use runbooks and modules. Therefore, editing runbooks or upgrading modules can potentially cause issues with your solutions. You should test all runbooks and solutions carefully in a separate Automation account before importing new Az modules. 
 
-* When a runbook invokes a cmdlet from a module
-* When a runbook imports the module explicitly with the `Import-Module` cmdlet
-* When a runbook imports another module depending on the module
+* Any modifications to modules can negatively affect the [Start/Stop](automation-solution-vm-management.md) solution. 
+
+* Importing an Az module in your Automation account doesn't automatically import the module in the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
+
+    * When a runbook invokes a cmdlet from a module
+    * When a runbook imports the module explicitly with the `Import-Module` cmdlet
+    * When a runbook imports another module depending on the module
+
+> [!NOTE]
+> We don't recommend altering modules and runbooks in Automation accounts that contain any solutions. This provision isn't specific to the Az modules. It should be taken into consideration when introducing any changes to your Automation account.
 
 > [!IMPORTANT]
 > Make sure that runbooks in an Automation account import either Az modules or [AzureRM](https://www.powershellgallery.com/packages/AzureRM/6.13.1) modules, but not both, into a PowerShell session. If a runbook imports Az modules before AzureRM modules, the runbook completes. However, an error referencing the [Get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) cmdlet shows up in the job streams and cmdlets might not execute properly. If the runbook imports AzureRM modules before Az modules, the runbook also completes. In this case, though, you receive an error in the job streams stating that both Az and AzureRM can't be imported in the same session or used in the same runbook.
 
 ## Migrating to Az modules
 
-It's recommended that you test a migration to Az modules in a test Automation account. Once you create this account, you can use the instructions in this section to work with the modules.
+We recommend that you test a migration to Az modules in a test Automation account. Once you create the account, you can use the instructions in this section to work with the modules.
 
 ### Stop and unschedule all runbooks that use AzureRM modules
 
