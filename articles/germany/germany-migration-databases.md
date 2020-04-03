@@ -4,7 +4,7 @@ description: This article provides information about migrating your Azure databa
 author: gitralf
 services: germany
 cloud: Azure Germany
-ms.author: ralfwi 
+ms.author: juliako 
 ms.service: germany
 ms.date: 11/12/2019
 ms.topic: article
