@@ -34,18 +34,21 @@ Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-sea
 
 <!-- TBD you don't change those variables, you add debug env variables to the project -->
 
-Open _AnalyzeForm.cs_ and make the following changes.
-* Set the `formsRecognizerApiEndpoint` variable to your resource endpoint.
-* Set `formsRecognizerApiKeySetting` to your resource's key value.
-* Set `modelIdSetting` to your saved model ID.
+Open _PowerSkills.sln_ in Visual Studio and locate the **AnalyzeForm** project on the left pane. Then make the following changes.
+* Add project-level environment variables. Right-click the project file and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
+  * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
+  * `FORMS_RECOGNIZER_API_KEY` with the value set to your subscription key.
+  * `FORMS_RECOGNIZER_MODEL_ID` with the value set to the ID of the model you trained.
+  * `FORMS_RECOGNIZER_RETRY_DELAY` with the value set to 1000. This is the time in milliseconds that the program will wait before re-querying the service for a response.
+  * `FORMS_RECOGNIZER_MAX_ATTEMPTS` with the value set to 100. This is the number of times the program will query the service while attempting to get a success response.
 
-Next, find the `fieldMappings` variable. This variable defines the list of keys you want to extract from your forms and a custom label for each key. For example, a value of `{ "Address:", "address" }, { "Invoice For:", "recipient" }` means the script will only save the values for the `Address:` and `Invoice For:` keys.
+Next, open _AnalyzeForm.cs_ and find the `fieldMappings` variable, which references the field-mappings.json file. This file (and the variable that references it) defines the list of keys you want to extract from your forms and a custom label for each key. For example, a value of `{ "Address:", "address" }, { "Invoice For:", "recipient" }` means the script will only save the values for the detected `Address:` and `Invoice For:` keys, and it'll label those values with `"address"` and `"recipient"`, respectively.
 
 Finally, note the `contentType` variable. This script runs the given Form Recognizer model on PDF files, but if you're working with a different file type, you need to change the `contentType` to the correct [MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) for your file.
 
 ## Test the function from Visual Studio
 
-After you've edited your script, save it and set the **AnalyzeForm** project as the startup project in Visual Studio. Then Press **F5** to run it in your local environment. Use a REST service like Postman to call the function.
+After you've edited your project, save it and set the **AnalyzeForm** project as the startup project in Visual Studio. Then Press **F5** to run it in your local environment. Use a REST service like Postman to call the function.
 
 ```HTTP
 POST https://localhost:7071/api/analyze-form
