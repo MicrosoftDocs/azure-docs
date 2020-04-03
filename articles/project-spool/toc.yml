@@ -109,25 +109,6 @@
     href: concepts/fraud-detection.md
   - name: Logging and Diagnostics
     href: concepts/logging-diagnostics.md
-
-
-
-  - name: Calling
-    href: concepts/calling.md
-  - name: Chat
-    href: concepts/chat.md
-
-  - name: IVR Trees
-    href: concepts/IVR-Trees.md
-  - name: Call Detail Records
-    href: concepts/call-detail-records.md
-  - name: Call Analytics
-    href: concepts/call-analytics.md
-
-  - name: Spam and Robocall Protection
-    href: concepts/spam-and-robocall-protection.md
-
-
 - name: References
   items:
   - name: Client SDK for C#
