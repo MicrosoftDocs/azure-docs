@@ -130,11 +130,11 @@ For more information:
 
 - Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
 
-## PostgreatSQL and MySQL
+## PostgreSQL and MySQL
 
-For more information, see the articles in the "Back up and migrate data" section of [PostgreatSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
 
-![PostgreatSQL and MySQL](./media/germany-migration-main/databases.png)
+![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 
 ## Next steps
 
