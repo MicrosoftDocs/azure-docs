@@ -37,6 +37,9 @@ It is visible on both the **User Settings** page and the **Manage -> Azure resou
 
 When you are ready to publish your prediction endpoint, [create](#create-luis-resources) and [assign](#assign-a-resource-to-an-app) authoring and prediction runtime keys, to replace the starter key functionality.
 
+<a name="create-resources-in-the-azure-portal"></a>
+
+
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## Create resources in Azure CLI
