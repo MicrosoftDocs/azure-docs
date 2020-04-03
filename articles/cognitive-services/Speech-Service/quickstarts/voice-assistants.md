@@ -29,7 +29,7 @@ zone_pivot_groups: programming-languages-set-fifteen
 
 ::: zone pivot="programming-language-go"
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/go/header.md)]
-[!INCLUDE [java](../includes/quickstarts/voice-assistants/go/go.md)]
+[!INCLUDE [go](../includes/quickstarts/voice-assistants/go/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
