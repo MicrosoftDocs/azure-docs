@@ -174,13 +174,13 @@ You can find the complete code on [GitHub](https://github.com/jlichwa/azure-keyv
 1. Download the function app zip file from [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
 
 1. Upload the simplerotationsample-fn.zip file to Azure Cloud Shell.
- 
+
+   ![Upload the file](./media/rotate4.png)
 1. Use this CLI command to deploy the zip file to the function app:
 
 ```azurecli
 az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
 ```
-![Upload the file](./media/rotate4.png)
 
 After the function is deployed, you should see two functions under simplerotation-fn:
 
@@ -201,13 +201,13 @@ az eventgrid event-subscription create --name simplerotation-eventsubscription -
 ```
 
 ## Add the secret to Key Vault
-Set your access policy to grant manage secrets permission to users:
+Set your access policy to grant *manage secrets* permissions to users:
 
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
 ```
 
-Create a new secret with tags that contain the SQL database data source and the user ID. Include expiration date that's set for tomorrow.
+Create a new secret with tags that contain the SQL database data source and the user ID. Include an expiration date that's set for tomorrow.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
@@ -223,7 +223,7 @@ To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
 ![Go to Secrets](./media/rotate8.png)
 
-Open the **sqluser** secret and view the original and rotated version:
+Open the **sqluser** secret and view the original and rotated versions:
 
 ![Open the sqluser secret](./media/rotate9.png)
 
@@ -233,12 +233,12 @@ To verify the SQL credentials, create a web app. This web app will get the secre
 
 The web app requires these components:
 - A web app with system-managed identity
-- Access policy to access secrets in Key Vault via web app managed identity
+- An access policy to access secrets in Key Vault via web app managed identity
 
 1. Select the Azure template deployment link: 
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
 1. Select the **simplerotation** resource group.
-1. Select Purchase.
+1. Select **Purchase**.
 
 ## Deploy the web app
 
