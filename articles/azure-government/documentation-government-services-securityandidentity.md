@@ -9,7 +9,6 @@ manager: pathuff
 
 ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
@@ -33,7 +32,6 @@ For details on this service and how to use it, see the [Azure Security Center pu
 The Qualys Vulnerability Assessment agent is not available.
   > [!NOTE]
   > Security Center internal assessments *are* provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
-
 
 ### Threat detection
 
@@ -163,10 +161,6 @@ The following features have known limitations in Azure Government:
   - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error. 
   - Office 365 Groups are not supported for B2B users and can't be enabled.
   - Some SQL tools such as SSMS require you to set the appropriate cloud parameter. In the tool's Azure Service setup options, set the cloud parameter to Azure US Government.
-
-- Limitations with the Azure Active Directory App Gallery:
-  - Pre-integrated SAML and password SSO applications from the Azure AD Application Gallery are not yet available. Instead, use a custom application to support federated single sign-on with SAML or password SSO.
-  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.'
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.
