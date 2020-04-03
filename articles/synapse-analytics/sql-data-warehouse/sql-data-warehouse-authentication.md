@@ -1,6 +1,6 @@
 ---
 title: Authentication
-description: Learn how to authenticate to Azure Synapse Analytics by using Azure Active Directory (AAD) or SQL Server authentication.
+description: Learn how to authenticate to Azure Synapse Analytics by using Azure Active Directory (Azure AD) or SQL Server authentication.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -15,13 +15,15 @@ tag: azure-synapse
 ---
 
 # Authenticate to Azure Synapse Analytics
-Learn how to authenticate to SQL Analytics in Azure Synapse by using Azure Active Directory (AAD) or SQL Server authentication.
+
+Learn how to authenticate to Synapse SQL poool in Azure Synapse by using Azure Active Directory (Azure AD) or SQL Server authentication.
 
 To connect to a SQL pool, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
 For more information on security and how to enable connections to your data warehouse, see [securing a database documentation](sql-data-warehouse-overview-manage-security.md).
 
 ## SQL authentication
+
 To connect to SQL pool, you must provide the following information:
 
 * Fully qualified servername
@@ -40,16 +42,18 @@ By default, your connection connects to the *master* database and not your user 
 > 
 > 
 
-## Azure Active Directory (AAD) authentication
+## Azure Active Directory (Azure AD) authentication
+
 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) authentication is a mechanism of connecting to SQL pool by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. 
 
 ### Benefits
+
 Azure Active Directory benefits include:
 
 * Provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.
 * Allows password rotation in a single place
-* Manage database permissions using external (AAD) groups.
+* Manage database permissions using external (Azure AD) groups.
 * Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Uses contained database users to authenticate identities at the database level.
 * Supports token-based authentication for applications connecting to SQL pool.
@@ -61,6 +65,7 @@ Azure Active Directory benefits include:
 > 
 
 ### Configuration steps
+
 Follow these steps to configure Azure Active Directory authentication.
 
 1. Create and populate an Azure Active Directory
@@ -73,8 +78,10 @@ Follow these steps to configure Azure Active Directory authentication.
 Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 ### Find the details
-* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and SQL Analytics in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md).
+
+* The steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and Synapse SQL pool in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md).
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Next steps
+
 To start querying with Visual Studio and other applications, see [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md).
