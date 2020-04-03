@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 01/15/2020
+ms.date: 04/02/2020
 
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 ---
