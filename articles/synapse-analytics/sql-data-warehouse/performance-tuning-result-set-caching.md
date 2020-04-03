@@ -19,7 +19,7 @@ When result set caching is enabled, SQL Analytics automatically caches query res
 
 ## Key commands
 
-[Turn ON/OFF result set caching for a user database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
+[Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
@@ -66,7 +66,7 @@ Cached result set is reused for a query if all of the following requirements are
 - There is an exact match between the new query and the previous query that generated the result set cache.
 - There is no data or schema changes in the tables where the cached result set was generated from.
 
-Run this command to check if a query was executed with a result cache hit or miss. The result_set_cache column returns 1 for cache hit, 0 for cache miss, and negative values for reasons why result set caching was not used. Check [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7) for details.
+Run this command to check if a query was executed with a result cache hit or miss. The result_set_cache column returns 1 for cache hit, 0 for cache miss, and negative values for reasons why result set caching was not used. Check [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for details.
 
 ```sql
 SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests

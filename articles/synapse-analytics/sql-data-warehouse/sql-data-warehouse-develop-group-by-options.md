@@ -14,11 +14,12 @@ ms.custom: seo-lt-2019
 ---
 
 # Group by options in SQL Data Warehouse
+
 Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 
 ## What does GROUP BY do?
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL Data Warehouse does not support. These options have workarounds.
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL Data Warehouse does not support. These options have workarounds.
 
 These options are
 
@@ -27,9 +28,11 @@ These options are
 * GROUP BY with CUBE
 
 ## Rollup and grouping sets options
+
 The simplest option here is to use UNION ALL instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
 
 The following example using the GROUP BY statement with the ROLLUP option:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -79,6 +82,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ## Cube options
+
 It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this, you can use this more advanced approach.
 
 Let's use the example above.
@@ -177,5 +181,5 @@ ORDER BY 1,2,3
 By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

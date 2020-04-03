@@ -21,7 +21,7 @@ Azure SQL Data Warehouse supports standard and materialized views. Both are virt
 
 ## Standard view
 
-A standard view computes its data each time when the view is used. There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a database. To use a standard view, a query needs to make direct reference to it. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
+A standard view computes its data each time when the view is used. There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a database. To use a standard view, a query needs to make direct reference to it. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) documentation.
 
 Views in SQL Data Warehouse are stored as metadata only. Consequently, the following options are not available:
 
@@ -37,7 +37,7 @@ Standard views can  be utilized to enforce performance optimized joins between t
 
 A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table. There's no recomputation needed each time when a materialized view is used. As the data gets loaded into base tables, Azure SQL Data Warehouse synchronously refreshes the materialized views.  The query optimizer automatically uses deployed materialized views to improve query performance even if the views are not referenced in the query.  Queries benefiting most from materialized views are complex queries (typically queries with joins and aggregations) on large tables that produce small result set.  
 
-For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
+For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
 For query tuning guidance, check [Performance tuning with materialized views](performance-tuning-materialized-views.md).
 

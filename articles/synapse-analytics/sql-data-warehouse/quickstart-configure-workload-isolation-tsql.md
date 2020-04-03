@@ -56,7 +56,7 @@ END
 
 ## Create a workload group
 
-Create a [workload group](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) for DataLoads with 20% isolation.
+Create a [workload group](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for DataLoads with 20% isolation.
 
 ```sql
 CREATE WORKLOAD GROUP DataLoads
