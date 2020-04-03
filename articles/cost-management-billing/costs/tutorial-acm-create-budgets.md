@@ -38,7 +38,6 @@ Budgets are supported for the following types of Azure account types and scopes:
 - Azure Role-Based Access Control scopes
     - Management groups
     - Subscription
-    - Resource group
 - Enterprise Agreement scopes
     - Billing account
     - Department
