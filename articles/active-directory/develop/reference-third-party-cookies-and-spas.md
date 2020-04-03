@@ -12,7 +12,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.author: hpsin
+ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ---
@@ -26,7 +26,7 @@ Safari is not alone in blocking third party cookies to enhance user privacy - Br
 
 ## Overview of the solution
 
-In order to continue authenticating users in SPAs, we must switch to the [authorization code flow](v2-oauth2-auth-code-flow), which issues a code to the SPA. The SPA is able to redeem this code using XHR for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third party cookies.  
+In order to continue authenticating users in SPAs, we must switch to the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA is able to redeem this code using XHR for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third party cookies.  
 
 For Azure AD, native clients and SPAs follow the same protocol guidance: 
 
