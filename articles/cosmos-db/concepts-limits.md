@@ -161,7 +161,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum MongoDB query memory size | 40 MB |
+| Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
 | Idle connection timeout for server side connection closure* | 30 minutes |
 
