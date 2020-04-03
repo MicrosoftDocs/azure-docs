@@ -46,7 +46,7 @@ Example: `sudo mkdir -p /mnt/hpc-cache-1/target3`
 
 ## Use the mount instructions utility
 
-Open the **Mount instructions** page from the **Configure** section of the cache view in the Azure Portal.
+Open the **Mount instructions** page from the **Configure** section of the cache view in the Azure portal.
 
 ![screenshot of an Azure HPC Cache instance in the portal, with the Configure > Mount instructions page loaded](media/mount-instructions.png)
 
