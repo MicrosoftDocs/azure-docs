@@ -40,6 +40,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SAP Qualtrics supports **SP** and **IDP** initiated SSO
+* SAP Qualtrics support Just In Time user provisioning
 * Once you configure SAP Qualtrics you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding SAP Qualtrics from the gallery
@@ -79,17 +80,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, If you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
     
     a. In the **Identifier** text box, type a URL using the following pattern:
+
 	`https://< DATACENTER >.qualtrics.com`
    
     b. In the **Reply URL** text box, type a URL using the following pattern:
+
     `https://< DATACENTER >.qualtrics.com/login/v1/sso/saml2/default-sp`
+
+    c. In the **Relay State** text box, type a URL using the following pattern:
+
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    a. In the **Sign on URL** textbox, type a URL using the following pattern:
-    `https://< brandID >.< DATACENTER >.qualtrics.com`
+    In the **Sign on URL** textbox, type a URL using the following pattern:
 
-    b. In the **Relay State** text box, type a URL using the following pattern:
     `https://< brandID >.< DATACENTER >.qualtrics.com`
 
     > [!NOTE]
@@ -135,7 +140,7 @@ To configure single sign-on on **SAP Qualtrics** side, you need to send the copi
 
 ### Create SAP Qualtrics test user
 
-In this section, you create a user called B.Simon in SAP Qualtrics. Work with your SAP Qualtrics account support representatives to add the users in the SAP Qualtrics platform. Users must be created and activated before you use single sign-on.
+In this section, a user called Britta Simon is created in SAP Qualtrics. SAP Qualtrics supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SAP Qualtrics, a new one is created after authentication.
 
 ## Test SSO 
 
