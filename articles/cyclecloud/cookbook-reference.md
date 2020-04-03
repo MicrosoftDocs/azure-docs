@@ -22,7 +22,7 @@ CycleCloud ships with a set of pre-defined cluster templates which can be used t
 However, CycleCloud clusters are provisioned using a set of *Common Cookbooks* available to all CycleCloud clusters, and those `cookbooks` have a set of `attributes` which users may wish to customize. Some of the most commonly used `attributes` are documented below.
 
 > [!NOTE]
-> Prefer Cluster Template features to direct modification of Chef `attributes`.
+> Prefer Cluster Template features to direct modification of Chef attributes.
 
 Common Cookbook attributes are subject to change. Attribute settings are commonly superceded as the features they control are made available as more general/powerful features of CycleCloud itself. If a customization is available in both the Cluster Template and via a Chef attribute, always prefer the Cluster Template method since it is the more general solution.
 
@@ -80,5 +80,5 @@ Custom configuration sections can be used in order to download objects from anot
 | password    | Password for Azure.  |
 | proxy_host  | Host to use as proxy.    |
 | proxy_port  | Port to use for proxy.  |
-| user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
+| user        | Local system user that will use this configuration. Configuration file is placed in this user's home directory (`filename` is ignored when this is used) |
 | username    | Access_key/username for Azure.  |

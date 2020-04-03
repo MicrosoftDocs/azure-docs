@@ -38,8 +38,6 @@
     items:
     - name: User Management
       href: ./concepts/user-management.md
-    - name: Cluster Health Management
-      href: ./concepts/health-management.md
     - name: Usage Tracking
       href: ./concepts/usage-tracking.md
     - name: Monitoring
@@ -98,8 +96,6 @@
       href: ./how-to/tag-nodes.md
   - name: Customize Clusters
     items:
-    - name: Configure a Node
-      href: ./how-to/configure-node.md
     - name: Add a Node Array
       href: ./how-to/add-node-array.md
     - name: Add a Disk
@@ -173,8 +169,6 @@
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
-  - name: Node Configuration
-    href: node-configuration-reference.md
   - name: Schedulers
     items:
     - name: Scheduler Integration

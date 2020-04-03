@@ -2,7 +2,7 @@
 title: Running in Locked Down Networks
 description: Running Azure CycleCloud in locked down networks.
 author: anhoward
-ms.date: 2/26/2018
+ms.date: 2/26/2020
 ms.author: anhoward
 ---
 

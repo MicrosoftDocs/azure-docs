@@ -89,7 +89,7 @@ You will need to set up you Azure provider account in CycleCloud. You can either
 You should now have a running CycleCloud application that allows you to create and run clusters.
 
 > [!NOTE]
-> The default CycleCloud configuration may be customized for specific environments using settings in the $CS_HOME/config/cycle_server.properties file.
+> The default CycleCloud configuration may be customized for specific environments using settings in the _$CS_HOME/config/cycle_server.properties_ file.
 
 ## Further Reading
 

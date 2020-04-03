@@ -18,7 +18,7 @@ You will need to have [Docker](https://www.docker.com) installed and running on 
 
 Once Docker is set up and working, you can run the following command to pull down the CycleCloud container image from Microsoft's Container Registry:
 
-```azurecli-interactive
+```sh
 docker run mcr.microsoft.com/hpc/azure-cyclecloud
 ```
 
@@ -29,7 +29,7 @@ That's it! The container will start and CycleCloud will be accessible via web br
 
 The container runs web applications for http (80) and https (443). As CycleCloud is running a JVM (Java Virtual Machine), the HeapSize of the JVM and the memory allocated to the container should be coordinated. It is recommended that the HeapSize be set to one half the container memory allocation. Use the command `docker run -m` with an environment variable specified in MB. For example:
 
-```azurecli-interactive
+```sh
 docker run -m 2G -e "JAVA_HEAP_SIZE=1024" -p 8080:80 -p 8443:443 myrepo/cyclecloud:$ver
 ```
 
@@ -95,6 +95,6 @@ In the above example, the container and the cyclecloud UI will be available at `
 
 The container runs web applications for http (80) and https (443). As CycleCloud is running a JVM (Java Virtual Machine), the HeapSize of the JVM and the memory allocated to the container should be coordinated. It is recommended that the HeapSize be set to one half the container memory allocation. Use the command `docker run -m` with an environment variable specified in MB. For example:
 
-```azurecli-interactive
+```sh
 docker run -m 2G -e "JAVA_HEAP_SIZE=1024" -p 8080:80 -p 8443:443 mcr.microsoft.com/hpc/azure-cyclecloud
 ```

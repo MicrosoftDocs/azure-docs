@@ -166,6 +166,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "container.md",
+            "redirect_url": "how-to/run-in-container.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "cluster-references/build-cluster-template.md",
             "redirect_url": "cluster-references/cluster-reference.md",
             "redirect_document_id": true
@@ -198,6 +203,11 @@
         {
             "source_path": "cluster-references/noderef.md",
             "redirect_url": "cluster-references/noderef-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/node-configuration-reference.md",
+            "redirect_url": "cluster-references/configuration-reference.md",
             "redirect_document_id": true
         }
     ]

@@ -2,7 +2,7 @@
 title: Return Proxy Enable
 description: Enable Return Proxy for Azure CycleCloud.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 03/01/2020
 ms.author: adjohnso
 ---
 
@@ -19,7 +19,7 @@ a **return proxy** with the listening ports on Azure CycleCloud server forwarded
 through an SSH tunnel. The cluster nodes will then reach the CycleCloud server
 via ports 37140 and 37141 on the proxy. A typical deployment has the cluster
 head node designated as the return proxy, but any persistent node can play that
-same role. 
+same role.
 
 The settings for enabling or disabling the return proxy can be found in the
 Advanced Settings section of the create cluster dialog. ![Return Proxy
@@ -29,7 +29,6 @@ Settings](images/return-poroxy-setup.png)
 - If the CycleCloud VM and the return proxy node resides in different VMs, the
   return proxy node will require a public IP address unless the two [VNETs are
   peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
-
 
 
 ## Custom Return Proxy Node
@@ -58,4 +57,3 @@ public` when defining the proxy node.
 Please note that `proxy` node in this cluster template only proxies
 communication from nodes to CycleCloud. It does not proxy communication to the
 larger Internet.
-

@@ -33,5 +33,5 @@ url=jdbc:derby://localhost:1527/cycle_server
 Next, edit `$CS_HOME/data/derby.properties` and modify `derby.drda.portNumber`
 so that it matches the port specified in the `url=` line of cycle_server.properties.
 
-Finally, copy /etc/init.d/cycle_server to a new file and edit the CS_HOME path
+Finally, copy _/etc/init.d/cycle_server_ to a new file and edit the _CS_HOME_ path
 to point to the new CycleServer install, then start CycleServer using the new init script.

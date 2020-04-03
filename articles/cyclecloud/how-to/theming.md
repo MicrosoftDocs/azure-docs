@@ -2,7 +2,7 @@
 title: Theming
 description: Theming the Azure CycleCloud user interface.
 author: dpwatrous
-ms.date: 09/21/2018
+ms.date: 02/21/2020
 ms.author: dpwatrous
 ---
 

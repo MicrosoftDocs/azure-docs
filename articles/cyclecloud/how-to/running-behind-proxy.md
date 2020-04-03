@@ -2,7 +2,7 @@
 title: Using a Web Proxy
 description: Running Azure CycleCloud from behind HTTP/HTTPs Proxy.
 author: dpwatrous
-ms.date: 12/18/2018
+ms.date: 2/18/2020
 ms.author: dpwatrous
 ---
 
@@ -30,11 +30,11 @@ CycleCloud requires access to a Blob Storage container in your subscription in o
 > When combining a Service Endpoint for Azure Storage access with an HTTPS Proxy for outbound Azure API traffic, CycleCloud itself can be configured to avoid the Proxy and send Storage requests directly via the Service Endpoint.
 > 
 > To disable the proxy for Storage Account access, add:
-> `-Dhttp.nonProxyHosts=”*.core.windows.net"`
+> `-Dhttp.nonProxyHosts="*.core.windows.net"`
 > to the `webServerJvmOptions=` property in the: */opt/cycle_server/config/cycle_server.properties*
 > file and then restart CycleCloud.
 
-## Export **HTTPS_PROXY** before running the CycleCloud CLI installer
+## Export HTTPS_PROXY before running the CycleCloud CLI installer
 
 The [CycleCloud CLI installer](../install-cyclecloud-cli.md) requires outbound access to install packages via `pip`. Prior to running the install script, be sure to set the **HTTPS_PROXY** environment variable to point to your
 proxy server and port:

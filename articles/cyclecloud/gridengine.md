@@ -201,4 +201,10 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.version                 | Default: '2011.11'. This is the Grid Engine version to install and run. This is currently the default and *only* option. In the future additional versions of the Grid Engine software may be supported. |
 | gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.   |
 
-CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
+CycleCloud supports a standard set of autostop attributes for Grid Engine:
+
+| Attribute   | Description |
+| ----------  | ----------- |
+| cyclecloud.cluster.autoscale.stop_enabled             | Is autostop enabled on this node? [true/false]  |
+| cyclecloud.cluster.autoscale.idle_time_after_jobs     | The amount of time (in seconds) for a node to sit idle after completing jobs before it is scaled down.    |
+| cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |

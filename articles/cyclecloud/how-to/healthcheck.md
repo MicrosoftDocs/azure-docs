@@ -3,17 +3,15 @@ title: HealthCheck Service
 description: Learn about the Azure CycleCloud HealthCheck service.
 author: KimliW
 ms.technology: jetpack
-ms.date: 08/01/2018
+ms.date: 03/01/2018
 ms.author: adjohnso
 ---
 
 # HealthCheck
 
-## What is HealthCheck
+Azure CycleCloud provides a mechanism for terminating virtual machines (VMs) that are in an unhealthy state called HealthCheck. Both system and user defined scripts (Python and Bash) are run on a periodic basis (5 minutes on Windows, 10 minutes on Linux) to determine the overall health of a VM. HealthCheck allows administrators to define conditions under which VMs should be terminated without having to manually monitor and remediate.
 
-Azure CycleCloud provides a mechanism for terminating virtual machines (VMs) that are in an unhealthy state called HealthCheck. Both system and user defined scripts (Python and Bash) are run on a periodic basis (5 minutes on Windows, 10 minutes on Linux) to determine the overall health of a VM. HealthCheck allows adminsitrators to define conditions under which VMs should be terminated without having to manually monitor and remediate.
-
-##  Built in HealthCheck scripts
+## Built in HealthCheck scripts
 
 CycleCloud enabled VMs come with two default HealthCheck scripts:
 
@@ -33,7 +31,7 @@ When logged onto a VM that is running HealthCheck you can keep the VM from being
 
 As a simple example we will write a HealthCheck script which will ensure that a Linux VM is not active for more than 24 hours. This script could be used to simulate low priority evictions to test how a workflow reacts to an evicted VM. This script would be placed in _/opt/cycle/jetpack/config/healthcheck.d/healthcheck_example.sh_
 
-```bash 
+```bash
 #!/bin/bash
 
 # Get the uptime of the system (in seconds) and check to see if it is
@@ -44,5 +42,5 @@ if (( $(cat /proc/uptime | awk '{print ($1 > 86400)}'))); then
 fi
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > This script can be placed on a VM via [CycleCloud Project](../projects.md) or by adding it directly when [Creating a Custom Image](create-custom-image.md).
