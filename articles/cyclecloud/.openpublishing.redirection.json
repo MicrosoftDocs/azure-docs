@@ -46,6 +46,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "event-logs.md",
+            "redirect_url": "how-to/monitor-clusters.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "reports.md",
+            "redirect_url": "concepts/usage-tracking.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "usage.md",
             "redirect_url": "concepts/usage-tracking.md",
             "redirect_document_id": true
@@ -98,6 +108,11 @@
         {
             "source_path": "healthcheck.md",
             "redirect_url": "how-to/healthcheck.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "installation.md",
+            "redirect_url": "how-to/install-manual.md",
             "redirect_document_id": true
         },
         {
