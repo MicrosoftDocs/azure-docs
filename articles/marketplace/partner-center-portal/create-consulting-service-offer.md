@@ -16,7 +16,7 @@ ms.date: 03/26/2020
 
 This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
 
-## Publishing Benefits
+## Publishing benefits
 
 Benefits of publishing to the commercial marketplace:
 
