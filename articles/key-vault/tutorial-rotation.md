@@ -178,9 +178,9 @@ You can find the complete code on [GitHub](https://github.com/jlichwa/azure-keyv
    ![Upload the file](./media/rotate4.png)
 1. Use this CLI command to deploy the zip file to the function app:
 
-```azurecli
-az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
-```
+   ```azurecli
+   az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
+   ```
 
 After the function is deployed, you should see two functions under simplerotation-fn:
 
