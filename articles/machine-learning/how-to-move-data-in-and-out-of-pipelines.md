@@ -23,9 +23,9 @@ This article will show you how to:
 - Use `Dataset` objects for pre-existing data
 - Access data within your steps
 - Split `Dataset` data into subsets, such as training and validation subsets
-- Create a `PipelineData` object to transfer data to the next pipeline step
+- Create `PipelineData` objects to transfer data to the next pipeline step
 - Use `PipelineData` objects as input to pipeline steps
-- Create a new `Dataset` object from `PipelineData` you wish to persist
+- Create new `Dataset` objects from `PipelineData` you wish to persist
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ cats_dogs_dataset = Dataset.File.from_files(
 
 For more options on creating datasets with different options and from different sources, registering them and reviewing them in the Azure Machine Learning UI, understanding how data size interacts with compute capacity, and versioning them, see [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
 
-### Pass a dataset to your script
+### Pass datasets to your script
 
 To pass the dataset's path to your script, use the `Dataset` object's `as_named_input()` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[]`.
 
@@ -107,7 +107,7 @@ train_step = PythonScriptStep(
 )
 ```
 
-### Access a dataset within your script
+### Access datasets within your script
 
 Named inputs to your pipeline step script are available as a dictionary within the `Run` object. Retrieve the active `Run` object using `Run.get_context()` and then retrieve the dictionary of named inputs using `input_datasets`. If you passed the `DatasetConsumptionConfig` object using the `arguments` argument rather than the `inputs` argument, access the data using `ArgParser` code. Both techniques are demonstrated in the following snippet.
 
@@ -165,7 +165,7 @@ You may choose to create your `PipelineData` object using an access mode that pr
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
 
-### Use `PipelineData` as an output of a training step
+### Use `PipelineData` as outputs of a training step
 
 Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this step is the first and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
 
@@ -182,7 +182,7 @@ with open(args.output_path, 'w') as f:
 
 If you created your `PipelineData` with the `is_directory` argument set to `True`, it would be enough to just perform the `os.makedirs()` call and then you would be free to write whatever files you wished to the path. For more details, see the [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) reference documentation.
 
-### Read `PipelineData` as an input to non-initial steps
+### Read `PipelineData` as inputs to non-initial steps
 
 After the initial pipeline step writes some data to the `PipelineData` path and it becomes an output of that initial step, it can be used as an input to a later step:
 
@@ -221,7 +221,7 @@ with open(args.pd) as f:
     print(f.read())
 ```
 
-## Convert a `PipelineData` object into a registered `Dataset` for further processing
+## Convert `PipelineData` objects into registered `Dataset`s for further processing
 
 If you'd like to make your `PipelineData` available for longer than the duration of a run, use its `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it's highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
 
