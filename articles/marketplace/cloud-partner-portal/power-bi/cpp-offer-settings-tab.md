@@ -5,11 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
 ---
 
 # Power BI Apps Offer Settings tab
+
+>[!Important]
+>Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 When you open the **New Offer** page for service apps, you first see the **Offer Settings** tab. You provide the primary identifiers and the name for your offer on this tab. An asterisk (*) indicates a required field.
 
