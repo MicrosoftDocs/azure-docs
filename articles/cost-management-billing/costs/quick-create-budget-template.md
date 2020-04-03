@@ -34,9 +34,7 @@ The following Azure permissions, or scopes, are supported per subscription for b
 
 For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
-## Create an Azure Cosmos account, database, container
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/create-budget).
 
@@ -46,7 +44,7 @@ One Azure resource is defined in the template:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
-### Deploy the template
+## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a budget.
 
