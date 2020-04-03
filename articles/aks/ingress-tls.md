@@ -82,7 +82,7 @@ Add an *A* record to your DNS zone with the external IP address of the NGINX ser
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name * \
+    --record-set-name '*' \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
@@ -161,7 +161,7 @@ spec:
 To create the issuer, use the `kubectl apply` command.
 
 ```console
-kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml
 ```
 
 ## Run demo applications

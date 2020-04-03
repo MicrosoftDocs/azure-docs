@@ -21,8 +21,6 @@ Storage Analytics logs detailed information about successful and failed requests
 > [!NOTE]
 >  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. However, premium storage account is not supported.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Requests logged in logging
 ### Logging authenticated requests
 
