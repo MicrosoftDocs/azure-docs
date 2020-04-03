@@ -3,14 +3,13 @@ title: Model interpretability in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/01/2020
+ms.date: 04/02/2020
 ---
 
 # Model interpretability in Azure Machine Learning
@@ -30,7 +29,7 @@ Interpretability is critical for data scientists, auditors, and business decisio
 Enabling the capability of explaining a machine learning model is important during two main phases of model development:
 + During the training phase, as model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders. They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for model unfairness or insignificant features.
 
-+ During the inferencing phase, as having transparency around deployed models empowers executives to understand “when deployed” how the model is working and how its decisions are treating and impacting people in real life. 
++ During the inferencing phase, as having transparency around deployed models empowers executives to understand "when deployed" how the model is working and how its decisions are treating and impacting people in real life. 
 
 ## Interpretability with Azure Machine Learning
 
@@ -72,7 +71,7 @@ Learn about supported interpretability techniques, supported machine learning mo
 
 |Interpretability Technique|Description|Type|
 |--|--|--------------------|
-|1. SHAP Tree Explainer| [SHAP](https://github.com/slundberg/shap)’s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to **trees and ensembles of trees**.|Model-specific|
+|1. SHAP Tree Explainer| [SHAP](https://github.com/slundberg/shap)'s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to **trees and ensembles of trees**.|Model-specific|
 |2. SHAP Deep Explainer| Based on the explanation from [SHAP](https://github.com/slundberg/shap), Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the [SHAP NIPS paper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** models and **Keras** models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".|Model-specific|
 |3. SHAP Linear Explainer| [SHAP](https://github.com/slundberg/shap)'s Linear explainer computes SHAP values for a **linear model**, optionally accounting for inter-feature correlations.|Model-specific|
 |4. SHAP Kernel Explainer| [SHAP](https://github.com/slundberg/shap)'s Kernel explainer uses a specially weighted local linear regression to estimate SHAP values for **any model**.|Model-agnostic|
