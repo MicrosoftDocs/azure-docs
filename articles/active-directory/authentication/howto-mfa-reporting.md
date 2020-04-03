@@ -5,7 +5,7 @@ description: This describes how to use the Azure Multi-Factor Authentication fea
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 
 ms.author: iainfou
@@ -87,7 +87,7 @@ The sign-in activity reports for MFA give you access to the following informatio
       - phone call went to voicemail
       - phone number has an invalid format
       - service error
-      - unable to reach the user’s phone
+      - unable to reach the user's phone
       - unable to send the mobile app notification to the device
       - unable to send the mobile app notification
       - user declined the authentication

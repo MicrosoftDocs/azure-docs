@@ -5,7 +5,7 @@ description: Frequently asked questions and answers related to Azure Multi-Facto
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.date: 11/18/2019
 
 ms.author: iainfou
@@ -121,7 +121,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 ## Manage and support user accounts
 
-**Q: What should I tell my users to do if they don’t receive a response on their phone?**
+**Q: What should I tell my users to do if they don't receive a response on their phone?**
 
 Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesn't work please open a support case with Microsoft to further troubleshoot.
 
@@ -196,15 +196,15 @@ There are several reasons that users could be prompted to register their securit
 
 - The user has been enabled for MFA by their administrator in Azure AD, but doesn't have security information registered for their account yet.
 - The user has been enabled for self-service password reset in Azure AD. The security information will help them reset their password in the future if they ever forget it.
-- The user accessed an application that has a Conditional Access policy to require MFA and hasn’t previously registered for MFA.
+- The user accessed an application that has a Conditional Access policy to require MFA and hasn't previously registered for MFA.
 - The user is registering a device with Azure AD (including Azure AD Join), and your organization requires MFA for device registration, but the user has not previously registered for MFA.
-- The user is generating Windows Hello for Business in Windows 10 (which requires MFA) and hasn’t previously registered for MFA.
+- The user is generating Windows Hello for Business in Windows 10 (which requires MFA) and hasn't previously registered for MFA.
 - The organization has created and enabled an MFA Registration policy that has been applied to the user.
 - The user previously registered for MFA, but chose a verification method that an administrator has since disabled. The user must therefore go through MFA registration again to select a new default verification method.
 
 ## Errors
 
-**Q: What should users do if they see an “Authentication request is not for an activated account” error message when using mobile app notifications?**
+**Q: What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?**
 
 Tell them to follow this procedure to remove their account from the mobile app, then add it again:
 
