@@ -299,6 +299,8 @@
         href: active-directory-configurable-token-lifetimes.md
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+      - name: Handle ITP in Safari 
+        href: reference-third-party-cookies-and-spas.md
     - name: Application configuration
       displayName: App configuration
       items:
