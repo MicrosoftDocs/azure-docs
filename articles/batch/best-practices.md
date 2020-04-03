@@ -166,7 +166,7 @@ When provisioning [Batch pools in a virtual network](batch-virtual-network.md), 
 the guidelines regarding the use of the `BatchNodeManagement` service tag, ports, protocols and direction of the rule.
 Use of the service tag is highly recommended and not the underlying Batch service IP addresses as those can change over
 time. Using the Batch service IP addresses directly can manifest as instability, interruptions, or outages for your Batch
-pools as the Batch service updates IP addresses used over time. If you are currently using Batch servce IP addresses in
+pools as the Batch service updates IP addresses used over time. If you are currently using Batch service IP addresses in
 your NSG rules, it is recommended to switch to using the service tag.
 
 For User Defined Routes, ensure that you have a process in place to update Batch service IP addresses periodically
@@ -183,7 +183,7 @@ If your requests receive 5xx level HTTP responses and there is a "Connection: cl
 Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the
 Batch account service URL, and attempt following requests on a new connection.
 
-### Retrying Requests Automatically
+### Retrying requests automatically
 
 Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even
 during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an
