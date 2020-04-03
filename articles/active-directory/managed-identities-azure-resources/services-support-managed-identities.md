@@ -124,8 +124,8 @@ Refer to the following list to configure managed identity for Azure Data Factory
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
-| User assigned | Not available | Not available | Not available | Not available |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | Preview | Preview | Not available | Preview |
 
 Refer to the following list to configure managed identity for Azure API Management (in regions where available):
 
