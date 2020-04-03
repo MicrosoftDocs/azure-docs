@@ -51,7 +51,7 @@ The following procedure shows how to change the pricing tier for a namespace on 
 
     ![Select pricing tier on the namespace page](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 
-7. Change the pricing tier, and theb click the **Select** button.
+7. Change the pricing tier, and then click the **Select** button.
 8. You can see the status of the tier change action in the **alerts**.
 9. Switch to the **Overview** page. Confirm that the new tier is shown for the **Pricing Tier** field in the **Essentials** section.
 10. This step is optional. Select any hub in the namespace. Confirm that you see the same pricing tier in the **Essentials** section. You should see the same pricing tier for all hubs in the namespace.
