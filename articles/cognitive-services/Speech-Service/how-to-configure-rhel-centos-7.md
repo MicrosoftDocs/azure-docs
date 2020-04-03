@@ -30,7 +30,7 @@ g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 
 This message lets you know that GCC major version 4 is installed. This version doesn't have full support for the C++ 11 standard, which the Speech SDK uses. Trying to compile a C++ program with this GCC version and the Speech SDK headers will result in compilation errors.
 
-It's also important to check is the version of the shared C++ runtime library (libstdc++). Most of the Speech SDK is implemented as native C++ libraries, meaning it depends on libstdc++ regardless of the language you use to develop applications.
+It's also important to check the version of the shared C++ runtime library (libstdc++). Most of the Speech SDK is implemented as native C++ libraries, meaning it depends on libstdc++ regardless of the language you use to develop applications.
 
 To find the location of libstdc++ on your system, run:
 
