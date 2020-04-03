@@ -42,10 +42,30 @@ For Windows, we support the following languages:
 # [Linux](#tab/linux)
 
 > [!NOTE]
-> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8, and CentOS 8 on the following target architectures:
-> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
-> - x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
-> - x64 for .NET Core and Python
+> Currently, we only support the following distributions and development languages/platforms:
+>
+> | Distribution | Development |
+> |:-|:-|
+> |Ubuntu 16.04 x86     |C++|
+> |Ubuntu 16.04 x64     |C++, Java, .NET Core, Python|
+> |Ubuntu 16.04 ARM32   |C++, Java, .NET Core|
+> |Ubuntu 16.04 ARM64   |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
+> |Ubuntu 18.04 x86     |C++|
+> |Ubuntu 18.04 x64     |C++, Java, .NET Core, Python|
+> |Ubuntu 18.04 ARM32   |C++, Java, .NET Core|
+> |Ubuntu 18.04 ARM64   |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
+> |Debian 9 x86         |C++|
+> |Debian 9 x64         |C++, Java, .NET Core, Python|
+> |Debian 9 ARM32       |C++, Java, .NET Core|
+> |Debian 9 ARM64       |C++, Java, .NET Core[<sup>[1]</sup>](#footnote1)|
+> |Red Hat Enterprise Linux (RHEL) 7 x64[<sup>[2]</sup>](#footnote2) |C++, Java, .NET Core, Python|
+> |Red Hat Enterprise Linux (RHEL) 8 x64                             |C++, Java, .NET Core, Python|
+> |CentOS 7 x64[<sup>[2]</sup>](#footnote2) |C++, Java, .NET Core, Python|
+> |CentOS 8 x64                             |C++, Java, .NET Core, Python|
+>
+> **[<a name="footnote1">1</a>]** Linux ARM64 requires .NET Core 3.x (dotnet-sdk-3.x package) for proper ARM64 support.<br>
+> **[<a name="footnote2">2</a>]** Follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+
 
 Make sure you have the required libraries installed by running the following shell commands:
 

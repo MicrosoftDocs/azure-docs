@@ -86,7 +86,7 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 *  **Number of devices** × **Event emission frequency** × **Size of each event**.
 
-By default, Time Series Insights preview can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Time Series Insights environment**.
+By default, Time Series Insights preview can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Time Series Insights environment**. There are additional limitations [per hub partition](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
 > [!TIP] 
 > * Environment support for ingesting speeds up to 16 MBps can be provided by request.
@@ -94,7 +94,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
  
 * **Example 1:**
 
-    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Event Hub with four partitions as the Time Series Insights event source.
+    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Iot Hub with four partitions as the Time Series Insights event source.
 
     * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.
@@ -102,11 +102,11 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
 * **Example 2:**
 
-    Contoso Fleet Analytics has 60,000 devices that emit an event every second. They are using an IoT Hub 24 partition count of 4 as the Time Series Insights event source. The size of an event is 200 bytes.
+    Contoso Fleet Analytics has 60,000 devices that emit an event every second. They are using an Event Hub with a partition count of 4 as the Time Series Insights event source. The size of an event is 200 bytes.
 
-    * The environment ingestion rate would be: **20,000 devices * 200 bytes/event * 1 event/sec = 4 MBps**.
-    * The per partition rate would be 1 MBps.
-    * Contoso Fleet Analytics can submit a request to Time Series Insights through Azure portal to increase the ingestion rate for their environment.
+    * The environment ingestion rate would be: **60,000 devices * 200 bytes/event * 1 event/sec = 12 MBps**.
+    * The per partition rate would be 3 MBps.
+    * Contoso Fleet Analytics' ingestion rate is over the environment and partition limits. They can submit a request to Time Series Insights through Azure portal to increase the ingestion rate for their environment, and create an Event Hub with more partitions to be within the Preview limits.
 
 #### Hub partitions and per partition limits
 
