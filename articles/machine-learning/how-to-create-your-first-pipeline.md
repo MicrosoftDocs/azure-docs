@@ -27,7 +27,7 @@ The ML pipelines you create are visible to the members of your Azure Machine Lea
 
 ML pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. They can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-A pipeline consists of one or more steps. A step is a unit run on a compute target. Steps might consume data sources and produce “intermediate” data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline.
+A pipeline consists of one or more steps. A step is a unit run on a compute target. Steps might consume data sources and produce "intermediate" data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline.
 
 To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
 
@@ -114,7 +114,7 @@ output_data1 = PipelineData(
 
 If you have tabular data stored in a file or set of files, a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) is an efficient alternative to a `DataReference`. `TabularDataset` objects support versioning, diffs, and summary statistics. `TabularDataset`s are lazily evaluated (like Python generators) and it's efficient to subset them by splitting or filtering. The `FileDataset` class provides similar lazily-evaluated data representing one or more files. 
 
-You create a `TabularDataset` using methods like [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
+You create a `TabularDataset` using methods like [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.data import TabularDataset
@@ -385,7 +385,7 @@ When you first run a pipeline, Azure Machine Learning:
 * Downloads the Docker image for each step to the compute target from the container registry.
 * Mounts the datastore if a `DataReference` object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
 * Runs the step in the compute target specified in the step definition. 
-* Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
+* Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user's default datastore.
 
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 

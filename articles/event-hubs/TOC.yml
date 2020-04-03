@@ -162,6 +162,8 @@
       maintainContext: true
   - name: Integrate with Apache Kafka
     items:
+      - name: Kafka developer guide for Event Hubs
+        href: apache-kafka-developer-guide.md    
       - name: Mirror a Kafka broker in an event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Connect Apache Spark to an event hub

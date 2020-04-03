@@ -246,7 +246,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](manage-runbooks.md#import-a-runbook).
+When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](manage-runbooks.md#importing-a-runbook).
 
 ## Working with signed runbooks on a Linux Hybrid Runbook Worker
 

@@ -1,6 +1,6 @@
 ---
 title: Using IDENTITY to create surrogate keys
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in SQL Analytics.
+description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
 services: synapse-analytics
 author:  XiaoyuMSFT
 manager: craigg
@@ -13,17 +13,17 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Using IDENTITY to create surrogate keys in SQL Analytics
+# Using IDENTITY to create surrogate keys in Synapse SQL pool
 
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in SQL Analytics.
+Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
 
 ## What is a surrogate key
 
-A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design SQL Analytics models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.  
+A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.  
 
 ## Creating a table with an IDENTITY column
 
-The IDENTITY property is designed to scale out across all the distributions in the SQL Analytics database without affecting load performance. Therefore, the implementation of IDENTITY is oriented toward achieving these goals.
+The IDENTITY property is designed to scale out across all the distributions in the Synapse SQL pool without affecting load performance. Therefore, the implementation of IDENTITY is oriented toward achieving these goals.
 
 You can define a table as having the IDENTITY property when you first create the table by using syntax that is similar to the following statement:
 
@@ -45,7 +45,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in SQL Analytics, the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in Synapse SQL pool, the absence of a guarantee is more pronounced.
 
 The following example is an illustration:
 
@@ -95,7 +95,7 @@ CREATE TABLE AS SELECT (CTAS) follows the same SQL Server behavior that's docume
 
 ## Explicitly inserting values into an IDENTITY column
 
-SQL Analytics supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
+Synapse SQL pool supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
 
 Many data modelers like to use predefined negative values for certain rows in their dimensions. An example is the -1 or "unknown member" row.
 
@@ -156,7 +156,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for SQL Analytics](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Synapse SQL pool](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 
@@ -190,7 +190,7 @@ The IDENTITY property can't be used:
 - When the column is also the distribution key
 - When the table is an external table
 
-The following related functions are not supported in SQL Analytics:
+The following related functions are not supported in Synapse SQL pool:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

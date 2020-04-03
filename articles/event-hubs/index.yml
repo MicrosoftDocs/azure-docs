@@ -77,8 +77,6 @@ landingContent:
             url: event-hubs-kafka-stream-analytics.md      
       - linkListType: how-to-guide
         links:
-          - text: Create an Apache Kafka enabled event hub
-            url: event-hubs-create.md
           - text: Mirror a Kafka broker in an event hub
             url: event-hubs-kafka-mirror-maker-tutorial.md                          
           - text: Connect Apache Spark to an event hub
