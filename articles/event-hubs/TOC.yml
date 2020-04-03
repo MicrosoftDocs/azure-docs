@@ -178,7 +178,7 @@
         href: event-hubs-kafka-akka-streams-tutorial.md
       - name: FAQ - Event Hubs for Kafka
         href: apache-kafka-frequently-asked-questions.md        
-      - name: Troubleshooting guide - Event Hubs for Kafka
+      - name: Kafka troubleshooting guide for Event Hubs
         href: apache-kafka-troubleshooting-guide.md        
   - name: Manage and monitor
     items:
