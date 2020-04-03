@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft Graph APIs to configure provisioning - Azure Active Directory | Microsoft Docs
+title: Common application management scenarios for Azure Active Directory | Microsoft Docs
 description: Centralize application management with Azure AD
 documentationcenter: ''
 author: msmimart
@@ -40,7 +40,7 @@ No more managing password. Securely access all the resources you need with your 
 |Feature  | Description | Recommendation |
 |---------|---------|---------|
 |SSO|Standards-based federated SSO using trusted industry standards.|Always use [SAML / OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) to enable SSO when your application supports it.|
-|Access panel|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Leverage the [access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) once you've integrated your aps with Azure AD for SSO.|
+|Access panel|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others.| Deploy the [access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) in your organization once you've integrated your aps with Azure AD for SSO.|
 
 ## Scenario 2: Automate provisioning and deprovisioning 
 
@@ -69,8 +69,8 @@ Identity Governance helps organizations achieve a balance between productivity -
 |Feature  |Description|Recommendation |
 |---------|---------| ---------|
 |ELM|Azure AD entitlement management can help users both inside and outside your organization more efficiently manage access to their applications.| Allow non-admins to manage access their applications with [access packages](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-first).|
-|Access Reviews|User's access to apps can be reviewed on a regular basis to make sure only the right people have continued access.| [Review access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) to your most sensetive applications. |
-|Log Analytics|Generate reports about who is accessing which applications and store them in your SIEM tool of choice to correlate data between data sources and over time.| Enable [log anlaytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) and setup alerts for critical events related to your applications. |
+|Access Reviews|User's access to apps can be reviewed on a regular basis to make sure only the right people have continued access.| [Review access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) to your most sensitive applications. |
+|Log Analytics|Generate reports about who is accessing which applications and store them in your SIEM tool of choice to correlate data between data sources and over time.| Enable [log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) and set up alerts for critical events related to your applications. |
 
 
 ## Scenario 5: Hybrid Secure Access
@@ -79,7 +79,7 @@ Identity can only be your control plane if it can connect everything across clou
 |Feature  |Description|Recommendation |
 |---------|---------|---------|
 |Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Setup [remote access](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) for your on-prem apps. |
-|F5, Akami, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.| Using Akami, Citrix, F5, or Zscaler? Check out our [pre-built solutions](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access). | 
+|F5, Akamai, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.| Using Akamai, Citrix, F5, or Zscaler? Check out our [pre-built solutions](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access). | 
 
 ## Related articles
 
