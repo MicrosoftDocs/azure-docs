@@ -54,7 +54,7 @@ If you are restricting access with an Azure Network Security Group, ensure that 
 
 ## Determine the load balancer SKU required
 
-[Azure load balancer](../../../load-balancer/load-balancer-overview.md) is available in 2 SKUs: Basic & Standard. The standard load balancer is recommended. If the virtual machines are in an availability set, basic load balancer is permitted. Standard load balancer requires that all VM IP addresses use standard IP addresses.
+[Azure load balancer](../../../load-balancer/load-balancer-overview.md) is available in 2 SKUs: Basic & Standard. The standard load balancer is recommended. If the virtual machines are in an availability set, basic load balancer is permitted. If the virtual machines are in an availability zone, a standard load balancer is required. Standard load balancer requires that all VM IP addresses use standard IP addresses.
 
 The current [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) for an availability group uses a basic load balancer with basic IP addresses.
 
