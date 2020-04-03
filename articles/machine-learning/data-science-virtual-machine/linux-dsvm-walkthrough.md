@@ -97,9 +97,8 @@ For a different view of the data:
 
 ```R
 str(data)
-```r
-
 ```
+
 This view shows you the type of each variable and the first few values in the dataset.
 
 The **spam** column was read as an integer, but it's actually a categorical variable (or factor). To set its type:
