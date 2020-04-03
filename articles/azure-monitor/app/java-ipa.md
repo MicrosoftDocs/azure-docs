@@ -26,7 +26,7 @@ Download [applicationinsights-agent-3.0.0-PREVIEW.jar](https://github.com/micros
 
 Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to your application's JVM args
 
-For additional help with your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
 
 **3. Point the agent to your Application Insights resource**
 
