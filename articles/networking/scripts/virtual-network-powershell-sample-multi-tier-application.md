@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell script sample - Create a network for multi-tier applications | Microsoft Docs
+title: Azure PowerShell script sample - Create a network for multi-tier applications
 description: Azure PowerShell script sample - Create a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network

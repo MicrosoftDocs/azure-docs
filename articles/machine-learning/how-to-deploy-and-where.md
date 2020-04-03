@@ -533,9 +533,9 @@ The classes for local, Azure Container Instances, and AKS web services can be im
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### Securing deployments with SSL
+### Securing deployments with TLS
 
-For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+For more information on how to secure a web service deployment, see [Enable TLS and deploy](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Local deployment
 
@@ -1165,11 +1165,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+
+> [!WARNING]
+> Azure Machine Learning will route only POST and GET requests to the containers running the scoring service. This can cause errors due to browsers using OPTIONS requests to pre-flight CORS requests.
+> 
+
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

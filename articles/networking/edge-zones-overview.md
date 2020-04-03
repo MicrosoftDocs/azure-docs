@@ -2,12 +2,12 @@
 title: About Azure Edge Zones - Preview
 description: Learn about edge computing offerings from Microsoft.
 services: vnf-manager
-author: cherylmc
+author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/30/2020
-ms.author: cherylmc
+ms.date: 04/02/2020
+ms.author: ganesr
 
 ---
 
@@ -50,7 +50,7 @@ Azure Edge Zones will be available in the following metros:
 - Los Angeles, CA
 - Miami, FL
 
-[Reach out to the Edge Zones team](https://aka.ms/customerform) for more information.
+[Reach out to the Edge Zones team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="carrier"></a>Azure Edge Zones with Carrier
 
@@ -70,9 +70,6 @@ Typical use cases include:
 Edge Zones will be offered in partnership with the following operators:
 
 - AT&T (Atlanta, Dallas, and Los Angeles)
-- Etisalat
-- Rogers
-- Vodafone
 
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones
 
@@ -90,7 +87,7 @@ Typical use cases include:
 - Remote rendering for mixed reality and VDI scenarios
 - Surveillance and security
 
-We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions using Private Edge Zones. [Reach out to the Private Edge Zones team](https://aka.ms/partnerform) for more information.
+We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions using Private Edge Zones. [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information.
 
 ## <a name="private-edge-partners"></a>Private Edge Zones - Partners
 
@@ -121,7 +118,7 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 
 - [Arista](https://www.arista.com/)
 
-[Reach out to the Private Edge Zones team](https://aka.ms/partnerform) for more information on how to become a partner.
+[Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
 
 #### <a name="firewall-vendors"></a>Firewall Vendors
 
@@ -132,13 +129,15 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 | Global SIs and Operators | Mobile Operators |
 | --- | --- |
 | Amdocs                       | Etisalat             |
-| American Tower               | Rogers               |
-| Expeto                       | Singtel              |
-| Federated Wireless           | Vodafone             |
-| Infosys                      |      *                |
-| Tech Mahindra                |      *                |
+| American Tower               | NTT Communications   |
+| Century Link                 | Proximus             |
+| Expeto                       | Rogers               |
+| Federated Wireless           | SK Telecom           |
+| Infosys                      | Telefonica           |
+| Tech Mahindra                | Telstra              |
+|        *                     | Vodafone             |
 
-[Reach out to the Private Edge Zones team](https://aka.ms/partnerform) for more information on how to become a partner.
+[Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
 
 ## <a name="solutions-private-edge"></a>Private Edge Zones - Solutions
 
@@ -165,5 +164,5 @@ SD-WAN on Private Edge Zones lets you move away from capex-centric model, to a S
 
 For more information, reach out to the following teams:
 
-* [Edge Zones team](https://aka.ms/customerform)
-* [Private Edge Zones team](https://aka.ms/partnerform)
+* [Edge Zones team](https://aka.ms/EdgeZones)
+* [Private Edge Zones team - to become a Partner](https://aka.ms/EdgeZonesPartner)

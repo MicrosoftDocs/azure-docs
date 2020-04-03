@@ -89,7 +89,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 - Connectivity uses SQL Authentication between replication participants. 
 - An Azure Storage Account share for the working directory used by replication. 
 - Port 445 (TCP outbound) needs to be open in the security rules of the managed instance subnet to access the Azure file share. 
-- Port 1433 (TCP outbound) needs to be opened if the Publisher/Distributor are on a managed instance and the subscriber is on-premises.
+- Port 1433 (TCP outbound) needs to be opened if the Publisher/Distributor are on a managed instance and the subscriber is not. You may also need to change the managed instance NSG outbound security rule for `allow_linkedserver_outbound` for the port 1433 **Destination Service tag** from `virtualnetwork` to `internet`. 
 - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
 - If either the publisher, distributor, and/or the subscriber exist in different virtual networks, then VPN peering must be established between each entity, such that there is VPN peering between the publisher and distributor, and/or there is VPN peering between the distributor and subscriber. 
 

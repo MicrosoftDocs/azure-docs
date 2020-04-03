@@ -5,7 +5,7 @@ description: Learn how to enable Azure AD Password Protection for an on-premises
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2020
 
 ms.author: iainfou
