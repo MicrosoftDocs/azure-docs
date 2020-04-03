@@ -16,6 +16,15 @@ ms.date: 03/26/2020
 
 This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
 
+## Publishing Benefits
+
+Benefits of publishing to the commercial marketplace:
+
+- Promote your company by using the Microsoft brand.
+- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Receive high-quality leads from these marketplaces.
+- Have your services promoted by the Microsoft field and telesales teams
+
 ## Requirements
 
 ### Business requirements
@@ -59,7 +68,7 @@ For offers with one of the following options selected as the primary product, yo
 
 **Power Apps**
 
-- **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) Program.
+- **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) program.
 
 For details on meeting these prerequisites, see the [Consulting service prerequisites](consulting-service-prerequisites.md).
 
@@ -71,7 +80,7 @@ To create a consulting service offer in either Azure Marketplace or AppSource co
 
 After meeting the requirements described above, follow these steps to create a consulting service offer.
 
-1. Log in to [Partner Center](https://partner.microsoft.com) and select **Dashboard** at the top.
+1. Log in to [Partner Center](https://partner.microsoft.com), and then select **Dashboard** from the top menu.
 2. In the left-nav bar, select **Commercial Marketplace**, then select **Overview**.
 
     :::image type="content" source="media/cs-menu-overview.png" alt-text="Illustrates the menu for commercial marketplace":::
@@ -91,17 +100,17 @@ After meeting the requirements described above, follow these steps to create a c
     - This name isn&#39;t used in the marketplace. It&#39;s different from the offer name and other values that are shown to customers. You can use this field to assign a name to the offer that is more useful to you for identifying the offer internally; it is not shown to customers.
     - The offer alias can&#39;t be changed after you select **Create**.
 
-After you enter **these two values**, select **Create** to continue to the **Offer setup** page.
+After you enter these two values, select **Create** to continue to the **Offer setup** page.
 
-## Offer Setup
+## Offer setup
 
-After entering an Offer ID and Offer alias, Partner Center creates a draft offer and displays the **Offer setup** page. Follow these steps to set up your offer.
+After you enter an Offer ID and Offer alias, Partner Center creates a draft offer and displays the **Offer setup** page. Follow these steps to set up your offer.
 
 ### Connect lead management
 
-When publishing your offer to the marketplace with Partner Center, you _must_ connect it to a Customer Relationship Management (CRM) or marketing automation system so you can receive customer contact information as soon as someone expresses interest in or uses your product.
+When publishing your offer to the marketplace with Partner Center, you _must_ connect it to a Customer Relationship Management (CRM) or marketing automation system. This let you receive customer contact information as soon as someone expresses interest in or uses your product.
 
-1. **Select**  **Connect**  **to specify where you want us to send customer leads**. Partner Center supports the following systems:
+1. Select **Connect** to specify where you want us to send customer leads. Partner Center supports the following systems:
 
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
@@ -110,8 +119,8 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
     > [!NOTE]
     > If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
-2. Connect your offer to the lead destination.
-3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we&#39;ll validate the connection and send you a test lead. While you preview the offer before you go live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
+2. Connect your offer to the lead destination when publishing in Partner Center.
+3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we&#39;ll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
 4. Make sure the connection to the lead destination stays updated so you don&#39;t lose any leads.
 
 Here are some additional lead management resources:
@@ -119,7 +128,7 @@ Here are some additional lead management resources:
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Make sure your pop-up blocker is turned off)
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing to the next section, Properties.
 
@@ -156,7 +165,7 @@ The name you enter here displays as the title of your offering. This field is pr
 
 The name:
 
-- May be trademarked (and you may include trademark or copyright symbols).
+- Can be trademarked (and you may include trademark or copyright symbols).
 - Can&#39;t be more than 50 characters long.
 - Can&#39;t include emojis.
 
@@ -166,7 +175,7 @@ Provide a short description of your offer. This can be up to 100 characters long
 
 ### Description
 
-Provide a longer description of your offer, up to 3000 characters. This is displayed to customers in the marketplace listing overview.
+Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
 
 Include one or more of the following in your description:
 
@@ -185,7 +194,7 @@ Here are some tips for writing your description:
 - Don&#39;t rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
 - Try to use industry-specific vocabulary or benefit-based wording.
 
-To make your **description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
+To make your description more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
 
 :::image type="content" source="media/cs-rich-text-editor.png" alt-text="Illustrates the rich text editor to write the offer description." border="false":::
 
@@ -199,19 +208,19 @@ Set the expected duration of this engagement with your customer.
 
 ### Contact Information
 
-You must provide the name, email, and phone number for a **Primary** and **Secondary contact**. This information isn&#39;t shown to customers, but it is available to Microsoft and may be provided to Cloud Solution Provider (CSP) partners.
+You must provide the name, email, and phone number for a **Primary** and **Secondary contact**. This information isn&#39;t shown to customers. It is available to Microsoft and may be provided to Cloud Solution Provider (CSP) partners.
 
 ### Supporting documents
 
-Add up to three (but at least one) supporting PDF documents for your offer here.
+Add up to three (but at least one) supporting PDF documents for your offer.
 
 ### Marketplace images
 
-Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
+Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
 #### Store logos
 
-Provide PNG files of your offer&#39;s logo in each of the following pixel sizes:
+Provide .png files of your offer&#39;s logo in each of the following pixel sizes:
 
 - **Small (48 x 48)**
 - **Large (216 x 216)**
@@ -220,30 +229,32 @@ All logos are required and are used in different places in the marketplace listi
 
 #### Screenshots (optional)
 
-Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in PNG format.
+Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in .png format.
 
 #### Videos (optional)
 
-Add up to four videos that demonstrate your offer. Enter the video&#39;s name, its web link (URL), and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
+Add up to four videos that demonstrate your offer. Enter the video&#39;s name, its web address (URL), and a thumbnail .png image of the video at 1280 x 720 pixels in size.
 
 Select **Save draft** before continuing to the next section, Pricing and availability.
 
 ## Pricing and availability
 
-Here you'll define elements like pricing, market, and a private key.
+Here you'll define elements such as pricing, market, and a private key.
 
-1. **Market** : set the market your offer will be available in. You may only select one market per offer.
+1. **Market**: Set the market your offer will be available in. You may only select one market per offer.
     1. For the United States or Canada markets, select **Edit states** (or **provinces**) to specify where your offer will be available.
-2. **Preview Audience**: configure the **Hide Key** used to set the private audience for your offer.
-3. **Pricing**: specify whether your offer is a **Free** or **Paid** offer.
+2. **Preview Audience**: Configure the **Hide Key** used to set the private audience for your offer.
+3. **Pricing**: Specify whether your offer is a **Free** or **Paid** offer.
 
     > [!NOTE]
-    > Consulting Service offers are for the listing only;  any transactions will happen directly, outside of the commercial marketplace.
+    > Consulting Service offers are for the listing only. Any transactions will happen directly, outside of the commercial marketplace.
 
 4. For a paid offer, specify the **Price and currency** and whether the price is **Fixed** or **Estimated**. If Estimated, you must specify in the description what factors will affect the price.
 5. Select **Save draft**.
 
-## Review and Publish
+## Review and publish
+
+After you've completed all the required sections of the offer, you can submit your offer to review and publish.
 
 1. When you're ready to publish your consulting service offer, click **Review and publish**.
 2. Review the details on the final submission page.
@@ -251,7 +262,7 @@ Here you'll define elements like pricing, market, and a private key.
 4. When you're ready, select **Submit**.
 5. The **Offer overview** page shows what publishing stage your offer is in.
 
-For more information about how long you can expect your offer to spend in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
+For more information about how long you can expect your offer to be in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
 
 ## Update your existing consulting service offers
 
