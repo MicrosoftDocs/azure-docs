@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 04/03/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -31,7 +31,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
-|  Number of used IPs in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    Yes   |
+|  Number of used IPs in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    No   |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
