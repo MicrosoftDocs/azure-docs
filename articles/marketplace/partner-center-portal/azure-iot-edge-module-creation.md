@@ -14,11 +14,18 @@ ms.date: 03/26/2020
 > [!IMPORTANT]
 > We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before doing so, you must first [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace.
+
+Before you can create an IoT Edge module offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 ## Create a new offer
 
-In the Commercial Marketplace dashboard of Partner Center, select **+ New offer**, then select **IoT Edge module**. The **New offer** dialog box appears.
+1. Sign in to Partner Center.
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+
+    ![Illustrates the left-navigation menu.](./media/cs-menu-overview.png)
+
+3. Select **+ New offer** > **IoT Edge module**. The **New offer** dialog box appears.
 
 > [!IMPORTANT]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -36,7 +43,7 @@ Enter an **Offer alias**. This is the name used to refer to the offer in Partner
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-After you enter these two values, select **Create** to continue to the Offer overview page.
+After you enter these two values, select **Create** before continuing to the next page, Offer overview.
 
 ## Offer overview
 
@@ -55,7 +62,7 @@ Follow these steps to set up your offer.
 
 ### Connect lead management
 
-When publishing your offer to the marketplace with Partner Center, you can optionally connect it to your Customer Relationship Management (CRM) system so you can receive customer contact information as soon as one expresses interest in or uses your product.
+When publishing your offer to the marketplace with Partner Center, you can optionally connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
 
@@ -66,7 +73,7 @@ When publishing your offer to the marketplace with Partner Center, you can optio
     **Note**: If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
-3. Confirm the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before you go live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
+3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
 4. Make sure the connection to the lead destination stays updated so you don't lose any leads.
 
 Here are some additional lead management resources:
@@ -74,7 +81,7 @@ Here are some additional lead management resources:
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Make sure your pop-up blocker is turned off).
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing to the next section, Properties.
 
@@ -95,41 +102,41 @@ You must provide terms and conditions for the offer. You have two options:
 
 ##### Standard contract for the Microsoft Commercial Marketplace
 
-We offer a Standard Contract template to help facilitate transactions in the Commercial Marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to craft custom terms and conditions.
+We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to craft custom terms and conditions.
 
 To learn more about the Standard Contract, see [Standard Contract for the Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
-To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace** check box.
+To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace** check box, and then click **Accept**.
 
 > [!NOTE]
-> After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract **or** under your own terms and conditions.
+> After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
 
 ![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](./media/iot-edge-module-creation/AzureIoTEgeModuleCreation-StandardContractCheckbox.png)
 
 ##### Your own terms and conditions
 
-To provide your own custom terms and conditions, enter them in the terms and conditions box. You can enter an unlimited amount of characters of text in this box. Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter them in the **Terms and Conditions** box. You can enter an unlimited amount of characters of text in this box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
 ## Offer listing
 
-Here you'll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on.
+Here you'll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on Microsoft's policy page while configuring this offer.
 
 > [!NOTE]
 > Offer details are not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the Offer listing details.
 
 ### Name
 
-The name you enter here displays as the title of your offering. This field is pre-filled with the text you entered in the Offer alias box when you created the offer. You can change this name later.
+The name you enter here displays as the title of your offer. This field is pre-filled with the text you entered in the **Offer alias** box when you created the offer. You can change this name later.
 
 The name:
 
-- May be trademarked (and you may include trademark or copyright symbols).
+- Can be trademarked (and you may include trademark or copyright symbols).
 - Can't be more than 50 characters long.
 - Can't include emojis.
 
-### Search Results Summary
+### Search results summary
 
 Provide a short description of your offer. This can be up to 100 characters long and is used in marketplace search results.
 
@@ -139,7 +146,7 @@ Provide a more detailed description of your offer. This can be up to 256 charact
 
 ### Description
 
-Provide a longer description of your offer, up to 3000 characters. This is displayed to customers in the marketplace listing overview.
+Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
 
 Include one or more of the following in your description:
 
@@ -155,9 +162,9 @@ IoT Edge module offers must include a minimum hardware requirements paragrap
 Here are some tips for writing your description:
 
 - Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-    - Description of the product.
-    - The type of user that benefits from the product.
-    - Customer needs or issues the product addresses.
+    - Description of the offer.
+    - The type of user that benefits from the offer.
+    - Customer needs or issues the offer addresses.
 - Remember that the first few sentences might be displayed in search results.
 - Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
 - Try to use industry-specific vocabulary or benefit-based wording.
@@ -178,7 +185,7 @@ To make your offer **Description** more engaging, use the rich text editor to fo
 
     :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
 
-#### Privacy policy link
+#### Privacy policy URL
 
 Enter the web address of your organization's privacy policy. You're responsible for ensuring that your offer complies with privacy laws and regulations. You're also responsible for posting a valid privacy policy on your website.
 
@@ -193,19 +200,19 @@ Make sure to add at least one link to your documentation and one link to the com
 
 ### Contact information
 
-You must provide the name, email, and phone number for a **Support contact** and an **Engineering contact.** This information isn't shown to customers, but it is available to Microsoft and may be provided to Cloud Solution Provider (CSP) partners.
+You must provide the name, email, and phone number for a **Support contact** and an **Engineering contact.** This information isn't shown to customers. It is available to Microsoft and may be provided to Cloud Solution Provider (CSP) partners.
 
 - Support contact (required): For general support questions.
 - Engineering contact (required): For technical questions and certification issues.
 - CSP Program contact (optional): For reseller questions related to the CSP program.
 
-In the **Support contact** section, provide the **Support website** where partners can find support for your offer based on whether the offer is available in global Azure, Azure Government, or both.
+In the **Support contact** section, provide the web address of the **Support website** where partners can find support for your offer based on whether the offer is available in global Azure, Azure Government, or both.
 
 In the **CSP Program contact** section, provide the link (**CSP Program Marketing Materials**) where CSP partners can find marketing materials for your offer.
 
 #### Additional marketplace listing resources
 
-- [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+To learn more about creating offer listings, see [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 ### Marketplace images
 
@@ -228,7 +235,7 @@ Add up to five screenshots that show how your offer works. Each must be 1280 x 7
 
 #### Videos (optional)
 
-Add up to five videos that demonstrate your offer. Enter the video's name, its web link (URL), and a thumbnail .png image of the video at 1280 x 720 pixels in size.
+Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail .png image of the video at 1280 x 720 pixels in size.
 
 #### Offer examples
 
@@ -250,6 +257,8 @@ This screenshot shows search results in the Azure portal.
 
 :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzurePortalSearchResults.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
 
+Select **Save draft** before proceeding to the next section, Preview.
+
 ## Preview
 
 On the **Preview tab**, you can choose a limited **Preview Audience** for validating your offer before publishing it live to the broader marketplace audience.
@@ -266,6 +275,8 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 > [!NOTE]
 > The preview audience differs from a private audience. A **preview** audience can see and confirm all offer plans before they are live in the marketplace, including those that will be published only to a **private** audience (set on the Availability tab).
+
+Select **Save draft** before proceeding to the next section, Plan overview.
 
 ### Plan overview
 
@@ -286,11 +297,16 @@ The actions available in the Plan overview vary depending on the current status 
 
 #### Create new plan
 
-**Plan ID**: Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product web address. Use only lowercase letters and numbers, dashes, or underscores, and a maximum of 50 characters.
+Select **Create new plan**. The **New plan** dialog box appears.
 
-**Note**: The plan ID can't be changed after you select **Create**.
+In the **Plan ID** box, create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product web address. Use only lowercase letters and numbers, dashes, or underscores, and a maximum of 50 characters.
 
-**Plan name**: Customers see this name when deciding which plan to select within your offer. Create a unique name for each plan in this offer. For example, you might use an offer name of **Windows Server** with plans **Windows Server 2016** and **Windows Server 2019**.
+In the **Plan name** box, enter a name for this plan. Customers see this name when deciding which plan to select within your offer. Create a unique name for each plan in this offer. For example, you might use an offer name of **Windows Server** with plans **Windows Server 2016** and **Windows Server 2019**.
+
+> [!NOTE]
+> The plan ID can't be changed after you select **Create**.
+
+Select **Create**.
 
 ### Plan setup
 
@@ -316,19 +332,19 @@ Azure Government services handle data that's subject to certain government regul
 
 This tab displays specific information for each different plan within the same offer.
 
-### Name
+### Plan name
 
-This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and Azure portal. It's used as the default module name after the plan is ready to be used. 
+This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and Azure portal. It's used as the default module name after the plan is ready to be used.
 
-### Summary
+### Plan summary
 
 Provide a short summary of your plan (not the offer). This summary appears in Azure Marketplace search results and can contain up to 100 characters.
 
-### Description
+### Plan description
 
 Describe what makes this plan unique, as well as differences between plans within your offer. Don't describe the offer, just the plan. This description will appear in Azure Marketplace and in the Azure portal on the Offer listing page. It can be the same content you provided in the plan summary and contain up to 2,000 characters.
 
-Select **Save** after completing these fields.
+Select **Save draft** after completing these fields.
 
 #### Plan examples
 
@@ -342,9 +358,9 @@ These are plan details on the Azure portal:
 
 :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AzurePortalPlanDetails.png" alt-text="Illustrates plan details on the Azure portal.":::
 
-## Plan availability
+## Availability
 
-If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box.
+If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box on the Availability tab.
 
 This field is commonly used when:
 
@@ -355,7 +371,7 @@ This field is commonly used when:
 
 ## Technical configuration
 
-The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the Technical Configuration tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://aka.ms/ContainerRegistry), along with configuration settings that let customers use the module easily.
+The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://aka.ms/ContainerRegistry), along with configuration settings that let customers use the module easily.
 
 After the offer is published, your IoT Edge container image is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
@@ -373,7 +389,7 @@ You'll provide the following information on the **Image repository details** tab
 
 **Azure container registry name**: Provide the name of the [Azure Container Registry](https://aka.ms/DockerContainerRegistriesAzure) that has your container image. The container registry must be present in the Azure resource group you provided earlier. Provide only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-**Admin username for the Azure Container Registry**: Provide the [admin username](https://aka.ms/AdminAccountContainerRegistry) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to True using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
+**Admin username for the Azure Container Registry**: Provide the [admin username](https://aka.ms/AdminAccountContainerRegistry) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
 :::image type="content" source="media/iot-edge-module-creation/AzureIoTEgeModuleCreation-AdminUser.png" alt-text="Illustrates the Update container registry dialog box.":::
 
@@ -387,9 +403,9 @@ You'll provide the following information on the **Image repository details** tab
 
 Customers must be able to automatically get updates from the Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
 
-**Image tag**. This field must include a latest tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://aka.ms/GitHubmanifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags needs to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](https://aka.ms/PrepareIoTEdgeModTechAssets)
+**Image tag**. This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://aka.ms/GitHubmanifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](https://aka.ms/PrepareIoTEdgeModTechAssets)
 
-### Default deployment settings
+### Default deployment settings (optional)
 
 Define the most common settings to deploy your IoT Edge module. Optimize customer deployments by letting them launch your IoT Edge module out-of-the-box with these default settings.
 
@@ -424,24 +440,24 @@ For example, if a module requires port binding, define the following create opti
 
 "HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}
 
-## Publish
+## Review and publish
 
-### Submit offer to preview
+After you've completed all the required sections of the offer, you can submit it to review and publish.
 
-After you've completed all the required sections of the offer, select **Review and publish** in the top-right corner of the portal.
+In the top-right corner of the portal, select **Review and publish**.
 
-On the review page you can:
+On the review page you can see the publishing status:
 
 - See the completion status for each section of the offer. You can't publish until all sections of the offer are marked as complete.
-
     - **Not started** - The section hasn't been started and needs to be completed.
     - **Incomplete** - The section has errors that need to be fixed or requires that you provide more information. See the sections earlier in this document for guidance.
     - **Complete** - The section has all required data and there are no errors. All sections of the offer must be complete before you can submit the offer.
-
 - Provide testing instructions to the certification team to ensure your offer is tested correctly. Also, provide any supplementary notes that are helpful for understanding your offer.
 
-To submit the offer for publishing, select **Publish**. We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+To submit the offer for publishing, select **Publish**.
+
+We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
 
 ## Next steps
 
-- [Update an existing offer in the Commercial Marketplace](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

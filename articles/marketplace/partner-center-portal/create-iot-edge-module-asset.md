@@ -37,7 +37,7 @@ Your module must support all Tier 1 platforms supported by IoT Edge (as recorded
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://aka.ms/GitHubmanifest-tool).
 
-- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://partner.microsoft.com/dashboard/commercial-marketplace). You can use the redirection link https://aka.ms/iot-edge-certified that resolves to the [Azure IoT Edge Device Catalog](https://catalog.azureiotsolutions.com/).
+- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/). You can use the redirection link https://aka.ms/iot-edge-certified that resolves to the [Azure IoT Edge Device Catalog](https://catalog.azureiotsolutions.com/).
 
 #### A subset of Tier 1 platforms supported by IoT Edge
 
@@ -68,7 +68,7 @@ Your module must include default configuration settings to make the deployment t
 
 #### Default configuration
 
-IoT Edge modules must be able to start with the default settings provided in the **Technical configuration page** for the plan in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace). The following default settings are available:
+IoT Edge modules must be able to start with the default settings provided in the **Technical configuration** page for the plan in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace). The following default settings are available:
 
 - Default **routes**
 - Default **module twin desired properties**
@@ -89,10 +89,12 @@ All configuration settings of an IoT Edge module must be clearly documented. For
 
 Customers must be able to easily deploy a module and automatically get updates from the marketplace (in a developer scenario). They also must be able to use and freeze an exact version they've tested (in a production scenario).
 
+To meet these customer expectations and be published in the marketplace, IoT Edge modules must meet the following requirements
+
 - Include a manifest latest tag that points to the latest version on all supported platforms.
 - Make version tags in the form X.Y.Z, where X, Y, and Z are integers.
 - Include a "version" tag, such as 1.0.1, that points to a specific version on all supported platforms.
-- Don't update "version" tags, like 1.0.1, because they must not be changed.
+- Don't update "version" tags, such as 1.0.1, because they must not be changed.
 
 > [!NOTE]
 > Optionally, versioning can include "rolling version" tags, such as 2.0 and 1.0. This supports maintaining multiple major versions in parallel.
