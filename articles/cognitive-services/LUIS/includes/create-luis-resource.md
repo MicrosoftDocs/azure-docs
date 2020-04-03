@@ -6,11 +6,11 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 04/03/2020
 ms.author: dapine
 ---
 
-## Create LUIS resources
+## Create LUIS resources in Azure portal
 
 1. Use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) to begin creating LUIS resources in the Azure portal.
 
