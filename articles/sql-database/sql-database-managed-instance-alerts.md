@@ -12,11 +12,11 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/02/2020
 ---
-# Create alerts for Azure SQL Managed Instance using Azure portal
+# Create alerts for Azure SQL Managed Instance using the Azure portal
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Managed InstanceDatabase using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example instance storage size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
+This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example instance storage size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -44,14 +44,14 @@ You can configure and get information about alert rules using
    ![Monitoring](media/sql-database-insights-alerts-portal/Alerts.png)
   
 3. Select the **New alert rule** button to open the **Create rule** page.
-  ![Create rule](media/sql-database-insights-alerts-portal/create-rule.png)
+   ![Create rule](media/sql-database-insights-alerts-portal/create-rule.png)
 
 4. In the **Condition** section, click **Add**.
-  ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
+   ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
 5. In the **Configure signal logic** page, select a signal.
-  ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png).
+   ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png)
 6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
-  ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+   ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
 7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.
 8. On the **Create rule**, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs.
   ![Define action group](media/sql-database-insights-alerts-portal/action-group.png)
