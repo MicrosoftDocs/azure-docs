@@ -472,6 +472,9 @@
         - name: Configure OpenSSL for Linux
           displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
           href: how-to-configure-openssl-linux.md
+        - name: Configure RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
     - name: Samples
       items:
         - name: Speech SDK samples (GitHub)
