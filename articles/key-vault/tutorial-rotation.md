@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 The best way to authenticate to Azure services is by using a [managed identity](managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial demonstrates how to automate the periodic rotation of secrets for databases and services that use single-user password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use single-user password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
 ![Diagram of rotation solution](./media/rotate1.png)
 
@@ -43,7 +43,7 @@ This tutorial uses an existing Azure Resource Manager template to create compone
 
     ![Create a resource group](./media/rotate2.png)
 
-You will now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in Azure CLI by running the following command:
+You'll now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in Azure CLI by running the following command:
 
 ```azurecli
 az resource list -o table
