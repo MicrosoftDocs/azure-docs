@@ -129,13 +129,15 @@ When moving from test scenarios to production scenarios, remember to remove debu
   * Manage access to your container registry
   * Use tags to manage versions
 
-### Manage access to your container registry with a service principal
+### Manage access to your container registry
 
 Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images.
 
-In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner (headless), as IoT Edge devices do.
+In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
 
-To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-aci.md#create-a-service-principal). These scripts do the following tasks:
+You have a choice of [authentication options](../container-registry/container-registry-authentication.md) for a more secure access to your registry, the most popular of which is to use an Active Directory service principal for applications or services that pull container images in an automated or otherwise unattended manner (headless), as IoT Edge devices do.
+
+To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
 
 * The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
 
