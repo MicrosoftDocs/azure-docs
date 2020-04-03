@@ -103,6 +103,8 @@ Get-AzureRmConsumptionBudget
    [<CommonParameters>]
 ```
 
+---
+
 ## Next steps
 
 In this quickstart, you created an Azure budget the deployment. To learn more about Azure Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
