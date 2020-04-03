@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ---
 # Azure Resource Manager templates for App Service
 
@@ -28,6 +28,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for SSL binding. |
 | [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Deploys an App Service app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
 | [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
+| [App with regional VNet integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-service-regional-vnet-integration)| Deploys an App Service app with regional VNet integration enabled. |
 |**Protecting an app**||
 | [App integrated with Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Deploys an App Service app and an Application Gateway, and isolates the traffic using service endpoint and access restrictions. |
 |**Linux app with connected resources**||
