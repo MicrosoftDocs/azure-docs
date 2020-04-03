@@ -15,7 +15,7 @@ Before you get started:
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * Make sure that you have access to a microphone for audio capture
 
-## Add sample code
+## Source code
 
 Create a C++ source file named *helloworld.cpp*, and paste the following code into it.
 
@@ -27,11 +27,11 @@ Create a C++ source file named *helloworld.cpp*, and paste the following code in
 
 [!INCLUDE [code explanation](../code-explanation.md)]
 
-## Build and run the application
+## Build and run app
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or press <kbd>F5</kbd>) to start the **helloworld** application.
 
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which transcribes to text and sends it back to the application for display.
 

@@ -27,7 +27,7 @@ Create a file named *quickstart.py* and paste the following Python code in it.
 
 [!INCLUDE [code explanation](../code-explanation.md)]
 
-## Build and run your app
+## Build and run app
 
 Now you're ready to test the app, and verify the speech recognition functionality using the Speech service.
 

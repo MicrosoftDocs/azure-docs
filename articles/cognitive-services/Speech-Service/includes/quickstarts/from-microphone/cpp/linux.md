@@ -17,7 +17,7 @@ Before you get started:
 
 ## Source code
 
-Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
+Create a C++ source file named *helloworld.cpp*, and paste the following code into it.
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 

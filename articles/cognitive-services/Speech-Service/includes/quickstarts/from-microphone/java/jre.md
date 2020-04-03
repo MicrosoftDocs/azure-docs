@@ -31,7 +31,7 @@ Replace the contents of the *Main.java* file with the following snippet:
 
 [!INCLUDE [code explanation](../code-explanation.md)]
 
-## Build and run the app
+## Build and run app
 
 Press <kbd>F11</kbd>, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.

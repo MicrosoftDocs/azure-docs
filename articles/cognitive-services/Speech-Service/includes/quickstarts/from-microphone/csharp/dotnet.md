@@ -84,7 +84,7 @@ namespace Speech.Recognition
 
 [!INCLUDE [code explanation](../code-explanation.md)]
 
-## Build and run your app
+## Build and run app
 
 Now you're ready to rebuild your app and test the speech recognition functionality using the Speech service.
 
