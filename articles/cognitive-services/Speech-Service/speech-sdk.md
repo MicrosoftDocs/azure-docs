@@ -64,21 +64,11 @@ Several of the Speech SDK programming languages support codec compressed audio i
 
 ## REST API
 
-While the Speech SDK covers many feature capabilities of the Speech Service, for some scenarios you might want to use the REST API. As an example, endpoint management is only exposed via the REST API.
-
-> [!TIP]
-> When relying on the REST API, use the Swagger Editor to automatically generate client libraries. For example, to generate a Batch transcription client library.
-> 1. Copy the example URL below:
->     ```http
->     https://westus.cris.ai/docs/v2.0/swagger
->     ```
-> 1. Navigate to the <a href="https://editor.swagger.io/" target="_blank">Swagger Editor <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> 1. Select **File** > **Import URL** and paste the URL
-> 1. Select **Generate Client** and choose your desired programming language
+While the Speech SDK covers many feature capabilities of the Speech Service, for some scenarios you might want to use the REST API.
 
 ### Batch transcription
 
-[Batch transcription](batch-transcription.md) enables asynchronous speech-to-text transcription of large volumes of data. Batch transcription is only possible from the REST API.
+[Batch transcription](batch-transcription.md) enables asynchronous speech-to-text transcription of large volumes of data. Batch transcription is only possible from the REST API. In addition to converting speech audio to text, batch speech-to-text also allows for diarization and sentiment-analysis.
 
 ## Customization
 
