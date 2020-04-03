@@ -9,6 +9,8 @@ ms.topic: article
 
 # System requirements
 
+[!INCLUDE [Preview](../preview-include.md)]
+
 This chapter lists the minimum system requirements to work with *Azure Remote Rendering* (ARR).
 
 ## Development PC
