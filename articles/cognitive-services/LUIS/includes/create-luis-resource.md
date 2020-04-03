@@ -10,6 +10,8 @@ ms.date: 04/03/2020
 ms.author: dapine
 ---
 
+<a name="create-luis-resources"></a>
+
 ## Create LUIS resources in Azure portal
 
 1. Use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) to begin creating LUIS resources in the Azure portal.
