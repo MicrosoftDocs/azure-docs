@@ -1,5 +1,5 @@
 ---
-title: Match on partial terms, patterns, and special characters
+title: Partial terms, patterns, and special characters
 titleSuffix: Azure Cognitive Search
 description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
 
@@ -14,28 +14,28 @@ ms.date: 04/02/2020
 
 A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` - tokenized as `"1"`, `"425"`, `"703"`, `"6214"` - won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`( tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to store intact versions of these strings in the index, to specifically support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
+The solution is to store intact versions of these strings in the index so that you can support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
 ## What is partial search in Azure Cognitive Search
 
 In Azure Cognitive Search, partial search is available in these forms:
 
-+ [Simple query expressions](query-simple-syntax.md) that use a fragment
-+ [Wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard), such as `search=sea~` or `search=sea*`, matching on "seaside", "Seattle", "seam", and so forth.
-+ [Regular expressions](query-lucene-syntax.md#bkmk_regex)
++ [Simple query expressions](query-simple-syntax.md) that use a fragment of string, such as the `"3-62"` example above.
++ [Wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard), such as `search=sea~`, matching on "seaside", "Seattle", "seam". Or `search=*sea*`, matching on "Seattle" or "Swansea".
++ [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern.
 
 When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
 
 ## Solving partial search problems
 
-When you need to search on patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, preserving whole terms, necessary when query strings include parts of a term or special characters. Taking a step back, the approach looks like this:
+When you need to search on patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the whole string. Taking a step back, the approach looks like this:
 
-+ Define a field to store an intact version of the field (assuming you want analyzed and non-analyzed text)
++ Define a field to store an intact version of the string (assuming you want analyzed and non-analyzed text)
 + Choose a predefined analyzer or define a custom analyzer to output an intact string
 + Assign the analyzer to the field
-+ Build the index and test
++ Build and test the index
 
 > [!TIP]
 > Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
