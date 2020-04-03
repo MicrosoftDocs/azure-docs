@@ -110,7 +110,7 @@ We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Ap
 
 For this reason, we're not planning to release an SDK with Application Insights 3.0 at this time.
 
-Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until OpenTelemetry API is GA.
+Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
 
 ## Sending custom telemetry using Application Insights Java SDK 2.x
 
