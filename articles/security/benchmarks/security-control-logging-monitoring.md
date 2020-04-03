@@ -256,5 +256,3 @@ Manually configure console logging and PowerShell Transcription on a per-node ba
 
 Manually configure console logging and PowerShell Transcription on a per-node basis.
 
-ode basis.
-

@@ -308,5 +308,3 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-scan.html)
-

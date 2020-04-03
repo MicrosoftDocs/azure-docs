@@ -352,5 +352,3 @@ Use Azure Activity Log to monitor network resource configurations and detect cha
 
 - [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-ivity-log)
-

@@ -316,5 +316,3 @@ Software that is required for business operations, but may incur higher risk for
 
 - [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-k-traffic)
-

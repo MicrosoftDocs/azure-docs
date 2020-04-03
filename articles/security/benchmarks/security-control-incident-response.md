@@ -148,5 +148,3 @@ Use the Workflow Automation feature in Azure Security Center to automatically tr
 
 - [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-utomation)
-

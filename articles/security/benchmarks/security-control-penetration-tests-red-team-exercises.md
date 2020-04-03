@@ -32,5 +32,3 @@ ms.custom: security-benchmark
 
 - [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
--b837392e)
-

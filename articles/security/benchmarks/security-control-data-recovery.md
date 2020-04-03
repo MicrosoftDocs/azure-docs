@@ -108,5 +108,3 @@ For on-premises backup, encryption-at-rest is provided using the passphrase you 
 
 Azure Backup data is stored in a Recovery Service vault, separate from the storage location (VM, SQL Server, File Share). Contents of the vault are not directly accessible via the source/OS.
 
-source/OS.
-
