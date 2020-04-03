@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [MongoDB Cloud Client support team](support.mongodb.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [MongoDB Cloud Client support team](https://support.mongodb.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. MongoDB Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure MongoDB Cloud SSO
 
-To configure single sign-on on **MongoDB Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [MongoDB Cloud support team](support.mongodb.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **MongoDB Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [MongoDB Cloud support team](https://support.mongodb.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create MongoDB Cloud test user
 
