@@ -62,7 +62,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * **Increase throughput:** The duration of your data migration depends on the amount of throughput you provisioned for the tables in Azure Cosmos DB. Increase the throughput for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. After you've completed the migration, decrease the throughput to save costs. It’s also recommended to have the Azure Cosmos account in the same region as your source database. 
 
-* **Enable SSL:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information.
+* **Enable TLS:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable TLS when you interact with your account. When you use CQL with SSH, you have an option to provide TLS information.
 
 ## Options to migrate data
 
