@@ -30,7 +30,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
 
 This document uses standard names to simplify the instructions. Replace them with any names of your choice.
 
-|Setting | Suggested value | Description |
+|Setting | Example value | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse workspace** | WS1 |  The name that the Synapse workspace will have. |
 | **ADLSGEN2 account** | STG1 | The ADLS account to use with your workspace. |
