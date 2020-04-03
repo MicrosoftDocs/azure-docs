@@ -25,7 +25,7 @@ To start sending your Automation logs to Azure Monitor logs, you need:
 
 * The latest release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * A Log Analytics workspace. For more information, see [Get started with Azure Monitor logs](../log-analytics/log-analytics-get-started.md).
-* The resoure ID for your Azure Automation account.
+* The resource ID for your Azure Automation account.
 
 Use the following command to find the resource ID for your Azure Automation account:
 
