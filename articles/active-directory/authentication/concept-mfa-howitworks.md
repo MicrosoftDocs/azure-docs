@@ -39,7 +39,7 @@ Your applications or services don't need to make any changes to use Azure Multi-
 
 ## Available verification methods
 
-When a user signs in to an application or service and receive an MFA prompt, they can choose from one of their registered forms of additional verification. An administrator could require registration of these Azure Multi-Factor Authentication verification methods, or the user can access their own My Profile to edit or add verification methods.
+When a user signs in to an application or service and receive an MFA prompt, they can choose from one of their registered forms of additional verification. An administrator could require registration of these Azure Multi-Factor Authentication verification methods, or the user can access their own [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
 
 The following additional forms of verification can be used with Azure Multi-Factor Authentication:
 
@@ -52,13 +52,13 @@ The following additional forms of verification can be used with Azure Multi-Fact
 
 Users and groups can be enabled for Azure Multi-Factor Authentication to prompt for additional verification during the sign-in event. [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are available for all Azure AD tenants to quickly enable the use of the Microsoft Authenticator app for all users.
 
-For more granular controls, Conditional Access policies can be used to define events or applications that require MFA. These policies can allow regular sign-in events when the user is on the corporate network or a registered device, but prompt for additional verification factors when remote or on a personal device.
+For more granular controls, [Conditional Access](../conditional-access/overview.md) policies can be used to define events or applications that require MFA. These policies can allow regular sign-in events when the user is on the corporate network or a registered device, but prompt for additional verification factors when remote or on a personal device.
 
 ![Overview diagram of how Conditional Access works to secure the sign-in process](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## Next steps
 
-To learn about licensing, see [Features and licenses for Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+To learn about licensing, see [Features and licenses for Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 To see MFA in action, enable Azure Multi-Factor Authentication for a set of test users in the following tutorial:
 
