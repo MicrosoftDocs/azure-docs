@@ -75,6 +75,8 @@
         href: overview-security.md
       - name: Security baseline
         href: security-baseline.md
+      - name: Built-In Security
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault

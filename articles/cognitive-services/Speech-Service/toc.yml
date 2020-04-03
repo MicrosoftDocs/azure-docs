@@ -456,8 +456,6 @@
           href: speech-sdk.md
         - name: Scenario availability
           href: scenario-availability.md
-        - name: Ship an application
-          href: ship-application.md
     - name: Quickstart
       items:
         - name: Setup Speech SDK
