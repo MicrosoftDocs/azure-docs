@@ -64,7 +64,7 @@ After you register a phone number for a user, they can use it to sign in with SM
 ### To remove a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff mamber's profile.
+1. Open a staff member's profile.
 1. Select **Remove phone number**.
 1. Confirm your intent.
 
