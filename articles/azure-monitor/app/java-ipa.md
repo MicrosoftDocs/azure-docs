@@ -8,7 +8,7 @@ ms.date: 03/29/2020
 
 # Java codeless application monitoring - public preview
 
-Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent will be enabled through just a couple of configuration changes.
+Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
 The best news ever is that the Java agent work in any environment, and allows to monitor all of your Java applications.
 
