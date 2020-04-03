@@ -30,9 +30,10 @@ If you manage more than one location or group of staff members, the first time y
 If your organization has given you permission, you can reset passwords for your staff members.
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a user's profile.
+1. Open a staff mamber's profile.
 1. Select **Reset password**.
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
+    ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password.png)
 
 After you have reset the user's password, give the user the temporary password. When the user signs in with their temporary password, they are required to change it.
 
@@ -40,28 +41,34 @@ After you have reset the user's password, give the user the temporary password. 
 
 If your organization has given you permission, you can manage phone numbers for your staff members.
 
-### Add a phone mumber
+### Add a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a user's profile.
+1. Open a staff mamber's profile.
 1. Select **Add phone number**.
 1. Add the phone number and select **Save**.
+
+    ![Add a user phone number in My Staff](media/my-staff-team-manager/add-number.png)
 
 After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 
 ### To edit an existing phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a user's profile.
+1. Open a staff mamber's profile.
 1. Select **Edit phone number**.
 1. Change the phone number and select **Edit**.
+
+    ![Edit a staff mamber phone number in My Staff](media/my-staff-team-manager/edit-number.png)
 
 ### To remove a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a user's profile.
+1. Open a staff mamber's profile.
 1. Select **Remove phone number**.
 1. Confirm your intent.
+
+    ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/remove-number.png)
 
 ## Next steps
 
