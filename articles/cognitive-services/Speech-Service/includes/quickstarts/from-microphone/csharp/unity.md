@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 04/02/2020
 ms.author: erhopf
 ---
 
@@ -130,4 +130,4 @@ For more information, see our [sample repository](https://aka.ms/csspeech/sample
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]
