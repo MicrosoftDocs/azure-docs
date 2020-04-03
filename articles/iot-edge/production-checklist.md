@@ -135,7 +135,7 @@ Before you deploy modules to production IoT Edge devices, ensure that you contro
 
 In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
 
-You have a choice of [authentication options](../container-registry/container-registry-authentication.md) for a more secure access to your registry, the most popular of which is to use an Active Directory service principal for applications or services that pull container images in an automated or otherwise unattended manner (headless), as IoT Edge devices do.
+For a more secured access to your registry, you have a choice of [authentication options](../container-registry/container-registry-authentication.md). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do.
 
 To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
 
@@ -149,7 +149,8 @@ To authenticate using a service principal, provide the service principal ID and 
 
 * For the password or client secret, specify the service principal password.
 
-For an example of launching a container instance with Azure CLI, see [Authenticate using the service principal](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal).
+> [!NOTE]
+> After implementing an enhanced security authentication, disable the **Admin user** setting so that the default username/password access is no longer available. In your container registry in the Azure portal, from the left pane menu under **Settings**, select **Access Keys**.
 
 ### Use tags to manage versions
 
