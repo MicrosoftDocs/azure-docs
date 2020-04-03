@@ -39,7 +39,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SAP Qualtrics supports **IDP** initiated SSO
+* SAP Qualtrics supports **SP** and **IDP** initiated SSO
 * Once you configure SAP Qualtrics you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding SAP Qualtrics from the gallery
@@ -76,16 +76,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
-
-    a. In the **Identifier** text box, type a URL:
+1. On the **Set up single sign-on with SAML** page, If you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+    
+    a. In the **Identifier** text box, type a URL using the following pattern:
 	`https://< DATACENTER >.qualtrics.com`
    
-    b. In the **Reply URL** text box, type a URL:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://< DATACENTER >.qualtrics.com/login/v1/sso/saml2/default-sp`
 
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    a. In the **Sign on URL** textbox, type a URL using the following pattern:
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
+
+    b. In the **Relay State** text box, type a URL using the following pattern:
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
+
     > [!NOTE]
-    > These values are not real. Where datacenter can be one of the following: gov1st3au1euaz1co1ca1. Update these values with the actual Identifier and Reply URL. Contact [Qualtrics Client support team](https://www.qualtrics.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier, Reply URL and Relay State. Contact [Qualtrics Client support team](https://www.qualtrics.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
