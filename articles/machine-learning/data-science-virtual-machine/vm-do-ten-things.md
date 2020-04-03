@@ -802,16 +802,6 @@ pd.read_sql(queryString, connection)
 
 ![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### Read data from HDI by using Azure Machine Learning Studio (classic): reader module
-
-You can also use the reader module in Azure Machine Learning Studio (classic) to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
-
-![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-You can then view the scored dataset:
-
-![View scored dataset](./media/vm-do-ten-things/AML_Model_Results.PNG)
-
 ### Azure SQL Data Warehouse and databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 

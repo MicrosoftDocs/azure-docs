@@ -41,7 +41,7 @@ These problems are compounded for users who need access from another organizatio
 - No one person may not know all of the specific individuals in other organization's directories to be able to invite them
 - Even if they were able to invite these users, no one in that organization may remember to manage all of the user's access consistently
 
-Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://aka.ms/AvanadeELMCase) and the [Centrica case study](https://aka.ms/CentricaELMCase).  This video provides an overview of entitlement management and its value:
+Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
