@@ -77,8 +77,8 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 | Cause | Description |
 |-----------|-------------|
 | Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
-| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Generally, differences in per-replica statistics are more noticeable in smaller indexes. |
-| Identical scores | If two or more search documents have identical scores, any one of them might appear first.  |
+| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. |
+| Identical scores | If multiple documents have the same score, any one of them might appear first.  |
 
 ### Consistent ordering
 

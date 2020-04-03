@@ -14,7 +14,7 @@ ms.date: 04/02/2020
 
 A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`( tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
 The solution is to store intact versions of these strings in the index so that you can support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
@@ -22,9 +22,8 @@ The solution is to store intact versions of these strings in the index so that y
 
 In Azure Cognitive Search, partial search is available in these forms:
 
-+ [Simple query expressions](query-simple-syntax.md) that use a fragment of string, such as the `"3-62"` example above.
-+ [Wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard), such as `search=sea~`, matching on "seaside", "Seattle", "seam". Or `search=*sea*`, matching on "Seattle" or "Swansea".
-+ [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern.
++ [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simply query syntax for prefix search.
++ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. For example, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) for a suffix query. Wildcard and regular expressions require the full Lucene syntax.
 
 When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
 
