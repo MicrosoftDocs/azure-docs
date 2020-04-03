@@ -19,7 +19,7 @@ Setting importance in Synapse SQL for Azure Synapse allows you to influence the 
 
 ## Create a Workload Classifier with Importance
 
-Often in a data warehouse scenario you have users who need their queries to run quickly.  The user could be executives of the company who need to run reports or the user could be an analyst running an adhoc query. You create a workload classifier to assign importance to a query.  The examples below use the new [create workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) syntax to create two classifiers.  Membername can be a single user or a group. Individual user classifications take precedence over role classifications. To find existing data warehouse users, run:
+Often in a data warehouse scenario you have users who need their queries to run quickly.  The user could be executives of the company who need to run reports or the user could be an analyst running an adhoc query. You create a workload classifier to assign importance to a query.  The examples below use the new [create workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax to create two classifiers. `Membername` can be a single user or a group. Individual user classifications take precedence over role classifications. To find existing data warehouse users, run:
 
 ```sql
 Select name from sys.sysusers
@@ -45,6 +45,7 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## Next Steps
+
 - For more information about workload management, see [Workload Classification](sql-data-warehouse-workload-classification.md)
 - For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
