@@ -52,7 +52,7 @@ $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.ppe.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"
