@@ -4,13 +4,13 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/03/2020
 ms.author: rohogue
 ---
 
 # Add storage targets
 
-*Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache instance. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
+*Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
 You can define up to ten different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
@@ -30,9 +30,9 @@ A new Blob storage target needs an empty Blob container or a container that is p
 
 You can create a new container from this page just before adding it.
 
-To define an Azure Blob container, enter this information.
-
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
+
+To define an Azure Blob container, enter this information.
 
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
@@ -136,7 +136,7 @@ There are three options:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
-  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is only written to the back-end storage system after it has been in the cache for an hour with no additional changes.
+  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
 

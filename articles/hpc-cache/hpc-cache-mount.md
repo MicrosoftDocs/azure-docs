@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.author: rohogue
 ---
 
@@ -29,7 +29,7 @@ Make sure your clients are able to mount the Azure HPC Cache by following the gu
 
 The client machines must have network access to the cache's virtual network and private subnet.
 
-For example, create client VMs within the same virtual network, or use an endpoint, gateway, or other solution in the virtual network for access from outside. (Remember that nothing other than the cache itself can be hosted inside the cache's subnet.)
+For example, create client VMs within the same virtual network, or use an endpoint, gateway, or other solution in the virtual network for access from outside. (Remember that nothing other than the cache itself should be hosted inside the cache's subnet.)
 
 ### Install utilities
 
@@ -42,7 +42,7 @@ Install the appropriate Linux utility software to support the NFS mount command:
 
 Create a local directory path on each client to connect to the cache. Create a path for each storage target that you want to mount.
 
-Example: `sudo mkdir /mnt/hpc-cache-1/target3`
+Example: `sudo mkdir -p /mnt/hpc-cache-1/target3`
 
 ## Use the mount instructions utility
 
@@ -65,7 +65,7 @@ To use this page, follow this procedure:
 
    Note the path name so that you can modify it in the command if needed.
 
-1. In step two, select one of the available IP addresses. All of the cache's [client mount points](#find-mount-command-components) are listed here.
+1. In step two, select one of the available IP addresses. All of the cache's [client mount points](#find-mount-command-components) are listed here. Make sure that you have a system to balance load among all IP addresses.
 
 1. The field in step three automatically populates with a prototype mount command. Click the copy symbol at the right side of the field to automatically copy it to your clipboard.
 
