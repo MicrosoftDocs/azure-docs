@@ -72,7 +72,7 @@ The suffix operator is an asterisk `*`. For example, `cap*` will search for docu
 
 Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. 
 
-If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk-wildcard) and the full Lucene syntax.
+If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and the full Lucene syntax.
 
 ## Phrase search operator
 
