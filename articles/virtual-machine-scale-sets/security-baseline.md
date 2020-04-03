@@ -4,7 +4,7 @@ description: Azure Security Baseline for Virtual Machine Scale Sets
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -417,9 +417,9 @@ Information on Privileged Identity Manager: https://docs.microsoft.com/azure/act
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2108).
 
-**Guidance**: &lt;---------NEED Verification------------&gt;
+**Guidance**: Azure Virtual Machine Scale Set and Azure Active Directory does not have the concept of default passwords.  Customer responsible for third party applications and marketplace services that may use default passwords.
 
-Azure Active Directory does not have the concept of default passwords.  Customer responsible for third party applications and marketplace services that may use default passwords.
+
 
 **Azure Security Center monitoring**: Currently not available
 

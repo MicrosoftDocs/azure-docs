@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Data Factory
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1006).
 
-**Guidance**: When creating an Azure-SSIS Integration Runtime (IR), you have the option to join it with a virtual network. This will allow Azure Data Factory to create certain network resources, such as a network security group (NSG) and load balancer. On the NSG that is automatically created by Azure Data Factory, port 3389 is open to all traffic by default. Lock this down to ensure that only your administrators have access.
+**Guidance**: When creating an Azure-SSIS Integration Runtime (IR), you have the option to join it with a virtual network. This will allow Azure Data Factory to create certain network resources, such as a network security group (NSG) and a load balancer. On the NSG that is automatically created by Azure Data Factory, port 3389 is open to all traffic by default. Lock this down to ensure that only your administrators have access.
 
 Self-Hosted IRs can be deployed on an on-premises machine or Azure virtual machine inside a virtual network. Ensure that your virtual network subnet deployment has an  NSG configured to allow only administrative access.
 
