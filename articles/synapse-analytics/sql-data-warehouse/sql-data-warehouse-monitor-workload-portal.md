@@ -19,11 +19,11 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 ## Prerequisites
 
 - Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Create a Log Analytics workspace
 
-Navigate to the browse blade for Log Analytics workspaces and create a workspace 
+Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Log Analytics workspaces](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
@@ -31,7 +31,7 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Add Analytics workspace](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
+For more details on workspaces, visit the following [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## Turn on Diagnostic logs
 
@@ -42,7 +42,6 @@ Configure diagnostic settings to emit logs from your SQL pool. Logs consist of t
 - [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
-
 
 ![Enabling diagnostic logs](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
@@ -59,39 +58,38 @@ Navigate to your Log Analytics workspace where you can do the following:
 - Create log alerts
 - Pin query results to a dashboard
 
-For details on the capabilities of log queries, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+For details on the capabilities of log queries, visit the following [documentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ![Log Analytics workspace editor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
-
-
 
 ![Log Analytics workspace queries](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## Sample log queries
 
-
-
 ```Kusto
-//List all queries 
+//List all queries
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | project TimeGenerated, StartTime_t, EndTime_t, Status_s, Command_s, ResourceClass_s, duration=datetime_diff('millisecond',EndTime_t, StartTime_t)
 ```
+
 ```Kusto
 //Chart the most active resource classes
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | where Status_s == "Completed"
 | summarize totalQueries = dcount(RequestId_s) by ResourceClass_s
-| render barchart 
+| render barchart
 ```
+
 ```Kusto
 //Count of all queued queries
 AzureDiagnostics
-| where Category contains "waits" 
+| where Category contains "waits"
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
+
 ## Next steps
 
 Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to share across your team.

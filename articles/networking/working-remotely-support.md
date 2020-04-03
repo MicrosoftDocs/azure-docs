@@ -26,8 +26,6 @@ Not all networks (for example, private WAN and corporate core networks) experien
 
 Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas, replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
->[!NOTE] 
->Towards the end of this article, links to articles leveraging different Azure networking features and ecosystems to support users working remotely are listed.
 
 
 ## Sharing our best practices - Azure network is designed for elasticity and high-availability
@@ -42,17 +40,18 @@ The Microsoft network is designed to meet the requirements and provide optimal p
 
 ## Enable employees to work remotely
 
-Azure VPN gateway supports both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using the Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770). 
+Azure VPN gateway supports both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using the Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md). 
 
-If you are using Secure Sockets Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
+If you are using Secure Sockets Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
+).
 
-To access your resources deployed in Azure, remote developers could use Azure Bastion solution, instead of VPN connection to get secure shell access (RDP or SSH) without requiring public IPs on the VMs being accessed. For more information, see [Work remotely using Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939).
+To access your resources deployed in Azure, remote developers could use Azure Bastion solution, instead of VPN connection to get secure shell access (RDP or SSH) without requiring public IPs on the VMs being accessed. For more information, see [Work remotely using Azure Bastion](../bastion/work-remotely-support.md).
 
-For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-premises global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. For more information, see [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769).
+For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-premises global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. For more information, see [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md).
 
 Another way to support a remote workforce is to deploy a Virtual Desktop Infrastructure (VDI) hosted in your Azure virtual network, secured with an Azure Firewall. For example, Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs in Azure. With Windows Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any additional gateway servers. You are only responsible for the WVD virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md). 
 
-Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) considerations for remote work](https://go.microsoft.com/fwlink/?linkid=2123771).
+Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md).
 
 ## Extend employees' connection to access globally distributed resources
 
@@ -68,7 +67,7 @@ The following Azure services can help enable employees to access your globally d
 
 ## Scale customer connectivity to frontend resources
 
-During times when more people go online, many corporate websites experience increased customer traffic. Azure Application Gateway can help manage this increased frontend workload. For more information, see [Application Gateway high traffic support](https://go.microsoft.com/fwlink/?linkid=2123940).
+During times when more people go online, many corporate websites experience increased customer traffic. Azure Application Gateway can help manage this increased frontend workload. For more information, see [Application Gateway high traffic support](../application-gateway/high-traffic-support.md).
 
 ## Microsoft support for multi-cloud traffic
 
@@ -80,13 +79,13 @@ The following articles discuss how different Azure networking features can be us
 
 | **Article** | **Last update** |
 | --- | --- |
-| [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770) | March 23, 2020 |
-| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769) | March 23, 2020 |
-| [Application Gateway high traffic support](https://go.microsoft.com/fwlink/?linkid=2123940) | March 23, 2020 |
-| [Network Virtual Appliance (NVA) considerations for remote work](https://go.microsoft.com/fwlink/?linkid=2123771)| March 23, 2020 |
+| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | March 23, 2020 |
+| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | March 23, 2020 |
+| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | March 23, 2020 |
+| [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)| March 23, 2020 |
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
-| [Working remotely using Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
-| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
+| [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | March 23, 2020 |
+| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | March 23, 2020 |
 | [Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|
 
 <!--Link References-->
