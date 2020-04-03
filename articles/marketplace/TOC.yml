@@ -474,7 +474,7 @@
       items:
       - name: Prepare IoT Edge module technical assets
         href: ./partner-center-portal/create-iot-edge-module-asset.md
-      - name: Create IoT Edge module offer
+      - name: Create an IoT Edge module offer
         href: ./partner-center-portal/azure-iot-edge-module-creation.md
     - name: Managed Service offers
       items:
