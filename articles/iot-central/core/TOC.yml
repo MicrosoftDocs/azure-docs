@@ -45,7 +45,7 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
-    - name: Get connected
+    - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
       href: concepts-iot-edge.md
