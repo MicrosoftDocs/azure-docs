@@ -55,6 +55,16 @@ zone_pivot_groups: programming-languages-set-two
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [JavaScript Header](../includes/quickstarts/from-microphone/javascript/header.md)]
+
+[!INCLUDE [javascript](../includes/quickstarts/from-microphone/javascript/javascript.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/more/header.md)]
