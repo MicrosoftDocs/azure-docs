@@ -105,7 +105,7 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
 8. To complete your classification and persistently label (tag) the database columns with the new classification metadata, click on **Save** in the top menu of the window.
 
-## <a id="audit-sensitive-date"></a>Auditing access to sensitive data
+## <a id="audit-sensitive-data"></a>Auditing access to sensitive data
 
 An important aspect of the information protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Database Auditing](sql-database-auditing.md) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
 
