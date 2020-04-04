@@ -8,11 +8,8 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 7/8** on the following target architectures when used with Linux:
-        - x86
+        The Speech SDK only supports **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
         - x64
-        - ARM32
-        - ARM64
     :::column-end:::
     :::column:::
         <br>
