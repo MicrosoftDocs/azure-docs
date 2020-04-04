@@ -178,7 +178,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
         services.AddFeatureManagement();
     }
-
+    ```
     #### [.NET Core 3.x](#tab/core3x)
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
