@@ -115,7 +115,7 @@ A data record is considered to be dirty if it meets one of the following conditi
 
 To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions.
 
-If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql??toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Inserting data into a production table
 
