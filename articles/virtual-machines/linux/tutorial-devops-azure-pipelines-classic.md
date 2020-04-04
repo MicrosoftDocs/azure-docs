@@ -69,7 +69,8 @@ Here is the step-by-step walkthrough.
    ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azuredevops-rolling-pipeline.PNG)
 13. Click on the link **1 job, 1 task** in **dev** stage. Click on the **Deploy** phase.
    ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azuredevops-rolling-pipeline-tasks.PNG)
-14. From the configuration pane on the right, you can see that by default the pipeline is configured to do a rolling update to 1 target at a time. You can also configure the deployments to happen multiple at a time and specify in terms of percentage by using the slider.  
+14. From the configuration pane on the right, you can specify the number of machines that you want to deploy to parallely in each iteration. In case you want to deploy to multiple machines at a time, you can specify it in terms of percentage by using the slider.  
+
 15. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package.
   
 **Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
