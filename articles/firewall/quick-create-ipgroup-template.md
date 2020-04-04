@@ -67,7 +67,7 @@ Deploy Resource Manager template to Azure:
 
 ## Review deployed resources
 
-In the portal, review the deployed resources, especially the firewall rules that use IP Group.
+In the portal, review the deployed resources, especially the firewall rules that use IP Groups.
 
 To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
