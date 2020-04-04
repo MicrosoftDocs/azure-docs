@@ -70,7 +70,7 @@ Here is the step-by-step walkthrough.
 13. Click on the link **1 job, 1 task** in **dev** stage. Click on the **Deploy** phase.
    ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azuredevops-rolling-pipeline-tasks.PNG)
 14. From the configuration pane on the right, you can see that by default the pipeline is configured to do a rolling update to 1 target at a time. You can also configure the deployments to happen multiple at a time and specify in terms of percentage by using the slider.  
-  
+15. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package.
   
 **Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
 You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
@@ -87,6 +87,8 @@ Here is the step-by-step walkthrough.
 5. Like in **Rolling Deployments** section, you can click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, he can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
 ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azuredevops-canary-task.PNG)
 
+6. The Execute Deploy Script task in the above DG phases will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure your deployment scripts are present at this location.
+
 **Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
 You can configure Blue-Green deployments to your “**virtual machines**” from the Azure portal using the continuous delivery option. 
 
@@ -102,7 +104,9 @@ Here is the step-by-step walkthrough.
 5. Like in **Rolling Deployments** section, you can click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _green_ (standby VMs) . The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that deployment is stable, he can now redirect the traffic to _green_ VMs and resume the pipeline run which will then swap _blue_ and _green_ tags in the VMs. This makes sure that the VMs that have older application version are tagged as _green_ and are deployed to in the next pipeline run.
 ![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azuredevops-bg-tasks.PNG)
 
-6. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
+6. The Execute Deploy Script task in the above DG phase will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure your deployment scripts are present at this location.
+
+7. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
 
 
 
