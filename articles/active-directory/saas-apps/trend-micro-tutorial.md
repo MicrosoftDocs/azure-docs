@@ -62,9 +62,8 @@ Configure and test Azure AD SSO with Trend Micro Web Security(TMWS) using a test
 To configure and test Azure AD SSO with Trend Micro Web Security(TMWS), complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-    1. **[Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad.)** - Configure user and group synchronization settings in Azure AD
+    1. **[Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad)** - Configure user and group synchronization settings in Azure AD
 1. **[Configure Trend Micro Web Security(TMWS) SSO](#configure-trend-micro-web-security-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Trend Micro Web Security(TMWS) test user](#create-trend-micro-web-security-test-user)** - to have a counterpart of B.Simon in Trend Micro Web Security(TMWS) that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
@@ -109,18 +108,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Trend Micro Web Security(TMWS).
@@ -139,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure user and group synchronization settings in Azure AD. 
+### Configure user and group synchronization settings in Azure AD
 
 1. From the left navigation, click **Azure Active Directory**.
 
