@@ -26,4 +26,4 @@ Use the following procedure to view and update the runtime version currently use
 
 1. When you change the runtime version, go back to the **Overview** tab and choose **Restart** to restart the app.  The function app restarts running on the version 1.x runtime, and the version 1.x templates are used when you create functions.
 
-    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Restart your function app." border="true":::
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-view-runtime-version.png" alt-text="View the runtime version." border="true":::
