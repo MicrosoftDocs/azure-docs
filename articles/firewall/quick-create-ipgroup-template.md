@@ -15,7 +15,7 @@ In this quickstart, you use a Resource Manager template to create deploy an Azur
 
 An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is particularly useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
