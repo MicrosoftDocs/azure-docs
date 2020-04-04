@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/18/2020
+ ms.date: 04/03/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@ While in preview, enabling shared disks is only available to a subset of disk ty
 
 ### Ultra disks (preview)
 
-Ultra disks are currently in preview, and have their own separate list of limitations. For that list, refer to 
+Ultra disks are currently in preview, and have their own separate list of limitations. For that list, refer to [Using Azure ultra disks](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md)
 
 - Currently only supported in West US.
 - Currently limited to ARM or SDK support.
