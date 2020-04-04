@@ -52,7 +52,7 @@ If your organization has given you permission, you can manage phone numbers for 
 
 After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 
-### To edit an existing phone number
+### Edit a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
 1. Open a staff member's profile.
@@ -61,7 +61,7 @@ After you register a phone number for a user, they can use it to sign in with SM
 
     ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/edit-number.png)
 
-### To remove a phone number
+### Remove a phone number
 
 1. [Open My Staff](https://aka.ms/mystaff).
 1. Open a staff member's profile.
