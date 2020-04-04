@@ -93,7 +93,7 @@ To enable AD authentication over SMB for Azure file shares, you need to first re
 > [!IMPORTANT]
 > The `Join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
 
-The `Join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password).
+The `Join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-ad-account-password).
 
 You can use the following script to perform the registration and enable the feature or, alternatively, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
 
@@ -106,7 +106,7 @@ You can use the following script to perform the registration and enable the feat
 ### 1.2 Domain join your storage account
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 > [!IMPORTANT]
-> We recommend you to provide an AD Organizational Unit (OU) that does NOT enforce password expiration. If you use an OU with password expiration configured, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password).
+> We recommend you to provide an AD Organizational Unit (OU) that does NOT enforce password expiration. If you use an OU with password expiration configured, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-ad-account-password).
 
 
 ```PowerShell
@@ -152,7 +152,7 @@ Once you have that key, create either a service or computer account under your O
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
 Password: Kerberos key for your storage account.
 
-If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update AD account password](#update-ad-account-password) for details.
+If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update AD account password](#5-update-ad-account-password) for details.
 
 Keep the SID of the newly created account, you'll need it for the next step. The AD identity you have just created that represent the storage account does not need to be synced to Azure AD.
 
