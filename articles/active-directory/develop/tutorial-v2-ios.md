@@ -385,7 +385,7 @@ Add the following after `initMSAL` method to the `ViewController` class.
 
 ```swift
 func initWebViewParams() {
-        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(authPresentationViewController: self)
     }
 ```
 
