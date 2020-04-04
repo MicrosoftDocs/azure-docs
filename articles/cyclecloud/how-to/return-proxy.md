@@ -22,8 +22,9 @@ head node designated as the return proxy, but any persistent node can play that
 same role.
 
 The settings for enabling or disabling the return proxy can be found in the
-Advanced Settings section of the create cluster dialog. ![Return Proxy
-Settings](images/return-poroxy-setup.png)
+Advanced Settings section of the create cluster dialog. 
+
+![Return Proxy Settings](~/images/return-proxy-setup.png)
 
 - Azure CycleCloud currently only supports Linux VMs as a return proxy.
 - If the CycleCloud VM and the return proxy node resides in different VMs, the

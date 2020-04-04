@@ -43,4 +43,4 @@ fi
 ```
 
 > [!NOTE]
-> This script can be placed on a VM via [CycleCloud Project](../projects.md) or by adding it directly when [Creating a Custom Image](create-custom-image.md).
+> This script can be placed on a VM via [CycleCloud Project](~/how-to/projects.md) or by adding it directly when [Creating a Custom Image](create-custom-image.md).

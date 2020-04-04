@@ -42,4 +42,4 @@ If you've gone through all three tutorials, you've covered the installation, set
 * Learn more about [clusters and nodes](../concepts/clusters.md)
 * Explore [cluster templates](../how-to/cluster-templates.md)
 * [Install CycleCloud manually](../how-to/install-manual.md)
-* Build a [project](../projects.md)
+* Build a [project](~/how-to/projects.md)

@@ -11,7 +11,7 @@ ms.author: adjohnso
 This tutorial shows how to modify a standard HPC cluster to add persistent storage to the file system. At the end of this exercise, you will have:
 
 * Installed and configured the Azure CycleCloud CLI
-* Created a new CycleCloud [project](../projects.md)
+* Created a new CycleCloud [project](~/how-to/projects.md)
 * Modified a cluster template to add storage to the cluster's NFS Server
 * Added a new cluster type in CycleCloud
 
@@ -22,7 +22,7 @@ Azure CycleCloud's cluster types are great for standard use cases, but users oft
 For this tutorial, you will need:
 
 1. An Azure account with an active subscription.
-2. Azure CycleCloud set up on your Azure account. Use the [Installation Quickstart](../quickstart-install-cyclecloud.md) to install CycleCloud if necessary.
+2. Azure CycleCloud set up on your Azure account. Use the [Installation Quickstart](~/qs-install-marketplace.md) to install CycleCloud if necessary.
 3. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -128,7 +128,7 @@ Save your changes.
 
 The lines you added tell CycleCloud that two premium 512 GB SSD disks in a RAID 0 configuration will be attached to the master node when it is provisioned. The volume lot will be mounted to _/mnt/exports/_ and formatted as an `ext4` filesystem.
 
-The `Persistent = true` tag indicates that the two managed disks will not be deleted when the cluster is terminated, but will be deleted if the cluster itself is deleted. You can find more information about customizing volumes and mounts in a CycleCloud cluster in our [Storage documentation](../attach-storage.md).
+The `Persistent = true` tag indicates that the two managed disks will not be deleted when the cluster is terminated, but will be deleted if the cluster itself is deleted. You can find more information about customizing volumes and mounts in a CycleCloud cluster in our [Storage documentation](~/how-to/mount-fileserver.md).
 
 ## Import the New Cluster Template
 
@@ -166,7 +166,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 In this tutorial, you learned how to:
 
 * Install and configure the Azure CycleCloud CLI
-* Create a new CycleCloud [project](~/projects.md)
+* Create a new CycleCloud [project](~/how-to/projects.md)
 * Modify cluster template to add storage to the cluster's NFS Server
 * Add a new cluster type in CycleCloud
 

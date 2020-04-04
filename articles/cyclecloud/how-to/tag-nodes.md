@@ -55,4 +55,4 @@ Do not include quotation marks or periods in your tag names.
 
 ## Further Reading
 
-* [Tagging Reference docs](../cluster-references/node-nodearray-reference#tags)
+* [Tagging Reference docs](~/cluster-references/node-nodearray-reference.md#tags)

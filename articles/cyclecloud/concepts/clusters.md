@@ -22,7 +22,7 @@ There are however crucial differences between nodearrays and VM Scalesets, the p
 
 The topology, or how nodes are organized in an CycleCloud cluster, are defined in text templates that lay out the relationships among nodes of a cluster, and in the case of nested clusters, the parent-child relationship of clusters. The templates also provide the means of defining the role each node play. 
 
-Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using suare brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](../how-to/cluster-templates.md)
+Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using suare brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](~/how-to/cluster-templates.md)
 
 ## Node Preparation and Configuration
 
@@ -43,8 +43,8 @@ This element of [Service Discovery](https://en.wikipedia.org/wiki/Service_discov
 
 ## Further Reading
 
-* Create a [Cluster Template](cluster-templates.md)
-* [Start a Cluster](start-cluster.md)
-* [Auto Scaling](autoscale.md)
-* [Terminate a Cluster](end-cluster.md)
-* [Node Configuration Reference](node-configuration-reference.md)
+* Create a [Cluster Template](~/how-to/cluster-templates.md)
+* [Start a Cluster](~/how-to/start-cluster.md)
+* [Auto Scaling](~/how-to/configure-autoscaling.md)
+* [Terminate a Cluster](~/how-to/terminate-cluster.md)
+* [Node Configuration Reference](~/cluster-references/configuration-reference.md)

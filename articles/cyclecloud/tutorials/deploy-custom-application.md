@@ -10,7 +10,7 @@ ms.author: adjohnso
 
 This tutorial shows how to use a CycleCloud project to install a custom application on every node of a cluster. By the end of this exercise, you will:
 
-* Use [CycleCloud projects](~/projects.md) to install a custom application
+* Use [CycleCloud projects](~/how-to/projects.md) to install a custom application
 * Stage application installation files in the project's *blobs* directory
 * Write a script that is executed on every cluster node as it boots
 * Start a new cluster that uses the new project
@@ -38,7 +38,7 @@ This tutorial illustrates how you could use CycleCloud Projects to install [Salm
 
 ## CycleCloud Projects
 
-[CycleCloud Project](~/projects.md) consists of three main components: templates, specs, and blobs.
+[CycleCloud Project](~/how-to/projects.md) consists of three main components: templates, specs, and blobs.
 
 * **Templates** define the architecture of the CycleCloud cluster. They dictate how the nodes of a cluster are laid out, and how each node is configured.
 * **Specs** define the configuration of each node. These configuration steps are captured in scripts. You can have no specs or multiple specs assigned to each node in a cluster template.
@@ -271,7 +271,7 @@ Commands:
 
 In this tutorial, you learned how to:
 
-* Use [CycleCloud projects](~/projects.md) to install a custom application
+* Use [CycleCloud projects](~/how-to/projects.md) to install a custom application
 * Stage application installation files in the project's *blobs* directory
 * Write a script that is executed on every cluster node as it boots
 * Start a new cluster that uses the new project

@@ -31,7 +31,7 @@ cyclecloud connect [node] -c [cluster] -u cyclecloud
 
 ## Built-In User Management
 
-CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with login permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges for each VM in the cluster. These permissions may be granted through ownership of the cluster, by explicitly sharing permissions to the cluster, or by assigning users to a role which grants global login access. See [CycleCloud User Management](user-management.md) for more information on assigning roles to users.
+CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with login permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges for each VM in the cluster. These permissions may be granted through ownership of the cluster, by explicitly sharing permissions to the cluster, or by assigning users to a role which grants global login access. See [CycleCloud User Management](~/concepts/user-management.md) for more information on assigning roles to users.
 
 The list of users with login access to nodes is visible on the cluster page under **Users**. Selecting the **show** link will open a dialog with more information.
 

@@ -55,6 +55,6 @@ Tooling using templates and configuration scripts enable you to build complex HP
 ## Next Steps
 
 * [Try Azure CycleCloud using a Marketplace VM](qs-install-marketplace.md)
-* [Install Azure CycleCloud using an ARM template](qs-install-arm.md)
-* [Install CycleCloud manually](qs-install-manual.md)
+* [Install Azure CycleCloud using an ARM template](~/how-to/install-arm.md)
+* [Install CycleCloud manually](~/how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
