@@ -75,7 +75,7 @@ Indexer read the document from the data source, but there was an issue convertin
 <a name="Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'"/>
 
 ## Error: Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'
-Applying output mappings failed possibly because of incompatibility between the output data format and the format expected by mapping function. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either retry the operation without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+The output mapping might have failed because the output data is in the wrong format for the mapping function you are using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either retry the operation without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 <a name="could-not-execute-skill"/>
 
@@ -314,8 +314,8 @@ Output field mappings that reference non-existent/null data will produce warning
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This could happen if the skills output does not conform to the path of output source field-mapping expression/path. Please double check the paths for extra or missing * provided in the output source field name and ensure that the field value conforms to the given path. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
-| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Please double check the paths provided in the output source field names and the field value for the warned field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
+| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output is not an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
+| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Please double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 
