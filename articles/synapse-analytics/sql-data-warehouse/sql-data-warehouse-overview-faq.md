@@ -82,7 +82,7 @@ A. Many features are supported. Features that aren't supported can be found in [
 Q. Does Synapse SQL pool support REST APIs?
 
 A. Yes. Most REST functionality that can be used with SQL Database is also available with Synapse SQL pool. You can find API information within REST documentation pages or
-[Databases](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+[Databases](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Loading
 

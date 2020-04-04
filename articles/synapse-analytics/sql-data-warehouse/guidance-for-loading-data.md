@@ -99,7 +99,7 @@ When there is memory pressure, the columnstore index might not be able to achiev
 
 ## Increase batch size when using SqLBulkCopy API or bcp
 
-Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
+Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
 
 > [!TIP]
 > A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity.
