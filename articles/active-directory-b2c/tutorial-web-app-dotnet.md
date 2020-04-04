@@ -40,16 +40,6 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 
 You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select the *webapp1* application.
-1. Under **Reply URL**, add `https://localhost:44316`.
-1. Select **Save**.
-1. On the properties page, record the application ID for use in a later step when you configure the web application.
-
 #### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -60,6 +50,16 @@ You can use the current **Applications** experience or our new unified **App reg
 1. Under **Web**, select the **Add URI** link, enter `https://localhost:44316`, and then select **Save**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you configure the web application.
+
+#### [Applications](#tab/applications/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Applications**, and then select the *webapp1* application.
+1. Under **Reply URL**, add `https://localhost:44316`.
+1. Select **Save**.
+1. On the properties page, record the application ID for use in a later step when you configure the web application.
 
 * * *
 

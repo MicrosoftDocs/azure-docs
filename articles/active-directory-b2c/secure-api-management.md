@@ -33,14 +33,6 @@ When you secure an API in Azure API Management with Azure AD B2C, you need sever
 
 You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to get the application ID. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Under **Manage**, select **Applications**.
-1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
-
 #### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -48,6 +40,14 @@ You can use the current **Applications** experience or our new unified **App reg
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations (Preview)**, then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or another application you've previously created.
+
+#### [Applications](#tab/applications/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Under **Manage**, select **Applications**.
+1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
 
 * * *
 

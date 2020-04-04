@@ -9,17 +9,6 @@ ms.author: mimart
 ---
 To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select **Add**.
-1. Enter a name for the application. For example, *testapp1*.
-1. For **Web App / Web API**, select **Yes**.
-1. For **Reply URL**, enter `https://jwt.ms`
-1. Select **Create**.
-
 #### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -38,3 +27,14 @@ Once the application registration is complete, enable the implicit grant flow:
 1. Select **Try out the new experience** (if shown).
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
+
+#### [Applications](#tab/applications/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **Applications**, and then select **Add**.
+1. Enter a name for the application. For example, *testapp1*.
+1. For **Web App / Web API**, select **Yes**.
+1. For **Reply URL**, enter `https://jwt.ms`
+1. Select **Create**.
