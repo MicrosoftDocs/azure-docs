@@ -397,7 +397,7 @@
     - name: Manage access control 
       items:
       - name: Set up permissions for Azure Synapse workspace managed Identity
-        href: security/how-to-grant-worspace-managed-identity-permissions.md
+        href: security/how-to-grant-workspace-managed-identity-permissions.md
       - name: Set up access control
         href: security/how-to-set-up-access-control.md
     #   - name: Implement RBAC policies
