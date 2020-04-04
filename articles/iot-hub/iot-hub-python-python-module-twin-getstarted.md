@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 04/03/2020
 ms.author: menchi
 ---
 
@@ -38,9 +38,9 @@ At the end of this tutorial, you have three Python apps:
 
 ## Get the IoT hub connection string
 
-[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+In this article, you create a back-end service that adds a device in the identity registry and then adds a module to that device. This service requires the **registry write** permission. You also create a service that adds desired properties to the module twin for the newly created module. This service needs the **service connect** permission. Although there are default shared access policies that grant these permissions individually, in this section, you create a custom shared access policy that contains both of these permissions. (The **registry read** permission is included with **registry write**.)
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+[!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
 ## Create a device identity and a module identity in IoT Hub
 
@@ -179,7 +179,7 @@ In this section, you create a Python service app that updates the module twin de
 
 ## Get updates on the device side
 
-In this section, you create a Python device app to get the module twin desired properties update on your device.
+In this section, you create a Python app to get the module twin desired properties update on your device.
 
 1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Copy the module connection string. You need it in a following step.
 
