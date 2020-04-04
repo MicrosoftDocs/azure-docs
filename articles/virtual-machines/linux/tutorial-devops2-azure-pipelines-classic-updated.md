@@ -76,7 +76,7 @@ Here is the step-by-step walkthrough.
 You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
-2. Follow the steps 2-8 under the **Rolling Deployments** section to add multiple VMs to the deployment group. For deployment strategy dropdown, select 'Canary'.
+2. Follow the steps 2-7 under the **Rolling Deployments** section to add multiple VMs to the deployment group. For deployment strategy dropdown, select 'Canary'.
 ![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azuredevops-configure-canary.PNG)
 
 3. Add a 'canary' tag to the VMs that are to be part of canary deployments and a 'prod' tag to the VMs that are part of deployments after canary deployment in successful.
@@ -87,7 +87,7 @@ Here is the step-by-step walkthrough.
 5. Like in **Rolling Deployments** section, you can click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, he can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
 ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azuredevops-canary-task.PNG)
 
-6. The Execute Deploy Script task in the above DG phases will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure your deployment scripts are present at this location.
+
 
 **Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
 You can configure Blue-Green deployments to your “**virtual machines**” from the Azure portal using the continuous delivery option. 
@@ -95,7 +95,7 @@ You can configure Blue-Green deployments to your “**virtual machines**” from
 Here is the step-by-step walkthrough.
 
 1. Sign in to your Azure portal and navigate to a Virtual Machine 
-2. Follow the steps 2-8 under the **Rolling Deployments** section to add multiple VMs to the deployment group. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for standby role, then you should tag it as "green".
+2. Follow the steps 2-7 under the **Rolling Deployments** section to add multiple VMs to the deployment group. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for standby role, then you should tag it as "green".
 ![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azuredevops-bg-configure.PNG)
 
 4. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.
@@ -104,9 +104,7 @@ Here is the step-by-step walkthrough.
 5. Like in **Rolling Deployments** section, you can click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _green_ (standby VMs) . The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that deployment is stable, he can now redirect the traffic to _green_ VMs and resume the pipeline run which will then swap _blue_ and _green_ tags in the VMs. This makes sure that the VMs that have older application version are tagged as _green_ and are deployed to in the next pipeline run.
 ![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azuredevops-bg-tasks.PNG)
 
-6. The Execute Deploy Script task in the above DG phase will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure your deployment scripts are present at this location.
-
-7. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
+6. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
 
 
 
