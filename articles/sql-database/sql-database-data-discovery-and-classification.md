@@ -132,7 +132,7 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 - View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### Using Rest API
-You can use REST API to programmatically manage classifications and recommendations. The published REST APIs support the following operations:
+You can use REST API to programmatically manage classifications and recommendations. The published REST API support the following operations:
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Creates or updates the sensitivity label of a given column
 - [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Deletes the sensitivity label of a given column
@@ -142,7 +142,7 @@ You can use REST API to programmatically manage classifications and recommendati
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
 
-### Using T-SQL Rest API PowerShell Cmdlet
+### Using PowerShell Cmdlet
 You can use PowerShell to manage classifications and recommendations for Azure SQL Database and Managed Instance.
 
 #### PowerShell Cmdlet for Azure SQL Database
