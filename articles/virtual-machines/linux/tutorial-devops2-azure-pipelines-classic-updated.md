@@ -50,7 +50,7 @@ Here is the step-by-step walkthrough.
 2. In the VM left pane, navigate to the **continuous delivery** menu. Then click on **Configure**. 
 
 
-   ![AzDevOps_configure](media\tutorial-devops-azure-pipelines-classic\azuredevops-configure.PNG) 
+   ![AzDevOps_configure](media\tutorial-devops-azure-pipelines-classic\azuredevops-configure.png) 
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
 
 
