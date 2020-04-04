@@ -41,9 +41,9 @@ When creating partitions on **clustered columnstore** tables, it is important to
 
 ## Syntax differences from SQL Server
 
-Synapse SQL pool introduces a way to define partitions that is simpler than SQL Server. Partitioning functions and schemes are not used in Synapse SQL pool as they are in SQL Server. Instead, all you need to do is identify partitioned column and the boundary points. While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and Synapse SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+Synapse SQL pool introduces a way to define partitions that is simpler than SQL Server. Partitioning functions and schemes are not used in Synapse SQL pool as they are in SQL Server. Instead, all you need to do is identify partitioned column and the boundary points. While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and Synapse SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) statement to partition the FactInternetSales table on the OrderDateKey column:
+The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement to partition the FactInternetSales table on the OrderDateKey column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -73,8 +73,8 @@ WITH
 
 To migrate SQL Server partition definitions to Synapse SQL pool simply:
 
-- Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql).
-- Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql) definition to your CREATE TABLE.
+- Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) definition to your CREATE TABLE.
 
 If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows that in each partition. Keep in mind that if the same partitioning granularity is used on Synapse SQL pool, the number of rows per partition decreases by a factor of 60.  
 
@@ -114,7 +114,7 @@ GROUP BY    s.[name]
 
 ## Partition switching
 
-Synapse SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) statement.
+Synapse SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement.
 
 To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not then same, then the partition switch will fail as the partition metadata will not be synchronized.
 
@@ -340,4 +340,3 @@ With this approach the code in source control remains static and the partitionin
 ## Next steps
 
 For more information about developing tables, see the articles on [Table Overview](sql-data-warehouse-tables-overview.md).
-

@@ -75,14 +75,14 @@ Check to make sure you're using the latest tools to connect to your Synapse SQL 
 
 Check to make sure you're using the latest driver versions.  Using an older version of the drivers could result in unexpected behaviors as the older drivers may not support new features.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
+Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](sql-data-warehouse-connection-strings.md).
 
 ADO.NET connection string
 
@@ -118,4 +118,4 @@ Errors 40914 and 40615, see the [error description and resolution here](../../sq
 
 ## Still having connectivity issues?
 
-Create a [support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) so the engineering team can support you.
+Create a [support ticket](sql-data-warehouse-get-started-create-support-ticket.md) so the engineering team can support you.
