@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: mbaldwin
 
 ---
@@ -309,7 +309,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Cosmos DB                  | Yes                | Yes                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | Yes                | -                  | Yes                |
+| Azure DevOps Services            | Yes                | -                  | Yes                |
 | Azure Repos                      | Yes                | -                  | Yes                |
 | **Identity**                     |                    |                    |                    |
 | Azure Active Directory           | Yes                | -                  | -                  |
@@ -346,8 +346,8 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
-\* Service does not persist data. Transient caches, if any are encrypted with a Microsoft key.
+\* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
 ## Conclusion
 
-Protection of customer data stored within Azure Services is of paramount importance to Microsoft. All Azure hosted services are committed to providing Encryption at Rest options. Foundational services such as Azure Storage, Azure SQL Database, and key analytics and intelligence services already provide Encryption at Rest options. Some of these services support either customer controlled keys and client-side encryption as well as service-managed keys and encryption. Microsoft Azure services are broadly enhancing Encryption at Rest availability and new options are planned for preview and general availability in the upcoming months.
+Protection of customer data stored within Azure Services is of paramount importance to Microsoft. All Azure hosted services are committed to providing Encryption at Rest options. Azure services support either service-managed keys, customer-managed keys, or client-side encryption. Azure services are broadly enhancing Encryption at Rest availability and new options are planned for preview and general availability in the upcoming months.
