@@ -40,7 +40,7 @@ To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatab
 
 5. Pick the desired restore point using the RestorePointCreationDate.
 
-6. Restore the SQL pool to the desired restore point using [Restore-AzSqlDatabase](h/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
+6. Restore the SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
         1. To restore the SQL pool to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
         2. To restore to a different subscription, use the  'Move' button to move the logical server to another subscription.
 
