@@ -38,7 +38,7 @@ At the end of this tutorial, you have three Python apps:
 
 ## Get the IoT hub connection string
 
-In this article, you create a back-end service that adds a device in the identity registry and then adds a module to that device. This service requires the **registry write** permission. You also create a service that adds desired properties to the module twin for the newly created module. This service needs the **service connect** permission. Although there are default shared access policies that grant these permissions individually, in this section, you create a custom shared access policy that contains both of these permissions. (The **registry read** permission is included with **registry write**.)
+In this article, you create a back-end service that adds a device in the identity registry and then adds a module to that device. This service requires the **registry write** permission (which also includes **registry read**). You also create a service that adds desired properties to the module twin for the newly created module. This service needs the **service connect** permission. Although there are default shared access policies that grant these permissions individually, in this section, you create a custom shared access policy that contains both of these permissions.
 
 [!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
