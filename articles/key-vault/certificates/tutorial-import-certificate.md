@@ -82,7 +82,8 @@ Once that you receive the message that the certificate has been successfully imp
 
 ## Import a certificate using Azure CLI
 
-To import a certificate into KeyVault
+Import a certificate into a specified key vault. To 
+import an existing valid certificate, containing a private key, into Azure Key Vault, the file to be imported can be in either PFX or PEM format. If the certificate is in PEM format the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
 
 ```azurecli
 az keyvault certificate import --file
@@ -95,6 +96,7 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
+Learn more about the parameters [here](https://docs.microsoft.com/en-us/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
 ## Clean up resources
 
@@ -111,5 +113,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read more about [Managing certificates in Azure Key Vault](https://docs.microsoft.com/en-us/archive/blogs/kv/manage-certificates-via-azure-key-vault)
-- See the [Azure Key Vault developer's guide](../general/developers-guide.md)
+- See examples of [Importing Certificates Using REST APIs](https://docs.microsoft.com/en-us/rest/api/keyvault/importcertificate/importcertificate)
 - Review [Azure Key Vault best practices](../general/best-practices.md)
