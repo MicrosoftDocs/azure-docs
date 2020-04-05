@@ -26,7 +26,7 @@ For information about ingesting data into an existing table in Azure Data Explor
 
     ![Select one-click ingestion in the Web UI](media/one-click-ingestion-new-table/one-click-ingestion-in-web-ui.png)   
  
-1. In the **Ingest new data (Preview)** window, the **Source** tab is automatically selected. 
+1. In the **Ingest new data (Preview)** window, the **Source** tab is selected. 
 
 1. Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
 
@@ -74,7 +74,8 @@ Select **Edit schema** to view and edit your table column configuration. The sys
 
 > [!Note]
 > For tabular formats, each column can be ingested into one column in Azure Data Explorer.
-> You can create new columns from different JSON levels.
+
+> Json Attributes can be ingested into more than one column. You can create new columns from different JSON levels.
 
 [![](media/one-click-ingestion-new-table/edit-view.png "One-click ingestion edit view")](media/one-click-ingestion-new-table/edit-view.png#lightbox) 
 
