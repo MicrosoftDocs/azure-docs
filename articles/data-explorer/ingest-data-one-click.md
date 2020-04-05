@@ -13,7 +13,7 @@ ms.date: 03/29/2020
 
 One-click ingestion enables you to quickly ingest data and automatically suggest tables and mapping structures, based on a data source in Azure Data Explorer. 
 
-Using the Azure Data Explorer Web UI, you can ingest data from storage (blob file), a local file, or a container (up to 10,000 blobs). You can also define an event grid on a container for continuous ingestion. The data can be ingested into an existing or new table in JSON, CSV, and [other formats](#file-formats). One click ingestion can suggest a structure for a new table and table mapping, based on the data source, and provide an intuitive platform to adjust the table structure of an existing table and table mapping. One click ingestion will ingest the data into the table within only a few minutes.
+Using the Azure Data Explorer Web UI, you can ingest data from storage (blob file), a local file, or a container (up to 10,000 blobs). You can also define an event grid on a container for continuous ingestion. The data can be ingested into an existing or new table in JSON, CSV, and [other formats](#file-formats). One click ingestion can suggest a structure for a new table and table mapping, based on the data source, and provide an intuitive platform to adjust the table structure of an existing and new table and table mapping. One click ingestion will ingest the data into the table within only a few minutes.
 
 One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you.
 
@@ -60,7 +60,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 1. When you have successfully selected the data source, a preview of the data is displayed. 
     If you are ingesting data from a container, you can filter the data so that only files with specific prefixes or file extensions are ingested. For example, you might only want to ingest files with filenames beginning with the word *Europe*, or only files with the extension *.json*. 
 
-1. Click **Edit schema**. If you are ingesting data into a specific table, you can map the source columns to the target columns and decide whether or not to include column names.
+1. Click **Edit schema**. review and adjust the auto generated schema and ingestion properties (Data Format, mapping name, etc.)
 
 1. Start the data ingestion process.
 
