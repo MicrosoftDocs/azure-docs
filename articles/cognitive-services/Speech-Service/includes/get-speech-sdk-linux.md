@@ -47,7 +47,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# [RHEL 8 and CentOS 7/8](#tab/rhel-centos)
+# [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 
 ```Bash
 sudo yum update

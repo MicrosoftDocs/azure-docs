@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 04/04/2020
 ms.author: erhopf
 ---
 
@@ -10,7 +10,7 @@ ms.author: erhopf
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## Add sample code
 
