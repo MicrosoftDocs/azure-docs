@@ -135,11 +135,12 @@ With this option, you don't need to write any authentication code in your app. F
 
 ## More resources
 
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
-[Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
-[.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
+* [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
+* [ASP.NET Core authentication and authorization middleware for EasyAuth using NEasyAuthMiddleware (3rd party)](https://github.com/dasiths/NEasyAuthMiddleware)
+* [.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Provider-specific how-to guides:
 
