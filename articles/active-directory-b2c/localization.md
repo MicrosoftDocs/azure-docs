@@ -152,20 +152,21 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 
 ### ClaimsProvider
 
-The ClaimsProvider value is used to localize claim provider name as specified in the StringId. 
+The ClaimsProvider value is used to localize claim provider name. 
+
+- **ElementType** set to `ClaimsProvider`
+- **StringId** is the Id of the ClaimsExchange element
 
 ```xml
-<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
-  <ClaimsProviderSelections>
-    <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-    <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-  </ClaimsProviderSelections>
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
   <ClaimsExchanges>
-    <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
   </ClaimsExchanges>
 </OrchestrationStep>
+
 ```
 
 The following example shows how to localize the claim provider name.
@@ -178,7 +179,11 @@ The following example shows how to localize the claim provider name.
 
 ### ClaimType
 
-The ClaimType value is used to localize one of the claim attributes, as specified in the StringId. 
+The ClaimType value is used to localize one of the claim attributes. 
+
+- **ElementType** set to `ClaimType`.
+- **ElementId** is the name of the claim type.
+- **StringId** the attribute of the claim to be localized.
 
 ```xml
 <ClaimType Id="email">
@@ -189,7 +194,7 @@ The ClaimType value is used to localize one of the claim attributes, as specifie
 </ClaimType>
 ```
 
-The following example  shows how to localize the DisplayName, UserHelpText, and PatternHelpText attributes of the email claim type.
+The following example shows how to localize the DisplayName, UserHelpText, and PatternHelpText attributes of the email claim type.
 
 ```XML
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
@@ -199,7 +204,10 @@ The following example  shows how to localize the DisplayName, UserHelpText, and 
 
 ### ErrorMessage
 
-The ErrorMessage value is used to localize one of the system error messages as specified in the StringId. 
+The ErrorMessage value is used to localize one of the system error messages. 
+
+- **ElementType** set to `ErrorMessage`.
+- **StringId** the ID of the error message.
 
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -222,11 +230,36 @@ The following example shows how to localize the UserMessageIfClaimsPrincipalAlre
 
 The `GetLocalizedStringsTransformationClaimType` value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
 
+- **ElementType** set to `GetLocalizedStringsTransformationClaimType`.
+- **StringId** the name of the output claim.
+
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+The following example shows how to localize the output claims of the  GetLocalizedStringsTransformation claims transformation.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
 
 ### Predicate
 
-The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. 
+The Predicate value is used to localize one of the [Predicate](predicates.md) error messages. 
 
+- **ElementType** set to `Predicate`.
+- **ElementId** is the name of the predicate.
+- **StringId** the attribute of the predicate to be localized. 
 
 ```xml
 <Predicates>
@@ -249,7 +282,7 @@ The `Predicate` value is used to localize one of the [Predicate](predicates.md) 
 </Predicates>
 ```
 
-The following example shows a localized a predicate help text.
+The following example shows how to localize the predicate help text.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -259,7 +292,11 @@ The following example shows a localized a predicate help text.
 
 ### InputValidation
 
-The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. 
+The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages. 
+
+- **ElementType** set to `InputValidation`.
+- **ElementId** The ID of the PredicateValidation element.
+- **StringId** The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.
 
 ```xml
 <PredicateValidations>
@@ -284,15 +321,20 @@ The `InputValidation` value is used to localize one of the [PredicateValidation]
 </PredicateValidations>
 ```
 
-The following example shows a localized a predicate validation group help text.
+The following example shows how to localize the predicate validation group help text.
 
 ```XML
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
 ### UxElement
 
-The UxElement value is used to localize one of the user interface elements as specified in the StringId. The following example shows how to localize the continue and cancel buttons.
+The UxElement value is used to localize one of the user interface elements. 
+
+- **ElementType** set to `UxElement`.
+- **StringId** the ID of the user interface element to be localized.
+
+The following example shows how to localize the continue and cancel buttons.
 
 ```XML
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
