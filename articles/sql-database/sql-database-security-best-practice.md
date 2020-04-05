@@ -730,7 +730,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination. 
-  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) and [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#audit-sensitive-data). 
 
 **Best practices**:
 
