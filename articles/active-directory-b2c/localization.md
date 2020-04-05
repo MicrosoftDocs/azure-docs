@@ -142,17 +142,54 @@ The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  `GetLocalizedStringsTransformationClaimType`.   | 
+| ElementType | Yes | Possible values: `ClaimsProvider`, `ClaimType`, `ErrorMessage`, `GetLocalizedStringsTransformationClaimType`, `Predicate`, `InputValidation`, or `UxElement`  .   | 
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
 ## ElementType
 
-The ElementType reference to a claim type or a user interface element in the policy to be localized.
+The ElementType reference to a claim type, a claim transformation, or a user interface element in the policy to be localized.
+
+### ClaimsProvider
+
+The ClaimsProvider value is used to localize claim provider name as specified in the StringId. 
+
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+    <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
+    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
+    <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+  </ClaimsProviderSelections>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
+
+The following example shows how to localize the claim provider name.
+
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
+```
 
 ### ClaimType
 
-The ClaimType value is used to localize one of the claim attributes, as specified in the StringId. The following example  shows how to localized the DisplayName, UserHelpText and PatternHelpText attributes of the email claim type.
+The ClaimType value is used to localize one of the claim attributes, as specified in the StringId. 
+
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+```
+
+The following example  shows how to localize the DisplayName, UserHelpText, and PatternHelpText attributes of the email claim type.
 
 ```XML
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
@@ -160,50 +197,25 @@ The ClaimType value is used to localize one of the claim attributes, as specifie
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
 ```
 
-### UxElement
+### ErrorMessage
 
-The UxElement value is used to localize one of the user interface elements as specified in the StringId. The following example shows how to localized the continue and cancel buttonn.
+The ErrorMessage value is used to localize one of the system error messages as specified in the StringId. 
 
-```XML
-<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
 ```
 
-### ErrorMessage
-The ErrorMessage value is used to localize one of the system error messages as specified in the StringId. The following example shows how to localized the UserMessageIfClaimsPrincipalAlreadyExists UserMessageIfClaimsPrincipalDoesNotExist and error messages.
+The following example shows how to localize the UserMessageIfClaimsPrincipalAlreadyExists error message.
+
 
 ```XML
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
-```
-
-### Predicate
-
-The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. 
-
-The following example shows a localized the **UserHelpText** of **Predicate** with Id `IsLengthBetween8And64`. And a localized **UserHelpText** of **PredicateGroup** with Id `CharacterClasses` of **PredicateValidation** with Id `StrongPassword`.
-
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
-
-...
-
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-  ...
-</Predicate>
-...
-
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
 ### GetLocalizedStringsTransformationClaimType
@@ -211,6 +223,81 @@ The following example shows a localized the **UserHelpText** of **Predicate** wi
 The `GetLocalizedStringsTransformationClaimType` value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
 
 
+### Predicate
+
+The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. 
+
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+The following example shows a localized a predicate help text.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### InputValidation
+
+The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+The following example shows a localized a predicate validation group help text.
+
+```XML
+<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+```
+
+### UxElement
+
+The UxElement value is used to localize one of the user interface elements as specified in the StringId. The following example shows how to localize the continue and cancel buttons.
+
+```XML
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
 
 ## Next steps
 
