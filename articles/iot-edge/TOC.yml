@@ -175,6 +175,8 @@
         href: how-to-deploy-monitor-vscode.md
   - name: Monitor and diagnose deployments
     items:
+      - name: Monitor IoT Edge deployments
+        href: how-to-monitor-iot-edge-deployments.md
       - name: EdgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
   - name: Use IoT Edge devices as gateways
