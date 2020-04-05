@@ -149,6 +149,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"

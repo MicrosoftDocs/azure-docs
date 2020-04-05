@@ -16,6 +16,9 @@ To connect to Cosmos account using Robo 3T, you must:
 * Download and install [Robo 3T](https://robomongo.org/)
 * Have your Cosmos DB [connection string](connect-mongodb-account.md) information
 
+> [!NOTE]
+> Currently, Robo 3T v1.2 and lower versions are supported with Cosmos DB's API for MongoDB.
+
 ## Connect using Robo 3T
 
 To add your Cosmos account to the Robo 3T connection manager, perform the following steps:

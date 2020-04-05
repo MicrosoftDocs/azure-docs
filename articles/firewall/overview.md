@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -56,7 +56,7 @@ You can centrally create *allow* or *deny* network filtering rules by source and
 
 ## FQDN tags
 
-FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
+FQDN tags make it easy for you to allow well-known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
 
 ## Service tags
 
@@ -113,7 +113,8 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |SQL FQDN filtering support only in proxy mode (port 1433)|For Azure SQL Database, Azure SQL Data Warehouse, and Azure SQL Managed Instance:<br><br>During the preview, SQL FQDN filtering is supported in proxy-mode only (port 1433).<br><br>For Azure SQL IaaS:<br><br>If you're using non-standard ports, you can specify those ports in the application rules.|For SQL in redirect mode, which is the default if connecting from within Azure, you can instead filter access using the SQL service tag as part of Azure Firewall network rules.
 |Outbound traffic on TCP port 25 isn't allowed| Outbound SMTP connections that use TCP port 25 are blocked. Port 25 is primarily used for unauthenticated email delivery. This is the default platform behavior for virtual machines. For more information, see more [Troubleshoot outbound SMTP connectivity issues in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). However, unlike virtual machines, it isn't currently possible to enable this functionality on Azure Firewall.|Follow the recommended method to send email as documented in the SMTP troubleshooting article. Or, exclude the virtual machine that needs outbound SMTP access from your default route to the firewall, and instead configure outbound access directly to the Internet.
 |Active FTP isn't supported|Active FTP is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP PORT command.|You can use Passive FTP instead. You must still explicitly open TCP ports 20 and 21 on the firewall.
-|SNAT port utilization metric shows 0%|The Azure Firewall SNAT port utilization metric may show 0% usage even when SNAT ports are used. In this case, using the metric as part of the firewall health metric provides an incorrect result.|This issue has been fixed and rollout to production is targeted for May 2020. In some cases, firewall redeployment resolves the issue, but it's not consistent. As an intermediate workaround, only use the firewall health state to look for *status=degraded*, not for *status=unhealthy*. Port exhaustion will show as *degraded*. *Not healthy* is reserved for future use when the are more metrics to impact the firewall health. 
+|SNAT port utilization metric shows 0%|The Azure Firewall SNAT port utilization metric may show 0% usage even when SNAT ports are used. In this case, using the metric as part of the firewall health metric provides an incorrect result.|This issue has been fixed and rollout to production is targeted for May 2020. In some cases, firewall redeployment resolves the issue, but it's not consistent. As an intermediate workaround, only use the firewall health state to look for *status=degraded*, not for *status=unhealthy*. Port exhaustion will show as *degraded*. *Not healthy* is reserved for future use when the are more metrics to impact the firewall health.
+|DNAT is not supported with Forced Tunneling enabled|Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.|This is by design because of asymmetric routing. The return path for inbound connections goes via the on-premises firewall, which hasn't seen the connection established.
 
 ## Next steps
 

@@ -71,7 +71,7 @@ Authentication is required on each request, where each request is composed of a 
 
 ### Restricted access
 
-When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2020-03-13/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
+When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
 
 ### Private access
 

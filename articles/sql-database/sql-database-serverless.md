@@ -145,7 +145,7 @@ The latency to autoresume and autopause a serverless database is generally order
 
 ### Customer managed transparent data encryption (BYOK)
 
-If using [customer managed transparent data encryption](transparent-data-encryption-byok-azure-sql.md) (BYOK) and the serverless database is auto-paused when key deletion or revocation occurs, then the database remains in the auto-paused state.  In this case, when the database is next resumed, the database remains online until its status transitions to inaccessible after approximately 10 minutes or less.  Once the database becomes inaccessible, the recovery process is the same as for provisioned compute databases.  If the serverless database is online when key deletion or revocation occurs, then the database also becomes inaccessible after approximately 10 minutes or less in the same way as with provisioned compute databases.
+If using [customer managed transparent data encryption](transparent-data-encryption-byok-azure-sql.md) (BYOK) and the serverless database is auto-paused when key deletion or revocation occurs, then the database remains in the auto-paused state.  In this case, after the database is next resumed, the database becomes inaccessible within approximately 10 minutes.  Once the database becomes inaccessible, the recovery process is the same as for provisioned compute databases.  If the serverless database is online when key deletion or revocation occurs, then the database also becomes inaccessible after approximately 10 minutes or less in the same way as with provisioned compute databases.
 
 ## Onboarding into serverless compute tier
 
