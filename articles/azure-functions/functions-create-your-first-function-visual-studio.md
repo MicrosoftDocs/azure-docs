@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create your first function in Azure using Visual Studio"
-description: In this quickstart, you learn how to create and publish an HTTP trigger Azure Function by using Visual Studio.
+description: In this quickstart, you learn how to create and publish an HTTP-triggered Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
@@ -10,7 +10,7 @@ ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
 Azure Functions lets you run your code in a serverless environment without having to first create a VM or publish a web application.
 
-In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" HTTP trigger C# function app, which you then publish to Azure. 
+In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" HTTP-triggered C# function app, which you then publish to Azure. 
 
 ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -32,7 +32,7 @@ Visual Studio creates a project and class that contains boilerplate code for the
 
 Expand the capabilities of your function with input and output bindings by applying the appropriate attributes to the method. For more information, see the [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) section of the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
-Now that you've created your function project and an HTTP trigger function, you can test it on your local computer.
+Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Run the function locally
 
@@ -52,7 +52,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and run the request.
 
-    The URL that calls your HTTP trigger function is in the following format:
+    The URL that calls your HTTP triggered function is in the following format:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -66,7 +66,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 ## Next steps
 
-In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function. 
+In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP triggered function. 
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]

@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 04/04/2020
 ms.author: dapine
 ---
 
@@ -12,7 +12,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
