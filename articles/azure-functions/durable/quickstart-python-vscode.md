@@ -24,7 +24,7 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension
+* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension.
 
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
