@@ -26,7 +26,7 @@ For information about ingesting data into a new table in Azure Data Explorer, se
 
     ![Select one-click ingestion in the Web UI](media/one-click-ingestion-existing-table/one-click-ingestion-in-webui.png)   
  
-1. In the **Ingest new data (Preview)** window, the **Source** tab is automatically selected.
+1. In the **Ingest new data (Preview)** window, the **Source** tab is selected.
 
 1. If the **Table** field isn't automatically filled, select an existing table name from the drop-down menu.
     > [!TIP]
@@ -40,13 +40,13 @@ Select **Edit schema** to view and edit your table column configuration.
 
 1. The **Map columns** dialog opens and you can map source data columns to target table columns. 
     * In the **Source columns** fields, enter column names to map with the **Target columns**.
-    * To delete a mapping, select the trash can icon.
+    * To delete a column from a mapping, select the trash can icon.
 
     ![Map columns window](media/one-click-ingestion-existing-table/map-columns.png)
 
 1. Select **Update**.
 1. In the **Schema** tab:
-    1. Select **Compression type**, and then select either **Uncompressed** or **GZip**.
+    1. **Compression type**, will be selected automatically by the source file name 
 
         [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]
         
@@ -54,7 +54,7 @@ Select **Edit schema** to view and edit your table column configuration.
 
     ![Select JSON levels](media/one-click-ingestion-existing-table/json-levels.png)
 
-    * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
+    * For tabular formats, you can select the check box **Include column names** to ignore the heading row of the file.
         
     ![Select Include column names](media/one-click-ingestion-existing-table/non-json-format.png)
 
@@ -62,7 +62,7 @@ Select **Edit schema** to view and edit your table column configuration.
     > Tabular formats can ingest column data into only one column in an Azure Data Explorer table. 
 
     * New mappings are set automatically, but you can change it to use an existing one. 
-    * You can select **Map columns** to open the **Map columns** window.
+    * You can select **Map columns** button to open the **Map columns** window which attach between one or more source column\attribute to Azure Data Explorer column.
 
 ## Copy and paste queries
 
