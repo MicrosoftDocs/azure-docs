@@ -21,7 +21,7 @@ In this featured video, we show you how to save money in Azure using Azure Advis
 
 > [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[How to use Cost Recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
+[How to use cost recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Catch up on these recent videos you may have missed:
 
