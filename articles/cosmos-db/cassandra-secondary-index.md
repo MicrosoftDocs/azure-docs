@@ -34,7 +34,7 @@ If you try executing the following statement, you will run into an error that as
 select user_id, lastname from sampleks.t1 where lastname='nishu';
 ``` 
 
-Although the Cassandra API does support ALLOW FILTERING, as above this is not recommended. You should instead create an index in the following manner:
+Although the Cassandra API supports ALLOW FILTERING as mentioned in the previous section, however, it's not recommended. You should instead create an index in the as shown in the following example:
 
 ```
 CREATE INDEX ON sampleks.t1 (lastname);
