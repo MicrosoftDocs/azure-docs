@@ -37,7 +37,7 @@ During this preview release, Azure Digital Twins does not ship with an SDK. You 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The [Azure Digital Twins API definitions](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?path=%2Fproducts%2Fswagger%2Fexternal-data-plane%2Fpreview%2F2020-03-01-preview%2Fdigitaltwins.json&version=GBmaster&_a=contents) OpenAPI (Swagger) file
+* The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
 ```bash

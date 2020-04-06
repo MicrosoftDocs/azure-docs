@@ -44,6 +44,8 @@
     href: how-to-interpret-event-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
+  - name: How to use Azure Digital Twins CLI
+    href: how-to-use-digital-twins-cli.md
 - name: Reference
   items:
 - name: Resources

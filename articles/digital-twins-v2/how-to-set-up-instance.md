@@ -63,7 +63,7 @@ az group create -n <your-resource-group-name>
 Now, you can create your Azure Digital Twins instance with the following command:
 
 ```bash
-az dt create --name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group-name>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group-name>
 ```
 
 The output of this command displays information about your newly created instance. Take note of the "hostname" value, as you will need this value later.
@@ -77,7 +77,7 @@ Every identity (users or service principals) that you want to give access to the
 To assign a role to a service principal, use this Azure Digital Twins CLI command:
 
 ```bash
- az dt rbac assign-role -n <your-instance-name> --role admin -g <your-resource-group-name> --assignee <service-principal-name>
+ az dt rbac assign-role -n <your-instance-name> --role owner -g <your-resource-group-name> --assignee <service-principal-name>
 ```
 
 > [!TIP] 

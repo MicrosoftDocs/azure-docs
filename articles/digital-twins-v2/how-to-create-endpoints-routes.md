@@ -56,7 +56,7 @@ az dt endpoints add servicebus --endpoint-name <Service-Bus-endpoint-name> --ser
 az dt endpoints add eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-## Define event routes
+## Manage event routes with APIs
 
 To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Route Azure Digital Twins events to external services](concepts-route-events.md).
 
@@ -151,6 +151,12 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
 * Model change events, fired when twin types configured in an Azure Digital Twins instance are added or deleted
+
+## Manage endpoints and routes with CLI
+
+Read about how to manage endpoints and routes using the Azure Digital Twins CLI:
+* [Manage endpoints via CLI](how-to-use-digital-twins-cli.md#adt-endpoints-configuration)
+* [Manage routes via CLI](how-to-use-digital-twins-cli.md#adt-routes)
 
 ## Next steps
 
