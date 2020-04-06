@@ -83,7 +83,7 @@ func azure functionapp publish <APP_NAME>
 
 ::: zone pivot="programming-language-java" 
 
-In the local project folde, use the following Maven command to republish your project:
+In the local project folder, use the following Maven command to republish your project:
 ```
 mvn azure-functions:deploy
 ```

@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
 
-You can follow this tutorial on any computer running Windows, Mac OS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
+You can follow this tutorial on any computer running Windows, macOS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -37,7 +37,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 [!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
 
-+ Run `docker login` to sign in to Docker. This command fails if Docker is not running, in which case start docker and retry the command.
++ Run `docker login` to sign in to Docker. This command fails if Docker isn't running, in which case start docker and retry the command.
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
@@ -145,7 +145,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
+Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
 Use **Ctrl**-**C** to stop the host.
 
@@ -177,7 +177,7 @@ Once the image is running in a local container, open a browser to `http://localh
 Once the image is running in a local container, browse to [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
-After you have verified the function app in the container, stop docker with **Ctrl**+**C**.
+After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
 
 ## Push the image to Docker Hub
 
@@ -416,7 +416,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 1. In a browser, open `https://<app_name>.scm.azurewebsites.net/`, replacing `<app_name>` with your unique name. This URL is the Advanced Tools (Kudu) endpoint for your function app container.
 
-1. Sign in to your Azure account, and then select the **SSH** to establish a connection with the container. Connecting may take a few moments if Azure is still in the process of updating the container image.
+1. Sign in to your Azure account, and then select the **SSH** to establish a connection with the container. Connecting may take a few moments if Azure is still updating the container image.
 
 1. After a connection is established with your container, run the `top` command to view the currently running processes. 
 

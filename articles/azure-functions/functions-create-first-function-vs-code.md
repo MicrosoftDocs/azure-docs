@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
-There is also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
+There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
 
 ## Configure your environment
 
@@ -21,7 +21,7 @@ Before you get started, make sure you have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions ](https://nodejs.org/about/releases/). Use the `npm --version` command to check your version.
-    Not required for local development on MacOS and Linux.   
+    Not required for local development on macOS and Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `npm --version` command to check your version.
@@ -99,7 +99,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     + **Provide a package name**: Choose `com.function`.
 
-    + **Provide a app name**: Choose `myFunction-12345`.
+    + **Provide an app name**: Choose `myFunction-12345`.
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Select a template for your project's first function**: Choose `HTTP trigger`.
@@ -136,7 +136,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (MacOS) on **HttpExample**, and then choose **Copy function URL**.
+1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (macOS) on **HttpExample**, and then choose **Copy function URL**.
 
     ![Copy the function URL for the new HTTP trigger](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 

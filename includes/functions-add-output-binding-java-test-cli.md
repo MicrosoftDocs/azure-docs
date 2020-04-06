@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 03/25/2020
+ms.author: glenga
+---
 ## Update the tests
 
 Because the archetype also creates a set of tests, you need to update these tests to handle the new `msg` parameter in the `run` method signature.  

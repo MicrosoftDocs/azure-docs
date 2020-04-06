@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Storage queue by a
 ms.date: 02/07/2020
 ms.topic: quickstart
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
-zone_pivot_groups: programming-languages-set-functions02
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Connect Azure Functions to Azure Storage using Visual Studio Code
