@@ -15,7 +15,7 @@ Today, Azure Backup provides a reporting solution that leverages [Azure Monitor 
 * Backup Reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Azure Backup Agent (MARS), Azure Backup Server (MABS) and System Center DPM.
 * For DPM workloads, Backup Reports are supported for DPM Version 5.1.363.0 and above, and Agent Version 2.0.9127.0 and above.
 * For MABS workloads, Backup Reports are supported for MABS Version 13.0.415.0 and above, and Agent Version 2.0.9170.0 and above.
-* Backup Reports can be viewed across all backup items, vaults, subscriptions and regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. 
+* Backup Reports can be viewed across all backup items, vaults, subscriptions and regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. Note that to view reports for a set of vaults, you only need to have **reader access to the LA Workspace** to which the vaults are sending their data. You **need not** have access to the individual vaults.
 * If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 * Data for log backup jobs is currently not displayed in the reports.
 
@@ -46,7 +46,7 @@ Azure Backup also provides a built-in Azure Policy, which automates the configur
 
 3. **View reports on the Azure portal:**
 
-Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault’s blade and clicking on the **Backup Reports** menu item. 
+Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault's blade and clicking on the **Backup Reports** menu item. 
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
