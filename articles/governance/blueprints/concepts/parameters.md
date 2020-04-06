@@ -24,7 +24,7 @@ resource group. Resources inside that resource group would become duplicated and
 > related artifacts in that resource group. This could cause a conflict as two resources with the
 > same name and resource type cannot exist within a subscription.
 
-The solution to this problem is parameters. Blueprints allows you to define the value for each
+The solution to this problem is parameters. Azure Blueprints allows you to define the value for each
 property of the artifact during assignment to a subscription. The parameter makes it possible to
 reuse a blueprint that creates a resource group and other resources within a single subscription
 without having conflict.

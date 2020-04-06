@@ -12,7 +12,7 @@ intended as a starting place to explore using Azure Blueprints with various comb
 artifacts, designs, and parameters.
 
 The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different
-aspects of the Blueprints service. The following steps are covered:
+aspects of the Azure Blueprints service. The following steps are covered:
 
 > [!div class="checklist"]
 > - Create a new blueprint definition from the sample

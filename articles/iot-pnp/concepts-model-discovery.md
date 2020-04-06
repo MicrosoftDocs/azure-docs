@@ -41,7 +41,7 @@ A purpose-built IoT solution works with a known set of IoT Plug and Play device 
 
 You'll have the capability model and interfaces for the devices that will connect to your solution ahead of time. Use the following steps to prepare your solution:
 
-1. Store the interface JSON files in Azure in a location where your solution can read them.
+1. Store the interface JSON files in a [model repository](./howto-manage-models.md) where your solution can read them.
 1. Write logic in your IoT solution based on the expected IoT Plug and Play capability models and interface.
 1. Subscribe to notifications from the IoT hub your solution uses.
 
