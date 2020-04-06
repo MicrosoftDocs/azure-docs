@@ -48,7 +48,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.Contoso](#microsoftcontoso)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
@@ -150,7 +149,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.SpoolService](#microsoftspoolservice)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.SqlVM](#microsoftsqlvm)
@@ -176,7 +174,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## Microsoft.AAD
@@ -556,13 +553,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applications | No | No |
-
-## Microsoft.Contoso
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | employees | No | No |
 
 ## Microsoft.CortanaAnalytics
 
@@ -1511,13 +1501,6 @@ Jump to a resource provider namespace:
 > | applications | No | No |
 > | jitrequests | No | No |
 
-## Microsoft.SpoolService
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | spools | No | No |
-
 ## Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
@@ -1738,15 +1721,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deviceservices | No | No |
-
-## Microsoft.WindowsVirtualDesktop
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | applicationgroups | No | No |
-> | hostpools | No | No |
-> | workspaces | No | No |
 
 ## Microsoft.WorkloadMonitor
 
