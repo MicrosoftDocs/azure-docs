@@ -595,8 +595,6 @@
         items:
         - name: Elastic scale
           href: manage-scale-cassandra.md
-        - name: Secondary indexing
-          href: cassandra-secondary-index.md
       - name: How-to guides
         items:
         - name: Change feed
