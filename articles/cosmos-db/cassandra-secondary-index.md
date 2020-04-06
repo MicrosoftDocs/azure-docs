@@ -2,7 +2,7 @@
 
 The Cassandra API in Azure Cosmos DB leverages the underlying Indexing infrastructure to expose the indexing strength that is inherent in the platform. Cassandra API in Azure Cosmos DB supports secondary indexing to create an index on certain attributes. In general, it's not advised to use Apache Cassandra to execute filter queries on the columns that aren't partitioned. You must use ALLOW FILTERING syntax explicitly which, results in a less performant operation. However, in Azure CosmosDB you can run such queries on low cardinality attributes because they fan out across partitions to retrieve the results.
 
-In Azure Cosmos DB, it is recommended to run these queries on low cardinality attributes as these will fan out across partitions to retrieve the results. Creating an index on a frequently updating column is not advised. It would be prudent to create an index when you define the table. This ensures data and index are in consistent. 
+It's not advised to create an index on a frequently updated column. It is prudent to create an index when you define the table. This ensures that data and indexes are in a consistent state. In case you create a new index on the existing data, currently, you can't track the index progress change for the table. If you need to track the progress for this operation, you have to request the progress change via a [support ticket]( https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 If you are trying to create a new index on existing data, tracking the index progress change for a table is not exposed. If you need to track the progress - please request the progress change via a support ticket.
 
