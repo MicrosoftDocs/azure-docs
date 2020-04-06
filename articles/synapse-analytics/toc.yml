@@ -1,8 +1,10 @@
-- name: Azure Synapse Analytics Documentation
-  # href: index.yml
+- name: Azure Synapse (workspaces preview)
+  href:
+- name: Switch to Azure Synapse (SQL DW)
+  href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
-  - name: What is Azure Synapse
+  - name: What is Azure Synapse Analytics
     href: overview-what-is.md
   # - name: Who can benefit
   #   href: overview-who-can-benefit-azure-synapse-analytics
@@ -397,7 +399,7 @@
     - name: Manage access control 
       items:
       - name: Set up permissions for Azure Synapse workspace managed Identity
-        href: security/how-to-grant-worspace-managed-identity-permissions.md
+        href: security/how-to-grant-workspace-managed-identity-permissions.md
       - name: Set up access control
         href: security/how-to-set-up-access-control.md
     #   - name: Implement RBAC policies

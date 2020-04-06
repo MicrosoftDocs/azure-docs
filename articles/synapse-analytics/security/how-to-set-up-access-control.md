@@ -10,7 +10,7 @@ ms.date: 10/17/2019
 ms.author: mahi
 ms.reviewer: jrasnick
 ---
-#  Secure your Synapse workspace (preview)
+# Secure your Synapse workspace (preview)
 
 This article will teach you how to use roles and access control to control activities and access to data. By following these instructions, access control in Azure Synapse Analytics is simplified. You only need to add and remove users to one of three security groups.
 
@@ -51,12 +51,14 @@ Create and populate three security groups for your workspace:
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
 Identify this information about your storage:
+
   - The ADLSGEN2 account to use for your workspace. This document calls it STG1.  STG1 is considered the "primary" storage account for your workspace.
   - The container inside WS1 that your Synapse workspace will use by default. This document calls it CNT1.  This container is used for:
     - Storing the backing data files for Spark tables
     - Execution logs for Spark jobs
 
 - Using the Azure portal, assign the security groups the following roles on CNT1
+
   - Assign **WS1\_WSAdmins** to the **Storage Blob Data Contributor** role
   - Assign **WS1\_SparkAdmins** to the **Storage Blob Data Contributor** role
   - Assign **WS1\_SQLAdmins** to the **Storage Blob Data Contributor** role
@@ -64,6 +66,7 @@ Identify this information about your storage:
 ## STEP 3: Create and configure your Synapse Workspace
 
 In the Azure portal, create a Synapse workspace:
+
   - Name the workspace WS1
   - Choose STG1 for the Storage account
   - Choose CNT1 for the container that is being used as the "filesystem".
@@ -103,8 +106,6 @@ Although you can manually assign users to Synapse roles, if you do, it won't con
 
 Users in each role need to complete the following steps:
 
-
-
 |   | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
@@ -116,7 +117,6 @@ Users in each role need to complete the following steps:
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
-
 > [!TIP]
 > - Some steps will deliberately not be allowed depending on the role. 
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
