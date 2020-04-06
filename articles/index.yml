@@ -1188,6 +1188,13 @@ productDirectory:
         - mixed-reality
       url: spatial-anchors/index.yml
     # Card
+    - title: Remote Rendering (Preview)
+      summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
+      imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
+      azureCategories:
+        - mixed-reality
+      url: remote-rendering/index.yml
+    # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
       imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
@@ -1421,7 +1428,7 @@ tools:
     # Card
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-      url: https://docs.microsoft.com/azure/python/
+      url: https://docs.microsoft.com/azure/developer/python/
     # Card
     - title: .NET
       imageSrc: ./media/index/net-logo.svg
@@ -1437,7 +1444,7 @@ tools:
     # Card
     - title: Go
       imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-      url: https://docs.microsoft.com/azure/go/
+      url: https://docs.microsoft.com/azure/developer/go/
     # Card
     - title: REST API
       imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
