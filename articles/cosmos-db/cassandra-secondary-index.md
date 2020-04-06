@@ -23,7 +23,7 @@ It's not advised to create index on a frequently updated column. It is prudent t
 > * Static columns
 > * Clustering keys
 
-## Create 
+## Create an index
 
 ### Create a table
 Use the following commands to create a key space and a table:
