@@ -66,11 +66,11 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 3. On the **Source data store** page, select **+ Create new connection**.
 
     ![Source data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
-	
+    
 4. Select **Azure Data Lake Storage Gen1** from the connector gallery, and select **Continue**.
-	
-	![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
-	
+    
+    ![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    
 5. On the **Specify Azure Data Lake Storage Gen1 connection** page, follow these steps:
 
    a. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
@@ -91,7 +91,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 7. Specify the copy behavior by selecting the **Copy files recursively** and **Binary copy** options. Select **Next**.
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
-	
+    
 8. On the **Destination data store** page, select **+ Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
     ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
@@ -132,7 +132,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 ## Best practices
 
-To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
 ### Data partition for historical data copy
 
@@ -141,12 +141,12 @@ To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage
 
 Use a proof of concept to verify the end-to-end solution and test the copy throughput in your environment. Major proof-of-concept steps: 
 
-1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance.md#data-integration-units) as 128. 
+1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. 
 2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. 
 3. (Optional) Create a control table and define the file filter to partition the files to be migrated. The way to partition the files is to: 
 
     - Partition by folder name or folder name with a wildcard filter. We recommend this method.
-    - Partition by a file’s last modified time.
+    - Partition by a file's last modified time.
 
 ### Network bandwidth and storage I/O 
 
@@ -158,7 +158,7 @@ In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lak
 
 ### Preserve ACLs from Data Lake Storage Gen1
 
-If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
 ### Incremental copy 
 

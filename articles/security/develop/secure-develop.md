@@ -148,7 +148,7 @@ If your application allows [file uploads](https://www.owasp.org/index.php/Unrest
 Antimalware protection helps identify and remove viruses, spyware, and
 other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
 or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
-[Symantec](https://www.symantec.com/products),
+[Broadcom](https://www.broadcom.com/products),
 [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
 and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: memildin
 
 ---
@@ -21,7 +21,10 @@ This article lists the recommendations you might see in Azure Security Center. T
 
 To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+Your Secure Score is based on the number of Security Center recommendations you've completed. To decide which  recommendations to resolve first, look at the severity of each one and its potential impact on your Secure Score.
+
+>[!TIP]
+> If a recommendation's description says "No related policy", it's usually because that recommendation is dependent on a different recommendation and *its* policy. For example, the recommendation "Endpoint protection health failures should be remediated...", relies on the recommendation that checks whether an endpoint protection solution is even *installed* ("Endpoint protection solution should be installed..."). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
 
 ## <a name="recs-network"></a>Network recommendations
 
@@ -51,7 +54,7 @@ Your Secure Score is based on how many Security Center recommendations you have 
 |**The Kubernetes Service should be upgraded to the latest Kubernetes version**|Upgrade Azure Kubernetes Service clusters to the latest Kubernetes version in order to benefit from up-to-date vulnerability patches. For details regarding specific Kubernetes vulnerabilities see [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes).<br>(Related policy: [Preview]: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version)|High|N|Compute resources (Containers)|
 |**Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)**|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|N|Compute resources (Containers)|
 |**Access to a Kubernetes service management API should be limited by authorizing specific IP ranges only**|Restrict access to the Kubernetes service management API by granting API access only to IP addresses in specific ranges. It is recommended to configure authorized IP ranges so only applications from allowed networks can access the cluster.<br>(Related policy: [Preview]: Authorized IP ranges should be defined on Kubernetes Services)|High|N|Compute resources (Containers)|
-|**Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)**|Container image vulnerability assessment scans your registry for security vulnerabilities on each pushed container image and exposes detailed findings per image. Resolving the vulnerabilities can greatly improve your containers’ security posture and protect them from attacks.<br>(No related policy)|High|N|Compute resources (Containers)|
+|**Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)**|Container image vulnerability assessment scans your registry for security vulnerabilities on each pushed container image and exposes detailed findings per image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.<br>(No related policy)|High|N|Compute resources (Containers)|
 ||||||
 
 
@@ -98,11 +101,11 @@ Your Secure Score is based on how many Security Center recommendations you have 
 |**Automation account variables should be encrypted**|Enable encryption of Automation account variable assets when storing sensitive data.<br>(Related policy: Encryption should be enabled on Automation account variables)|High|N|Compute resources (automation account)|
 |**Disk encryption should be applied on virtual machines**|Encrypt your virtual machine disks using Azure Disk Encryption both for Windows and Linux virtual machines. Azure Disk Encryption (ADE) leverages the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide OS and data disk encryption to help protect and safeguard your data and help meet your organizational security and compliance commitments in customer Azure key vault. When your compliance and security requirement requires you to encrypt the data end to end using your encryption keys, including encryption of the ephemeral (locally attached temporary) disk, use Azure disk encryption. Alternatively, by default, Managed Disks are encrypted at rest by default using Azure Storage Service Encryption where the encryption keys are Microsoft-managed keys in Azure. If this meets your compliance and security requirements, you can leverage the default Managed disk encryption to meet your requirements.<br>(Related policy: Disk encryption should be applied on virtual machines)|High|N|Machine|
 |**Virtual machines should be migrated to new Azure Resource Manager resources**|Use Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management.<br>(Related policy: Virtual machines should be migrated to new Azure Resource Manager resources)|Low|N|Machine|
-|**Vulnerability assessment solution should be installed on your virtual machines**|Install a vulnerability assessment solution on your virtual machines<br>(Related policy: Vulnerability assessment should be installed on virtual machines)|Medium|N|Machine|
+|**Vulnerability assessment solution should be installed on your virtual machines**|Install a vulnerability assessment solution on your virtual machines<br>(Related policy: Vulnerabilities should be remediated by a Vulnerability Assessment solution)|Medium|N|Machine|
 |**Vulnerabilities should be remediated by a Vulnerability Assessment solution**|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.<br>(Related policy: Vulnerabilities should be remediated by a Vulnerability Assessment solution)|High|N|Machine|
 |**Vulnerabilities in security configuration on your machines should be remediated**|Remediate vulnerabilities in security configuration on your machines to protect them from attacks.<br>(Related policy: Vulnerabilities in security configuration on your machines should be remediated)|Low|N|Machine|
 |**Vulnerabilities in container security configurations should be remediated**|Remediate vulnerabilities in security configuration on machines with Docker installed to protect them from attacks.<br>(Related policy: Vulnerabilities in container security configurations should be remediated)|High|N|Machine|
-|**Endpoint protection health issues should be resolved on your machines**|For full Security Center protection, resolve monitoring agent issues on your machines by following the instructions in the Troubleshooting guide.<br>(No related policy - dependent upon "Install endpoint protection solution on your machines")|Medium|N|Machine|
+|**Endpoint protection health issues should be resolved on your machines**|For full Security Center protection, resolve monitoring agent issues on your machines by following the instructions in the Troubleshooting guide.<br>(This recommendation is dependent upon the recommendation "Install endpoint protection solution on your machines" and its policy)|Medium|N|Machine|
 ||||||
 
 
@@ -156,6 +159,7 @@ Your Secure Score is based on how many Security Center recommendations you have 
 ## Next steps
 To learn more about recommendations, see the following:
 
+* [The Microsoft Learn module on how to analyze the recommendations made by Security Center](https://docs.microsoft.com/learn/modules/identify-threats-with-azure-security-center/)
 * [Security recommendations in Azure Security Center](security-center-recommendations.md)
 * [Protecting your machines and applications](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)

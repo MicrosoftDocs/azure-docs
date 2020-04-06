@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -14,6 +14,9 @@ ms.date: 02/24/2020
 Mapping Data Flows in Azure Data Factory provide a code-free interface to design, deploy, and orchestrate data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md).
 
 When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+This video shows some sample timings transforming data with data flows:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## Monitoring data flow performance
 
@@ -54,11 +57,14 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 ![Source Part](media/data-flow/sourcepart3.png "Source Part")
 
+> [!NOTE]
+> A good guide to help you choose number of partitions for your source is based on the number of cores that you have set for your Azure Integration Runtime and multiply that number by five. So, for example, if you are transforming a series of files in your ADLS folders and you are going to utilize a 32-core Azure IR, the number of partitions you would target is 32 x 5 = 160 partitions.
+
 ### Source batch size, input, and isolation level
 
 Under **Source Options** in the source transformation, the following settings can affect performance:
 
-* Batch size instructs ADF to store data in sets in memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly.
+* Batch size instructs ADF to store data in sets in Spark memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly. Not setting this property will utilize Spark caching batch defaults.
 * Setting a query can allow you to filter rows at the source before they arrive in Data Flow for processing. This can make the initial data acquisition faster. If you use a query, you can add optional query hints for your Azure SQL DB such as READ UNCOMMITTED.
 * Read uncommitted will provide faster query results on Source transformation
 
@@ -66,7 +72,7 @@ Under **Source Options** in the source transformation, the following settings ca
 
 ### Sink batch size
 
-To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided.
+To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided. Not setting this property will utilize Spark caching batch defaults.
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
@@ -95,7 +101,7 @@ To avoid row-by-row inserts into your DW, check **Enable staging** in your Sink 
 
 At each transformation, you can set the partitioning scheme you wish data factory to use in the Optimize tab. It is a good practice to first test file-based sinks keeping the default partitioning and optimizations.
 
-* For smaller files, you may find selecting *Single Partition* can sometimes work better and faster than asking Spark to partition your small files.
+* For smaller files, you may find choosing fewer partitions can sometimes work better and faster than asking Spark to partition your small files.
 * If you don't have enough information about your source data, choose *Round Robin* partitioning and set the number of partitions.
 * If your data has columns that can be good hash keys, choose *Hash partitioning*.
 

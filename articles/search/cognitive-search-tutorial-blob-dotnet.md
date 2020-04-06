@@ -7,7 +7,7 @@ manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/27/2020
 ---
 
@@ -15,7 +15,7 @@ ms.date: 02/27/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -182,7 +182,7 @@ namespace EnrichwithAI
 
 ### Create a client
 
-Create an instance of the `SearchServiceClient` class under Main.
+Create an instance of the `SearchServiceClient` class under `Main`.
 
 ```csharp
 public static void Main(string[] args)
@@ -209,6 +209,22 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > [!NOTE]
 > The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 > 
+
+### Add function to exit the program during failure
+
+This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, skillset, index, or indexer the program will output the error message and exit so that the issue can be understood and addressed.
+
+Add `ExitProgram` to `Main` to handle scenarios that require the program to exit.
+
+```csharp
+private static void ExitProgram(string message)
+{
+    Console.WriteLine("{0}", message);
+    Console.WriteLine("Press any key to exit the program...");
+    Console.ReadKey();
+    Environment.Exit(0);
+}
+```
 
 ## 3 - Create the pipeline
 
@@ -247,7 +263,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
 
-Now add a line in Main to call the `CreateOrUpdateDataSource` function that you've just added.
+Now add a line in `Main` to call the `CreateOrUpdateDataSource` function that you've just added.
 
 ```csharp
 public static void Main(string[] args)
@@ -533,7 +549,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the skills
@@ -671,7 +687,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the index
@@ -775,7 +791,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -836,7 +852,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Check indexer overall status
@@ -850,7 +866,7 @@ After indexing is finished, you can run queries that return the contents of indi
 
 As a verification step, query the index for all of the fields.
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -886,7 +902,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Add the following code to Main. The first try-catch returns the index definition, with the name, type, and attributes of each field. The second is a parameterized query, where `Select` specifies which fields to include in the results, for example `organizations`. A search string of `"*"` returns all contents of a single field.
+Add the following code to `Main`. The first try-catch returns the index definition, with the name, type, and attributes of each field. The second is a parameterized query, where `Select` specifies which fields to include in the results, for example `organizations`. A search string of `"*"` returns all contents of a single field.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -925,11 +941,11 @@ Repeat for additional fields: content, languageCode, keyPhrases, and organizatio
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 
-You can also use the portal to delete indexes, indexers, and skillsets.
+You can also use the portal to delete indexes, indexers, data sources, and skillsets.
 
 ## Takeaways
 
@@ -941,11 +957,13 @@ Finally, you learned how to test results and reset the system for further iterat
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
+Now that you're familiar with all of the objects in an AI enrichment pipeline, let's take a closer look at skillset definitions and individual skills.
 
 > [!div class="nextstepaction"]
-> [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
+> [How to create a skillset](cognitive-search-defining-skillset.md)

@@ -6,10 +6,9 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/23/2020
+ms.date: 03/26/2020
 
 ---
-
 
 # Azure Monitor Frequently Asked Questions
 
@@ -58,10 +57,6 @@ There is no limit to the amount of metric data you can collect, but this data is
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
 
-
-
-
-
 ## Solutions and insights
 
 ### What is an insight in Azure Monitor?
@@ -73,11 +68,6 @@ To view insights in the Azure portal, see the **Insights** section of the **Moni
 Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
 
 To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
-
-
-
-
-
 
 ## Logs
 
@@ -103,9 +93,6 @@ Many resource providers are automatically registered, but you may need to manual
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
-
-
-
 ## Alerts
 
 ### What is an alert in Azure Monitor?
@@ -126,7 +113,6 @@ An action group is a collection of notifications and actions that can be trigger
 
 ### What is an action rule?
 An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
-
 
 ## Agents
 
@@ -187,15 +173,14 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#network-firewall-requirements)for details on firewall requirements.
+See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations
 
-### Why can't I can’t see View Designer?
+### Why can't I see View Designer?
 
 View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
-
 
 ## Application Insights
 
@@ -508,10 +493,33 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 [windows]: app/app-insights-windows-get-started.md
 
 
-
 ## Azure Monitor for containers
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+### What does *Other Processes* represent under the Node view?
+
+**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+
+What are these **Other Processes**? 
+
+These are non-containerized processes that run on your node.  
+
+How do we calculate this?
+
+**Other Processes** = *Total usage from CAdvisor* - *Usage from containerized process*
+
+The **Other processes** includes:
+
+- Self-managed or managed Kubernetes non-containerized processes 
+
+- Container Run-time processes  
+
+- Kubelet  
+
+- System processes running on your node 
+
+- Other non-Kubernetes workloads running on node hardware or VM 
 
 ### I don't see Image and Name property values populated when I query the ContainerLog table.
 
@@ -576,7 +584,7 @@ If you receive the error **Missing Subscription registration for Microsoft.Opera
 
 ### Is there support for RBAC enabled AKS clusters?
 
-The Container Monitoring solution doesn’t support RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
+The Container Monitoring solution doesn't support RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
 
 ### How do I enable log collection for containers in the kube-system namespace through Helm?
 
@@ -588,7 +596,7 @@ To learn how to upgrade the agent, see [Agent management](insights/container-ins
 
 ### How do I enable multi-line logging?
 
-Currently Azure Monitor for containers doesn’t support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
+Currently Azure Monitor for containers doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
 
 For example, you can wrap your log as a JSON object as shown in the example below for a sample node.js application:
 
@@ -604,7 +612,7 @@ console.log(json.stringify({
 This data will look like the following example in Azure Monitor for logs when you query for it:
 
 ```
-LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
+LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
 
 ```
 
@@ -622,81 +630,38 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 
 See the [Network firewall requirements](insights/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
 
-## Azure Monitor for VMs (preview)
+## Azure Monitor for VMs
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](insights/vminsights-enable-overview.md#prerequisites).
 
-When onboarding, we configure performance counters for the workspace that will cause all of the VMs reporting data to the workspace to begin collecting this information for display and analysis in Azure Monitor for VMs.  As a result, you will see performance data from all of the VMs connected to the selected workspace.  The Health and Map features are only enabled for the VMs that you have specified to onboard.
-
-For more information on which performance counters are enabled, refer to our [enable overview](insights/vminsights-enable-overview.md#performance-counters-enabled) article.
 
 ### Can I onboard to a new workspace? 
 If your VMs are not currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data. Creating a new default workspace is done automatically if you configure a single Azure VM for Azure Monitor for VMs through the Azure portal.
 
-If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template](insights/vminsights-enable-at-scale-powershell.md) article. 
+If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager template](insights/vminsights-enable-at-scale-powershell.md) article. 
 
 ### What do I do if my VM is already reporting to an existing workspace?
-If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won’t be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
+If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
 
->[!NOTE]
->We configure performance counters for the workspace that affects all VMs that report to the   workspace, whether or not you have chosen to onboard them to Azure Monitor for VMs. For more details on how performance counters are configured for the workspace, please refer to our [documentation](platform/data-sources-performance-counters.md). For information about the counters configured for Azure Monitor for VMs, please refer to our [enable Azure Monitor for VMs](insights/vminsights-enable-overview.md#performance-counters-enabled) article.  
 
 ### Why did my VM fail to onboard?
 When onboarding an Azure VM from the Azure portal, the following steps occur:
 
 * A default Log Analytics workspace is created, if that option was selected.
-* The performance counters are configured for selected workspace. If this step fails, you notice that some of the performance charts and tables aren't showing data for the VM you onboarded. You can fix this by running the PowerShell script documented [here](insights/vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * The Log Analytics agent is installed on Azure VMs using a VM extension, if determined it is required.  
-* The Azure Monitor for VMs Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.  
-* Azure Monitor components supporting the Health feature are configured, if needed, and the VM is configured to report health data.
+* The Azure Monitor for VMs Map Dependency agent is installed on Azure VMs using an extension, if determined it is required. 
 
-During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring and health data in the portal take an additional 5 to 10 minutes.  
+During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an additional 5 to 10 minutes.  
 
 If you have initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process. 
 
-### I only enabled Azure Monitor for VMs, Why do I see all my VMs monitored by the Health feature?
-The Health feature is enabled for all VMs that are connected to the Log Analytics workspace, even when the action is initiated for a single VM.
 
-### Can I modify the schedule for when health criteria evaluates a condition?
-No, the time period and frequency of health criteria can't be modified with this release. 
-
-### Can I disable health criteria for a condition I don't need to monitor?
-Health criteria can't be disabled in this release.
-
-### Are the health alert severities configurable?  
-Health alert severity cannot be modified, they can only be enabled or disabled. Additionally, some alert severities update based on the state of health criteria. 
-
-### If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
-If you modify any setting of a health criterion instance, all health criteria instances of the same type on the Azure VM are modified. For example, if the threshold of the disk free-space health criterion instance that corresponds to logical disk C: is modified, this threshold applies to all other logical disks that are discovered and monitored for the same VM.
-
-### Does the Health feature monitor logical processors and cores?
-No, individual processor and logical processor level health criteria is not included for a Windows, only Total CPU utilization is monitored by default to effectively evaluate CPU pressure based on the total number of logical CPUs available to the Azure VM. 
-
-### Are all health criteria thresholds configurable?  
-Thresholds for health criteria that target a Windows VM aren’t modifiable, because their health states are set to *running* or *available*. When you query the health state from the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), it displays the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
-   - DNS Client Service Health – Service isn't running. 
-   - DHCP client service health – Service isn't running. 
-   - RPC Service Health – Service isn't running. 
-   - Windows firewall service health – Service isn't running.
-   - Windows event log service health – Service isn't running. 
-   - Server service health – Service isn't running. 
-   - Windows remote management service health – Service isn't running. 
-   - File system error or corruption – Logical Disk is unavailable.
-
-Thresholds for the following Linux health criteria aren’t modifiable, because their health state is already set to *true*. The health state displays the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity, depending on its context:
-   - Logical Disk Status – Logical disk isn't online/ available
-   - Disk Status – Disk isn't online/ available
-   - Network Adapter Status -  Network adapter is disabled
-
-### How do I modify alerts that are included with the Health feature?
-Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
-
-### I don’t see some or any data in the performance charts for my VM
+### I don't see some or any data in the performance charts for my VM
 Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
 
-If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?
@@ -743,7 +708,7 @@ This approximation works well for protocols that are request/response based: a s
 ### Are their limitations if I am on the Log Analytics Free pricing plan?
 If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  
 
-Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights (preview)** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
+Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
 
 
 ## Next steps

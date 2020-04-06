@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-## Assign access permissions to an identity
+## 2. Assign access permissions to an identity
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The general recommendation is to use share level permission for high level access management to a team or group, then leverage NTFS permissions for granular access control on directory/file level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -21,7 +21,7 @@ We have introduced three Azure built-in roles for granting share-level permissio
 - **Storage File Data SMB Share Elevated Contributor** allows read, write, delete and modify NTFS permissions in Azure Storage file shares over SMB.
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
+> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
 You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
@@ -63,7 +63,7 @@ Before you run the following sample script, remember to replace placeholder valu
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## Configure NTFS permissions over SMB 
+## 3. Configure NTFS permissions over SMB 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
 Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer or running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
@@ -108,9 +108,9 @@ Use Windows File Explorer to grant full permission to all directories and files 
 8.	In the Security tab, select all permissions you want to grant to the newly add user
 9.	Click on **Apply**
 
-## Mount a file share from a domain-joined VM
+## 4. Mount a file share from a domain-joined VM
 
-The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
+The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to be in effect. 
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, log in with Azure AD credential.
 

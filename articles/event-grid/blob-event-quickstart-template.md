@@ -8,6 +8,7 @@ ms.author: spelluru
 ms.date: 02/27/2020
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: subject-armqs
 ---
 
 # Route Blob storage events to web endpoint by using Azure Resource Manager template

@@ -34,7 +34,7 @@ For more information about the anomaly detection algorithms provided in the desi
 
 4.  Attach a training dataset to the right-hand input of **Train Anomaly Detection Model**.  
 
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
 
 ## Results
 
@@ -52,3 +52,4 @@ After training is complete:
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
 See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
+'

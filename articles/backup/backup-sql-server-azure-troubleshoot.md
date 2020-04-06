@@ -9,13 +9,14 @@ ms.date: 06/18/2019
 
 This article provides troubleshooting information for SQL Server databases running on Azure virtual machines.
 
-For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
+For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](sql-support-matrix.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
 To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
 ## Troubleshoot discover and configure issues
+
 After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
@@ -30,9 +31,26 @@ During the backup configuration, if the SQL VM and its instances are not visible
 
 - If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.
 
-If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
+If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed-up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
 
+## Troubleshoot Backup and Recovery issues  
 
+At times, either random failures may happen in backup and restore operations or those operations might get stuck. This may be because of antivirus programs on your VM. As a best practice, we suggest the following steps:
+
+1. Exclude the following folders from antivirus scanning:
+
+    `C:\Program Files\Azure Workload Backup`
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Replace `C:\` with the letter of your *SystemDrive*.
+
+1. Exclude the following three processes running within a VM from antivirus scanning:
+
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
+
+1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.
 
 ## Error messages
 
@@ -144,7 +162,6 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup to Azure Backup Service, Azure Storage or Azure Active Directory services. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there is no firewall/antivirus/proxy that is blocking calls to the above three target services.
-
 
 ## Re-registration failures
 

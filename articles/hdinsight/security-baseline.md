@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -62,7 +62,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### 1.3: Protect critical web applications
 
-**Guidance**: Not available; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
+**Guidance**: Not applicable; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -88,7 +88,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 ### 1.5: Record network packets and flow logs
 
-**Guidance**: Enable network security group (NSG) flog logs for the NSG attached to the subnet being used to protect your Azure HDInsight cluster. Record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
+**Guidance**: Enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure HDInsight cluster. Record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
 
 How to Enable NSG Flow Logs:
@@ -125,7 +125,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 ### 1.7: Manage traffic to web applications
 
-**Guidance**: Not available; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
+**Guidance**: Not applicable; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -334,7 +334,7 @@ How to alert on log analytics log data:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -494,7 +494,7 @@ How to monitor users identity and access activity in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -662,7 +662,7 @@ https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overvi
 
 Understand Azure Storage Account encryption in transit:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center monitoring**: Yes
 
@@ -718,7 +718,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -784,7 +784,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 
 How to Install Rapid7 Agent Manually:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 How to install Qualys Agent Manually:
@@ -859,10 +859,10 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.), including Azure HDInsight clusters, within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
+Although classic Azure resources may be discovered via Azure Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -931,11 +931,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Not allowed resource types
 - Allowed resource types
 
-Use Azure Resource Graph to query/discover resources within your subscription(s).  Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -954,7 +955,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.), including Azure HDInsight clusters, within your subscription(s).  Remove any unapproved Azure resources that you discover. For Azure HDInsight cluster nodes, implement a third-party solution to remove or alert on unapproved software.
 
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -977,7 +978,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Not allowed resource types
 - Allowed resource types
 
+
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -998,9 +1001,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+How to configure Conditional Access to block access to Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1008,7 +1009,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
-**Guidance**: Not available; This is not applicable to Azure HDInsight as users (non-administrators) of the cluster do not need access to the individual nodes to run jobs. The cluster administrator has root access to all cluster nodes.
+**Guidance**: Not applicable; This is not applicable to Azure HDInsight as users (non-administrators) of the cluster do not need access to the individual nodes to run jobs. The cluster administrator has root access to all cluster nodes.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1016,7 +1017,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### 6.13: Physically or logically segregate high risk applications
 
-**Guidance**: Not available; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
+**Guidance**: Not applicable; benchmark is intended for Azure Apps Service or compute resources hosting web applications.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1100,7 +1101,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: Not available; custom images not applicable to Azure HDInsight.
+**Guidance**: Not applicable; custom images not applicable to Azure HDInsight.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1320,7 +1321,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 How to enable Soft-Delete in Azure Key Vault:
 
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1348,7 +1349,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Guidance**: Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1427,3 +1428,7 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 **Responsibility**: Shared
 
+## Next steps
+
+- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

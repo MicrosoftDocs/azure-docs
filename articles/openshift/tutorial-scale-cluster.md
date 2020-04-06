@@ -34,7 +34,7 @@ Before you begin this tutorial:
 
 If you're running the Azure CLI locally, run `az login` to sign in to Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -50,7 +50,7 @@ CLUSTER_NAME=yourclustername
 
 Now let's scale the cluster to five nodes using the Azure CLI:
 
-```bash
+```azurecli
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 

@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
 ---
 
@@ -300,7 +300,7 @@ Different releases may have different parameters so verify the necessary paramet
 | `masterClusterType` | Specify whether the cluster uses private or public master nodes. If private is chosen, the master nodes won't be exposed to the Internet via a public IP. Instead, it will use the private IP specified in the `masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | If private master nodes are selected, then a private IP address must be specified for use by the internal load balancer for master nodes. This static IP must be within the CIDR block for the master subnet and not already in use. If public master nodes are selected, this value won't be used but must still be specified |  | 10.1.0.200 |
 | `routerClusterType` | Specify whether the cluster uses private or public infra nodes. If private is chosen, the infra nodes won't be exposed to the Internet via a public IP. Instead, it will use the private IP specified in the `routerPrivateClusterIp` | public <br> private | public |
-| `routerPrivateClusterIp` | If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. This static IP must be within the CIDR block for the master subnet and not already in use. If public infra nodes are selected, this value won't be used but must still be specified |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. This static IP must be within the CIDR block for the infra subnet and not already in use. If public infra nodes are selected, this value won't be used but must still be specified |  | 10.2.0.200 |
 | `routingCertType` | Use custom certificate for routing domain or the default self-signed certificate - follow instructions in **Custom Certificates** section | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Use custom certificate for master domain or the default self-signed certificate - follow instructions in **Custom Certificates** section | selfsigned <br> custom | selfsigned |
 

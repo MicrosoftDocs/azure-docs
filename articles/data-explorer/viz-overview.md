@@ -38,6 +38,10 @@ Azure Data Explorer provides the capability to connect to [Microsoft Excel](http
 
 [Grafana](https://grafana.com) provides an Azure Data Explorer plugin that enables you to visualize data from Azure Data Explorer. You [set up Azure Data Explorer as a data source for Grafana, and then visualize the data](/azure/data-explorer/grafana). 
 
+## Kibana
+
+Azure Data Explorer provides the capability to connect to [Kibana (the Discover page)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) using K2Bridge, an open source connector. You [set up Azure Data Explorer as a data source for Kibana, and then visualize the data](/azure/data-explorer/k2bridge).
+
 ## ODBC connector
 
 Azure Data Explorer provides an [Open Database Connectivity (ODBC) connector](connect-odbc.md) so any application that supports ODBC can connect to Azure Data Explorer.

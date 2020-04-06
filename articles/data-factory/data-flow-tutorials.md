@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/16/2020
+ms.date: 03/24/2020
 ---
 
 # Mapping data flow video tutorials
@@ -68,6 +68,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
+[Flatten transformation](https://youtu.be/VY2tFQJoAXE)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -86,6 +88,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
+[Data lake file output options](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+
 ## Optimizing mapping data flows
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
@@ -99,6 +103,8 @@ As updates are constantly made to the product, some features have added or diffe
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
 
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
+
+[Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ## Mapping data flow scenarios
 
@@ -139,3 +145,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
 [Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+
+[Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)
+
+[Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

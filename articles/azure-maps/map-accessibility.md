@@ -36,7 +36,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 - Using a mouse, scroll the wheel to zoom the map.
 - Using a touch screen, touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
 - Using a touch screen, double tap the map to zoom in one level.
-- With the map focused, use the Plus sign (`+`) or *Equals sign (`=`) to zoom in one level.
+- With the map focused, use the Plus sign (`+`) or Equals sign (`=`) to zoom in one level.
 - With the map focused, use the Minus sign, Hyphen (`-`), or Underscore (`_`) to zoom out one level.
 - Using the zoom control with a mouse, touch or keyboard tab/enter keys.
 - Press and hold the `Shift` button and press the left mouse button down on the map and drag to draw out an area to zoom the map into.

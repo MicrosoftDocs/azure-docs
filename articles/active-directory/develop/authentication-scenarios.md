@@ -47,9 +47,9 @@ Azure AD also provides Azure Active Directory B2C so that organizations can sign
 
 Security tokens contain information about users and apps. Azure AD uses JSON based tokens (JWTs) that contain claims.
 
-A claim provides assertions about one entity, such as a [client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) or [resource owner](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)), to another entity, such as a [resource server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)).
+A claim provides assertions about one entity, such as a [client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) or [resource owner](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), to another entity, such as a [resource server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
-Claims are name/value pairs that relay facts about the token subject. For example, a claim may contain facts about the security principal that was authenticated by the [authorization server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server)). The claims present in a given token  depend on many things, including the type of token, the type of credential used to authenticate the subject, the application configuration, and so on.
+Claims are name/value pairs that relay facts about the token subject. For example, a claim may contain facts about the security principal that was authenticated by the [authorization server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). The claims present in a given token  depend on many things, including the type of token, the type of credential used to authenticate the subject, the application configuration, and so on.
 
 Applications can use claims for various tasks such as:
 
@@ -73,6 +73,23 @@ It's up to the app for which the token was generated, the web app that signed-in
 Tokens are only valid for a limited amount of time. Usually the STS provides a pair of tokens: an access token to access the application or protected resource, and a refresh token used to refresh the access token when the access token is close to expiring.
 
 Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+
+### How each flow emits tokens and codes
+
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by Azure AD. These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
+
+|Flow | Requires | id_token | access token | refresh token | authorization code | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | refresh token | x | x | x| |
+|[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
+
+Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims. 
+
+Now that you have an overview of the basics, read on to understand the identity app model and API, learn how provisioning works in Azure AD, and get links to detailed information about common scenarios Azure AD supports.
 
 ## Application model
 
@@ -150,7 +167,7 @@ This attribute causes ASP.NET to check for the presence of a session cookie cont
 User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.
 * The web app sends an HTTP 302 (redirect) to the browser to use Azure AD.
 * When the user is authenticated, Azure AD sends the token to the web app by using a redirect through the browser.
-* The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
+* The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URI to use.
 * Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
 
 ## Desktop and mobile app sign-in flow with Azure AD

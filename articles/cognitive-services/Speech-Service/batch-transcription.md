@@ -1,31 +1,40 @@
 ---
-title: How to use batch transcription - Speech service
+title: What is batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
-author: PanosPeriorellis
+author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: panosper
+ms.date: 03/18/2020
+ms.author: wolfma
 ---
 
-# How to use batch transcription
+# What is batch transcription?
 
-Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
+Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
-The API offers asynchronous speech-to-text transcription and other features. You can use REST API to expose methods to:
+Asynchronous speech-to-text transcription is just one of the features. You can use batch transcription REST APIs to call the following methods:
 
-- Create a batch processing requests
-- Query the status
-- Download transcription results
-- Delete transcription information from the service
 
-The detailed API is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
 
-Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job will change into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
+|    Batch Transcription Operation                                             |    Method    |    REST API Call                                   |
+|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Creates a new transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
+|    Retrieves a list of transcriptions for the authenticated subscription.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
+|    Gets a list of supported locales for offline transcriptions.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
+|    Updates the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Deletes the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Gets the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
+
+
+
+
+You can review and test the detailed API, which is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
+
+Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job changes into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
 
 Next to the easy-to-use API, you don't need to deploy custom endpoints, and you don't have any concurrency requirements to observe.
 
@@ -36,7 +45,7 @@ Next to the easy-to-use API, you don't need to deploy custom endpoints, and you 
 As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
 
 >[!NOTE]
-> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### Custom models
 
@@ -48,11 +57,11 @@ If you plan to customize acoustic or language models, follow the steps in [Custo
 
 The Batch Transcription API supports the following formats:
 
-| Format | Codec | Bitrate | Sample Rate |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| MP3 | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| OGG | OPUS | 16-bit | 8 kHz or 16 kHz, mono or stereo |
+| Format | Codec | Bitrate | Sample Rate                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 
 For stereo audio streams, the left and right channels are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
 
@@ -115,21 +124,21 @@ Use these optional properties to configure transcription:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Specifies sentiment should be added to the utterance. Accepted values are `true` to enable sentiment per utterance and `false` (the default value) to disable it.
+      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `AddDiarization`
    :::column-end:::
    :::column span="2":::
-      Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` enabling diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.
+      Specifies that diarization analysis should be carried out on the input, which is expected to be mono channel containing two voices. Accepted values are `true` enabling diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `TranscriptionResultsContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
+      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container.
 :::row-end:::
 
 ### Storage
@@ -142,7 +151,7 @@ For mono input audio, one transcription result file is being created. For stereo
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -204,18 +213,18 @@ For mono input audio, one transcription result file is being created. For stereo
 
 The result contains these forms:
 
-|Form|Content|
-|-|-|
-|`Lexical`|The actual words recognized.
-|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
-|`MaskedITN`|The ITN form with profanity masking applied.
-|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
+| Form        | Content                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Lexical`   | The actual words recognized.                                                                                                                             |
+| `ITN`       | Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied. |
+| `MaskedITN` | The ITN form with profanity masking applied.                                                                                                             |
+| `Display`   | The display form of the recognized text. Added punctuation and capitalization are included.                                                             |
 
 ## Speaker separation (Diarization)
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
-All transcription output contains a `SpeakerId`. If diarization is not used, it will show `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers will be identified as `"1"` or `"2"`.
+All transcription output contains a `SpeakerId`. If diarization is not used, it shows `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers are identified as `"1"` or `"2"`.
 
 To request diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
@@ -245,7 +254,7 @@ The sentiment feature estimates the sentiment expressed in the audio. The sentim
 - What went well when turning a negative call into a positive direction
 - Identify what customers like and what they dislike about a product or a service
 
-Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription.
+Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription. Currently sentiment analysis is only available for the english language.
 
 A JSON output sample looks like below:
 
@@ -285,7 +294,7 @@ A JSON output sample looks like below:
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This will guarantee quick replies from the transcription management calls.
+The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This guarantees quick replies from the transcription management calls.
 
 ## Sample code
 
@@ -295,7 +304,7 @@ You have to customize the sample code with your subscription information, the se
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-The sample code will set up the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
+The sample code sets up the client and submits the transcription request. It then polls for the status information and print details about the transcription progress.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
@@ -314,4 +323,4 @@ You can find the sample in the `samples/batch` directory in the [GitHub sample r
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)

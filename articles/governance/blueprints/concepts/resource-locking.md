@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -10,6 +10,11 @@ The creation of consistent environments at scale is only truly valuable if there
 maintain that consistency. This article explains how resource locking works in Azure Blueprints. To
 see an example of resource locking and application of _deny assignments_, see the
 [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
+
+> [!NOTE]
+> Resource locks deployed by Azure Blueprints are only applied to resources deployed by the
+> blueprint assignment. Existing resources, such as those in resource groups that already exist,
+> don't have locks added to them.
 
 ## Locking modes and states
 
@@ -97,6 +102,11 @@ The key difference in this request body and one being assigned to a subscription
 `properties.scope` property. This required property must be set to the subscription that the
 blueprint assignment applies to. The subscription must be a direct child of the management group
 hierarchy where the blueprint assignment is stored.
+
+> [!NOTE]
+> A blueprint assigned to management group scope still operates as a subscription level blueprint
+> assignment. The only difference is where the blueprint assignment is stored to prevent
+> subscription owners from removing the assignment and associated locks.
 
 ## Removing locking states
 

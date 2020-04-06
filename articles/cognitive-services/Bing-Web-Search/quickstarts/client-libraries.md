@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use a Bing Web Search client library'
+title: "Quickstart: Use a Bing Web Search client library"
 titleSuffix: Azure Cognitive Services
 description: The Bing Web Search API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results. 
 services: cognitive-services
@@ -10,10 +10,9 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/21/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
-
 # Quickstart: Use a Bing Web Search client library
 
 ::: zone pivot="programming-language-csharp"
@@ -30,7 +29,7 @@ ms.author: aahi
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [Node.js quickstart](../includes/quickstarts/web-search-client-library-javascript.md)]
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts/web-search-client-library-javascript.md)]
 
 ::: zone-end
 
