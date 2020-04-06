@@ -173,7 +173,7 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#firewall-requirements)for details on firewall requirements.
+See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations

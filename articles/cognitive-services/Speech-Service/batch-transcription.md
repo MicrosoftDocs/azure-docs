@@ -300,9 +300,6 @@ The transcription service can handle large number of submitted transcriptions. Y
 
 Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
 
-> [!NOTE]
-> Batch transcription functionality is exposed via the REST API described above. Thus Batch transcription can be used from nearly any programming language or environment that supports REST. The examples below and samples in GitHub are merely representative and **do not** connote limits on where the API can be used.
-
 You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
