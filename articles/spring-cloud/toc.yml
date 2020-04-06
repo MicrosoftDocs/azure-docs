@@ -34,6 +34,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind your application to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Circuit Breaker Dashboard with Azure Spring Cloud
+      href: spring-cloud-tutorial-circuit-breaker.md
 - name: Concepts
   items: 
     - name: Understanding Azure Spring Cloud quotas and limits
