@@ -15,7 +15,7 @@ In part three of the series, you learn how to:
 > [!div class="checklist"]
 > * Define an HTTPS endpoint in the service
 > * Configure Kestrel to use HTTPS
-> * Install the SSL certificate on the remote cluster nodes
+> * Install the TLS/SSL certificate on the remote cluster nodes
 > * Give NETWORK SERVICE access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster
@@ -406,7 +406,7 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Define an HTTPS endpoint in the service
 > * Configure Kestrel to use HTTPS
-> * Install the SSL certificate on the remote cluster nodes
+> * Install the TLS/SSL certificate on the remote cluster nodes
 > * Give NETWORK SERVICE access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster
