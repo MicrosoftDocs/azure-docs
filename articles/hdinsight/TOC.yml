@@ -697,6 +697,10 @@
     items:
     - name: Analyze data with Interactive Query
       href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+  - name: Concepts
+    items: 
+    - name: Gateway best practices
+      href: ./interactive-query/gateway-best-practices.md
   - name: How to
     items:
     - name: Develop

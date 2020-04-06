@@ -13,7 +13,7 @@ ms.author: dapine
 
 # Azure Cognitive Services support and feedback options
 
-Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, and give feedback for Cognitive Services.
+Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
 ## Get support
 
@@ -78,10 +78,11 @@ The Cognitive Services release notes are updated as new releases are made availa
 
  - [Custom Vision](custom-vision-service/release-notes.md)
  - [Face](face/releasenotes.md)
- - [Language Understanding (LUIS)](luis/whats-new.md)
+ - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Speech Services](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
  - [Text Analytics](text-analytics/whats-new.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### Azure blog
 
