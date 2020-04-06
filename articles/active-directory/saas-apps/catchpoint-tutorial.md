@@ -25,9 +25,9 @@ In this tutorial, you learn how to integrate Catchpoint with Azure Active Direct
 
 * Control user access to Catchpoint from Azure AD.
 * Enable automatic Catchpoint sign-in for users with Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -49,11 +49,11 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 To configure the integration of Catchpoint into Azure AD, add Catchpoint to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a work, school, or personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
+1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Catchpoint** in the search box.
-1. Select **Catchpoint** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Catchpoint** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for Catchpoint
 
@@ -61,16 +61,16 @@ For SSO to work, you need to link an Azure AD user with a user in Catchpoint. Fo
 
 Complete the following sections:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable this feature for your users.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Catchpoint SSO](#configure-catchpoint-sso)** - to configure the single sign-on settings on the application side.
-    * **[Create Catchpoint test user](#create-a-catchpoint-test-user)** - to allow linking of the B.Simon Azure AD test account to a similar user account in Catchpoint.
-1. **[Test SSO](#test-sso)** - to verify that the configuration works.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable this feature for your users.
+    * [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
+    * [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+1. [Configure Catchpoint SSO](#configure-catchpoint-sso) to configure the single sign-on settings on the application side.
+    * [Create Catchpoint test user](#create-a-catchpoint-test-user) to allow linking of the B.Simon Azure AD test account to a similar user account in Catchpoint.
+1. [Test SSO](#test-sso) to verify that the configuration works.
 
 ## Configure Azure AD SSO
 
-Follow these steps in the Azure portal to enable Azure AD SSO.
+Follow these steps in the Azure portal to enable Azure AD SSO:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On the **Catchpoint** application integration page, find the **Manage** section and select **single sign-on**.
@@ -86,9 +86,9 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
    - For **SP**-initiated mode, select **Set additional URLs** and enter the following value:
      - For **Sign-on URL**: `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
-1. The Catchpoint application expects the SAML assertions in a specific format. Add custom attribute mappings to your SAML token attributes configuration. The following table contains the list of default attributes:
+1. The Catchpoint application expects the SAML assertions in a specific format. Add custom attribute mappings to your configuration of SAML token attributes. The following table contains the list of default attributes:
 
-    | Name | Source Attribute|
+    | Name | Source attribute|
     | ------------ | --------- |
     | Givenname | user.givenneame |
     | Surname | user.surname |
@@ -100,7 +100,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
 
 1. Also, the Catchpoint application expects another attribute to be passed in a SAML response. See the following table. This attribute is also pre-populated, but you can review and update it to fit your requirements.
 
-    | Name | Source Attribute|
+    | Name | Source attribute|
     | ------------ | --------- |
     | namespace | user.assignedrole |
 
@@ -109,7 +109,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO.
 
 1. Go to the **Set Up Single Sign-On with SAML** page. In the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to save the certificate to your computer.
 
-    ![The Certificate download link](common/certificatebase64.png)
+    ![The certificate download link](common/certificatebase64.png)
 
 1. In the **Set up Catchpoint** section, copy the URLs that you need in a later step.
 
@@ -123,7 +123,7 @@ In this section, you use the Azure portal to create an Azure AD test user called
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, enter `B.Simon@contoso.com`.
    1. Select the **Show password** check box. Note the displayed password value.
    1. Select **Create**.
 
@@ -137,17 +137,17 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog box.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-    ![The Add User link](common/add-assign-user.png)
+    ![The "Add user" link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog box, select **B.Simon** from the users list. Click **Select** at the bottom of the screen.
+1. In the **Users and groups** dialog box, select **B.Simon** from the list of users. Click **Select** at the bottom of the screen.
 1. If you expect a role value in the SAML assertion, look in the **Select Role** dialog box and choose the user's role from the list. Click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Catchpoint SSO
 
-1. In a different web browser window, sign into the Catchpoint application as an administrator.
+1. In a different web browser window, sign in to the Catchpoint application as an administrator.
 
 1. Select the **Settings** icon and then **SSO Identity Provider**.
 
@@ -159,9 +159,9 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
    Field | Value
    ----- | ----- 
-   **Namespace** | valid namespace value
-   **Identity Provider Issuer** | The `Azure AD Identifier` value from the Azure portal
-   **Single Sign On Url** | The `Login URL` value from the Azure portal
+   **Namespace** | A valid namespace value.
+   **Identity Provider Issuer** | The `Azure AD Identifier` value from the Azure portal.
+   **Single Sign On Url** | The `Login URL` value from the Azure portal.
    **Certificate** | The contents of the downloaded `Certificate (Base64)` file from the Azure portal. Use Notepad to view and copy.
 
    You might also upload the **Federation Metadata XML** by selecting the **Upload Metadata** option.
@@ -174,18 +174,18 @@ Catchpoint supports just-in-time user provisioning, which is enabled by default.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
 When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO configured. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 > [!NOTE]
-> When you are signed into the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** field and select **Login**.
+> When you're signed in to the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** field and select **Login**.
 > 
 > ![Catchpoint configuration](./media/catchpoint-tutorial/loginimage.png)
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
