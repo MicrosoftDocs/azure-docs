@@ -41,17 +41,15 @@ In Azure Cognitive Search, besides the term and distance (up to 2), there are no
 
 ## How to test fuzzy search
 
-For testing, we recommend Search explorer or Postman for iterating over a query expression.
+For testing, we recommend Search explorer or Postman for iterating over a query expression. You can introduce permutations of a term and evaluate the responses that come back.
 
-When the results of a fuzzy search are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
+When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. For example, assume you have a document with this string: `"Description": "Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
-For example, assume you have a document with this string: `"Description": "Test queries with special characters, plus strings for MSFT, SQL and Java."
-
-Start with a fuzzy search on special and add hit highlighting to the Description field:
+Start with a fuzzy search on "special" and add hit highlighting to the Description field:
 
     special~&highlight=Description
 
-With the addition of hit highlighting, the response tells you that "special" is the matching term.
+Because you added hit highlighting, the response tells you that "special" is the matching term.
 
     "@search.highlights": {
         "Description": [
@@ -83,9 +81,9 @@ Notice that the same response is returned, but now instead of matching on "speci
 
 The point of this extended example is to illustrate the clarity that hit highlighting can bring to ambiguous results. Had you relied on a document ID to check the match, you might have missed the shift from "special" to "SQL".
 
-## Use fuzzy search with autocomplete for a "did you mean" or "search instead" experience
+## Fuzzy search with autocomplete
 
-TBD
+TBD - for a "did you mean" or "search instead" experience
 
 ## See also
 

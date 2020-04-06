@@ -226,7 +226,7 @@
       href: search-query-partial-matching.md
     - name: Fuzzy search
       href: search-query-fuzzy.md
-    - name: Autocomplete "search-as-you-type"
+    - name: Autocomplete "Search-as-you-type"
       items:
       - name: Create a suggester
         href: index-add-suggesters.md

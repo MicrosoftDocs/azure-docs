@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
 ---
-# Partial term search and patterns with special characters - Azure Cognitive Search (wildcard, regex, patterns)
+# Partial term search and patterns with special characters (wildcard, regex, patterns)
 
 A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string. A *pattern* might a combination of fragments, sometimes with special characters such as dashes or slashes that are part of the query. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
