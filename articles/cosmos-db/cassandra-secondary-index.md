@@ -28,7 +28,7 @@ It's not advised to create index on a frequently updated column. It is prudent t
 ### Create a table
 Use the following commands to create a key space and a table:
 
-```
+```shell
 CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}  
 CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=400; 
 ```
@@ -37,7 +37,7 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 
 Insert the following user data into the table:
 
-```
+```shell
 insert into sampleks.t1(user_id,lastname) values (1, 'Nishu');
 insert into sampleks.t1(user_id,lastname) values (2, 'John');
 insert into sampleks.t1(user_id,lastname) values (3, 'Bat');
@@ -52,7 +52,7 @@ insert into sampleks.t1(user_id,lastname) values (9, 'Jagan');
 
 If you try executing the following statement, you will run into an error that asks you to use allow filtering:
 
-```
+```shell
 select user_id, lastname from gks1 .t1 where last_name='Nishu';
 ```
 
@@ -60,13 +60,13 @@ select user_id, lastname from gks1 .t1 where last_name='Nishu';
 
 Create an index with the following command:
 
-```
+```shell
 CREATE INDEX ON  sampleks.t1 (lastname)
 ```
 
 Next you can run queries with filter on the indexed field:
 
-```
+```shell
 select user_id, lastname from gks1.t1 where user_id=1;
 ```
 
@@ -76,9 +76,12 @@ With Cassandra API in Azure Cosmos DB, you do not have to provide an index name.
 
 You need to know the index name is to drop the index. Run the `desc schema` command to get the description of your table. The output of this command includes the index name. You can then use the index name to drop the index as shown in the following example:
 
-```
+```shell
 desc schema;
 drop index sampleks.t1_lastname_idx;
 ```
 
 ## Next steps
+
+* Learn how [automatic indexing](index-overview.md) works in Azure Cosmos DB
+* [Apache Cassandra features supported by Azure Cosmos DB Cassandra API](cassandra-support.md)
