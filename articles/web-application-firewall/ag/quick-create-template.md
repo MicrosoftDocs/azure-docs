@@ -66,7 +66,7 @@ Use IIS to test the application gateway:
 4. Change the custom rule to **Allow traffic**.
   Run the following Azure PowerShell script, replacing your resource group name:
    ```azurepowershell
-   $rg = <your resource group name>
+   $rg = "<your resource group name>"
    $AppGW = Get-AzApplicationGateway -Name myAppGateway -ResourceGroupName $rg
    $pol = Get-AzApplicationGatewayFirewallPolicy -Name WafPol01 -ResourceGroupName $rg
    $pol[0].customrules[0].action = "allow"
@@ -85,7 +85,7 @@ When you no longer need the resources that you created with the application gate
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <your resource group name>
+Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 
 ## Next steps

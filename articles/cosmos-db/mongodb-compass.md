@@ -17,7 +17,7 @@ Cosmos DB is Microsoft's globally distributed multi-model database service. You 
 
 ## Pre-requisites
 
-To connect to your Cosmos DB account using Robo 3T, you must:
+To connect to your Cosmos DB account using MongoDB Compass, you must:
 
 * Download and install [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Have your Cosmos DB [connection string](connect-mongodb-account.md) information
