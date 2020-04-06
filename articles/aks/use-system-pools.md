@@ -30,7 +30,7 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 
 * System pools contain only Linux nodes, and user node pools may contain Linux or Windows nodes.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools can't be spot node pools, and user node pools may utilize spot node pools.
+* You can't use spot node pools for system node pools.
 
 You can perform the following operations with node pools:
 
