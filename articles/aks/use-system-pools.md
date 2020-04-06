@@ -26,7 +26,13 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool, and every system node pool contains at least one node. User node pools may contain zero or more nodes.
+System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool, and every system node pool contains at least one node. User node pools may contain zero or more nodes. System node pools have the following restrictions:
+
+* System pools contain only Linux nodes.
+* System pools must contain at least one node.
+* System node pools can't be spot node pools.
+
+You can perform the following operations with node pools:
 
 * You can update a system node pool to be a user node pool.
 * You can update a user node pool to be a system node pool.
