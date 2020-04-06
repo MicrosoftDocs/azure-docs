@@ -21,9 +21,9 @@ The goal is to move the shares that you have on your Linux Samba server to a Win
 
 ## Migration overview
 
-As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your Linux Samba server is exposing SMB shares directly on your local network. RoboCopy, built into Windows Server, is the best way to move your files in this migration scenario.
+As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your Linux Samba server is exposing SMB shares directly on your local network. Robocopy, built into Windows Server, is the best way to move your files in this migration scenario.
 
-If you're not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on Windows Server, you can use Linux copy tools instead of RoboCopy. If you do, be aware of the fidelity capabilities in your file copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
+If you're not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on Windows Server, you can use Linux copy tools instead of Robocopy. If you do, be aware of the fidelity capabilities in your file copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -70,31 +70,32 @@ Your registered on-premises Windows Server instance must be ready and connected 
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!IMPORTANT]
-> Cloud tiering is the AFS feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is an optional feature per Azure File Sync "server endpoint".
+> Cloud tiering is the Azure File Sync feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is an optional feature for each Azure File Sync server endpoint.
 
 > [!WARNING]
-> If you provisioned less storage on your Windows Server volume(s) than your data used on the Linux Samba server, then cloud tiering is mandatory. If you do not turn on cloud tiering, your server will not free up space to store all files. Set your tiering policy, temporarily for the migration, to 99% volume free space. Be sure to return to your cloud tiering settings after the migration is complete, and set it to a more long-term useful level.
+> If you provisioned less storage on your Windows Server volumes than your data used on the Linux Samba server, then cloud tiering is mandatory. If you don't turn on cloud tiering, your server will not free up space to store all files. Set your tiering policy, temporarily for the migration, to 99% volume free space. Be sure to return to your cloud tiering settings after the migration is complete, and set the policy to a more useful level for the long term.
 
-Repeat the steps of sync group creation and addition of the matching server folder as a server endpoint for all Azure file shares / server locations, that need to be configured for sync.
+Repeat the steps of sync group creation and the addition of the matching server folder as a server endpoint for all Azure file shares and server locations that need to be configured for sync.
 
 After the creation of all server endpoints, sync is working. You can create a test file and see it sync up from your server location to the connected Azure file share (as described by the cloud endpoint in the sync group).
 
-Both locations, the server folders and the Azure file shares are otherwise empty and awaiting data in either location. In the next step, you will begin to copy files into the Windows Server instance for Azure File Sync to move them up to the cloud. In case you've enabled cloud tiering, the server will then begin to tier files, should you run out of capacity on the local volume(s).
+Both locations, the server folders and the Azure file shares, are otherwise empty and awaiting data. In the next step, you'll begin to copy files into the Windows Server instance for Azure File Sync to move them up to the cloud. If you've enabled cloud tiering, the server will then begin to tier files if you run out of capacity on the local volumes.
 
-## Phase 7: RoboCopy
+## Phase 7: Robocopy
 
-The basic migration approach is a RoboCopy from your Linux Samba server to your Windows Server instance, and Azure File Sync to Azure file shares.
+The basic migration approach is to use Robocopy to copy files and use Azure File Sync do the syncing.
 
 Run the first local copy to your Windows Server target folder:
 
 1. Identify the first location on your Linux Samba server.
 1. Identify the matching folder on the Windows Server instance that already has Azure File Sync configured on it.
-1. Start the copy using RoboCopy.
+1. Start the copy by using Robocopy.
 
-The following RoboCopy command will copy files from your Linux Samba servers storage to your Windows Server target folder. Windows Server will sync it to the Azure file share(s). 
+The following Robocopy command will copy files from your Linux Samba server's storage to your Windows Server target folder. Windows Server will sync it to the Azure file shares. 
 
-If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
-It is possible, that RoboCopy moves files faster than you can sync to the cloud and tier locally, thus running out of local disk space. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server instance, to mention a few.
+If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will start and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+
+It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance.
 
 ```console
 Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
@@ -107,7 +108,7 @@ Background:
       /MT
    :::column-end:::
    :::column span="1":::
-      Allows for RoboCopy to run multi-threaded. Default is 8, max is 128.
+      Allows for Robocopy to run multi-threaded. Default is 8, maximum is 128.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +116,7 @@ Background:
       /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
-      Outputs status to LOG file as UNICODE (overwrites existing log).
+      Outputs status to a log file as Unicode (overwrites existing log).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +124,7 @@ Background:
       /TEE
    :::column-end:::
    :::column span="1":::
-      Outputs to console window. Used in conjunction with output to a log file.
+      Outputs to a console window. Used in conjunction with output to a log file.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -131,7 +132,7 @@ Background:
       /B
    :::column-end:::
    :::column span="1":::
-      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
+      Runs Robocopy in the same mode that a backup application would use. It allows Robocopy to move files that the current user does not have permissions to.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -139,7 +140,7 @@ Background:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and "*deletes*" will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. The */MIR* flag is an excellent option for source locations that are still actively used and changing.
+      Allows running this Robocopy command several times, sequentially, on the same target/destination. It identifies and omits what has been copied before. Only changes, additions, and deletions that occurred since the last run are processed. If the command wasn't run before, nothing is omitted. The **/MIR** flag is an excellent option for source locations that are still actively used and changing.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -147,7 +148,7 @@ Background:
       /COPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity of the file copy (default is /COPY:DAT), copy flags: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
+      Fidelity of the file copy (default is /COPY:DAT). Copy flags are: D=data, A=attributes, T=timestamps, S=security=NTFS ACLs, O=owner info, U=auditing info.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -163,57 +164,56 @@ Background:
       /DCOPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      fidelity for the copy of directories (default is /DCOPY:DA), copy flags: D=Data, A=Attributes, T=Timestamps
+      Fidelity for the copy of directories (default is /DCOPY:DA). Copy flags are: D=data, A=attributes, T=timestamps.
    :::column-end:::
 :::row-end:::
 
 ## Phase 8: User cut-over
 
-When you run the RoboCopy command for the first time, your users and applications are still accessing files on the Linux Samba server and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (Linux) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
+When you run the Robocopy command for the first time, your users and applications are still accessing files on the Linux Samba server and potentially changing them. It's possible that Robocopy has processed a directory and moves on to the next, and then a user in the source location (Linux) adds, changes, or deletes a file that will now not be processed in this current Robocopy run. This behavior is expected.
 
 The first run is about moving the bulk of the data to your Windows Server instance and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 
 * Your download bandwidth.
 * The upload bandwidth.
-* The local network speed, and the number of how optimally the number of RoboCopy threads matches it.
-* The number of items (files and folders) that need to be processed by RoboCopy and Azure File Sync.
+* The local network speed, and the number of how optimally the number of Robocopy threads matches it.
+* The number of items (files and folders) that Robocopy and Azure File Sync need to process.
 
-Once the initial run is complete, run the command again.
+After the initial run is complete, run the command again.
 
-The second time it will finish faster, because it only needs to transport changes that happened since the last run. During this second run, still, new changes can accumulate.
+The second time it will finish faster, because it needs to transport only changes that happened since the last run. During this second run, still, new changes can accumulate.
 
-Repeat this process until you are satisfied that the amount of time it takes to complete a RoboCopy for a specific location is within an acceptable window for downtime.
+Repeat this process until you're satisfied that the amount of time it takes to complete a Robocopy operation for a specific location is within an acceptable window for downtime.
 
-When you consider the downtime acceptable and you are prepared to take the Linux location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your Linux server.
+When you consider the downtime acceptable and you're prepared to take the Linux location offline, you can change ACLs on the share root such that users can no longer access the location. Or you can take any other appropriate step that prevents content from changing in this folder on your Linux server.
 
-Run one last RoboCopy round. It will pick up any changes, that might have been missed.
-How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
+Run one last Robocopy round. It will pick up any changes that might have been missed. How long this final step takes depends on the speed of the Robocopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your Linux Samba server SMB shares. If you have used local users on your Linux Samba server, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server instance to the SIDs of your new, Windows Server local users. If you used AD accounts and ACLs, RoboCopy will move them as is and there is no further action necessary.
+Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your Linux Samba server SMB shares. If you have used local users on your Linux Samba server, you need to re-create these users as Windows Server local users and map the existing SIDs that Robocopy moved over to your Windows Server instance to the SIDs of your new Windows Server local users. If you used AD accounts and ACLs, Robocopy will move them as is, and no further action is necessary.
 
-You have finished migrating a share / group of shares into a common root or volume. (Depending on your mapping from Phase 1)
+You have finished migrating a share or a group of shares into a common root or volume (depending on your mapping from Phase 1).
 
 You can try to run a few of these copies in parallel. We recommend processing the scope of one Azure file share at a time.
 
 > [!WARNING]
-> Once you have moved all the data from you Linux Samba server to the Windows Server instance, and your migration is complete: Return to ***all***  sync groups in the Azure portal and adjust the cloud tiering volume free space percent value to something better suited for cache utilization, say 20%. 
+> After you've moved all the data from you Linux Samba server to the Windows Server instance, and your migration is complete: Return to *all*  sync groups in the Azure portal. Adjust the percentage of free space for cloud tiering volume to something better suited for cache utilization, say 20%. 
 
-The cloud tiering volume free space policy acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space, making the local cache not performing as you might expect. Unless it is your goal to only have the namespace for a volume that only contains rarely accessed, archival data and you are reserving the rest of the storage space for another scenario.
+The policy for free space in cloud tiering volume acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space. The local cache then might not perform as you expect. The performance might be acceptable if your goal is to have the namespace for a volume that contains only rarely accessed archival data, and you're reserving the rest of the storage space for another scenario.
 
 ## Troubleshoot
 
-The most likely issue you can run into, is that the RoboCopy command fails with *"Volume full"* on the Windows Server side. Cloud tiering acts once every hour to evacuate content from the local Windows Server disk, that has synced. Its goal is to reach your 99% free space on the volume.
+The most likely issue you can run into is that the Robocopy command fails with **Volume full** on the Windows Server side. Cloud tiering acts once every hour to evacuate content from the local Windows Server disk that has synced. Its goal is to reach your 99% free space on the volume.
 
 Let sync progress and cloud tiering free up disk space. You can observe that in File Explorer on Windows Server.
 
-When your Windows Server instance has sufficient available capacity, rerunning the command will resolve the problem. Nothing breaks when you get into this situation and you can move forward with confidence. Inconvenience of running the command again is the only consequence.
+When your Windows Server instance has enough available capacity, rerunning the command will resolve the problem. Nothing breaks when you get into this situation, and you can move forward with confidence. The inconvenience of running the command again is the only consequence.
 
 Check the link in the following section for troubleshooting Azure File Sync issues.
 
 ## Next steps
 
-There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
+There's more to discover about Azure file shares and Azure File Sync. The following articles contain advanced options, best practices, and troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
-* [AFS overview](https://aka.ms/AFS)
-* [AFS deployment guide](storage-files-deployment-guide.md)
-* [AFS troubleshooting](storage-sync-files-troubleshoot.md)
+* [Azure File Sync overview](https://aka.ms/AFS)
+* [Azure File Sync deployment guide](storage-files-deployment-guide.md)
+* [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md)
