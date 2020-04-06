@@ -13,8 +13,8 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 
 ## Before you begin
 
-* API version of `2020-03-01` or greater
 * You need the Azure CLI version 2.3.1 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need AKS clusters with API versions of `2020-03-01` or greater
 
 ## Limitations
 
