@@ -2,13 +2,14 @@
 title: Apache Kafka TLS encryption & authentication  - Azure HDInsight
 description: Set up TLS encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Set up SSL authentication of clients.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.author: hrasheed
 ---
+
 # Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
 
 This article shows you how to set up Transport Layer Security (TLS) encryption, previously known as Secure Sockets Layer (SSL) encryption, between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way TLS).
@@ -306,13 +307,13 @@ The details of each step are given below.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.	Start console producer and provide the path to `client-ssl-auth.properties` as a configuration file for the producer.
+1. Start console producer and provide the path to `client-ssl-auth.properties` as a configuration file for the producer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1.	Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
+1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -326,13 +327,13 @@ The details of each step are given below.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.	Start console producer and provide the path to client-ssl-auth.properties as a configuration file for the producer.
+1. Start console producer and provide the path to client-ssl-auth.properties as a configuration file for the producer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.	Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
+1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

@@ -246,7 +246,7 @@ file_dataset = MNIST.get_file_dataset()
 
 from azureml.opendatasets import Diabetes
 
-# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+# Diabetes class can return ONLY TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 

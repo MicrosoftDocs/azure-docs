@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -52,7 +52,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ### Functional changes ADSyncAutoUpgrade 
 
 - Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
-- The mS-DS-ConsistencyGuid attribute is automatically set on al synced groups and you do not have to do anything to enable this feature. 
+- The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
 - Removed the Get-ADSyncRunProfile because it is no longer in use. 
 - Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
 - Added a new cmdlet to remove objects from the connector space the old CSDelete.exe tool is removed, and it is replaced with the new Remove-ADSyncCSObject cmdlet. The Remove-ADSyncCSObject cmdlet takes a CsObject as input. This object can be retrieved by using the Get-ADSyncCSObject cmdlet.
