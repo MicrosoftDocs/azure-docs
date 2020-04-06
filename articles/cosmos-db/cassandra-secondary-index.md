@@ -1,6 +1,6 @@
 # Secondary indexing in Azure Cosmos DB Cassandra API
 
-CosmosDB's Cassandra API leverages the underlying Indexing infrastructure to expose the indexing strength inherent in the platform. In general in Apache Cassandra executing filter queries on non partition key columns is not advised. One has to use ALLOW FILTERING syntax explicitly, opting in to performance unpredictability. 
+The Cassandra API in Azure Cosmos DB leverages the underlying Indexing infrastructure to expose the indexing strength that is inherent in the platform. Cassandra API in Azure Cosmos DB supports secondary indexing to create an index on certain attributes. In general, it's not advised to use Apache Cassandra to execute filter queries on the columns that aren't partitioned. You must use ALLOW FILTERING syntax explicitly which, results in a less performant operation. However, in Azure CosmosDB you can run such queries on low cardinality attributes because they fan out across partitions to retrieve the results.
 
 In Azure Cosmos DB, it is recommended to run these queries on low cardinality attributes as these will fan out across partitions to retrieve the results. Creating an index on a frequently updating column is not advised. It would be prudent to create an index when you define the table. This ensures data and index are in consistent. 
 
