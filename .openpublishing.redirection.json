@@ -50553,6 +50553,10 @@
       "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
       "redirect_url": "/azure/aks/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
     }
   ]
 }
