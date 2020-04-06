@@ -167,7 +167,7 @@ This attribute causes ASP.NET to check for the presence of a session cookie cont
 User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.
 * The web app sends an HTTP 302 (redirect) to the browser to use Azure AD.
 * When the user is authenticated, Azure AD sends the token to the web app by using a redirect through the browser.
-* The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
+* The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URI to use.
 * Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
 
 ## Desktop and mobile app sign-in flow with Azure AD

@@ -5,14 +5,15 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.custom: fasttrack-edit
-
+ms.custom: [seodec18, fasttrack-edit]
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
 > [!NOTE]
 > At this time, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (including [MSAL](../active-directory/develop/msal-overview.md)) is not supported for Azure App Service and Azure Functions. Please check back for updates.
+>
+> [!NOTE]
+> At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature.
 >
 
 Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
@@ -128,11 +129,17 @@ With this option, you don't need to write any authentication code in your app. F
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
+> [!NOTE]
+> Authentication/Authorization was previously known as Easy Auth.
+>
+
 ## More resources
 
 [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
 [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
+[.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+[Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Provider-specific how-to guides:
 

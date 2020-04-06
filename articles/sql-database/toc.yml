@@ -711,7 +711,6 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
-  href:  sql-database-managed-instance-index.yml
   items:
   - name: Overview
     items:
@@ -816,7 +815,9 @@
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
-
+    - name: Create alerts
+      href: sql-database-managed-instance-alerts.md
+      
   - name: Samples
     items:
     - name: Azure CLI

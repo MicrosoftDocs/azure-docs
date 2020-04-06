@@ -1,13 +1,10 @@
 ---
 title: Configure Facebook authentication
 description: Learn how to configure Facebook authentication as an identity provider for your App Service or Azure Functions app.
-
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.custom: fasttrack-edit
-
+ms.custom: [seodec18, fasttrack-edit]
 ---
 
 # Configure your App Service or Azure Functions app to use Facebook login
