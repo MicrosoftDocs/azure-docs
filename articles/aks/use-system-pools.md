@@ -72,7 +72,7 @@ You can check the details of your node pools with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-You see output returned similar to what is displayed below, and you can check the mode for your node pool. A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools.
+A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools.
 
 ```output
 {
