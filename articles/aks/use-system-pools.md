@@ -43,10 +43,10 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one system pool containing one node. This operation may take several minutes to complete.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one system pool containing three nodes. This operation may take several minutes to complete.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --mode system
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys
 ```
 
 ## Add a system node pool to an existing AKS cluster
