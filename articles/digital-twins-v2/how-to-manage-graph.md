@@ -40,10 +40,10 @@ await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 
 To create a digital twin in this preview release, you need to provide:
 * The desired ID for the digital twin
-* The [twin type](concepts-twin-types.md) you want to use 
+* The [model](concepts-models.md) you want to use 
 * Initial values for all properties of the digital twin
 
-The twin type and initial property values are provided through the `initData` parameter.
+The model and initial property values are provided through the `initData` parameter.
 
 ### Initialize properties
 
@@ -64,7 +64,7 @@ Dictionary<string, object> moonData = new Dictionary<string, object>()
 };
 ```
 
-One mandatory property for a digital twin is the twin type. This can be set using the property "$model" in the metadata section of the initialization data. Here is a code sample that sets a model along with a few other twin properties:
+One mandatory property for a digital twin is the model. This can be set using the property "$model" in the metadata section of the initialization data. Here is a code sample that sets a model along with a few other twin properties:
 
 ```csharp
 // Define the model type for the twin to be created
@@ -88,7 +88,7 @@ The following code sample uses the information you've learned in this section to
 ```csharp
 public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
 {
-    // Define the twin type (model) for the twin to be created
+    // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
     {
       { "$model", "urn:example:Room:2" }
@@ -185,7 +185,7 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 
 static async Task<bool> CreateRoom(string id, double temperature, double humidity)
 {
-    // Define the twin type (model) for the twin to be created
+    // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", "urn:example:Room:2" }
@@ -215,7 +215,7 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
     string type = "urn:example:Building:3";
     if (makeFloor==true)
         type = "urn:example:Floor:2";
-    // Define the twin type (model) for the twin to be created
+    // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", type }
@@ -245,7 +245,7 @@ In practical use cases, twin hierarchies will often be created from data stored 
 
 Consider the following data table, describing a set of digital twins and relationships to be created.
 
-| Twin type    | ID | Parent | Relationship name | Other data |
+| Model    | ID | Parent | Relationship name | Other data |
 | --- | --- | --- | --- | --- |
 | floor    | Floor01 | | | … |
 | room    | Room10 | Floor01 | contains | … |

@@ -8,8 +8,8 @@
     href: overview-differences.md
 - name: Concepts
   items:
-  - name: Create a twin type
-    href: concepts-twin-types.md
+  - name: Create a twin type model
+    href: concepts-models.md
   - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Route events
@@ -30,8 +30,8 @@
     href: how-to-ingest-iot-hub-data.md
   - name: Use the APIs
     href: how-to-use-apis.md
-  - name: Manage a twin type
-    href: how-to-manage-twin-type.md
+  - name: Manage a twin type model
+    href: how-to-manage-model.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md
   - name: Manage a twin graph

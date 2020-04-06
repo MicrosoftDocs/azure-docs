@@ -25,7 +25,7 @@ This article gives a brief overview of the API surface of Azure Digital Twins, a
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
-* **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [twin types](concepts-twin-types.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
+* **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
@@ -195,7 +195,7 @@ try
 
 ## Next steps
 
-See how to use the APIs to manage twin types, digital twins, and twin graphs:
-* [Manage a twin type](how-to-manage-twin-type.md)
+See how to use the APIs to manage models, digital twins, and twin graphs:
+* [Manage a twin type model](how-to-manage-model.md)
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)

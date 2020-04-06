@@ -34,7 +34,7 @@ object result = await client.DigitalTwins.GetByIdAsync(id);
 
 This call returns twin data in a JSON.Net object form during preview. 
 
-Consider the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
 
 ```json
 {
@@ -88,7 +88,7 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
 * Other properties in a `$metadata` section. This includes:
-    - The DTMI of the twin type of the digital twin.
+    - The DTMI of the model of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
@@ -117,7 +117,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 ### Patch properties in components
 
-Recall that a twin type may contain components, allowing it to be made up of other twin types. 
+Recall that a model may contain components, allowing it to be made up of other models. 
 
 To patch properties in a digital twin's components, you will use path syntax in JSON Patch:
 
@@ -131,11 +131,11 @@ To patch properties in a digital twin's components, you will use path syntax in 
 ]
 ```
 
-## Change the twin type
+## Change the model
 
-The `Update` function can also be used to migrate a digital twin to a different twin type. 
+The `Update` function can also be used to migrate a digital twin to a different model. 
 
-For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` (twin type) field:
+For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` field:
 
 ```json
 [
@@ -147,14 +147,14 @@ For example, consider the following JSON Patch document that replaces the digita
 ]
 ```
 
-This operation will only succeed if the digital twin being modified by the patch conforms with the new twin type. 
+This operation will only succeed if the digital twin being modified by the patch conforms with the new model. 
 
 Consider the following example:
-1. Imagine a digital twin with a twin type of *foo_old*. *foo_old* defines a required property *mass*.
-2. The new twin type *foo_new* defines a property mass, and adds a new required property *temperature*.
+1. Imagine a digital twin with a model of *foo_old*. *foo_old* defines a required property *mass*.
+2. The new model *foo_new* defines a property mass, and adds a new required property *temperature*.
 3. After the patch, the digital twin must have both a mass and temperature property. 
 
-The patch for this situation needs to update both the twin type and the twin's temperature property, like this:
+The patch for this situation needs to update both the model and the twin's temperature property, like this:
 
 ```json
 [
@@ -270,5 +270,5 @@ static async Task FindAndDeleteIncomingRelationships(string id)
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin type](how-to-manage-twin-type.md)
+* [Manage a twin type model](how-to-manage-model.md)
 * [Manage a twin graph](how-to-manage-graph.md)

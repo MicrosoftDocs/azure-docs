@@ -150,7 +150,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 * Telemetry fired by twins using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
-* Model change events, fired when twin types configured in an Azure Digital Twins instance are added or deleted
+* Model change events, fired when models configured in an Azure Digital Twins instance are added or deleted
 
 ## Manage endpoints and routes with CLI
 
