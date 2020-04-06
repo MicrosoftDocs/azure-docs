@@ -58,7 +58,7 @@ If your lab VMs need to use external resources, such as a database, file share, 
 For access to Azure resources that are *not* secured by a virtual network, you don't need to seek additional configuration by your administrators. You can access these resources through the public internet.
 
 > [!NOTE]
-> You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM. For example, to eliminate the need to read data from an external database, you could install the database directly on the VM.  
+> You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM. For example, to eliminate the need to read data from an external database, you can install the database directly on the VM.  
 
 ### How will costs be controlled?
 

@@ -94,11 +94,11 @@ After you understand the requirements for your lab account, you're ready to set 
 
    You might also need to refer to instructions on [configuring the lab VMs address range](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
 
-4. **Enable and review images.** For instructions, see [enabling Marketplace images for lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+4. **Enable and review images.** For instructions, see [enabling Azure Marketplace images for lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
-   To review the contents of each Marketplace image, select the image name. For example, the following screenshot shows the details for the Ubuntu Data Science VM image:
+   To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details for the Ubuntu Data Science VM image:
 
-   ![Screenshot of Review Marketplace images](../media/setup-guide/review-marketplace-images.png)
+   ![Screenshot of Review Azure Marketplace images](../media/setup-guide/review-marketplace-images.png)
 
    If you have a shared image gallery attached to your lab account, and you want to enable custom images to be shared by lab creators, complete steps similar to those shown in the following screenshot:
 
