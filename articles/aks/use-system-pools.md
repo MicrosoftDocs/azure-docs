@@ -29,7 +29,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool, and every system node pool contains at least one node. User node pools may contain zero or more nodes. System node pools have the following restrictions:
 
 * System pools contain only Linux nodes, and user node pools may contain Linux or Windows nodes.
-* VM SKUs for Nodes in system node pools must be least 2 vCPUs and 4 GB of RAM.
+* VM SKUs for Nodes in system node pools must be minimally sized to 2 vCPUs and 4 GB of RAM.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * You can't use spot node pools for system node pools.
 
