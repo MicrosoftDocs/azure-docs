@@ -21,7 +21,7 @@ This article will walk you through the steps of upgrading the primary node type 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.
 
-Here are the [templates and cmdlets](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) for Azure resource manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
+Here are the [templates and cmdlets](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) for Azure Resource Manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
 
 ## Set up the test cluster
 
@@ -95,7 +95,7 @@ $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 
 Open the [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and change the values for `clusterName` and `dnsName` to something unique.
 
-Finally, designate a resource group name for the cluster and set the `templateFilePath` and `parameterFilePath` locations of your *Initial-1NodeType-UnmanagedDisks** files:
+Finally, designate a resource group name for the cluster and set the `templateFilePath` and `parameterFilePath` locations of your *Initial-1NodeType-UnmanagedDisks* files:
 
 > [!NOTE]
 > The designated resource group must already exist and be located in the same region as your Key Vault.
@@ -149,7 +149,7 @@ With that, we're ready to begin the upgrade procedure.
 
 In order to upgrade, or *vertically scale*, a node type, we'll need to deploy a copy of that node type's virtual machine scale set, which is otherwise identical to the original scale set (including reference to the same `nodeTypeRef`, `subnet`, and `loadBalancerBackendAddressPools`) except that it includes the desired upgrade/changes and its own separate subnet and inbound NAT address pool. Because we are upgrading a primary node type, the new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. (For non-primary node type upgrades, simply omit this.)
 
-For convenience, the required changes have already been made for you in the *Upgrade-1NodeType-2ScaleSets-ManagedDisks** [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) and [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) files.
+For convenience, the required changes have already been made for you in the *Upgrade-1NodeType-2ScaleSets-ManagedDisks* [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) and [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) files.
 
 The following sections will explain the template changes in detail. If you prefer, you can skip the explanation and continue on to [the next step of the upgrade procedure](#obtain-your-key-vault-references).
 
