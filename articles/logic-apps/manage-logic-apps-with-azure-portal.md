@@ -13,7 +13,7 @@ ms.date: 04/06/2020
 
 # Manage logic apps in the Azure portal
 
-To manage logic apps, such as edit, disable, enable, or delete, you can use the [Azure portal](https://portal.azure.com) or [Visual Studio](manage-logic-apps-with-visual-studio.md). This article shows how to manage logic apps in the Azure portal. If you're new to Azure Logic Apps, see [What is Azure Logic Apps](logic-apps-overview.md)?
+You can manage logic apps using the [Azure portal](https://portal.azure.com) or [Visual Studio](manage-logic-apps-with-visual-studio.md). This article shows how to edit, disable, enable, or delete logic apps in the Azure portal. If you're new to Azure Logic Apps, see [What is Azure Logic Apps](logic-apps-overview.md)?
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To find and open your logic app, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. In the Azure search bar, enter `logic app`, and select **Logic Apps**.
+1. In the Azure search bar, enter `logic apps`, and select **Logic Apps**.
 
    ![Find and select "Logic Apps"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
