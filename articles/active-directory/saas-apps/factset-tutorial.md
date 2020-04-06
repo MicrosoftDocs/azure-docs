@@ -129,7 +129,7 @@ To configure single sign-on on **FactSet** side, you need to send the downloaded
 
 ### Create FactSet test user
 
-In this section, you create a user called Britta Simon in FactSet. Work with your FactSet account support representatives or contact [Factset Support Team](https://www.factset.com/contact-us) to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in FactSet. Work with your FactSet account support representatives or contact [FactSet Support Team](https://www.factset.com/contact-us) to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
