@@ -119,7 +119,7 @@ You can connect to your cache using the same [endpoints](cache-configure.md#prop
 ### Can I directly connect to the individual shards of my cache?
 The clustering protocol requires that the client make the correct shard connections. So the client should do this correctly for you. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](https://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [https://redis.io](https://redis.io) in the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial).
 
-For non-ssl, use the following commands.
+For non-TLS, use the following commands.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -127,7 +127,7 @@ For non-ssl, use the following commands.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-For ssl, replace `1300N` with `1500N`.
+For TLS, replace `1300N` with `1500N`.
 
 ### Can I configure clustering for a previously created cache?
 Yes. First ensure that your cache is premium, by scaling if is not. Next, you should be able to see the cluster configuration options, including an option to enable cluster. You can change the cluster size after the cache is created, or after you have enabled clustering for the first time.
