@@ -582,6 +582,8 @@
         href: freshworks-tutorial.md
       - name: Front
         href: front-tutorial.md
+      - name: Frontify
+        href: frontify-tutorial.md
       - name: Frontline Education
         href: frontline-education-tutorial.md
       - name: Fulcrum
@@ -962,6 +964,8 @@
         href: moconavi-tutorial.md
       - name: monday.com
         href: mondaycom-tutorial.md
+      - name: MongoDB Cloud
+        href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
       - name: Motus
@@ -1020,6 +1024,8 @@
         href: nimblex-tutorial.md
       - name: Nintex Promapp
         href: promapp-tutorial.md
+      - name: Nitro Productivity Suite
+        href: nitro-productivity-suite-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1180,8 +1186,6 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
-      - name: Qualtrics
-        href: qualtrics-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -1280,6 +1284,8 @@
         href: saphana-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
+      - name: SAP Qualtrics
+        href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
@@ -1662,6 +1668,8 @@
         href: zoom-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
+      - name: Zscaler B2B User Portal
+        href: zscaler-b2b-user-portal-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
       - name: Zscaler Internet Access Administrator
