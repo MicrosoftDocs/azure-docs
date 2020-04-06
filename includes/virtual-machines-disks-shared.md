@@ -30,7 +30,48 @@ Managed disks with shared disks enabled do not natively offer a fully-managed fi
 
 ## Ultra disk performance throttles
 
-[!INCLUDE [virtual-machines-disks-shared-ultra-throttles](virtual-machines-disks-shared-ultra-throttles.md)]
+Because ultra disks have the unique capability of allowing you to set your performance, it exposes modifiable attributes you can use to adjust performance.
+
+By default, there are only two modifiable attributes but, ultra disks that are being shared have two additional attributes.
+
+
+|Attribute  |Description  |
+|---------|---------|
+|DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the share disk with write access.         |
+|DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
+|DiskIOPSReadOnly     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
+|DiskMBpsReadOnly     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
+
+Because these performance attributes are user modifiable, here are some formulas that explain them:
+
+- DiskIOPSReadWrite/DiskIOPSReadOnly: 
+    - IOPS limits of 300 IOPS/GiB, up to a maximum of 160K IOPS per disk
+    - Minimum of 100 IOPS
+    - DiskIOPSReadWrite  + DiskIOPSReadOnly is at least 2 IOPS/GiB
+- DiskMBpsRead    Write/DiskMBpsReadOnly:
+    - The throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk
+    - The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps
+
+### Examples
+
+#### Two node, CSV
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
+
+:::image-end:::
+
+#### Two node, no CSV
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two node no csv ultra disk example":::
+
+:::image-end:::
+
+#### Four node example
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
+
+:::image-end:::
+
 
 ## Sample workloads
 
@@ -75,3 +116,10 @@ The flow is as follows:
 1. The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to the disk from other VMs.
 1. This reservation is enforced on your Azure disk.
 1. All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
+
+### Ultra disks reservation flow
+
+Because ultra disks offer an additional lock, their reservation flow can work as described in the earlier section, or it can lock and distribute performance more granularly.
+
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+
