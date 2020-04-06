@@ -48,7 +48,7 @@ Azure Firewall can scale up as much as you need  to accommodate changing network
 
 ## Application FQDN filtering rules
 
-You can limit outbound HTTP/S traffic or Azure SQL traffic (preview) to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require SSL termination.
+You can limit outbound HTTP/S traffic or Azure SQL traffic (preview) to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
 
 ## Network traffic filtering rules
 
