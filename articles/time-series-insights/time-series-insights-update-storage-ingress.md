@@ -44,8 +44,6 @@ Azure Time Series Insights Preview supports a maximum of two event sources per i
 > Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
 > * High latency will subside after event source data is first ingested. Submit a support ticket through the Azure portal if you experience ongoing high latency.
 
-
-
 #### Supported data format and types
 
 Azure Time Series Insights supports UTF-8 encoded JSON sent from Azure IoT Hub or Azure Event Hubs. 
