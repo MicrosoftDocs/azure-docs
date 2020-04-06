@@ -1119,7 +1119,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/scheduler.svg
       azureCategories:
         - management-and-governance
-      url: scheduler/index.md
+      url: scheduler/index.yml
     # Card
     - title: Traffic Manager
       summary: Route incoming traffic for high performance and availability
@@ -1427,8 +1427,8 @@ tools:
       imageSrc: ./media/index/net-logo.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
-    - title: Node.js
-      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+    - title: JavaScript
+      imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       url: https://docs.microsoft.com/azure/javascript/
     # Card
     - title: Java

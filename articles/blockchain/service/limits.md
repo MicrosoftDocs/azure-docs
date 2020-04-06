@@ -1,9 +1,9 @@
 ---
 title: Azure Blockchain Service limits
 description: Overview of the service and functional limits in Azure Blockchain Service
-ms.date: 11/22/2019
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
+ms.reviewer: ravastra
 #Customer intent: As an operator or architect, I want to understand service and functional limits for Azure Blockchain Service.
 ---
 
@@ -13,14 +13,18 @@ Azure Blockchain Service has service and functional limits such as the number of
 
 ## Pricing tier
 
-Maximum limits on transactions and validator nodes depend on whether you provision Azure Blockchain Service at Basic or Standard pricing tiers.
+Maximum limits on transactions and validator nodes depend on whether you provision Azure Blockchain Service at basic or standard pricing tiers.
 
 | Pricing tier | Max transaction nodes | Max validator nodes |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-Changing the pricing tier between Basic and Standard after member creation is not supported.
+Your consortium network should have a least two Azure Blockchain Service standard tier nodes. Standard tier nodes include two validator nodes. Four validator nodes are required to meet [Istanbul Byzantine Fault Tolerance consensus](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+
+Use the basic tier is for development, testing, and proof of concepts. Use the standard tier for production grade deployments. You should also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions.
+
+Changing the pricing tier between basic and standard after member creation is not supported.
 
 ## Storage capacity
 
@@ -46,7 +50,7 @@ Decreasing ledger and log storage size is not supported.
 
 * **Members removed from the consortium cannot be added again**
 
-    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resource are not deleted to preserve historical transactions.
+    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resources are not deleted to preserve historical transactions.
 
 * **All members in a consortium must be using the same ledger version**
 

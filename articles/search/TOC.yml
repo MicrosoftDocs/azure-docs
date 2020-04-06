@@ -23,6 +23,9 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search explorer
       href: search-explorer.md
+  - name: ARM template
+    displayName: Resource Manager 
+    href: search-get-started-arm.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -77,14 +80,6 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
-- name: Training
-  items:
-  - name: Introduction (Microsoft Learn)
-    href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-  - name: Add search to apps (Pluralsight)
-    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Developer course (Pluralsight)
-    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
   - name: Full-text search
@@ -233,7 +228,7 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Special characters and partial terms
+    - name: Partial terms and special characters
       href: search-query-partial-matching.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
@@ -261,7 +256,7 @@
       href: search-example-adventureworks-multilevel-faceting.md
   - name: Results
     items:
-    - name: Page-related features
+    - name: Work with results
       href: search-pagination-page-layout.md
     - name: Relevance tuning (scoring profiles)    
       href: index-add-scoring-profiles.md
@@ -460,6 +455,14 @@
       href: https://aka.ms/azjobsdemo
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
+  - name: Training
+    items:
+    - name: Introduction (Microsoft Learn)
+      href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+    - name: Add search to apps (Pluralsight)
+      href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+    - name: Developer course (Pluralsight)
+      href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

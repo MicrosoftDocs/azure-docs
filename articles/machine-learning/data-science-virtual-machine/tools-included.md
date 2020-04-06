@@ -92,7 +92,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic)                                                                                |                                                                                  <span class='red-x'>&#10060;</span>                                                                                 |                                                    <span class='green-check'>&#9989;</span></br> (Ubuntu only)                                                   |                                                                                                                                                                  |                                                                                                                                |                                                                                                                             |
 | &nbsp;&nbsp;&nbsp;&nbsp; SparkR                                                                                                                                       |                                                                                  <span class='red-x'>&#10060;</span>                                                                                 |                                                             <span class='green-check'>&#9989;</span>                                                             |                                                                                                                                                                   |                                                                                                                          |                                                                                                                             |
 
-**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has following Jupyter Kernels:-</br> 
+**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following Jupyter Kernels:-</br> 
 * Python 3.7 - default</br>  
 * Python 3.7 - PyTorch</br>  
 * Python 3.7 - TensorFlow</br>  
@@ -106,7 +106,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 * Scala Spark – HDInsight</br>  
 * Python 3 Spark – HDInsight</br>  
 
-**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has following conda environments:-</br> 
+**Ubuntu 18.04 DSVM and Windows Server 2019 DSVM** has the following conda environments:-</br> 
 * py37_default  </br>
 * py37_tensorflow </br> 
 * py37_pytorch  </br>
@@ -114,12 +114,12 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 * azureml_py36_pytorch  </br>
 * azureml_py36_automl  </br> 
 
-**Ubuntu 16.04 DSVM** has following conda environments:-</br>   
+**Ubuntu 16.04 DSVM** has the following conda environments:-</br>   
 * base  </br>
 * py37 </br>
 * azureml_py36 </br>
 
-**Windows Server 2016** has following conda environments:-</br>  
+**Windows Server 2016** has the following conda environments:-</br>  
 * base   </br>
 * AzureML  </br>
 * python2  </br>

@@ -266,9 +266,9 @@ You can optionally delete the configuration server by using PowerShell.
 3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## Renew SSL certificates
+## Renew TLS/SSL certificates
 
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses a TLS/SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
 
 ### Check expiry
 

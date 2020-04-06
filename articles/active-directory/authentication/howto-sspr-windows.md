@@ -5,7 +5,7 @@ description: How to enable self-service password reset using forgot password at 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -94,7 +94,7 @@ The Azure AD audit log will include information about the IP address and ClientT
 
 ![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn’t show up for device sign-in, and will automatically be removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
+When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn't show up for device sign-in, and will automatically be removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
 
 ## Windows 7, 8, and 8.1 password reset
 
@@ -125,8 +125,8 @@ When users reset their password from the login screen of a Windows 10 device, a 
 
 #### Silent installation
 
-- For silent install, use the command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
-- For silent uninstall, use the command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
+- For silent install, use the command "msiexec /i SsprWindowsLogon.PROD.msi /qn"
+- For silent uninstall, use the command "msiexec /x SsprWindowsLogon.PROD.msi /qn"
 
 #### Troubleshooting Windows 7, 8, and 8.1 password reset
 
@@ -138,8 +138,8 @@ If additional logging is required, a registry key on the machine can be changed 
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- To enable verbose logging, create a `REG_DWORD: “EnableLogging”`, and set it to 1.
-- To disable verbose logging, change the `REG_DWORD: “EnableLogging”` to 0.
+- To enable verbose logging, create a `REG_DWORD: "EnableLogging"`, and set it to 1.
+- To disable verbose logging, change the `REG_DWORD: "EnableLogging"` to 0.
 
 ## What do users see
 

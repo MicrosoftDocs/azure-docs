@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
 ---
 
@@ -81,16 +81,6 @@ If reservation is purchased using Microsoft customer agreement (MCA), your month
 
 Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
 
-Purchase reservations in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
-
-![Example showing reservation purchase](./media/prepare-buy-reservation/purchase-reservation.png)
-
-While making a reservation purchase, you can view the payment schedule. Click **View full payment schedule**.
-
-![Example showing reservation payment schedule](./media/prepare-buy-reservation/prepurchase-schedule.png)
-
-To view the payments schedule after purchase, select a reservation, click the **Reservation order ID**, and then click the **Payments** tab.
-
 ### View payments made
 
 You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**.
@@ -98,10 +88,6 @@ You can view payments that were made using APIs, usage data, and in cost analysi
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
 ![Example showing reservation purchase costs in cost analysis](./media/prepare-buy-reservation/cost-analysis.png)
-
-### Switch to monthly payments at renewal
-
-When you renew a reservation, you can change the billing frequency to monthly.
 
 ### Exchange and refunds
 
@@ -126,8 +112,7 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 
 For customers with EA subscriptions:
 
-- A purchase notification is sent to the EA notification contacts.
-- Other reservation lifecycle notifications are sent only to the EA notification contacts.
+- Notifications are sent only to the EA notification contacts.
 - Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
 
 For customers with individual subscriptions:

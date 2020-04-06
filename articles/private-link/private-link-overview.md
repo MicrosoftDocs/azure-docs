@@ -50,15 +50,16 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for MariaDB         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Azure Search | EAST US, WEST US2, SOUTH CENTRAL US |   Preview    |
+|  |Azure Search | EAST US, WEST US 2, SOUTH CENTRAL US |   Preview    |
 |  |Azure Container Registry | All public regions      |   Preview   |
 |  |Azure App Configuration | All public regions      |   Preview   |
-|  |Azure Backup | EAST US, WEST US2, SOUTH CENTRAL US     |   Preview   |
+|  |Azure Backup | EAST US, WEST US 2, SOUTH CENTRAL US     |   Preview   |
 |  |Azure Event Hub | All public regions      |   Preview    |
 |  |Azure Service Bus | All public regions      |   Preview   |
 |  |Azure Relay | All public regions      |   Preview   |
-|  |Azure Event Grid| All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | EAST US, WEST US2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Event Grid| EAST US, WEST US 2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Azure Web Apps | EAST US, WEST US 2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Machine Learning | EAST US, WEST US 2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
