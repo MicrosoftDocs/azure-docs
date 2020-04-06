@@ -4056,6 +4056,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-government/documentation-government-k8.md",
+      "redirect_url": "/azure/azure-government",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
       "redirect_document_id": false
@@ -7586,7 +7591,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
-      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -7617,6 +7622,11 @@
     {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
       "redirect_document_id": false
     },
     {
@@ -19182,6 +19192,11 @@
     {
       "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
       "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-backup-azure-files.md",
+      "redirect_url": "/azure/backup/backup-afs",
       "redirect_document_id": false
     },
     {
@@ -47005,6 +47020,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -50553,6 +50573,10 @@
       "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
       "redirect_url": "/azure/aks/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
     }
   ]
 }
