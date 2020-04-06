@@ -148,6 +148,18 @@ Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$pa
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
+### Enable ultra disk compatibility on an existing VM
+
+If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability) then you can enable ultra disk compatibility on your VM.
+
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
+
+```azurecli
+az vm deallocate -n $vmName -g $rgName
+az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
+az vm start -n $vmName -g $rgName
+```
+
 ### Create an ultra disk using CLI
 
 Now that you have a VM that is capable of attaching ultra disks, you can create and attach an ultra disk to it.
@@ -211,9 +223,22 @@ New-AzVm `
     -Name $vmName `
     -Location "eastus2" `
     -Image "Win2016Datacenter" `
-    -EnableUltraSSD `
+    -EnableUltraSSD $true `
     -size "Standard_D4s_v3" `
     -zone $zone
+```
+
+### Enable ultra disk compatibility on an existing VM
+
+If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability) then you can enable ultra disk compatibility on your VM.
+
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
+
+```azurepowershell
+#stop the VM
+$vm1 = Get-AzureRMVM -name $vmName -ResourceGroupName $rgName
+Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
+#start the VM
 ```
 
 ### Create an ultra disk using PowerShell
