@@ -16,8 +16,7 @@ In this tutorial, you learn how to integrate your App Service app with the busin
 - Connect to third-party systems like SAP, SalesForce, etc.
 - Exchange standard B2B messages
 
-In this tutorial, you send emails from your App Service app using Gmail using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an
- HTTP request.
+In this tutorial, you send emails from your App Service app using Gmail using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
 
 ## Prerequisite
 
@@ -52,13 +51,10 @@ Deploy an app with the language framework of your choice to App Service. To foll
 ## Create the Logic App
 
 1. In the [Azure portal](https://portal.azure.com), create an empty logic app by following the instructions in [Create your logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). When you see the **Logic Apps Designer**, return to this tutorial.
-1. In the splash page for Logic Apps Designer, select **When a
- HTTP request is received** under **Start with a common trigger**.
+1. In the splash page for Logic Apps Designer, select **When an HTTP request is received** under **Start with a common trigger**.
 
-    ![](./media/tutorial-send-email/receive
-    -http-request.png)
-1. In the dialog for **When a
- HTTP request is received**, select **Use sample payload to generate schema**.
+    ![](./media/tutorial-send-email/receive-http-request.png)
+1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
     ![](./media/tutorial-send-email/generate-schema-with-payload.png)
 
@@ -72,20 +68,14 @@ Deploy an app with the language framework of your choice to App Service. To foll
     }
     ```
 
-    The schema is now generated fo
-    r the request data you want. In practice, you can just capture the a
-    ctual request data your application code generates and let Azure generate the JSON schema for you. 
+    The schema is now generated for the request data you want. In practice, you can just capture the actual request data your application code generates and let Azure generate the JSON schema for you. 
 1. At the top of the Logic Apps Designer, select **Save**. 
 
-    You can now see the URL of your
-     HTTP request trigger. 
+    You can now see the URL of your HTTP request trigger. 
 
     ![](./media/tutorial-send-email/generate-schema-with-payload.png)
 
-    This
-     HTTP request definition is a trigger to anything you want to do in this logic app, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information o
-    n the request trigger, see the 
-    [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+    This HTTP request definition is a trigger to anything you want to do in this logic app, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
 1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box and find and select **Send email (V2)**.
     
@@ -97,13 +87,11 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 1. Once signed in, click in the **To** textbox, and the dynamic content dialog is automatically opened.
 
-1. Next to the **When a
- HTTP request is received** action, select **See more**.
+1. Next to the **When an HTTP request is received** action, select **See more**.
 
     ![](./media/tutorial-send-email/expand-dynamic-content.png)
 
-    You should now see the three properties from your sample JSON data you used earlier. In this step, you use these properties from the
-     HTTP request to construct an email.
+    You should now see the three properties from your sample JSON data you used earlier. In this step, you use these properties from the HTTP request to construct an email.
 1. Since you're selecting the value for the **To** field, choose **email**. If you want, toggle off the dynamic content dialog by clicking **Add dynamic content**.
 
     ![](./media/tutorial-send-email/hide-dynamic-content.png)
@@ -127,23 +115,19 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
     ![](./media/tutorial-send-email/choose-response-action.png)
 
-    By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the 
-    [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+    By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
 1. At the top of the Logic Apps Designer, select **Save** again. 
 
-## Add
- HTTP request code to app
+## Add HTTP request code to app
 
-Make sure you have copied the URL of the
- HTTP request trigger from earlier. First, create an app setting in your App Service app. In the [Cloud Shell](https://shell.azure.com), you can do it with the following command (replace *\<app-name>*, *\<resource-group-name>*, and *\<logic-app-url>*):
+Make sure you have copied the URL of the HTTP request trigger from earlier. First, create an app setting in your App Service app. In the [Cloud Shell](https://shell.azure.com), you can do it with the following command (replace *\<app-name>*, *\<resource-group-name>*, and *\<logic-app-url>*):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
 ```
 
 In your code, make a standard HTTP post to the URL using any HTTP client language that's available to your language framework, with the following configuration:
-
 
 - The request body contains the same JSON format that you supplied to your logic app:
 
@@ -156,8 +140,7 @@ In your code, make a standard HTTP post to the URL using any HTTP client languag
     ```
 
 - The request contains the heading `Content-Type: application/json`. 
-- To optimize performance, sen
-d the request asynchronously if possible.
+- To optimize performance, send the request asynchronously if possible.
 
 Click on the preferred language/framework tab below to see an example.
 
@@ -210,9 +193,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for
- each request. Follow the guidance at [Use IHttpClientFactory to implement resilient
- HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient
+> This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient
 -http-requests).
 
 If you're testing this code on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
@@ -278,23 +259,18 @@ If you're testing this code on the sample app for [Tutorial: Build a PHP and MyS
 
 # [Python](#tab/python)
 
-In Python, you can send the HTTP post easily 
-with [requests](https://pypi.org/pr
-oject/requests/). For example:
+In Python, you can send the HTTP post easily with [requests](https://pypi.org/project/requests/). For example:
 
 ```python
-# Requires pip in
-stall requests && pip freeze > requirements.txt
-i
-mport requests
+# Requires pip install requests && pip freeze > requirements.txt
+import requests
 ...
 payload = {
     "email": "a-valid@emailaddress.com",
     "due": "4/1/2020",
     "task": "My new task!"
 }
-respo
-nse = requests.post("https://prod-112.westeurope.logic.azure.com:443/workfl$
+response = requests.post("https://prod-112.westeurope.logic.azure.com:443/workfl$
 print(response.status_code)
 ```
 <!-- ```python
