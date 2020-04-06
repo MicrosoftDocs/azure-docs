@@ -6,15 +6,17 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/06/2020
 ---
 
-# Consulting service creation overview
+# Create a new consulting service offer
 
 > [!IMPORTANT]
 > We're moving the management of your Consulting service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Azure and Dynamics 365 consulting service offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) for Cloud Partner Portal to manage your offers.
 
 This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
+
+To create a consulting service offer in either Azure Marketplace or AppSource consulting services, you must first [have a publisher account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), and your account must be enrolled in the commercial marketplace program.
 
 ## Publishing benefits
 
@@ -25,58 +27,7 @@ Benefits of publishing to the commercial marketplace:
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams
 
-## Requirements
-
-### Business requirements
-
-For offers where Azure is selected as the primary product, your offer must list at least one of the following fully earned competencies:
-
-- Application Development
-- Application Integration
-- Application Lifecycle Management
-- Cloud Platform
-- Data Analytics
-- Data Center
-- Data Platform
-- DevOps
-
-For offers with one of the following options selected as the primary product, you must meet the respective eligibility requirements listed or have a co-sell offer for the primary product that the service offering is related to.
-
-**Customer Engagement Applications**
-
-- **Applies to**: Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Human Resources
-
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.
-
-**Finance and Operations Applications**
-
-- **Applies to**: Dynamics 365 Finance, Dynamics 365 Operations, Dynamics 365 Commerce, Dynamics 365 Human Resources, Dynamics 365 Project Service Automation
-
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.
-
-**Dynamics 365 Customer Insights**
-
-- **Criteria**: Must have at least one successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least five measures and five segments.
-
-**Dynamics 365 Business Central**
-
-- **Criteria**: Must be Gold or Silver certified in the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and serve at least three customers or have published a Business Central application in Microsoft AppSource.
-
-**Power BI**
-
-- **Criteria**: Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/).
-
-**Power Apps**
-
-- **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) program.
-
-For details on meeting these prerequisites, see the [Consulting service prerequisites](consulting-service-prerequisites.md).
-
-### Logistical requirements
-
-To create a consulting service offer in either Azure Marketplace or AppSource consulting services, you must first [have a publisher account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), and your account must be enrolled in the commercial marketplace program.
-
-## Create a new consulting service offer in Partner Center
+## Create a new offer
 
 After meeting the requirements described above, follow these steps to create a consulting service offer.
 
