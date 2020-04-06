@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: How to use Azure Digital Twins CLI
+title: Use the Azure Digital Twins CLI
 titleSuffix: Azure Digital Twins
-description: See how to use Azure Digital Twins CLI
+description: Learn how to get started with and use the Azure Digital Twins CLI
 author: alinamstanciu
 ms.author: alinast # Microsoft employees only
 ms.date: 3/30/2020
@@ -17,40 +17,29 @@ ms.service: digital-twins
 
 # Azure Digital Twins CLI
 
-## Table of Contents
+Azure Digital Twins has a CLI that you can use to perform most major actions with the service. This guide provides the CLI commands and other information that you need to use this tool.
 
-- [Setup and Getting Started](#setup-and-getting-started)
-- [ADT CLI Command Guide](#adt-cli-command-guide)
-  - [ADT Instance](#adt-instance-management)
-  - [ADT Endpoints](#adt-endpoints-configuration)
-  - [ADT RBAC](#adt-rbac)
-  - [ADT Routes](#adt-routes)
+## Getting started
 
-## Setup and Getting Started
+First, [install the **Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-> Note: There is nothing preventing you from installing this extension in cloud shell. For private preview, simply upload the .whl package to your cloud shell environment, then follow the instructions starting from `Add ADT enabled extension`. For public-preview the install step is simply: `az extension add --name azure-iot`.
+> [!NOTE]
+> You can also install this extension in cloud shell. During public preview, this is done by running `az extension add --name azure-iot`.
 
-1. **Azure CLI**
+Next, get the **Azure IoT CLI Extension** by following these steps:
 
-   - [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+1. Download the [latest snapshot](../CLI/azure_iot-0.0.1.dev6-py2.py3-none-any.whl) of the Azure Digital Twins enabled IoT CLI extension (a .whl file)
+2. Install the extension
 
-1. **Azure IoT CLI Extension**:
+    * There should only be one azure-iot extension installed in your shell at a time. If you have previously installed an IoT CLI extension, you cannot have both, and must first remove the old installation.
+        - Remove legacy alias: `az extension remove --name azure-cli-iot-ext`
+        - Remove modern alias: `az extension remove --name azure-iot`
 
-   - Download the [latest snapshot](../CLI/azure_iot-0.0.1.dev6-py2.py3-none-any.whl) of the ADT enabled IoT CLI extension (a .whl file)
-   - Install the extension
-
-     - :exclamation: Remove previously installed IoT CLI extension:
-        > There should be only 1 azure-iot extension installed. azure-iot and azure-cli-iot-ext should not coexist.
-        - Legacy alias
-            `az extension remove --name azure-cli-iot-ext`
-        - Modern alias
-            `az extension remove --name azure-iot`
-
-     - Add ADT enabled extension:
-
+    * Next, add the Azure Digital Twins-enabled extension with this command:
+    
         `az extension add -y --source azure_iot-0.0.1.dev6-py2.py3-none-any.whl`
 
-     - Verify installation of **azure-iot** version **0.0.1.dev6**:
+    * Verify installation of **azure-iot** version **0.0.1.dev6** with this command:
 
         `az extension list`
 
@@ -66,189 +55,201 @@ ms.service: digital-twins
        ]
        ```
 
-   - The ADT commands will now be available
-     - Use `az dt -h` to review the top-level commands.
-     - All commands have help descriptions and examples. Append --help or -h to the end of a command or command group to expand on details.
+3. Authenticate within the CLI
+   * Use the command `az login` to authenticate with the Azure CLI
+   * Ensure you have set the proper subscription for this session by running `az account set -s <subscription ID>`
 
-1. **CLI Authentication**
-   - Authenticate with the Azure CLI via `az login`.
-   - Ensure the proper subscription is set via `az account set -s [sub Id]`
-        - List subscriptions with `az account list`
+>[!TIP]
+> You can see a list of all of your subscriptions with `az account list`.
 
-## ADT CLI Command Guide
+You can now use the Azure Digital Twins CLI commands. Here are some helpful tips that you can use with them going forward:
+* Use `az dt -h` to review the top-level commands.
+* *All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
 
-### ADT Instance Management
+## Azure Digital Twins CLI Command Guide
 
-#### Command Group: `az dt`
+The following sections describe the commands you can use with the Azure Digital Twins CLI.
 
-> In order to use ADT you need to create an ADT instance!
+### Manage an Azure Digital Twins instance
+
+Command group: `az dt`
+
+In order to use Azure Digital Twins, you need to create an Azure Digital Twins instance. The `az dt` commands can be used to create and manage the instance.
 
 #### az dt create
 
-Examples
+Uses:
 
-- Create an ADT instance in the default location
+* Create an Azure Digital Twins instance in the default location
 
   `az dt create -n mydtinstance -g MyResourceGroup`
 
-- Create an ADT instance in a specific location with tags
+* Create an Azure Digital Twins instance in a specific location with tags
 
   `az dt create -n mydtinstance -g MyResourceGroup --location westcentralus --tags "a=b;c=d"`
 
 #### az dt show
 
-Examples
+Uses:
 
-- Show details of an ADT instance
+* Show details of an Azure Digital Twins instance
 
   `az dt show -n mydtinstance`
 
-- Show an ADT instance and project certain properties.
+* Show an Azure Digital Twins instance and project certain properties
 
   `az dt show -n mydtinstance --query "{Endpoint:hostName, Location:location}"`
 
 #### az dt list
 
-Examples
+Uses:
 
-- List all ADT instances in the current subscription.
+* List all Azure Digital Twins instances in the current subscription
 
   `az dt list`
 
-- List all ADT instances in target resource group and output in table format.
+* List all Azure Digital Twins instances in target resource group, and output in table format
 
   `az dt list -g MyResourceGroup --output table`
 
-- List all ADT instances in subscription that meet a condition.
+* List all Azure Digital Twins instances in subscription that meet a certain condition
 
   `az dt list --query "[?contains(name, 'Production')]"`
 
-- Count ADT instances that meet condition.
+* Count Azure Digital Twins instances that meet a certain condition
 
   `az dt list --query "length([?contains(name, 'Production')])"`
 
 #### az dt delete
 
-Examples
+Uses:
 
-- Delete an arbitrary ADT instance
+* Delete an Azure Digital Twins instance
 
   `az dt delete -n mydtinstance`
 
-### ADT Endpoints configuration
+### Configure endpoints
 
-#### Command Group: `az dt endpoints`
+Command group: `az dt endpoints`
 
-> Configure egress endpoints of an ADT instance
+These commands are used to configure egress endpoints of an Azure Digital Twins instance.
 
 #### az dt endpoints add
 
-Examples
+Uses:
 
-- Add EventGrid Topic endpoint (requires pre-created EG resource)
+* Add Event Grid topic endpoint (requires pre-created Event Grid resource)
 
   `az dt endpoints add eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
 
-- Add ServiceBus Topic endpoint (requires pre-created SB resource)
+* Add Service Bus topic endpoint (requires pre-created Service Bus resource)
 
   `az dt endpoints add servicebus --endpoint-name mysb_endpoint --servicebus-resource-group mysb_resourcegroup --servicebus-namespace mysb_namespace --servicebus-topic mysb_topic --servicebus-policy mysb_topicpolicy -n mydtinstance`
 
-- Add EventHub endpoint (requires pre-created EH resource)
+* Add Event Hub endpoint (requires pre-created Event Hub resource)
 
   `az dt endpoints add eventhub --endpoint-name myeh_endpoint --eventhub-resource-group myeh_resourcegroup --eventhub-namespace myeh_namespace --eventhub myeventhub --eventhub-policy myeh_policy -n mydtinstance`
 
 #### az dt endpoints show
 
-Examples
+Uses:
 
-- Show a configured endpoint on an ADT instance
+* Show a configured endpoint on an Azure Digital Twins instance
 
   `az dt endpoints show --endpoint-name myeh_endpoint -n mydtinstance`
 
 #### az dt endpoints list
 
-Examples
+Uses:
 
-- List all configured endpoints on an ADT instance
+* List all configured endpoints on an Azure Digital Twins instance
 
   `az dt endpoints list -n mydtinstance`
 
 #### az dt endpoints delete
 
-Examples
+Uses:
 
-- Delete a target endpoint on an ADT instance
+* Delete a target endpoint on an Azure Digital Twins instance
 
   `az dt endpoints delete --endpoint-name myeh_endpoint -n mydtinstance`
 
-### ADT RBAC
+### Configure RBAC
 
-#### Command Group: `az dt rbac`
+Command group: `az dt rbac`
 
-> Manage RBAC assignments for an ADT instance
+These commands are used to manage [RBAC](../role-based-access-control/overview.md) assignments for an Azure Digital Twins instance.
 
 #### az dt rbac assign-role
 
-Examples
+Uses:
 
-- Assign 'coolperson@microsoft.com' owner role for an ADT instance
+* Assign a user Owner role for an Azure Digital Twins instance
 
   `az dt rbac assign-role --assignee 'coolperson@microsoft.com' --role owner -n mydtinstance`
 
-- Assign 'kindacoolperson@microsoft.com' reader role for an ADT instance
+* Assign a user Reader role for an Azure Digital Twins instance
 
   `az dt rbac assign-role --assignee 'kindacoolperson@microsoft.com' --role reader -n mydtinstance`
 
 #### az dt rbac list-assignments
 
-Examples
+Uses:
 
-- List existing role assignments of an ADT instance
+* List existing role assignments of an Azure Digital Twins instance
 
   `az dt rbac list-assignments -n mydtinstance`
 
 #### az dt rbac remove-role
 
-Examples
+Uses:
 
-- Remove an existing role assignment from an ADT instance
+* Remove an existing role assignment from an Azure Digital Twins instance
 
   `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
 
-### ADT Routes
+### Manage Azure Digital Twins routes
 
-#### Command Group: `az dt routes`
+Command group: `az dt routes`
 
-> Manage and configure event routes. **Remember** you must assign yourself **admin** role prior to executing route commands!
+These commands are used to manage and configure event routes. 
+
+>[!IMPORTANT]
+> You must assign yourself to the **Owner** role for the Azure Digital Twins instance before you can execute route commands.
 
 #### az dt routes add
 
-Examples
+Uses:
 
-- Add an event route
+* Add an event route
 
   `az dt routes add -n mydtinstance --endpoint-name myeh_endpoint --route-name myeh_route`
 
 #### az dt routes show
 
-Examples
+Uses:
 
-- Show an existing event route
+* Show an existing event route
 
   `az dt routes show --route-name myeh_route -n mydtinstance`
 
 #### az dt routes list
 
-Examples
+Uses:
 
-- List all event routes on an ADT instance
+* List all event routes on an Azure Digital Twins instance
 
   `az dt routes list -n mydtinstance`
 
 #### az dt routes delete
 
-Examples
+Uses:
 
-- Delete a target event route from an ADT instance
+* Delete a target event route from an Azure Digital Twins instance
 
   `az dt routes delete --route-name myeh_route -n mydtinstance`
+
+## Next steps
+
+See how to manage an Azure Digital Twins instance using APIs:
+* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
