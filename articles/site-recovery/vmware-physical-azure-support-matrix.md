@@ -227,7 +227,7 @@ Cool storage | No
 Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
-Encryption-at-rest (CMK)| Yes (via Powershell Az 3.3.0 module onwards)
+Encryption-at-rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
 Premium storage | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
