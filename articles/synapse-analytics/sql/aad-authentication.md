@@ -121,16 +121,16 @@ The following authentication methods are supported for Azure AD server principal
 
 <!--Image references-->
 
-[1]: ./media/sql-aad-authentication/1aad-auth-diagram.png
-[2]: ./media/sql-aad-authentication/2subscription-relationship.png
-[3]: ./media/sql-aad-authentication/3admin-structure.png
-[4]: ./media/sql-aad-authentication/4select-subscription.png
-[5]: ./media/sql-aad-authentication/5ad-settings-portal.png
-[6]: ./media/sql-aad-authentication/6edit-directory-select.png
-[7]: ./media/sql-aad-authentication/7edit-directory-confirm.png
-[8]: ./media/sql-aad-authentication/8choose-ad.png
-[9]: ./media/sql-aad-authentication/9ad-settings.png
-[10]: ./media/sql-aad-authentication/10choose-admin.png
-[11]: ./media/sql-aad-authentication/11connect-using-int-auth.png
-[12]: ./media/sql-aad-authentication/12connect-using-pw-auth.png
-[13]: ./media/sql-aad-authentication/13connect-to-db.png
+[1]: ./media/aad-authentication/1aad-auth-diagram.png
+[2]: ./media/aad-authentication/2subscription-relationship.png
+[3]: ./media/aad-authentication/3admin-structure.png
+[4]: ./media/aad-authentication/4select-subscription.png
+[5]: ./media/aad-authentication/5ad-settings-portal.png
+[6]: ./media/aad-authentication/6edit-directory-select.png
+[7]: ./media/aad-authentication/7edit-directory-confirm.png
+[8]: ./media/aad-authentication/8choose-ad.png
+[9]: ./media/aad-authentication/9ad-settings.png
+[10]: ./media/aad-authentication/10choose-admin.png
+[11]: ./media/aad-authentication/11connect-using-int-auth.png
+[12]: ./media/aad-authentication/12connect-using-pw-auth.png
+[13]: ./media/aad-authentication/13connect-to-db.png
