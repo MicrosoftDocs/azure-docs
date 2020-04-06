@@ -72,6 +72,15 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 - **Route tables:** You can create custom route tables with routes that control where traffic is routed to for each subnet. Learn more about [route tables](virtual-networks-udr-overview.md#user-defined).
 - **Border gateway protocol (BGP) routes:** If you connect your virtual network to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate your on-premises BGP routes to your virtual networks. Learn more about using BGP with [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
+## Virtual network integration for Azure services
+
+Integrating Azure services to an Azure virtual network enables private access to the service from virtual machines or compute resources in the virtual network.
+You can integrate Azure services in your virtual network with the following options:
+- Deploying [dedicated instances of the service](virtual-network/virtual-network-for-azure-services.md) into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
+- Using [Private Link](../private-link/private-link-overview.md) to access privately a specific instance of the service from your virtual network and from on-premises networks.
+- You can also access the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
+ 
+
 ## Azure VNet limits
 
 There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
