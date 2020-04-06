@@ -17,16 +17,16 @@
     href: quick-create-python.md
 - name: Tutorials 
   items:
+  - name: Import a certificate
+    href: tutorial-import-certificate.md
+- name: Concepts 
+  items:
   - name: Get started with Key Vault certificates
     href: certificate-scenarios.md
   - name: Monitor and manage certificate creation
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-  - name: Import a certificate using the portal  
-    href: tutorial-import-certificate.md
-- name: Concepts 
-  items:
 - name: How-to guides
   items:
 - name: Reference

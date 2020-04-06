@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Import a certificate in Key Vault using Azure portal | Microsoft Docs
-description: Tutorial showing how to import a certificate in Azure Key Vault using the Azure portal
+description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -14,7 +14,7 @@ ms.date: 04/03/2020
 ms.author: sebansal
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
-# Tutorial: Import a certificate in Azure Key Vault using the Azure portal
+# Tutorial: Import a certificate in Azure Key Vault
 
 Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this tutorial, you create a key vault, then use it to import a certificate. For more information on Key Vault, review the [Overview](../general/overview.md).
 
