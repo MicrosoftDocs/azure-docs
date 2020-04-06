@@ -63,9 +63,10 @@ To create a contained database user in SQL Analytics, you must connect to the da
 
 ## Azure AD features and limitations
 
+
 - The following members of Azure AD can be provisioned in SQL Analytics:
 
-  - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../../active-directory/active-directory-domains-add-azure-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+  - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
   - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Imported members from other Azure AD's who are native or federated domain members.
   - Active Directory groups created as security groups.
