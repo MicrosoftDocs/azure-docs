@@ -364,8 +364,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure cloud-netconfig-azure for HA Cluster
 
-   >[!TIP]
-   > Check the installed version of package `cloud-netconfig-azure` by running `zypper info cloud-netconfig-azure`. If the version of cloud-netconfig-azure in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by cloud-netconfig-azure by setting CLOUD_NETCONFIG_MANAGE to "no".  
+   >[!NOTE]
+   > Check the installed version of package **cloud-netconfig-azure** by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by th cloud network plugin. If the version is lower than 1.3, we suggest to patch package **cloud-netconfig-azure**.  
 
    Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
