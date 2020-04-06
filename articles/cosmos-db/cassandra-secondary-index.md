@@ -30,7 +30,7 @@ insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 
 If you try executing the following statement, you will run into an error that asks you to use `ALLOW FILTERING`: 
 
-```
+```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
 ``` 
 
