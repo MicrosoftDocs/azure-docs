@@ -106,7 +106,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | CorrelationId | Unique identifier of the runbook job run for the update. |
 | EndTime | The time when the synchronization process ended. | 
 | ErrorResult | Windows Update error code generated if an update fails to install. | 
-| InstallationStatus | The possible installation states of an update on the client computer,<br> *NotStarted* - job not triggered yet.<br> *FailedToStart* - unable to start the job on machine.<br> *Failed* - job started but failed with an exception.<br> *InProgress* - job in progress.<br> *MaintenanceWindowExceeded* - if execution was remaining but maintenance window interval reached.<br> *Succeeded* - job succeeded.<br> *InstallFailed* - Update failed to install successfully.<br> *NotIncluded*<br> *Excluded* |
+| InstallationStatus | The possible installation states of an update on the client computer,<br> *NotStarted* - job not triggered yet.<br> *FailedToStart* - unable to start the job on machine.<br> *Failed* - job started but failed with an exception.<br> *InProgress* - job in progress.<br> *MaintenanceWindowExceeded* - if execution was remaining but maintenance window interval reached.<br> *Succeeded* - job succeeded.<br> *InstallFailed* - update failed to install successfully.<br> *NotIncluded*<br> *Excluded* |
 | KBID | Knowledge base article ID for the Windows update. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSType | Specifies the type of operating system, *Windows* or *Linux*. | 
