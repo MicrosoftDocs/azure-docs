@@ -61,12 +61,12 @@ For SSO to work, you need to link an Azure AD user with a user in Catchpoint. Fo
 
 Complete the following sections:
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable this feature for your users.
-    * [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
-    * [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
-1. [Configure Catchpoint SSO](#configure-catchpoint-sso) to configure the single sign-on settings on the application side.
-    * [Create Catchpoint test user](#create-a-catchpoint-test-user) to allow linking of the B.Simon Azure AD test account to a similar user account in Catchpoint.
-1. [Test SSO](#test-sso) to verify that the configuration works.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso), to enable this feature for your users.
+    * [Create an Azure AD test user](#create-an-azure-ad-test-user), to test Azure AD single sign-on with B.Simon.
+    * [Assign the Azure AD test user](#assign-the-azure-ad-test-user), to enable B.Simon to use Azure AD single sign-on.
+1. [Configure Catchpoint SSO](#configure-catchpoint-sso), to configure the single sign-on settings on the application side.
+    * [Create Catchpoint test user](#create-a-catchpoint-test-user), to allow linking of the B.Simon Azure AD test account to a similar user account in Catchpoint.
+1. [Test SSO](#test-sso), to verify that the configuration works.
 
 ## Configure Azure AD SSO
 
