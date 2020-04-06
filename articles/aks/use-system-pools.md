@@ -31,7 +31,7 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 * You can update a system node pool to be a user node pool.
 * You can update a user node pool to be a system node pool.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
-* An AKS cluster may have multiple system node pools, and requires at least one system node pool
+* An AKS cluster may have multiple system node pools, and requires at least one system node pool.
 
 ## Create a new AKS cluster with a system node pool
 
@@ -51,12 +51,11 @@ az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-s
 
 ## Add a system node pool to an existing AKS cluster
 
-You can add system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes.
+You can add one or more system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
-
 ## Show details for node pools
 
 You can check the details of your node pools with the following command.  
