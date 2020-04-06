@@ -64,9 +64,9 @@ You can add one or more system node pools to existing AKS clusters. The followin
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
-## Show details for node pools
+## Show details for your node pool
 
-You can check the details of your node pools with the following command.  
+You can check the details of your node pool with the following command.  
 
 ```azurecli-interactive
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
