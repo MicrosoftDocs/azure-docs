@@ -83,7 +83,7 @@
     - name: 3 - Create a pipeline
       displayName: Devop
       href: deployment-tutorial-pipeline.md
-  - name: Advanced
+  - name: Advanced templates
     items:
     - name: Utilize template reference
       href: template-tutorial-use-template-reference.md
@@ -101,23 +101,21 @@
     - name: Integrate Key Vault
       displayName: secrets
       href: template-tutorial-use-key-vault.md
-    - name: Create linked templates
-      href: template-tutorial-create-linked-templates.md
     - name: Deploy VM extensions
       displayName: virtual machine extensions
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Secure artifacts
-      href: template-tutorial-secure-artifacts.md
+    - name: Troubleshoot template deployment
+      href: template-tutorial-troubleshoot.md
+  - name: Deployment manager
+    items:
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
-    - name: Troubleshoot template deployment
-      href: template-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Azure Quickstart Templates
