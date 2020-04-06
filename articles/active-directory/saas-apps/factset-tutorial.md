@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -129,7 +129,7 @@ To configure single sign-on on **FactSet** side, you need to send the downloaded
 
 ### Create FactSet test user
 
-In this section, you create a user called Britta Simon in FactSet. Work with your FactSet account support representatives to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in FactSet. Work with your FactSet account support representatives or contact [Factset Support Team](https://www.factset.com/contact-us) to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
