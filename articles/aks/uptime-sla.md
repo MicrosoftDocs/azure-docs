@@ -38,19 +38,7 @@ Uptime SLA pricing is determined by the number of clusters, and not by the size 
 
 ## Creating a cluster with Uptime SLA
 
-To create a new cluster with the Uptime SLA, you use the Azure CLI and the preview extension.
-
-### Install aks-preview CLI extension
-
-To set the cluster autoscaler settings profile, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
