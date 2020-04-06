@@ -194,10 +194,10 @@
     href: luis-how-to-publish-app.md
   - name: Manage app
     items:
-    - name: Authoring and runtime keys
+    - name: Azure resources
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Migrate to authoring key
+    - name: Migrate to authoring resource
       items:
         - name: Overview
           href: luis-migration-authoring.md
