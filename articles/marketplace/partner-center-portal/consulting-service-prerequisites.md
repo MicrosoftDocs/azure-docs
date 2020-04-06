@@ -1,6 +1,6 @@
 ---
-title: Azure and Dynamics 365 consulting service prerequisites - Azure Marketplace
-description: Prerequisites for an Azure or Dynamics 365 consulting service offer in Partner Center
+title: Azure and Dynamics 365 Consulting service prerequisites - Azure Marketplace
+description: Prerequisites for an Azure or Dynamics 365 Consulting service offer in Partner Center
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,7 +14,7 @@ ms.author: mingshen
 > [!IMPORTANT]
 > We're moving the management of your Consulting service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Azure and Dynamics 365 consulting service offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) for Cloud Partner Portal to manage your offers.
 
-For information about  the Consulting service offer, including the requirements for this offer type, see [Consulting Services for Azure Marketplace and AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). The following table shows the additional requirements for specific consulting service types.
+For information about  the Consulting service offer, including the requirements for this offer type, see [Consulting Services for Azure Marketplace and AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). The following table shows the additional requirements for specific Consulting service types.
 
 | Consulting Service Topic | Primary Product to Select in Partner Center | Requirement |
 |---------|---------|---------|
