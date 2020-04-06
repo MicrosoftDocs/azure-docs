@@ -25,4 +25,4 @@ We will stop supporting the Windows 2012 DSVM image on December 31, 2019. In ord
 
 ## CentOS
 
-We currently have no plans to update the CentOS Data Science Virtual Machine. Centos will still be available for users with existing solution templates, but new users are encouraged to use the most recent Ubuntu or Windows images. 
+New users should use the most recent Ubuntu or Windows images. CentOS will remain available for use with existing solution templates.
