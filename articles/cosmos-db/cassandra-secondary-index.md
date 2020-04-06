@@ -39,7 +39,7 @@ Although the Cassandra API does support ALLOW FILTERING, as above this is not re
 ```
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
-You should now be able to run the earlier select successfully, without getting an error. Note that with Cosmos DB's Cassandra API you do not provide an index name, an index name of the form tablename_columnname_idx is added automatically. 
+After creating an index on the "lastname" field, you can now run the previous query successfully. With Cassandra API in Azure Cosmos DB, you do not have to provide an index name. A default index with format `tablename_columnname_idx` is used. For example, ` t1_lastname_idx` is the index name for the previous table.
 
 ## Dropping the index 
 If you want to find the index name, you can execute the `desc schema;` via cqlsh, and at end of the table definition for table in context you should see the index ddl in below format:
