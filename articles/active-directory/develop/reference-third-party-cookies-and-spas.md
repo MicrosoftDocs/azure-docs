@@ -26,7 +26,7 @@ Safari is not alone in blocking third-party cookies to enhance user privacy - Br
 
 ## Overview of the solution
 
-In order to continue authenticating users in SPAs, we must switch to the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA is able to redeem this code using XHR for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third-party cookies.  
+In order to continue authenticating users in SPAs, we must switch to the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA is able to redeem this code using XHR for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the use of third-party cookies.  
 
 For Azure AD, native clients and SPAs follow the same protocol guidance:
 
@@ -37,7 +37,7 @@ For Azure AD, native clients and SPAs follow the same protocol guidance:
 
 ## Performance and UX implications
 
-Some applications may attempt to get truly silent sign-in as a SPA by immediately opening a login iframe using `prompt=none` when the page is loaded. In most browsers, this request will hand your app tokens for the currently signed in user assuming consent has already been granted.  This pattern meant your app did not need to do a full page redirect to sign the user in, improving performance and user experience.  `prompt=none` and iframes are no longer an option when third-party cookies are blocked, so you must find a way of visiting the login page directly to have a code issued to your app.  There are two ways of accomplishing sign-in:
+Some applications may attempt to get truly silent sign-in as a SPA by immediately opening a login iframe using `prompt=none` when the page is loaded. In most browsers, this request will hand your app tokens for the currently signed in user assuming consent has already been granted. This pattern meant your app did not need to do a full page redirect to sign the user in, improving performance and user experience. `prompt=none` and iframes are no longer an option when third-party cookies are blocked, so you must find a way of visiting the login page directly to have a code issued to your app.  There are two ways of accomplishing sign-in:
 
 1. Full page redirects
     1. On the first load of your SPA, redirect the user to the sign-in page if you don't have a session already (or if the session is expired).  Their browser will visit the login page, present the cookies containing the user session, and then immediately redirect back to your application with the code and tokens in a fragment.
@@ -45,7 +45,7 @@ Some applications may attempt to get truly silent sign-in as a SPA by immediatel
     1. Consider having a pre-load sequence in your app that checks for a login session and redirects to the login page before your app fully unpacks and executes the JavaScript payload.
 1. Popups
     1. If the UX of a full page redirect does not work for your application, you can also consider using a popup to handle authentication.  
-    1. When the popup finished redirecting to your domain after authentication, it will store code and tokens in local storage for your application to use. MSAL.JS supports popups for authentication, as do most libraries.
+    1. When the popup finishes redirecting to your domain after authentication, it will store code and tokens in local storage for your application to use. MSAL.JS supports popups for authentication, as do most libraries.
     1. Browsers are decreasing support for popups, so they may not be the most reliable option.  You should require user interaction with your SPA before creating the popup to satisfy browser requirements.
 
 ### A note on iframed applications
