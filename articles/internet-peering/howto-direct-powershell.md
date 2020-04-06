@@ -18,7 +18,7 @@ If you prefer, you can complete this guide by using the Azure [portal](howto-dir
 
 ## Before you begin
 * Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
-* In case you have Direct peering connections with Microsoft already, which aren't converted to Azure resources, see [Convert a legacy Direct peering to an Azure resource by using PowerShell](howto-legacy-direct-powershell.md).
+* If you already have Direct peering connections with Microsoft that aren't converted to Azure resources, see [Convert a legacy Direct peering to an Azure resource by using PowerShell](howto-legacy-direct-powershell.md).
 
 ### Work with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
