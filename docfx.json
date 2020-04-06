@@ -126,76 +126,20 @@
         "articles/iot-central/": {
           "depot_name": "MSDN.microsoft-iot-central",
           "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-add-change-azure-subscription-administrator.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-azure-subscription-past-due-balance.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-buy-sign-up-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-cannot-login-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-credit-card-fails-during-azure-sign-up.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-download-azure-invoice-daily-usage-date.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-cancel-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-change-azure-account-profile.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-change-credit-card.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-switch-azure-offer.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-set-up-alerts.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-subscription-become-disable.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-subscription-transfer.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-troubleshoot-azure-sign-up-issues.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-understand-your-azure-marketplace-charges.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-understand-your-bill.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-upgrade-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-overview.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-use-existing-office-365-account-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
         }
       }
     },
     "fileMetadata": {
+      "uhfHeaderId": {
+        "articles/active-directory/**/*.md": "azure",
+        "articles/active-directory/**/*.yml": "azure",
+        "articles/active-directory-domain-services/**/*.md": "azure",
+        "articles/active-directory-domain-services/**/*.yml": "azure",
+        "articles/active-directory-b2c/**/*.md": "azure",
+        "articles/active-directory-b2c/**/*.yml": "azure",
+        "articles/storage/**/*.md": "azure",
+        "articles/storage/**/*.yml": "azure"
+      },
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
@@ -464,7 +408,8 @@
         "articles/migrate/**/*.md": "carmonm",
         "articles/batch/**/*.md": "gwallace",
         "articles/virtual-machines/**/*.md": "gwallace",
-        "articles/virtual-machine-scale-sets/**/*.md": "gwallace"
+        "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
+		"articles/remote-rendering/**/*.md": "jlyons"
    },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
@@ -574,7 +519,8 @@
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
-        "articles/aks/**/*.md": "container-service"
+        "articles/aks/**/*.md": "container-service",
+	"articles/remote-rendering/**/*.md": "azure-remote-rendering"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -619,10 +565,8 @@
         "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
         "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
         "articles/azure-databricks/**/*.yml": ["Azure","Azure Databricks"],
-        "articles/billing/**/*.md": ["Azure","Cost Management","Billing"],
-        "articles/billing/**/*.yml": ["Azure","Cost Management","Billing"],
-        "articles/cost-management/**/*.md": ["Azure","Billing","Cost Management"],
-        "articles/cost-management/**/*.yml": ["Azure","Billing","Cost Management"],
+        "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
+        "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
         "articles/cosmos-db/**/*.md": ["Azure","Azure Cosmos DB"],
         "articles/cosmos-db/**/*.yml": ["Azure","Azure Cosmos DB"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
@@ -637,6 +581,8 @@
         "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
         "articles/mariadb/**/*.yml": ["Azure","Azure Database for MariaDB"],
+        "articles/marketplace/**/*.md": ["Azure","Microsoft's commercial marketplace"],
+        "articles/marketplace/**/*.yml": ["Azure","Microsoft's commercial marketplace"],
         "articles/mysql/**/*.md": ["Azure","Azure Database for MySQL"],
         "articles/mysql/**/*.yml": ["Azure","Azure Database for MySQL"],
         "articles/notebooks/**/*.yml": ["Azure","Azure Notebooks"],
@@ -719,7 +665,9 @@
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
         "articles/service-fabric/*.md": "Azure Service Fabric",
         "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
-        "articles/aks/**/*.md": "Azure Kubernetes Service"
+        "articles/aks/**/*.md": "Azure Kubernetes Service",
+        "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
+        "articles/remote-rendering/**/*.yml": "Azure Remote Rendering"
       },
       "featureFlags": {
         "articles/**/*.md": [

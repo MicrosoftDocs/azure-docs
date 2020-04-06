@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/26/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -37,6 +37,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
+| `ar-SY` | Arabic (Syria)                    | Yes       | Language model                                    |
 | `ca-ES` | Catalan                           | Yes       | Language model                                    |
 | `da-DK` | Danish (Denmark)                  | Yes       | Language model                                    |
 | `de-DE` | German (Germany)                  | Yes       | Acoustic model<br>Language model<br>Pronunciation |
@@ -94,7 +95,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `en-US` | English (US)        | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)"       | "en-US-GuyNeural"       |
 | `it-IT` | Italian (Italy)     | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)"      | "it-IT-ElsaNeural"      |
 | `pt-BR` | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural" |
-| `zh-CN` | Chinese (Mainland)  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)"  | "zh-CN-XiaoxiaoNeural"  |
+| `zh-CN` | Chinese (Mandarin, simplified)  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)"  | "zh-CN-XiaoxiaoNeural"  |
 
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
@@ -181,13 +182,13 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | `th-TH` | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara" |
 | `tr-TR` | Turkish (Turkey) | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS" |
 | `vi-VN` | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An" |
-| `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS" |
+| `zh-CN` | Chinese (Mandarin, simplified) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo" |
-| `zh-HK` | Chinese (Hong Kong) | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)" | "zh-HK-Tracy-Apollo" |
+| `zh-HK` | Chinese (Cantonese, Traditional) | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)" | "zh-HK-Tracy-Apollo" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, TracyRUS)" | "zh-HK-TracyRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)" | "zh-HK-Danny-Apollo" |
-| `zh-TW` | Chinese (Taiwan) | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo" |
+| `zh-TW` | Chinese (Taiwanese Mandarin) | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo" |
 

@@ -34,7 +34,7 @@ Currently Application Gateway supports a single public IP address where it liste
 
 Application Gateway supports multiple applications each listening on different ports, but this scenario requires the applications to accept traffic on non-standard ports. This is often not a configuration that you want.
 
-Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The sites hosted on application gateway can also support SSL offload with Server Name Indication (SNI) TLS extension. This scenario means that the client browser and backend web farm must support HTTP/1.1 and TLS extension as defined in RFC 6066.
+Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The sites hosted on application gateway can also support TLS offload with Server Name Indication (SNI) TLS extension. This scenario means that the client browser and backend web farm must support HTTP/1.1 and TLS extension as defined in RFC 6066.
 
 ## Listener configuration element
 

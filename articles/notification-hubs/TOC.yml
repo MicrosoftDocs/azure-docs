@@ -1,4 +1,4 @@
-- name: Notification Hubs Documentation
+- name: Notification Hubs documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,7 +13,7 @@
     href: create-notification-hub-portal.md  
   - name: Create a notification hub - Azure CLI
     href: create-notification-hub-azure-cli.md 
-  - name: Configure a notification hub - Azure portal
+  - name: Configure a notification hub
     href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
   items:

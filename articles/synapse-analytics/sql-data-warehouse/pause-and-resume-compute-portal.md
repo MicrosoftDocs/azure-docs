@@ -1,12 +1,12 @@
 ---
 title: Pause and resume compute in Synapse SQL pool via the Azure portal
 description: Use the Azure portal to pause compute for SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: 
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan

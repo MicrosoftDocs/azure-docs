@@ -151,6 +151,12 @@
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - name: Policy Definitions
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Node
+    items:
+    - name: Policy
+      href: /javascript/api/@azure/arm-policy
+    - name: Policy Insights
+      href: /javascript/api/@azure/arm-policyinsights
   - name: Azure SDK for Python
     items:
     - name: Policy
@@ -189,6 +195,8 @@
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
+  - name: GitHub - Community Policy repo
+    href: https://github.com/Azure/Community-Policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
   - name: Governance YouTube Channel

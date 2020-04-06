@@ -100,7 +100,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
 }
 ```
 
-In ASP.NET Core, another file ([properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) contains the URL (`applicationUrl`) and the SSL port (`sslPort`) for your application and various profiles.
+In ASP.NET Core, another file ([properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) contains the URL (`applicationUrl`) and the TLS/SSL port (`sslPort`) for your application and various profiles.
 
 ```Json
 {

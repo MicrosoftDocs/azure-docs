@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
 
 productDirectory:
   title: Browse Azure products
@@ -1119,7 +1119,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/scheduler.svg
       azureCategories:
         - management-and-governance
-      url: scheduler/index.md
+      url: scheduler/index.yml
     # Card
     - title: Traffic Manager
       summary: Route incoming traffic for high performance and availability
@@ -1187,6 +1187,13 @@ productDirectory:
       azureCategories:
         - mixed-reality
       url: spatial-anchors/index.yml
+    # Card
+    - title: Remote Rendering (Preview)
+      summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
+      imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
+      azureCategories:
+        - mixed-reality
+      url: remote-rendering/index.yml
     # Card
     - title: Visual Studio App Center
       summary: Continuously build, test, release, and monitor your mobile and desktop apps
@@ -1421,14 +1428,14 @@ tools:
     # Card
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-      url: https://docs.microsoft.com/azure/python/
+      url: https://docs.microsoft.com/azure/developer/python/
     # Card
     - title: .NET
       imageSrc: ./media/index/net-logo.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
-    - title: Node.js
-      imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+    - title: JavaScript
+      imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       url: https://docs.microsoft.com/azure/javascript/
     # Card
     - title: Java
@@ -1437,7 +1444,7 @@ tools:
     # Card
     - title: Go
       imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-      url: https://docs.microsoft.com/azure/go/
+      url: https://docs.microsoft.com/azure/developer/go/
     # Card
     - title: REST API
       imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg

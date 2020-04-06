@@ -40,9 +40,15 @@
     href: ../../container-registry/security-baseline.md
   - name: Cosmos DB security baseline
     href: ../../cosmos-db/security-baseline.md
-  - name: Key Vault security baseline
-    href: ../../key-vault/security-baseline.md
   - name: HDInsight security baseline
     href: ../../hdinsight/security-baseline.md
+  - name: Key Vault security baseline
+    href: ../../key-vault/security-baseline.md
+  - name: MariaDB security baseline
+    href: ../../mariadb/security-baseline.md
+  - name: MySQL security baseline
+    href: ../../mysql/security-baseline.md
+  - name: PostgreSQL security baseline
+    href: ../../postgresql/security-baseline.md
   - name: SQL Database security baseline
     href: ../../sql-database/security-baseline.md

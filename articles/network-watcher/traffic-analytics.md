@@ -136,6 +136,7 @@ If your account is not assigned to one of the built-in roles, it must be assigne
 - "Microsoft.Network/routeTables/read"
 - "Microsoft.Network/virtualNetworkGateways/read"
 - "Microsoft.Network/virtualNetworks/read"
+- "Microsoft.Network/expressRouteCircuits/read"
 
 For information on how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.md).
 

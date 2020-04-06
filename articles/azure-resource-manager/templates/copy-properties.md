@@ -113,7 +113,7 @@ The copy element is an array so you can specify more than one property for the r
 {
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
-  "name": "examleLB",
+  "name": "exampleLB",
   "properties": {
     "copy": [
       {

@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -40,19 +32,19 @@ The machine-learned entity supports the [model decomposition concept](luis-conce
 
 This tutorial adds a machine-learned entity to extract data from an utterance.
 
-The purpose of an entity is to define the data to extract. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data.
+The entity defines the data to extract from within the utterance. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data.
 
-In order to define the entity, you need to create the entity then label the text representing the entity in the example utterance. These labeled examples teach LUIS what the entity is and where it can be found in an utterance.
+In order to define the entity, you need to create the entity then label the text representing the entity in the example utterances within all intents. These labeled examples teach LUIS what the entity is and where it can be found in an utterance.
 
 ## Entity decomposability is important
 
-Entity decomposability is important for both intent prediction and for data extraction.
+Entity decomposability is important for both intent prediction and for data extraction with the entity.
 
 Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into the parts needed by the client application.
 
 While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subcomponents as your app matures.
 
-In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will extract order-related text, pulling out size, and quantity.
+In this, you create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will extract order-related text, pulling out size, and quantity.
 
 An utterance for `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` and `large`.
 
@@ -88,7 +80,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size` then select Enter.
-1. To add a **descriptor**, select the `+` in the **Descriptors for Size** area, then select **Create new phrase list**.
+1. To add a **descriptor**, select the `+` in the **Descriptors** area, then select **Create new phrase list**.
 
 1. In the **Create new phrase list descriptor** box, enter the name `SizeDescriptor` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list.
 
@@ -104,7 +96,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
     ![Label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    The line is solid under the text because both the labeling and prediction match because you explicitly labeled the text.
+    The line is solid under the text because both the labeling and prediction match because you _explicitly_ labeled the text.
 
 1. Label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labeled `Order` entity and the `Size` entity within.
 
@@ -128,7 +120,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     |--|
     |`pickup XL meat lovers pizza`|
 
-    The overall top entity, `Order` is labeled and the `Size` subcomponent is also labeled with dotted lines. This is a successful prediction.
+    The overall top entity, `Order` is labeled and the `Size` subcomponent is also labeled with dotted lines.
 
     ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -156,20 +148,20 @@ Begin by adding the prebuilt number entity to the app.
 
 ## Create subcomponent entity with constraint to help extract data
 
-The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. The quantity should be constrained to a number so that the extracted data is immediately usable by the client application.
+The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. The quantity should be constrained to a number so that the extracted data is immediately available to the client application by name.
 
 A constraint is applied as a text match, either with exact matching (such as a list entity) or through regular expressions (such as a regular expression entity or a prebuilt entity).
 
 By using a constraint, only text that matches that constraint is extracted.
 
 1. Select **Entities** then select the `Order` entity.
-1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
-1. After the success notification, select the `Quantity` subcomponent then select the Constraint pencil.
+1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new subcomponent to the `Order` entity.
+1. After the success notification, in the **Advanced Options**, select the Constraint pencil.
 1. In the drop-down list, select the prebuilt number.
 
     ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    The `Quantity` entity is applied if and only if text matching the prebuilt number entity is found.
+    The `Quantity` entity is applied when text matches the prebuilt number entity.
 
     The entity with the constraint is created but not yet applied to the example utterances.
 
@@ -178,7 +170,7 @@ By using a constraint, only text that matches that constraint is extracted.
 
 ## Label example utterance to teach LUIS about the entity
 
-1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labeled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
+1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labeled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered a part of the `Order` entity.
 
     ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -188,7 +180,7 @@ By using a constraint, only text that matches that constraint is extracted.
 
 ## Train the app to apply the entity changes to the app
 
-Select **Train** to train the app with these new utterances.
+Select **Train** to train the app with these new utterances. After training, the `Quantity` subcomponent is correctly predicted in the `Order` component. This correct prediction is indicated with a solid line.
 
 ![Train the app then review the example utterances.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -209,7 +201,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
     The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a descriptor of a `SizeDescriptor` phrase list that includes medium.
 
-    The quantity is not correctly predicted. To fix this, you can add more example utterances using that word to indicate quantity and label that word as a `Quantity` entity.
+    The quantity is not correctly predicted. You can fix this in your client application by defaulting size to one (1) if no size is returned in the LUIS prediction.
 
 ## Publish the app to access it from the HTTP endpoint
 
@@ -219,7 +211,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter the same query as you entered in the interactive test panel.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with the same query as you entered in the interactive test panel.
 
     `deliver a medium veggie pizza`
 

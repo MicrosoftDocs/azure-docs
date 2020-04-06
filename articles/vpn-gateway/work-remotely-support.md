@@ -13,7 +13,7 @@ ms.author: alzam
 # Remote work using Azure VPN Gateway Point-to-site
 
 >[!NOTE]
->This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of Covid-19 crisis.
+>This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 This article describes the options that are available to organizations to setup remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.

@@ -43,7 +43,7 @@ We recommend the following checklist of requirements on which to compare databas
 And although it may seem obvious, recent [large-scale database breaches](https://thehackernews.com/2017/01/mongodb-database-security.html) remind us of the simple but critical importance of the following requirements:
 
 - Patched servers that are kept up-to-date
-- HTTPS by default/SSL encryption
+- HTTPS by default/TLS encryption
 - Administrative accounts with strong passwords
 
 ## How does Azure Cosmos DB secure my database
@@ -71,7 +71,7 @@ Let's dig into each one in detail.
 |HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, please contact [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).|
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](./database-encryption-at-rest.md)|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
-|Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via SSL and HMAC secret based authentication is baked in by default.|
+|Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS and HMAC secret based authentication is baked in by default.|
 |Security and data protection certifications| For the most up-to-date list of certifications see the overall [Azure Compliance site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) as well as the latest [Azure Compliance Document](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) with all certifications (search for Cosmos). For a more focused read check out the April 25, 2018 post [Azure #CosmosDB: Secure, private, compliant that includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High, and many others.
 
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 

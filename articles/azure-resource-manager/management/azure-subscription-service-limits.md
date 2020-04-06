@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -13,7 +13,14 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 
 ## Managing limits
 
-If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md). The limits can't be raised above the maximum limit value shown in the following tables. If there's no maximum limit column, the resource doesn't have adjustable limits.
+> [!NOTE]
+> Some services have adjustable limits.
+>
+> When a service doesn't have adjustable limits, the following tables use the header **Limit**. In those cases, the default and the maximum limits are the same.
+>
+> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit.
+>
+> If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md).
 
 [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade your Azure Free Trial subscription to a Pay-As-You-Go subscription](../../billing/billing-upgrade-azure-subscription.md) and the [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
 
@@ -232,7 +239,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Media Services limits
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### Media Services v2 (legacy)
+
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 

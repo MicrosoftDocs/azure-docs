@@ -2,7 +2,7 @@
 title: Improve knowledge base - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/31/2020
 ---
 
 
@@ -199,7 +199,7 @@ In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these
 
 ### Example C# code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```csharp
 public class FeedbackRecords
@@ -262,7 +262,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### Example Node.js code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```javascript
 async callTrain(stepContext){
