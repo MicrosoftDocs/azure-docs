@@ -9,6 +9,8 @@
   items:
   - name: CLI
     href: quick-create-cli.md
+  - name: PowerShell
+  - href: quick-create-powershell.md
   - name: Portal
     href: quick-create-portal.md
   - name: Python
