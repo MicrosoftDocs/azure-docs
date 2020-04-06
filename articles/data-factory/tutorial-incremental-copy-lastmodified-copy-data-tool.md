@@ -18,7 +18,7 @@ ms.date: 3/18/2020
 
 In this tutorial, you'll use the Azure portal to create a data factory. You'll then use the Copy Data tool to create a pipeline that incrementally copies new and changed files only, from Azure Blob storage to Azure Blob storage. It uses `LastModifiedDate` to determine which files to copy.
 
-After you complete the steps here, Azure Data Factory will scan all the files in the source store, apply the file filter by `LastModifiedDate`, and copy to the destination store only files that are new or have been updated since last time. Note that if Data Factory scans large numbers of files, you should still expect long durations because file scanning is time consuming, even when the amount of data copied is reduced.
+After you complete the steps here, Azure Data Factory will scan all the files in the source store, apply the file filter by `LastModifiedDate`, and copy to the destination store only files that are new or have been updated since last time. Note that if Data Factory scans large numbers of files, you should still expect long durations. File scanning is time consuming, even when the amount of data copied is reduced.
 
 > [!NOTE]
 > If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -169,7 +169,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 15. Create another empty text file and name it **file2.txt**. Upload this text file to the source container in your Blob storage account.
 
-16. Repeat steps 13 and 14 for the second text file. You'll see that only the new file (file2.txt) has been copied from the source container to the destination container of your storage account during this pipeline run.  
+16. Repeat steps 13 and 14 for the second text file. You'll see that only the new file (file2.txt) was copied from the source container to the destination container of your storage account during this pipeline run.  
 
     You can also verify that only one file has been copied by using [Azure Storage Explorer](https://storageexplorer.com/) to scan the files:
 
