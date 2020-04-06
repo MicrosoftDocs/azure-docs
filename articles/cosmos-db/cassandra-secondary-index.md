@@ -28,7 +28,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-If you try to execute below statement - you will get an error asking you to use `ALLOW FILTERING`. 
+If you try executing the following statement, you will run into an error that asks you to use `ALLOW FILTERING`: 
 
 ```
 select user_id, lastname from sampleks.t1 where lastname='nishu';
