@@ -205,15 +205,15 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
+> [Bing Autosuggest tutorial](../../tutorials/autosuggest.md)
 
 ## See also
 
-- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [What is Bing Autosuggest?](../../get-suggested-search-terms.md)
 - [Bing Autosuggest dotnet reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)
