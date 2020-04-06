@@ -10,29 +10,37 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2020
 ---
-# Fuzzy search for auto-corrected misspellings and typos
+# Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search provides fuzzy search, a type of query that scans for highly similar terms in addition to the verbatim term. Expanding search to include a near-match has the effect of auto-correcting a typo when the discrepancy is just a few characters off. 
+Azure Cognitive Search provides fuzzy search, a type of query that scans for highly similar terms in addition to the exact term. Expanding search to include a near-match has the effect of auto-correcting a typo when the discrepancy is just a few characters off. 
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on similarly constructed terms, where the first character is the same, but other discrepancies are limited to one to two characters within the term. For example, given `"special~"`, s
+It's an expansion exercise that produces a match on similar terms. A term is considered similar if the first character is the same as the query terms, and other differences are numbered two or fewer edits: a character in the comparison string is inserted, deleted, substituted, or transposed.
 
-A fuzzy search can expand a term up to 50 additional terms, but a typical expansion is usually much less. 
+The string correction algorithm that specifies the difference between two terms is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, "where distance is the minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
-The distance criteria is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, where distance is the minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other. By default the distance is 2. A value of `~0` signifies no expansion (search for the exact term as given), and `~1` signifies one degree of difference.
+In Azure Cognitive Search:
 
-Fuzzy search applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
++ The default distance is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), and `~1` signifies one degree of difference.
+
++ A fuzzy query can expand a term up to 50 additional permutations, although a typical expansion is usually much less. 
+
++ Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
 
 ## How to use fuzzy search
 
 Fuzzy search is constructed using the full Lucene query syntax, invoking the [Lucene query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-+ Set the full Lucene parser (`queryType=full`) on the query
+1. Set the full Lucene parser on the query (`queryType=full`).
 
-+ In the query request, specify fields that were analyzed during indexing with a custom analyzer or built-in analyzer that keeps strings intact (with minimal transformations and reductions). The `searchFields` parameter is used to target a query on specific fields.
+1. In the query request, make sure you are targeting non-analyzed or minimally analyzed fields that keeps strings intact. Use this parameter to target a query on specific fields (`searchFields=<field1,field2>`). 
 
-+ Use the tilde (`~`) operator at the end of a single word with an optional parameter, a number between 0 and 2 (default), that specifies the edit distance. For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
+  This step assumes you have defined a field that contains the exact string, and that the field was analyzed during indexing with a content-preserving analyzer, such as a keyword analyzer.
+
+1. Use the tilde (`~`) operator at the end of the whole term (`search=<string>~`).
+
+  Alternatively, you can include an optional parameter, a number between 0 and 2 (default), that specifies the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
 In Azure Cognitive Search, besides the term and distance (up to 2), there are no additional parameters to set on the query.
 
@@ -41,9 +49,14 @@ In Azure Cognitive Search, besides the term and distance (up to 2), there are no
 
 ## How to test fuzzy search
 
-For testing, we recommend Search explorer or Postman for iterating over a query expression. You can introduce permutations of a term and evaluate the responses that come back.
+For simple testing, we recommend [Search explorer](search-explorer.md) or [Postman](search-get-started-postman.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
 
-When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. For example, assume you have a document with this string: `"Description": "Test queries with special characters, plus strings for MSFT, SQL and Java."`
+When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
+
+> [!Important]
+> This technique works best for focused testing on fuzzy search itself. If your index has scoring profiles, or if you combine fuzzy search with additional syntax, hit highlighting might not work in those situations.
+
+Assume the following string exists in a `"Description"` field in a search document: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Start with a fuzzy search on "special" and add hit highlighting to the Description field:
 
@@ -75,7 +88,7 @@ Notice that the same response is returned, but now instead of matching on "speci
 
             "@search.score": 0.4232868,
             "@search.highlights": {
-                "longerText": [
+                "Description": [
                     "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
                 ]
 
