@@ -142,6 +142,48 @@ See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default e
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
+## Local and remote compute targets
+
+With the Python SDK, you can train your models on either a local computer or a remote compute target.  More features are available when you use the remote compute.  If you have small data and want to get started quickly, training on your local computer is your best choice.  When you use a remote compute, such as Azure Managed compute clusters, factor in setup time:
+* Around 1 minute for each node in the cluster 
+* Around 1.5 minutes for each child-run environment setup
+
+
+| | Best for | Pros (Advantages)  |Cons (Handicaps)  |
+|---------|---------|---------|---------|
+|Local compute target | Small data, getting started, quick demo     |  Infrastructure resources are directly available, no environment setup time  <br/>   |  Subset of features available for remote compute targets <br/> Cannot parallelize         |
+|[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute) | Larger data, production data, production training    |  Full set of features <br/> Scale out to multiple child runs <br/> Dynamic scalability of compute cluster based on demand        |    Start-up time for cluster nodes, start up for each child run    |
+
+
+Use either a **local or a remote target** to:
+* Create and run experiments in notebooks
+* Register and visualize experiment's info and metrics in UI
+* Forecasting support
+* Create ONNX models
+* Ensemble iterations
+* Use subsampling
+* Apply data guardrails
+* View model interpretability in notebooks
+
+Not sure where these go yet:
+* Prophet or ARIMA models for forecasting
+* Feature Sweeping (or advanced transformers)
+* Custom featurizers support
+* Feature engineering customization SDK
+* Many models training SDK
+
+Switch to a **remote target** to add more flexibility and features:
+
+* Multiple runs/iterations running in parallel  
+* Cancel an iteration
+* Continue a run 
+* Data streaming (Large data support, up to 100GB) 
+* DNN-based text featurization 
+* Feature engineering customization UI 
+
+@@Not sure this goes here...?
+You also use a remote compute target in the studio to build a [no-code automated machine learning](how-to-use-automated-ml-for-ml-models.md) and view [model intrpretability](@@Do we have an article that shows this?).
+
 ## Automated ML in Azure Machine Learning
 
 Azure Machine Learning offers two experiences for working with automated ML
