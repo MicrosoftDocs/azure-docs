@@ -193,7 +193,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to create linked templates, see:
+In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
-> [Create linked templates](./template-tutorial-create-linked-templates.md)
+> [Deploy virtual machine extensions](./template-tutorial-deploy-vm-extensions.md)
