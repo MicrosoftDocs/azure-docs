@@ -9,7 +9,7 @@ ms.date: 04/06/2020
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. System node pools and user node pools are two different node pool modes for your AKS clusters. The node pools modes are mutable. User node pools are where you place your application-specific pods. Node pools contain the underlying VMs that run your applications. Every AKS cluster must contain at least one system node pool with at least one node. If you run a single system node pool for your AKS cluster, we recommend you use at least three nodes for the node pool. To support applications that have different compute or storage demands, you can create additional user node pools. For example, use additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. 
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. System node pools and user node pools are two different node pool modes for your AKS clusters. The node pools nodes are mutable. User node pools are where you place your application-specific pods. Node pools contain the underlying VMs that run your applications. Every AKS cluster must contain at least one system node pool with at least one node. If you run a single system node pool for your AKS cluster, we recommend you use at least three nodes for the node pool. To support applications that have different compute or storage demands, you can create additional user node pools. For example, use additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. 
 
 ## Before you begin
 
@@ -37,11 +37,11 @@ You can perform the following operations with node pools:
 * You can update a system node pool to be a user node pool.
 * You can update a user node pool to be a system node pool.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
-* An AKS cluster may have multiple system node pools, and requires at least one system node pool.
+* An AKS cluster may have multiple system node pools and requires at least one system node pool.
 
 ## Create a new AKS cluster with a system node pool
 
-When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode  of system. When you create additional node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
+When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of system. When you create new node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -70,7 +70,7 @@ You can check the details of your node pools with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-You see output returned similar to below, and you can check the mode for your node pool. A mode of **System** is defined for system node pools, and a mode of **User** is defined for user node pools.
+You see output returned similar to what is displayed below, and you can check the mode for your node pool. A mode of **System** is defined for system node pools, and a mode of **User** is defined for user node pools.
 
 ```output
 {
@@ -121,9 +121,9 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 ## Delete a system node pool
 
 > [!Note]
-> To use system node pools on AKS clusters prior to API version 2020-03-01, add a new system node pool, then delete the original default node pool.
+> To use system node pools on AKS clusters before API version 2020-03-01, add a new system node pool, then delete the original default node pool.
 
-Previously you could not delete the initial default node pool in an AKS cluster. With system node pools, you have the flexibility to delete any node pool from your clusters. You need to ensure you have at least two system node pools so you can delete one of them.
+Previously you could not delete the initial default node pool in an AKS cluster. With system node pools, you have the flexibility to delete any node pool from your clusters. You need to ensure you have at least two system node pools on your AKS cluster before you can delete one of them.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
