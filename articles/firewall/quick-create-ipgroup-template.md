@@ -1,11 +1,11 @@
 ---
-title: 'Quickstart: Create an Azure Firewall and IP Group - Resource Manager template'
-description: Learn how to use a Resource Manager template to create a Azure Firewall and IP Group.
+title: 'Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template'
+description: Learn how to use a Resource Manager template to create a Azure Firewall and IP Groups.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.date: 04/03/2020
+ms.date: 04/06/2020
 ms.author: victorh
 ---
 
@@ -67,7 +67,11 @@ Deploy Resource Manager template to Azure:
 
 ## Review deployed resources
 
-In the portal, review the deployed resources, especially the firewall rules that use IP Groups.
+In the Azure portal, review the deployed resources, especially the firewall rules that use IP Groups.
+
+:::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="IP Groups.":::
+
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
 
 To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
