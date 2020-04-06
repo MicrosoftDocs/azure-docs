@@ -50590,7 +50590,7 @@
     },
     {
       "source_path": "articles/ansible/ansible-aks-configure-rbac.md",
-      "redirect_url": "/azure/developer/ansible/aks-configure-rbac",
+      "redirect_url": "http://docs.microsoft.com/azure/developer/ansible/aks-configure-rbac",
       "redirect_document_id": false
     },
     {
