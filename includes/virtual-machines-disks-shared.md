@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/18/2020
+ ms.date: 04/06/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -27,6 +27,10 @@ Managed disks with shared disks enabled do not natively offer a fully-managed fi
 ## Disk sizes
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
+
+## Ultra disk performance throttles
+
+[!INCLUDE [virtual-machines-disks-shared-ultra-throttles](virtual-machines-disks-shared-ultra-throttles.md)]
 
 ## Sample workloads
 
