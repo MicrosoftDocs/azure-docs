@@ -11,6 +11,7 @@ ms.custom: include file
 ---
 For now, ultra disks have additional limitations, they are as follows:
 
+- Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
 - Are supported in the following regions, with a varying number of availability zones per region:
     - East US 2
     - East US
@@ -19,7 +20,6 @@ For now, ultra disks have additional limitations, they are as follows:
     - North Europe
     - West Europe
     - UK South 
-- Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
 - Are only supported on the following VM series:
     - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
     - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
@@ -32,4 +32,3 @@ For now, ultra disks have additional limitations, they are as follows:
 - Do not yet support disk snapshots, VM images, availability sets, and Azure disk encryption
 - Do not yet support integration with Azure Backup or Azure Site Recovery
 - The current maximum limit for IOPS on GA VMs is 80,000.
-- If you would like to participate in a limited preview of a VM that can accomplish 160,000 IOPS with ultra disks, please email UltraDiskFeedback@microsoft .com

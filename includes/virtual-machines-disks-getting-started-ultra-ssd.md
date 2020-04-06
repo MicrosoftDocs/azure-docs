@@ -57,7 +57,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ## Deploy an ultra disk using Azure Resource Manager
 
-First, determine the VM size to deploy. For a list of supported VM sizes, see [GA scope and limitations](#ga-scope-and-limitations) section.
+First, determine the VM size to deploy. For a list of supported VM sizes, see the [GA scope and limitations](#ga-scope-and-limitations) section.
 
 If you would like to create a VM with multiple ultra disks, refer to the sample [Create a VM with multiple ultra disks](https://aka.ms/ultradiskArmTemplate).
 
