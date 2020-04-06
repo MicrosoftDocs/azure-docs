@@ -2,9 +2,8 @@
 title: 'Tutorial: send email with Logic Apps'
 description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
 
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.custom: mvc
 ---
 
@@ -29,7 +28,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 # [ASP.NET Core](#tab/dotnetcore)
 
-[Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldatabase.md)
+[Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
 
 # [Node.js](#tab/node)
 
@@ -167,7 +166,7 @@ HttpResponseMessage result = await client.PostAsync(
 var statusCode = result.StatusCode.ToString();
 ```
 
-If you're testing this on the sample app for [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), you could use this to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), after the `Todo` item is added. To use the asynchronous code above, convert the Create action to asynchronous.
+If you're testing this code on the sample app for [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), after the `Todo` item is added. To use the asynchronous code above, convert the Create action to asynchronous.
 
 # [ASP.NET Core](#tab/dotnetcore)
 
@@ -195,7 +194,7 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-If you're testing this on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), you could use this to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
+If you're testing this code on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
 
 # [Node.js](#tab/node)
 
@@ -222,7 +221,7 @@ var jsonData = {
 
 ```
 
-If you're testing this on the sample app for [Tutorial: Build a Node.js and MongoDB app in Azure](app-service-web-tutorial-nodejs-mongodb-app.md), you could use this to send an email confirmation in the [create function](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), after [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+If you're testing this code on the sample app for [Tutorial: Build a Node.js and MongoDB app in Azure](app-service-web-tutorial-nodejs-mongodb-app.md), you could use it to send an email confirmation in the [create function](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), after [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 # [PHP](#tab/php)
 
@@ -254,7 +253,7 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-If you're testing this on the sample app for [Tutorial: Build a PHP and MySQL app in Azure](app-service-web-tutorial-php-mysql.md), you could use this to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
+If you're testing this code on the sample app for [Tutorial: Build a PHP and MySQL app in Azure](app-service-web-tutorial-php-mysql.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
 # [Python](#tab/python)
 
@@ -285,7 +284,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-If you're testing this on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](containers/tutorial-python-postgresql-app.md), you could use this to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
+If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](containers/tutorial-python-postgresql-app.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
 # [Ruby](#tab/ruby)
 
@@ -299,13 +298,13 @@ body = {
     'task' => "My new task!"
 }
 
-connection = clnt.post_async(url, body)
+connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-If you're testing this on the sample app for [Build a Ruby and Postgres app in Azure App Service on Linux](containers/tutorial-ruby-postgres-app.md), you could use this to send an email confirmation in the [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) action, [when @task.save succeeds](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
+If you're testing this code on the sample app for [Build a Ruby and Postgres app in Azure App Service on Linux](containers/tutorial-ruby-postgres-app.md), you could use it to send an email confirmation in the [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) action, [when @task.save succeeds](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
 
 ---
 
 # More resources
 
-[Configure a Linux Ruby app for Azure App Service](configure-language-ruby.md)
+[Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)
