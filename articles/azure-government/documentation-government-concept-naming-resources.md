@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.service: azure-government
 ms.workload: Azure-government
-ms.date: 4/2/2020
+ms.date: 4/6/2020
 ms.author: beellis
 
 ---
@@ -39,7 +39,7 @@ An example of a virtual machine resource ID is:
 `/subscriptions/<subscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<virtualMachineName>`
 
 
-## Naming Considerations
+## Resource Naming Considerations
 For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (e.g., [ITAR](https://docs.microsoft.com/microsoft-365/compliance/offering-itar?view=o365-worldwide), [CJIS](https://docs.microsoft.com/microsoft-365/compliance/offering-cjis?view=o365-worldwide), etc.), as applicable.
 
 >[!NOTE]
