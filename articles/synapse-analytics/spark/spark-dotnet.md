@@ -18,7 +18,7 @@ Azure Synapse Analytics uses Spark pools (preview) for data processing. Apache S
 * Machine Learning
 * Impromptu querying -->
 
-# What is .NET for Apache Spark
+# What is .NET for Apache Spark?
 
 [.NET for Apache Spark](https://dot.net/spark) provides free, open-source, and cross-platform .NET support for Spark. .NET for Apache Spark provides .NET bindings for Spark that allow you to access Spark APIs through C# and F# and gives you the ability to write and execute user-defined functions for Spark using .NET.
 
@@ -60,7 +60,7 @@ The following features are available when you use .NET for Apache Spark in the A
 * 'spark' as a pre-defined variable to give you access to your Apache Spark session.
 * Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
 *  Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library. 
-* Ability to include nuget packages into your C# notebook.
+* Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
