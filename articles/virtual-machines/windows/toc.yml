@@ -527,7 +527,7 @@
       - name: PowerShell
         items:
         - name: Create a gallery and image definition
-          href: shared-images.md
+          href: ../shared-images-powershell.md
         - name: Create an image version
           items:
           - name: From a VM
