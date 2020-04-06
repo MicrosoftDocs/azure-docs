@@ -91,10 +91,11 @@ For other language stacks, it's better to use [app settings](#configure-app-sett
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQLServer: `SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
+* PostgreSQL: `POSTGRESQLCONNSTR_`  
 
 For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
