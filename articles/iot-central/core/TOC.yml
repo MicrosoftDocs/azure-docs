@@ -21,8 +21,10 @@
   items:
     - name: Get connected
       items:
-      - name: Connect a  device
-        href: tutorial-connect-device.md
+      - name: Connect a  device (Node.js)
+        href: tutorial-connect-device-nodejs.md
+      - name: Connect a  device (Python)
+        href: tutorial-connect-device-python.md
       - name: Connect a Plug and Play (preview) device
         href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
@@ -45,7 +47,7 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
-    - name: Get connected
+    - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
       href: concepts-iot-edge.md
@@ -81,14 +83,10 @@
           href: howto-create-personal-dashboards.md
         - name: Run a job
           href: howto-run-a-job.md
-        - name: Version device template
-          href: howto-version-device-template.md
     - name: Transform
       items:
         - name: Export data to destinations in Azure
           href: howto-export-data.md
-        - name: Explore the IoT Central APIs
-          href: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
         - name: Connect Azure Monitor action groups on rules
@@ -127,47 +125,50 @@
               href: howto-manage-preferences.md
             - name: Toggle live chat
               href: howto-show-hide-chat.md
-- name: Related
-  items:
-    - name: Industry application templates
-      items:
-        - name: Retail
-          href: ../retail/overview-iot-central-retail-pnp.md
-        - name: Energy
-          href: ../energy/overview-iot-central-energy.md
-        - name: Government
-          href: ../government/overview-iot-central-government.md
-        - name: Healthcare
-          href: ../healthcare/overview-iot-central-healthcare.md
-    - name: Platform Services
-      items:
-      - name: IoT Hub
-        href: /azure/iot-hub
-      - name: IoT Plug and Play
-        href: /azure/iot-pnp
-      - name: IoT Hub Device Provisioning Service
-        href: /azure/iot-dps
-      - name: IoT Service SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-      - name: Maps
-        href: /azure/azure-maps
-      - name: Time Series Insights
-        href: /azure/time-series-insights
-    - name: Edge solutions
-      items:
-      - name: Azure IoT Edge
-        href: /azure/iot-edge
-      - name: IoT Device SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+
 - name: Resources
   items:
-    - name: Support and help options
-      href: /azure/iot-fundamentals/iot-support-help
-    - name: IoT Central API reference
-      href: https://docs.microsoft.com/rest/api/iotcentral/
-    - name: Customer data requests
-      href: iot-central-customer-data-requests.md
-    - name: Supported browsers
-      href: iot-central-supported-browsers.md
-    - name: Azure IoT Central (legacy templates)
-      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
+  - name: Industry application templates
+    items:
+    - name: Retail
+      href: ../retail/overview-iot-central-retail-pnp.md
+    - name: Energy
+      href: ../energy/overview-iot-central-energy.md
+    - name: Government
+      href: ../government/overview-iot-central-government.md
+    - name: Healthcare
+      href: ../healthcare/overview-iot-central-healthcare.md
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: Azure Maps
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Azure IoT SDKs
+    items:
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+  - name: IoT Central API reference
+    href: https://docs.microsoft.com/rest/api/iotcentral/
+  - name: Customer data requests
+    href: iot-central-customer-data-requests.md
+  - name: Supported browsers
+    href: iot-central-supported-browsers.md
+  - name: Azure IoT Central (legacy templates)
+    href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central

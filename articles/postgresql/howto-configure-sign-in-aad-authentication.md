@@ -69,7 +69,7 @@ The following high-level diagram summarizes the workflow of using Azure AD authe
 
 ![authentication flow][1]
 
-We’ve designed the Azure AD integration to work with common PostgreSQL tools like psql, which are not Azure AD aware and only support specifying username and password when connecting to PostgreSQL. We pass the Azure AD token as the password as shown in the picture above.
+We've designed the Azure AD integration to work with common PostgreSQL tools like psql, which are not Azure AD aware and only support specifying username and password when connecting to PostgreSQL. We pass the Azure AD token as the password as shown in the picture above.
 
 We currently have tested the following clients:
 
@@ -88,7 +88,7 @@ Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 Invoke the Azure CLI tool to authenticate with Azure AD. It requires you to give your Azure AD user ID and the password.
 
-```
+```azurecli-interactive
 az login
 ```
 
@@ -104,19 +104,19 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 
 Example (for Public Cloud):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 For Azure CLI version 2.0.71 and later, the command can be specified in the following more convenient version for all clouds:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -167,10 +167,10 @@ You are now authenticated to your PostgreSQL server using Azure AD authenticatio
 
 Azure AD authentication in Azure Database for PostgreSQL ensures that the user exists in the PostgreSQL server, and it checks the validity of the token by validating the contents of the token. The following token validation steps are performed:
 
--	Token is signed by Azure AD and has not been tampered with
--	Token was issued by Azure AD for the tenant associated with the server
--	Token has not expired
--	Token is for the Azure Database for PostgreSQL resource (and not another Azure resource)
+- Token is signed by Azure AD and has not been tampered with
+- Token was issued by Azure AD for the tenant associated with the server
+- Token has not expired
+- Token is for the Azure Database for PostgreSQL resource (and not another Azure resource)
 
 ## Migrating existing PostgreSQL users to Azure AD-based authentication
 

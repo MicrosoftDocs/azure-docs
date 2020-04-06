@@ -14,7 +14,7 @@ tag: azure-synpase
 ---
 # Conditional Access (MFA) with Azure SQL Database and Azure Synapse Analytics
 
-Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
+Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and Azure Synapse that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.

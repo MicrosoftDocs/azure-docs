@@ -117,6 +117,10 @@ The following steps show you how to create a managed instance:
 > 2. Select **Deployments**.
 > 3. Select the managed instance deployment operation in progress.
 
+> [!IMPORTANT]
+> In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while managed instance is in creation process, this can cause managed instance not to be visible in list of resource group deployments.
+>
+
 ## Post-deployment operations
 
 To review resources created, fine-tune network settings, and retrieve host connection details (FQDN) follow steps described in this section.

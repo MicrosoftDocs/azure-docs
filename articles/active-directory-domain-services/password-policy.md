@@ -9,8 +9,8 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 01/21/2020
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.author: iainfou
 
 ---
@@ -28,7 +28,7 @@ This article shows you how to create and configure a fine-grained password polic
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-  * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
   * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -41,6 +41,11 @@ To complete this article, you need the following resources and privileges:
 ## Default password policy settings
 
 Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. For example, to secure privileged accounts you can apply stricter account lockout settings than regular non-privileged accounts. You can create multiple FGPPs within an Azure AD DS managed domain and specify the order of priority to apply them to users.
+
+For more information about password policies and using the Active Directory Administration Center, see the following articles:
+
+* [Learn about fine-grained password policies](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configure fine-grained password policies using AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 Policies are distributed through group association in an Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
@@ -101,20 +106,20 @@ To create a custom password policy, you use the Active Directory Administrative 
     * Settings like password complexity, age, or expiration time only to users manually created in an Azure AD DS managed domain.
     * Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
 
-    ![Create a custom fine-grained password policy](./media/how-to/custom-fgpp.png)
+    ![Create a custom fine-grained password policy](./media/password-policy/custom-fgpp.png)
 
 1. Uncheck **Protect from accidental deletion**. If this option is selected, you can't save the FGPP.
 1. In the **Directly Applies To** section, select the **Add** button. In the **Select Users or Groups** dialog, select the **Locations** button.
 
-    ![Select the users and groups to apply the password policy to](./media/how-to/fgpp-applies-to.png)
+    ![Select the users and groups to apply the password policy to](./media/password-policy/fgpp-applies-to.png)
 
 1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
-    ![Select the OU that the group belongs to](./media/how-to/fgpp-container.png)
+    ![Select the OU that the group belongs to](./media/password-policy/fgpp-container.png)
 
 1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
 
-    ![Search for and select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Search for and select the group to apply FGPP](./media/password-policy/fgpp-apply-group.png)
 
 1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
 

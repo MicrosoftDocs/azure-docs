@@ -347,7 +347,7 @@ In this tutorial, you created a web application that keeps track of book records
 > * Access the routes with AngularJS
 > * Run the application
 
-Advance to the next tutorial to learn how to secure web servers with SSL certificates.
+Advance to the next tutorial to learn how to secure web servers with TLS certificates.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [Secure web server with TLS](tutorial-secure-web-server.md)

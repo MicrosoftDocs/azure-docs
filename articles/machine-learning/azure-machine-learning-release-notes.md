@@ -17,6 +17,37 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-03-23
+
+### Azure Machine Learning SDK for Python v1.2.0
+
++ **Breaking changes**
+  + Drop support for python 2.7
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Adds "--subscription-id" to `az ml model/computetarget/service` commands in the CLI
+    + Adding support for passing customer managed key(CMK) vault_url, key_name and key_version for ACI deployment
+  + **azureml-automl-core** 
+    + Enabled customized imputation with constant value for both X and y data forecasting tasks.
+    + Fixed the issue in with showing error messages to user.    
+  + **azureml-automl-runtime**
+    + Fixed the issue in with forecasting on the data sets, containing grains with only one row
+    + Decreased the amount of memory required by the forecasting tasks.
+    + Added better error messages if time column has incorrect format.
+    + Enabled customized imputation with constant value for both X and y data forecasting tasks.
+  + **azureml-core**
+    + Add support for loading ServicePrincipal from environment variables: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID, and AZUREML_SERVICE_PRINCIPAL_PASSWORD
+    + Introduced a new parameter `support_multi_line` to `Dataset.Tabular.from_delimited_files`: By default (`support_multi_line=False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to `True` when the delimited files are known to contain quoted line breaks.
+    + Added the ability to register ADLS Gen2 in the Azure Machine Learning CLI
+    + Renamed parameter 'fine_grain_timestamp' to 'timestamp' and parameter 'coarse_grain_timestamp' to 'partition_timestamp' for the with_timestamp_columns() method in TabularDataset to better reflect the usage of the parameters.
+    + Increased max experiment name length to 255.
+  + **azureml-interpret**
+    + Updated azureml-interpret to interpret-community 0.7.*
+  + **azureml-sdk**
+    + Changing to dependencies with compatible version Tilde for the support of patching in pre-release and stable releases.
+
+
 ## 2020-03-11
 
 ### Azure Machine Learning SDK for Python v1.1.5
@@ -640,7 +671,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
     + Renames AzureML-explain-model package to AzureML-interpret, keeping the old package for backwards compatibility for now.
     + fixed AutoML bug with raw explanations set to classification task instead of regression by default on download from ExplanationClient.
-    + Add support for [ScoringExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.scoring.scoring_explainer.scoringexplainer) to be created directly using [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
+    + Add support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) to be created directly using [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Improved performance for large Pipeline creation.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -889,7 +920,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
     +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
   + **azure-cli-ml**
-    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+    + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-automl-core**
     + Fixed an issue in AutoML where rows with missing labels were not removed properly.
     + Improved error logging in AutoML; full error messages will now always be written to the log file.
@@ -920,7 +951,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Supported importing HTTP csv/tsv files in dataset python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests using create() or get()/from_config() instead.
     + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages `whl`to the workspace and securely using them to build/materialize the environment.
-    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+    + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
     + Added `is_raw` tagging to explanations in memory and upload.

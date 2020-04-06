@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -48,9 +48,27 @@ To enable KMSI, set the content definition `DataUri` element to [page identifier
     </BuildingBlocks>
     ```
 
+## Add the metadata to the self-asserted technical profile
+
+To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enableRememberMe` metadata to false. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
+
+1. Find the ClaimsProviders element. If the element doesn't exist, add it.
+1. Add the following claims provider to the ClaimsProviders element:
+
+```XML
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+      <Metadata>
+        <Item Key="setting.enableRememberMe">True</Item>
+      </Metadata>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
 1. Save the extensions file.
-
-
 
 ## Configure a relying party file
 
@@ -103,7 +121,15 @@ We recommend that you set the value of SessionExpiryInSeconds to be a short peri
 </RelyingParty>
 ```
 
-4. Save your changes and then upload the file.
-5. To test the custom policy that you uploaded, in the Azure portal, go to the policy page, and then select **Run now**.
+## Test your policy
 
-You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
+1. Save your changes, and then upload the file.
+1. To test the custom policy you uploaded, in the Azure portal, go to the policy page, and then select **Run now**.
+1. Type your **username** and **password**, select **Keep me signed in**, and then click **sign-in**.
+1. Go back to the Azure portal. Go to the policy page, and then select **Copy** to copy the sign-in URL.
+1. In the browser address bar, remove the `&prompt=login` query string parameter, which forces the user to enter their credentials on that request.
+1. In the browser, click **Go**. Now Azure AD B2C will issue an access token without prompting you to sign-in again. 
+
+## Next steps
+
+Find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/31/2020
 ms.author: victorh
 ---
 
@@ -73,7 +73,7 @@ Azure Firewall is a managed service with multiple protection layers, including p
 
 ## How do I set up Azure Firewall with my service endpoints?
 
-For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
+For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.
 
 ## What is the pricing for Azure Firewall?
 
@@ -146,8 +146,12 @@ If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not co
 
 Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances may fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration may be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
 
-### How does Azure Firewall handle planned maintenance and unplanned failures?
+## How does Azure Firewall handle planned maintenance and unplanned failures?
 Azure Firewall consists of several backend nodes in an active-active configuration.  For any planned maintenance, we have connection draining logic to gracefully update nodes.  Updates are planned during non-business hours for each of the Azure regions to further limit risk of disruption.  For unplanned issues, we instantiate a new node to replace the failed node.  Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
+
+## How does connection draining work?
+
+For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. If needed, clients can automatically re-establish connectivity to another backend node.
 
 ## Is there a character limit for a firewall name?
 
@@ -169,13 +173,19 @@ Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out t
 
 It takes from five to seven minutes for Azure Firewall to scale out. Contact Support to increase your firewall's initial throughput capacity if you have bursts that require a faster autoscale.
 
+The following points should be taken into account when you test the firewall autoscale:
+
+- Single TCP flow performance is limited to 1.4 Gbps. So, a performance test needs to establish multiple TCP flows.
+- Performance tools must continuously establish new connections for them to connect with the scaled-up backend Firewall instances. If the test establishes connections once at the start, then those will only connect with the initial backend instances. Even though the firewall scales up, you won't see any increased performance because the connections are associated with the initial instances.
+
+
 ## Does Azure Firewall allow access to Active Directory by default?
 
 No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).
 
 ## Can I exclude a FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?
 
-Yes, you can use Azure PowerShell to do this:
+Yes, you can use Azure PowerShell to do it:
 
 ```azurepowershell
 # Add a Threat Intelligence Whitelist to an Existing Azure Firewall
@@ -194,3 +204,11 @@ $fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```
+
+## Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
+
+A TCP ping is not actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet and logs the connection. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
+
+## Are there limits for the number of IP addresses supported by IP Groups?
+
+Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

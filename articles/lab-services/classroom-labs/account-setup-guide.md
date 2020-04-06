@@ -27,7 +27,7 @@ To understand how to configure your lab account based on your school's needs, yo
 
 **Do I have access to an Azure subscription?**
 
-To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including Lab Accounts.  If you don't have a subscription, you should contact your account specialist to help with setting this up.
+To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including lab accounts.
 
 **How many lab accounts need to be created?**
 
@@ -87,7 +87,7 @@ Once you understand the requirements for your lab account, you are ready to set 
    - [Resource Group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
    - [Lab Account](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
    - [Classroom Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [Selecting a Region\Location](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+   - [Selecting a Region\Location](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
    - [Naming Guidance for Resources](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
 
 2. **Add users to the Lab Creator role**

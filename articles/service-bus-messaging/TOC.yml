@@ -20,6 +20,7 @@
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
       - name: ARM template
+        displayName: Resource Manager      
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:

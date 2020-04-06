@@ -190,7 +190,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.

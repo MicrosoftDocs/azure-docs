@@ -38,7 +38,7 @@ If you're deploying in a Cloud Solution Provider subscription, follow these step
 
 1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
 2. Open a text editor like Notepad and paste the link there.
-3. Right after "https://portal.azure.com/" and before the hashtag (#) enter an at sign (@) followed by the tenant domain name. Here's an example of the format you should use: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Right after "https://portal.azure.com/" and before the hashtag (#) enter an at sign (@) followed by the tenant domain name. Here's an example of the format you should use: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
 4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
 5. Paste the link you copied to the text editor into the address bar.
 

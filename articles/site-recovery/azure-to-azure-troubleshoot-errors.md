@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure VM replication in Azure Site Recovery 
+title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 author: rochakm
 manager: rochakm
@@ -35,7 +35,7 @@ If the target location has a capacity constraint, disable replication to it. The
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>Trusted root certificates (error code 151066)
 
-If not all the latest trusted root certificates are present on the VM, your "Enable replication" Site Recovery job might fail. Authentication and authorization of Site Recovery service calls from the VM fail without these certificates. 
+If not all the latest trusted root certificates are present on the VM, your "Enable replication" Site Recovery job might fail. Authentication and authorization of Site Recovery service calls from the VM fail without these certificates.
 
 If the "Enable replication" job fails, the following message appears:
 
@@ -159,78 +159,61 @@ Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
-For Site Recovery replication to work, outbound connectivity is required from the VM to specific URLs or IP ranges. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
+For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. Please note that while we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register the Azure virtual machine with Site Recovery (error code 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
+- **Possible cause** </br>
+  - Connection cannot be established to Site Recovery endpoints due to DNS resolution failure.
+  - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
 
-#### Possible cause 
+- **Resolution**
+   - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
 
-The connection to Site Recovery endpoints can't be established because of a DNS resolution failure.
-
-This problem happens most frequently during reprotection, when you have failed over the virtual machine but the DNS server is not reachable from the disaster-recovery (DR) region.
-
-#### Fix the problem
-
-If you're using a custom DNS, make sure that the DNS server is accessible from the disaster-recovery region. To find out whether you have a custom DNS, on the VM, go to *disaster recovery network* > **DNS servers**.
-
-![Custom DNS server list](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
-
-Try accessing the DNS server from the virtual machine. If the server is not accessible, make it accessible either by failing over the DNS server or by creating the line of site between the DR network and the DNS.
-
-### Issue 2: Site Recovery configuration failed (error code 151196)
-
-#### Possible cause
-
-The connection to Office 365 authentication and identity IP4 endpoints can't be established.
-
-#### Fix the problem
-
-Site Recovery requires access to Office 365 IP ranges for authentication.
-If you're using Azure NSG rules or firewall proxy to control outbound network connectivity on the VM, be sure you allow communication to Office 365 IP ranges. Create an NSG rule based on an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags), allowing access to all IP addresses corresponding to Azure AD. If new addresses are added to Azure AD in the future, you must create new NSG rules.
-
-> [!NOTE]
-> If VMs are behind a *Standard* internal load balancer, the load balancer by default does not have access to Office 365 IP ranges (that is, login.microsoftonline.com). Either change the internal load balancer type to *Basic* or create outbound access as described in the article [Configure load balancing and outbound rules](https://aka.ms/lboutboundrulescli).
-
-### Issue 3: Site Recovery configuration failed (error code 151197)
-
-#### Possible cause
-
-The connection can't be established to Site Recovery service endpoints.
-
-#### Fix the problem
-
-Site Recovery requires access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), depending on the region. Make sure that the required IP ranges are accessible from the virtual machine.
-
-### Issue 4: Azure-to-Azure replication failed when the network traffic goes through an on-premises proxy server (error code 151072)
-
-#### Possible cause
-
-The custom proxy settings are invalid, and the Site Recovery Mobility Service agent did not auto-detect the proxy settings from Internet Explorer.
-
-#### Fix the problem
-
-The Mobility Service agent detects the proxy settings from Internet Explorer on Windows and from /etc/environment on Linux.
-
-If you prefer to set the proxy only for the Mobility Service, you can provide the proxy details in the ProxyInfo.conf file in these locations:
-
-- **Linux**: /usr/local/InMage/config/
-- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
-
-In ProxyInfo.conf, provide the proxy settings in the following initialization-file format:
-
-> [*proxy*]
-
-> Address=*http://1.2.3.4*
-
-> Port=*567*
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-> [!NOTE]
-> The Site Recovery Mobility Service agent supports only *un-authenticated proxies*.
+### Issue 2: Site Recovery configuration failed (151196)
+- **Possible cause** </br>
+  - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
+
+- **Resolution**
+  - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
+    If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+
+
+### Issue 3: Site Recovery configuration failed (151197)
+- **Possible cause** </br>
+  - Connection cannot be established to Azure Site Recovery service endpoints.
+
+- **Resolution**
+  - If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use service tags. We no longer support using an allow list of IP addresses via NSGs for Azure Site Recovery (ASR).
+
+
+### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
+ - **Possible cause** </br>
+   - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
+
+
+ - **Resolution**
+   1.    Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+       - ``/usr/local/InMage/config/`` on ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+   3.    The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+   4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+
+
+### Fix the problem
+
+To add [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) to an allow list, follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+
 
 ### More information
 
-To specify [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the guidance in [About networking in Azure to Azure replication](site-recovery-azure-to-azure-networking-guidance.md).
+To specify [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the guidance in [About networking in Azure to Azure replication](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
@@ -507,7 +490,7 @@ The Site Recovery Mobility Service has many components, one of which is called t
 > [!NOTE]
 > This is only a warning. Existing replication continues to work even after the new agent update. You can choose to restart whenever you want the benefits of the new filter driver, but the old filter driver keeps working if you don't restart.
 >
-> Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility Service update take effect without requiring a restart.  
+> Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility Service update take effect without requiring a restart.
 
 ## Protection couldn't be enabled because the replica managed disk already exists, without expected tags, in the target resource group (error code 150161)
 

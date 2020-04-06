@@ -63,4 +63,12 @@ No component version change for this release. You could find the current compone
 
 ## Known issues
 
-As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when performing service management operations such as create or scale for resources hosted in these regions. Engineers are aware of this issue and are actively investigating. 
+As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when creating or scaling HDInsight clusters in these regions. Errors related to this issue include:
+
+- Internal server error occurred while processing the request. Please retry the request or contact support.
+- At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details
+- User SubscriptionId '\<Subscription ID\>' does not have cores left to create resource '\<cluster name>'. Required: \<X\>, Available: 0.
+
+Engineers are aware of this issue and are actively investigating.
+
+For additional help, create a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
