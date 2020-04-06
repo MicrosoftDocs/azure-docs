@@ -28,15 +28,25 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 
 You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environments to leverage the full chat and collaboration features of Microsoft Teams as well as audio calling. Audio quality in calls will vary based on your host configuration because unoptimized calls use more of your host CPU.
 
+### Prepare your image for Teams
+
+To enable Teams per-machine installation, set the following registry key on the host:
+
+```shell
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
+  Type: REG_DWORD
+  Value: 0x1
+```
+
 ### Install Microsoft Teams
 
-To install Microsoft Teams in your Windows Virtual Desktop environment:
+You can deploy the Teams desktop app using a per-machine installation. To install Microsoft Teams in your Windows Virtual Desktop environment:
 
 1. Download the [Teams MSI package](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 2. Run this command to install the MSI to the host VM.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
       ```
 
       This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the app will ask for your credentials.
@@ -51,4 +61,4 @@ To install Microsoft Teams in your Windows Virtual Desktop environment:
       ```
 
       > [!NOTE]
-      > If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month.
+      > If you install Teams with the MSI setting ALLUSERS=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month.

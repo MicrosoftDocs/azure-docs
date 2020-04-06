@@ -13,11 +13,12 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Troubleshooting Synapse SQL pool in Azure Synapse Analytics
+# Troubleshooting SQL Analytics in Azure Synapse
 
 This article lists common troubleshooting question.
 
 ## Connecting
+
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) | This error occurs when an Azure AD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the SQL pool you wish to connect to at connection time or add the user to the master database.  See [Security overview](sql-data-warehouse-overview-manage-security.md) article for more details. |
@@ -27,6 +28,7 @@ This article lists common troubleshooting question.
 | Cannot connect with tool or driver                           | Synapse SQL pool recommends using [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), [SSDT for Visual Studio](sql-data-warehouse-install-visual-studio.md), or [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) to query your data. For more information on drivers and connecting to Azure Synapse, see [Drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) and [Connect to Azure Synapse](sql-data-warehouse-connect-overview.md) articles. |
 
 ## Tools
+
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing Azure AD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  See [Authentication to Azure Synapse](sql-data-warehouse-authentication.md) to learn more about using Azure Active Directory with Synapse SQL pool. |
@@ -34,6 +36,7 @@ This article lists common troubleshooting question.
 | Generate scripts fails in SSMS                               | Generating a script for Synapse SQL pool fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to **Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false** |
 
 ## Performance
+
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Query performance troubleshooting                            | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
@@ -45,15 +48,16 @@ This article lists common troubleshooting question.
 | Poor query performance as a result of poor index quality     | Some times queries can slow down because of [Poor columnstore index quality](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  See this article for more information and how to [Rebuild indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## System management
+
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. | Either reduce the [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) of the database you are trying to create or [request a quota increase](sql-data-warehouse-get-started-create-support-ticket.md). |
-| Investigating space utilization                              | See [Table sizes]( ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) to understand the space utilization of your system. |
+| Investigating space utilization                              | See [Table sizes](sql-data-warehouse-tables-overview.md#table-size-queries) to understand the space utilization of your system. |
 | Help with managing tables                                    | See the [Table overview](sql-data-warehouse-tables-overview.md) article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types](sql-data-warehouse-tables-data-types.md), [Distributing a table](sql-data-warehouse-tables-distribute.md), [Indexing a table](sql-data-warehouse-tables-index.md),  [Partitioning a table](sql-data-warehouse-tables-partition.md), [Maintaining table statistics](sql-data-warehouse-tables-statistics.md) and [Temporary tables](sql-data-warehouse-tables-temporary.md). |
 | Transparent data encryption (TDE) progress bar is not updating in the Azure portal | You can view the state of TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-
 ## Differences from SQL Database
+
 | Issue                                 | Resolution                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | Unsupported SQL Database features     | See [Unsupported table features](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
@@ -64,6 +68,7 @@ This article lists common troubleshooting question.
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) for the syntax we support. |
 
 ## Next steps
+
 For more help in finding solution to your issue, here are some other resources you can try.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
