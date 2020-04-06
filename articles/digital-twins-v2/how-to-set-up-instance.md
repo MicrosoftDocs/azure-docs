@@ -28,7 +28,7 @@ In order to complete these steps, you should first have:
 
 ## Prepare
 
-Install the Azure CLI extensions for Azure Digital Twins. For instructions on how to do this, see [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
+Install the Azure CLI extensions for Azure Digital Twins. During public preview, this is done by running `az extension add --name azure-iot`.
 
 ## Create an Azure Digital Twins instance
 
