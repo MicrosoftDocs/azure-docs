@@ -17,7 +17,7 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 
 Then, insert sample user data with the following commands:
 
-```
+```shell
 insert into sampleks.t1(user_id,lastname) values (1, 'nishu');
 insert into sampleks.t1(user_id,lastname) values (2, 'vinod');
 insert into sampleks.t1(user_id,lastname) values (3, 'bat');
