@@ -109,6 +109,7 @@
     - name: Troubleshoot template deployment
       href: template-tutorial-troubleshoot.md
   - name: Deployment manager
+    items:
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
