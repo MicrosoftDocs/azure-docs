@@ -425,8 +425,8 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
      assigning the blueprint has permissions to.
 
      > [!IMPORTANT]
-     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning
-     > sufficient roles and permissions or the blueprint assignment will fail.
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
+     > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
 ## Clean up resources
 

@@ -293,7 +293,9 @@ def download_file_from_directory():
 
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        downloaded_bytes = file_client.read_file()
+        download = file_client.download_file()
+
+        downloaded_bytes = download.readall()
 
         local_file.write(downloaded_bytes)
 
