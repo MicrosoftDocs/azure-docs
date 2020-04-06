@@ -130,6 +130,16 @@
       }
     },
     "fileMetadata": {
+      "uhfHeaderId": {
+        "articles/active-directory/**/*.md": "azure",
+        "articles/active-directory/**/*.yml": "azure",
+        "articles/active-directory-domain-services/**/*.md": "azure",
+        "articles/active-directory-domain-services/**/*.yml": "azure",
+        "articles/active-directory-b2c/**/*.md": "azure",
+        "articles/active-directory-b2c/**/*.yml": "azure",
+        "articles/storage/**/*.md": "azure",
+        "articles/storage/**/*.yml": "azure"
+      },
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
@@ -398,7 +408,8 @@
         "articles/migrate/**/*.md": "carmonm",
         "articles/batch/**/*.md": "gwallace",
         "articles/virtual-machines/**/*.md": "gwallace",
-        "articles/virtual-machine-scale-sets/**/*.md": "gwallace"
+        "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
+		"articles/remote-rendering/**/*.md": "jlyons"
    },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
@@ -508,7 +519,8 @@
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
-        "articles/aks/**/*.md": "container-service"
+        "articles/aks/**/*.md": "container-service",
+	"articles/remote-rendering/**/*.md": "azure-remote-rendering"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -653,7 +665,9 @@
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
         "articles/service-fabric/*.md": "Azure Service Fabric",
         "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
-        "articles/aks/**/*.md": "Azure Kubernetes Service"
+        "articles/aks/**/*.md": "Azure Kubernetes Service",
+        "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
+        "articles/remote-rendering/**/*.yml": "Azure Remote Rendering"
       },
       "featureFlags": {
         "articles/**/*.md": [

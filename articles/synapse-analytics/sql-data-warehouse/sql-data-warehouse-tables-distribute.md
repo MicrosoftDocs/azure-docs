@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 Recommendations for designing hash-distributed and round-robin distributed tables in Synapse SQL pools.
 
-This article assumes you are familiar with data distribution and data movement concepts in Synapse SQL pool.  For more information, see [Azure Synapse Analytics massively parallel processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
+This article assumes you are familiar with data distribution and data movement concepts in Synapse SQL pool.  For more information, see [Azure Synapse Analytics massively parallel processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md).
 
 ## What is a distributed table?
 
@@ -25,33 +25,32 @@ A distributed table appears as a single table, but the rows are actually stored 
 
 **Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md).
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
-- How large is the table?   
-- How often is the table refreshed?   
-- Do I have fact and dimension tables in a Synapse SQL pool?   
-
+- How large is the table?
+- How often is the table refreshed?
+- Do I have fact and dimension tables in a Synapse SQL pool?
 
 ### Hash distributed
 
-A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions). 
+A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions).
 
 ![Distributed table](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distributed table")  
 
-Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. In Synapse SQL pool this knowledge is used to minimize data movement during queries, which improves query performance. 
+Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. In Synapse SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
 
-Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article. 
+Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article.
 
 Consider using a hash-distributed table when:
 
 - The table size on disk is more than 2 GB.
-- The table has frequent insert, update, and delete operations. 
+- The table has frequent insert, update, and delete operations.
 
 ### Round-robin distributed
 
-A round-robin distributed table distributes table rows evenly across all distributions. The assignment of rows to distributions is random. Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution. 
+A round-robin distributed table distributes table rows evenly across all distributions. The assignment of rows to distributions is random. Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution.
 
 As a result, the system sometimes needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries. For example, joining a round-robin table usually requires reshuffling the rows, which is a performance hit.
 
@@ -66,11 +65,11 @@ Consider using the round-robin distribution for your table in the following scen
 
 The tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
 
-
 ## Choosing a distribution column
+
 A hash-distributed table has a distribution column that is the hash key. For example, the following code creates a hash-distributed table with ProductKey as the distribution column.
 
-```SQL
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -86,12 +85,13 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-``` 
+```
 
-Choosing a distribution column is an important design decision since the values in this column determine how the rows are distributed. The best choice depends on several factors, and usually involves tradeoffs. However, if you don't choose the best column the first time, you can use [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to re-create the table with a different distribution column. 
+Choosing a distribution column is an important design decision since the values in this column determine how the rows are distributed. The best choice depends on several factors, and usually involves tradeoffs. However, if you don't choose the best column the first time, you can use [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to re-create the table with a different distribution column.
 
 ### Choose a distribution column that does not require updates
-You cannot update a distribution column unless you delete the row and insert a new row with the updated values. Therefore, select a column with static values. 
+
+You cannot update a distribution column unless you delete the row and insert a new row with the updated values. Therefore, select a column with static values.
 
 ### Choose a distribution column with data that distributes evenly
 
@@ -103,8 +103,8 @@ For best performance, all of the distributions should have approximately the sam
 To balance the parallel processing, select a distribution column that:
 
 - **Has many unique values.** The column can have some duplicate values. However, all rows with the same value are assigned to the same distribution. Since there are 60 distributions, the column should have at least 60 unique values.  Usually the number of unique values is much greater.
-- **Does not have NULLs, or has only a few NULLs.** For an extreme example, if all values in the column are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing. 
-- **Is not a date column**. All data for the same date lands in the same distribution. If several users are all filtering on the same date, then only 1 of the 60 distributions do all the processing work. 
+- **Does not have NULLs, or has only a few NULLs.** For an extreme example, if all values in the column are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing.
+- **Is not a date column**. All data for the same date lands in the same distribution. If several users are all filtering on the same date, then only 1 of the 60 distributions do all the processing work.
 
 ### Choose a distribution column that minimizes data movement
 
@@ -113,20 +113,22 @@ To get the correct query result queries might move data from one Compute node to
 To minimize data movement, select a distribution column that:
 
 - Is used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, and `HAVING` clauses. When two large fact tables have frequent joins, query performance improves when you distribute both tables on one of the join columns.  When a table is not used in joins, consider distributing the table on a column that is frequently in the `GROUP BY` clause.
-- Is *not* used in `WHERE` clauses. This could narrow the query to not run on all the distributions. 
+- Is *not* used in `WHERE` clauses. This could narrow the query to not run on all the distributions.
 - Is *not* a date column. WHERE clauses often filter by date.  When this happens, all the processing could run on only a few distributions.
 
 ### What to do when none of the columns are a good distribution column
 
 If none of your columns have enough distinct values for a distribution column, you can create a new column as a composite of one or more values. To avoid data movement during query execution, use the composite distribution column as a join column in queries.
 
-Once you design a hash-distributed table, the next step is to load data into the table.  For loading guidance, see [Loading overview](design-elt-data-loading.md). 
+Once you design a hash-distributed table, the next step is to load data into the table.  For loading guidance, see [Loading overview](design-elt-data-loading.md).
 
 ## How to tell if your distribution column is a good choice
-After data is loaded into a hash-distributed table, check to see how evenly the rows are distributed across the 60 distributions. The rows per distribution can vary up to 10% without a noticeable impact on performance. 
+
+After data is loaded into a hash-distributed table, check to see how evenly the rows are distributed across the 60 distributions. The rows per distribution can vary up to 10% without a noticeable impact on performance.
 
 ### Determine if the table has data skew
-A quick way to check for data skew is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). The following SQL code returns the number of table rows that are stored in each of the 60 distributions. For balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
+
+A quick way to check for data skew is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). The following SQL code returns the number of table rows that are stored in each of the 60 distributions. For balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
 
 ```sql
 -- Find data skew for a distributed table
@@ -154,6 +156,7 @@ order by two_part_name, row_count
 ```
 
 ### Check query plans for data movement
+
 A good distribution column enables joins and aggregations to have minimal data movement. This affects the way joins should be written. To get minimal data movement for a join on two hash-distributed tables, one of the join columns needs to be the distribution column.  When two hash-distributed tables join on a distribution column of the same data type, the join does not require data movement. Joins can use additional columns without incurring data movement.
 
 To avoid data movement during a join:
@@ -165,8 +168,8 @@ To avoid data movement during a join:
 
 To see if queries are experiencing data movement, you can look at the query plan.  
 
-
 ## Resolve a distribution column problem
+
 It is not necessary to resolve all cases of data skew. Distributing data is a matter of finding the right balance between minimizing data skew and data movement. It is not always possible to minimize both data skew and data movement. Sometimes the benefit of having the minimal data movement might outweigh the impact of having data skew.
 
 To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload. You can use the steps in the [Query monitoring](sql-data-warehouse-manage-monitor.md) article to monitor the impact of skew on query performance. Specifically, look for how long it takes large queries to complete on individual distributions.
@@ -174,7 +177,8 @@ To decide if you should resolve data skew in a table, you should understand as m
 Since you cannot change the distribution column on an existing table, the typical way to resolve data skew is to re-create the table with a different distribution column.  
 
 ### Re-create the table with a new distribution column
-This example uses [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) to re-create a table with a different hash distribution column.
+
+This example uses [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to re-create a table with a different hash distribution column.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -216,7 +220,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 To create a distributed table, use one of these statements:
 
-- [CREATE TABLE (Synapse SQL pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Synapse SQL pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
-
-
+- [CREATE TABLE (Synapse SQL pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (Synapse SQL pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
