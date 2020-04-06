@@ -3,8 +3,6 @@ title: Send related messages in order by using a sequential convoy
 description: Deliver correlated messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
 services: logic-apps
 ms.suite: integration
-author: 
-ms.author: 
 ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/10/20
@@ -138,16 +136,14 @@ Here is the top-level flow in the `Try` scope action when the details are collap
 | (parallel branch) | This action creates two paths: <p><p>- Branch #1: Continue processing the message. <p><p>- Branch #2: Abandon the message if anything goes wrong, and release for pickup by another trigger run. <p><p>Both paths join up later in the **Close session in a queue** action. |
 |||
 
-### Branch #1: Continue processing message
+### Branch #1: Continue processing messages
 
 | Name | Description |
 |------|-------------|
 | `Complete initial message in queue` | This Service Bus **Complete the message in a queue** action marks a successfully retrieved message as complete and removes the message from the queue to prevent reprocessing. |
-| `While there are more messages for the session in the queue` | This **Until** loop |
-| `Renew session lock until cancelled` | This **Until** loop |
-|||
-|||
-| `Close a session in a queue and succeed` | |
+| `While there are more messages for the session in the queue` | This **Until** loop runs these actions: <p><p>- Continue to get messages from the queue while messages exist or until one hour passes. To change the loop's time limit, edit the loop's **Timeout** property. By default, the maximum number of messages is set to `175`. However, this limit is affected by the message size and maximum message size property for the service bus, currently 256K for Standard and 1MB for Premium. <p>- Check the number of messages returned. If this number is 0, set the `isDone` value to `True` because no messages remain. Otherwise, process the message. |
+| `Renew session lock until cancelled` | This **Until** loop makes sure that the session lock is held by this logic app while messages exist or for 1 hour. To change the loop's time limit, edit the loop's **Timeout** property. |
+| `Close a session in a queue and succeed` | Complete the session for the queue and return |
 |||
 
   * **** action
@@ -195,6 +191,17 @@ To provide the values for the trigger and actions in the **Correlated in-order d
 
    For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
 
-   After initializing the session, the workflow instance now performs the initial read on the message.
+   After initializing the session, the workflow uses the **Initialize variable** action to create a variable that tracks whether the next Service Bus action finishes reading messages in the queue and set the variable's Boolean value is set to `false`.
 
-1. In the 
+   !["Initialize Variable" action details for "Init isDone"](./media/send-related-messages-sequential-convoy/init-is-done-variable.png)
+
+   In the **Try** section, the workflow instance performs these actions on the first message that's read.
+
+   The **Send initial message to topic** action sends the message to a topic that's specified by the **SessionId** property. That way, all the messages that are associated with a specific session go to the same topic.
+
+   ![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
+
+1. In the **Complete the message in a queue** action, provide this information.
+
+   open the *Add new parameter** list, and select **SessionId**. 
+
