@@ -98,7 +98,7 @@ To create an image version from the VM, use `$vm.Id.ToString()` for the `-Source
    $region2 = @{Name='East US';ReplicaCount=2}
    $targetRegions = @($region1,$region2)
 
-$imageVersion = New-AzGalleryImageVersion `
+$job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $imageDefinition.Name`
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `

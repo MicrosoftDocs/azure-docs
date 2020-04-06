@@ -19,11 +19,51 @@ An **image version** is what you use to create a VM when using a Shared Image Ga
 
 ## Before you begin
 
-To complete this article, you must have an existing [Shared Image Gallery and an image definition](./windows/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
-
 To complete the example in this article, you must have an existing managed image. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource group and VM names where needed.
+
+## Get the gallery
+
+You can list all of the galleries and image definitions by name.
+
+```azurepowershell-interactive
+Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
+```
+
+Once you find the right gallery and image definitions, create variables for them to use later. This example gets the gallery named *myGallery* in the *myResourceGroup* resource group.
+
+```azurepowershell-interactive
+$gallery = Get-AzGallery `
+   -Name myGallery `
+   -ResourceGroupName myResourceGroup
+```
+
+
+## Create an image definition 
+
+Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
+
+When making your image definition, make sure is has all of the correct information. Because managed images are always generalized, you should set `-OsState generalized`. 
+
+For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
+
+```azurepowershell-interactive
+$imageDefinition = New-AzGalleryImageDefinition `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $gallery.ResourceGroupName `
+   -Location $gallery.Location `
+   -Name 'myImageDefinition' `
+   -OsState specialized `
+   -OsType Windows `
+   -Publisher 'myPublisher' `
+   -Offer 'myOffer' `
+   -Sku 'mySKU'
+```
+
+
 
 ## Get the managed image
 
@@ -34,29 +74,7 @@ $managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
-## Get the gallery and image definition
 
-You can list all of the galleries and image definitions by name.
-
-```azurepowershell-interactive
-$galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
-$galleries.Name
-
-$imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
-$imageDefinitions.Name
-```
-
-Once you find the right gallery and image definitions, create variables for them to use later.
-
-```azurepowershell-interactive
-$gallery = Get-AzGallery `
-   -Name myGallery `
-   -ResourceGroupName myResourceGroup
-$imageDef = Get-AzGalleryImageDefinition `
-   -GalleryName myGallery `
-   -ResourceGroupName myGalleryRG `
-   -Name myImageDefinition
-```
 
 ## Create an image version
 
@@ -71,18 +89,23 @@ In this example, the image version is *1.0.0* and it's replicated to both *West 
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$imageVersion = New-AzGalleryImageVersion `
-   -GalleryImageDefinitionName $galleryImage.Name `
+$job = $imageVersion = New-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $imageDefinition `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01' 
+   -PublishingProfileEndOfLifeDate '2020-12-31' `
+   -asJob 
 ```
 
-It can take a while to replicate the image to all of the target regions.
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
+
+```azurepowershell-interactive
+$job.State
+```
 
 
 > [!NOTE]
@@ -91,6 +114,17 @@ It can take a while to replicate the image to all of the target regions.
 > You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
-## Next steps
+## Delete the managed image
 
 Once you have verified that you new image version is working correctly, you can delete the managed image.
+
+```azurepowershell-interactive
+Remove-AzImage `
+   -ImageName $managedImage.Name `
+   -ResourceGroupName $managedImage.ResourceGroupName
+```
+
+## Next steps
+
+Once you have verified is complete, you can create a VM from the [generalized image version](vm-generalized-image-version-powershell.md).
+
