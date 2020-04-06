@@ -4,7 +4,7 @@ description: Azure Security Baseline for Windows Virtual Machines
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -400,9 +400,8 @@ Information on Privileged Identity Manager: https://docs.microsoft.com/azure/act
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1838).
 
-**Guidance**: &lt;---------NEED Verification------------&gt;
+**Guidance**: Azure Windows Virtual Machine does not have the concept of default passwords.  Customer responsible for third party applications and marketplace services that may use default passwords.
 
-Azure Active Directory does not have the concept of default passwords.  Customer responsible for third party applications and marketplace services that may use default passwords.
 
 
 **Azure Security Center monitoring**: Not available
@@ -1364,7 +1363,7 @@ How to restore key vault keys in Azure:  https://docs.microsoft.com/powershell/m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1897).
 
-**Guidance**: When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption.  Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Customer to enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.   
+**Guidance**: When you back up Azure managed disks with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption.  Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.   
 
 Soft delete for VMs :   https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete
 

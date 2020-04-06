@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -310,7 +310,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 **Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. 
 In Azure Storage, the logs are stored in blobs that must be accessed directly at: 
-http://AccountName.blob.core.windows.net/$logs 
+http://accountname.blob.core.windows.net/$logs 
 (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
 
 For detailed information on Log data and how to review:
@@ -424,7 +424,7 @@ Authorizing access to data in Azure Storage:
 https://docs.microsoft.com/azure/storage/common/storage-auth
 
 Understanding security principals and access control for Azure Storage account:
-https://docs.microsoft.com//azure/storage/common/storage-introduction
+https://docs.microsoft.com/azure/storage/common/storage-introduction
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -787,7 +787,7 @@ Authorizing access to data in Azure Storage https://docs.microsoft.com/azure/sto
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3754).
 
-**Guidance**: Azure Storage encryption is enabled for all storage accounts and cannot be disabled. Azure Storage automatically encrypts your data when it is persisted it to the cloud. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. Azure Storage encryption enables you to secure your data without having to modify code or add code to any applications. 
+**Guidance**: Azure Storage encryption is enabled for all storage accounts and cannot be disabled. Azure Storage automatically encrypts your data when it is persisted to the cloud. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. Azure Storage encryption enables you to secure your data at rest without having to modify code or add code to any applications. 
 
 Understanding Azure Storage encryption at rest:
 https://docs.microsoft.com/azure/storage/common/storage-service-encryption

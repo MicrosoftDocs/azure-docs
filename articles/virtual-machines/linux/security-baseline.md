@@ -4,7 +4,7 @@ description: Azure Security Baseline for Linux Virtual Machines
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1287,7 +1287,7 @@ How to restore key vault keys in Azure:  https://docs.microsoft.com/powershell/m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1987).
 
-**Guidance**: When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption.  Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Customer to enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.   
+**Guidance**: When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption.  Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.   
 Soft delete for VMs :   https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete
 
 Azure Key Vault soft-delete overview:  https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
