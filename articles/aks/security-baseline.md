@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Kubernetes Service
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
