@@ -43,7 +43,7 @@ You can perform the following operations with node pools:
 
 ## Create a new AKS cluster with a system node pool
 
-When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of system. When you create new node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
+When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -59,7 +59,7 @@ az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-s
 
 ## Add a system node pool to an existing AKS cluster
 
-You can add one or more system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes.
+You can add one or more system node pools to existing AKS clusters. The following command adds a node pool of mode type system with a default count of three nodes.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
@@ -72,7 +72,7 @@ You can check the details of your node pools with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-You see output returned similar to what is displayed below, and you can check the mode for your node pool. A mode of **System** is defined for system node pools, and a mode of **User** is defined for user node pools.
+You see output returned similar to what is displayed below, and you can check the mode for your node pool. A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools.
 
 ```output
 {
