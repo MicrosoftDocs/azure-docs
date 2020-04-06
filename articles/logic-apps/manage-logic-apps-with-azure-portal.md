@@ -8,7 +8,7 @@ ms.author: ladolan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/01/2020
+ms.date: 04/06/2020
 ---
 
 # Manage logic apps in the Azure portal
@@ -175,4 +175,4 @@ Deleting your logic app affects your workflow instances in these ways:
 
 ## Next steps
 
-* [Monitor logic apps](logic-apps/monitor-logic-apps.md)
+* [Monitor logic apps](monitor-logic-apps.md)
