@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ---
-
+<!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # Understand IoT Hub metrics
 
-IoT Hub metrics give you better data about the state of the Azure IoT resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the IoT Hub service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
+IoT Hub metrics give you information about the state of the Azure IoT resources in your Azure subscription. IoT Hub metrics help you assess the overall health of the IoT Hub service and the devices connected to it. These user-facing statistics help you see what is going on with your IoT hub and help perform root-cause analysis on issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
