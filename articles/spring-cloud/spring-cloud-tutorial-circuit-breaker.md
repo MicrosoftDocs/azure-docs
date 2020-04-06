@@ -33,7 +33,7 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## Provision your Azure Spring Cloud instance
-Follow the procedure as described in [Provision a service instance on the Azure CLI](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli).
+Follow the procedure as described in [Provision a service instance on the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli).
 
 ## Deploy your applications to Azure Spring Cloud
 These apps do not use Config Server, so there is no need to set up **Config Server** for Azure Spring Cloud.  Deploy as follows:
@@ -74,4 +74,4 @@ Hystrix metrics streams are also accessible from test-endpoint. As backend servi
 As a web app, Hystrix dashboard should be working on test endpoint. If it is not working properly, there may be two reasons: First, using test endpoint will change the base URL from `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on test endpoint, you might need to manually edit the <base>in the front-end files.
 
 ## See also
-* (https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
+* [Provision a service instance on the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
