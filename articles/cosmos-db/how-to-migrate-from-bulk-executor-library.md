@@ -4,7 +4,7 @@ description: Learn how to migrate your application from using the bulk executor 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
 ---
 
