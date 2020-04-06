@@ -50,7 +50,7 @@ CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)
 
 Use the index name to drop the index as below;
 
-```
+```shell
 drop index sampleks.t1_lastname_idx;
 ```
 
