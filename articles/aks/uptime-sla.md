@@ -8,7 +8,7 @@ ms.date: 03/11/2020
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-Uptime SLA is an optional feature to enable financially backed higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for AZ enabled clusters and 99.9% of availability for clusters with no availability zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
+Uptime SLA is an optional feature to enable financially backed higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zone][availability-zones] and 99.9% of availability for clusters that don't use availability zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
 Customers needing SLA for compliance reasons or extending SLA's to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availability Zones to obtain higher availability of the Kubernetes API server.  
 
@@ -16,6 +16,10 @@ Customers can create unlimited free clusters with a service level objective (SLO
 
 > [!Important]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports for Uptime SLA.
+
+## SLA terms and conditions
+
+Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Region Availability
 
@@ -28,13 +32,9 @@ Uptime SLA is available in the following regions:
 * SOUTH CENTRAL US
 * WEST US2
 
-## Prerequisites
+## Before you begin
 
 * The Azure CLI version 2.7.0 or later
-
-## SLA terms and conditions
-
-Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Creating a cluster with Uptime SLA
 
