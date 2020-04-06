@@ -49,25 +49,6 @@ Use the [az aks create][az-aks-create] command to create an AKS cluster. The fol
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --mode system
 ```
 
-## Connect to the cluster
-
-To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
-
-```azurecli
-az aks install-cli
-```
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
-
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup -n myAKSCluster
-```
-
-To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
-
-```azurecli-interactive
-kubectl get nodes
-```
-
 ## Add a system node pool to an existing AKS cluster
 
 You can add system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes.
@@ -135,7 +116,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 ## Delete a system node pool
 
 > [!Note]
-> To migrate earlier versions of an AKS cluster to use system node pools, add a system node pool, then delete the default node pool.
+> To migrate versions of an AKS cluster prior to API version 2020-03-01 to use system node pools, add a system node pool, then delete the default node pool.
 
 Previously you could not delete the initial default node pool in an AKS cluster. With system node pools, you have the flexibility to delete any node pool from your clusters. You need to ensure you have at least two system node pools so you can delete one of them.
 
