@@ -768,4 +768,4 @@ CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NOR
 
 ## Next steps
 
-For further query performance improvements, see [Best practices for SQL pool](../sql-analytics/best-practices-sql-pool.md#maintain-statistics).
+For further query performance improvements, see [Best practices for SQL pool](best-practices-sql-pool.md#maintain-statistics).

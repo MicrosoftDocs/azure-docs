@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # Connect to SQL Analytics with sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (preview)](../sql-analytics/get-started-azure-data-studio.md)
+> * [Azure Data Studio (preview)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)

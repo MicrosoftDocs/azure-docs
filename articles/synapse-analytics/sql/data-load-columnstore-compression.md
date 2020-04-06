@@ -140,5 +140,5 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
-To find more ways to improve performance in SQL Analytics, see the [Performance overview](../../cosmos-db/cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To find more ways to improve performance in SQL Analytics, see the [Performance overview](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

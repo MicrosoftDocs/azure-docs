@@ -16,7 +16,7 @@ ms.reviewer: jrasnick, carlrab
 
 > [!div class="op_single_selector"]
 >
-> - [Azure Data Studio](../sql-analytics/get-started-azure-data-studio.md)
+> - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
 > - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
@@ -105,4 +105,4 @@ Write URL for the database and name of the database where view is residing.
 
 Advance to the next article to learn how to connect to SQL on-demand using Azure Data Studio.
 > [!div class="nextstepaction"]
-> [Query storage files](../sql-analytics/get-started-azure-data-studio.md)
+> [Query storage files](get-started-azure-data-studio.md)

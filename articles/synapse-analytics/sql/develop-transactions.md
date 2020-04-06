@@ -176,7 +176,7 @@ All that has changed is that the ROLLBACK of the transaction had to happen befor
 
 ## Error_Line() function
 
-It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](../sql-data-warehouse/develop-label.md) article.
+It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](develop-label.md) article.
 
 ## Using THROW and RAISERROR
 

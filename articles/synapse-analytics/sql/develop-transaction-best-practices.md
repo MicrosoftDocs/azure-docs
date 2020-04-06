@@ -413,5 +413,5 @@ The best scenario is to let in flight data modification transactions complete pr
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL pool best practices](../sql-analytics/best-practices-sql-pool.md).
+See [Transactions in SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL pool best practices](best-practices-sql-pool.md).
 

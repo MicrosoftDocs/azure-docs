@@ -26,8 +26,8 @@ All of the above variations will be covered below.
 
 Before reading the rest of this article, review the following articles:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Windows style new line
 
@@ -231,5 +231,5 @@ WITH (
 
 The next articles will show you how to:
 > [!div class="nextstepaction"]
-> [Querying Parquet files](../sql-analytics/query-parquet-files.md)
-> [Querying folders and multiple files](../sql-analytics/query-folders-multiple-csv-files.md)
+> [Querying Parquet files](query-parquet-files.md)
+> [Querying folders and multiple files](query-folders-multiple-csv-files.md)

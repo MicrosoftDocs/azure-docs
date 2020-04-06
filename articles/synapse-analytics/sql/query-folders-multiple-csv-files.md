@@ -21,8 +21,8 @@ SQL on-demand supports reading multiple files/folders by using wildcards, which 
 
 Before reading the rest of this article, make sure to review the articles listed below:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Read multiple files in folder
 

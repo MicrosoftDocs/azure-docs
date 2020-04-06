@@ -119,4 +119,4 @@ If more granular permissions are required, you can use database roles. For more 
 
 ## Next steps
 
-For more development tips, see [SQL Analytics development overview](../../sql-database/develop-overview.md).
+For more development tips, see [SQL Analytics development overview](develop-overview.md).

@@ -13,8 +13,8 @@ ms.reviewer: jrasnick
 
 # Connect to SQL Analytics with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](../sql-analytics/get-started-azure-data-studio.md)
-> * [Power BI](../sql-analytics/get-started-power-bi-professional.md)
+> * [Azure Data Studio](get-started-azure-data-studio.md)
+> * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
@@ -33,7 +33,7 @@ Before you begin, make sure you have the following prerequisites:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
-* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](../sql-data-warehouse/connect-overview.md).
+* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
 
 ## Connect
 
@@ -117,7 +117,7 @@ Now that you've established a database connection, you can query the data.
     ![Query results](./media/get-started-ssms/results.png)
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI](../sql-analytics/get-started-power-bi-professional.md).
+Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Analytics](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

@@ -78,6 +78,6 @@ Views in SQL Analytics are only stored as metadata. Consequently, the following 
 
 ## Next steps
 
-For more development tips, see [SQL Analytics development overview](../../sql-database/develop-overview.md).
+For more development tips, see [SQL Analytics development overview](develop-overview.md).
 
 

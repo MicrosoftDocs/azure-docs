@@ -81,5 +81,5 @@ They are:
 * return statement
 
 ## Next steps
-For more development tips, see [development overview](../../sql-database/develop-overview.md).
+For more development tips, see [development overview](develop-overview.md).
 

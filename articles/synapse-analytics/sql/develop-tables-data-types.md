@@ -65,4 +65,4 @@ The following list shows the data types that SQL Analytics does not support and 
 
 
 ## Next steps
-For more information on developing tables, see [Table Overview](../../sql-database/develop-overview.md).
+For more information on developing tables, see [Table Overview](develop-overview.md).

@@ -19,8 +19,8 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 Before reading the rest of this article, review the following articles:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Sample JSON files
 
@@ -139,5 +139,5 @@ WHERE
 
 The next article in this series will demonstrate how to:
 
-- [Querying folders and multiple files](../sql-analytics/query-folders-multiple-csv-files.md)
+- [Querying folders and multiple files](query-folders-multiple-csv-files.md)
 - [Create and use views](create-use-views.md).

@@ -83,7 +83,7 @@ GO
 
 The following image is a preview of the file to be queried:
 
-![First 10 rows of the CSV file without header, Windows style new line.](./sql-analytics/media/querying-single-csv-file/population.png)
+![First 10 rows of the CSV file without header, Windows style new line.](./sql/media/querying-single-csv-file/population.png)
 
 The following query shows how to read a CSV file that does not contain a header row, with Windows-style new line, and comma-delimited columns:
 

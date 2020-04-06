@@ -13,7 +13,7 @@ ms.reviewer: jrasnick, carlrab
 
 # Using file metadata in queries
 
-The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files](../sql-analytics/query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
+The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files]query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 
@@ -23,8 +23,8 @@ You can use function `filepath` and `filename` to return file names and/or the p
 
 Before reading the rest of this article, review the following prerequisites:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Functions
 
@@ -156,4 +156,4 @@ ORDER BY
 
 ## Next steps
 
-In the next article, you'll learn how to [query Parquet files](../sql-analytics/query-parquet-files.md).
+In the next article, you'll learn how to [query Parquet files](query-parquet-files.md).

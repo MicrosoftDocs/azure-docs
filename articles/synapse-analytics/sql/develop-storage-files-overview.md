@@ -218,4 +218,4 @@ For more information on how to query different file types and creating and using
 - [Query Parquet nested types](query-parquet-nested-types.md)
 - [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
 - [Use file metadata in queries](query-specific-files.md)
-- [Create and use views](../sql-analytics/create-use-views.md)
+- [Create and use views](create-use-views.md)

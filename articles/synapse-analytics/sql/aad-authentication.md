@@ -115,22 +115,22 @@ The following authentication methods are supported for Azure AD server principal
 
 ## Next steps
 
-- For an overview of access and control in SQL Analytics, see [SQL Analytics access control](../sql-analytics/access-control.md).
+- For an overview of access and control in SQL Analytics, see [SQL Analytics access control](../sql/access-control.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 
 <!--Image references-->
 
-[1]: ./media/sql-analytics-aad-authentication/1aad-auth-diagram.png
-[2]: ./media/sql-analytics-aad-authentication/2subscription-relationship.png
-[3]: ./media/sql-analytics-aad-authentication/3admin-structure.png
-[4]: ./media/sql-analytics-aad-authentication/4select-subscription.png
-[5]: ./media/sql-analytics-aad-authentication/5ad-settings-portal.png
-[6]: ./media/sql-analytics-aad-authentication/6edit-directory-select.png
-[7]: ./media/sql-analytics-aad-authentication/7edit-directory-confirm.png
-[8]: ./media/sql-analytics-aad-authentication/8choose-ad.png
-[9]: ./media/sql-analytics-aad-authentication/9ad-settings.png
-[10]: ./media/sql-analytics-aad-authentication/10choose-admin.png
-[11]: ./media/sql-analytics-aad-authentication/11connect-using-int-auth.png
-[12]: ./media/sql-analytics-aad-authentication/12connect-using-pw-auth.png
-[13]: ./media/sql-analytics-aad-authentication/13connect-to-db.png
+[1]: ./media/sql-aad-authentication/1aad-auth-diagram.png
+[2]: ./media/sql-aad-authentication/2subscription-relationship.png
+[3]: ./media/sql-aad-authentication/3admin-structure.png
+[4]: ./media/sql-aad-authentication/4select-subscription.png
+[5]: ./media/sql-aad-authentication/5ad-settings-portal.png
+[6]: ./media/sql-aad-authentication/6edit-directory-select.png
+[7]: ./media/sql-aad-authentication/7edit-directory-confirm.png
+[8]: ./media/sql-aad-authentication/8choose-ad.png
+[9]: ./media/sql-aad-authentication/9ad-settings.png
+[10]: ./media/sql-aad-authentication/10choose-admin.png
+[11]: ./media/sql-aad-authentication/11connect-using-int-auth.png
+[12]: ./media/sql-aad-authentication/12connect-using-pw-auth.png
+[13]: ./media/sql-aad-authentication/13connect-to-db.png

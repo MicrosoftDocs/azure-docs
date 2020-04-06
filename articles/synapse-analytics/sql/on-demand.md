@@ -56,5 +56,5 @@ Different professional roles can benefit from SQL on-demand:
 
 ## Next steps
 
-- [Connect to your endpoint](../sql-data-warehouse/connect-overview.md)
+- [Connect to your endpoint](connect-overview.md)
 - [Query your files](develop-storage-files-overview.md)

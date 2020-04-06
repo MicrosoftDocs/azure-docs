@@ -88,4 +88,4 @@ ORDER BY
 
 ## Next steps
 
-For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql-analytics/create-external-table-as-select.md).
+For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md).

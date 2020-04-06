@@ -149,11 +149,11 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ./sql/sql-analytics-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
-        href: ./sql/sql-analytics-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
-        href: ./sql/sql-analytics-sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Access control
       items:
       - name: Overview
@@ -273,7 +273,7 @@
       - name: Best practices SQL pools
         href: sql/best-practices-sql-pool.md
       # - name: FAQ
-      #   href: sql/sql-analytics-faq.md
+      #   href: sql/faq.md
     - name: Data loading
       items:
       - name: Overview
@@ -285,13 +285,13 @@
     - name: Development
       items:
       - name: Overview
-        href: sql/development-overview.md
+        href: sql/develop-overview.md
       - name: Best practices
-        href: sql/development-best-practices.md
+        href: sql/develop-best-practices.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
-          href: sql/development-materialized-view-performance-tuning.md
+          href: sql/develop-materialized-view-performance-tuning.md
         - name: Create 
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Alter 
@@ -301,63 +301,63 @@
       - name: Tables
         items:
         - name: Overview
-          href: sql/development-tables-overview.md
+          href: sql/develop-tables-overview.md
         - name: CETAS
-          href: sql/development-tables-cetas.md
+          href: sql/develop-tables-cetas.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: sql/development-tables-data-types.md
+          href: sql/develop-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: External tables
-          href: sql/development-tables-external-tables.md
+          href: sql/develop-tables-external-tables.md
         - name: Indexes
           href: ../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Identity
           href: ../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: OPENROWSET
-          href: sql/development-openrowset.md
+          href: sql/develop-openrowset.md
         - name: Partitions
           href: ../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: sql/development-tables-statistics.md
+          href: sql/develop-tables-statistics.md
         - name: Temporary
-          href: sql/development-tables-temporary.md
+          href: sql/develop-tables-temporary.md
       - name: T-SQL language elements
         items:
         - name: Loops
-          href: sql/development-loops.md
+          href: sql/develop-loops.md
         - name: Stored procedures
-          href: sql/development-stored-procedures.md
+          href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql/development-transactions.md
+          href: sql/develop-transactions.md
         - name: Transaction best practices
-          href: sql/development-transaction-best-practices.md
+          href: sql/develop-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql/development-user-defined-schemas.md
+          href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
-          href: sql/development-variable-assignment.md
+          href: sql/develop-variable-assignment.md
         - name: Views
-          href: sql/development-views.md
+          href: sql/develop-views.md
     - name: Querying
       items:
       - name: Dynamic SQL
-        href: sql/development-dynamic-sql.md
+        href: sql/develop-dynamic-sql.md
       - name: Group by options
-        href: sql/development-group-by-options.md
+        href: sql/develop-group-by-options.md
       - name: Labels
-        href: sql/development-label.md
+        href: sql/develop-label.md
       - name: Storage files
         items:
         - name: Overview
-          href: sql/development-storage-files-overview.md
+          href: sql/develop-storage-files-overview.md
         - name: Storage Access Control
-          href: sql/development-storage-files-storage-access-control.md
+          href: sql/develop-storage-files-storage-access-control.md
         - name: Spark tables
-          href: sql/development-storage-files-spark-tables.md
+          href: sql/develop-storage-files-spark-tables.md
     - name: Workload management
       items:
       # - name: Resource classes & workload management

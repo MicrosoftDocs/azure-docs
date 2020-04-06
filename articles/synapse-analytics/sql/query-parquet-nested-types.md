@@ -19,8 +19,8 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 Before reading the rest of this article, review the following articles:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Project nested or repeated data
 
@@ -95,4 +95,4 @@ FROM
 
 ## Next steps
 
-The next article will show you how to [Query JSON files](../sql-analytics/query-json-files.md).
+The next article will show you how to [Query JSON files](query-json-files.md).

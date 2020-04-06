@@ -245,6 +245,6 @@ The articles listed below will help you learn how query different folder types, 
 - [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
 - [Query specific files](query-specific-files.md)
 - [Query Parquet files](query-parquet-files.md)
-- [Create and use views](../sql-analytics/create-use-views.md)
+- [Create and use views](create-use-views.md)
 - [Query JSON files](query-json-files.md)
 - [Query Parquet nested types](query-parquet-nested-types.md)
