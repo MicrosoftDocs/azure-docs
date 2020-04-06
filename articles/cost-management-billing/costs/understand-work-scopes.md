@@ -3,7 +3,7 @@ title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -66,7 +66,7 @@ Cost Management Contributor is the recommended least-privilege role. It allows p
 
 Enterprise Agreement (EA) billing accounts, also called enrollments, have the following scopes:
 
-- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts.
+- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts. Reservation usage, along with all other usage, is applied to individual resources. Usage rolls-up to subscriptions within the billing account. To see reservation costs broken down to each resource, switch to view **Amortized cost** in cost analysis.
 
     Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Department** - Optional grouping of enrollment accounts.
