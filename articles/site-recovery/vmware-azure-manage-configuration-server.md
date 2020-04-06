@@ -40,7 +40,7 @@ You can access the configuration server as follows:
 
 You can also modify the credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Choose the account you wish to modify and click **Edit**.
 3. Enter the modified credentials and click **Ok**
 
@@ -110,10 +110,10 @@ The expiry date appears under **Configuration Server health**. For configuration
 ### If certificates have already expired
 
 1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
-2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > ASR > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
-3. A powershell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window till completion of renewal.
+2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > Site Recovery > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
+3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
-:::image type="content" source="media/vmware-azure-manage-configuration-server/renewcerts.PNG" alt-text="RenewCertificates":::
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renewcerts.png" alt-text="RenewCertificates":::
 
 ## Reregister a configuration server in the same vault
 
@@ -134,7 +134,7 @@ You can reregister the configuration server in the same vault if you need to. If
 
     >[!NOTE]
     >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Finally, restart the obengine by executing the following command.
    ```
