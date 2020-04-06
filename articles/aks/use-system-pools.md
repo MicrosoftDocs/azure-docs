@@ -76,7 +76,7 @@ You can add system node pools to existing AKS clusters. The following command ad
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
 
-## Show detail details for node pools
+## Show details for node pools
 
 You can check the details of your node pools with the following command.  
 
