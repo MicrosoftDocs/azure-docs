@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 03/25/2020
+ms.author: glenga
+---
 ### Retrieve the Azure Storage connection string
 
 Earlier, you created an Azure Storage account for use by the function app. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use that connection write to a Storage queue in the same account when running the function locally. 
