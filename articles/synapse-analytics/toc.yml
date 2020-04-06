@@ -41,9 +41,9 @@
   #   - name: Synapse studio
   #     href: quickstart-synapse-studio.md
   #   - name: SQL on-demand
-  #     href: ./sql-analytics/quickstart-sql-on-demand.md
+  #     href: ./sql/quickstart-sql-on-demand.md
   #   - name: Query SQL on-demand using Azure Data Studio
-  #     href: ./sql-analytics/get-started-azure-data-studio.md
+  #     href: ./sql/get-started-azure-data-studio.md
   - name: Getting started experience 
     href: get-started.md
 - name: Tutorials
@@ -51,7 +51,7 @@
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Power BI Professional
-    href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
+    href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
     - name: Predict NYC Taxi cab tips
@@ -67,7 +67,7 @@
   - name: Data Analyst
     items:
     - name: Use SQL on-demand to analyze and Synapse Studio to visualize
-      href: ./sql-analytics/tutorial-data-analyst.md
+      href: ./sql/tutorial-data-analyst.md
   # - name: Data Engineer
   #   items:
   #   - name: Data Preparation
@@ -97,7 +97,7 @@
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
         - name: SQL script
-          href: ./sql-analytics/author-sql-script.md
+          href: ./sql/author-sql-script.md
         - name: Mapping Data Flow
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
@@ -151,11 +151,11 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ./sql-analytics/sql-analytics-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
-        href: ./sql-analytics/sql-analytics-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
-        href: ./sql-analytics/sql-analytics-sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Access control
       items:
       - name: Overview
@@ -165,7 +165,7 @@
       - name: Synapse workspace managed Identity
         href: ./security/synapse-workspace-managed-identity.md
       - name: Pool and on-demand
-        href: ./sql-analytics/access-control.md
+        href: ./sql/access-control.md
       - name: Data
         items:
         - name: Column-level security
@@ -261,39 +261,39 @@
     #  - name: What is SQL pool and SQL on-demand
     #    href: 
       - name: SQL on-demand
-        href: sql-analytics/on-demand.md
+        href: sql/on-demand.md
       - name: SQL pool 
         href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Features overview
-        href: sql-analytics/overview-features.md
+        href: sql/overview-features.md
       - name: Resource consumption models
-        href: sql-analytics/resource-consumption-models.md
+        href: sql/resource-consumption-models.md
       - name: Best practices SQL on-demand
-        href: sql-analytics/best-practices-sql-on-demand.md
+        href: sql/best-practices-sql-on-demand.md
       - name: Best practices SQL pools
-        href: sql-analytics/best-practices-sql-pool.md
+        href: sql/best-practices-sql-pool.md
       # - name: FAQ
-      #   href: sql-analytics/sql-analytics-faq.md
+      #   href: sql/faq.md
     - name: Data loading
       items:
       - name: Overview
-        href: sql-analytics/data-loading-overview.md
+        href: sql/data-loading-overview.md
       - name: Best practices
-        href: sql-analytics/data-loading-best-practices.md
+        href: sql/data-loading-best-practices.md
       - name: Columnstore compression
-        href: sql-analytics/data-load-columnstore-compression.md
+        href: sql/data-load-columnstore-compression.md
     - name: Development
       items:
       - name: Overview
-        href: sql-analytics/development-overview.md
+        href: sql/develop-overview.md
       - name: Best practices
-        href: sql-analytics/development-best-practices.md
+        href: sql/develop-best-practices.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
-          href: sql-analytics/development-materialized-view-performance-tuning.md
+          href: sql/develop-materialized-view-performance-tuning.md
         - name: Create 
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Alter 
@@ -303,73 +303,73 @@
       - name: Tables
         items:
         - name: Overview
-          href: sql-analytics/development-tables-overview.md
+          href: sql/develop-tables-overview.md
         - name: CETAS
-          href: sql-analytics/development-tables-cetas.md
+          href: sql/develop-tables-cetas.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: sql-analytics/development-tables-data-types.md
+          href: sql/develop-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: External tables
-          href: sql-analytics/development-tables-external-tables.md
+          href: sql/develop-tables-external-tables.md
         - name: Indexes
           href: ../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Identity
           href: ../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: OPENROWSET
-          href: sql-analytics/development-openrowset.md
+          href: sql/develop-openrowset.md
         - name: Partitions
           href: ../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: sql-analytics/development-tables-statistics.md
+          href: sql/develop-tables-statistics.md
         - name: Temporary
-          href: sql-analytics/development-tables-temporary.md
+          href: sql/develop-tables-temporary.md
       - name: T-SQL language elements
         items:
         - name: Loops
-          href: sql-analytics/development-loops.md
+          href: sql/develop-loops.md
         - name: Stored procedures
-          href: sql-analytics/development-stored-procedures.md
+          href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql-analytics/development-transactions.md
+          href: sql/develop-transactions.md
         - name: Transaction best practices
-          href: sql-analytics/development-transaction-best-practices.md
+          href: sql/develop-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql-analytics/development-user-defined-schemas.md
+          href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
-          href: sql-analytics/development-variable-assignment.md
+          href: sql/develop-variable-assignment.md
         - name: Views
-          href: sql-analytics/development-views.md
+          href: sql/develop-views.md
     - name: Querying
       items:
       - name: Dynamic SQL
-        href: sql-analytics/development-dynamic-sql.md
+        href: sql/develop-dynamic-sql.md
       - name: Group by options
-        href: sql-analytics/development-group-by-options.md
+        href: sql/develop-group-by-options.md
       - name: Labels
-        href: sql-analytics/development-label.md
+        href: sql/develop-label.md
       - name: Storage files
         items:
         - name: Overview
-          href: sql-analytics/development-storage-files-overview.md
+          href: sql/develop-storage-files-overview.md
         - name: Storage Access Control
-          href: sql-analytics/development-storage-files-storage-access-control.md
+          href: sql/develop-storage-files-storage-access-control.md
         - name: Spark tables
-          href: sql-analytics/development-storage-files-spark-tables.md
+          href: sql/develop-storage-files-spark-tables.md
     - name: Workload management
       items:
       # - name: Resource classes & workload management
-      #   href: sql-analytics/workload-management-resource-classes.md
+      #   href: sql/workload-management-resource-classes.md
       # - name: Workload classification
-      #   href: sql-analytics/workload-management-classification.md
+      #   href: sql/workload-management-classification.md
       # - name: Workload importance
-      #   href: sql-analytics/workload-management-importance.md
+      #   href: sql/workload-management-importance.md
       # - name: Memory & concurrency limits
-      #   href: sql-analytics/workload-management-memory-and-concurrency-limits.md
+      #   href: sql/workload-management-memory-and-concurrency-limits.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD
@@ -537,25 +537,25 @@
       - name: Query data in storage
         items:
         - name: Overview
-          href: sql-analytics/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query CSV file
-          href: sql-analytics/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query Parquet files
-          href: sql-analytics/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query Parquet nested types
-          href: sql-analytics/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query JSON files
-          href: sql-analytics/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query folders and multiple files
-          href: sql-analytics/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Use file metadata
-          href: sql-analytics/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Create and use views
-          href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Create and use external tables
-          href: sql-analytics/create-use-external-tables.md
+          href: sql/create-use-external-tables.md
         - name: Store query results to storage
-          href: sql-analytics/create-external-table-as-select.md
+          href: sql/create-external-table-as-select.md
 #         - name: Query Spark tables
 #           href: query-spark-tables.md
 #       - name: Best practices
@@ -967,25 +967,25 @@
     - name: SQL Analytics
       items:
       - name: Overview
-        href: sql-analytics/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Azure Data Studio
-        href: sql-analytics/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings
-        href: sql-analytics/connection-strings.md
+        href: sql/connection-strings.md
       - name: Query with sqlcmd
-        href: sql-analytics/get-started-connect-sqlcmd.md
+        href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
-        href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
-        href: sql-analytics/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connect to Power BI Desktop
-        href: sql-analytics/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Reference
   items:
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types
-    href: sql-analytics/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: PowerShell cmdlets
     href: ../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
@@ -993,7 +993,7 @@
   # - name: Spark Connector
   #   href: article-template.md
   - name: System views
-    href: sql-analytics/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL
     items:
     - name: Full reference
@@ -1027,7 +1027,7 @@
   - name: Customer self-help
     items:
     - name: SQL on-demand
-      href: sql-analytics/resources-self-help-sql-on-demand.md
+      href: sql/resources-self-help-sql-on-demand.md
   - name: Videos
     href: ../sql-data-warehouse/sql-data-warehouse-videos.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Partners

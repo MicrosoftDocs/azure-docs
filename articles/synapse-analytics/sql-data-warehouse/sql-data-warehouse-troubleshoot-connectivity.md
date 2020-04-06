@@ -82,7 +82,7 @@ Check to make sure you're using the latest driver versions.  Using an older ve
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
+Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](../sql/connection-strings.md).
 
 ADO.NET connection string
 

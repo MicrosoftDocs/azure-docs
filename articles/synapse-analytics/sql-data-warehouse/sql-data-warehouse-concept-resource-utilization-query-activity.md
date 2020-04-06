@@ -51,7 +51,7 @@ Things to consider when viewing metrics and setting alerts:
 
 For a programmatic experience when monitoring SQL Analytics via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
-To view the list of DMVs that apply to Synapse SQL, refer to this [documentation](sql-data-warehouse-reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
+To view the list of DMVs that apply to Synapse SQL, refer to this [documentation](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
 ## Metrics and diagnostics logging 
 
