@@ -2,7 +2,7 @@
 title: Import document format guidelines - QnA Maker
 description: Understand how the types of URLs are used to import and create QnA sets.
 ms.topic: reference
-ms.date: 01/02/2020
+ms.date: 04/06/2020
 ---
 
 # Format guidelines for imported documents and URLs
@@ -15,6 +15,8 @@ After importing a file or URL, QnA Maker converts and stores your content in the
 
 If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. QnA Maker supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
 
+See a full list of [content types and examples](../Concepts/content-types.md#file-and-url-data-types).
+
 ## Basic document formatting
 
 QnA Maker identifies sections and subsections and relationships in the file based on visual clues like:
@@ -23,12 +25,6 @@ QnA Maker identifies sections and subsections and relationships in the file base
 * font style
 * numbering
 * colors
-
-|Document examples|
-|--|
-||
-
-
 
 ## Product manuals
 
@@ -111,7 +107,8 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 * First character of heading must be capitalized.
 * Do not end a heading with a question mark, `?`.
 
+**Sample documents**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefits (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefits (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|Document examples|
-|--|
-||
+## Next steps
+
+See a full list of [content types and examples](../Concepts/content-types.md#file-and-url-data-types)
