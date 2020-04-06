@@ -27,9 +27,9 @@ Key scenarios that are improved with support for wildcard domains include:
 > [!NOTE]
 > Currently, wildcard domains are only supported via API, PowerShell, and CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
 
-## Add wildcard domains
+## Adding wildcard domains
 
-You can add a wildcard domain under the frontend hosts or domains section. Similar to subdomains, Front Door validates that there is CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or, afdverify temporary mapping can be used. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
+You can add a wildcard domain under the frontend hosts or domains section. Similar to subdomains, Front Door validates that there is CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
 
 > [!NOTE]
 > Azure DNS supports wildcard records.
@@ -40,17 +40,17 @@ You can add as many single level subdomains of the wildcard domain in frontend h
 
 - Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without additional domain ownership validation, `*.bar.contosonews.com` needs to be added.
 
-### Limitations
+### Limitations for adding wildcard domains and their subdomains
 
-Wildcard domains and their subdomains have some limitations on how they can be added to profiles:
+You can add wildcard domains and their subdomains with certain limitations:
 
 - If a wildcard domain is added to a Front Door profile:
   - The wildcard domain can't be added to any other Front Door profile.
   - Subdomains of the wildcard domain can't be added to another Front Door profile or an Azure Content Delivery Network (CDN) from Microsoft profile.
-- If a subdomain of a wildcard domain is added to a Front Door or Azure (CDN) from Microsoft profile then the wildcard domain can't be added to other Front Door profiles.
+- If a subdomain of a wildcard domain is added to a Front Door or Azure (CDN) from Microsoft profile, then the wildcard domain can't be added to other Front Door profiles.
 - If two profiles (Front Door or Azure CDN from Microsoft) have various subdomains of a root domain, then wildcard domains can't be added to either of the profiles.
 
-## Certificate binding for wildcard domains and their subdomains
+## Certificate binding
 
 For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on the wildcard domain. The certificate binding for a wildcard domain requires a wildcard certificate. That is, the subject name of the certificate should also have the wildcard domain.
 
@@ -59,19 +59,19 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 
 You can choose to use the same wildcard certificate from your Key Vault or from Front Door managed certificates for subdomains.
 
-If a subdomain is added for a wildcard domain that already has a certificate associated with it, then HTTPS for the subdomain can't be disabled. The subdomain uses the certificate binding for the wildcard domain, unless it is overridden by a different Key Vault or Front Door managed certificate.
+If a subdomain is added for a wildcard domain that already has a certificate associated with it, then HTTPS for the subdomain can't be disabled. The subdomain uses the certificate binding for the wildcard domain, unless a different Key Vault or Front Door managed certificate overrides it.
 
-## WAF policies for wildcard domains and their subdomains
+## WAF policies
 
 WAF policies can be attached to wildcard domains, similar to other domains. A different WAF policy can be applied to a subdomain of a wildcard domain. For the subdomains, you must specify the WAF policy to be used even if it's the same policy as the wildcard domain. Subdomains do *not* automatically inherit the WAF policy from the wildcard domain.
 
-If you have a scenario where you don't want a WAF policy to run for a subdomain, you can create a blank WAF policy with no managed or custom rulesets.
+If you don't want a WAF policy to run for a subdomain, you can create a blank WAF policy with no managed or custom rulesets.
 
-## Routing rules for wildcard domains and their subdomains
+## Routing rules
 
 When configuring a routing rule, you can select a wildcard domain as a frontend host. You can also have different route behavior for wildcard domains and subdomains. As described in [how Front Door does route matching](front-door-route-matching.md), the most specific match for the domain across different routing rules is chosen at runtime.
 
-> [!CAUTION]
+> [!IMPORTANT]
 > You must have matching path patterns across your routing rules, or your clients will see failures. For example, you have two routing rules like Route 1 (`*.foo.com/*` mapped to Backend Pool A) and Route 2 (`bar.foo.com/somePath/*` mapped to Backend Pool B). Then, a request arrives for `bar.foo.com/anotherPath/*`. Front Door selects Route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
 
 ## Next steps
