@@ -7620,6 +7620,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
       "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
@@ -32265,11 +32270,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/key-vault/automation-manage-key-vault.md",
       "redirect_url": "/azure/key-vault/",
       "redirect_document_id": false
@@ -47010,6 +47010,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -50563,6 +50568,10 @@
       "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
       "redirect_url": "/azure/aks/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
     }
   ]
 }

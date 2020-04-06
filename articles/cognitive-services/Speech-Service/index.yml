@@ -22,15 +22,15 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
