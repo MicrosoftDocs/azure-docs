@@ -43,7 +43,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   
 2. In the **New data factory** page, provide values for the fields that are shown in the following image:
 
    ![New data factory page](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
@@ -62,7 +62,8 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    Select the **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
 
 ## Load data into Azure SQL Data Warehouse
-
+#### The image used in this section for ADF is outdated and needs to be changed.
+#### Linked service - the service to service authentication (data factory to SQL DB and data factory to Synapse) are better managed via managed identities on both platforms. Using username/passwords without key vault integration is not the right reflection about our platfrom capabilities
 1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool:
 
    ![Copy Data tool tile](./media/load-azure-sql-data-warehouse/copy-data-tool-tile.png)
