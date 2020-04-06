@@ -111,7 +111,7 @@ Create linked services in a data factory to link your data stores and compute se
 
     > [!IMPORTANT]
     > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
-
+    > Can we please have a link the page which suggests different ways to authenticate to users/application against storage account. Moreover, using account key's toi authenticate is not a suggested practice as these key's give the application/users privileged access control. Can we please replace this body of text with managed identities and allow data factories to access storage accounts via such managed identities (storage reader/contributor where applicable)
     ```json
     {
         "name": "AzureStorageLinkedService",
