@@ -182,7 +182,7 @@ If your subscription is not configured for the Automation resource provider, you
 
 #### Machines not available or not tagged correctly when schedule executed
 
-Use the following procedure if your subscription is configured for the Automation resource provider, but running the update schedule with the specified [dynamic groups](automation-update-management-groups.md) missed some machines.
+Use the following procedure if your subscription is configured for the Automation resource provider, but running the update schedule with the specified [dynamic groups](../automation-update-management-groups.md) missed some machines.
 
 1. In the Azure portal, open the Automation account and select **Update Management**.
 2. Check [Update Management history](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) to determine the exact time when the update deployment was run. 
