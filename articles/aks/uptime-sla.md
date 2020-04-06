@@ -34,7 +34,7 @@ Uptime SLA is available in the following regions:
 
 ## SLA terms and conditions
 
-Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
+Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Creating a cluster with Uptime SLA
 
