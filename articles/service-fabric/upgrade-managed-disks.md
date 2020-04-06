@@ -313,7 +313,7 @@ foreach($name in $nodeNames){
 
 Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set and the progression of nodes in the original scale set from *Disabling* to *Disabled* status.
 
-![Service Fabric Explorer showing status of disabled nodes](./media/service-fabric-upgrade-to-managed-disks/sfx-node-status.png)
+![Service Fabric Explorer showing status of disabled nodes](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
 > [!NOTE]
 > It may take some time to complete the disabling operation across all the nodes of the original scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
@@ -336,7 +336,7 @@ Write-Host "Removed scale set $scaleSetName"
 
 In Service Fabric Explorer, the removed nodes (and thus the *Cluster Health State*) will now appear in *Error* state.
 
-![Service Fabric Explorer showing disabled nodes in error state](./media/service-fabric-upgrade-to-managed-disks/sfx-disabled-nodes-error-state.png)
+![Service Fabric Explorer showing disabled nodes in error state](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 
 Remove the obsolete nodes from the Service Fabric cluster to restore the Cluster Health State to *OK*.
 
@@ -348,7 +348,7 @@ foreach($name in $nodeNames){
 }
 ```
 
-![Service Fabric Explorer with down nodes in error state removed](./media/service-fabric-upgrade-to-managed-disks/sfx-healthy-cluster.png)
+![Service Fabric Explorer with down nodes in error state removed](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
 
 ## Next steps
 

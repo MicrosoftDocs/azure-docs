@@ -678,7 +678,7 @@
         - name: Remote connect to cluster node VM
           href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Upgrade cluster nodes to use managed disks
-          href: service-fabric-upgrade-to-managed-disks.md      
+          href: upgrade-managed-disks.md      
     - name: Standalone clusters
       items:
       - name: Create
