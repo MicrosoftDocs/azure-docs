@@ -101,7 +101,7 @@ To configure a SaaS application for SAML-based single sign-on, see [Configure SA
  
 Many SaaS applications have an [application-specific tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) that step you through the configuration for SAML-based single sign-on.
 
-![app tutorial](media/migrate-adfs-apps-to-azure/apptutorial.png)
+![app tutorial](media/migrate-adfs-apps-to-azure/app-tutorial.png)
 
 Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, might require additional configuration in Azure AD and/or Azure AD Connect. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
@@ -305,7 +305,7 @@ The following are examples of types of MFA rules in AD FS, and how you can map t
 
 MFA rule settings in AD FS:
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-mfa-basedon-location-1.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 
 #### Example 1: Enforce MFA based on users/groups
@@ -322,7 +322,7 @@ Specify MFA rules for a user or a group in Azure AD:
 3. Configure the **Access controls** options as shown below:  
 ‎
 
-![AAD MFA settings](media/migrate-adfs-apps-to-azure/enforce-mfa-basedon-location-2.png)
+![AAD MFA settings](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
  
  #### Example 2: Enforce MFA for unregistered devices
@@ -336,7 +336,7 @@ Specify MFA rules for unregistered devices in Azure AD:
 3. Configure the **Access controls** options as shown below:  
 ‎
 
-![AAD MFA settings](media/migrate-adfs-apps-to-azure/enforce-mfa-for-unregistered-devices.png)
+![AAD MFA settings](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
  
 When you set the For multiple controls option to Require one of the selected controls, it means that if any one of the conditions specified by the checkbox are fulfilled by the user, they will be granted access to your app.
@@ -353,12 +353,12 @@ Specify MFA rules based on a user's location in Azure AD:
 
 1. Configure the **Conditions rules** to specify the locations for which you would like to enforce MFA.
 
-![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-1.png)
+![Azure AD MFA settings](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
 
 5. Configure the **Access controls** options as shown below:
 
 
-![Map access control policies](media/migrate-adfs-apps-to-azure/enforce-MFA-basedon-location-2.png)
+![Map access control policies](media/migrate-adfs-apps-to-azure/mfa-location-2.png)
 
  
 ### Map Emit attributes as Claims rule
