@@ -75,7 +75,8 @@ In this step, you create a data factory and start the Data Factory UI to create 
 2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
-
+    This is an old image of the welcome screen of ADF. This needs to updated and replaced.
+    
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
@@ -108,6 +109,8 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. On the **Let's get started** page, select **Create pipeline**.
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   Can we have a link to show different ways to authenticate service-service communications. Using Managed identities is much preferred and secured way to establish this protocol rather than using username/pwd combination.
+   
 1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
