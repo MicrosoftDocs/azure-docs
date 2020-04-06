@@ -177,4 +177,4 @@ Once you're done using this report, delete the resources with the following step
 
 Advance to the next article to learn how to query storage files using SQL Analytics.
 > [!div class="nextstepaction"]
-> [Query storage files](development-storage-files-overview.md)
+> [Query storage files](../sql/develop-storage-files-overview.md)

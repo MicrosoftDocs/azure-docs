@@ -186,9 +186,9 @@ Now you are ready to start with following Quickstarts:
 - [Query Parquet files](./sql-analytics/query-parquet-files.md)
 - [Query Parquet nested types](./sql-analytics/query-parquet-nested-types.md)
 - [Query JSON files](./sql-analytics/query-json-files.md)
-- [Creating and using views](./sql-analytics/create-use-views.md)
-- [Creating and using external tables](./sql-analytics/create-use-external-tables.md)
-- [Persist query result to Azure storage](./sql-analytics/create-external-table-as-select.md)
+- [Creating and using views](sql/create-use-views.md)
+- [Creating and using external tables](sql/create-use-external-tables.md)
+- [Persist query result to Azure storage](sql/create-external-table-as-select.md)
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]

@@ -17,7 +17,7 @@ The SQL on-demand Query service can address multiple files and folders as descri
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 
-You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](development-storage-files-overview.md#filename-function) and [filepath function](development-storage-files-overview.md#filepath-function). Below you will find short descriptions along samples.
+You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](../sql/develop-storage-files-overview.md#filename-function) and [filepath function](../sql/develop-storage-files-overview.md#filepath-function). Below you will find short descriptions along samples.
 
 ## Prerequisites
 

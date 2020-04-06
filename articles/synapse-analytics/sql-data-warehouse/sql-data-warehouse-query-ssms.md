@@ -30,7 +30,7 @@ To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) installed. [Install SSMS](https://msdn.microsoft.com/library/hh213248.aspx) for free if you don't already have it.
-* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](../sql/connect-overview.md).
 
 ## 1. Connect to your SQL pool
 1. Open SSMS.

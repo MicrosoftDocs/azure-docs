@@ -32,7 +32,7 @@ To use this tutorial, you need to have the following components:
 
 * An existing SQL pool. If you do not have one, see [Create a SQL pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to complete this prerequisite.
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* The fully qualified SQL server name. To find this, see [Connect to SQL pool](connect-overview.md).
+* The fully qualified SQL server name. To find this, see [Connect to SQL pool](../sql/connect-overview.md).
 
 ## 1. Connect to SQL pool
 1. Open Visual Studio 2019.

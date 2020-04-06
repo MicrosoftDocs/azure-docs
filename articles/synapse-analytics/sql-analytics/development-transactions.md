@@ -176,7 +176,7 @@ All that has changed is that the ROLLBACK of the transaction had to happen befor
 
 ## Error_Line() function
 
-It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](development-label.md) article.
+It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](../sql/develop-label.md) article.
 
 ## Using THROW and RAISERROR
 
@@ -199,5 +199,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pools](../sql/best-practices-sql-pool.md) and [SQL on-demand (preview)](../sql/best-practices-sql-on-demand.md).
 

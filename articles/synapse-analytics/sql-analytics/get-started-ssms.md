@@ -33,7 +33,7 @@ Before you begin, make sure you have the following prerequisites:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
-* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
+* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](../sql/connect-overview.md).
 
 ## Connect
 

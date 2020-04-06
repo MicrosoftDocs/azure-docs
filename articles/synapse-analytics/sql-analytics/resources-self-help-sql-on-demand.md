@@ -41,8 +41,8 @@ Take a look at these articles to learn more about how to use SQL on-demand:
 
 - [Query JSON files](query-json-files.md)
 
-- [Create and using views](create-use-views.md)
+- [Create and using views](../sql/create-use-views.md)
 
-- [Create and using external tables](create-use-external-tables.md)
+- [Create and using external tables](../sql/create-use-external-tables.md)
 
-- [Store query results to storage](create-external-table-as-select.md)
+- [Store query results to storage](../sql/create-external-table-as-select.md)

@@ -19,7 +19,7 @@ SQL on-demand is a distributed data processing system, built for large scale of 
 
 SQL on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this model is a true pay-per-use model.  
 
-If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](development-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use Private Link to bring SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
+If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](../sql/develop-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use Private Link to bring SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
 
 ## Who is SQL on-demand for
 
@@ -33,7 +33,7 @@ Different professional roles can benefit from SQL on-demand:
 
 - Data Engineers can explore the lake, transform and prepare data using this service, and simplify their data transformation pipelines. For more information, check this tutorial
 - Data Scientists can quickly reason about the contents and structure of the data in the lake, thanks to features such as OPENROWSET and automatic schema inference
-- Data Analysts can [explore data and Spark tables](development-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
+- Data Analysts can [explore data and Spark tables](../sql/develop-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools that can connect to SQL on-demand
 - BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-connect-power-bi-desktop.md) and Spark tables 
 
  
@@ -46,7 +46,7 @@ SQL on-demand endpoint is provided within every Azure Synapse workspace. You can
 
 ## Client tools
 
-SQL on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
+SQL on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](../sql/connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes. 
 
 At this moment, latest version of Azure Data Studio is fully supported. Latest version of SSMS can be used to connect and query but is not supported yet. It will be fully supported until GA. Please make sure you use latest versions of tools.
 
@@ -89,21 +89,21 @@ SQL on-demand has no local storage, only metadata objects are stored in database
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL on-demand extends the existing [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-2017) function by adding following capabilities:
 
-[Query multiple files or folders](development-storage-files-overview.md#query-multiple-files-or-folders)
+[Query multiple files or folders](../sql/develop-storage-files-overview.md#query-multiple-files-or-folders)
 
-[PARQUET file format](development-storage-files-overview.md#parquet-file-format)
+[PARQUET file format](../sql/develop-storage-files-overview.md#parquet-file-format)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](development-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](../sql/develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
 
-[Read a chosen subset of columns](development-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Read a chosen subset of columns](../sql/develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
 
-[Schema inference](development-storage-files-overview.md#schema-inference)
+[Schema inference](../sql/develop-storage-files-overview.md#schema-inference)
 
-[filename function](development-storage-files-overview.md#filename-function)
+[filename function](../sql/develop-storage-files-overview.md#filename-function)
 
-[filepath function](development-storage-files-overview.md#filepath-function)
+[filepath function](../sql/develop-storage-files-overview.md#filepath-function)
 
-[Work with complex types and nested or repeated data structures](development-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Work with complex types and nested or repeated data structures](../sql/develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
  
 
@@ -131,7 +131,7 @@ SQL on-demand authentication refers to how users prove their identity when conne
 
 Authorization refers to what a user can do within a SQL on-demand database, and is controlled by your user account's database role memberships and object-level permissions.
 
-If SQL Authentication is used, SQL user exists only in SQL on-demand and permissions are scoped to the objects in SQL on-demand. Access to securable objects in other services (such as Azure Storage) can't be granted to SQL user directly since it only exists in scope of SQL on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
+If SQL Authentication is used, SQL user exists only in SQL on-demand and permissions are scoped to the objects in SQL on-demand. Access to securable objects in other services (such as Azure Storage) can't be granted to SQL user directly since it only exists in scope of SQL on-demand. The SQL user needs to use one of the [supported authorization types](../sql/develop-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
 If AAD authentication is used, a user can log in into SQL on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
 
@@ -146,5 +146,5 @@ A user that is logged into SQL on-demand service must be authorized to access an
 
 ## Next steps
 
-- [Connect to your endpoint](connect-overview.md)
-- [Query your files](development-storage-files-overview.md)
+- [Connect to your endpoint](../sql/connect-overview.md)
+- [Query your files](../sql/develop-storage-files-overview.md)

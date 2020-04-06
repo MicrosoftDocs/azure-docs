@@ -62,11 +62,11 @@ You must create credentials before you can run queries. This credential will be 
 > [!NOTE]
 > In order to successfully run How To's in this section you have to use SAS token.
 >
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](development-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](../sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > SQL on-demand by default always uses AAD pass-through.
 
-For more information on how to manage storage access control, check this [link](development-storage-files-storage-access-control.md).
+For more information on how to manage storage access control, check this [link](../sql/develop-storage-files-storage-access-control.md).
 
 > [!WARNING]
 > You need to create credentials for a storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in the same region will provide a better performance experience.
@@ -180,4 +180,4 @@ You're now ready to continue on with the following How To articles:
 
 - [Query JSON files](query-json-files.md)
 
-- [Create and using views](create-use-views.md)
+- [Create and using views](../sql/create-use-views.md)

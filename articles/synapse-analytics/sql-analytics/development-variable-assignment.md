@@ -61,4 +61,4 @@ You can't use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see the [SQL Analytics development overview](development-overview.md) article.
+For more development tips, see the [SQL Analytics development overview](../sql/develop-overview.md) article.
