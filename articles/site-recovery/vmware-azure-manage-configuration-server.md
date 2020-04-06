@@ -113,7 +113,7 @@ The expiry date appears under **Configuration Server health**. For configuration
 2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > Site Recovery > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
 3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
-:::image type="content" source="media/vmware-azure-manage-configuration-server/renewcertificates.png" alt-text="RenewCertificates":::
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## Reregister a configuration server in the same vault
 
