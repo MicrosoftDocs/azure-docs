@@ -42,7 +42,7 @@ CREATE INDEX ON sampleks.t1 (lastname);
 After creating an index on the "lastname" field, you can now run the previous query successfully. With Cassandra API in Azure Cosmos DB, you do not have to provide an index name. A default index with format `tablename_columnname_idx` is used. For example, ` t1_lastname_idx` is the index name for the previous table.
 
 ## Dropping the index 
-If you want to find the index name, you can execute the `desc schema;` via cqlsh, and at end of the table definition for table in context you should see the index ddl in below format:
+You need to know the index name is to drop the index. Run the `desc schema` command to get the description of your table. The output of this command includes the index name in the format `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)'. You can then use the index name to drop the index as shown in the following example:
 
 ```
 CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)
