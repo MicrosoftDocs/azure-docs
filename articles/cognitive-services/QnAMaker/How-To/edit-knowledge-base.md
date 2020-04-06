@@ -2,7 +2,7 @@
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/06/2020
 ---
 
 # Edit QnA sets in your knowledge base
@@ -19,7 +19,7 @@ QnA sets are added from a datasource, such as a file or URL, or added as an edit
 
 1. Optionally, add **alternate phrasing**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
 
-    When your knowledge base is published, and you have active learning turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
+    When your knowledge base is published, and you have [active learning](use-active-learning.md) turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
 
 1. Optionally, add **metadata**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
