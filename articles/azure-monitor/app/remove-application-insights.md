@@ -2,7 +2,7 @@
 title: Remove Application Insights in Visual Studio - Azure Monitor 
 description: How to remove Application Insights SDK for ASP.NET and ASP.NET Core in Visual Studio. 
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/06/2020
 
 ---
 
@@ -20,8 +20,8 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
      
     ![In the top menu click Tools > NuGet Package Manager > Package Manager Console](./media/remove-application-insights/package-manager.png)
 
-> [!NOTE]
-> If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener` then follow the steps below to remove Microsoft.ApplicationInsights.Web
+    > [!NOTE]
+    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener` then follow the steps below to remove Microsoft.ApplicationInsights.Web
 
 1. Enter the following command: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
@@ -49,8 +49,8 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
     
      ![Right click Solution, in the Solution Explore, then select Manage NuGet Packages for Solution](./media/remove-application-insights/manage-nuget-framework.png)
 
-> [!NOTE]
-> If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependency selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependency selected.
+    > [!NOTE]
+    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependency selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependency selected.
     
 1. Click on the "Microsoft.ApplicationInsights.Web" package. On the right, check the checkbox next to *Project* to select all projects.
     
