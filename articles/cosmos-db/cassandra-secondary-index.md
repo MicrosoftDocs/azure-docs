@@ -10,7 +10,7 @@ If you are trying to create a new index on existing data, tracking the index pro
 
 First, create a sample keyspace and table by running the following commands on the CQL shell prompt:
 
-```
+```shell
 CREATE KEYSPACE sampleks WITH REPLICATION = {'class' : 'SimpleStrategy'};
 CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=400;
 ``` 
