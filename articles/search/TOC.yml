@@ -114,12 +114,6 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Typeahead
-      items:
-      - name: Create a suggester
-        href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
-        href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -230,6 +224,14 @@
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
+    - name: Fuzzy search
+      href: search-query-fuzzy.md
+    - name: Autocomplete "search-as-you-type"
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Add suggestions or autocomplete
+        href: search-autocomplete-tutorial.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
     - name: Syntax reference

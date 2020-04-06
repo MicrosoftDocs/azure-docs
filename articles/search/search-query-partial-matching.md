@@ -16,7 +16,7 @@ A *partial term search* refers to queries consisting of term fragments, such as 
 
 Partial search can be problematic if the index doesn't have terms in the format required for pattern matching. During the text analysis phase of indexing, using the default standard analyzer, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can support partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
+The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
 ## What is partial search in Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Analyzers are assigned on a per-field basis, which means you can create fields i
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 
