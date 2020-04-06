@@ -24,8 +24,8 @@ The articles below highlight concepts and design decisions for SQL Analytics dev
 | -----------------------------------------------------    | ---- | ---- |
 | [Connections](../sql-analytics/connect-overview.md)                    | Yes | Yes |
 | [Resource classes and concurrency](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
-| [Transactions](../sql-analytics/development-transactions.md)              | Yes | No |
-| [User-defined schemas](../sql-analytics/development-user-defined-schemas.md) | Yes | Yes |
+| [Transactions](develop-transactions.md)              | Yes | No |
+| [User-defined schemas](develop-user-defined-schemas.md) | Yes | Yes |
 | [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | No |
 | [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | No |
 | [Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | No |
@@ -43,12 +43,12 @@ Below you'll find essential articles that emphasize specific coding techniques, 
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [Stored procedures](develop-stored-procedures.md)  | Yes                | No                      |
 | [Labels](../sql-data-warehouse/develop-label.md)                           | Yes                | No                      |
-| [Views](../sql-analytics/development-views.md)                             | Yes                | Yes                     |
+| [Views](develop-views.md)                             | Yes                | Yes                     |
 | [Temporary tables](develop-tables-temporary.md)       | Yes                | Yes                     |
 | [Dynamic SQL](../sql-data-warehouse/develop-dynamic-sql.md)                 | Yes                | Yes                     |
 | [Looping](../sql-data-warehouse/develop-loops.md)                         | Yes                | Yes                     |
 | [Group by options](../sql-data-warehouse/develop-group-by-options.md)       | Yes                | No                      |
-| [Variable assignment](../sql-analytics/development-variable-assignment.md) | Yes                | Yes                     |
+| [Variable assignment](develop-variable-assignment.md) | Yes                | Yes                     |
 
 ## Next steps
 For more reference information, see [SQL pool T-SQL statements](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

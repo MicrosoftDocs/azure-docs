@@ -49,7 +49,7 @@ If possible, you can prepare files for better performance:
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This function will reduce the number of files and amount of data the query needs to read and process. An added bonus is that you'll achieve better performance.
 
-For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](../sql-analytics/query-specific-files.md).
+For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
 

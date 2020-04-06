@@ -100,7 +100,7 @@ For unpartitioned tables, consider using a CTAS to write the data you want to ke
 
 Further information on content related to this section is included in the articles below: 
 - [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Understanding transactions](../sql-analytics/development-transactions.md)
+- [Understanding transactions](develop-transactions.md)
 - [Optimizing transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
 - [Table partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx) 
@@ -127,7 +127,7 @@ Clustered columnstore indexes are one of the most efficient ways you can store y
 
 Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) in the [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
-Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](../sql-analytics/resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
+Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
 Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 

@@ -241,10 +241,10 @@ Depending on the path shape you want, the following requirements are in place fo
 
 The articles listed below will help you learn how query different folder types, file types, and create and use views:
 
-- [Query single CSV file](../sql-analytics/query-single-csv-file.md)
-- [Query folders and multiple CSV files](../sql-analytics/query-folders-multiple-csv-files.md)
-- [Query specific files](../sql-analytics/query-specific-files.md)
-- [Query Parquet files](../sql-analytics/query-parquet-files.md)
+- [Query single CSV file](query-single-csv-file.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query specific files](query-specific-files.md)
+- [Query Parquet files](query-parquet-files.md)
 - [Create and use views](../sql-analytics/create-use-views.md)
-- [Query JSON files](../sql-analytics/query-json-files.md)
-- [Query Parquet nested types](../sql-analytics/query-parquet-nested-types.md)
+- [Query JSON files](query-json-files.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)

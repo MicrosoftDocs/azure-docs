@@ -19,15 +19,15 @@ In this section, you'll learn how to create and use views to wrap SQL on-demand 
 
 Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand views:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Create a view
 
 You can create views the same way you create regular SQL Server views. The query below creates view that reads *population.csv* file.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -59,7 +59,7 @@ You can use views in your queries the same way you use views in SQL Server queri
 The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -76,4 +76,4 @@ ORDER BY
 
 ## Next steps
 
-For information on how to query different file types, refer to the [Query single CSV file](../sql-analytics/query-single-csv-file.md), [Query Parquet files](../sql-analytics/query-parquet-files.md), and [Query JSON files](../sql-analytics/query-json-files.md) articles.
+For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.

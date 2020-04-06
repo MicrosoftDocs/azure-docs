@@ -191,4 +191,4 @@ FROM
 
 ## Next steps
 
-For more samples, go to [quickstarts](../sql-analytics/query-data-storage.md) or save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, go to [quickstarts](query-data-storage.md) or save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

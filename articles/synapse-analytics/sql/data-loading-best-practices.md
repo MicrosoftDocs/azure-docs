@@ -55,7 +55,7 @@ Connect to the data warehouse and create a user. The following code assumes you 
 
 To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](../sql-analytics/resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
+Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
 ## Allowing multiple users to load
 

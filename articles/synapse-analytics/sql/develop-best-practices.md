@@ -105,7 +105,7 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [Pause compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Resume compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Scale compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-[Understanding transactions]:../sql-analytics/development-transactions.md
+[Understanding transactions]:develop-transactions.md
 [Optimizing transactions]: ../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Troubleshooting]: ../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [LABEL]:develop-label.md
@@ -166,7 +166,7 @@ If possible, you can prepare files for better performance:
 
 ### Use fileinfo and filepath functions to target specific partitions
 
-Data is often organized in partitions. You can instruct SQL Analytics on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](../sql-analytics/query-specific-files.md).
+Data is often organized in partitions. You can instruct SQL Analytics on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 

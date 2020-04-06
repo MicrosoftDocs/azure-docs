@@ -19,15 +19,15 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 
 Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand external tables:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Create an external table
 
 You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -71,7 +71,7 @@ You can use external tables in your queries the same way you use them in SQL Ser
 The following query demonstrates using the *population* external table we created in [Create an external table](#create-an-external-table) section. It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];

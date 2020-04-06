@@ -20,7 +20,7 @@ For querying, the following T-SQL aspects are supported:
 - Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, and so on.
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](../sql-analytics/on-demand.md) article.
+For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand.md) article.
 
 When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
 
@@ -51,7 +51,7 @@ The following rules apply:
   N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
   ```
 
-Refer to [Query folders and multiple files](../sql-analytics/query-folders-multiple-csv-files.md) for usage examples.
+Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
 
 ### PARQUET file format
 
@@ -69,7 +69,7 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ]
 ```
 
-Review the [Query Parquet files](../sql-analytics/query-parquet-files.md) article for usage examples.
+Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
 
 ### Additional options for working with delimited text
 
@@ -107,7 +107,7 @@ OPENROWSET
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 
-For samples, refer to [Read CSV files without specifying all columns](../sql-analytics/query-single-csv-file.md#returning-subset-of-columns).
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
 
 ### Schema inference
 
@@ -126,7 +126,7 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 
 This function returns the file name that the row originates from.
 
-To query specific files, read the Filename section in the [Query specific files](../sql-analytics/query-specific-files.md#filename) article.
+To query specific files, read the Filename section in the [Query specific files](query-specific-files.md#filename) article.
 
 ### Filepath function
 
@@ -135,7 +135,7 @@ This function returns a full path or a part of path:
 - When called without parameter, returns the full file path that a row originates from.
 - When called with parameter, it returns part of path that matches the wildcard on position specified in the parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
-For additional information, read the Filepath section of the [Query specific files](../sql-analytics/query-specific-files.md#filepath) article.
+For additional information, read the Filepath section of the [Query specific files](query-specific-files.md#filepath) article.
 
 ### Work with complex types and nested or repeated data structures
 
@@ -153,7 +153,7 @@ To project data, run a SELECT statement over the Parquet file that contains colu
     [AS alias]
 ```
 
-For more detailed information, refer to the Project nested or repeated data section of the [Query Parquet nested types](../sql-analytics/query-parquet-nested-types.md#project-nested-or-repeated-data) article.
+For more detailed information, refer to the Project nested or repeated data section of the [Query Parquet nested types](query-parquet-nested-types.md#project-nested-or-repeated-data) article.
 
 #### Access elements from nested columns
 
@@ -179,7 +179,7 @@ By default, the OPENROWSET function matches the source field name and path with 
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
 
-For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](../sql-analytics/query-parquet-nested-types.md#access-elements-from-nested-columns) article.
+For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
 
 #### Access elements from repeated columns
 
@@ -206,16 +206,16 @@ See syntax fragment below:
     [AS alias]
 ```
 
-You can find query samples for accessing elements from repeated columns in the [Query Parquet nested types](../sql-analytics/query-parquet-nested-types.md#access-elements-from-repeated-columns) article.
+You can find query samples for accessing elements from repeated columns in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-repeated-columns) article.
 
 ## Next steps
 
 For more information on how to query different file types and creating and using views, see the following articles:
 
-- [Query single CSV file](../sql-analytics/query-single-csv-file.md)
-- [Query Parquet files](../sql-analytics/query-parquet-files.md)
-- [Query JSON files](../sql-analytics/query-json-files.md)
-- [Query Parquet nested types](../sql-analytics/query-parquet-nested-types.md)
-- [Query folders and multiple CSV files](../sql-analytics/query-folders-multiple-csv-files.md)
-- [Use file metadata in queries](../sql-analytics/query-specific-files.md)
+- [Query single CSV file](query-single-csv-file.md)
+- [Query Parquet files](query-parquet-files.md)
+- [Query JSON files](query-json-files.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Use file metadata in queries](query-specific-files.md)
 - [Create and use views](../sql-analytics/create-use-views.md)

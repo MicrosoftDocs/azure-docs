@@ -19,15 +19,15 @@ In this article, you'll learn how to store query results to the storage using SQ
 
 Your first step is to review the articles below and make sure you've met the prerequisites:
 
-- [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup)
-- [Prerequisites](../sql-analytics/query-data-storage.md#prerequisites)
+- [First-time setup](query-data-storage.md#first-time-setup)
+- [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Create external table as select
 
 You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) statement to store the query results to the storage.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -69,7 +69,7 @@ FROM
 You can use external table created through CETAS like a regular external table.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](../sql-analytics/query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -86,4 +86,4 @@ ORDER BY
 
 ## Next steps
 
-For information on how to query different file types, refer to the [Query single CSV file](../sql-analytics/query-single-csv-file.md), [Query Parquet files](../sql-analytics/query-parquet-files.md), and [Query JSON files](../sql-analytics/query-json-files.md) articles.
+For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
