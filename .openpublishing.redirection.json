@@ -4061,6 +4061,17 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-linked-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-template-reference",
       "redirect_document_id": false
