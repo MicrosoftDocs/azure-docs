@@ -23,7 +23,7 @@ The DSVM is available on:
 + **Windows Server 2019**
 + **Ubuntu 18.04 LTS**
 + Windows Server 2016
-+ Ubuntu 16.04 LTS and CentOS 7.4
++ Ubuntu 16.04 LTS
 
 > [!NOTE]
 > All VM tools for deep learning have been folded into the Data Science Virtual Machine. 
@@ -65,9 +65,9 @@ You can use the DSVM to evaluate or learn new data science [tools](./tools-inclu
 
 In the DSVM, your training models can use deep learning algorithms on hardware that's based on graphics processing units (GPUs). By taking advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you use GPU-based hardware in the cloud according to your needs. You can switch to a GPU-based VM when you're training large models, or when you need high-speed computations while keeping the same OS disk. You can choose any of the N series GPU enabled virtual machine SKUs with DSVM. Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
-The Windows Server 2016 edition of the DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPUs is enabled on both the CentOS and Ubuntu DSVMs. 
+The Windows editions of the DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPUs is enabled on the Ubuntu DSVMs. 
 
-You can also deploy the Ubuntu, CentOS, or Windows 2016 edition of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks will fall back to the CPU mode.
+You can also deploy the Ubuntu or Windows editions of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks will fall back to the CPU mode.
 
 [Learn more about available deep learning and AI frameworks](dsvm-tools-deep-learning-frameworks.md).
 
@@ -86,5 +86,4 @@ Learn more with these articles:
 
 + Linux:
   + [Set up a Linux DSVM (Ubuntu)](dsvm-ubuntu-intro.md)
-  + [Set up a Linux DSVM (CentOS)](linux-dsvm-intro.md)
   + [Data science on a Linux DSVM](linux-dsvm-walkthrough.md)
