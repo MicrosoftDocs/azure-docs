@@ -1,8 +1,10 @@
-- name: Azure Synapse Analytics Documentation
-  # href: index.yml
+- name: Azure Synapse (workspaces preview)
+  href:
+- name: Switch to Azure Synapse (SQL DW)
+  href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
-  - name: What is Azure Synapse
+  - name: What is Azure Synapse Analytics
     href: overview-what-is.md
   # - name: Who can benefit
   #   href: overview-who-can-benefit-azure-synapse-analytics

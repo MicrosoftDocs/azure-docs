@@ -11,7 +11,9 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# What is Azure Synapse
+# What is Azure Synapse Analytics (workspaces)
+
+[!INCLUDE [preview](includes/note-preview.md)]
 
 Today enterprise analytics requires operating at massive scale on any kind of data--raw, refined, or highly curated. To build these kinds of analytics solutions, enterprises have needed to stitch together big data and data warehousing technologies such as Spark and SQL. Then integrate them into rich data pipelines that work across data in relational stores and data lakes.  Solutions like this are difficult to build, configure, secure, and maintain and delay enterprises from quickly getting the insights they need.
 
