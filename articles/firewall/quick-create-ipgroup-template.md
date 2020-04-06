@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template'
-description: Learn how to use a Resource Manager template to create a Azure Firewall and IP Groups.
+description: Learn how to use a Resource Manager template to create an Azure Firewall and IP Groups.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -11,9 +11,9 @@ ms.author: victorh
 
 # Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to create deploy an Azure Firewall with sample IP Groups used in a network rule and application rule.
+In this quickstart, you use a Resource Manager template to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule.
 
-An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is particularly useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
