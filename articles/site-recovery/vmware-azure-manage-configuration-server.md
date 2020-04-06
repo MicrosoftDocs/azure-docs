@@ -115,7 +115,7 @@ The expiry date appears under **Configuration Server health**. For configuration
 
 :::image type="content" source="media/vmware-azure-manage-configuration-server/renewcerts.png" alt-text="RenewCertificates":::
 
-## Reregister a configuration server in the same vault
+## Re-register a configuration server in the same vault
 
 You can reregister the configuration server in the same vault if you need to. If you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
 
