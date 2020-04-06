@@ -634,7 +634,7 @@ The output of the above profile shows how much time is spent obtaining the verte
 
 ## <a id="cassandra"></a> Cassandra API
 
-### What is the protocol version supported by Azure Cosmso DB Cassandra API? Is there a plan to support other protocols?
+### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
 Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
