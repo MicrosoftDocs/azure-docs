@@ -8,7 +8,9 @@ ms.date: 03/11/2020
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met. Customers needing SLA for compliance reasons or extending SLA ‘s to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availablity Zones to obtain higher availability of the Kubernetes API server.  
+Uptime SLA is an optional feature on AKS to provide higher SLA guarantees for customers. The higher availability is for Kubernetes API server endpoint. When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met. 
+
+Customers needing SLA for compliance reasons or extending SLA's to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availablity Zones to obtain higher availability of the Kubernetes API server.  
 
 Customers can create unlimited free clusters with a service level objective (SLO) of 99.5%.
 
