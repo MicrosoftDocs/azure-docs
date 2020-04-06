@@ -36,7 +36,7 @@ select user_id, lastname from sampleks.t1 where lastname='nishu';
 
 Although the Cassandra API supports ALLOW FILTERING as mentioned in the previous section, however, it's not recommended. You should instead create an index in the as shown in the following example:
 
-```
+```shell
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
 After creating an index on the "lastname" field, you can now run the previous query successfully. With Cassandra API in Azure Cosmos DB, you do not have to provide an index name. A default index with format `tablename_columnname_idx` is used. For example, ` t1_lastname_idx` is the index name for the previous table.
