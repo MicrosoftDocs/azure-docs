@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Data Factory
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -36,15 +36,16 @@ Self-Hosted IRs can be deployed on an on-premises machine or Azure virtual machi
 
 Where Private Link is available, use private endpoints to secure any resources being linked to your Azure Data Factory pipeline, such as Azure SQL Server. With Private Link, traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
-How to create an Azure-SSIS IR: https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime
+How to create an Azure-SSIS IR: https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 
-How to create and configure a self-hosted IR: https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime
+How to create and configure a self-hosted IR: https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 
-How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal 
+How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
-How to create an NSG with a security configuration: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic 
+How to create an NSG with a security configuration: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview
+Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview)
+
 
 **Azure Security Center monitoring**: Yes
 

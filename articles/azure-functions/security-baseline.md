@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Functions
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4084).
 
-**Guidance**: Integrate your Azure Functions apps with an Azure virtual network. Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the "VNet Integration" feature.  Azure virtual networks allow you to place many of your Azure resources, such as Azure Functions, in a non-internet routable network.
+**Guidance**: Integrate your Azure Functions apps with an Azure virtual network. Function apps running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the "VNet Integration" feature.  Azure virtual networks allow you to place many of your Azure resources, such as Azure Functions, in a non-internet routable network.
 
 How to integrate Functions with an Azure Virtual Network: https://docs.microsoft.com/azure/azure-functions/functions-create-vnet
 
@@ -74,7 +74,13 @@ How to Enable and use Traffic Analytics: https://docs.microsoft.com/azure/networ
 
 In addition, ensure remote debugging has been disabled for your production Azure Functions. Furthermore, Cross-Origin Resource Sharing (CORS) should not allow all domains to access your Azure Function app. Allow only required domains to interact with your Azure Function app.
 
+Consider deploying Azure Web Application Firewall (WAF) as part of the networking configuration for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
+
 How to secure Azure Function endpoints in production: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production
+
+How to deploy Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
+
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -281,7 +287,8 @@ How to enable Diagnostic Settings (user-generated logs) for Azure Functions: htt
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4098).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -444,17 +451,13 @@ How to use Azure Policy: https://docs.microsoft.com/azure/governance/policy/tuto
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4108).
 
-**Guidance**: Implement single sign-on for your Azure Functions apps using a built-in identity provider. Azure Functions apps uses federated identity, in which a third-party identity provider manages the user identities and authentication flow for you. Five identity providers are available by default:
-
-- Azure Active Directory
-- Microsoft Account
-- Facebook
-- Google
-- Twitter
-
-When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials for data access to your function app. Use Azure Security Center Identity and Access Management recommendations. Implement single sign-on for your Azure Functions apps using the App Service Authentication / Authorization feature.
 
 Understand authentication and authorization in Azure Functions: https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers
+
+Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -578,8 +581,6 @@ How to on-board Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicks
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Functions apps. For account login behavior deviation on the control plane (the Azure portal), use Azure Active Directory (AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-How to configure your Azure Functions app to use Azure AD login: https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad
-
 How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
 How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
@@ -627,7 +628,7 @@ How to create and use tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Azure Function apps should be separated by virtual network (VNet)/subnet and tagged appropriately.
 
-You may also use Private Endpoints to perform network isolation. An Azure Private Endpoint is a network interface that connects you privately and securely to a service (for example: Azure Functions app HTTPs endpoint) powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
+You may also use Private Endpoints to perform network isolation. An Azure Private Endpoint is a network interface that connects you privately and securely to a service (for example: Azure Functions app HTTPs endpoint) powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. Private endpoints are in (Preview) for function apps running in the Premium plan. Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
 How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -635,7 +636,15 @@ How to create Management Groups: https://docs.microsoft.com/azure/governance/man
 
 How to create and use tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
+Azure Functions networking options: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+
+Azure Functions Premium Plan: https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan
+
 Understand Private Endpoint: https://docs.microsoft.com/azure/private-link/private-endpoint-overview
+
+Using Private Endpoints for Azure Functions: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -646,7 +655,7 @@ Understand Private Endpoint: https://docs.microsoft.com/azure/private-link/priva
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4120).
 
-**Guidance**: Currently not available; data identification, classification, and loss prevention features are not yet available for Azure Functions.
+**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals. 
 
 Microsoft manages the underlying infrastructure for Azure Functions and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -990,7 +999,17 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4144).
 
-**Guidance**: For sensitive or high risk Azure Function apps, implement separate subscriptions and/or management groups to provide isolation.Deploy high risk Azure Function apps into their own Virtual Network (VNet). Perimeter security in Azure Functions is achieved through VNets. The App Service Environment (ASE) is a deployment of Azure Function apps into a subnet in your Azure (VNet). There are two types of ASE, External ASE and ILB (Internal Load Balancer) ASE; choose the best architecture for your use case.Networking considerations for an App Service Environment: https://docs.microsoft.com/azure/app-service/environment/network-info How to create an external ASE: https://docs.microsoft.com/azure/app-service/environment/create-external-aseHow to create an internal ASE: https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase
+**Guidance**: For sensitive or high risk Azure Function apps, implement separate subscriptions and/or management groups to provide isolation.
+Deploy high risk Azure Function apps into their own Virtual Network (VNet). Perimeter security in Azure Functions is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
+Azure Functions networking options: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+
+Azure Functions Premium Plan: https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan
+
+Networking considerations for an App Service Environment: https://docs.microsoft.com/azure/app-service/environment/network-info How to create an external ASE: https://docs.microsoft.com/azure/app-service/environment/create-external-aseHow to create an internal ASE: https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase
+
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal How to create an NSG with a security config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1065,7 +1084,11 @@ Understand on-premises functions: https://docs.microsoft.com/azure/azure-functio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4149).
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: Store and manage ARM templates and custom Azure policy definitions securely in source control.
+
+What is infrastructure as code: https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code
+
+Design policy as code workflows: https://docs.microsoft.com/azure/governance/policy/concepts/policy-as-code
 
 How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -1080,9 +1103,8 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4150).
 
-**Guidance**: Not applicable; while it is possible to deploy on-premises functions, this guideline is intended for IaaS compute resources. When deploying on premises functions, you are responsible for the secure configuration of your environment.
-
-Understand on-premises functions: https://docs.microsoft.com/azure/azure-functions/functions-runtime-install
+**Guidance**: 
+Not applicable; this guideline is intended for IaaS compute resources.
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1107,9 +1129,8 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4152).
 
-**Guidance**: Not applicable; while it is possible to deploy on-premises functions, this guideline is intended for IaaS compute resources. When deploying on premises functions, you are responsible for the secure configuration of your environment.
-
-Understand on-premises functions: https://docs.microsoft.com/azure/azure-functions/functions-runtime-install
+**Guidance**: 
+Not applicable; this guideline is intended for IaaS compute resources.
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1134,9 +1155,8 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4154).
 
-**Guidance**: Not applicable; while it is possible to deploy on-premises functions, this guideline is intended for IaaS compute resources. When deploying on premises functions, you are responsible for the secure configuration of your environment.
-
-Understand on-premises functions: https://docs.microsoft.com/azure/azure-functions/functions-runtime-install
+**Guidance**: 
+Not applicable; this guideline is intended for IaaS compute resources.
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1148,13 +1168,14 @@ Understand on-premises functions: https://docs.microsoft.com/azure/azure-functio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4155).
 
-**Guidance**: Use Managed Identities to provide your Azure Function app with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+**Guidance**: Use Managed Identities in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. Managed Identities allows your function app to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
-
-How to use managed identities for App Service and Azure Functions: https://docs.microsoft.com/azure/app-service/overview-managed-identity
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portalHow to use managed identities for App Service and Azure Functions: https://docs.microsoft.com/azure/app-service/overview-managed-identity
 
 How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
+
+Use Key Vault references for App Service and Azure Functions: https://docs.microsoft.com/azure/app-service/app-service-key-vault-references
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -1169,7 +1190,6 @@ How to provide Key Vault authentication with a managed identity: https://docs.mi
 
 How to use managed identities for App Service and Azure Functions: https://docs.microsoft.com/azure/app-service/overview-managed-identity
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Azure Security Center monitoring**: Yes
 
@@ -1197,7 +1217,7 @@ How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcreds
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4158).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions), however it does not run on customer content.
 
@@ -1212,7 +1232,6 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data.
 
-Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions), however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1240,9 +1259,11 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4161).
 
-**Guidance**: Use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: Use the Backup and Restore feature to schedule regular backups of your app. Function apps running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the "Backup and Restore" feature.
 
-Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
+Also make use of a source control solution such as Azure Repos and Azure DevOps to securely store and manage your code. Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
+
+Back up your app in Azure: https://docs.microsoft.com/azure/app-service/manage-backup
 
 Understand data availability in Azure DevOps: https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability 
 
@@ -1259,17 +1280,16 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4162).
 
-**Guidance**: Use Azure DevOps or Azure Repos to securely store and manage your code. Optionally, you may periodically clone your code and store it in an offline location or use Azure Backup and store it within an Azure Recovery Services Vault for archival purposes. Backup customer managed keys within Azure Key Vault.
+**Guidance**: Use the Backup and Restore feature to schedule regular backups of your app. Function apps running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the "Backup and Restore" feature. Backup customer managed keys within Azure Key Vault.
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Also make use of a source control solution such as Azure Repos and Azure DevOps to securely store and manage your code. Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
 
-Understand data availability in Azure DevOps: https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability 
-
-How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-How to backup individual files with Azure Backup into an Azure Recovery Services Vault: https://docs.microsoft.com/azure/backup/backup-configure-vault
-
+Back up your app in Azure: https://docs.microsoft.com/azure/app-service/manage-backup
 How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+
+Understand data availability in Azure DevOps: https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devopsAzure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1280,11 +1300,13 @@ How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/mod
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4163).
 
-**Guidance**: If using an offline location or Azure Recovery Services Vault to backup your code, periodically  ensure ability to  perform complete restorations. Test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform restoration from the Backup and Restore feature. If using another offline location to backup your code, periodically ensure ability to perform complete restorations. Test restoration of backed up customer managed keys.
+
+Restore an app in Azure from a backup: https://docs.microsoft.com/azure/app-service/web-sites-restore
+
+Restore an app in Azure from a snapshot: https://docs.microsoft.com/azure/app-service/app-service-web-restore-snapshots
 
 How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
-
-How to restore files to Windows from an Azure Recovery Services Vault: https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1295,15 +1317,11 @@ How to restore files to Windows from an Azure Recovery Services Vault: https://d
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4164).
 
-**Guidance**: Use Azure DevOps to store and manage your code. Within Azure DevOps, Azure Repos provides Git repositories or Team Foundation Version Control (TFVC) for source control of your code. Azure DevOps Services uses Azure Storage as the primary repository for service metadata and customer data. Depending on the type of data and the storage and retrieval needs, we use Azure Blob (binary large objects) storage and Azure SQL data storage. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
-
-Azure Backup's Recovery Services Vault also uses 256-bit AES encryption and is FIPS 140-2 compliant.
+**Guidance**: Backups from the Backup and Restore feature use an Azure Storage account in your subscription. Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys for encryption of storage data.
 
 If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabled to protect keys against accidental or malicious deletion.
 
 Azure Storage encryption at rest: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
-
-Azure Recovery Services Vault encryption at rest: https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption
 
 How to enable Soft-Delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
@@ -1378,7 +1396,7 @@ How to set the Azure Security Center Security Contact: https://docs.microsoft.co
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4168).
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 
@@ -1393,7 +1411,7 @@ How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/senti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4169).
 
-**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
+**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses to security alerts and recommendations with Logic Apps.
 
 How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 

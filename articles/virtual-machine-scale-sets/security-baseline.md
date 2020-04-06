@@ -4,7 +4,7 @@ description: Azure Security Baseline for Virtual Machine Scale Sets
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -760,11 +760,10 @@ How to implement Azure Security Center vulnerability assessment recommendations:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2131).
 
-**Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported systems.  
+**Guidance**: Enable Automatic OS Upgrades for supported operating system versions, or for custom images stored in a Shared Image Gallery.
 
-Update Management solution in Azure:  https://docs.microsoft.com/azure/automation/automation-update-management
+Automatic OS Upgrades for virtual machine scale sets in Azure: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
 
-Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/automation/automation-tutorial-update-management
 
 **Azure Security Center monitoring**: Yes
 
