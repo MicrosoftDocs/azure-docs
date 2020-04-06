@@ -7,8 +7,8 @@ ms.topic: how-to
 # Import and export blueprint definitions with PowerShell
 
 Azure Blueprints can be fully managed through Azure portal. As organizations advance in their use of
-Blueprints, they should start thinking of blueprint definitions as managed code. This concept is
-often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code
+Azure Blueprints, they should start thinking of blueprint definitions as managed code. This concept
+is often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code
 offers additional advantages beyond what Azure portal offers. These benefits include:
 
 - Sharing blueprint definitions

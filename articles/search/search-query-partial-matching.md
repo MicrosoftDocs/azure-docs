@@ -10,22 +10,25 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
 ---
-# Partial term search in Azure Cognitive Search queries (wildcard, regex, fuzzy search, patterns)
+# Partial term search and patterns with special characters - Azure Cognitive Search (wildcard, regex, patterns)
 
-A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string, or a pattern consisting of a combination of fragments, often separated by special characters such as dashes or slashes. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
+A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string. A *pattern* might a combination of fragments, sometimes with special characters such as dashes or slashes that are part of the query. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-Partial search can be problematic because the index itself does not typically store terms in a way that is conducive to partial string and pattern matching. During the text analysis phase of indexing, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial search can be problematic if the index doesn't have terms in the format required for pattern matching. During the text analysis phase of indexing, using the default standard analyzer, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to store intact versions of these strings in the index so that you can support partial search scenarios. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
+The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can support partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
 ## What is partial search in Azure Cognitive Search
 
-In Azure Cognitive Search, partial search is available in these forms:
+In Azure Cognitive Search, partial search and pattern is available in these forms:
 
 + [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simply query syntax for prefix search.
-+ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. For example, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) for a suffix query. Wildcard and regular expressions require the full Lucene syntax.
 
-When any of the above query types are needed in your client application, follow the steps in this article to ensure the necessary content exists in your index.
++ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. Wildcard and regular expressions require the full Lucene syntax. 
+
+  Some examples of partial term search include the following. For a suffix query, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) to find a match. For a partial term that includes characters, such as a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
+
+As noted, all of the above require that the index contains strings in a format conducive to pattern matching, which the standard analyzer does not provide. By following the steps in this article, you can ensure that the necessary content exists to support these scenarios.
 
 ## Solving partial search problems
 
