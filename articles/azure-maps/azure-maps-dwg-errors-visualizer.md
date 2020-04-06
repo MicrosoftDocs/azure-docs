@@ -22,11 +22,11 @@ Before you can download the DWG Error Visualizer, you will need to:
 
 2. [Enable the Private Atlas resource](tutorial-private-atlas-indoor-maps.md) in your Azure Maps account
 
-3. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [DWG Uploading section of the Private Atlas](private-atlas-for-indoor-maps.md#upload-a-dwg-package#uploading-a-dwg-package) concept article.
+3. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [DWG Uploading section of the Private Atlas](private-atlas-for-indoor-maps.md#uploading-a-dwg-package) concept article.
 
 ## Download
 
-Now that you have the `udid` for the uploaded package, make a request to the Azure Maps Conversion API. The procedure is detailed in the [DWG Uploading section of the Private Atlas](private-atlas-for-indoor-maps.md#upload-a-dwg-package#uploading-a-dwg-package) concept article.
+Now that you have the `udid` for the uploaded package, make a request to the Azure Maps Conversion API. The procedure is detailed in the [DWG Uploading section of the Private Atlas](private-atlas-for-indoor-maps.md#uploading-a-dwg-package) concept article.
 
 Under the response **Headers** tab, look for the `diagnosticPackageLocation` property, returned by [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion). The DWG Error Visualizer can be downloaded by executing a `HTTP-GET` request on the `diagnosticPackageLocation`. See [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) for more details on how to to download.
 
@@ -34,11 +34,11 @@ Under the response **Headers** tab, look for the `diagnosticPackageLocation` pro
 
 Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files. The _ConversionWarningsAndErrors.json_ containing a formatted list of warnings, errors, and additional details that is used by the _VisualizationTool.zip_. The _VisualizationTool.zip_ is the standalone web application for DWG Error Visualizer.
 
-    ![Content of zipped package returned by the Azure Maps Conversion API](./media/azure-maps-dwg-errors-visualizer/content-of-the-zipped-package.png)
+![Content of zipped package returned by the Azure Maps Conversion API](./media/azure-maps-dwg-errors-visualizer/content-of-the-zipped-package.png)
 
 Unzip the _VisualizationTool.zip_ folder. It contains an _assets_ folder with images and media files, a _static_ folder with source code, and an index.html file of the web page.
 
-    ![Content of zipped package for VisualizationTool.zip](./media/azure-maps-dwg-errors-visualizer/content-of-the-visualization-tool.png)
+![Content of zipped package for VisualizationTool.zip](./media/azure-maps-dwg-errors-visualizer/content-of-the-visualization-tool.png)
 
 Open the _index.html_ file using any of the browsers below, with the respective version number. You may use a different version, if the version offers equally compatible behavior as the listed version.
 
@@ -51,7 +51,7 @@ Open the _index.html_ file using any of the browsers below, with the respective 
 
 Upon launching the DWG Error Visualizer tool, you'll see a box to load your data, as shown in the image below. To view the warnings and errors, load the _ConversionWarningsAndErrors.json_ file, placed at the root of the downloaded directory.
 
-    ![DWG Error Visualizer App - Start Page](./media/azure-maps-dwg-errors-visualizer/start-page.png)
+![DWG Error Visualizer App - Start Page](./media/azure-maps-dwg-errors-visualizer/start-page.png)
 
 Once the file loads, you'll see a list of your DWG package errors and warnings. Specified by the layer, level, and described with a detailed message. You may now navigate to each error to learn more details in order to resolve the error.  
 

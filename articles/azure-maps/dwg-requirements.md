@@ -12,7 +12,7 @@ manager: philMea
 
 # DWG package requirements
 
-The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a DWG package, for a single facility, into an indoor map [Datasets](private-atlas-for-indoor-maps#Datasets). This article describes the DWG package requirements for the Conversion API.
+The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a DWG package, for a single facility, into an indoor map [Datasets](private-atlas-for-indoor-maps.md#Datasets). This article describes the DWG package requirements for the Conversion API.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ Regardless of how many entity drawings are in the exterior layer, the [resulting
 
 If the layer contains multiple overlapping PolyLines, then the PolyLines will be dissolved into a single Level feature. Alternatively, if the layer contains multiple non_overlapping PolyLines, the resulting Level feature will have a multi-polygonal representation.
 
-![Exteriors layer]()
+![Exteriors layer](./media/dwg-requirements/exterior.png)
 
 ### Units layer
 
@@ -99,7 +99,7 @@ The DWG file for each level should define a layer containing units.  Units are n
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-![Units layer]()
+![Units layer](./media/dwg-requirements/unit.png)
 
 ### Walls layer
 
@@ -108,7 +108,7 @@ The DWG file for each level may contain a layer that defines the physical extent
 * Walls must be drawn as Polygon, PolyLine (closed), Circle
 * The wall layer(s) should only contain geometry that's interpreted as building structure.
 
-![Walls layer]()
+![Walls layer](./media/dwg-requirements/wall.png)
 
 ### Doors layer
 
@@ -116,7 +116,7 @@ You may include a DWG layer containing doors. Each door must overlap the edge of
 
 Doors from the layer won't be rendered on the resulting map as they appear in the CAD software. They'll be drawn according to the Azure Maps styling rules for the opening features.
 
-![Doors layer]()
+![Doors layer](./media/dwg-requirements/door.png)
 
 ### Zones layer
 
@@ -128,7 +128,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 
 Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
-![Zones layer]()
+![Zones layer](./media/dwg-requirements/zone.png)
 
 ### UnitLabel layer
 
@@ -138,7 +138,7 @@ The DWG file for each level may contain a unit label layer. The unit label layer
 * Unit labels must fall inside the bounds of their unit.
 * Units must not contain multiple text entities in the unit labels layer.
 
-![UnitLabel layer]()
+![UnitLabel layer](./media/dwg-requirements/unitlabel.png)
 
 ### ZoneLabel layer
 
@@ -148,7 +148,7 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 * Zones labels must fall inside the bounds of their zone.
 * Zones must not contain multiple text entities in the zone labels layer.
 
-![ZoneLabel layer]()
+![ZoneLabel layer](./media/dwg-requirements/zonelabel.png)
 
 ## Manifest file requirements
 

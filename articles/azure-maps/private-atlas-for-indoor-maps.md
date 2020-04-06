@@ -16,7 +16,12 @@ manager: philmea
 Private Atlas makes it possible to develop applications based on indoor map data using Azure Maps API and SDK. This article introduces concepts that apply to Private Atlas such as DWG package uploading and conversion, as well as understanding and creating resources such as Datasets, Tilesets, and Feature Statesets. In addition, this article provides an overview of how modules or applications can use indoor map data for the purposes of querying, rendering, updating or deleting indoor map data, as well as providing suggestions for possible integration with Azure Map data and IoT services.
 
 ## Create Private Atlas
+
 In order to use Private Atlas services, Private Atlas must be created in an Azure Maps account. For information on how to create Private Atlas in Azure Maps, see [Manage Private Atlas](tutorial-private-atlas-indoor-maps.md).
+
+After you create Private Atlas, you are now ready to upload data, convert data, and then create and use your map data. Finally, data maintenance allows you then to list, update and delete your map data. The workflow is illustrated in the following diagram.
+
+![Private Atlas map data workflow](./media/private-atlas-for-indoor-maps/workflow.png)
 
 ## DWG package requirements
 
@@ -48,7 +53,7 @@ Private Atlas provides the [Dataset API](https://docs.microsoft.com/rest/api/map
 
 A Dataset is a collection of indoor map features that represents facilities as defined in the converted DWG package. After creating a Dataset with the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) developers can create any number of [Tilesets](#tilesets) or [Feature Statesets](#feature-statesets). Tilesets are used to create a set of vector tiles that applications can use to render a Dataset. Feature Statesets allow Tileset rendering applications to reflect events that affect changes in the facilities represented in the Dataset.
 
-The Dataset Create API allows developers, at any time, to add new facilities to an existing Dataset by uploading and converting new DWG packages. For more information on how to update an existing Dataset, see the append options in [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). See also [Updating a Dataset](#updating-a-dataset).
+The Dataset Create API allows developers, at any time, to add new facilities to an existing Dataset by uploading and converting new DWG packages. For more information on how to update an existing Dataset, see the append options in [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). See also [Updating a Dataset](#data-maintenance).
 
 Developers are also able to query a Dataset using the [Azure Maps WFS Service](#web-feature-services-api),  
 
