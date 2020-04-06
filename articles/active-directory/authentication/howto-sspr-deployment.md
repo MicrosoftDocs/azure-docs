@@ -340,7 +340,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ## Next steps
 
-* To get started deploying SSPR, see [Enable Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
+* To get started deploying SSPR, see [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
 
 * [Consider implementing Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 
