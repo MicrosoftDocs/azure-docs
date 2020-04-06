@@ -37,18 +37,6 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 <br>
 
 
-> [!IMPORTANT]
-> Specialized images are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> VMs can only be created from specialized images using the portal or API. The is no CLI or PowerShell support for the preview.
-
-## Before you begin
-
-To complete the example in this article, you must have an existing managed image of a generalized VM, or a snapshot of a specialized VM. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create a managed image, or [Create a snapshot](snapshot-copy-managed-disk.md) for a specialized VM. For both managed images and snapshots, the data disk size cannot be more than 1 TB.
-
 When working through this article, replace the resource group and VM names where needed.
 
 

@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/06/2019
+ ms.date: 04/01/2020
  ms.author: akjosh
  ms.custom: include file
 ---

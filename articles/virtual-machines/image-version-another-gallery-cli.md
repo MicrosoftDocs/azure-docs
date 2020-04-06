@@ -144,7 +144,7 @@ az sig image-version create \
 
 ## Next steps
 
-Create a VM from a [generalized](vm-generalized-image-version-cli.md) or a [specialized](vm-specialized-image-version-cli.md) image version.
+Create a VM from a [generalized](vm-generalized-image-version-cli.md) image version using CLI, or a [specialized](vm-specialized-image-version-PowerShell.md) image version, using PowerShell. You can't currently create a VM from a specialized version using the Azure CLI.
 
 
 

@@ -1,66 +1,85 @@
 ---
-title: Create an image version from a VM
-description: Learn how to use Azure PowerShell to create an image version from an existing VM in Azure.
+title: Create an image from a VM (Preview)
+description: Learn how to use Azure PowerShell to create an image in a Shared Image Gallery from an existing VM in Azure.
 author: cynthn
 ms.topic: article
 ms.service: virtual-machines
 ms.workload: infrastructure
-ms.date: 03/20/2020
+ms.date: 04/02/2020
 ms.author: cynthn
 
 ---
 
-# Create an image version from a VM
+# Preview: Create an image from a VM
 
-If you have an existing VM that you would like to use to make multiple, identical VMs, then you can use that VM to create an image version in a Shared Image Gallery. 
+If you have an existing VM that you would like to use to make multiple, identical VMs, then you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
 
-An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+You can capture an image from both [specialized and generalized](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) VMs using Azure PowerShell. 
+
+Images in an image gallery have two components, which we will create in this example:
+- An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
+- An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery and an [image definition](./windows/shared-images.md#). 
+To complete this article, you must have an existing Shared Image Gallery. 
 
-Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition. If you want to use the VM without removing existing user accounts, create a specialized image definition.
-
-To complete the example in this article, you must have an existing VM in Azure. If the has a data disk attached, the data disk size cannot be more than 1 TB.
+To complete the example in this article, you must have an existing VM in Azure to use as the source. If the has a data disk attached, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
 
 
-## Get the VM
-
-You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group it is in, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
-
-```azurepowershell-interactive
-$sourceVM = Get-AzVM `
-   -Name sourceVM `
-   -ResourceGroupName myResourceGroup
-```
-
-## Get the gallery and image definition
+## Get the gallery
 
 You can list all of the galleries and image definitions by name.
 
 ```azurepowershell-interactive
-$galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
-$galleries.Name
-
-$imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
-$imageDefinitions.Name
+Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
 ```
 
-Once you find the right gallery and image definitions, create variables for them to use later.
+Once you find the right gallery and image definitions, create variables for them to use later. This example gets the gallery named *myGallery* in the *myResourceGroup* resource group.
 
 ```azurepowershell-interactive
 $gallery = Get-AzGallery `
    -Name myGallery `
    -ResourceGroupName myResourceGroup
-$imageDef = Get-AzGalleryImageDefinition `
-   -GalleryName myGallery `
-   -ResourceGroupName myGalleryRG `
-   -Name myImageDefinition
+```
+
+## Get the VM
+
+You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group it is in, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$sourceVm*. 
+
+```azurepowershell-interactive
+$sourceVm = Get-AzVM `
+   -Name sourceVM `
+   -ResourceGroupName myResourceGroup
+```
+
+## Create an image definition 
+
+Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
+
+When making your image definition, make sure is has all of the correct information. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create an image definition using `-OsState generalized`. If you generalized the VM, create an image definition using `-OsState specialized`.
+
+For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+In this example, the image definition is named *myImageDefinition*, and is for a specialized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
+
+```azurepowershell-interactive
+$imageDefinition = New-AzGalleryImageDefinition `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $gallery.ResourceGroupName `
+   -Location $gallery.Location `
+   -Name 'myImageDefinition' `
+   -OsState specialized `
+   -OsType Windows `
+   -Publisher 'myPublisher' `
+   -Offer 'myOffer' `
+   -Sku 'mySKU'
 ```
 
 
@@ -80,17 +99,22 @@ To create an image version from the VM, use `$vm.Id.ToString()` for the `-Source
    $targetRegions = @($region1,$region2)
 
 $imageVersion = New-AzGalleryImageVersion `
-   -GalleryImageDefinitionName $galleryImage.Name`
+   -GalleryImageDefinitionName $imageDefinition.Name`
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -Location $resourceGroup.Location `
+   -ResourceGroupName $gallery.ResourceGroupName `
+   -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $vm.Id.ToString() `
+   -Source $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01'
+   -asJob 
 ```
 
-It can take a while to replicate the image to all of the target regions.
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
+
+```azurepowershell-interactive
+$job.State
+```
 
 > [!NOTE]
 > You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.

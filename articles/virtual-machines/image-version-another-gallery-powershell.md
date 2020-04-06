@@ -1,19 +1,19 @@
 ---
-title: Copy an image version from another gallery
-description: Copy an image version from another gallery using Azure PowerShell.
+title: Copy an image from another gallery
+description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 03/24/2020
+ms.date: 04/02/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #SIG to SIG
 ---
 
-# Copy an image version from another gallery
+# Copy an image from another gallery
 
-If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example.
+If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from and image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
 
 
 To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. We will be creating a new image definition and image version in your destination gallery
