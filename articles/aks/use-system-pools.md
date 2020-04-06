@@ -116,7 +116,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 ## Delete a system node pool
 
 > [!Note]
-> To migrate versions of an AKS cluster prior to API version 2020-03-01, add a system node pool, then delete the original default node pool.
+> To use system node pools on versions prior to API version 2020-03-01, add a new system node pool, then delete the original default node pool.
 
 Previously you could not delete the initial default node pool in an AKS cluster. With system node pools, you have the flexibility to delete any node pool from your clusters. You need to ensure you have at least two system node pools so you can delete one of them.
 
