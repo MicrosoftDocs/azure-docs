@@ -1428,7 +1428,7 @@ tools:
     # Card
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-      url: https://docs.microsoft.com/azure/python/
+      url: https://docs.microsoft.com/azure/developer/python/
     # Card
     - title: .NET
       imageSrc: ./media/index/net-logo.svg
@@ -1444,7 +1444,7 @@ tools:
     # Card
     - title: Go
       imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-      url: https://docs.microsoft.com/azure/go/
+      url: https://docs.microsoft.com/azure/developer/go/
     # Card
     - title: REST API
       imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
