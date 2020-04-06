@@ -180,7 +180,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
     Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
-    SSL mode | *Require* | You can set the TLS/SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with TLS enforcing turned on. To turn off TLS enforcing, see [Configure Enforcement of TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-ssl).
+    SSL mode | *Require* | You can set the TLS/SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with TLS enforcing turned on. To turn off TLS enforcing, see [Configure Enforcement of TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Select **Save**.
 
