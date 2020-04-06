@@ -140,7 +140,7 @@
       href: cluster-autoscaler.md
     - name: Use Availability Zones
       href: availability-zones.md
-    - name: node pools
+    - name: Use node pools
       items:
       - name: Use multiple node pools
         href: use-multiple-node-pools.md
