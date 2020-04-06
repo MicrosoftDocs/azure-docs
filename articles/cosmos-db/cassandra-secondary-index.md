@@ -8,7 +8,7 @@ If you are trying to create a new index on existing data, tracking the index pro
 
 ## Indexing example
 
-First, create a sample keyspace and table:
+First, create a sample keyspace and table by running the following commands on the CQL shell prompt:
 
 ```
 CREATE KEYSPACE sampleks WITH REPLICATION = {'class' : 'SimpleStrategy'};
