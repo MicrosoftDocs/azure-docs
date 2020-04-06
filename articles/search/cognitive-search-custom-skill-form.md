@@ -32,25 +32,24 @@ You'll need to train a Form Recognizer model with your input forms before you us
 
 Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository to your local machine. Then navigate to **Vision/AnalyzeForm/** and open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
-Locate the **AnalyzeForm** project on the left pane and make the following changes.
-* Add project-level environment variables. Right-click the project title and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
-  * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
-  * `FORMS_RECOGNIZER_API_KEY` with the value set to your subscription key.
-  * `FORMS_RECOGNIZER_MODEL_ID` with the value set to the ID of the model you trained.
-  * `FORMS_RECOGNIZER_RETRY_DELAY` with the value set to 1000. This value is the time in milliseconds that the program will wait before retrying the query.
-  * `FORMS_RECOGNIZER_MAX_ATTEMPTS` with the value set to 100. This value is the number of times the program will query the service while attempting to get a successful response.
+First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
+* `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
+* `FORMS_RECOGNIZER_API_KEY` with the value set to your subscription key.
+* `FORMS_RECOGNIZER_MODEL_ID` with the value set to the ID of the model you trained.
+* `FORMS_RECOGNIZER_RETRY_DELAY` with the value set to 1000. This value is the time in milliseconds that the program will wait before retrying the query.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS` with the value set to 100. This value is the number of times the program will query the service while attempting to get a successful response.
 
-Next, open _AnalyzeForm.cs_ and find the `fieldMappings` variable, which references the field-mappings.json file. This file (and the variable that references it) defines the list of keys you want to extract from your forms and a custom label for each key. For example, a value of `{ "Address:", "address" }, { "Invoice For:", "recipient" }` means the script will only save the values for the detected `Address:` and `Invoice For:` fields, and it will label those values with `"address"` and `"recipient"`, respectively.
+Next, open _AnalyzeForm.cs_ and find the `fieldMappings` variable, which references the *field-mappings.json* file. This file (and the variable that references it) defines the list of keys you want to extract from your forms and a custom label for each key. For example, a value of `{ "Address:", "address" }, { "Invoice For:", "recipient" }` means the script will only save the values for the detected `Address:` and `Invoice For:` fields, and it will label those values with `"address"` and `"recipient"`, respectively.
 
-Finally, note the `contentType` variable. This script runs the given Form Recognizer model on remote documents that are accessed by URL, so the content type is `application/json`. If you want to analyze local files by including their byte streams in the HTTP requests, you'll need to change the `contentType` to the appropriate [MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) for your file.
+Finally, note the `contentType` variable. This script runs the given Form Recognizer model on remote documents that are referenced by URL, so the content type is `application/json`. If you want to analyze local files by including their byte streams in the HTTP requests, you'll need to change the `contentType` to the appropriate [MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) for your file.
 
 ## Test the function from Visual Studio
 
-After you've edited your project, save it and set the **AnalyzeForm** project as the startup project in Visual Studio (if it isn't set already). Then press **F5** to run the function in your local environment. Use a REST service like Postman to call the function.
+After you've edited your project, save it and set the **AnalyzeForm** project as the startup project in Visual Studio (if it isn't set already). Then press **F5** to run the function in your local environment. Use a REST service like [Postman](https://www.postman.com/) to call the function.
 
 ### HTTP request
 
-You'll make the following request to access the function.
+You'll make the following request to call the function.
 
 ```HTTP
 POST https://localhost:7071/api/analyze-form
