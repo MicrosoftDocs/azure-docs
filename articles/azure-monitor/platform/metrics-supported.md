@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: robb
 ms.subservice: metrics
 ---
@@ -1993,11 +1993,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|None|
+|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.|None|
+|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.|None|
+|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
@@ -2051,11 +2051,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_cpu_limit|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|None|
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.|None|
+|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.|None|
+|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.|None|
+|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
