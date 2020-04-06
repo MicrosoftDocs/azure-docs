@@ -10,7 +10,7 @@ ms.author: cynthn
 
 ---
 
-# MIgrate from a managed image to an image verison in a Shared Image Gallery
+# Migrate from a managed image to an image verison in a Shared Image Gallery
 
 If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
 
