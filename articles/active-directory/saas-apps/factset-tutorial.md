@@ -125,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FactSet SSO
 
-To configure single sign-on on **FactSet** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to FactSet Support individuals you are in contact with. They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **FactSet** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to FactSet account support representatives or to [FactSet Support Team](https://www.factset.com/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create FactSet test user
 
