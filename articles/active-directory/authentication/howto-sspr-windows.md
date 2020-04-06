@@ -40,7 +40,7 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 - The combination of the following specific three settings can cause this feature to not work.
     - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True
+    - Windows SKU isn't Home or Professional edition
 
 ## Windows 10 password reset
 
