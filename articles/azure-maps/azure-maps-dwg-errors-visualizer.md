@@ -49,14 +49,17 @@ Open the _index.html_ file using any of the browsers below, with the respective 
 
 ## Using the DWG Error Visualizer tool
 
-Upon launching the DWG Error Visualizer tool, you'll see a box to load your data, as shown in the image below. To view the warnings and errors, load the _ConversionWarningsAndErrors.json_ file, placed at the root of the downloaded directory.
+After launching the DWG Error Visualizer tool, you will be presented with the upload page. The upload page contains a drag & drop box. The drag & drop box also functions as button that launches a File Explorer dialog.
 
 ![DWG Error Visualizer App - Start Page](./media/azure-maps-dwg-errors-visualizer/start-page.png)
 
-Once the file loads, you'll see a list of your DWG package errors and warnings. Specified by the layer, level, and described with a detailed message. You may now navigate to each error to learn more details in order to resolve the error.  
+The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the downloaded directory. To load the _ConversionWarningsAndErrors.json_ you can either drag & drop the file onto the box or click on the box, find the file in the File Explorer dialogue, and then upload the file.
 
-![DWG Error Visualizer App - Drag and drop to load data](./media/azure-maps-dwg-errors-visualizer/drag-drop.png)
+![DWG Error Visualizer App - Drag and drop to load data](./media/azure-maps-dwg-errors-visualizer/loading-data.gif)
 
+Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your DWG package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. You may now navigate to each error to learn more details in order to resolve the error.  
+
+![DWG Error Visualizer App - Errors and Warnings](./media/azure-maps-dwg-errors-visualizer/errors.png)
 
 ## Next steps
 
