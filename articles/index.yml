@@ -1190,7 +1190,7 @@ productDirectory:
     # Card
     - title: Remote Rendering (Preview)
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
-      imageSrc: ./media/index/remote-rendering.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
       azureCategories:
         - mixed-reality
       url: remote-rendering/index.yml
