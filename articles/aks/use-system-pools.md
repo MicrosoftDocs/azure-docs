@@ -9,7 +9,7 @@ ms.date: 04/06/2020
 
 # (Preview) Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. System node pools and user node pools are two different node pool modes for your AKS clusters. These node pools are mutable. User node pools are where you place your application-specific pods. Node pools contain the underlying VMs that run your applications. Every AKS cluster must contain at least one system node pool with at least one node. To support applications that have different compute or storage demands, you can create additional user node pools. For example, use additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. 
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. System node pools and user node pools are two different **node pool modes** for your AKS clusters. These node pools are mutable. User node pools are where you place your application-specific pods. Node pools contain the underlying VMs that run your applications. Every AKS cluster must contain at least one system node pool with at least one node. To support applications that have different compute or storage demands, you can create additional user node pools. For example, use additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. 
 
 ## Prerequisites
 
@@ -23,10 +23,6 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between 1 and 6 characters.
-
-## Recommendations
-
-* If you use a single system pool, we recommend using three nodes in that pool  (TODO why?)
 
 ## Install the latest Azure CLI AKS Preview extension
 
@@ -85,7 +81,7 @@ kubectl get nodes
 
 ## Add a system node pool to an existing AKS cluster
 
-You can add system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes.
+You can add system node pools to existing AKS clusters. The following command adds a node pool of mode system with a default count of three nodes. If you run a single system node pool, we recommend using 3 nodes for the pool.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
@@ -99,10 +95,9 @@ You can check the details of your node pools with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-You see an output similar to the below, and you can check the mode for your node pool.
+You see an output similar to the below, and you can check the mode for your node pool. A mode of **System** is defined for system node pools, and a mode of **User** is defined for user node pools.
 
 ```output
-[
 {
   "agentPoolType": "VirtualMachineScaleSets",
   "availabilityZones": null,
@@ -130,14 +125,7 @@ You see an output similar to the below, and you can check the mode for your node
   "vmSize": "Standard_DS2_v2",
   "vnetSubnetId": null
 }
-]
 ```
-
-## Verify nodes below to a system node pool
-
-TODO: do we need this?  kubectl describe node .. could run kubectl get nodes to get a name, then describe it and show them the label... might be overkill though
-
-System node pools contain nodes with a label of **kubernetes.azure.com/mode=system.**  
 
 ## Update system and user node pools
 
