@@ -27,4 +27,4 @@ Add text here.
 In this quickstart, you created a ...
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+> [Create and manage Azure virtual machine scale sets]()

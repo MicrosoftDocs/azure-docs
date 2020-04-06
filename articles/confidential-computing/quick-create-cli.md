@@ -45,5 +45,5 @@ az group delete --name myResourceGroup --yes --no-wait
 In this quickstart, you created a ...
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-cli.md)
+> [Create and manage Azure virtual machine scale sets]()
 
