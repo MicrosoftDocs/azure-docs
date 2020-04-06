@@ -302,7 +302,7 @@ your own key.
 ## 4.11 Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure MySQL database servers enforce SSL connections.
+ensure MySQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for MySQL database servers
 
@@ -316,7 +316,7 @@ ensure PostgreSQL database servers log checkpoints.
 ## 4.13 Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure PostgreSQL database servers enforce SSL connections.
+ensure PostgreSQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for PostgreSQL database servers
 
