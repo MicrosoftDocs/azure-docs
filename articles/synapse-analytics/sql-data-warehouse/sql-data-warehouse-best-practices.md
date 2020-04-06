@@ -69,7 +69,7 @@ Azure Data Factory also supports PolyBase loads and can achieve similar performa
 > [!NOTE]
 > To maximize throughput when using gzip text files, break up files into 60 or more files to maximize parallelism of your load.  For faster total throughput, consider loading data concurrently.
 
-See also [Load data](design-elt-data-loading.md), [Guide for using PolyBase](guidance-for-loading-data.md), [SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Load Data with Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), (/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
+See also [Load data](design-elt-data-loading.md), [Guide for using PolyBase](guidance-for-loading-data.md), [SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Load Data with Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## Load then query external tables
 
