@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: what is Azure Key Vault?
+  - name: What is Azure Key Vault?
     href: overview.md
 - name: Quickstarts
   expanded: true

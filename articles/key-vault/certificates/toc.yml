@@ -21,6 +21,8 @@
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
+  - name: Import a certificate using the portal  
+    href: tutorial-import-certificate.md
 - name: Concepts 
   items:
 - name: How-to guides
