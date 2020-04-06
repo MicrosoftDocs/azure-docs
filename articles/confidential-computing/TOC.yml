@@ -1,0 +1,22 @@
+- name: Confidential Computing Documentation
+  href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create in the Azure portal
+    href: quick-create-portal.md
+  - name: Create with the Azure CLI
+    href: quick-create-cli.md
+  - name: Create with Azure PowerShell
+    href: quick-create-powershell.md
+  - name: Create with ARM template
+    href: quick-create-template-windows.md
+  - name: Create with Marketplace
+    href: quick-create-marketplace.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Maintenance
+    href: maintenance.md
+  - name: Solutions
+    href: virtual-machine-solutions.md
