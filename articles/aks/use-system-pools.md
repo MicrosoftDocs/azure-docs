@@ -35,7 +35,7 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 
 ## Create a new AKS cluster with a system node pool
 
-When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to **mode = system**. When you create additional node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
+When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode  of system. When you create additional node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
