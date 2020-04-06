@@ -7620,6 +7620,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
       "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
@@ -19182,6 +19187,11 @@
     {
       "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
       "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-backup-azure-files.md",
+      "redirect_url": "/azure/backup/backup-afs",
       "redirect_document_id": false
     },
     {
@@ -47033,6 +47043,11 @@
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
