@@ -72,7 +72,7 @@ The output of this command displays information about your newly created instanc
 
 Before you can use the newly created Azure Digital Twins instance, there is one more step: setting up access control for the instance. 
 
-Every identity (users or service principals) that you want to give access to the Azure Digital Twins instance must have an assigned role for that instance. Azure Digital Twins currently has two built-in roles, "Admin" and "Owner". There is also a "Reader" option, and you can also create your own custom roles via the access control (IAM) pane in the Azure Digital Twins page in the Azure portal.  
+Every identity (users or service principals) that you want to give access to the Azure Digital Twins instance must have an assigned role for that instance. Azure Digital Twins currently has two built-in roles: "Owner" and "Reader". You can also create your own custom roles via the access control (IAM) pane in the Azure Digital Twins page in the Azure portal.  
 
 To assign a role to a service principal, use this Azure Digital Twins CLI command:
 
