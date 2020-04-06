@@ -50,7 +50,18 @@ Use the [az aks create][az-aks-create] command to create an AKS cluster. The fol
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
+
+```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  "tags": null,
+  "type": "Microsoft.ContainerService/ManagedClusters",
+  "windowsProfile": null
+```
 
 ## Limitations
 
