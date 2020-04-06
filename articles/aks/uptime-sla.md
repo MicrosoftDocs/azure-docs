@@ -10,7 +10,7 @@ ms.date: 03/11/2020
 
 Uptime SLA is an optional feature to enable financially backed higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for AZ enabled clusters and 99.9% of availability for clusters with no availability zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-Customers needing SLA for compliance reasons or extending SLA's to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availablity Zones to obtain higher availability of the Kubernetes API server.  
+Customers needing SLA for compliance reasons or extending SLA's to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availability Zones to obtain higher availability of the Kubernetes API server.  
 
 Customers can create unlimited free clusters with a service level objective (SLO) of 99.5%.
 
