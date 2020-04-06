@@ -3,7 +3,7 @@ title: Compiling configurations in Azure Automation State Configuration
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ---
 # Compiling DSC configurations in Azure Automation State Configuration
@@ -57,6 +57,10 @@ while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception
 
 $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 ```
+
+### Azure Resource Manager template
+
+You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. For further information, review [Desired State Configuration with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md#details). The referenced article provides an example template to review and adopt to support your ongoing system management needs.
 
 ### Declare basic parameters
 
