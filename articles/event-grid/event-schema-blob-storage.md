@@ -33,7 +33,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
 ## List of the events for Azure Data Lake Storage Gen 2 REST APIs
 
-These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs.
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs. For more information bout Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Event name|Description|
 |----------|-----------|
@@ -85,7 +85,7 @@ This section contains an example of what that data would look like for each blob
 
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
-If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * The `dataVersion` key is set to a value of `2`.
 
@@ -150,7 +150,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 
 ### Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
-If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * The `dataVersion` key is set to a value of `2`.
 
