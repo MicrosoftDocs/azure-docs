@@ -107,6 +107,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
@@ -1073,6 +1074,16 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
 > | workspaces / computes | No | No |
+
+## Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | applyupdates | No | No |
+> | configurationassignments | No | No |
+> | maintenanceconfigurations | Yes | Yes |
+> | updates | No | No |
 
 ## Microsoft.ManagedIdentity
 
