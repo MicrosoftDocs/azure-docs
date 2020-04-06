@@ -15,7 +15,7 @@ CREATE KEYSPACE sampleks WITH REPLICATION = {'class' : 'SimpleStrategy'};
 CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=400;
 ``` 
 
-Then, insert some data with the following commands:
+Then, insert sample user data with the following commands:
 
 ```
 insert into sampleks.t1(user_id,lastname) values (1, 'nishu');
