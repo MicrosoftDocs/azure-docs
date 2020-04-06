@@ -118,7 +118,7 @@ You see an output similar to the below, and you can check the mode for your node
 
 ## Update system and user node pools
 
-You can change modes for both system and user node pools.
+You can change modes for both system and user node pools. You can change a system node pool to a user pool only if another system node pool already exists on the AKS cluster.
 
 This command changes a system node pool to a user node pool.
 
