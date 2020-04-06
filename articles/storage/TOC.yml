@@ -16,7 +16,7 @@
 - name: Queues
   href: ./queues/index.yml?toc=%2fazure%2fstorage%2fqueues%2ftoc.json 
 - name: Tables
-  href: ./tables/table-storage-overview.md
+  href: ./tables/index.yml?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Disks
   items:
   - name: Windows

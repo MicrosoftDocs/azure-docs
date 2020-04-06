@@ -1,12 +1,12 @@
 ---
-title: How to investigate risks in Azure Active Directory Identity Protection
+title: Investigate risk Azure Active Directory Identity Protection
 description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ The three reports are found in the **Azure portal** > **Azure Active Directory**
 
 ## Navigating the reports
 
-Each report launches with a list of all detections for the period shown at the top of the report. Each report allows for the addition or removal of columns based on administrator preference. Administrators can choose to download the data in .CSV format. Reports can be filtered using the filters across the top of the report.
+Each report launches with a list of all detections for the period shown at the top of the report. Each report allows for the addition or removal of columns based on administrator preference. Administrators can choose to download the data in .CSV or .JSON format. Reports can be filtered using the filters across the top of the report.
 
 Selecting individual entries may enable additional entries at the top of the report such as the ability to confirm a sign-in as compromised or safe, confirm a user as compromised, or dismiss user risk.
 
@@ -41,7 +41,7 @@ With the information provided by the risky users report, administrators can find
 
 - Which users are at risk, have had risk remediated, or have had risk dismissed?
 - Details about detections
-- History of risky sign-ins
+- History of all risky sign-ins
 - Risk history
  
 Administrators can then choose to take action on these events. Administrators can choose to:

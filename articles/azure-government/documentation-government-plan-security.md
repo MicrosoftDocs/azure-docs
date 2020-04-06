@@ -1,6 +1,6 @@
 ---
 title: Azure Government Security | Microsoft Docs
-description: Provides and overview of the available services in Azure Government
+description: This article provides and overview of the available services in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''

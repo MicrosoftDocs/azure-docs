@@ -1,37 +1,27 @@
 ---
-title: Deploy Azure dedicated hosts using the CLI 
+title: Deploy Linux VMs to dedicated hosts using the CLI 
 description: Deploy VMs to dedicated hosts using the Azure CLI.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Preview: Deploy VMs to dedicated hosts using the Azure CLI
+# Deploy VMs to dedicated hosts using the Azure CLI
  
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
 
-> [!IMPORTANT]
-> Azure Dedicated Hosts is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3 and ESv3. 
+
+## Limitations
+
+- Virtual machine scale sets are not currently supported on dedicated hosts.
+- The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
  
 
 ## Create resource group 
@@ -84,8 +74,7 @@ az vm host group create \
  
 ## Create a host 
 
-Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  During the preview, we will support the following host SKU values: DSv3_Type1 and ESv3_Type1.
-
+Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 

@@ -1,15 +1,15 @@
 ---
-title: Azure Multi-Factor Authentication - How it works - Azure Active Directory
+title: How it works Azure MFA - Azure Active Directory
 description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -35,7 +35,7 @@ Multi-Factor Authentication comes as part of the following offerings:
 
 * **Azure Active Directory Premium** or **Microsoft 365 Business** - Full featured use of Azure Multi-Factor Authentication using Conditional Access policies to require multi-factor authentication.
 
-* **Azure AD Free** or standalone **Office 365** licenses - Use pre-created [Conditional Access baseline protection policies](../conditional-access/concept-baseline-protection.md) to require multi-factor authentication for your users and administrators.
+* **Azure AD Free** or standalone **Office 365** licenses - Use [Security Defaults](../fundamentals/concept-fundamentals-security-defaults.md) to require multi-factor authentication for your users and administrators.
 
 * **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
 

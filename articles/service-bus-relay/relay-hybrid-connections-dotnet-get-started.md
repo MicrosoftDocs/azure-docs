@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Relay Hybrid Connections WebSockets in .NET | Microsoft Docs
+title: Azure Relay Hybrid Connections - WebSockets in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections WebSockets.
 services: service-bus-relay
 documentationcenter: .net

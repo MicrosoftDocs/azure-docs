@@ -1,42 +1,35 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication| Microsoft Docs'
+title: 'Enable MFA for VPN users: Azure AD authentication'
 description: Enable multi-factor authentication for VPN users
 services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 02/14/2020
 ms.author: alzam
 
 ---
-# Enable Multi-Factor Authentication (MFA) for VPN users
+# Enable Azure Multi-Factor Authentication (MFA) for VPN users
 
-You can enable MFA for users in your Azure AD tenant so that users are prompted for a second factor authentication before access is granted.
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
-> [!NOTE]
-> Prerequisite: You have configured an Azure AD tenant as described in the "Configure a tenant" document.
->
+## <a name="enableauth"></a>Enable authentication
 
-#### <a name="tenant"></a>1. Login to the Azure portal and navigate to **Azure Active Directory** , **All users** and click on **Multi-Factor Authentication**
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
+## <a name="enablesign"></a>Configure sign-in settings
 
-   ![New Azure AD tenant](./media/openvpn-azure-ad-mfa/mfa1.jpg)
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-#### <a name="users"></a>2. Select the user(s) that you want to enable MFA for and click **enable**
+## <a name="peruser"></a>Option 1 - Per User access
 
-   ![New Azure AD tenant](./media/openvpn-azure-ad-mfa/mfa2.jpg)
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-#### <a name="enable-authentication"></a>3. Navigate to **Azure Active Directory** , **Enterprise applications**, **All applications**  and click on **Azure VPN**
+## <a name="conditional"></a>Option 2 - Conditional Access
 
-
-   ![Directory ID](./media/openvpn-azure-ad-mfa/user1.jpg)
-
-#### <a name="users"></a>4. Make sure the **Enabled for users to sign-in?** is set to yes. If you want just the users that have permissions to the Azure VPN to be able to login then Set **User assignment required?** to yes as well otherwise all users in the AD tenant will be able to connect to VPN successfully.
-
-   ![Permissions](./media/openvpn-azure-ad-mfa/user2.jpg)
-
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## Next steps
 
-In order to connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

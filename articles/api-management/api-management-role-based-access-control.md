@@ -24,17 +24,17 @@ Azure API Management relies on Azure Role-Based Access Control (RBAC) to enable 
 
 ## Built-in roles
 
-API Management currently provides three built-in roles and will add two more roles in the near future. These roles can be assigned at different scopes, including subscription, resource group, and individual API Management instance. For instance, if you assign the "Azure API Management Service Reader" role to a user at the resource-group level, then the user has read access to all API Management instances inside the resource group. 
+API Management currently provides three built-in roles and will add two more roles in the near future. These roles can be assigned at different scopes, including subscription, resource group, and individual API Management instance. For instance, if you assign the "API Management Service Reader" role to a user at the resource-group level, then the user has read access to all API Management instances inside the resource group. 
 
 The following table provides brief descriptions of the built-in roles. You can assign these roles by using the Azure portal or other tools, including Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). For details about how to assign built-in roles, see [Use role assignments to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Role          | Read access<sup>[1]</sup> | Write access<sup>[2]</sup> | Service creation, deletion, scaling, VPN, and custom domain configuration | Access to the legacy publisher portal | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- 
-| Azure API Management Service Contributor | ✓ | ✓ | ✓ | ✓ | Super user. Has full CRUD access to API Management services and entities (for example, APIs and policies). Has access to the legacy publisher portal. |
-| Azure API Management Service Reader | ✓ | | || Has read-only access to API Management services and entities. |
-| Azure API Management Service Operator | ✓ | | ✓ | | Can manage API Management services, but not entities.|
-| Azure API Management Service Editor<sup>*</sup> | ✓ | ✓ | |  | Can manage API Management entities, but not services.|
-| Azure API Management Content Manager<sup>*</sup> | ✓ | | | ✓ | Can manage the developer portal. Read-only access to services and entities.|
+| API Management Service Contributor | ✓ | ✓ | ✓ | ✓ | Super user. Has full CRUD access to API Management services and entities (for example, APIs and policies). Has access to the legacy publisher portal. |
+| API Management Service Reader | ✓ | | || Has read-only access to API Management services and entities. |
+| API Management Service Operator | ✓ | | ✓ | | Can manage API Management services, but not entities.|
+| API Management Service Editor<sup>*</sup> | ✓ | ✓ | |  | Can manage API Management entities, but not services.|
+| API Management Content Manager<sup>*</sup> | ✓ | | | ✓ | Can manage the developer portal. Read-only access to services and entities.|
 
 <sup>[1] Read access to API Management services and entities (for example, APIs and policies).</sup>
 
@@ -49,7 +49,7 @@ If none of the built-in roles meet your specific needs, custom roles can be crea
 > [!NOTE]
 > To be able to see an API Management instance in the Azure portal, a custom role must include the ```Microsoft.ApiManagement/service/read``` action.
 
-When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "Azure API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role to a specific API. Consequently, this role only has access to that API. 
+When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role to a specific API. Consequently, this role only has access to that API. 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"

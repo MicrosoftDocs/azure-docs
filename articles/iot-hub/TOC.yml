@@ -83,6 +83,12 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
+    - name: TLS support
+      href: iot-hub-tls-support.md
+    - name: TLS 1.0 and 1.1 deprecation
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
+    - name: Virtual networks support
+      href: virtual-network-support.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md
     - name: Overview of device management
@@ -365,35 +371,67 @@
             - name: Device management with IoT extension for Azure CLI
               href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
             - name: Remote monitoring and notifications with ​Logic ​Apps
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-    - name: Troubleshoot
+              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
+    - name: Troubleshoot and problem solution
       items:
-        - name: Device disconnections
+        - name: Device disconnects
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Problem resolution
+          items:          
+            - name: 400027 ConnectionForcefullyClosedOnNewConnection
+              href: iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md
+            - name: 401003 IoTHubUnauthorized
+              href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
+            - name: 403002 IoTHubQuotaExceeded
+              href: iot-hub-troubleshoot-error-403002-iothubquotaexceeded.md
+            - name: 403004 DeviceMaximumQueueDepthExceeded
+              href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
+            - name: 403006 DeviceMaximumActiveFileUploadLimitExceeded
+              href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
+            - name: 404001 DeviceNotFound
+              href: iot-hub-troubleshoot-error-404001-devicenotfound.md
+            - name: 404103 DeviceNotOnline
+              href: iot-hub-troubleshoot-error-404103-devicenotonline.md
+            - name: 404104 DeviceConnectionClosedRemotely
+              href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
+            - name: 409001 DeviceAlreadyExists
+              href: iot-hub-troubleshoot-error-409001-devicealreadyexists.md
+            - name: 409002 LinkCreationConflict
+              href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
+            - name: 412002 DeviceMessageLockLost
+              href: iot-hub-troubleshoot-error-412002-devicemessagelocklost.md
+            - name: 429001 ThrottlingException
+              href: iot-hub-troubleshoot-error-429001-throttlingexception.md
+            - name: 500xxx Internal errors
+              href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
+            - name: 503003 PartitionNotFound
+              href: iot-hub-troubleshoot-error-503003-partitionnotfound.md
+            - name: 504101 GatewayTimeout
+              href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Reference
   items:
     - name: Azure CLI
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iot
+    - name: .NET (Device)
+      href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
-    - name: .NET (Devices)
-      href: /dotnet/api/microsoft.azure.devices.client
+    - name: Java (Device)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
-    - name: Java (Devices)
-      href: /java/api/com.microsoft.azure.sdk.iot.device
-    - name: Node.js (Devices)
+    - name: Node.js (Device)
       href: https://docs.microsoft.com/javascript/api/azure-iot-device/
     - name: Node.js (Service)
       href: https://docs.microsoft.com/javascript/api/azure-iothub/
     - name: C device SDK
       href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
-    - name: Azure IoT Edge
-      href: http://azure.github.io/iot-edge/
     - name: REST (Device)
       href: https://docs.microsoft.com/rest/api/iothub/device
     - name: REST (Service)
-      href: https://docs.microsoft.com/rest/api/iothub/service
+      href: https://docs.microsoft.com/rest/api/iothub/service/configuration
     - name: REST (IoT Hub Resource)
       href: https://docs.microsoft.com/rest/api/iothub/iothubresource
     - name: REST (Certificates)
@@ -406,46 +444,46 @@
           href: iot-hub-operations-monitoring.md
         - name: Migrate to diagnostics settings
           href: iot-hub-migrate-to-diagnostics-settings.md
-- name: Related
-  items:
-    - name: Solutions
-      items:
-        - name: IoT Central
-          href: https://docs.microsoft.com/microsoft-iot-central/
-        - name: IoT solution accelerators
-          href: /azure/iot-accelerators
-    - name: Platform Services
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: IoT Service SDKs
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Maps
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: IoT Device SDKs
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
-    - name: Azure IoT Samples for C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-    - name: Azure IoT Samples for Node.js
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-    - name: Azure IoT Samples for Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-    - name: Azure IoT Samples for Python
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-    - name: Azure IoT Samples for iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+    - name: Support and help options
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT services
+      items:
+      - name: IoT Hub
+        href: /azure/iot-hub
+      - name: IoT Hub Device Provisioning Service
+        href: /azure/iot-dps
+      - name: IoT Central
+        href: https://docs.microsoft.com/microsoft-iot-central/
+      - name: IoT Edge
+        href: /azure/iot-edge
+      - name: IoT solution accelerators
+        href: /azure/iot-accelerators
+      - name: IoT Plug and Play
+        href: /azure/iot-pnp
+      - name: Azure Maps
+        href: /azure/azure-maps
+      - name: Time Series Insights
+        href: /azure/time-series-insights
+    - name: Azure IoT SDKs
+      items:
+      - name: IoT Service SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      - name: IoT Device SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Azure IoT samples
+      items:
+      - name: C# (.NET)
+        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      - name: Node.js
+        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+      - name: Java
+        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      - name: Python
+        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+      - name: iOS Platform
+        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
     - name: Azure Certified for IoT device catalog
       href: https://catalog.azureiotsolutions.com/
     - name: Azure IoT Developer Center
@@ -456,8 +494,8 @@
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-    - name: DeviceExplorer tool
-      href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+    - name: Azure IoT Explorer tool
+      href: https://github.com/Azure/azure-iot-explorer
     - name: iothub-diagnostics tool
       href: https://github.com/Azure/iothub-diagnostics
     - name: MSDN forum

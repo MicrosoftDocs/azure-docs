@@ -55,10 +55,18 @@
   items:
   - name: Deploy
     items:
-    - name: Deploy in a virtual network (preview)
+    - name: Deploy in a virtual network
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Deploy with GitHub Actions (preview)
+      href: container-instances-github-action.md
+    - name: Encrypt deployment data
+      href: container-instances-encrypt-data.md
+    - name: Deploy on dedicated hosts
+      href: container-instances-dedicated-hosts.md
+    - name: Use Logic Apps connector
+      href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
@@ -75,8 +83,10 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
-    - name: Enable SSL endpoint
-      href: container-instances-container-group-ssl.md     
+    - name: Enable SSL endpoint in sidecar
+      href: container-instances-container-group-ssl.md
+    - name: Expose static IP address
+      href: container-instances-application-gateway.md  
   - name: Mount data volumes
     items:
     - name: Azure file share

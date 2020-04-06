@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Validation differences by supported account types (SignInAudience) - Microsoft identity platform / Azure Active Directory
+title: Validation differences by supported account types - Microsoft identity platform | Azure
 description: Learn about the validation differences of various properties for different supported account types when registering your app with the Microsoft identity platform.
 author: SureshJa
 ms.author: sureshja
@@ -11,7 +11,6 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
 ---
 
 # Validation differences by supported account types (signInAudience)
@@ -30,7 +29,7 @@ The value you select for this property has implications on other app object prop
 
 See the following table for the validation differences of various properties for different supported account types.
 
-| Property | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| Property | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` and `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
 | Application ID URI (`identifierURIs`)  | Must be unique in the tenant <br><br> urn:// schemes are supported <br><br> Wildcards are not supported <br><br> Query strings and fragments are supported <br><br> Maximum length of 255 characters <br><br> No limit* on number of identifierURIs  | Must be globally unique <br><br> urn:// schemes are supported <br><br> Wildcards are not supported <br><br> Query strings and fragments are supported <br><br> Maximum length of 255 characters <br><br> No limit* on number of identifierURIs | Must be globally unique <br><br> urn:// schemes are not supported <br><br> Wildcards, fragments and query strings are not supported <br><br> Maximum length of 120 characters <br><br> Maximum of 50 identifierURIs |
 | Certificates (`keyCredentials`) | Symmetric signing key | Symmetric signing key | Encryption and asymmetric signing key | 

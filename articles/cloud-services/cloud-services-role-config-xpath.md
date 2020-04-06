@@ -2,11 +2,11 @@
 title: Cloud Services Role config XPath cheat sheet | Microsoft Docs
 description: The various XPath settings you can use in the cloud service role config to expose settings as an environment variable.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Expose role configuration settings as an environment variable with XPath
@@ -156,4 +156,7 @@ Learn more about the [ServiceConfiguration.cscfg](cloud-services-model-and-packa
 Create a [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) package.
 
 Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
+
+
+
 

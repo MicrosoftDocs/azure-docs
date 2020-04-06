@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Create a search index in C# using .NET'
 titleSuffix: Azure Cognitive Search
-description: Explains how to create an index, load data, and run queries using C# and the Azure Cognitive Search .NET SDK.
+description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search .NET SDK.
 
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 ---
 # Quickstart: Create an Azure Cognitive Search index in C# using the .NET SDK
@@ -211,7 +211,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     namespace AzureSearchQuickstart
     {
-        class Program
+        class Program {
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)
@@ -544,7 +544,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
 
     Output includes the same messages as before, with addition of query information and results.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 

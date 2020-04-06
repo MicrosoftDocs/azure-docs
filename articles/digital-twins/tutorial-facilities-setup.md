@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy Azure Digital Twins'
+title: 'Tutorial: Deploy a preview environment and spatial graph - Azure Digital Twins| Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,11 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create a spatially aware intelligent IoT solution. 
 ---
 
 # Tutorial: Deploy Azure Digital Twins Preview and configure a spatial graph
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 You can use the Azure Digital Twins Preview service to bring together people, places, and devices in a coherent spatial system. This series of tutorials demonstrates how to use Azure Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. 
 
@@ -34,7 +36,7 @@ These tutorials use and modify the same samples that the [quickstart to find ava
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - The .NET Core SDK. The Azure Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check that the right version is installed on your machine by running `dotnet --version` in a command window.
 
@@ -48,7 +50,7 @@ Use the steps in this section to create a new instance of the Azure Digital Twin
 
 ## Grant permissions to your app
 
-Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance must be registered with Azure AD. The steps in this section show how to register your sample app.
+Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to control [read/write access](../active-directory/develop/v2-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance must be registered with Azure AD. The steps in this section show how to register your sample app.
 
 If you already have an app registration, you can reuse it for your sample. However, browse through this section to make sure your app registration is configured correctly.
 
@@ -71,7 +73,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
 
 * You can use the provisioning sample **occupancy-quickstart** to configure and provision a [spatial intelligence graph](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). This graph is the digitized image of your physical spaces and the resources in them. It uses an [object model](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), which defines objects for a smart building. For a complete list of Digital Twins objects and REST APIs, visit [this REST API documentation](https://docs.westcentralus.azuresmartspaces.net/management/swagger) or the Management API URL that was created for [your instance](#deploy-digital-twins).
 
-   To explore the sample to see how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
+   To explore the sample to understand how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
     - The **provisionSample.cs** file shows how to provision your spatial graph.
     - The **getSpaces.cs** file gets information about the provisioned spaces.
     - The **getAvailableAndFreshSpaces.cs** file gets the results of a custom function called a user-defined function.
@@ -98,7 +100,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
    * **Tenant**: Enter the directory ID of your [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). You also noted this ID in the section where you [set app permissions](#grant-permissions-to-your-app).
    * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy-digital-twins). Replace **swagger/** with **api/v1.0/**.
 
-1. See a list of Digital Twins features that you can explore by using the sample. Run the following command:
+1. Review a list of Digital Twins features that you can explore by using the sample. Run the following command:
 
     ```cmd/sh
     dotnet run
@@ -125,7 +127,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 This function uses [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) in the same folder. Open this file, and note the hierarchy of an office building: *Venue*, *Floor*, *Area*, and *Rooms*. Any of these physical spaces can contain *devices* and *sensors*. Each entry has a predefined `type`&mdash;for example, Floor, Room.
@@ -144,9 +145,9 @@ The **provisionSample.yaml** file contains the following nodes:
 
 - **spaces**: In the Digital Twins object model, `spaces` represent the physical locations. Each space has a `Type`&mdash;for example, Region, Venue, or Customer&mdash;and a friendly `Name`. Spaces can belong to other spaces, creating a hierarchical structure. The provisionSample.yaml file has a spatial graph of an imaginary building. Note the logical nesting of spaces of type `Floor` within `Venue`, `Area` in a floor, and `Room` nodes in an area. 
 
-- **devices**: Spaces can contain `devices`, which are physical or virtual entities that manage a number of sensors. For example, a device might be a user’s phone, a Raspberry Pi sensor pod, or a gateway. In the imaginary building in your sample, note how the room named **Focus Room** contains a **Raspberry Pi 3 A1** device. Each device node is identified by a unique `hardwareId`, which is hardcoded in the sample. To configure this sample for an actual production, replace these with values from your setup.  
+- **devices**: Spaces can contain `devices`, which are physical or virtual entities that manage a number of sensors. For example, a device might be a user's phone, a Raspberry Pi sensor pod, or a gateway. In the imaginary building in your sample, note how the room named **Focus Room** contains a **Raspberry Pi 3 A1** device. Each device node is identified by a unique `hardwareId`, which is hardcoded in the sample. To configure this sample for an actual production, replace these with values from your setup.  
 
-- **sensors**: A device can contain multiple `sensors`. They can detect and record physical changes like temperature, motion, and battery level. Each sensor node is uniquely identified by a `hardwareId`, hardcoded here. For an actual application, replace these by using the unique identifiers of the sensors in your setup. The provisionSample.yaml file has two sensors to record *Motion* and *CarbonDioxide*. Add another sensor to record *Temperature*, by adding the following lines, below the lines for the CarbonDioxide sensor. Note that these are provided in provisionSample.yaml as commented-out lines. You can uncomment them by removing the `#` character in the front of each line. 
+- **sensors**: A device can contain multiple `sensors`. They can detect and record physical changes like temperature, motion, and battery level. Each sensor node is uniquely identified by a `hardwareId`, hardcoded here. For an actual application, replace these by using the unique identifiers of the sensors in your setup. The provisionSample.yaml file has two sensors to record *Motion* and *CarbonDioxide*. Add another sensor to record *Temperature*, by adding the following lines, below the lines for the CarbonDioxide sensor. These are provided in provisionSample.yaml as commented-out lines. You can uncomment them by removing the `#` character in the front of each line. 
 
     ```yaml
             - dataType: Temperature

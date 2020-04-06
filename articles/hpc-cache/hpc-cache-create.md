@@ -3,7 +3,7 @@ title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: rohogue
 ---
@@ -31,7 +31,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
-After the public preview period, capacity also will affect the cache's cost.
+Capacity also affects the cache's cost.
 
 Choose the capacity by setting these two values:
 

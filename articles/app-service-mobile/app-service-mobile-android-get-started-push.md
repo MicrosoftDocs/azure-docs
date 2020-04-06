@@ -1,29 +1,16 @@
 ---
-title: Add push notifications to your Android app with Mobile Apps | Microsoft Docs
+title: Add push notifications to your Android app
 description: Learn how to use Mobile Apps to send push notifications to your Android app.
-services: app-service\mobile
-documentationcenter: android
-manager: crdun
-editor: ''
-author: elamalani
 
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Add push notifications to your Android app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 ## Overview
 

@@ -7,18 +7,20 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio (classic) web service
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Azure Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
 Machine Learning Studio (classic) web services provide an interface between an application and a Machine Learning Studio (classic) workflow scoring model. An external application can communicate with a Machine Learning Studio (classic) workflow scoring model in real time. A call to a Machine Learning Studio (classic) web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning Studio (classic) web service is based on REST, a popular architecture choice for web programming projects.
 
-The classic version of Azure Machine Learning Studio has two types of web services:
+Azure Machine Learning Studio (classic) has two types of web services:
 
 * Request-Response Service (RRS): A low latency, highly scalable service that scores a single data record.
 * Batch Execution Service (BES): An asynchronous service that scores a batch of data records.
@@ -27,13 +29,13 @@ The input for BES is like data input that RRS uses. The main difference is that 
 
 From a high-level point-of-view, you deploy your model in three steps:
 
-* **[Create a training experiment]** - In the classic version of Studio, you can train and test a predictive analytics model using training data that you supply, using a large set of built-in machine learning algorithms.
+* **[Create a training experiment]** - In Studio (classic), you can train and test a predictive analytics model using training data that you supply, using a large set of built-in machine learning algorithms.
 * **[Convert it to a predictive experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for predictions.
 * **Deploy** it as a **[New web service]** or a **[Classic web service]** - When you deploy your predictive experiment as an Azure web service, users can send data to your model and receive your model's predictions.
 
 ## Create a training experiment
 
-To train a predictive analytics model, you use the classic version of Azure Machine Learning Studio to create a training experiment where you include various modules to load training data, prepare the data as necessary, apply machine learning algorithms, and evaluate the results. You can iterate on an experiment and try different machine learning algorithms to compare and evaluate the results.
+To train a predictive analytics model, you use Azure Machine Learning Studio (classic) to create a training experiment where you include various modules to load training data, prepare the data as necessary, apply machine learning algorithms, and evaluate the results. You can iterate on an experiment and try different machine learning algorithms to compare and evaluate the results.
 
 The process of creating and managing training experiments is covered more thoroughly elsewhere. For more information, see these articles:
 
@@ -90,9 +92,9 @@ To test using RRS, from the list view mode, enter appropriate values for the inp
 
 ![Enter appropriate values to test your web service](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-To test your BES, click **Batch**. On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using the classic version of Machine Learning Studio, you can download the data set for your predictive experiment and use it.
+To test your BES, click **Batch**. On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio (classic), you can download the data set for your predictive experiment and use it.
 
-To download the data set, open the classic version of Machine Learning Studio. Open your predictive experiment and right click the input for your experiment. From the context menu, select **dataset** and then select **Download**.
+To download the data set, open Machine Learning Studio (classic). Open your predictive experiment and right click the input for your experiment. From the context menu, select **dataset** and then select **Download**.
 
 ![Download your data set from the Studio (classic) canvas](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -108,7 +110,7 @@ On the **CONFIGURATION** page, you can change the description, title, update the
 
 ### Access your New web service
 
-Once you deploy your web service from the classic version of Machine Learning Studio, you can send data to the service and receive responses programmatically.
+Once you deploy your web service from Machine Learning Studio (classic), you can send data to the service and receive responses programmatically.
 
 The **Consume** page provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service.
 
@@ -116,7 +118,7 @@ For more information about accessing a Machine Learning Studio (classic) web ser
 
 ### Manage your New web service
 
-You can manage your New web services Machine Learning Studio (classic) Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
+You can manage your New web services using Machine Learning Studio (classic) Web Services portal. From the [main portal page](https://services.azureml.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
 ### <a id="multi-region"></a> Deploy your New web service to multiple regions
 
@@ -131,7 +133,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 3. On the Plans over view page, click **New**.
 4. From the **Subscription** dropdown, select the subscription in which the new plan will reside.
 5. From the **Region** dropdown, select a region for the new plan. The Plan Options for the selected region will display in the **Plan Options** section of the page.
-6. From the **Resource Group** dropdown, select a resource group for the plan. From more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+6. From the **Resource Group** dropdown, select a resource group for the plan. From more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 7. In **Plan Name** type the name of the plan.
 8. Under **Plan Options**, click the billing level for the new plan.
 9. Click **Create**.
@@ -144,7 +146,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 4. In **Web Service Name**, type a new name for the web service.
 5. In **Web service description**, type a description for the web service.
 6. From the **Subscription** dropdown, select the subscription in which the new web service will reside.
-7. From the **Resource Group** dropdown, select a resource group for the web service. From more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+7. From the **Resource Group** dropdown, select a resource group for the web service. From more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 8. From the **Region** dropdown, select the region in which to deploy the web service.
 9. From the **Storage account** dropdown, select a storage account in which to store the web service.
 10. From the **Price Plan** dropdown, select a plan in the region you selected in step 8.
@@ -164,9 +166,9 @@ You can test the web service in either the Machine Learning Studio (classic) Web
 
 To test the Request Response web service, click the **Test** button in the web service dashboard. A dialog pops up to ask you for the input data for the service. These are the columns expected by the scoring experiment. Enter a set of data and then click **OK**. The results generated by the web service are displayed at the bottom of the dashboard.
 
-You can click the **Test** preview link to test your service in the the classic version of Azure Machine Learning Studio Web Services portal as shown previously in the New web service section.
+You can click the **Test** preview link to test your service in the Azure Machine Learning Studio (classic) Web Services portal as shown previously in the New web service section.
 
-To test the Batch Execution Service, click **Test** preview link . On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using the classic version of Machine Learning Studio, you can download the data set for your predictive experiment and use it.
+To test the Batch Execution Service, click **Test** preview link . On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio (classic), you can download the data set for your predictive experiment and use it.
 
 ![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -182,7 +184,7 @@ You can also configure the endpoints for the web service in the Azure Machine Le
 
 ### Access your Classic web service
 
-Once you deploy your web service from the classic version of Machine Learning Studio, you can send data to the service and receive responses programmatically.
+Once you deploy your web service from Azure Machine Learning Studio (classic), you can send data to the service and receive responses programmatically.
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 

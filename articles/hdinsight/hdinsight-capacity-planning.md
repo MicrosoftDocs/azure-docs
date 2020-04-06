@@ -42,7 +42,7 @@ If you already have a storage account or Data Lake Storage containing your data 
 
 After you have an HDInsight cluster deployed, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must reside in the same location as your cluster. A Data Lake Storage can be in a different location, although this may introduce some data read/write latency.
 
-Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is virtually unlimited.
+Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is virtually unlimited.
 
 A cluster can access a combination of different storage accounts. Typical examples include:
 
@@ -54,7 +54,7 @@ cluster.
 * When you want to isolate different parts of the storage for reasons of security, or to simplify
 administration.
 
-For a 48-node cluster, we recommend 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When you have multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
+For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 
@@ -90,7 +90,17 @@ Sometimes errors can occur due to the parallel execution of multiple maps and re
 
 ## Quotas
 
-After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
+After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. 
+
+To check your available cores, do the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Navigate to the **Overview** page for the HDInsight cluster. 
+3. On the left menu, click **Quota limits**.
+
+   The page displays the number of cores in use, the number of available cores, and the total cores.
+
+If you need to request a quota increase, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Help + support** on the bottom-left side of the page.
@@ -111,9 +121,9 @@ After determining your target cluster VM size, scale, and type, check the curren
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
-However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## Next steps
 

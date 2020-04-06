@@ -2,12 +2,9 @@
 title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: mlearned
+
 ---
 
 # Security concepts for applications and clusters in Azure Kubernetes Service (AKS)
@@ -24,9 +21,9 @@ This article introduces the core concepts that secure your applications in AKS:
 
 ## Master security
 
-In AKS, the Kubernetes master components are part of the managed service provided by Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft.
+In AKS, the Kubernetes master components are part of the managed service provided by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft.
 
-By default, the Kubernetes API server uses a public IP address and with fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory. For more information, see [Azure AD integration with AKS][aks-aad].
+By default, the Kubernetes API server uses a public IP address and a fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory. For more information, see [Azure AD integration with AKS][aks-aad].
 
 ## Node security
 
@@ -75,7 +72,7 @@ The use of Secrets reduces the sensitive information that is defined in the pod 
 
 To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
-For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security] and [Best practices for pod security in AKS][developer-best-practices-pod-security].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -101,4 +98,5 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

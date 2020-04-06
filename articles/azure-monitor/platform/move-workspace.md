@@ -1,7 +1,6 @@
 ---
 title: Move a Log Analytics workspace in Azure Monitor | Microsoft Docs
 description: Learn how to move your Log Analytics workspace to another subscription or resource group.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -12,7 +11,7 @@ ms.date: 11/13/2019
 
 # Move a Log Analytics workspace to different subscription or resource group
 
-In this article, you'll learn the steps to move Log Analytics workspace to another resource group or subscription in the same region. You can learn more about moving Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. at [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
+In this article, you'll learn the steps to move Log Analytics workspace to another resource group or subscription in the same region. You can learn more about moving Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. at [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > You can't move a workspace to a different region.
@@ -25,17 +24,17 @@ The workspace source and destination subscriptions must exist within the same Az
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
 
-## Remove solutions
-Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Since you must remove the link from the workspace to any automation account though, solutions that rely on that link must be removed.
+## Workspace move considerations
+Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Connected agents will remain connected and keep send data to the workspace after the move. Since the move operation requires that there is no link from the workspace to any automation account, solutions that rely on that link must be removed.
 
-Solutions that must be removed include the following: 
+Solutions that must be removed before you can unlink your automation account:
 
 - Update Management
 - Change Tracking
 - Start/Stop VMs during off-hours
 
 
-### Azure portal
+### Delete in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:
 
 1. Open the menu for the resource group that any solutions are installed in.
@@ -44,7 +43,7 @@ Use the following procedure to remove the solutions using the Azure portal:
 
 ![Delete solutions](media/move-workspace/delete-solutions.png)
 
-### PowerShell
+### Delete using PowerShell
 
 To remove the solutions using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) cmdlet as shown in the following example:
 
@@ -54,7 +53,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-## Remove alert rules
+### Remove alert rules
 For the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution. Use the following procedure in the Azure portal to remove these rules.
 
 1. Open the **Monitor** menu and then select **Alerts**.
@@ -103,4 +102,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## Next steps
-- For a list of which resources support move, see [Move operation support for resources](../../azure-resource-manager/move-support-resources.md).
+- For a list of which resources support move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).

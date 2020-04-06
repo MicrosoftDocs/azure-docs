@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create your first access package in Azure AD entitlement management - Azure Active Directory
+title: Tutorial - Create access package - Azure AD entitlement management
 description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -82,79 +82,83 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the Azure portal, in the left navigation, click **Azure Active Directory**.
 
-1. In the left menu, click **Identity Governance**
+2. In the left menu, click **Identity Governance**
 
-1. In the left menu, click **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in your directory.
+3. In the left menu, click **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in your directory.
 
-1. Click **New access package**.
+4. Click **New access package**.
 
     ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
 
-1. On the **Basics** tab, type the name **Marketing Campaign** access package and description **Access to resources for the campaign**.
+5. On the **Basics** tab, type the name **Marketing Campaign** access package and description **Access to resources for the campaign**.
 
-1. Leave the **Catalog** drop-down list set to **General**.
+6. Leave the **Catalog** drop-down list set to **General**.
 
     ![New access package - Basics tab](./media/entitlement-management-access-package-first/basics.png)
 
-1. Click **Next** to open the **Resource roles** tab.
+7. Click **Next** to open the **Resource roles** tab.
 
     On this tab, you select the resources and the resource role to include in the access package.
 
-1. Click **Groups and Teams**.
+8. Click **Groups and Teams**.
 
-1. In the Select groups pane, find and select the **Marketing resources** group you created earlier.
+9. In the Select groups pane, find and select the **Marketing resources** group you created earlier.
 
     By default, you see groups inside and outside the **General** catalog. When you select a group outside of the **General** catalog, it will be added to the **General** catalog.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Click **Select** to add the group to the list.
+10. Click **Select** to add the group to the list.
 
-1. In the **Role** drop-down list, select **Member**.
+11. In the **Role** drop-down list, select **Member**.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Click **Next** to open the **Requests** tab.
+    >[!NOTE]
+    > When using [dynamic groups](../users-groups-roles/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.
+    > ![Scenario overview](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Click **Next** to open the **Requests** tab.
 
     On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
-1. In the **Users who can request access** section, click **For users in your directory** and then click **Specific users and groups**.
+13. In the **Users who can request access** section, click **For users in your directory** and then click **Specific users and groups**.
 
     ![New access package - Requests tab](./media/entitlement-management-access-package-first/requests.png)
 
-1. Click **Add users and groups**.
+14. Click **Add users and groups**.
 
-1. In the Select users and groups pane, select the **Requestor1** user you created earlier.
+15. In the Select users and groups pane, select the **Requestor1** user you created earlier.
 
     ![New access package - Requests tab - Select users and groups](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Click **Select**.
+16. Click **Select**.
 
-1. Scroll down to the **Approval** and **Enable requests** sections.
+17. Scroll down to the **Approval** and **Enable requests** sections.
 
-1. Leave **Require approval** set to **No**.
+18. Leave **Require approval** set to **No**.
 
-1. For **Enable requests**, click **Yes** to enable this access package to be requested as soon as it is created.
+19. For **Enable requests**, click **Yes** to enable this access package to be requested as soon as it is created.
 
     ![New access package - Requests tab - Approval and Enable requests](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Click **Next** to open the **Lifecycle** tab.
+20. Click **Next** to open the **Lifecycle** tab.
 
-1. In the **Expiration** section, set **Access package assignments expire** to **Number of days**.
+21. In the **Expiration** section, set **Access package assignments expire** to **Number of days**.
 
-1. Set **Assignments expire after** to **30** days.
+22. Set **Assignments expire after** to **30** days.
 
     ![New access package - Lifecycle tab](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Click **Next** to open the **Review + Create** tab.
+23. Click **Next** to open the **Review + Create** tab.
 
     ![New access package - Review + Create tab](./media/entitlement-management-access-package-first/review-create.png)
 
     After a few moments, you should see a notification that the access package was successfully created.
 
-1. In left menu of the Marketing Campaign access package, click **Overview**.
+24. In left menu of the Marketing Campaign access package, click **Overview**.
 
-1. Copy the **My Access portal link**.
+25. Copy the **My Access portal link**.
 
     You'll use this link for the next step.
 

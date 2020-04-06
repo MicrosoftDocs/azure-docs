@@ -1,15 +1,15 @@
 ---
-title: Preventing brute-force attacks using Azure AD smart lockout - Azure Active Directory
+title: Preventing attacks using smart lockout - Azure Active Directory
 description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 
@@ -64,7 +64,8 @@ Based on your organizational requirements, smart lockout values may need to be c
 
 To check or modify the smart lockout values for your organization, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory** > **Authentication methods** > **Password protection**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout. The default is 10.
 1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout. The default is 60 seconds (one minute).
 

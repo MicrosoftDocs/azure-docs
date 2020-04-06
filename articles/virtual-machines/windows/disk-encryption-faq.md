@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 11/01/2019
 ms.custom: seodec18
 ---
 
@@ -31,7 +31,7 @@ To get started, read the [Azure Disk Encryption overview](disk-encryption-overvi
 
 ## What VM sizes and operating systems support Azure Disk Encryption?
 
-The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vm-sizes) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
+The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vms) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
@@ -48,7 +48,7 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 >[!WARNING]
-> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-windows-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use Azure Disk Encryption on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-windows-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from AAD application for this encrypted VM isn't supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -93,7 +93,17 @@ The "Bek volume" is a local data volume that securely stores the encryption keys
 
 ## What encryption method does Azure Disk Encryption use?
 
-Azure Disk Encryption uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+Azure Disk Encryption selects the encryption method in BitLocker based on the version of Windows as follows:
+
+| Windows Versions                 | Version | Encryption Method        |
+|----------------------------------|--------|--------------------------|
+| Windows Server 2012, Windows 10, or greater  | >=1511 |XTS-AES 256 bit           |
+| Windows Server 2012, Windows 8, 8.1, 10 | < 1511 |AES 256 bit *              |
+| Windows Server 2008R2            |        |AES 256 bit with Diffuser |
+
+\* AES 256 bit with Diffuser isn't supported in Windows 2012 and later.
+
+To determine Windows OS version, run the 'winver' tool in your virtual machine.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 

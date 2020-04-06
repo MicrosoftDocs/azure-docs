@@ -1,5 +1,6 @@
 ---
-title: Connectivity and networking issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Connectivity and networking issues
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -94,8 +95,8 @@ Because this host header binding is enforced through the csdef file, the service
 
 To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily whitelisted by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
 
-- [Reserve the IP address of an existing cloud service](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Associate a reserved IP to a cloud service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [Reserve the IP address of an existing cloud service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Associate a reserved IP to a cloud service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 If you have more than one instance for your roles, associating RIP with your cloud service shouldn't cause any downtime. Alternatively, you can add the IP range of your Azure datacenter to an allow list. You can find all Azure IP ranges at the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 

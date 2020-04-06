@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/02/2020
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -50,6 +50,8 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 * You can scale up the metastore as needed.
 
+* The cluster and the external metastore must be hosted in the same region.
+
 ![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
 ### Create and config Azure SQL Database for the custom metastore
@@ -69,10 +71,6 @@ You can enable this option in the Azure portal by clicking **Set server firewall
 You can point your cluster to a previously created Azure SQL Database during cluster creation, or you can configure the SQL Database after the cluster is created. This option is specified with the **Storage > Metastore settings** while creating a new Hadoop, Spark, or interactive Hive cluster from Azure portal.
 
 ![HDInsight Hive Metadata Store Azure portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
-
-You can also add additional clusters to a custom metastore from Azure portal or from Ambari configurations (Hive > Advanced)
-
-![HDInsight Hive Metadata Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
 ## Hive metastore best practices
 

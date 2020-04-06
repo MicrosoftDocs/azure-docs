@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the SQL API'
-description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API.'
+description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .Net, Java, Python and various other SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -162,11 +162,11 @@ Example response
 
 
 * All PUT, POST and DELETE requests must go to the indicated write URI
-* All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
+* All GETs and other read-only requests (for example queries) may go to any endpoint of the client's choice
 
 Write requests to read-only regions will fail with HTTP error code 403 ("Forbidden").
 
-If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 ("Forbidden"). The client should then GET the list of regions again to get the updated write region.
+If the write region changes after the client's initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 ("Forbidden"). The client should then GET the list of regions again to get the updated write region.
 
 That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 

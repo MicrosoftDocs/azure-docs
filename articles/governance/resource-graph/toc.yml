@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Resource Graph
+  - name: What is Azure Resource Graph?
     displayName: Resource Manager, query language, rbac, permissions
     href: overview.md
 - name: Quickstarts
@@ -78,6 +78,8 @@
     href: /rest/api/azure-resourcegraph/
   - name: OpenAPI
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
   - name: Azure roadmap

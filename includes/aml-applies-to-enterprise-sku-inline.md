@@ -12,4 +12,4 @@ ms.date: 11/04/2019
 ---
 
 >[!Important]
-> The functionality in this studio, https://ml.azure.com, is **accessible from Enterprise workspaces only**. [Learn more about editions and upgrading](../articles/machine-learning/service/overview-what-is-azure-ml.md#sku).
+> The functionality in this studio, https://ml.azure.com, is **accessible from Enterprise workspaces only**. [Learn more about editions and upgrading](../articles/machine-learning/overview-what-is-azure-ml.md#sku).

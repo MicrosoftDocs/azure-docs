@@ -7,10 +7,10 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview 
 ms.reviewer: vanto
-ms.date: 09/17/2019
+ms.date: 03/09/2020
 ---
 
-# Private Link for Azure SQL Database and Data Warehouse (Preview)
+# Private Link for Azure SQL Database and Data Warehouse
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation](../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
@@ -39,8 +39,6 @@ When customers connect to the public endpoint from on-premises machines, their I
 
 With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 
-With Private Link, customers can enable cross-premises access to the private endpoint using Express Route (ER) private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
-
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
@@ -52,7 +50,7 @@ Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
 
-1. Navigate to the SQL server resource in the Azure portal.
+1. Navigate to the SQL server resource in the Azure portal as per steps shown in the screenshot below
 
     - (1) Select the Private endpoint connections in the left pane
     - (2) Shows a list of all Private Endpoint Connections (PECs)
@@ -142,15 +140,18 @@ The result shows that one IP address is up; which corresponds to the IP address 
 
 
 ### Check Connectivity using SQL Server Management Studio (SSMS)
+> [!NOTE]
+> Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
 
-The last step is to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
+Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
 ````
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> In preview, connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
+
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 

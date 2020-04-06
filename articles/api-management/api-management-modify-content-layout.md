@@ -1,5 +1,6 @@
 ---
-title: Modify page contents in the developer portal in Azure API Management | Microsoft Docs
+title: Modify page contents in developer portal in API Management
+titleSuffix: Azure API Management
 description: Learn how to edit page contents on the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''

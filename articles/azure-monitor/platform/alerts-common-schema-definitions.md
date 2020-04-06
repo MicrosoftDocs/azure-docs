@@ -1,11 +1,9 @@
 ---
 title: Common alert schema definitions for Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
-ms.service:  azure-monitor
-ms.subservice: alerts
+author: ofirmanor
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
 
 ---
@@ -147,7 +145,7 @@ Any alert instance describes the resource that was affected and the cause of the
 ### Log alerts
 
 > [!NOTE]
-> For log alerts that have a custom JSON payload defined, enabling the common schema reverts the payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludedSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### `monitoringService` = `Log Analytics`
 
@@ -169,7 +167,7 @@ Any alert instance describes the resource that was affected and the cause of the
     "SearchIntervalInMinutes": "15",
     "Threshold": 10000,
     "Operator": "Less Than",
-    "SearchResult": {
+    "SearchResults": {
       "tables": [
         {
           "name": "PrimaryResult",
@@ -210,7 +208,7 @@ Any alert instance describes the resource that was affected and the cause of the
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -232,7 +230,7 @@ Any alert instance describes the resource that was affected and the cause of the
     "Threshold": 10000,
     "Operator": "Less Than",
     "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
-    "SearchResult": {
+    "SearchResults": {
       "tables": [
         {
           "name": "PrimaryResult",
@@ -273,7 +271,7 @@ Any alert instance describes the resource that was affected and the cause of the
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

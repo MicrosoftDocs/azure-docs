@@ -18,17 +18,24 @@ ms.author: spelluru
 
 ---
 # Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
-In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Functions and Azure Logic Apps. You'll do the following steps:
- 
-- Create a test Azure function for debugging and viewing the initial flow of events from the Event Grid.
-- Create an Azure function to receive and process Azure Service Bus messages based on Event Grid events.
-- Create a logic app to respond to Event Grid events
+In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Functions and Azure Logic Apps. 
 
-After you create the Service Bus, Event Grid, Azure Functions, and Logic Apps artifacts, you do the following actions: 
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Create a Service Bus namespace
+> * Prepare a sample application to send messages
+> * Set up a test function on Azure
+> * Connect the function and namespace via Event Grid
+> * Send messages to the Service Bus topic
+> * Receive messages by using Azure Functions
+> * Receive messages by using Logic Apps
 
-1. Send messages to a Service Bus topic. 
-2. Verify that the subscriptions to the topic received those messages
-3. Verify that the function or logic app that subscribed for the event has received the event. 
+## Prerequisites
+
+To complete this tutorial, make sure you have installed:
+
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a Service Bus namespace
 Follow instructions in this tutorial: [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
@@ -46,7 +53,7 @@ You can use any method to send a message to your Service Bus topic. The sample c
 3. Go to the **MessageSender** project, and then select **Program.cs**.
 4. Fill in your Service Bus topic name and the connection string you got from the previous step:
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -65,7 +72,7 @@ Then, do the following steps:
 
 1. Expand **Functions** in the tree view, and select your function. Replace the code for the function with the following code: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -127,7 +134,7 @@ Then, do the following steps:
     2. Select **~1** for **Runtime version**. 
 2. Expand **Functions** in the tree view, and select your function. Replace the code for the function with the following code: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;

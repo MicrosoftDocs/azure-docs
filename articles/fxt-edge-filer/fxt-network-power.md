@@ -1,11 +1,11 @@
 ---
-title: Microsoft Azure FXT Edge Filer network connections and power supply
+title: 'Tutorial: Connect cables to an Azure FXT Edge Filer'
 description: How to cable the network ports and attach power for Azure FXT Edge Filer hardware
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
 ---
 
 # Tutorial: Make network connections and supply power to the Azure FXT Edge Filer node

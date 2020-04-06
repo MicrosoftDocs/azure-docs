@@ -31,7 +31,7 @@ When trying to back up, selecting a Storage Account to discover file shares with
 
 ### Can I change the Vault to which I back up my file shares?
 
-Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protecting-an-azure-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
+Yes. However, you'll need to  [Stop protection on a file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
 
 ### In which geos can I back up Azure File shares?
 
@@ -65,8 +65,20 @@ Backup for Azure File shares is currently in Preview and is available only in th
 - US Gov Arizona (UGA)
 - US Gov Texas (UGT)
 - US Gov Virginia (UGV)
+- Australia Central (ACL)
+- India West(INW)
+- South Africa North(SAN)
+- UAE North(UAN)
+- France Central (FRC)
+- Germany North (GN)                       
+- Germany West Central (GWC)
+- South Africa West (SAW)
+- UAE Central (UAC)
+- NWE (Norway East)     
+- NWW (Norway West)
+- SZN (Switzerland North)
 
-Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
+Write to [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
 ### How many Azure file shares can I protect in a Vault?
 

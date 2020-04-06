@@ -1,12 +1,11 @@
 ---
 title: Azure Stream Analytics diagnostic log data errors
 description: This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 03/27/2020
 ---
 
 # Azure Stream Analytics data errors

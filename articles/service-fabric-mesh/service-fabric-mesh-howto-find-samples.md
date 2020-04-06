@@ -1,14 +1,8 @@
 ---
-title: Find Azure Service Fabric Mesh samples | Microsoft Docs
+title: Find Azure Service Fabric Mesh samples 
 description: Here’s an index of available Service Fabric Mesh sample applications. The source code in these examples shows how to achieve a particular scenario using the Service Fabric Resource Model.
-services: service-fabric-mesh
-keywords:  
-author: athinanthny
-ms.author: atsenthi
 ms.date: 12/03/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
 #Customer intent: Choose a prepared sample project that most closely mirrors my goals. 
 ---
 

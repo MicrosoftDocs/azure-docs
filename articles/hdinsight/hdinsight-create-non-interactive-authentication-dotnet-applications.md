@@ -1,18 +1,18 @@
 ---
 title: Non-interactive authentication .NET application - Azure HDInsight
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
-ms.reviewer: jasonh
 author: hrasheed-msft
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 12/23/2019
 ---
+
 # Create a non-interactive authentication .NET HDInsight application
-You can run your Microsoft .NET Azure HDInsight application either under the application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). This article shows you how to create a non-interactive authentication .NET application to connect to Azure and manage HDInsight. For a sample of an interactive application, see [Connect to Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
+
+Run your Microsoft .NET Azure HDInsight application either under the application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). This article shows you how to create a non-interactive authentication .NET application to connect to Azure and manage HDInsight. For a sample of an interactive application, see [Connect to Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight).
 
 From your non-interactive .NET application, you need:
 
@@ -21,20 +21,21 @@ From your non-interactive .NET application, you need:
 * The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## Prerequisites
-* An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+
+An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 ## Assign a role to the Azure AD application
-Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this article, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+
+Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it. In this article, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 **To add the Owner role to the Azure AD application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left menu, select **Resource groups**.
-3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this article. If you have a large number of resource groups, you can use the filter to find the one you want.
-4. On the resource group menu, select **Access control (IAM)**.
-5. Select the **Role assignments** tab to see the current role assignments.
-6. At the top of the page, select **Add role assignment**.
-7. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under the Owner role. 
+1. Navigate to the resource group that has the HDInsight cluster on which you'll run your Hive query later in this article. If you have a large number of resource groups, you can use the filter to find the one you want.
+1. On the resource group menu, select **Access control (IAM)**.
+1. Select the **Role assignments** tab to see the current role assignments.
+1. At the top of the page, select **+ Add**.
+1. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under the Owner role.
 
 ## Develop an HDInsight client application
 
@@ -113,8 +114,8 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
     }
     ```
 
-
 ## Next steps
+
 * [Create an Azure Active Directory application and service principal in the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Learn how to [authenticate a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Learn about [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).

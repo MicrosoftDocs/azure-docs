@@ -1,17 +1,18 @@
 ---
-title: 'Tutorial: Monitoring Key Vault with Azure Event Grid'
-description: 'Tutorial: Use Azure Event Grid to subscribe to Key Vault events'
-services: media-services
+title: 'Monitoring Key Vault with Azure Event Grid'
+description: 'Use Azure Event Grid to subscribe to Key Vault events'
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ---
  
-# Tutorial: Monitoring Key Vault with Azure Event Grid (preview)
+# Monitoring Key Vault with Azure Event Grid (preview)
 
 Key Vault integration with Event Grid is currently in preview. It allows users to be notified when the status of a secret stored in key vault has changed. A status change is defined as a secret that is about to expire (within 30 days of expiration), a secret that has expired, or a secret that has a new version available. Notifications for all three secret types (key, certificate, and secret) are supported.
 
@@ -23,10 +24,10 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 
 For more information, see the [Key Vault event schema](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Events are triggered only for secret versions (all three types) created after subscription is set.
->
-> For existing secrets, you must generate new versions.
+> [!WARNING]
+> Notification events are triggered only on new versions of secrets, keys and certificates, and you must first subscribe to the event on your key vault in order to receive these notifications.
+> 
+> You will receive notification events on certificates only when the certificate is automatically renewed according to the policy you have specified for your certificate.
 
 ## Practices for consuming events
 

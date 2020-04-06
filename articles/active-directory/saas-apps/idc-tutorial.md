@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IDC Client support team](mailto:webchanneldev@idc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact the IDC Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure IDC SSO
 
-To configure single sign-on on **IDC** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IDC support team](mailto:webchanneldev@idc.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **IDC** side, send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the IDC support team. IDC configures this setting so the SAML SSO connection is set properly on both sides.
 
 ### Create IDC test user
 

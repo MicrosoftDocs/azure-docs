@@ -1,20 +1,18 @@
 ---
-title: Create tumbling window trigger dependencies in Azure Data Factory 
+title: Create tumbling window trigger dependencies
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: daperlov
 author: djpmsft
-manager: craigg
-editor:
-
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.author: daperlov
 ---
+
 # Create a tumbling window trigger dependency
 
 This article provides steps to create a dependency on a tumbling window trigger. For general information about Tumbling Window triggers, see [How to create tumbling window trigger](how-to-create-tumbling-window-trigger.md).
@@ -143,6 +141,10 @@ A daily telemetry processing job depending on another daily job aggregating the 
 A daily job with no gaps in the output streams of the job:
 
 ![Self-dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Self-dependency example")
+
+For a demonstration on how to create dependent pipelines in your Azure Data Factory using tumbling window trigger, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## Monitor dependencies
 

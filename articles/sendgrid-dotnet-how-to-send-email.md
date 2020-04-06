@@ -1,10 +1,10 @@
 ---
 title: How to use the SendGrid email service (.NET) | Microsoft Docs
-description: Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
+description: Learn how to send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
 services: ''
 documentationcenter: .net
-author: thinkingserious
-manager: erikre
+author: georgewallace
+ms.author: gwallace
 editor: ''
 
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: erikre
 ms.reviewer: dx@sendgrid.com
 
 ---
@@ -71,7 +70,7 @@ To install the SendGrid NuGet package in your application, do the following:
 
 SendGrid's .NET class library is called **SendGrid**. It contains the following namespaces:
 
-* **SendGrid** for communicating with SendGrid’s API.
+* **SendGrid** for communicating with SendGrid's API.
 * **SendGrid.Helpers.Mail** for helper methods to easily create SendGridMessage objects that specify how to send emails.
 
 Add the following code namespace declarations to the top of any C# file in which you want to programmatically access the SendGrid email service.
@@ -109,7 +108,7 @@ After creating an email message, you can send it using SendGrid's API. Alternati
 
 Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys [documentation][documentation].
 
-You may store these credentials via your Azure Portal by clicking Application settings and adding the key/value pairs under App settings.
+You may store these credentials via your Azure portal by clicking Application settings and adding the key/value pairs under App settings.
 
  ![Azure app settings][azure_app_settings]
 

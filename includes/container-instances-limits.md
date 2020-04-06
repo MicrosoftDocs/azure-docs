@@ -5,9 +5,10 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ---
-| Resource | Default limit |
+| Resource | Limit |
 | --- | :--- |
-| Container groups per region per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Standard sku container groups per region per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Dedicated sku container groups per region per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Ports per IP | 5 |

@@ -4,7 +4,7 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 10/09/2019
+ms.date: 02/03/2020
 ---
 
 ## Business disaster recovery
@@ -50,7 +50,7 @@ In general, the best way to duplicate a Time Series Insights environment is to c
 
 To create a duplicate environment:
 
-1. Create an environment in a second region. For more information, see [Create a new Time Series Insights environment in the Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Create an environment in a second region. For more information, read [Create a new Time Series Insights environment in the Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Create a second dedicated consumer group for your event source.
 1. Connect that event source to the new environment. Make sure that you designate the second dedicated consumer group.
 1. Review the Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) and [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentation.
@@ -66,5 +66,5 @@ If an event occurs:
 > * A delay might also occur.
 > * A momentary spike in message processing might occur, as operations are rerouted.
 > 
-> For more information, see [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+> For more information, read [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 

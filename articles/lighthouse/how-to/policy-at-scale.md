@@ -2,18 +2,18 @@
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Learn how Azure delegated resource management lets you deploy a policy definition and policy assignment across multiple tenants.
 ms.date: 11/8/2019
-ms.topic: overview
+ms.topic: conceptual
 ---
 
 # Deploy Azure Policy to delegated subscriptions at scale
 
 As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. [Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+This topic shows you how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 ## Use Azure Resource Graph to query across customer tenants
 
-You can use [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) to query across all subscriptions in the customer tenants that you manage. In this example, we’ll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
+You can use [Azure Resource Graph](../../governance/resource-graph/index.yml) to query across all subscriptions in the customer tenants that you manage. In this example, we’ll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -85,5 +85,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## Next steps
 
-- Learn about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Learn about [Azure Policy](../../governance/policy/index.yml).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

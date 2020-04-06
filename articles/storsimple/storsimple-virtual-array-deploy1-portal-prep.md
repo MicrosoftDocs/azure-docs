@@ -1,18 +1,10 @@
 ---
-title: Portal prep for StorSimple Virtual Array | Microsoft Docs
+title: Portal prep for StorSimple Virtual Array
 description: First tutorial to deploy StorSimple virtual array involves preparing the Azure portal
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
@@ -143,7 +135,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
 This step is optional and should be performed only if you did not enable the automatic creation of a storage account with your service.
 
-If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-quickstart-create-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-account-create.md) for step-by-step instructions.
 
 Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 

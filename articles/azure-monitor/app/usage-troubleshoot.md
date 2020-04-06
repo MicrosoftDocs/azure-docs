@@ -1,8 +1,6 @@
 ---
-title: Troubleshoot user behavior analytics tools in Azure Application Insights
+title: Troubleshoot user analytics tools - Azure Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste

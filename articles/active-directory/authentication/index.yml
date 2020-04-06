@@ -10,9 +10,9 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
-  ms.date: 08/20/2019
+  author: iainfoulds
+  ms.author: iainfou
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -41,18 +41,18 @@ landingContent:
         links:
           - text: How self-service password reset works
             url: concept-sspr-howitworks.md
-          - text: Password writeback
+          - text: How password writeback works
             url: concept-sspr-writeback.md
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
-          - text: Self-service password reset quickstart
-            url: quickstart-sspr.md
+          - text: Enable self-service password reset
+            url: tutorial-enable-sspr.md
+          - text: Enable password writeback to on-premises
+            url: tutorial-enable-sspr-writeback.md
       - linkListType: deploy
         links:
-          - text: Deploy Azure AD self-service password reset
+          - text: Deployment guide for self-service password reset
             url: howto-sspr-deployment.md
-          - text: Enable password writeback
-            url: howto-sspr-writeback.md
           - text: Enable password reset from the Windows login screen
             url: howto-sspr-windows.md
 
@@ -65,13 +65,13 @@ landingContent:
             url: concept-mfa-howitworks.md
       - linkListType: tutorial
         links:
-          - text: Pilot Azure MFA for specific applications
-            url: tutorial-mfa-applications.md
-          - text: Use risk detections to trigger Multi-Factor Authentication and password changes
+          - text: Enable Azure Multi-Factor Authentication
+            url: tutorial-enable-azure-mfa.md
+          - text: Enable risk-based Azure Multi-Factor Authentication
             url: tutorial-risk-based-sspr-mfa.md
       - linkListType: deploy
         links:
-          - text: Deploy Azure Multi-Factor Authentication
+          - text: Deployment guide for Azure Multi-Factor Authentication
             url: howto-mfa-getstarted.md
           - text: Use NPS extension to integrate on-premises applications
             url: howto-mfa-nps-extension.md

@@ -45,7 +45,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
+To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. The size of the virtual machine determines how many data disks can be attached to a VM.
 
 ## VM disk types
 
@@ -115,7 +115,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 
