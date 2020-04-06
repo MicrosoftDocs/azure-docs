@@ -35,9 +35,9 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 
 You can perform the following operations with node pools:
 
-* You can update a system node pool to be a user node pool.
-* You can update a user node pool to be a system node pool.
-* You can delete user node pools.
+* Change a system node pool to be a user node pool.
+* Change a user node pool to be a system node pool.
+* Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
 
