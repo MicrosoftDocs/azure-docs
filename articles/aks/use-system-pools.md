@@ -11,7 +11,7 @@ ms.date: 04/06/2020
 
 In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. 
 
-System node pools and user node pools are two different node pool modes for your AKS clusters. The node pools nodes are mutable. 
+System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools host essential system services such as CoreDNS. A node pools nodes are mutable. 
 
 User node pools are where you place your application-specific pods. Every AKS cluster must contain at least one system node pool with at least one node. If you run a single system node pool for your AKS cluster, we recommend you use at least three nodes for the node pool. To support applications that have different compute or storage demands, you can create additional user node pools. For example, use additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. 
 
