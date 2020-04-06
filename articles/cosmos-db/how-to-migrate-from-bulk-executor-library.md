@@ -69,6 +69,15 @@ The `BulkOperationResponse` contains:
 1. The total of request units consumed.
 1. If there are failures, it displays a list of tuples that contain the exception and the associated item for logging and identification purpose.
 
+## Retry configuration
+
+Bulk executor library had [guidance](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) that mentioned to set the `MaxRetryWaitTimeInSeconds` and `MaxRetryAttemptsOnThrottledRequests` of [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) to `0` to delegate control to the library.
+
+For bulk support in the .NET SDK, there is no hidden behavior. You can configure the retry options directly through the [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) and [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+
+> [!NOTE]
+> In cases where the provisioned request units is much lower than the expected based on the amount of data, you might want to consider setting these to high values. The bulk operation will take longer but it has a higher chance of completely succeeding due to the higher retries.
+
 ## Performance improvements
 
 As with other operations with the .NET SDK, using the stream APIs results in better performance and avoids any unnecessary serialization. 
