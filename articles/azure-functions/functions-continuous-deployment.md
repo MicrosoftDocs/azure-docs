@@ -32,13 +32,9 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment Center**.
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
 
-    ![Open Deployment Center](./media/functions-continuous-deployment/platform-features.png)
-
-2. In **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
-
-    ![Azure App Service Deployment Center](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
 
 3. In GitHub, select the **Authorize AzureAppService** button. 
 
@@ -62,16 +58,6 @@ To configure continuous deployment for an existing function app, complete these 
     ![Summary](./media/functions-continuous-deployment/summary.png)
 
 When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
-
-## Deployment scenarios
-
-<a name="existing"></a>
-
-### Move existing functions to continuous deployment
-
-If you've already written functions in the [Azure portal](https://portal.azure.com) and you want to download the contents of your app before you switch to continuous deployment, go to the **Overview** tab of your function app. Select the **Download app content** button.
-
-![Download app content](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > After you configure continuous integration, you can no longer edit your source files in the Functions portal.
