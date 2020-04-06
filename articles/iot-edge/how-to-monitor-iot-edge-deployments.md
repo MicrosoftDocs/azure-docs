@@ -30,14 +30,39 @@ SELECT deviceId FROM devices
 
 Adding your own metrics is optional, and doesn't impact the actual configuration of IoT Edge devices.
 
+IoT Edge provides a set of desired and reported properties that are summarized in this article. For a complete reference see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+
 ## IoT Edge runtime properties
 
 The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. They provide desired properties and reported properties of the runtime module twins:
 
 * Desired properties
     The solution backend can set desired properties, and the module can read them. The module can also receive notifications of changes in the desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions.
+
 * Reported properties
     The module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions.
+
+### edgeAgent desired properties
+
+The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates the communications between the IoT Edge agent running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.
+
+### edgeAgent reported properties
+
+The IoT Edge agent reported properties include three main pieces of information:
+
+1. The status of the application of the last-seen desired properties.
+1. The status of the modules currently running on the device, as reported by the IoT Edge agent; and
+1. A copy of the desired properties currently running on the device.
+
+The copy of the current desired properties is useful to tell whether the device has applied the latest deployment or is still running a previous deployment manifest.
+
+### edgeHub desired properties
+
+The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the communications between the IoT Edge hub running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.
+
+### edgeHub reported properties
+
+The IoT Edge hub reported properties include xxx:
 
 ## Monitor a deployment in the Azure portal
 
