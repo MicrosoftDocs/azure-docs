@@ -3,7 +3,7 @@ title: DWG Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/18/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -119,7 +119,6 @@ Error when reading one or more DWG files from the archive. For example, the DWG 
 
 Check your manifest.json file, and make sure to only list the DWG files in your folder. Repair your corrupt DWG file or discard it.
 
-There are many reasons why a file may not be a valid AutoCAD drawing. And although a file could have the .dwg extension, the content of the file may not be a valid AutoCAD drawing. Check that your file content is valid.
 
 ## Manifest errors
 
@@ -252,10 +251,7 @@ After you resolve your DWG conversion errors, try to resolve your warnings.
 Once you successfully convert your uploaded DWG design into map data, you can use your converted data to render indoor maps. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
+> [How to use Azure Maps DWG error visualizer](azure-maps-dwg-errors-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
-
-> [!div class="nextstepaction"]
-> [Indoor Maps module](how-to-use-indoor-module.md)
+> [Indoor Maps data management](how-to-manage-private-atlas.md)

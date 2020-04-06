@@ -1,6 +1,6 @@
 ---
-title: Manage your Azure Maps Private Atlas | Microsoft Azure Maps 
-description: In this article, you'll learn how to use the Azure portal to manage your Private Atlas in your Microsoft Azure Maps account.
+title: Indoor Maps data management | Microsoft Azure Maps 
+description: In this article, you'll learn how to use the Azure portal to manage  Private Atlas in a Microsoft Azure Maps account.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/30/2020
@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Manage Private Atlas for your Azure Maps
+# Indoor Maps data management
 
 Private Atlas (PA) makes it possible to create private indoor maps and develop web applications using the Azure Maps APIs and the Indoor Maps module. Currently, Private Atlas is only available in the United States.
 
