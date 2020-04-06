@@ -99,7 +99,7 @@ For this example, these NSG rules are required so that replication can be enable
 
    |**Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address** |
    | --- | --- | --- |
-   | Central US | 13.82.88.226 | 104.45.147.24 |
+   | East US | 13.82.88.226 | 104.45.147.24 |
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
