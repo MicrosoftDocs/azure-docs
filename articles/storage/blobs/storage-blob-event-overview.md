@@ -12,17 +12,15 @@ ms.reviewer: cbrooks
 
 # Reacting to Blob storage events
 
-Azure Storage events allow applications to react to events, such as the creation and deletion of blobs. It does so without the need for complicated code or expensive and inefficient polling services.
+Azure Storage events allow applications to react to events, such as the creation and deletion of blobs. It does so without the need for complicated code or expensive and inefficient polling services. The best part is you only pay for what you use.
 
-Events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. The best part is you only pay for what you use.
-
-Blob storage sends events to Event Grid which provides reliable event delivery to your applications through rich retry policies and dead-lettering.
-
-Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+Blob storage events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
 See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article to view the full list of the events that Blob storage supports.
 
-If you want to try this out now, see any of these quickstart articles:
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+
+If you want to try blob storage events, see any of these quickstart articles:
 
 |If you want to use this tool:    |See this article: |
 |--|-|
