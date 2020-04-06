@@ -3781,6 +3781,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-government/documentation-government-k8.md",
+      "redirect_url": "/azure/azure-government",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
       "redirect_document_id": false
