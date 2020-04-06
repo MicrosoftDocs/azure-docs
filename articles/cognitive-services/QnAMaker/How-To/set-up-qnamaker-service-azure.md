@@ -36,7 +36,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
     * In the **App name** field, enter a name for your Azure App Service instance.
     * By default, App Service defaults to the standard (S1) tier. You can change the plan after creation. Learn more about [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
-    * Choose the **Website location** where App Service will be deployed.
+    * Choose the **Website location** where App Service will be deployed, currently this is available only in west-US. This is just the management layer, your data is stored only at the search location. 
 
         > [!NOTE]
         > The **Search Location** can differ from the **Website Location**.
