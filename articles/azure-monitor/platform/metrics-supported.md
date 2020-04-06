@@ -1,15 +1,17 @@
 ---
 title: Azure Monitor supported metrics by resource type
 description: List of metrics available for each resource type with Azure Monitor.
-author: anirudhcavale
+author: rboucher
 services: azure-monitor
-
 ms.topic: reference
-ms.date: 03/17/2020
-ms.author: ancav
+ms.date: 04/06/2020
+ms.author: robb
 ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
+
+> [!NOTE]
+> This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via Github may be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
@@ -19,10 +21,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 >
 > For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
-
-
-
-
 
 
 ## Microsoft.AnalysisServices/servers
@@ -560,7 +558,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
 |Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
 |Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|[Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
 |OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
 |OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
 |OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
@@ -1969,8 +1967,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 
 
-
-
 ## Microsoft.Sql/servers/databases
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1997,11 +1993,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
+|tempdb_data_size<sup>2</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
+|tempdb_log_used_percent<sup>2</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
@@ -2026,6 +2022,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |snapshot_backup_size_bytes|Snapshot backup storage size|Bytes|Maximum|Cumulative snapshot backup storage size. Applies to Hyperscale databases.|None|
 |base_blob_size_bytes|Base blob storage size|Bytes|Maximum|Base blob storage size. Applies to Hyperscale databases.|None|
 
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -2055,14 +2054,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_cpu_limit|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|None|
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|None|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|sqlserver_process_memory_percent<sup>1</sup>|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|tempdb_data_size<sup>2</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
+|tempdb_log_used_percent<sup>2</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
+
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
+
 
 ## Microsoft.Sql/servers
 
@@ -2346,15 +2350,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Percentage CPU|Percentage CPU|Percent|Average|The CPU utilization. This value is reported with 100% representing all processor cores on the system. As an example, a 2-way VM using 50% of a four-core system is completely using two cores.|None|
 |PercentageCpuReady|Percentage CPU Ready|Milliseconds|Total|Ready time is the time spend waiting for CPU(s) to become available in the past update interval.|None|
 
-
-
-
-
-
-
-
-
-
 ## Microsoft.Web/serverfarms
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2375,7 +2370,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TcpLastAck|TCP Last Ack|Count|Average|TCP Last Ack|Instance|
 |TcpTimeWait|TCP Time Wait|Count|Average|TCP Time Wait|Instance|
 
-## Microsoft.Web/sites
+## Microsoft.Web/sites (excluding functions) 
 
 > [!NOTE]
 > **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
@@ -2405,6 +2400,37 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|
+|PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
+|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
+|HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
+|FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
+
+## Microsoft.Web/sites (functions)
+
+> [!NOTE]
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|BytesReceived|Data In|Bytes|Total|Data In|Instance|
+|BytesSent|Data Out|Bytes|Total|Data Out|Instance|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
+|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
+|FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
 |IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
 |IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
@@ -2505,3 +2531,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 * [Read about metrics in Azure Monitor](data-platform.md)
 * [Create alerts on metrics](alerts-overview.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
+

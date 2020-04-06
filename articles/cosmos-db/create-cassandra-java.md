@@ -61,7 +61,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* file.  
 
-* The Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
+* The Cassandra host, port, user name, password, and TLS/SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -163,9 +163,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. On line 6, if you want to use a specific SSL certificate, then replace `<SSL key store file location>` with the location of the SSL certificate. If a value is not provided, the JDK certificate installed at <JAVA_HOME>/jre/lib/security/cacerts is used. 
+5. On line 6, if you want to use a specific TLS/SSL certificate, then replace `<SSL key store file location>` with the location of the TLS/SSL certificate. If a value is not provided, the JDK certificate installed at <JAVA_HOME>/jre/lib/security/cacerts is used. 
 
-6. If you changed line 6 to use a specific SSL certificate, update line 7 to use the password for that certificate. 
+6. If you changed line 6 to use a specific TLS/SSL certificate, update line 7 to use the password for that certificate. 
 
 7. Save the *config.properties* file.
 

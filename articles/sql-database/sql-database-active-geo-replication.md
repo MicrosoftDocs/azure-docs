@@ -141,7 +141,7 @@ The client performing the changes needs network access to the primary server. Al
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. Take note of the SID of the new login using this query: 

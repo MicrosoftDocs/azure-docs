@@ -24,7 +24,7 @@ Quickly create and query a Synapse SQL pool (data warehouse) in Azure Synapse An
    > [!NOTE]
    > Creating a SQL pool in Azure Synapse may result in a new billable service. For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## Sign in to the Azure portal
 
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL pool
 
-Data warehouses are created using SQL pool in Azure Synapse Analytics. A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-servers.md).
+Data warehouses are created using SQL pool in Azure Synapse Analytics. A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in an [Azure SQL logical server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Follow these steps to create a SQL pool that contains the **AdventureWorksDW** sample data.
 
@@ -49,9 +49,9 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
    | Setting | Suggested value | Description |
    | :------ | :-------------- | :---------- |
    | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   | **SQL pool name** | Any globally unique name  (An example is *mySampleDataWarehouse*) | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a SQL pool is one type of database. |
-   | **Server** | Any globally unique name | Select existing server, or create a new server name, select **Create new**. For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+   | **SQL pool name** | Any globally unique name  (An example is *mySampleDataWarehouse*) | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Note, a SQL pool is one type of database. |
+   | **Server** | Any globally unique name | Select existing server, or create a new server name, select **Create new**. For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
    ![create a data warehouse basic details](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
@@ -73,7 +73,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
 ## Create a server-level firewall rule
 
-The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md) for your client's IP address.
+The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
 
 > [!NOTE]
 > Azure Synapse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
@@ -119,7 +119,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 
@@ -136,11 +136,11 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
    ![connect to server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. select **Connect**. The Object Explorer window opens in SSMS. 
+3. select **Connect**. The Object Explorer window opens in SSMS.
 
 4. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
 
-   ![database objects](./media/create-data-warehouse-portal/connected-ssms.png) 
+   ![database objects](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## Run some queries
 
@@ -158,7 +158,7 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
    ![Query databases](./media/create-data-warehouse-portal/query-databases.png)
 
-4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers. 
+4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers.
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
@@ -191,4 +191,4 @@ Follow these steps to clean up resources you no longer need.
 
 ## Next steps
 
-To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article. 
+To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.
