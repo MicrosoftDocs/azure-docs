@@ -21,6 +21,6 @@ The following table shows the data size limit for Azure Maps. The Azure Maps dat
 
 | Resource                              | Limit |
 |---------------------------------------|:---------------------:|
-| Maximum size of data |   50 MB  |
+| Maximum size of data |   1 GB  |
 
 For more information on the Azure Maps pricing tiers, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
