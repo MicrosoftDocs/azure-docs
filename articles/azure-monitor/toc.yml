@@ -225,7 +225,7 @@
     - name: Codeless monitoring
       items: 
       - name: Any environment - Java (preview)
-        href: app/java-agent-3.0.md
+        href: app/java-in-process-agent.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
