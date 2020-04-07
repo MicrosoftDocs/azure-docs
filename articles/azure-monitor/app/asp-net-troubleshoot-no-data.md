@@ -238,7 +238,7 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 You can modify these parameters as needed:
 - **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
 - **OnlyProviders**. Set this parameter to only collect logs from the SDK. You can customize this list based on your specific investigations. 
-- **NoGui**. Set this parameter to collect logs without the Gui.
+- **NoGui**. Set this parameter to collect logs without the GUI.
 
 
 For more information,

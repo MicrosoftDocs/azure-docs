@@ -12,7 +12,7 @@ This article will show you how to remove the ASP.NET and ASP.NET Core Applicatio
 
 To remove Application Insights, you'll need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the Package Management Console or Manage NuGet Solution in Visual Studio. The following sections will show two ways to remove NuGet Packages and what was automatically added in your project. Be sure to confirm the files added and areas with in your own code in which you made calls to the API are removed.
 
-## Uninstall using the Package Management Console
+## Uninstall using the Package Management Console
 
 # [.NET](#tab/net)
 
@@ -41,7 +41,7 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
 
 ---
 
-## Uninstall using the Visual Studio NuGet UI
+## Uninstall using the Visual Studio NuGet UI
 
 # [.NET](#tab/net)
 
@@ -99,78 +99,78 @@ The following pieces of code are added:
 
 - [Your project's name].csproj
 
-```C#
- <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
-```
+    ```C#
+     <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
+    ```
 
 - Packages.config
 
-```xml
-<packages>
-...
-
-  <package id="Microsoft.ApplicationInsights" version="2.12.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.Agent.Intercept" version="2.4.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.DependencyCollector" version="2.12.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.PerfCounterCollector" version="2.12.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.Web" version="2.12.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.WindowsServer" version="2.12.0" targetFramework="net472" />
-  <package id="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" version="2.12.0" targetFramework="net472" />
-
-  <package id="Microsoft.AspNet.TelemetryCorrelation" version="1.0.7" targetFramework="net472" />
-
-  <package id="System.Buffers" version="4.4.0" targetFramework="net472" />
-  <package id="System.Diagnostics.DiagnosticSource" version="4.6.0" targetFramework="net472" />
-  <package id="System.Memory" version="4.5.3" targetFramework="net472" />
-  <package id="System.Numerics.Vectors" version="4.4.0" targetFramework="net472" />
-  <package id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" targetFramework="net472" />
-...
-</packages>
-```
+    ```xml
+    <packages>
+    ...
+    
+      <package id="Microsoft.ApplicationInsights" version="2.12.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.Agent.Intercept" version="2.4.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.DependencyCollector" version="2.12.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.PerfCounterCollector" version="2.12.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.Web" version="2.12.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.WindowsServer" version="2.12.0" targetFramework="net472" />
+      <package id="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" version="2.12.0" targetFramework="net472" />
+    
+      <package id="Microsoft.AspNet.TelemetryCorrelation" version="1.0.7" targetFramework="net472" />
+    
+      <package id="System.Buffers" version="4.4.0" targetFramework="net472" />
+      <package id="System.Diagnostics.DiagnosticSource" version="4.6.0" targetFramework="net472" />
+      <package id="System.Memory" version="4.5.3" targetFramework="net472" />
+      <package id="System.Numerics.Vectors" version="4.4.0" targetFramework="net472" />
+      <package id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" targetFramework="net472" />
+    ...
+    </packages>
+    ```
 
 - Layout.cshtml
 
-If your project has a Layout.cshtml file the code below is added.
-
-```html
-<head>
-...
-    <script type = 'text/javascript' >
-        var appInsights=window.appInsights||function(config)
-        {
-            function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
-            var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
-        }({
-            instrumentationKey:'00000000-0000-0000-0000-000000000000'
-        });
-        
-        window.appInsights=appInsights;
-        appInsights.trackPageView();
-    </script>
-...
-</head>
-```
+    If your project has a Layout.cshtml file the code below is added.
+    
+    ```html
+    <head>
+    ...
+        <script type = 'text/javascript' >
+            var appInsights=window.appInsights||function(config)
+            {
+                function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
+                var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
+            }({
+                instrumentationKey:'00000000-0000-0000-0000-000000000000'
+            });
+            
+            window.appInsights=appInsights;
+            appInsights.trackPageView();
+        </script>
+    ...
+    </head>
+    ```
 
 - ConnectedService.json
 
-```json
-{
-  "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-  "Version": "16.0.0.0",
-  "GettingStartedDocument": {
-    "Uri": "https://go.microsoft.com/fwlink/?LinkID=613413"
-  }
-}
-```
+    ```json
+    {
+      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+      "Version": "16.0.0.0",
+      "GettingStartedDocument": {
+        "Uri": "https://go.microsoft.com/fwlink/?LinkID=613413"
+      }
+    }
+    ```
 
 - FilterConfig.cs
 
-```csharp
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
-            filters.Add(new ErrorHandler.AiHandleErrorAttribute());// This line was added
-        }
-```
+    ```csharp
+            public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+            {
+                filters.Add(new ErrorHandler.AiHandleErrorAttribute());// This line was added
+            }
+    ```
 
 # [.NET Core](#tab/netcore)
 
@@ -223,6 +223,6 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ---
 
-## Next Steps
+## Next steps
 
 - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
