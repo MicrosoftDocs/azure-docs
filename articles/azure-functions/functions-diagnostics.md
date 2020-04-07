@@ -30,11 +30,11 @@ To start Azure Functions diagnostics:
 
 Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, named Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you're interested in. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
-![Genie](./media/functions-diagnostics/genie.png)
+:::image type="content" source="./media/functions-diagnostics/./media/functions-diagnostics/genie.png" alt-text="Genie is Azure Functions diagnostics' interface." border="false":::
 
 After selecting a tile, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. Select any of these topics to investigate the issues further. Also, you can select **View Full Report** to explore all the topics on a single page.
 
-![Preview of diagnostic report](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Preview of diagnostic report" border="false":::
 
 ## View a diagnostic report
 
@@ -44,9 +44,9 @@ After you choose a topic, you can view a diagnostic report specific to your func
 
 For script-based functions, you can use **Function Execution and Errors** under **Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. You can use this tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
 
-![Diagnostic report on function execution errors](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Diagnostic report on function execution errors" border="false":::
 
-![Function exception](./media/functions-diagnostics/function-exception.png)
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="View of exception details." border="false":::
 
 ## Next steps
 
