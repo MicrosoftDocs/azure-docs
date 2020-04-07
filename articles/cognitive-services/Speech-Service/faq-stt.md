@@ -114,7 +114,7 @@ or
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
 
-## Importing data
+## Importing data in Custom Speech
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
@@ -128,11 +128,11 @@ or
 
 **A**: Failing to upload 100 percent of the utterances in a file is not a problem. If the vast majority of the utterances in an acoustic or language dataset (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we recommend that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix.
 
-## Creating an acoustic model
+## Improving an acoustic model
 
 **Q: How much acoustic data do I need?**
 
-**A**: We recommend starting with between 30 minutes and one hour of acoustic data.
+**A**: We recommend starting with about one hour of audio + human-labeled transcripts.
 
 **Q: What data should I collect?**
 
@@ -148,30 +148,17 @@ or
 
 ## Accuracy testing
 
-**Q: Can I perform offline testing of my custom acoustic model by using a custom language model?**
-
-**A**: Yes, just select the custom language model in the drop-down menu when you set up the offline test.
-
-**Q: Can I perform offline testing of my custom language model by using a custom acoustic model?**
-
-**A**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
-
-**Q: What is word error rate (WER) and how is it computed?**
-
-**A**: WER is the evaluation metric for speech recognition. WER is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [word error rate](https://en.wikipedia.org/wiki/Word_error_rate).
-
 **Q: How do I determine whether the results of an accuracy test are good?**
 
 **A**: The results show a comparison between the baseline model and the model you customized. You should aim to beat the baseline model to make customization worthwhile.
 
 **Q: How do I determine the WER of a base model so I can see if there was an improvement?**
 
-**A**: The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
+**A**: The test results show the baseline accuracy of the custom model and the improvement over baseline.
 
-## Creating a language model
+## Improving a language model
 
-**Q: How much text data do I need to upload?**
+**Q: How much related-text data do I need to upload?**
 
 **A**: It depends on how different the vocabulary and phrases used in your application are from the starting language models. For all new words, it's useful to provide as many examples as possible of the usage of those words. For common phrases that are used in your application, including phrases in the language data is also useful because it tells the system to also listen for these terms. It's common to have at least 100, and typically several hundred or more utterances in the language dataset. Also, if some types of queries are expected to be more common than others, you can insert multiple copies of the common queries in the dataset.
 
