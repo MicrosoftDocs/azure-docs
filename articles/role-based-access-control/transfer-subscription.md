@@ -79,6 +79,7 @@ The following table lists the artifacts that will get transferred when you follo
 
 To complete these steps, you will need:
 
+- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
 - [Owner](built-in-roles.md#owner) role in the target directory
 
@@ -86,59 +87,66 @@ To complete these steps, you will need:
 
 ### Inventory role assignments in the source directory
 
-1. Sign in to the Azure portal as an administrator.
+1. Sign in to Azure as an administrator.
 
-1. Open the subscription you want to transfer.
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command:
 
-1. If you have multiple subscriptions, select the subscription you want to transfer by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) and [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
-
-    ```azurepowershell
-    # Select subscription
-    Get-AzSubscription -SubscriptionName "Marketing" | Set-AzContext
+    ```azurecli
+    az account list --output table
     ```
 
-1. List all the role assignments.
+1. Use [az account set](/cli/azure/account#az-account-set) with the subscription ID or name you want to transfer.
 
-    To list of all the role assignments (including inherited role assignments from root and management groups), use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To make it easier to review the list, you can export the output as a CSV file that you can open in a spreadsheet.
-
-    ```azurepowershell
-    Get-AzRoleAssignment | Export-Csv "RoleAssignments.csv"
+    ```azurecli
+    az account set --subscription "Marketing"
     ```
 
-1. Review the list of role assignments. There might be role assignments that won't be needed in the target directory.
+1. Use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) to list all the role assignments (including inherited role assignments).
+
+    To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md).
+
+    ```azurecli
+    az role assignment list --include-inherited --output json > roleassignments.json
+    az role assignment list --include-inherited --output table > roleassignments.txt
+    az role assignment list --include-inherited --output tsv > roleassignments.tsv
+    ```
+
+1. Save the list of role assignments.
+
+    When you transfer a subscription, all of the role role assignments are **permanently** deleted so it is important to save a copy.
+
+1. Review the list of role assignments. There might be role assignments you won't need in the target directory.
 
 ### Inventory custom roles in the source directory
 
-1. List the custom roles. 
+1. Use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
 
-    ```azurepowershell
-    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    ```azurecli
+    az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
     ```
 
-1. Save each custom role that will be needed in the target directory as a separate JSON file.
+1. Save each custom role that you will need in the target directory as a separate JSON file.
 
-    ```azurepowershell
-    Get-AzRoleDefinition <role_name> | ConvertTo-Json
+    ```azurecli
+    az role definition list --name <custom_role_name> > customrolename.json
     ```
 
 ### Determine user and group mappings
 
-1. Based on the list of role assignments, determine the users and groups you will need in the target directory.
+1. Based on your list of role assignments, determine the users and groups you will map to in the target directory.
 
-1. Determine which users and groups you wan to map to in the target directory.
-
-1. If necessary, in the target directory, create the users and groups you will need.
+1. If necessary, in the target directory, create any users and groups you will need. For more information, see [Enterprise user management documentation](../active-directory/users-groups-roles/index.yml).
 
 ### List managed identities in the source directory
 
-Managed identities do not get updated when a subscription is transferred to another directory. As a result, any existing system-assigned or user-assigned managed identities will be broken. After the transfer, you will be able to re-enable any system-assigned managed identities. For user-assigned managed identities, you will have to re-create and attach them in the target directory.
+Managed identities do not get updated when a subscription is transferred to another directory. As a result, any existing system-assigned or user-assigned managed identities will be broken. After the transfer, you can re-enable any system-assigned managed identities. For user-assigned managed identities, you will have to re-create and attach them in the target directory.
 
-1. List your virtual machines and see which ones have system-assigned managed identities enabled. For more information, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+1. List the virtual machines that have system-assigned managed identities enabled. For more information, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-1. List any user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+1. Use [az identity list](/cli/azure/identity#az-identity-list) to list any user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
-    ```azurepowershell
-    Get-AzUserAssignedIdentity -ResourceGroupName <resource_group>
+    ```azurecli
+    az identity list -g <resource_group>
     ```
 
 ### Inventory other artifacts in the source directory
@@ -146,9 +154,13 @@ Managed identities do not get updated when a subscription is transferred to anot
 > [!IMPORTANT]
 > There are other artifacts that have a dependency on a subscription or a particular directory. This article lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, this article cannot list all dependencies. 
 
-1. Determine if you are using Azure SQL Databases with Azure AD authentication.
+1. Determine if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
 
-1. Determine if you are using Key Vault access policies.
+1. If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
+
+    ```azurecli
+    az keyvault show --name MyKeyVault
+    ```
 
 ## Step 2: Transfer billing ownership
 
@@ -169,11 +181,39 @@ In this step, you transfer the billing ownership of the subscription from the so
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
 
-1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. Adjust the custom role files that you saved earlier to use the following format. For example, delete the `id`, `name`, `roleType`, and `type` properties.
+
+    ```json
+    [
+      {
+        "assignableScopes": [],
+        "description": "",
+        "permissions": [
+          {
+            "actions": [],
+            "dataActions": [],
+            "notActions": [],
+            "notDataActions": []
+          }
+        ],
+        "roleName": ""
+      }
+    ]
+    ```
+    
+1. Use [az role definition create](/cli/azure/role/definition#az-role-definition-create) create the custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+
+    ```azurecli
+    az role definition create --role-definition <role_definition>
+    ```
 
 ### Create role assignments in target directory
 
-1. In the target directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. In the target directory, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) create the role assignments. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
+
+    ```azurecli
+    az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+    ```
 
 ### Create other artifacts in the source directory
 
