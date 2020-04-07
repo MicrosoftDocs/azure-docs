@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/10/2020
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
@@ -86,11 +86,13 @@ For logic apps in the global, multi-tenant Azure Logic Apps service, throttling 
 
 To handle throttling at this level, you have these options:
 
-* Set up multiple connections for a single action.
+* Set up multiple connections for a single action so that you can process the data as partitions.
 
-  Consider whether you can distribute the workload by spreading an action's requests across multiple connections to the same service or system using the same credentials.
+  Consider whether you can distribute the workload by spreading an action's requests across multiple connections to the same service or system by using the same credentials.
 
-  For example, suppose your logic app gets the tables from a SQL Server database and for each table, gets the rows from each table. Based on the number of rows that you have to process, you use multiple but separate connections to get those rows. After the first branch reaches the limit, the second branch can continue the work.
+  For example, suppose your logic app gets tables from a SQL Server database and then gets the rows from each table. Based on the number of rows that you have to process, you can use multiple but separate connections to get those rows by splitting the rows into two sets.
+
+  After the first branch reaches the limit, the second branch can continue the work.
 
   ![Create and use multiple connections for a single action](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
 
@@ -151,9 +153,9 @@ To handle throttling at this level, you have these options:
 
 * Use the webhook versions for triggers and actions, rather than the polling versions.
 
-  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a connector's webhook version if available, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that has a webhook version, this option is better than using the polling version, which always runs on a specified frequency and interval, or recurrence.
-
-  To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as the [HTTP Webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
+  
+  So, if the destination service or system supports webhooks or provides a connector that has a webhook version, this option is better than using the polling version. To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## Next steps
 
