@@ -83,21 +83,44 @@
     href: subscription-move-fix.md
 - name: Reference
   items:
-- name: Azure Key Vault Service Limits - Azure Key Vault
-  href: service-limits.md
-- name: REST API error codes - Azure Key Vault
-  href: rest-error-codes.md
-- name: Common parameters and headers 
-  href: common-parameters-and-headers.md
+  - name: REST API error codes - Azure Key Vault
+    href: rest-error-codes.md
+  - name: Common parameters and headers 
+    href: common-parameters-and-headers.md
+  - name: Azure PowerShell
+    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+  - name: Java
+    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
 - name: Resources
   items:
-  - name: Azure Key Vault customer data features - Azure Key Vault
-    href: customer-data.md
-- name: To be placed
-  items:
-  - name: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault
-    href: disaster-recovery-guidance.md
-  - name: Key Vault .NET 2.x API Release Notes| Microsoft Docs
-    href: dotnet2api-release-notes.md
-  - name: Manage Azure Key Vault using CLI - Azure Key Vault
-    href: manage-with-cli2.md
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-key-vault
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: ../general/service-limits.md
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: https://blogs.technet.com/b/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault

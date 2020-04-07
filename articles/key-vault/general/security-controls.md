@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 This article documents the security controls built into Azure Key Vault. 
 
-[!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
+[!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
 ## Network
 
@@ -60,4 +60,4 @@ This article documents the security controls built into Azure Key Vault.
 
 ## Next steps
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).

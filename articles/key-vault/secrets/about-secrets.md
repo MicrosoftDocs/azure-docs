@@ -77,8 +77,6 @@ There are additional read-only attributes that are included in any response that
 
 A secret's **get** operation will work for not-yet-valid and expired secrets, outside the *nbf* / *exp* window. Calling a secret's **get** operation, for a not-yet-valid secret, can be used for test purposes. Retrieving (**get**ting) an expired secret, can be used for recovery operations.
 
-For more information on data types, see [Data types](#data-types).  
-
 ### Secret access control
 
 Access Control for secrets managed in Key Vault, is provided at the level of the Key Vault that contains those secrets. The access control policy for secrets, is distinct from the access control policy for keys in the same Key Vault. Users may create one or more vaults to hold secrets, and are required to maintain scenario appropriate segmentation and management of secrets.   
@@ -143,4 +141,4 @@ For more information, see the [Storage account operations in the Key Vault REST 
 ## See Also
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](../general/key-vault-developers-guide.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)

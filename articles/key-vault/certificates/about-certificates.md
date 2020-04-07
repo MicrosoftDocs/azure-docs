@@ -40,7 +40,7 @@ Objects in Key Vault can be addressed using the current identifier or a version-
 
 Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
 
-For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
+For more information, see [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 
 An object identifier has the following general format:  
 
@@ -217,5 +217,5 @@ For more information, see the [Certificate operations in the Key Vault REST API 
 
 ## See Also
 
-- [Authentication, requests, and responses](authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](/azure/key-vault/key-vault-developers-guide)
+- [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)

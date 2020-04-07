@@ -26,7 +26,7 @@ The tutorial shows you how to:
 > * Import a certificate in Key vault using CLI.
 
 
-Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
+Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -96,7 +96,7 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Learn more about the parameters [here](https://docs.microsoft.com/en-us/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+Learn more about the parameters [here](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
 ## Clean up resources
 
@@ -112,6 +112,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read more about [Managing certificates in Azure Key Vault](https://docs.microsoft.com/en-us/archive/blogs/kv/manage-certificates-via-azure-key-vault)
-- See examples of [Importing Certificates Using REST APIs](https://docs.microsoft.com/en-us/rest/api/keyvault/importcertificate/importcertificate)
+- Read more about [Managing certificates in Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
 - Review [Azure Key Vault best practices](../general/best-practices.md)

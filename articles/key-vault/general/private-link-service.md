@@ -54,7 +54,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Leave the "integrate with the private zone DNS" option unchanged.  
 1. Select "Ok".
 
-    ![Image](./media/private-link-service-8.png)
+    ![Image](../media/private-link-service-8.png)
  
 You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
 Select the "Review + Create" button and create the key vault. It will take 5-10 minutes for the deployment to complete. 

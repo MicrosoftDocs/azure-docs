@@ -224,4 +224,4 @@ For more information on working with keys, see [Key operations in the Key Vault 
 ## See Also
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](../general/key-vault-developers-guide.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)
