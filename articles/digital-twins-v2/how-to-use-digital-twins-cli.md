@@ -21,42 +21,32 @@ Azure Digital Twins has a CLI that you can use to perform most major actions wit
 
 ## Getting started
 
-First, [install the **Azure CLI**](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+First, either open an instance of [Azure Cloud Shell](../cloud-shell/overview.md) or [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-> [!NOTE]
-> You can also install this extension in cloud shell. During public preview, this is done by running `az extension add --name azure-iot`.
+Next, in your chosen shell window, get the **Azure IoT CLI Extension** by following these steps:
 
-Next, get the **Azure IoT CLI Extension** by following these steps:
-
-1. Download the [latest snapshot](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FCLI%2Fazure_iot-0.0.1.dev6-py2.py3-none-any.whl) of the Azure Digital Twins enabled IoT CLI extension (a .whl file)
-2. Install the extension
-
-    * There should only be one azure-iot extension installed in your shell at a time. If you have previously installed an IoT CLI extension, you cannot have both, and must first remove the old installation.
-        - Remove legacy alias: `az extension remove --name azure-cli-iot-ext`
-        - Remove modern alias: `az extension remove --name azure-iot`
-
-    * Next, add the Azure Digital Twins-enabled extension with this command:
+1. Install the Azure Digital Twins-enabled IoT extension with this command:
     
-        `az extension add -y --source azure_iot-0.0.1.dev6-py2.py3-none-any.whl`
+  `az extension add --name azure-iot`
 
-    * Verify installation of **azure-iot** version **0.0.1.dev6** with this command:
+2. Verify your installation of **azure-iot** is version **0.0.1.dev6** with this command:
 
-        `az extension list`
+    `az extension list`
 
-       You will see this output:
+    You will see this output:
 
-       ```json
-       [
-         {
-           "extensionType": "whl",
-           "name": "azure-iot",
-           "version": "0.0.1.dev6"
-         }
-       ]
-       ```
+    ```json
+    [
+      {
+        "extensionType": "whl",
+        "name": "azure-iot",
+        "version": "0.0.1.dev6"
+      }
+    ]
+    ```
 
-3. Authenticate within the CLI
-   * Use the command `az login` to authenticate with the Azure CLI
+3. Authenticate within the shell
+   * Use the command `az login` to authenticate
    * Ensure you have set the proper subscription for this session by running `az account set -s <subscription ID>`
 
 >[!TIP]
