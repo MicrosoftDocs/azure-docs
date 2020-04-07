@@ -39,7 +39,7 @@ Your administrators are typically the owners and contributors for a lab account.
 
 ### Who will be allowed to create and manage labs?
 
-You might choose to have your administrators and faculty members create and manage labs. These users (typically from the Azure AD tenant associated with your subscription) are assigned to the lab creator role within the lab account.
+You might choose to have your administrators and faculty members create and manage labs. These users (typically from the Azure AD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.
 
 ### Do you want to give lab creators the ability to save images that can be shared across labs?
 
