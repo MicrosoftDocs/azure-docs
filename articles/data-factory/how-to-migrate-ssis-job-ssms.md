@@ -15,7 +15,7 @@ ms.date: 4/7/2020
 ---
 # Migrate on-premises SSIS jobs to Azure Data Factory
 
-When [migrating on-premises SQL Server Integration Services (SSIS) workloads to SSIS in ADF](scenario-ssis-migration-overview.md), after SSIS packages are migrated, you can do batch migration of SQL Server Agent jobs with job step type of SQL Server Integration Services Package or Transact-SQL Script (T-SQL) to Azure Data Factory (ADF) pipelines/activities/schedule triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
+When [migrating on-premises SQL Server Integration Services (SSIS) workloads to SSIS in ADF](scenario-ssis-migration-overview.md), after SSIS packages are migrated, you can do batch migration of SQL Server Agent jobs with job step type of SQL Server Integration Services Package to Azure Data Factory (ADF) pipelines/activities/schedule triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
 
 In general, for selected SQL agent jobs with applicable job step types, **SSIS Job Migration Wizard** can:
 
@@ -28,7 +28,6 @@ In general, for selected SQL agent jobs with applicable job step types, **SSIS J
 |---------|---------|---------|
 |SQL Agent job|pipeline     |Name of the pipeline will be *Generated for \<job name>*. <br> <br> Built-in agent jobs are not applicable: <li> SSIS Server Maintenance Job <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |SSIS job step|Execute SSIS package activity|<li> Name of the activity will be \<step name>. <li> Proxy account used in job step will be migrated as Windows authentication of this activity. <li> *Execution options* except *Use 32-bit runtime* defined in job step will be ignored in migration. <li> *Verification* defined in job step will be ignored in migration.|
-|T-SQL job step|Stored Procedure activity|Name of the activity will be *\<step name>*.|
 |schedule      |schedule trigger        |Name of the schedule trigger will be *Generated for \<schedule name>*. <br> <br> Below options in SQL Agent job schedule will be ignored in migration: <li> Second-level interval. <li> *Start automatically when SQL Server Agent starts* <li> *Start whenever the CPUs become idle* <li> *weekday* and *weekend day* <time zone> <br> Below are the differences after SQL Agent job schedule is migrated to ADF schedule trigger: <li> ADF Schedule Trigger subsequent run is independent of the execution state of the antecedent triggered run. <li> ADF Schedule Trigger recurrence configuration differs from Daily frequency in SQL agent job.|
 
 - generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. For more information about ADF Resource Manager templates, see [Microsoft.DataFactory resource types](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
@@ -64,9 +63,11 @@ The feature described in this article requires SQL Server Management Studio vers
         For more information of other properties, see *Settings tab* for the [Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md) when package location is *File System (Package)*.
     ![step3-2](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step3-2.png)
 
-1. Select the output path for the ARM templates of the migrated ADF pipelines, and option of **Deploy ARM templates to your data factory**:
-    - Default is unselected. You can deploy generated ARM templates later manually.
-    - Select to deploy generated ARM templates to data factory directly.
+1. Generate and deploy ARM template.
+    - Select or input the output path for the ARM templates of the migrated ADF pipelines. Folder will be created automatically if not exists.
+    - Select the option of **Deploy ARM templates to your data factory**:
+        - Default is unselected. You can deploy generated ARM templates later manually.
+        - Select to deploy generated ARM templates to data factory directly.
     ![step4](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step4.png)
 
 1. Migrate, then check results.
