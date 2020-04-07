@@ -12,40 +12,45 @@ ms.date: 04/06/2020
 ---
 # Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search provides fuzzy search, a type of query that scans for highly similar terms in addition to the exact term. Expanding search to include a near-match has the effect of auto-correcting a typo when the discrepancy is just a few characters off. 
+Azure Cognitive Search supports fuzzy search, a type of query that scans for highly similar terms in addition to the exact term. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on similar terms. A term is considered similar if the first character is the same as the query terms, and other differences are numbered two or fewer edits: a character in the comparison string is inserted, deleted, substituted, or transposed.
+It's an expansion exercise that produces a match on similar terms, in addition to the exact term. Internally, the engine builds a graph of all possible edit versions, and then refers to the graph to find, score, and select results. 
 
-The string correction algorithm that specifies the difference between two terms is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, "where distance is the minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
+A match must start with the same first character, with other discrepancies limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, "where distance is the minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
 In Azure Cognitive Search:
 
-+ The default distance is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), and `~1` signifies one degree of difference.
++ The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), and `~1` signifies one degree of difference, or one edit.
 
 + A fuzzy query can expand a term up to 50 additional permutations, although a typical expansion is usually much less. 
 
 + Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
 
+## Indexing for fuzzy search
+
+If you are targeting specific fields for fuzzy search, think about which analyzer would produces optimum results for the graph. In contrast with other queries that bypass lexical analysis (namely, wildcard and regex), you might actually want lexical analyzers in your analysis chain so that you have a large pool of tokens, which gives the engine more to work with when constructing the graph. [Lexical analyzers](index-add-language-analyzers.md) are specified on the analyzer property of a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) operation. Some languages, particularly those with vowel mutations, benefit from the inflection and irregular word forms that Microsoft natural language processors can handle.
+
+> [!NOTE]
+> Ngram indexing, with a progression of short character sequences (two-character pairs for bigram, three for trigram, and so forth), is an alternative approach for spell corrections. If you are using fuzzy queries (`~`) in Azure Cognitive Search, avoid using ngram analyzer. It would not be a good fit in terms of constructing the graph.
+
 ## How to use fuzzy search
 
-Fuzzy search is constructed using the full Lucene query syntax, invoking the [Lucene query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+Fuzzy queries are constructed using the full Lucene query syntax, invoking the [Lucene query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 1. Set the full Lucene parser on the query (`queryType=full`).
 
-1. In the query request, make sure you are targeting non-analyzed or minimally analyzed fields that keeps strings intact. Use this parameter to target a query on specific fields (`searchFields=<field1,field2>`). 
+1. Optionally, scope the request to specific fields, using this parameter (`searchFields=<field1,field2>`). 
 
-  This step assumes you have defined a field that contains the exact string, and that the field was analyzed during indexing with a content-preserving analyzer, such as a keyword analyzer.
+1. Append the tilde (`~`) operator at the end of the whole term (`search=<string>~`).
 
-1. Use the tilde (`~`) operator at the end of the whole term (`search=<string>~`).
+   Include an optional parameter, a number between 0 and 2 (default), if you want to specify the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
-  Alternatively, you can include an optional parameter, a number between 0 and 2 (default), that specifies the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
-
-In Azure Cognitive Search, besides the term and distance (up to 2), there are no additional parameters to set on the query.
+In Azure Cognitive Search, besides the term and distance (maximum of 2), there are no additional parameters to set on the query.
 
 > [!NOTE]
-> Fuzzy queries are not [analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on a partial term search is lower casing.
+> Fuzzy queries do not undergo the same level of [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) as full text search. The query input is added directly to the query tree. The only transformation performed is lower casing. The graph used to find and score matches will be based on the input term and the number of edits (2 by default).
 
 ## How to test fuzzy search
 
@@ -54,24 +59,26 @@ For simple testing, we recommend [Search explorer](search-explorer.md) or [Postm
 When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
 
 > [!Important]
-> This technique works best for focused testing on fuzzy search itself. If your index has scoring profiles, or if you combine fuzzy search with additional syntax, hit highlighting might not work in those situations.
+> The use of hit highlighting to identify the match has limitations and works best for focused testing on fuzzy search itself. If your index has scoring profiles, or if you layer the query with additional syntax, hit highlighting might fail to identify the match. 
+
+### Example 1: fuzzy search with the exact term
 
 Assume the following string exists in a `"Description"` field in a search document: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Start with a fuzzy search on "special" and add hit highlighting to the Description field:
 
-    special~&highlight=Description
+    search=special~&highlight=Description
 
-Because you added hit highlighting, the response tells you that "special" is the matching term.
+In the response, because you added hit highlighting, formatting is applied to "special" as the matching term.
 
     "@search.highlights": {
         "Description": [
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Try again, misspelling "special" by taking out letters several letters ("pe"):
+Try the request again, misspelling "special" by taking out letters several letters ("pe"):
 
-    scial~&highlight=Description
+    search=scial~&highlight=Description
 
 So far, no change to the response. Using the default of 2 degrees distance, removing two characters "pe" from "special" still allows for a successful match on that term.
 
@@ -80,9 +87,9 @@ So far, no change to the response. Using the default of 2 degrees distance, remo
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Trying one more, further modify the search term by taking out one last character for a total of three characters:
+Trying one more request, further modify the search term by taking out one last character for a total of three characters:
 
-    scial~&highlight=Description
+    search=scial~&highlight=Description
 
 Notice that the same response is returned, but now instead of matching on "special", the fuzzy match is on "SQL".
 
@@ -92,11 +99,7 @@ Notice that the same response is returned, but now instead of matching on "speci
                     "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
                 ]
 
-The point of this extended example is to illustrate the clarity that hit highlighting can bring to ambiguous results. Had you relied on a document ID to check the match, you might have missed the shift from "special" to "SQL".
-
-## Fuzzy search with autocomplete
-
-TBD - for a "did you mean" or "search instead" experience
+The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. Had you relied on a document ID to check the match, you might have missed the shift from "special" to "SQL".
 
 ## See also
 
