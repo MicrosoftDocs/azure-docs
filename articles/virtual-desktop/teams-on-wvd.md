@@ -46,7 +46,7 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
 2. Run this command to install the MSI to the host VM.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
       ```
 
       This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the app will ask for your credentials.
