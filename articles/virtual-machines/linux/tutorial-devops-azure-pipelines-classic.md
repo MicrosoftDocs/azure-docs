@@ -90,7 +90,7 @@ Here is the step-by-step walkthrough.
 
 
 
-**Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
+**Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having an identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
 You can configure Blue-Green deployments to your “**virtual machines**” from the Azure portal using the continuous delivery option. 
 
 Here is the step-by-step walkthrough.
