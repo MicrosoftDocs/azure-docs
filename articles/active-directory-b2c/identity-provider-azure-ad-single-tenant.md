@@ -19,29 +19,7 @@ ms.custom: fasttrack-edit
 
 To use an Azure Active Directory (Azure AD) as an [identity provider](authorization-code-flow.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
-## Create an Azure AD app
-
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD tenant. This is not the same tenant as your Azure AD B2C tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
-4. Select **New registration**.
-5. Enter a name for your application. For example, `Azure AD B2C App`.
-6. Accept the selection of **Accounts in this organizational directory only** for this application.
-7. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
-
-    ```
-    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
-    ```
-
-    All URLs should now be using [b2clogin.com](b2clogin.md).
-
-8. Click **Register**. Copy the **Application (client) ID** to be used later.
-9. Select **Certificates & secrets** in the application menu, and then select **New client secret**.
-10. Enter a name for the client secret. For example, `Azure AD B2C App Secret`.
-11. Select the expiration period. For this application, accept the selection of **In 1 year**.
-12. Select **Add** and copy the value of the new client secret that is displayed to be used later.
+[!INCLUDE [active-directory-b2c-idp-aad-appreg](../../includes/active-directory-b2c-idp-aad-appreg.md)]
 
 ## Configure Azure AD as an identity provider
 
