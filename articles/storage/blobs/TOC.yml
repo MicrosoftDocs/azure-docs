@@ -11,8 +11,8 @@
     items:
     - name: Introduction to Blob storage
       href: storage-blobs-introduction.md
-    - name: Choose Blobs, Files, or Disks
-      href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Compare core storage services
+      href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
     items:
     - name: Work with blobs
