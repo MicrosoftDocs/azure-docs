@@ -20,13 +20,13 @@ highlightedContent:
     # Card
     - title: Introduction to the core storage services
       itemType: concept
-      url: /azure/storage/common/storage-introduction
+      url: /azure/storage/common/storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Learn about storage account types
       itemType: concept
-      url: /azure/storage/common/storage-account-overview
+      url: /azure/storage/common/storage-account-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Create a storage account
       itemType: how-to-guide
-      url: /azure/storage/common/storage-account-create
+      url: /azure/storage/common/storage-account-create?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Learn about data redundancy
       itemType: how-to-guide
       url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
@@ -141,7 +141,7 @@ additionalContent:
         # Card
         - title: Transfer small datasets (online)
           links:
-          - url: /azure/storage/common/storage-use-azcopy-v10
+          - url: /azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             text: Use the AzCopy command-line tool
           - url: /azure/storage/blobs/storage-quickstart-blobs-storage-explorer
             text: Use the Azure Storage Explorer GUI-based tool              
