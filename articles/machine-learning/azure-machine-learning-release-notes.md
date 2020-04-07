@@ -44,7 +44,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Accept string compute names to be passed to ParallelRunConfig
   + **azureml-core**
     +  Added Environment.clone(new_name) API to create a copy of Environment object
-    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property - Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
+    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
+    + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
     +  Dataset: enable data access to credential-less Datastore of Azure SQL DB and ADLS Gen 2 using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell), [ADLS Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
     +  Dataset: fix a bug that dataset may not be able to download file with path containing unicode characters because of system local setting.
     + Ensure dataset's mount cache respect the minimum disk space requirement in Azure Machine Learning Compute to avoid making the node becoming unusable and causing the job to be canceled
