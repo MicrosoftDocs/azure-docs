@@ -11,16 +11,17 @@ ms.author: osamaz
 
 ---
 # Router configuration samples to set up and manage routing
-This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers when working with Azure ExpressRoute. These samples are intended for guidance only and must not be used as is. 
+This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers when you're working with Azure ExpressRoute.
 
 > [!IMPORTANT]
-> Samples on this page are purely for guidance. You must work with your vendor's sales/technical team and your networking team to find appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. Contact your device vendor for support issues.
+> Samples on this page are purely for guidance. You must work with your vendor's sales/technical team and your networking team to find appropriate configurations to meet your needs. Microsoft won't support issues related to configurations listed in this page. Contact your device vendor for support issues.
 > 
 > 
 
 ## MTU and TCP MSS settings on router interfaces
-* The MTU for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
-* Unlike an Azure VPN Gateway, the TCP MSS for an ExpressRoute circuit does not need to be specified.
+The maximum transmission unit for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
+
+Unlike an Azure VPN gateway, the TCP maximum segment size for an ExpressRoute circuit does not need to be specified.
 
 The router configuration samples in this article apply to all peerings. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute routing requirements](expressroute-routing.md) for more details on routing.
 
@@ -29,7 +30,7 @@ The router configuration samples in this article apply to all peerings. Review [
 The samples in this section apply to any router running the IOS-XE OS family.
 
 ### Configure interfaces and subinterfaces
-You'll need one subinterface per peering in every router you connect to Microsoft. A subinterface can be identified with a VLAN ID or a stacked pair of VLAN IDs and an IP address.
+You'll need one subinterface per peering in every router that you connect to Microsoft. A subinterface can be identified with a VLAN ID or a stacked pair of VLAN IDs and an IP address.
 
 **Dot1Q interface definition**
 
@@ -48,7 +49,7 @@ This sample provides the subinterface definition for a subinterface with two VLA
      ip address <IPv4_Address><Subnet_Mask>
 
 ### Set up eBGP sessions
-You must set up a BGP session with Microsoft for every peering. The following sample enables you to set up a BGP session. If the IPv4 address you used for your subinterface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
+You must set up a BGP session with Microsoft for every peering. Set up a BGP session by using the following sample. If the IPv4 address that you used for your subinterface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -73,7 +74,7 @@ Configure your router to advertise select prefixes to Microsoft by using the fol
     !
 
 ### Route maps
-Use route maps and prefix lists to filter prefixes propagated into your network. See the following sample, and ensure you have the appropriate prefix lists set up.
+Use route maps and prefix lists to filter prefixes propagated into your network. See the following sample, and ensure that you have the appropriate prefix lists set up.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -91,7 +92,7 @@ Use route maps and prefix lists to filter prefixes propagated into your network.
 
 ### Configure BFD
 
-You will configure BFD in two places. One at the interface level and another at BGP level. The example here is for QinQ interface. 
+You'll configure BFD in two places—one at the interface level and another at BGP level. The example here is for QinQ interface. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -110,7 +111,7 @@ You will configure BFD in two places. One at the interface level and another at 
 
 
 ## Juniper MX series routers
-The samples in this section apply to any Juniper MX series routers.
+The samples in this section apply to any Juniper MX series router.
 
 ### Configure interfaces and subinterfaces
 
@@ -148,7 +149,7 @@ This sample provides the subinterface definition for a subinterface with two VLA
     }                           
 
 ### Set up eBGP sessions
-You must set up a BGP session with Microsoft for every peering. The following sample enables you to set up a BGP session with Microsoft. If the IPv4 address you used for your sub interface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
+You must set up a BGP session with Microsoft for every peering. Set up a BGP session by using the following sample. If the IPv4 address that you used for your sub interface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -189,7 +190,7 @@ Configure your router to advertise select prefixes to Microsoft by using the fol
 
 
 ### Route policies
-You can use route maps and prefix lists to filter prefixes propagated into your network. See the following sample, and ensure you have the appropriate prefix lists setup.
+You can use route maps and prefix lists to filter prefixes propagated into your network. See the following sample, and ensure you have the appropriate prefix lists set up.
 
     policy-options {
         prefix-list MS_Prefixes {
