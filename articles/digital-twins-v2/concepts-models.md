@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Create a twin type model
+title: Create a twin model
 titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe entities in your environment.
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand twin type models in Azure Digital Twins
+# Understand twin models in Azure Digital Twins
 
 A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**.
 
@@ -181,4 +181,4 @@ Learn about creating digital twins based on models:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 
 Or, see how a model is managed with the DigitalTwinsModels APIs:
-* [Manage a twin type model](how-to-manage-model.md)
+* [Manage a twin model](how-to-manage-model.md)

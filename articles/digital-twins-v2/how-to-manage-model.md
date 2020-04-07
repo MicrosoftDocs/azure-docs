@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a twin type model
+title: Manage a twin model
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders

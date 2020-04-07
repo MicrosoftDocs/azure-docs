@@ -270,5 +270,5 @@ static async Task FindAndDeleteIncomingRelationships(string id)
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin type model](how-to-manage-model.md)
+* [Manage a twin model](how-to-manage-model.md)
 * [Manage a twin graph](how-to-manage-graph.md)

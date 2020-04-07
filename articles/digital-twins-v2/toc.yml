@@ -8,7 +8,7 @@
     href: overview-differences.md
 - name: Concepts
   items:
-  - name: Create a twin type model
+  - name: Create a twin model
     href: concepts-models.md
   - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
@@ -30,7 +30,7 @@
     href: how-to-ingest-iot-hub-data.md
   - name: Use the APIs
     href: how-to-use-apis.md
-  - name: Manage a twin type model
+  - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md

@@ -196,6 +196,6 @@ try
 ## Next steps
 
 See how to use the APIs to manage models, digital twins, and twin graphs:
-* [Manage a twin type model](how-to-manage-model.md)
+* [Manage a twin model](how-to-manage-model.md)
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)
