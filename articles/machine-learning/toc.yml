@@ -355,6 +355,8 @@
     items:
     - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
+    - name: Moving data into and between ML pipeline steps (Python)
+      href: how-to-move-data-in-out-of-pipelines.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
     - name: Trigger a pipeline
