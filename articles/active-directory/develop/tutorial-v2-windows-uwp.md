@@ -2,16 +2,12 @@
 title: Microsoft identity platform UWP getting started | Azure
 description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
