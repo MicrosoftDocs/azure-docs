@@ -96,7 +96,7 @@ You can configure Blue-Green deployments to your “**virtual machines**” from
 Here is the step-by-step walkthrough.
 
 1. Sign in to your Azure portal and navigate to a Virtual Machine 
-2. Follow the steps 2-7 under the **Rolling Deployments** section to add multiple VMs to the deployment group. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for standby role, then you should tag it as "green".
+2. Follow the steps 2-7 under the **Rolling Deployments** section to add multiple VMs to the deployment group. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for a standby role, then you should tag it as "green".
 ![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azuredevops-bg-configure.PNG)
 
 4. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.
