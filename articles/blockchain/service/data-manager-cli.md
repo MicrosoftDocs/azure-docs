@@ -1,9 +1,9 @@
 ---
 title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
 description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
+ms.reviewer: ravastra
 #Customer intent: As a network operator, I want to use Azure CLI to configure Blockchain Data Manager.
 ---
 # Configure Blockchain Data Manager using Azure CLI
@@ -21,7 +21,7 @@ To configure a Blockchain Data Manager instance, you:
 ## Prerequisites
 
 * Install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and signed in using `az login`.
-* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
+* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md). Azure Blockchain Service *Standard* tier is recommended when using Blockchain Data Manager.
 * Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 

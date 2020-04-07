@@ -12,9 +12,11 @@ ms.reviewer: larryfr
 ms.date: 03/13/2020
 ---
 
-# Configure Azure Private Link for an Azure Machine Learning workspace
+# Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
 
-In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. This capability is currently in preview, and is available in the US East, US West 2, US South Central regions. 
+
+Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
@@ -49,7 +51,7 @@ Once a template has been submitted and provisioning completes, the resource grou
 * Network interface
 * Private DNS zone
 
-The workspace also contains a Azure Virtual Network that can communicate with the workspace over the private endpoint.
+The workspace also contains an Azure Virtual Network that can communicate with the workspace over the private endpoint.
 
 ### Deploy the template using the Azure portal
 
@@ -199,25 +201,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -518,25 +504,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -760,25 +730,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -1037,25 +991,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."

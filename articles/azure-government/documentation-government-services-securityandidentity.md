@@ -9,7 +9,6 @@ manager: pathuff
 
 ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
@@ -34,14 +33,6 @@ The Qualys Vulnerability Assessment agent is not available.
   > [!NOTE]
   > Security Center internal assessments *are* provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
 
-- **Windows Defender Advanced Threat Protection alerts**  
-Windows Defender ATP installation on Windows VMs via Security Center and the associated alerts are not available.
-
-### Notifications
-
-- **Azure activity logs**  
-User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there's no trace or audit for user performed actions.
-
 ### Threat detection
 
 - **Specific detections**  
@@ -60,7 +51,9 @@ Geo-enrichment and the threat intelligence option are not available.
 Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources is not available.
 
 - **Advanced threat detection**  
-Azure Security Center Standard tier in Azure Government does not support threat detection for App Service or Storage accounts. 
+Azure Security Center standard tier in Azure Government does not support threat detection for App Service. 
+
+    Threat detection for storage accounts is available in US government clouds, but no other sovereign or Azure government cloud regions.  
 
 ### Server protection
 
@@ -76,7 +69,7 @@ Additional FAQs for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**
 
-The Standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available Standard features beyond 30 days, we automatically start to charge for the service.
+The standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available standard features beyond 30 days, we automatically start to charge for the service.
 
 **What features are available for Azure Security Center government customers?**
 
@@ -168,10 +161,6 @@ The following features have known limitations in Azure Government:
   - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error. 
   - Office 365 Groups are not supported for B2B users and can't be enabled.
   - Some SQL tools such as SSMS require you to set the appropriate cloud parameter. In the tool's Azure Service setup options, set the cloud parameter to Azure US Government.
-
-- Limitations with the Azure Active Directory App Gallery:
-  - Pre-integrated SAML and password SSO applications from the Azure AD Application Gallery are not yet available. Instead, use a custom application to support federated single sign-on with SAML or password SSO.
-  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.'
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.

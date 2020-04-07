@@ -14,7 +14,7 @@ ms.date: 03/12/2020
 A [managed identity from Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) allows your cluster to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. This article shows you how to create a managed identity for Azure Data Explorer clusters. Managed identity configuration is currently supported only to [enable customer-managed keys for your cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
-> Managed identities for Azure Data Explorer won't behave as expected if your app is migrated across subscriptions or tenants. The app will need to obtain a new identity, which can be done by [disabling](#remove-a-system-assigned-identity) and [re-enabling](#add-a-system-assigned-identity) the feature. Access policies of downstream resources will also need to be updated to use the new identity.
+> Managed identities for Azure Data Explorer won't behave as expected if your Azure Data Explorer cluster is migrated across subscriptions or tenants. The app will need to obtain a new identity, which can be done by [disabling](#disable-a-system-assigned-identity) and [re-enabling](#add-a-system-assigned-identity) the feature. Access policies of downstream resources will also need to be updated to use the new identity.
 
 ## Add a system-assigned identity
                                                                                                     
@@ -159,13 +159,13 @@ When the cluster is created, it has the following additional properties:
 
 ---
 
-## Remove a system-assigned identity
+## Disable a system-assigned identity
 
 Removing a system-assigned identity will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the cluster resource is deleted. A system-assigned identity can be removed by disabling the feature.  The system-assigned identity is removed using C#, ARM templates, or the Azure portal as detailed below.
 
 # [Azure portal](#tab/portal)
 
-### Remove a system-assigned identity using the Azure portal
+### Disable a system-assigned identity using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Settings** > **Identity** in left pane of portal.

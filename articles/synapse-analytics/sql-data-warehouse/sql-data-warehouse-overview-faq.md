@@ -24,13 +24,13 @@ Q. What happened to Azure SQL Data Warehouse?
 
 A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse and automatically benefit from the new capabilities, which are in preview. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. What is SQL Analytics?
+Q. What is Synapse SQL pool?
 
-A. SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Synapse SQL pool refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. How do I get started with Azure Synapse?
 
-A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
+A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
 
 Q. What does Azure Synapse offer for data security?
 
@@ -38,16 +38,16 @@ A. Azure Synapse offers several solutions for protecting data such as TDE and au
 
 Q. Where can I find out what legal or business standards Azure Synapse is compliant with?
 
-A. Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. 
+A. Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO.
 First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
 Q. Can I connect Power BI?
 
-A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+A. Yes! Though Power BI supports direct query with Azure Synapse, it's not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
-Q. What are SQL Analytics capacity limits?
+Q. What are Synapse SQL pool capacity limits?
 
-A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.md) page. 
+A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.md) page.
 
 Q. Why is my Scale/Pause/Resume taking so long?
 
@@ -61,13 +61,13 @@ A. If you have a feature request, submit it on our [UserVoice](https://feedback.
 
 Q. How can I do x?
 
-A. For help with developing with Azure Synapse, you can ask questions on our [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw) page. 
+A. For help with developing with Azure Synapse, you can ask questions on our [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw) page.
 
 Q. How do I submit a support ticket?
 
 A. [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) can be filed through Azure portal.
 
-## SQL language/feature support 
+## SQL language/feature support
 
 Q. What data types are supported?
 
@@ -79,33 +79,33 @@ A. Many features are supported. Features that aren't supported can be found in [
 
 ## Tooling and administration
 
-Q. Does SQL Analytics support REST APIs?
+Q. Does Synapse SQL pool support REST APIs?
 
-A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Analytics. You can find API information within REST documentation pages or
-[MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
+A. Yes. Most REST functionality that can be used with SQL Database is also available with Synapse SQL pool. You can find API information within REST documentation pages or
+[Databases](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Loading
 
 Q. What client drivers do you support?
 
-A. Driver support for SQL Analytics can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
+A. Driver support for Synapse SQL pool can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
 
 Q: What file formats are supported by PolyBase?
 
 A: Orc, RC, Parquet, and flat delimited text
 
-Q: What data sources can I connect to using PolyBase? 
+Q: What data sources can I connect to using PolyBase?
 
 A: [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS? 
+Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS?
 
-A: No, PolyBase only interacts with the storage components. 
+A: No, PolyBase only interacts with the storage components.
 
 Q: Can I connect to HDI?
 
-A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a SQL Analytics data warehouse. However, you cannot generate pushdown computation to the HDI instance. 
+A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a Synapse SQL pool. However, you cannot generate pushdown computation to the HDI instance.
 
 ## Next steps
+
 For more information on Azure Synapse as a whole, see our [Overview](sql-data-warehouse-overview-faq.md) page.
