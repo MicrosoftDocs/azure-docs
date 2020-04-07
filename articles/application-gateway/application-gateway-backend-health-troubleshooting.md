@@ -241,7 +241,7 @@ Learn more about [Application Gateway probe matching](https://docs.microsoft.com
 **Message:** The server certificate used by the backend is not signed by
 a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
-**Cause:** End-to-end TLS with Application Gateway v2 requires the
+**Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
 For a TLS/SSL certificate to be trusted, that certificate of the backend
 server must be issued by a CA that's included in the trusted
@@ -281,7 +281,7 @@ backend does not match the trusted root certificate added to the
 application gateway. Ensure that you add the correct root certificate to
 whitelist the backend
 
-**Cause:** End-to-end TLS with Application Gateway v2 requires the
+**Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
 For a TLS/SSL certificate to be trusted, the backend
 server certificate must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
