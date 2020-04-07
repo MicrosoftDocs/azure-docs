@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/07/2020
 ms.author: aahi
 ---
 
@@ -19,6 +19,8 @@ Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) conta
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
+
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Create an Azure file share
 

@@ -1119,6 +1119,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
+
 <a id="cors"></a>
 
 ### Cross-origin resource sharing (CORS)

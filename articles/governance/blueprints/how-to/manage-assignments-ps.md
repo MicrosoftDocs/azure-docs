@@ -25,12 +25,12 @@ The Azure Blueprints module requires the following software:
 
 ### Install the module
 
-The Blueprints module for PowerShell is **Az.Blueprint**.
+The Azure Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. From an **administrative** PowerShell prompt, run the following command:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 

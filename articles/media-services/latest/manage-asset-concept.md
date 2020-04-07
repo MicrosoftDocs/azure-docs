@@ -58,7 +58,7 @@ After the digital files are uploaded into storage and associated with an Asset, 
 
     **AssetContainerSas.listContainerSas** takes a [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) parameter on which you set `expiryTime`. The time should be set to  < 24 hours.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returns multiple SAS URLs as there are two storage account keys for each storage account. A storage account has two keys because it allows for seamless rotation  of storage account keys (for example, change one while using the other then start using the new key and rotate the other key). The 1st SAS URL represents storage key1 and second one storage key2.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returns multiple SAS URLs as there are two storage account keys for each storage account. A storage account has two keys because it helps with failover and seamless rotation of storage account keys. The first SAS URL represents the first storage account key and the second SAS URL represents the second key.
 3. Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container.
 4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
 5. Stream the content from the "output" asset.

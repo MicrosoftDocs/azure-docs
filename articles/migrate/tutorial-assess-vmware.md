@@ -158,7 +158,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
 2. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
-    - You should have set up an account with the required permissions in the [previous tutorial](/tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 
 3. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
