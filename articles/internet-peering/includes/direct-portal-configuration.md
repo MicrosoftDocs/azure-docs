@@ -57,12 +57,12 @@ ms.author: prmitiki
     > [!div class="mx-imgBorder"]
     > ![Peering Validation tab](../media/setup-direct-review-tab-validation.png)
 
-1. After the message changes to *Validation passed*, verify your information. Submit the request by selecting **Create**. If you need to modify your request, select **Previous** and repeat the steps.
+1. After the message changes to *Validation passed*, verify your information. Submit the request by selecting **Create**. To modify your request, select **Previous** and repeat the steps.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering submit](../media/setup-direct-review-tab-submit.png)
+    > ![Peering submission](../media/setup-direct-review-tab-submit.png)
 
-1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment appears as shown here.
+1. After you submit the request, wait for deployment to finish. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment appears as shown here.
 
     > [!div class="mx-imgBorder"]
     > ![Peering success](../media/setup-direct-success.png)

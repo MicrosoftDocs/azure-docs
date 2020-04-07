@@ -13,7 +13,7 @@ ms.author: prmitiki
 1. Go to **Resource groups**, and select the resource group you selected when you created the **Peering** resource. Use the **Filter** box if you have too many resource groups.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource group](../media/setup-direct-get-resourcegroup.png)
+    > ![Resource groups](../media/setup-direct-get-resourcegroup.png)
 
 1. Select the **Peering** resource you created.
 

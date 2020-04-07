@@ -10,7 +10,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-The following example shows how to create a 10-Gbps Direct peering at Seattle.
+The following example shows how to create a 10-Gbps Direct peering in Seattle.
 
 Use the PowerShell cmdlet **New-AzPeeringDirectConnectionObject** to create DirectConnection objects that are to be used in the new peering request.
 
@@ -73,4 +73,4 @@ This example shows the response when the request was processed successfully.
     Tags                 : {}
 
 ```
-Note that in place of **{subscriptionId}** in this output, the actual subscription ID will be displayed.
+Note that in place of *{subscriptionId}* in this output, the actual subscription ID will be displayed.
