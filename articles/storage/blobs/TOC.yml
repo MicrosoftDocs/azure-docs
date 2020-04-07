@@ -377,7 +377,7 @@
     - name: Protect your data
       items:
       - name: Enable blob versioning
-        href: versioning-enable.md
+        href: versioning-manage.md
       - name: Enable soft delete
         href: soft-delete-enable.md
       - name: Create snapshots (.NET)

@@ -1,5 +1,5 @@
 ---
-title: Enable or disable blob versioning (preview)
+title: Enable and manage blob versioning (preview)
 titleSuffix: Azure Storage
 description: Learn how to enable blob versioning in the Azure portal, PowerShell, Azure CLI, or by using an Azure Resource Manager template.
 services: storage
@@ -7,12 +7,12 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/07/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Enable or disable blob versioning
+# Enable and manage blob versioning
 
 You can enable or disable blob versioning (preview) for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
 
@@ -21,6 +21,8 @@ You can enable or disable blob versioning (preview) for the storage account at a
 # [Azure portal](#tab/portal)
 
 ???need screenshot here - i have access now, but need grammatical errors in text fixed first
+
+:::image type="content" source="media/versioning-manage/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 
 # [PowerShell](#tab/powershell)
 
@@ -64,7 +66,7 @@ To enable blob versioning with a template, create a template with the `IsVersion
         "resources": [
             {
                 "type": "Microsoft.Storage/storageAccounts/blobServices",
-                "apiVersion": "2019-10-19",
+                "apiVersion": "2019-06-01",
                 "name": "<accountName>/default",
                 "properties": {
                     "IsVersioningEnabled": true
@@ -77,6 +79,39 @@ To enable blob versioning with a template, create a template with the `IsVersion
 For more information about deploying resources with templates in the Azure portal, see [Deploy resources with Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 ---
+
+## List blobs and blob versions
+
+You can get a list of blobs and versions under a specific container by including the *versions* parameter on the listing operation. To determine whether a given version is the current version (that is, the base blob), check the value of the **IsCurrentVersion** field.
+
+The following XML is a sample response body from a [List Blobs](/rest/api/storageservices/list-blobs) operation that includes the *versions* parameter.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<EnumerationResults ServiceEndpoint="http://myaccount.blob.core.windows.net/"  ContainerName="mycontainer">  
+  <Prefix>string-value</Prefix>  
+  <Marker>string-value</Marker>  
+  <MaxResults>int-value</MaxResults>  
+  <Delimiter>string-value</Delimiter>  
+  <Blobs>  
+    <Blob>  
+      <Name>blob-name</name>  
+      <VersionId>version-id</VersionId>
+      <IsCurrentVersion>true</IsCurrentVersion>
+      <Properties>
+        …
+      </Properties>  
+      <Metadata>
+        …
+      </Metadata>  
+    </Blob>  
+    <BlobPrefix>  
+      <Name>blob-prefix</Name>  
+    </BlobPrefix>  
+  </Blobs>  
+  <NextMarker />  
+</EnumerationResults>
+```
 
 ## Next steps
 
