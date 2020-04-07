@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: alzam
 
 ---
@@ -38,10 +38,11 @@ At a high level, the following steps are needed to enable users to connect to Az
 
 1. Create a Virtual Network Gateway (if one does not exist)
 2. Configure point-to-site VPN on the gateway
-    3. [For certificate authentication, follow this link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw).
-    2.  [For OpenVPN, follow this link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn).
-    3.  [For Azure AD authentication, follow this link](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant).
-    4.  [For troubleshooting point-to-site connections, follow this link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems).
+
+   * [For certificate authentication, follow this link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
+   * [For OpenVPN, follow this link](vpn-gateway-howto-openvpn.md).
+   * [For Azure AD authentication, follow this link](openvpn-azure-ad-tenant.md).
+   * [For troubleshooting point-to-site connections, follow this link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 3. Download and distribute the VPN client configuration
 4. Distribute the certificates (if certificate authentication is selected) to the clients
 5. Connect to Azure VPN
