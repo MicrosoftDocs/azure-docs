@@ -3,13 +3,13 @@ title: How to install and run containers - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: pafarley
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
 ---
 
