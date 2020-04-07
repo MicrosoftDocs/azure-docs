@@ -26,7 +26,7 @@ You can look up the diagnostic log to see the size of data returned. If you see 
 
 1. Select **Monitor** from the left-hand navigation bar and select **Metrics**.
 
-  ![Metrics pane in Azure Monitor](./media/monitor-server-side-latency/monitor-metrics-blade.png)
+   ![Metrics pane in Azure Monitor](./media/monitor-server-side-latency/monitor-metrics-blade.png)
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
    
@@ -36,7 +36,7 @@ You can look up the diagnostic log to see the size of data returned. If you see 
 
    ![Choose the Server Side Latency metric from the Azure portal](./media/monitor-server-side-latency/serverside-latency-metric.png)
 
-### Filters for server-side latency
+## Filters for server-side latency
 
 You can also filter metrics and the chart displayed by a specific **CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region**, and **PublicAPIType**. 
 
