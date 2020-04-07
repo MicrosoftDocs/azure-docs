@@ -1,6 +1,6 @@
 ﻿---
-title: Utilize template reference
-description: Utilize the Azure Resource Manager template reference to create a template.
+title: Use template reference
+description: Use the Azure Resource Manager template reference to create a template.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom: seodec18
 ---
 
-# Tutorial: Utilize the ARM template reference
+# Tutorial: Utilize the Resource Manager template reference
 
 Learn how to find the template schema information, and use the information to create Azure Resource Manager (ARM) templates.
 
@@ -60,17 +60,13 @@ To complete this article, you need:
     * **resources**: specify the resource types that are deployed or updated in a resource group.
     * **outputs**: specify the values that are returned after deployment.
 
-1. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined.
+1. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined. The SKU name uses a parameter value.  The parameter is called **storageAccountType**.
 
     ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
-    The SKU name uses a parameter value.  The parameter is called **storageAccountType**.
+1. Expand **parameters** to see how **storageAccountType** is defined. The parameter has four allowed values. You will find the other allowed values, and then revise the parameter definition.
 
-1. Expand **parameters** to see how **storageAccountType** is defined:
-
-    ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
-
-    The parameter has four allowed values.
+    ![Resource Manager template storage account resources skus](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## Find the template reference
 
@@ -81,15 +77,13 @@ To complete this article, you need:
 
     A resource provider usually has several API versions:
 
-    ![Resource Manager template storage account resources skus](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
-
-
+    ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
 1. Select **All resources** under **Storage** from the left pane. This page lists the resource types and versions of the storage resource provider. It is recommended to use the latest API versions for the resource types defined in your template.
 
     ![Resource Manager template reference storage account types versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Select the latest version of the **storageAccount** resource type.  The latest version is **2019-06-01** when this article is written.
+1. Select the latest version of the **storageAccount** resource type. The latest version is **2019-06-01** when this article is written. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
 
 1. This page lists the details of the storageAccount resource type.  For example, it lists the allowed values for the **Sku** object. There are more skus than what is listed in the quickstart template that you opened earlier. You can customize the quickstart template to include all the available storage types.
 
