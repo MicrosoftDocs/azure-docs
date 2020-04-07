@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
 
 ---
@@ -28,6 +28,8 @@ The benefits of deployment script:
 - Allow specifying the identities that are used to execute the scripts. Currently, only [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) is supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
+
+The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
 > Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
@@ -184,6 +186,8 @@ In addition to inline scripts, you can also use external script files. Only prim
 To see an example, select [here](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 The external script files must be accessible.  To secure your script files that are stored in Azure storage accounts, see [Tutorial: Secure artifacts in Azure Resource Manager template deployments](./template-tutorial-secure-artifacts.md).
+
+You are responsible for ensuring the integrity of the scripts that are referenced by deployment script, either **PrimaryScriptUri** or **SupportingScriptUris**.  Reference only scripts that you trust.
 
 ## Use supporting scripts
 
