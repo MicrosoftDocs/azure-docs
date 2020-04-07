@@ -21,9 +21,13 @@ Many of Project Spool's components are built on top of WebRTC. Programmable Vide
 
 ## WebRTC and Programmable Video
 
+Programmable Video is built on WebRTC?
+
 TODO
 
 ## WebRTC and Programmable Voice
+
+Programmable Voice is built on WebRTC and other technologies that support advanced telephony scenarios?
 
 TODO
 
