@@ -31,11 +31,11 @@ Users may also authenticate directly with your on-premises Active Directory. Act
 
 Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Office 365 and Azure AD-based apps. 
 
-![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration.png)
+![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
 **To increase application security, your goal is to have a single set of access controls and policies across your on-premises and cloud environments**. 
 
-![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-after-migration.png)
+![Applications connected through Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
 
 
