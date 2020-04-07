@@ -105,7 +105,7 @@ Here is the step-by-step walkthrough.
 5. Like with **Rolling Deployments**, you can click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _green_ (standby VMs) . The second phase pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that deployment is stable, he can now redirect the traffic to _green_ VMs and resume the pipeline run which will then swap _blue_ and _green_ tags in the VMs. This makes sure that the VMs that have older application version are tagged as _green_ and are deployed to in the next pipeline run.
 ![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azuredevops-bg-tasks.PNG)
 
-6. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
+6. Note that this deployment strategy requires that there must be at least one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have at least one VM tagged as _blue_.
 
 
 
