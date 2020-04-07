@@ -23,7 +23,11 @@ Your organization can use **My Staff** to delegate user management tasks to figu
 
 Managing your team members in My Staff is simple. To start, [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the team members in a location are determined by your IT administrator and you can't change them.
 
-If you manage more than one location or group of staff members, the first time you visit My Staff you must select a location to see the list of staff who are part of your location or team.
+If you manage more than one location or group of staff members, when you go to My Staff you must select a location to see the list of staff who are part of the location or team.
+
+If you don't yet have sufficient permissions to access My Staff, you'll see the following message:
+
+![Insufficient permissions to access My Staff](media/my-staff-team-manager/no-perms.png)
 
 ## Reset a user password
 
@@ -33,6 +37,7 @@ If your organization has given you permission, you can reset passwords for your 
 1. Open a staff member's profile.
 1. Select **Reset password**.
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
+
     ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password.png)
 
 After you have reset the user's password, give the user the temporary password. When the user signs in with their temporary password, they are required to change it.
