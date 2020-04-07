@@ -1,12 +1,12 @@
 ---
 title: Use managed identity with an application
-description: How to use managed identities in Azure Service Fabric application code to access Azure Services. This feature is in public preview.
+description: How to use managed identities in Azure Service Fabric application code to access Azure Services.
 
 ms.topic: article
 ms.date: 10/09/2019
 ---
 
-# How to leverage a Service Fabric application's managed identity to access Azure services (preview)
+# How to leverage a Service Fabric application's managed identity to access Azure services
 
 Service Fabric applications can leverage managed identities to access other Azure resources which support Azure Active Directory-based authentication. An application can obtain an [access token](../active-directory/develop/developer-glossary.md#access-token) representing its identity, which may be system-assigned or user-assigned, and use it as a 'bearer' token to authenticate itself to another service - also known as a [protected resource server](../active-directory/develop/developer-glossary.md#resource-server). The token represents the identity assigned to the Service Fabric application, and will only be issued to Azure resources (including SF applications) which share that identity. Refer to the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities. We will refer to a managed-identity-enabled Service Fabric application as the [client application](../active-directory/develop/developer-glossary.md#client-application) throughout this article.
 
