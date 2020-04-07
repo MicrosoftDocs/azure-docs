@@ -23,8 +23,9 @@ In this tutorial, you will set up to use Azure Digital Twins, create an instance
 
 Before you can create and start working with your Azure Digital Twins instance, complete the following:
 
-1. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your machine
-    * If you have an older version, open the Visual Studio Installer ![image](./media/Images/vs_installer.jpg) on your machine and follow the prompts to update your installation
+1. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your machine.
+    * If you have an older version, open the Visual Studio Installer on your machine and follow the prompts to update your installation.
+    ![Visual Studio Installer](./media/quickstart/visual-studio-installer.jpg)
 
 2. Choose whether to complete this tutorial with [Azure Cloud Shell](../cloud-shell/overview.md) or the local Azure CLI. If the local CLI, install the Azure CLI package on your computer
     * If you have it installed already, run `az --version` to make sure `azure-cli` is at least **version 2.0.8** -- if it isn't, use the link below to install the latest version
@@ -40,9 +41,9 @@ Before you can create and start working with your Azure Digital Twins instance, 
 
 5. Configure AAD app registration and save important strings
     * [Optional] If you don't have an app registration for ADT, follow guidance in [How to authenticate - create an app registration](https://github.com/Azure/azure-digital-twins/blob/private-preview/Documentation/how-to-authenticate.md) (screenshot from the process below)
-        ![image](./media/Images/new_reg.jpg)        
+        ![New AAD app registration](./media/quickstart/new-app-registration.jpg)        
     * [Required] Once created, use ::[Azure Portal - AAD app registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps):: to navigate to the app registration overview page and make note of the *Application ID* and *Directory ID*
-        ![image](./media/Images/get_authids.jpg)
+        ![Azure portal: authentication IDs](./media/quickstart/get-authentication-ids.jpg)
 
 <div style='background: #82CFFD; padding: 10px 15px; color:black;'>
   Save<b> &lt;your-ClientId&gt; </b>(<i>Application ID</i>) and <b> &lt;your-TenantId&gt; </b>(<i>Directory ID</i>) from above and <b> &lt;your-subscription&gt; </b> (<i>your Azure Digital Twins Private Preview allow-listed subscription ID</i>) in <i>SavedStrings.txt</i>, stored adjacent to this readme file. The text file will help you keep track of important strings throughout this sample.
@@ -98,8 +99,8 @@ az dt rbac assign-role --dt-name <your-adt-instance> --assignee "<your-AAD-email
 ```
 
 > If you get a *400: BadRequest* error, navigate to your user in the [AAD Users page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) and use the **Object ID** instead of *\<your-AAD-email>*
-> ![image](./media/Images/assignrole_badrequest.jpg)
-> ![image](./media/Images/aad_user.jpg)
+> ![Assign role bad request](./media/quickstart/assign-role-bad-request.jpg)
+> ![Azure portal: object ID for AAD user](./media/quickstart/aad-user.jpg)
 
 
 ### 3. Open the sample app

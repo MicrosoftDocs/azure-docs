@@ -19,7 +19,7 @@ ms.service: digital-twins
 ### 2.  Send simulated telemetry from IoT Hub
 
 The next step, to bring your Digital Twins instance alive, is to simulate device telemetry from IoT Hub trigger an update to the Azure Digital Twins graph. You'll be completing this section of the pipeline
-![image](./media/Images/buildingscenario_2.jpg)
+![An excerpt from the full building scenario graphic, highlighting the elements before Azure Digital Twins: the device, IoT Hub, and first Azure Function](./media/tutorial-2-telemetry/building-scenario-2.jpg)
 
 This step takes some time because you have to set up Azure resources and create connections. You will:
 > - Deploy a pre-made Functions App
@@ -37,29 +37,29 @@ Navigate to *DigitalTwinsMetadata > DigitalTwinsSample > HubToDT >* **ProcessHub
 const string AdtInstanceUrl = "https://<your-adt-instance-hostname>"
 ```
 In the Solution Explorer, right click the **HubToDT project file** and click **Publish**
- ![image](./media/Images/hubtodtclick.jpg)
+ ![Visual Studio: publish project](./media/tutorial-2-telemetry/publish-azure-function-1.jpg)
 
 Select **Create Profile**
-![image](./media/Images/azfn1.jpg)
+![Azure Function in Visual Studio: create profile](./media/tutorial-2-telemetry/publish-azure-function-2.jpg)
 
 - Change the **Name** to a new value, *\<your-HubToDT-function>*
 - Change the **Subscription** to *DigitalTwins-Dev-Test-26*
 - Change the **Resource group** to *\<your-resource-group>*
 - Create a new storage resource using the **New...** link
-![image](./media/Images/azfn2.jpg)
+![Azure Function in Visual Studio: new storage resource](./media/tutorial-2-telemetry/publish-azure-function-3.jpg)
 - Create a storage account with a new name (*\<your-storage-account>*) in the window that pops up and select **OK**
 
-![image](./media/Images/storage.jpg)
+![Visual Studio: Azure storage properties](./media/tutorial-2-telemetry/storage.jpg)
 <div style='background: #82CFFD; padding: 10px 15px; color:black;'>
   Save <b> &lt;your-HubtToDT-function&gt; </b> and <b> &lt;your-storage-account&gt; </b> from above in <i>SavedStrings.txt</i> at the root of the repo. You will use them later
 </div>
 
 - Select **Create** in the "App Service Create new" window
 - Select **Publish** on the tab the opens in VS
-![image](./media/Images/azfn3.jpg)
+![Azure Function in Visual Studio: publish](./media/tutorial-2-telemetry/publish-azure-function-4.jpg)
 
 You may see a popup like this, just select **Attempt to retrieve credentials from Azure** and **Save**
- ![image](./media/Images/azfn4.jpg)
+ ![Azure Function in Visual Studio: publish credentials](./media/tutorial-2-telemetry/publish-azure-function-5.jpg)
  
 > If your Functions App doesn't deploy correctly, check out the **Publishing the Functions App isn't working** topic in **Troubleshooting** (at the end of this file)
 
@@ -87,7 +87,7 @@ az iot hub create --name <your-iothub> -g <your-resource-group> --sku S1
 #### Create an Event Subscription on your IoT Hub with the Functions App as an endpoint in ::[Azure Portal](https://ms.portal.azure.com/#home)::
 
 Navigate to your recently created IoT Hub, select the *Events* blade and select *+ Event Subscription*
-![images](./media/Images/hub_eventsub.jpg)
+![Azure portal: IoT Hub event subscription](./media/tutorial-2-telemetry/event-subcription-1.jpg)
 
 - **Name**: *\<your-event-subscription>*
 - **Filter Event Types**: *make selections like this*
@@ -96,12 +96,12 @@ Navigate to your recently created IoT Hub, select the *Events* blade and select 
 - [ ] Device Connected
 - [ ] Device Disconnected
 - [x] Device Telemetry
-![image](./media/Images/evsub.jpg)
+![Azure portal: create event subscription](./media/tutorial-2-telemetry/event-subscription-2.jpg)
 
 - Select the **Select an endpoint** link
 - Fill out form based on your **Subscription**, **Resource group**, **Function app** and **Function** (it should auto-populate after selecting the subscription)
 - Select **Confirm Selection**
-![image](./media/Images/evsub1.jpg)
+![Azure portal event subscription: select Azure function](./media/tutorial-2-telemetry/event-subscription-3.jpg)
 
 #### Create a device in IoT Hub with the ID *thermostat67* in ::Windows Powershell::
 
@@ -127,16 +127,16 @@ deviceConnectionString = <device connection-string>
 ```
 #### Start the simulation and see the results
 
-Start (![image](./media/Images/start.jpg)) the **DeviceSimulator** project in ::Visual Studio::.
+Start (![Visual Studio start button](./media/tutorial-1-instantiate/start-button.jpg)) the **DeviceSimulator** project in ::Visual Studio::.
 
 The following console should pop up with messages being sent. You won't need to do anything with this console.
-![image](./media/Images/devsim.jpg)
+![Console output of the device simulator showing temperature telemetry being sent](./media/tutorial-2-telemetry/device-simulator.jpg)
 
-Start (![image](./media/Images/start.jpg)) the **DigitalTwinsSample** project in ::Visual Studio::
+Start (![Visual Studio start button](./media/tutorial-1-instantiate/start-button.jpg)) the **DigitalTwinsSample** project in ::Visual Studio::
 
 Run the following command in the new console that pops up.
 ```
 cycleGetTwinById thermostat67
 ```
 You should see the 🌴 LIVE 🌲 updated temperatures 🌡 *from your Azure Digital Twins instance* being logged to the console every 10 seconds!!
-![image](./media/Images/sampleconsole.jpg)
+![Console output showing log of temperature messages from a thermostat](./media/tutorial-2-telemetry/console-telemetry.jpg)

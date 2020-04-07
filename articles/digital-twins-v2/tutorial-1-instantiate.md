@@ -20,7 +20,7 @@ ms.service: digital-twins
 This section introduces Azure Digital Twins commands and steps to develop a Digital Twins solution. 
 **E2E building scenario** is a walk-through of a real-world building application using ADT. You'll create the following workflow that automates sensors in the building like this:
 
-![image](./media/Images/buildingscenario.jpg)
+![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure Function to an Azure Digital Twins instance, then out through an Event Grid to another Azure Function for processing](./media/tutorial-1-instantiate/building-scenario.jpg)
 
 | E2E building scenario | Details |
 |---|
@@ -70,7 +70,7 @@ You can find more sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Mod
 
 #### How to test
 
-1. Once you've checked out the sample models (and maybe even created your own!), start (![image](./media/Images/start.jpg)) the **DigitalTwinsSample** project. A console will pop up, device authentication will happen and some options are presented. 
+1. Once you've checked out the sample models (and maybe even created your own!), start (![Visual Studio start button](./media/tutorial-1-instantiate/start-button.jpg)) the **DigitalTwinsSample** project. A console will pop up, device authentication will happen and some options are presented. 
 2. Upload the models for Floor and Room.
  ```
  addModels Floor Room
@@ -127,7 +127,7 @@ getEdgeById floor0 contains edge0
 getEdgeById floor0 contains edge1
 ```
 You've created the following graph.
-![image](./media/Images/a2.jpg)
+![A graph with a "Floor" node connected to two different "Room" nodes via "contains" relationships](./media/tutorial-1-instantiate/sample-graph.jpg)
 
 #### Variations
 
@@ -175,14 +175,14 @@ Now that you've done all the Azure Digital Twins basics, let's dive into a real 
 - Deploy a Functions App that updates the Room model when the Thermostat model is updated
 
 The image below indicates the entire pipeline that you're about to build.
-![image](./media/Images/buildingscenario.jpg)
+![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure Function to an Azure Digital Twins instance, then out through an Event Grid to another Azure Function for processing](./media/tutorial-1-instantiate/building-scenario.jpg)
 
 ### 1.  Instantiate the building scenario
 
 In this step, you'll be creating this section of the pipeline
-![image](./media/Images/buildingscenario_1.jpg)
+![An excerpt from the full building scenario graphic, highlighting the Azure Digital Twins instance](./media/tutorial-1-instantiate/building-scenario-1.jpg)
 
-Start (![image](./media/Images/start.jpg)) the *DigitalTwinsSample* project in ::Visual Studio::. In the console that pops up, run the following command.
+Start (![Visual Studio start button](./media/tutorial-1-instantiate/start-button.jpg)) the *DigitalTwinsSample* project in ::Visual Studio::. In the console that pops up, run the following command.
 **NOTE:** This command will delete the twins in your instance and create a sample Azure Digital Twins solution!
 ```
 buildingScenario
