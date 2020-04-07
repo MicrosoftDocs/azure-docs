@@ -90,6 +90,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
+[Data lake file output options](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+
 ## Optimizing mapping data flows
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)

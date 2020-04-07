@@ -155,6 +155,9 @@
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
+  - name: Azure Remote Rendering
+    tocHref: /azure/remote-rendering/
+    topicHref: /azure/remote-rendering/   
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/

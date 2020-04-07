@@ -27,9 +27,9 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs) to o
 
 ### What are Data Warehouse Units
 
-A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO. 
+A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO.
 
-These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. 
+These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance.
 
 A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
@@ -91,7 +91,7 @@ Steps for finding the best DWU for your workload:
 2. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe.
 3. Identify any additional requirements for periodic periods of peak activity. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
-SQL pool is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data. 
+SQL pool is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data.
 
 To see its true capabilities for scaling, especially at larger DWUs, we recommend scaling the data set as you scale to ensure that you have enough data to feed the CPUs. For scale testing, we recommend using at least 1 TB.
 
@@ -101,7 +101,7 @@ To see its true capabilities for scaling, especially at larger DWUs, we recommen
 
 ### Permissions
 
-Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
+Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
@@ -153,7 +153,7 @@ With T-SQL you can view the current DWUsettings, change the settings, and check 
 To change the DWUs:
 
 1. Connect to the master database associated with your logical SQL Database server.
-2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
+2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
