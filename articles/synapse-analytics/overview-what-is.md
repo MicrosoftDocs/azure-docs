@@ -79,5 +79,5 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * Explore [Azure Synapse architecture](sql-data-warehouse/massively-parallel-processing-mpp-architecture.md)
 * Quickly [create a SQL pool](sql-data-warehouse/create-data-warehouse-portal.md)
-* [Load sample data](sql-data-warehouse/sql-data-warehouse-load-sample-databases.md)
+* [Load sample data](sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)
 * Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
