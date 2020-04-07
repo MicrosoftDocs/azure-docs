@@ -16,8 +16,6 @@ Use the following procedure to view and update the runtime version currently use
 
 1. Under **Settings**, choose **Configuration**.
 
-    :::image type="content" source="./media/functions-view-update-version-portal/function-app-configuration-setting.png" alt-text="Select function app configuration." border="true":::
-
 1. In the **Function runtime settings** tab, locate the **Runtime version**. Note the specific runtime version. In the example below, the version is set to `~3`.
 
     :::image type="content" source="./media/functions-view-update-version-portal/functions-view-runtime-version.png" alt-text="View the runtime version." border="true":::
