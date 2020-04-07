@@ -39,7 +39,7 @@ landingContent:
           - text: Portal
             url: quick-create-portal.md
           - text: Python
-            url: python.md
+            url: quick-create-python.md
 
   # Card
   - title: Tutorials
@@ -59,7 +59,7 @@ landingContent:
           - text: Key Vault overview
             url: ../general/overview.md
           - text: Basic concepts
-            url: ./general/basic-concepts.md
+            url: ../general/basic-concepts.md
           - text: Soft-delete overview
             url: ../general/overview-soft-delete.md
           - text: Security overview

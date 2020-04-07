@@ -45,7 +45,7 @@ landingContent:
           - text: Portal
             url: quick-create-portal.md
           - text: Python
-            url: python.md
+            url: quick-create-python.md
 
   # Card
   - title: Tutorials
