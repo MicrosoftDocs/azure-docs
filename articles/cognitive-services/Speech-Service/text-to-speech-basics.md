@@ -42,10 +42,6 @@ In this article, you learn common design patterns for doing text-to-speech synth
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-more"
-[!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
-::: zone-end
-
 ## Next steps
 
 * [Get started with Custom Voice](how-to-custom-voice.md)

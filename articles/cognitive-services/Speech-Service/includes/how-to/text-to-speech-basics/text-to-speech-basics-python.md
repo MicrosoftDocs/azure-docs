@@ -36,7 +36,8 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent
+> recognition, you'll always create a configuration.
 
 There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
 
@@ -70,7 +71,7 @@ synthesizer.speak_text_async("A simple test to write to a file.")
 
 Run the program, and a synthesized `.wav` file is written to the location you specified. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
-### Synthesize to speaker output
+## Synthesize to speaker output
 
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, use the example in the previous section, but change the `AudioOutputConfig` by removing the `filename` param, and set `use_default_speaker=True`. This outputs to the current active output device.
 
@@ -89,7 +90,7 @@ For many scenarios in speech application development, you likely need the result
 It's simple to make this change from the previous example. First, remove the `AudioConfig`, as you will manage the output behavior manually from this point onward for increased control. Then pass `None` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
 
 > ![NOTE]
-> Passing `None` for the `AudioConfig`, rather than omitting it like in the speaker output example 
+> Passing `None` for the `AudioConfig`, rather than omitting it like in the speaker output example
 > above, will not play the audio by default on the current active output device.
 
 This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult?view=azure-python) variable. The `audio_data` property contains a `bytes` object of the output data. You can work with this object manually, or you can use the [`AudioDataStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream?view=azure-python) class to manage the in-memory stream. In this example you use the `AudioDataStream` constructor to get a stream from the result.
@@ -171,7 +172,7 @@ The output works, but there a few simple additional changes you can make to help
 </speak>
 ```
 
-### Neural voices
+## Neural voices
 
 Neural voices are speech synthesis algorithms powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
