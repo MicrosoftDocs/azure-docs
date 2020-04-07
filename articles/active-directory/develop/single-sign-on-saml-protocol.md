@@ -153,12 +153,12 @@ The `Response` element includes the result of the authorization request. Azure A
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### Status
@@ -191,7 +191,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### Signature
