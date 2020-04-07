@@ -1,20 +1,17 @@
 ---
 title: Integration and automation platform options in Azure 
-description: "Compare Microsoft cloud services that are optimized for integration tasks: Microsoft Flow, Logic Apps, Functions, and WebJobs."
+description: Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs.
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
-> [!NOTE]
-> Microsoft Flow is now Power Automate. For more information, see this [blog](https://aka.ms/flow-now-pa).
-> 
-> This content will be updated to reflect the branding change in the coming days.
+
 # Choose the right integration and automation services in Azure
 
 This article compares the following Microsoft cloud services:
 
-* [Microsoft Power Automate](https://flow.microsoft.com/)
+* [Microsoft Power Automate](https://flow.microsoft.com/) (was Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
@@ -25,21 +22,21 @@ If you're looking for a more general comparison between Azure Functions and othe
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
-Microsoft Flow and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 
+Power Automate and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 
 
-Microsoft Flow is built on top of Logic Apps. They share the same workflow designer and the same [connectors](../connectors/apis-list.md). 
+Power Automate is built on top of Logic Apps. They share the same workflow designer and the same [connectors](../connectors/apis-list.md). 
 
-Microsoft Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, and then convert it to a logic app as needed.
+Power Automate empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, and then convert it to a logic app as needed.
 
-The following table helps you determine whether Microsoft Flow or Logic Apps is best for a particular integration:
+The following table helps you determine whether Power Automate or Logic Apps is best for a particular integration:
 
-|  | Microsoft Flow | Logic Apps |
+|  | Power Automate | Logic Apps |
 | --- | --- | --- |
 | **Users** |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
 | **Scenarios** |Self-service |Advanced integrations |
 | **Design tool** |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
 | **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| **Admin experience** |Manage Microsoft Flow environments and data loss prevention (DLP) policies, track licensing: [Microsoft Flow Admin Center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
+| **Admin experience** |Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
 | **Security** |Office 365 Security and Compliance audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## Compare Azure Functions and Azure Logic Apps
@@ -102,25 +99,25 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 <a name="together"></a>
 
-## Microsoft Flow, Logic Apps, Functions, and WebJobs together
+## Power Automate, Logic Apps, Functions, and WebJobs together
 
 You don't have to choose just one of these services. They integrate with each other as well as they do with external services.
 
 A flow can call a logic app. A logic app can call a function, and a function can call a logic app. See, for example, [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
-The integration between Microsoft Flow, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
+The integration between Power Automate, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
 
 You can get more information on integration services by using the following links:
 
 * [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live webcast](https://aka.ms/logicappslive)
-* [Microsoft Flow frequently asked questions](/power-automate/frequently-asked-questions)
+* [Power Automate frequently asked questions](/power-automate/frequently-asked-questions)
 
 ## Next steps
 
 Get started by creating your first flow, logic app, or function app. Select any of the following links:
 
-* [Get started with Microsoft Flow](/power-automate/getting-started)
+* [Get started with Power Automate](/power-automate/getting-started)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure function](functions-create-first-azure-function.md)
