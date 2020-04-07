@@ -54,10 +54,10 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Collect and analyze Azure activity log in Azure Monitor](platform/activity-log-collect.md) - Rewrite to better explain collecting Activity log with diagnostic settings.
 
 ### Virtual machines
-- [Alerts from Azure Monitor for VMs](insights/vminsights-alerts.md) - New article
-- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
 - [Monitor Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) - New article.
 - [Quickstart: Monitor Azure virtual machines with Azure Monitor](learn/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
+- [Alerts from Azure Monitor for VMs](insights/vminsights-alerts.md) - New article
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
 
 
 General updates for general availability of Azure Monitor for VMs
