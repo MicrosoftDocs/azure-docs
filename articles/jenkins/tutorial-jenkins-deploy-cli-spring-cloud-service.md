@@ -23,7 +23,7 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
 >[!Note]
 > Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](open-source-devops-prereqs-azure-subscription.md)]
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * A GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
