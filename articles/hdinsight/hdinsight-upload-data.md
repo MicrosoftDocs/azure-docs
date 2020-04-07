@@ -1,6 +1,6 @@
 ---
 title: Upload data for Apache Hadoop jobs in HDInsight
-description: `Learn how to upload and access data for Apache Hadoop jobs in HDInsight. Use the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop`.
+description: Learn how to upload and access data for Apache Hadoop jobs in HDInsight. Use Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
