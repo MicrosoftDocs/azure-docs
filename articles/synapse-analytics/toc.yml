@@ -151,7 +151,7 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ./sql/aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/active-directory-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
         href: ./sql/mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
