@@ -1472,7 +1472,7 @@ tools:
     # Card
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
-      url: ansible/index.yml
+      url: https://docs.microsoft.com/azure/developer/ansible
 
 additionalContent:
   sections:
