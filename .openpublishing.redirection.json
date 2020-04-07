@@ -15206,11 +15206,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
-      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/service/how-to-create-register-datasets.md",
       "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
       "redirect_document_id": true
