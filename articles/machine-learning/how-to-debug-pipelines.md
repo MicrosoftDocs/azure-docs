@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.date: 12/12/2019
+ms.date: 03/18/2020
 ---
 
 # Debug and troubleshoot machine learning pipelines
@@ -17,7 +17,7 @@ ms.date: 12/12/2019
 In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
 
 * Debug using the Azure Machine Learning SDK
-* Debug using the Azure Machine Learning Designer
+* Debug using the Azure Machine Learning designer
 * Debug using Application Insights
 * Debug interactively using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD)
 
@@ -28,7 +28,7 @@ The following sections provide an overview of common pitfalls when building pipe
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
-Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don’t have to wait for the compute and environment build process. Some development work is required to do this:
+Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don't have to wait for the compute and environment build process. Some development work is required to do this:
 
 * If your data is in a cloud datastore, you will need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
 * If you are attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
@@ -76,7 +76,7 @@ The following table contains common problems during pipeline development, with p
 | Problem | Possible solution |
 |--|--|
 | Unable to pass data to `PipelineData` directory | Ensure you have created a directory in the script that corresponds to where your pipeline expects the step output data. In most cases, an input argument will define the output directory, and then you create the directory explicitly. Use `os.makedirs(args.output_dir, exist_ok=True)` to create the output directory. See the [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) for a scoring script example that shows this design pattern. |
-| Dependency bugs | If you have developed and tested scripts locally but find dependency issues when running on a remote compute in the pipeline, ensure your compute environment dependencies and versions match your test environment. |
+| Dependency bugs | If you have developed and tested scripts locally but find dependency issues when running on a remote compute in the pipeline, ensure your compute environment dependencies and versions match your test environment. (See [Environment building, caching, and reuse](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
 | Ambiguous errors with compute targets | Deleting and re-creating compute targets can solve certain issues with compute targets. |
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
@@ -88,7 +88,7 @@ The table below provides information for different debug options for pipelines. 
 | Library                    | Type   | Example                                                          | Destination                                  | Resources                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [How to track experiments](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Python printing/logging    | Log    | `print(val)`<br>`logging.info(message)`                          | Driver logs, Azure Machine Learning Designer | [How to track experiments](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python logging](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Python printing/logging    | Log    | `print(val)`<br>`logging.info(message)`                          | Driver logs, Azure Machine Learning designer | [How to track experiments](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python logging](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - traces                | [Debug pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### Logging options example
@@ -133,8 +133,8 @@ For pipelines created in the designer, you can find the **log files** on either 
 When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module.
 
 1. Select any module in the authoring canvas.
-1. In the properties pane, go to the  **Logs** tab.
-1. Select the log file `70_driver_log.txt`
+1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select the log file `70_driver_log.txt`.
 
     ![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -145,8 +145,8 @@ You can also find the log files of specific runs in the pipeline run detail page
 1. Select a pipeline run created in the designer.
     ![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Select any module in the preview pane.
-1. In the properties pane, go to the **Logs** tab.
-1. Select the log file `70_driver_log.txt`
+1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select the log file `70_driver_log.txt`.
 
 ## Debug and troubleshoot in Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)

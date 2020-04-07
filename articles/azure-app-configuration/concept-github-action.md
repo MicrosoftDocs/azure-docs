@@ -1,6 +1,6 @@
 ---
-title: Use GitHub Actions with Azure App Configuration Sync
-description: Use GitHub Actions to trigger an update to your App Configuration instance when defined actions are performed on a GitHub repository
+title: Sync your GitHub repository to App Configuration
+description: Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
 author: lisaguthrie
 
 ms.author: lcozzens
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
-# Sync your App Configuration instance using GitHub Actions
-Azure App Configuration uses GitHub Actions to trigger updates to an App Configuration instance based on actions performed on a GitHub repository. GitHub workflows trigger configuration updates, enabling the integration of those updates into the same workflow used to update the app code.
+# Sync your GitHub repository to App Configuration
 
-A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) defines an automated process in a GitHub repository. This process tells GitHub how to build and deploy your GitHub project. Azure App Configuration provides the *Azure App Configuration Sync* Action to enable updates to an App Configuration instance when changes are made to the source repository. 
+Teams that want to continue using their existing source control practices can use GitHub Actions to automatically sync their GitHub repository with their App Configuration store. This allows you to make changes to your config files as you normally would, while getting App Configuration benefits like: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Centralized configuration outside of your code <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Updating configuration without redeploying your entire app <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Integration with services like Azure App Service and Functions. 
 
-A YAML (.yml) file found in the `/.github/workflows/` path of your repository defines your workflow. This definition contains the workflow's steps and parameters.
-
-GitHub events, such as a push to a repository, can trigger a GitHub Action workflow.  The *Azure App Configuration Sync* action enables you to trigger an update of an App Configuration instance when a specified GitHub action occurs. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
+A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 
 The GitHub [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) provides in-depth view of GitHub workflows and actions. 
 

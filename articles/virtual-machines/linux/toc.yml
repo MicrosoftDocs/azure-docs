@@ -177,6 +177,7 @@
         href: reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
       href: spot-vms.md
+      displayName: pre-empt, preempt
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
@@ -315,6 +316,10 @@
           href: disk-encryption-sample-scripts.md
         - name: Disk encryption on an isolated network
           href: disk-encryption-isolated-network.md
+        - name: How to verify encryption status
+          href: how-to-verify-encryption-status.md
+        - name: How to configure LVM RAID on crypt
+          href: how-to-configure-lvm-raid-on-crypt.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
@@ -498,8 +503,6 @@
       href: capture-image.md
     - name: Build image with Packer
       href: build-image-with-packer.md
-    - name: RHEL images in Azure
-      href: rhel-images.md
     - name: Download existing disk
       href: download-vhd.md
   - name: Availability and scale
@@ -520,6 +523,8 @@
       href: create-cli-availability-zone.md
   - name: Use automation tools
     items:
+    - name: Custom data
+      href: ../custom-data.md
     - name: Ansible
       items:
       - name: Install and configure
@@ -648,8 +653,10 @@
       href: snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
       href: disks-reserved-capacity.md
-    - name: Create an incremental snapshot
+    - name: Create an incremental snapshot - CLI
       href: disks-incremental-snapshots.md
+    - name: Create an incremental snapshot - Portal
+      href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Migration and conversion

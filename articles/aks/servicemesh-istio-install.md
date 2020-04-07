@@ -413,11 +413,11 @@ To learn how to monitor your AKS application using Application Insights and Isti
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
 [istio-install-istioctl]: https://istio.io/docs/setup/install/istioctl/
 [istio-configuration-profiles]: https://istio.io/docs/setup/additional-setup/config-profiles/
-[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha12.pb/#IstioControlPlane
+[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha1/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
 
 [istio-feature-stages]: https://istio.io/about/feature-stages/
-[istio-feature-sds]: https://istio.io/docs/tasks/security/auth-sds/
+[istio-feature-sds]: https://istio.io/docs/tasks/traffic-management/ingress/secure-ingress-sds/
 [istio-feature-cni]: https://istio.io/docs/setup/additional-setup/cni/
 
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10

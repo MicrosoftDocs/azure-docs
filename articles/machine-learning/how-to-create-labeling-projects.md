@@ -40,7 +40,7 @@ In this article, you'll learn how to:
 * The data that you want to label, either in local files or in Azure blob storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a labeling project

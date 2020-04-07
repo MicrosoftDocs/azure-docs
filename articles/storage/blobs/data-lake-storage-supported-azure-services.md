@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -35,7 +35,8 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Power BI| Generally available|[Analyze data in Data Lake Storage Gen2 using Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
 |SQL Data Warehouse|Generally available|[Use with Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
 |SQL Server Integration Services (SSIS)|Generally available|[Azure Storage connection manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
-|Azure Cognitive Search| Preview|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
+|Azure Cognitive Search|Preview|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
+|Azure Data Explorer|Preview|[Query data in Azure Data Lake using Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Content Delivery Network|Not yet supported|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
 

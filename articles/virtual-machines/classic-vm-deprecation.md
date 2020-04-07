@@ -18,7 +18,7 @@ In 2014, we launched IaaS on Azure Resource Manager, and have been enhancing cap
 
 Today, about 90% of the IaaS VMs are using Azure Resource Manager. If you use IaaS resources through Azure Service Manager (ASM), start planning your migration now and complete it by March 1, 2023 to take advantage of [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/).
 
-Classic VMs will be following the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for deprecation.
+Classic VMs will be following the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for retirement.
 
 ## How does this affect me? 
 
@@ -40,6 +40,6 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-- For technical questions and issues, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- For technical questions, issues and subscription whitelisting [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - For other questions not part of FAQ and feedback, comment below.

@@ -254,6 +254,7 @@
         href: reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
       href: spot-vms.md
+      displayName: pre-empt, preempt
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic
@@ -585,6 +586,8 @@
         href: create-portal-availability-zone.md
   - name: Use automation tools
     items:
+    - name: Custom data
+      href: ../custom-data.md
     - name: Chef
       href: chef-automation.md
     - name: Publish Web App from Visual Studio
@@ -639,8 +642,10 @@
       href: snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
       href: disks-reserved-capacity.md
-    - name: Create an incremental snapshot
+    - name: Create an incremental snapshot - PowerShell
       href: disks-incremental-snapshots.md
+    - name: Create an incremental snapshot - Portal
+      href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Migration and conversion

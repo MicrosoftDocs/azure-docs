@@ -43,6 +43,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
+## Microsoft.compute/hostgroups/hosts
+|Executed Checks|
+|---|
+|<ul><li>Is the host up and  running</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
+
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
@@ -183,6 +188,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
+
+## Microsoft.ServiceFabric/clusters
+|Executed Checks|
+|---|
+|<ul><li>Is the Service Fabric cluster up and running?</li><li>Can the Service Fabric cluster be managed through Azure Resource Manager?</li></ul>|
 
 ## Microsoft.SQL/managedInstances/databases
 |Executed Checks|

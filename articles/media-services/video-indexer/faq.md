@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
 ---
 
@@ -171,6 +171,12 @@ Access tokens are needed to use the Video Indexer APIs for security purposes. Th
 ### How often do I need to get a new access token? When do access tokens expire?
 
 Access tokens expire every hour, so you need to generate a new access token every hour. 
+
+### What are the login options to Video Indexer Developer portal?
+
+You can login using Azure AD, Microsoft account, Google account or Facebook account. 
+
+Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
 
 ## Billing questions
 

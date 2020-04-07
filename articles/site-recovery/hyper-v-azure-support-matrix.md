@@ -64,6 +64,7 @@ Guest VM network: IPv6 | No | Yes
 Guest VM network: Static IP (Windows) | Yes | Yes
 Guest VM network: Static IP (Linux) | No | No
 Guest VM network: Multi-NIC | Yes | Yes
+Https Proxy | No | No
 
 
 

@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Manage app groups for Windows Virtual Desktop
 

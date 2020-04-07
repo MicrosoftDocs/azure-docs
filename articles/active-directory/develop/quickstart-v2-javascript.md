@@ -8,7 +8,6 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
@@ -78,10 +77,9 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
-
 > #### Step 3: Configure your JavaScript app
 >
 > In the *JavaScriptSPA* folder, edit *authConfig.js*, and set the `clientID`, `authority` and `redirectUri` values under `msalConfig`.
@@ -105,7 +103,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >

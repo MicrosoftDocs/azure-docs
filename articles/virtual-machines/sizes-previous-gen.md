@@ -65,6 +65,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size, and striping of the attached disk(s).  For details, see designing for high performance for [Windows](windows/premium-storage-performance.md) or [Linux](linux/premium-storage-performance.md).  
 
+
 ## NVv2-series
 
 **Newer size recommendation**: [NVv3-series](nvv3-series.md)
@@ -85,7 +86,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](linux/sizes.md) to choose the VM sizes that will best fit your need.  
 
-For more information on resizing a Windows VM, see [Resize a Linux VM](linux/change-vm-size.md).  
+For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
 
 <br>
 
@@ -337,6 +338,30 @@ Premium Storage caching:  Not Supported
 | Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+<br>
+
+# NV-series
+**Newer size recommendation**: [NVv3-series](nvv3-series.md) and [NVv4-series](nvv4-series.md)
+
+The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
+
+Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
+
+Premium Storage:  Not Supported
+
+Premium Storage caching:  Not Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
+| Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |
+| Standard_NV24 | 24 | 224 | 1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+
+1 GPU = one-half M60 card.
 <br>
 
 ## Other sizes

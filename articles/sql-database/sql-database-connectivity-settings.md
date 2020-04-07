@@ -72,49 +72,6 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
-## Minimal TLS Version 
-Minimal TLS Version allows customer to control the version of  [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) for their Azure SQL Server.
-
-We recommend setting Minimal TLS version to 1.2. For customers with applications that rely on older version of TLS, we recommend setting the Minimal TLS version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. For additional information, refer to [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
-
-After setting Minimal TLS version, login attempts from clients that are using a TLS version less than the Minimal TLS version of the server will fail with following error:
-
-```output
-Error 47072
-Login failed with invalid TLS version
-```
-
-## Set Minimal TLS Version via PowerShell
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
-
-The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS Version** property at the logical server level:
-
-```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
-
-# Update Public Network Access to Disabled
-$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
-
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
-```
-
-## Set Minimal TLS Version via Azure CLI
-> [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### Azure CLI in a bash shell
-The following CLI script shows how to change the **Minimal TLS Version** setting in a bash shell:
-
-```azurecli-interactive
-# Get current setting for Minimal TLS Version
-az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVersion"
-
-# Update setting for Minimal TLS Version
-az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
-```
 
 ## Connection policy
 [Connection policy](sql-database-connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Server. 

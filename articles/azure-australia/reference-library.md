@@ -20,7 +20,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
 * [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Australian Information Security Manual](https://www.cyber.gov.au/ism)
-* [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
+* [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/cloud-services)
 
 ## Azure Key Vault
 

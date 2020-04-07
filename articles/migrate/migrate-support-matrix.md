@@ -2,7 +2,7 @@
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 03/22/2020
 ms.author: raynew
 ---
 
@@ -50,7 +50,7 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 Subscription | You can have multiple Azure Migrate projects in a subscription.
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 VMware VMs  | Assess up to 35,000 VMware VMs in a single project.
-Hyper-V VMs	| Assess up to 35,000 Hyper-V VMs in a single project.
+Hyper-V VMs    | Assess up to 35,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
@@ -103,7 +103,7 @@ United States | Central US or West US 2
 
 There are two versions of the Azure Migrate service:
 
-- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#release-version-july-2019).
+- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
 - **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new Azure Migrate projects or perform new discoveries.
 
 ## Next steps

@@ -1,8 +1,8 @@
 ---
 title:  Core IO operations | Microsoft Azure Maps
 description: Learn how to efficiently read and write XML and delimited data using core libraries from the spatial IO module.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -20,8 +20,8 @@ The `atlas.io.core` namespace contains two low-level classes that can quickly re
 
 The `atlas.io.core.CsvReader` class reads strings that contain delimited data sets. This class provides two methods for reading data:
 
-- The `read` function will read the full data set and return a 2-dimensional array of strings representing all cells of the delimited data set.
-- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. The user can processes the row and dispose any unneeded memory from that row before processing the next row. So, function is more memory efficient.
+- The `read` function will read the full data set and return a two-dimensional array of strings representing all cells of the delimited data set.
+- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. The user can process the row and dispose any unneeded memory from that row before processing the next row. So, function is more memory efficient.
 
 By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
@@ -40,9 +40,9 @@ The `atlas.io.core.CsvWriter` writes an array of objects as a delimited string. 
 To use this class, follow the steps below:
 
 - Create an instance of the class and optionally set a custom delimiter or text qualifier.
-- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a 2-dimensional array of objects representing multiple rows and cells. To use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
+- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a two-dimensional array of objects representing multiple rows and cells. To use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
 - Call the `toString` function to retrieve the delimited string. 
-- Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the the writer instance.
+- Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the writer instance.
 
 > [!Note]
 > The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.

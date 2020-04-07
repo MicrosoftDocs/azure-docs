@@ -22,6 +22,8 @@
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
 - name: Concepts
@@ -68,10 +70,14 @@
       displayName: azure, resource, key, upgrade, pricing, tier,
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md
+    - name: Collaborate
+      href: How-To/collaborate-knowledge-base.md
+    - name: Turn on active learning
+      href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
-      href: Quickstarts/create-publish-knowledge-base.md
+      href: How-To/manage-knowledge-bases.md
     - name: Language selection
       href: How-To/language-knowledge-base.md
     - name: Add chit-chat
@@ -79,13 +85,11 @@
     - name: Migrate to new knowledge base
       href: Tutorials/migrate-knowledge-base.md
       displayName: metadata, pair
-    - name: Collaborate
-      href: How-To/collaborate-knowledge-base.md
     - name: Test
       href: How-To/test-knowledge-base.md
-  - name: Manage QnA sets
+  - name: Manage QnA pairs
     items:
-    - name: Edit knowledge base
+    - name: Edit QnA pair
       href: How-To/edit-knowledge-base.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md

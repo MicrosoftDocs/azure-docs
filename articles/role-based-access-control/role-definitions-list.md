@@ -1,6 +1,6 @@
 ---
-title: List role definitions in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
-description: Learn how to list built-in and custom roles in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI.
+title: List role definitions in Azure RBAC using Azure portal, Azure PowerShell, Azure CLI, or REST API | Microsoft Docs
+description: Learn how to list built-in and custom roles in Azure RBAC using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -307,6 +307,66 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
   "Microsoft.Storage/storageAccounts/read"
 ]
 ```
+
+## REST API
+
+### List role definitions
+
+To list role definitions, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To refine your results, you specify a scope and an optional filter.
+
+1. Start with the following request:
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
+    ```
+
+1. Within the URI, replace *{scope}* with the scope for which you want to list the role definitions.
+
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
+
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
+     
+1. Replace *{filter}* with the condition that you want to apply to filter the role definition list.
+
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=atScopeAndBelow()` | Lists role definitions for the specified scope and any subscopes. |
+    > | `$filter=type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
+
+### List a role definition
+
+To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - Get By Id](/rest/api/authorization/roledefinitions/getbyid) REST API.
+
+1. Start with the following request:
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+    For a directory-level role definition, you can use this request:
+
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+1. Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
+
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
+     
+1. Replace *{roleDefinitionId}* with the role definition identifier.
 
 ## Next steps
 

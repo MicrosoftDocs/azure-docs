@@ -3,8 +3,8 @@ title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the CLI.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 
 > [!NOTE]
-> Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
+> Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. We encrypt disk to prevent data theft during the process of migration.
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
@@ -154,7 +154,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 1. Install the dms sync extension:
    * Sign in to Azure by running the following command:
-       ```
+       ```azurecli
        az login
        ```
 
@@ -162,24 +162,24 @@ To complete all the database objects like table schemas, indexes and stored proc
    * Add the dms extension:
        * To list the available extensions, run the following command:
 
-           ```
+           ```azurecli
            az extension list-available –otable
            ```
 
        * To install the extension, run the following command:
 
-           ```
+           ```azurecli
            az extension add –n dms-preview
            ```
 
    * To verify you have dms extension installed correct, run the following command:
 
-       ```
+       ```azurecli
        az extension list -otable
        ```
        You should see the following output:
 
-       ```
+       ```output
        ExtensionType    Name
        ---------------  ------
        whl              dms
@@ -190,19 +190,19 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * At any time, view all commands supported in DMS by running:
 
-       ```
+       ```azurecli
        az dms -h
        ```
 
    * If you have multiple Azure subscriptions, run the following command to set the subscription that you want to use to provision an instance of the DMS service.
 
-        ```
+        ```azurecli
        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
 2. Provision an instance of DMS by running the following command:
 
-   ```
+   ```azurecli
    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
@@ -213,7 +213,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    * Resource Group Name: PostgresDemo
    * DMS Service Name: PostgresCLI
 
-   ```
+   ```azurecli
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
@@ -221,19 +221,19 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 3. To identify the IP address of the DMS agent so that you can add it to the Postgres pg_hba.conf file, run the following command:
 
-    ```
+    ```azurecli
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     For example:
 
-    ```
+    ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     You should get a result similar to the following address: 
 
-    ```
+    ```output
     [
       "172.16.136.18"
     ]
@@ -251,7 +251,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 5. Next, create a PostgreSQL migration project by running the following command:
     
-    ```
+    ```azurecli
     az dms project create -l <location> -g <ResourceGroupName> --service-name <yourServiceName> --source-platform PostgreSQL --target-platform AzureDbforPostgreSQL -n <newProjectName>
     ```
 
@@ -264,7 +264,7 @@ To complete all the database objects like table schemas, indexes and stored proc
    * Source platform: PostgreSQL
    * Target platform: AzureDbForPostgreSql
 
-     ```
+     ```azurecli
      az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
@@ -274,7 +274,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * To see a full list of options, run the command:
 
-       ```
+       ```azurecli
        az dms project task create -h
        ```
 
@@ -282,7 +282,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
        The format of the connection JSON object for PostgreSQL connections.
         
-       ```
+       ```json
        {
                    "userName": "user name",    // if this is missing or null, you will be prompted
                    "password": null,           // if this is missing or null (highly recommended) you will
@@ -296,7 +296,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * There's also a database option json file that lists the json objects. For PostgreSQL, the format of the database options JSON object is shown below:
 
-       ```
+       ```json
        [
            {
                "name": "source database",
@@ -308,7 +308,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * Create a json file with Notepad, copy the following commands and paste them into the file, and then save the file in C:\DMS\source.json.
 
-        ```
+        ```json
        {
                    "userName": "postgres",    
                    "password": null,           
@@ -321,7 +321,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * Create another file named target.json and save as C:\DMS\target.json. Include the following commands:
 
-       ```
+       ```json
        {
                "userName": " dms@builddemotarget",    
                "password": null,           
@@ -333,7 +333,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * Create a database options json file that lists inventory as the database to migrate:
 
-       ``` 
+       ```json
        [
            {
                "name": "dvdrental",
@@ -344,7 +344,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
    * Run the following command, which takes in the source, destination, and the DB option json files.
 
-       ``` 
+       ```azurecli
        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
        ```
 
@@ -352,19 +352,19 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 7. To show progress of the task, run the following command:
 
-   ```
+   ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
    OR
 
-    ```
+    ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
 
 8. You can also query for the migrationState from the expand output:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
@@ -372,7 +372,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
 
-  ```
+  ```output
     "output": [									Database Level
           {
             "appliedChanges": 0,		//Total incremental sync applied after full load
@@ -467,19 +467,19 @@ To ensure all data is caught up, validate row counts between the source and targ
 
 1. Perform the cutover database migration task by using the following command:
 
-    ```
+    ```azurecli
     az dms project task cutover -h
     ```
 
     For example:
 
-    ```
+    ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
     ```
 
 2. To monitor the cutover progress, run the following command:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
@@ -494,28 +494,28 @@ If you need to cancel or delete any DMS task, project, or service, perform the c
 
 1. To cancel a running task, use the following command:
 
-    ```
+    ```azurecli
     az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
      ```
 
 2. To delete a running task, use the following command:
-    ```
+    ```azurecli
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
 3. To cancel a running project, use the following command:
-     ```
+     ```azurecli
     az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
      ```
 
 4. To delete a running project, use the following command:
-    ```
+    ```azurecli
     az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
 5. To delete DMS service, use the following command:
 
-     ```
+     ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 

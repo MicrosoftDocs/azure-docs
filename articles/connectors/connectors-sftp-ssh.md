@@ -52,9 +52,6 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   | **Update file** | No | Not applicable |
   ||||
 
-  > [!NOTE]
-  > To upload large files, you need both read and write permissions for the root folder on your SFTP server.
-
 * SFTP-SSH triggers don't support message chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
   1. Use an SFTP-SSH trigger that returns only file properties, such as **When a file is added or modified (properties only)**.

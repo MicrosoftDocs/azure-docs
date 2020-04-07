@@ -19,8 +19,9 @@ When Azure Policy runs the template in the **deployIfNotExists** policy definiti
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, this error is displayed
-during the assignment of the policy or an initiative. When using the portal, Azure Policy will
-automatically grant the managed identity the listed roles once assignment is started.
+during the assignment of the policy or an initiative. When using the portal, Azure Policy
+automatically grants the managed identity the listed roles once assignment starts. The _location_ of
+the managed identity doesn't impact it's operation with Azure Policy.
 
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
 

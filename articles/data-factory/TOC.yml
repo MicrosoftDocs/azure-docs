@@ -392,14 +392,22 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Monitor copy activity
+      href: copy-activity-monitoring.md
     - name: Delete files using Delete Activity
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
+    - name: Copy activity performance
+      items:
+      - name: Performance and scalability guide
+        href: copy-activity-performance.md
+      - name: Troubleshoot performance
+        href: copy-activity-performance-troubleshooting.md
+      - name: Performance features
+        href: copy-activity-performance-features.md
     - name: Preserve metadata and ACLs
       href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
@@ -479,6 +487,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Transformation overview
+      href: data-flow-transformation-overview.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -687,6 +697,8 @@
     href: frequently-asked-questions.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
   - name: Ask a question - Stack Overflow

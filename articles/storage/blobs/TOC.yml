@@ -13,7 +13,7 @@
       href: storage-blobs-introduction.md
   - name: Quickstarts
     items:
-    - name: Manage blobs without code
+    - name: Work with blobs
       items:
       - name: Azure portal
         href: storage-quickstart-blobs-portal.md
@@ -23,8 +23,6 @@
         href: storage-quickstart-blobs-powershell.md
       - name: CLI
         href: storage-quickstart-blobs-cli.md
-    - name: Develop with blobs
-      items:
       - name: .NET
         items:
           - name: .NET (v12 SDK)
@@ -113,8 +111,13 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
-      - name: Azure Storage encryption
+      - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Customer-managed keys with Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Customer-provided keys on the request
+          href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorizing data operations
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -198,6 +201,8 @@
           href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: How-to
           items:
+          - name: Use customer managed key
+            href: ../common/storage-import-export-encryption-key-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: View drive status
             href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Review job status
@@ -658,8 +663,13 @@
         href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Access control (directories and files)
         href: data-lake-storage-access-control.md
-      - name: Azure Storage encryption
+      - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Customer-managed keys with Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Customer-provided keys on the request
+          href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Advanced threat protection
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
@@ -668,7 +678,7 @@
       items:
       - name: Multi-protocol access
         href: data-lake-storage-multi-protocol-access.md
-      - name: Supported Blob Storage features
+      - name: Supported Blob storage features
         href: data-lake-storage-supported-blob-storage-features.md
       - name: Supported Azure services
         href: data-lake-storage-supported-azure-services.md
@@ -692,8 +702,8 @@
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate
       items:
-      - name: Upgrade from Data Lake Storage Gen1
-        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Migrate from Data Lake Storage Gen1
+        href: ../blobs/data-lake-storage-migrate-gen1-to-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.jso
       - name: Migrate an on-premises HDFS store
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure
@@ -822,7 +832,7 @@
       href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
-    - name: Javascript
+    - name: JavaScript
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2

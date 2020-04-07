@@ -51,6 +51,8 @@
     href: batch-api-basics.md
   - name: APIs and tools
     href: batch-apis-tools.md
+  - name: Detecting and handling Batch service errors
+    href: batch-retry-after-errors.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
@@ -67,6 +69,8 @@
   items:
   - name: Manage Batch accounts
     items:
+    - name: Manage your account
+      href: batch-manage-account-basics.md
     - name: Manage Batch accounts with the portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
@@ -81,12 +85,18 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
+
+  - name: Using application packages
+    href: batch-application-packages.md
   - name: Copy files and applications to pool nodes
     items: 
+    - name: Copying applications and data to pool nodes
+      href: batch-applications-to-pool-nodes.md 
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
       href: resource-files.md
+
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
@@ -132,8 +142,6 @@
       href: batch-job-schedule.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
-    - name: Detecting and handling Batch service errors
-      href: batch-retry-after-errors.md   
   - name: Persist job and task output
     href: batch-task-output.md
     items:

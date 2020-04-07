@@ -21,7 +21,7 @@ A regional pair consists of two regions within the same geography. Azure seriali
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
+Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
 
 Note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
 
@@ -73,7 +73,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 
 > [!Important]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
-> - Brazil South is unique because it is paired with a region outside of its geography. Brazil South’s secondary region is South Central US. South Central US’s secondary region is not Brazil South.
+> - Brazil South is unique because it is paired with a region outside of its geography. Brazil South's secondary region is South Central US. South Central US's secondary region is not Brazil South.
 
 
 ## An example of paired regions

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
+ms.date: 03/24/2020
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
@@ -34,7 +34,7 @@ For Copy activity, with this connector you can:
 - Copy data from/to Azure Data Lake Storage Gen2 by using account key, service principal, or managed identities for Azure resources authentications.
 - Copy files as-is or parse or generate files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 - [Preserve file metadata during copy](#preserve-metadata-during-copy).
-- [Preserve ACLs](#preserve-metadata-during-copy) when copying from Azure Data Lake Storage Gen1.
+- [Preserve ACLs](#preserve-acls) when copying from Azure Data Lake Storage Gen1/Gen2.
 
 >[!IMPORTANT]
 >If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Data Lake Storage Gen2, you must use [managed identity authentication](#managed-identity) for ADLS Gen2.
@@ -375,12 +375,12 @@ This section describes the resulting behavior of the copy operation for differen
 
 When you copy files from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2/Azure Blob, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
 
-## Preserve ACLs from Data Lake Storage Gen1
+## <a name="preserve-acls"></a> Preserve ACLs from Data Lake Storage Gen1/Gen2
+
+When you copy files from Azure Data Lake Storage Gen1/Gen2 to Gen2, you can choose to preserve the POSIX access control lists (ACLs) along with data. Learn more from [Preserve ACLs from Data Lake Storage Gen1/Gen2 to Gen2](copy-activity-preserve-metadata.md#preserve-acls).
 
 >[!TIP]
 >To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
-
-When you copy files from Azure Data Lake Storage Gen1 to Gen2, you can choose to preserve the POSIX access control lists (ACLs) along with data. Learn more from [Preserve ACLs from Data Lake Storage Gen1 to Gen2](copy-activity-preserve-metadata.md#preserve-acls).
 
 ## Mapping data flow properties
 
@@ -404,7 +404,8 @@ Wildcard examples:
 * ```[]``` Matches one of more characters in the brackets
 
 * ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
-* ```/data/sales/20??/**``` Gets all files in the 20th century
+* ```/data/sales/20??/**/``` Gets all files in the 20th century
+* ```/data/sales/*/*/*.csv``` Gets csv files two levels under /data/sales
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
 
 **Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
@@ -456,7 +457,7 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Default**: Allow Spark to name files based on PART defaults.
    * **Pattern**: Enter a pattern that enumerates your output files per partition. For example, **loans[n].csv** will create loans1.csv, loans2.csv, and so on.
    * **Per partition**: Enter one file name per partition.
-   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder.
+   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it will be overridden.
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes

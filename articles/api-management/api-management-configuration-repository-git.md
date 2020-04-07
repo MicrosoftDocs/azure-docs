@@ -218,7 +218,7 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
 * `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) with `export=true` in `application/json` format.
-* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder

@@ -5,7 +5,7 @@ description: Enable passwordless sign-in to Azure AD using the Microsoft Authent
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -59,7 +59,7 @@ Registration features for passwordless authentication methods rely on the combin
 1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the account drop-down menu
 1. Follow the instructions in the app to finish registering for passwordless phone sign-in. 
 
-Organizations can point their users to the article [Sign in with your phone, not your password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) for further assistance setting up in the Microsoft Authenticator app and enabling phone sign-in.
+Organizations can point their users to the article [Sign in with your phone, not your password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) for further assistance setting up in the Microsoft Authenticator app and enabling phone sign-in. In order to apply these settings, you may need to log out and log back into the tenant. 
 
 ## Sign in with passwordless credential
 

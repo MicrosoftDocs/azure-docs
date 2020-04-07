@@ -57,7 +57,7 @@ This feature is useful because you can easily compare results from two different
 
 1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
 2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Run the pipeline.
+3. Submit the pipeline.
 
 ## Results
 

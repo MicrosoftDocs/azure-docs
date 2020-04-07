@@ -5,18 +5,24 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps and integration accounts need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
 
 Running logic apps in your own separate isolated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at those destination systems for each ISE.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
+
+> [!NOTE]
+> Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
+> for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
+> partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual 
+> networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
 
 When you create an ISE, Azure *injects* or deploys that ISE into your Azure virtual network. You can then use this ISE as the location for the logic apps and integration accounts that need access.
 
@@ -40,7 +46,7 @@ You can still also use connectors that don't have the **CORE** or **ISE** label 
 > For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
 > For pricing details, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-This overview describes more information about how an ISE gives your logic apps and integration accounts direct access to your Azure virtual network and compares the differences between an ISE and the multi-tenant Logic Apps service.
+This overview describes more information about how an ISE gives your logic apps direct access to your Azure virtual network and compares the differences between an ISE and the multi-tenant Logic Apps service.
 
 <a name="difference"></a>
 
@@ -49,8 +55,6 @@ This overview describes more information about how an ISE gives your logic apps 
 When you create and run logic apps in an ISE, you get the same user experiences and similar capabilities as the multi-tenant Logic Apps service. You can use all the same built-in triggers, actions, and managed connectors that are available in the multi-tenant Logic Apps service. Some managed connectors offer additional ISE versions. The difference between ISE connectors and non-ISE connectors exist in where they run and the labels that they have in the Logic App Designer when you work within an ISE.
 
 ![Connectors with and without labels in an ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
-
-
 
 * Built-in triggers and actions display the **CORE** label. They always run in the same ISE as your logic app. Managed connectors that display the **ISE** label also run in the same ISE as your logic app.
 
@@ -130,8 +134,6 @@ You can use integration accounts with logic apps inside an integration service e
 
 ## Next steps
 
-* [Connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md)
+* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

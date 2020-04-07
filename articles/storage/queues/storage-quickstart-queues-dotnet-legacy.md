@@ -258,7 +258,7 @@ See these additional resources for .NET development with Azure Queues:
 
 ### Binaries and source code
 
-- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client)
+- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
     - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.

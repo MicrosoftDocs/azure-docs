@@ -1,16 +1,18 @@
 ---
 title: Update a Power BI App offer | Azure Marketplace 
 description: Update a Power BI App offer after it has been published on the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Update a Power BI App offer
+
+>[!Important]
+>Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 This article shows you how to update your Microsoft Power BI App offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and
 then to republish the offer. Here are some common reasons to update an offer:

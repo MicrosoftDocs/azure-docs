@@ -1,16 +1,18 @@
 ---
 title: Create a Power BI App offer | Azure Marketplace 
 description: How to create a Power BI App offer for the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Create a Power BI App offer
+
+>[!Important]
+>Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 This article lists the steps to follow to create a new Power BI App offer for [AppSource](https://appsource.microsoft.com). Every offer appears as its own entity in AppSource. When you create a new offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you're required to supply four groups of assets for your offer.
 
