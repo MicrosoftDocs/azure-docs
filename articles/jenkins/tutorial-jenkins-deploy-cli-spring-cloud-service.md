@@ -23,7 +23,7 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
 >[!Note]
 > Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](open-source-devops-prereqs-azure-subscription.md)]
 
 * A GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
@@ -212,7 +212,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
           // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
           sh 'az configure --defaults group=<resource group name>'
           sh 'az configure --defaults spring-cloud=<service name>'
-    	  // Deploy applications
+          // Deploy applications
           sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
           sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
           sh 'az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar'
