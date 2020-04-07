@@ -81,7 +81,7 @@ Each interactive sign-in that was successful results in an update of the underly
 
 To generate a lastSignInDateTime timestamp, you need a successful sign-in. Because the lastSignInDateTime property is a new feature, the value of the lastSignInDateTime property can be blank if:
 
-- The last successful sign-in of a user took place before this feature was released (12/01/2019).
+- The last successful sign-in of a user took place before this feature was released (December 1st, 2019).
 - The affected user account was never used for a successful sign-in.
 
 ## Next steps
