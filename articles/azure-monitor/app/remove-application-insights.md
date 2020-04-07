@@ -52,7 +52,7 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
      ![Right click Solution, in the Solution Explorer, then select Manage NuGet Packages for Solution](./media/remove-application-insights/manage-nuget-framework.png)
 
     > [!NOTE]
-    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependency selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependency selected.
+    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependencies selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependencies selected.
     
 1. Click on the "Microsoft.ApplicationInsights.Web" package. On the right, check the checkbox next to *Project* to select all projects.
     
@@ -90,7 +90,7 @@ When you add Application Insights to your project, it creates files and adds cod
 
 # [.NET](#tab/net)
 
-When you add Application Insights Telemetry to a Visual Studio ASP.NET template project, it adds the following files:
+When you add Application Insights Telemetry to a Visual Studio ASP.NET project, it adds the following files:
 
 - ApplicationInsights.config
 - AiHandleErrorAttribute.cs
@@ -141,7 +141,7 @@ If your project has a Layout.cshtml file the code below is added.
             function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
             var t = { config:config},u=document,e=window,o='script',s=u.createElement(o),i,f;for(s.src=config.url||'//az416426.vo.msecnd.net/scripts/a/ai.0.js',u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=['Event','Exception','Metric','PageView','Trace','Ajax'];i.length;)r('track'+i.pop());return r('setAuthenticatedUserContext'),r('clearAuthenticatedUserContext'),config.disableExceptionTracking||(i='onerror',r('_'+i),f=e[i],e[i]=function(config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o),s}),t
         }({
-            instrumentationKey:'415c0ab5-90c7-4a2b-96dd-fcb94336fc30'
+            instrumentationKey:'00000000-0000-0000-0000-000000000000'
         });
         
         window.appInsights=appInsights;
@@ -181,7 +181,7 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
     ```csharp
       <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <ApplicationInsightsResourceId>/subscriptions/b21990e9-15a7-47eb-9ad0-f6b7155ab349/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4core</ApplicationInsightsResourceId>
+        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4core</ApplicationInsightsResourceId>
       </PropertyGroup>
     
       <ItemGroup>
