@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Key Vault?
-            url: key-vault-overview.md
+            url: overview.md
       - linkListType: concept
         links:
           - text: Basic concepts
@@ -48,18 +48,6 @@ landingContent:
             url: tutorial-net-windows-virtual-machine.md
           - text: Key Vault with Python - Windows
             url: tutorial-python-windows-virtual-machine.md
-
-  # Card
-  - title: Key Vault and storage keys
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manage storage keys with the Azure CLI
-            url: overview-storage-keys.md
-          - text: Manage storage keys with Azure PowerShell
-            url: overview-storage-keys-powershell.md
-          - text: Fetch SAS tokens in code
-            url: storage-keys-sas-tokens-code.md
 
   # Card
   - title: Security

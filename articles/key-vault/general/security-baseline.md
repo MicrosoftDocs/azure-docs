@@ -121,7 +121,7 @@ Azure service tags overview: https://docs.microsoft.com/azure/virtual-network/se
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. You may also make use of built-in policy definitions related to Azure Key Vault, such as: [Key Vault should use a virtual network service endpoint](key-vault-overview-vnet-service-endpoints.md)
+**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. You may also make use of built-in policy definitions related to Azure Key Vault, such as: [Key Vault should use a virtual network service endpoint](overview-vnet-service-endpoints.md)
 
 
 Tutorial: Create and manage policies to enforce compliance:

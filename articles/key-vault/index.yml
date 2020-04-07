@@ -49,7 +49,7 @@ conceptualContent:
         url: ./certificates/index.yml
         text: See more
 
-    - title:Keys
+    - title: Keys
       links:
         - url: ../keys/about-keys.md
           itemType: overview
@@ -78,8 +78,15 @@ conceptualContent:
 
     - title: Managing storage keys
       links:
-        - url: ./general/overview-storage-keys-powershell.md
+        - url: ./secrets/overview-storage-keys-powershell.md
           itemType: overview
-          text: Storage keys
+          text: Storage keys - CLI
+        - url: ./secrets/overview-storage-keys-powershell.md
+          itemType: overview
+          text: Storage keys - PowerShell
+        - url: ./secrets/storage-keys-sas-tokens-code.md
+          itemType: overview
+          text: Fetch SAS tokens in code
+
 
 
