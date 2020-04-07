@@ -23,5 +23,4 @@ TODO
    - I would like to know what phone trees are and how I can use them.
 
 - Discussion:
-  - Is this a priority?
   - What sample(s) do we want to refer our customers to?

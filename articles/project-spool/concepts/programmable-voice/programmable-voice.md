@@ -57,7 +57,7 @@ You may want to add video and messaging to your applications as well. These reso
   - Do you have any constructive criticism for this initial draft?
   - Are all of the above-referenced tutorials, quickstarts, and conceptual docs valid?
   - Is anything missing?
-  - What are all of the possible voice flows that we want to describe to our customers?
+  - How do we want to describe Spool's voice flow(s) to our customers?
   - What sample(s) do we want to reference from this doc?
 
 

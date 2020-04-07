@@ -33,7 +33,7 @@ VoIP stands for Voice over IP. It's how people can have phone calls over the int
 PSTN stands for Public Switched Telephone Network. It's the technology that supports plain-old landline telephony.
 
 
-## How Spool Relates To These Technologies
+## Tying It All Together With Spool
 
 TODO
 
@@ -45,7 +45,7 @@ TODO
 
 - Discussion:
   - What other technologies should we tie together on this page?
-  - How does spool relate to these technologies?
+  - How should we "tie it all together with spool"?
   - When do our customers need to care about these technologies?
   - Should we reference any sample(s) from this page?
   - Is the draft technically accurate?
