@@ -10,8 +10,10 @@ ms.date: 04/07/2020
 
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
 
-Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
-The server-side latency metric is used to view the server-side latency of an operation. For example, if you see unusually large latency for point operations such as:
+Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric is used to view the server-side latency of an operation. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
+
+
+If you see unusually large latency for point operations such as:
 
 * A get or set operation with partition key and id in direct mode
 * A read or write operation or
