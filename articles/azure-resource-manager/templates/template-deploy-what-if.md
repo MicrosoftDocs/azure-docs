@@ -105,11 +105,8 @@ Or, you can use the `-Confirm` switch parameter to preview the changes and get p
 
 The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
-* `$results = Get-AzSubscriptionDeploymentWhatIf` or `$results = Get-AzDeploymentWhatIf` for subscription level deployments
-
-> [!NOTE]
-> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`, and `Get-AzSubscriptionDeploymentWhatIf` commands. If you've used an earlier version, you need to update that syntax. The `-ScopeType` parameter has been removed.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
 
 ### Azure REST API
 
@@ -256,7 +253,7 @@ Some of the properties that are listed as deleted won't actually change. Propert
 Now, let's programmatically evaluate the what-if results by setting the command to a variable.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
