@@ -35,8 +35,6 @@ landingContent:
             url: tutorial-1st-r-experiment.md
           - text: Auto ML
             url: tutorial-first-experiment-automated-ml.md
-          - text: Data labeling project
-            url: tutorial-labeling.md
       - linkListType: overview
         links:
           - text: What is Azure machine learning?
