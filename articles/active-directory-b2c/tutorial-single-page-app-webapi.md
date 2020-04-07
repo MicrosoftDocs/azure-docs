@@ -105,7 +105,9 @@ To change the settings in the SPA:
 1. In the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial, open the *apiConfig.js* file inside the *JavaScriptSPA* folder.
 1. Configure the sample with the URI for the *demo.read* scope you created earlier and the URL of the web API.
     1. In the `apiConfig` definition, replace the `b2cScopes` value with the full URI for the *demo.read* scope (the **Scope** value you recorded earlier).
-    1. Change the domain in the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step. Because the API is accessible at the `/hello` endpoint, leave */hello* in the URI.
+    1. Change the domain in the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
+
+    Because the API is accessible at the `/hello` endpoint, leave */hello* in the URI.
 
     The `apiConfig` definition should look similar to the following code block, but with your B2C tenant's name in the place of `<your-tenant-name>`:
 
@@ -113,7 +115,7 @@ To change the settings in the SPA:
     // The current application coordinates were pre-registered in a B2C tenant.
     const apiConfig = {
       b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
-      webApi: "http://localhost:5000/hello"
+      webApi: "http://localhost:5000/hello" // '/hello' should remain in the URI
     };
     ```
 
