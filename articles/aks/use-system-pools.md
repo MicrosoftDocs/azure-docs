@@ -30,11 +30,11 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools require a VM SKU of at least 2 vCPUd and 4GB memory.
+* System node pools require a VM SKU of at least 2 vCPUs and 4GB memory.
 * System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * Spot node pools require user node pools.
 
-You can perform the following operations with node pools:
+You can do the following operations with node pools:
 
 * Change a system node pool to be a user node pool, provided you have another system node pool to take its place in the AKS cluster.
 * Change a user node pool to be a system node pool.
