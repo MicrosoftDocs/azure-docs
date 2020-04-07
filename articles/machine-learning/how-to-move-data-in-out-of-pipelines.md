@@ -1,5 +1,5 @@
 ---
-title: 'Input and Output Data from ML Pipelines'
+title: 'Input and output data from ML pipelines'
 titleSuffix: Azure Machine Learning
 description: Prepare, consume, and generate data in Azure Machine Learning pipelines
 services: machine-learning
@@ -221,7 +221,7 @@ with open(args.pd) as f:
     print(f.read())
 ```
 
-## Convert `PipelineData` objects into registered `Dataset`s for further processing
+## Convert `PipelineData` objects to `Dataset`s
 
 If you'd like to make your `PipelineData` available for longer than the duration of a run, use its `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it's highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
 
