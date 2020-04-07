@@ -29,7 +29,7 @@ Azure Front Door is an Application Delivery Network (ADN) as a service, offering
 
 ### What features does Azure Front Door support?
 
-Azure Front Door supports dynamic site acceleration (DSA), TLS offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door](front-door-overview.md).
+Azure Front Door supports dynamic site acceleration (DSA), TLS/SSL offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door](front-door-overview.md).
 
 ### What is the difference between Azure Front Door and Azure Application Gateway?
 
@@ -41,7 +41,7 @@ The key scenarios why one should use Application Gateway behind Front Door are:
 
 - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
 - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
-- With an Application Gateway behind AFD, one can achieve 100% TLS offload and route only HTTP requests within their virtual network (VNET).
+- With an Application Gateway behind AFD, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
 - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
 
 ### Can we deploy Azure Load Balancer behind Front Door?
@@ -191,7 +191,7 @@ Yes, OCSP stapling is supported by default by Front Door and no configuration is
 
 ### Does Azure Front Door also support re-encryption of traffic to the backend?
 
-Yes, Azure Front Door supports TLS offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
+Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
 
 ### Does Front Door support self-signed certificates on the backend for HTTPS connection?
 

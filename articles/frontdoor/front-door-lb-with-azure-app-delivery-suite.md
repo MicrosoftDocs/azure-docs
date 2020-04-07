@@ -73,7 +73,7 @@ The following diagram shows the architecture of this scenario:
 ![Application Delivery Suite Detailed Architecture][2] 
 
 > [!NOTE]
-> This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Front Door, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if TLS offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
+> This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Front Door, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if TLS/SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
 
 
 ## Next Steps
