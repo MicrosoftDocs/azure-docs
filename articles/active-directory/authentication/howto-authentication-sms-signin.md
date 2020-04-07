@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/07/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -116,6 +116,9 @@ To test the user account that's now enabled for SMS-based sign-in, complete the 
     ![Enter a phone number at the sign-in prompt for the test user](./media/howto-authentication-sms-signin/sign-in-with-phone-number.png)
 
 1. A text message is sent to the phone number provided. To complete the sign-in process, enter the 6 digit code provided in the text message at the sign-in prompt.
+
+    ![Enter the confirmation code sent via text message to the user's phone number](./media/howto-authentication-sms-signin/sign-in-with-phone-number-confirmation-code.png)
+
 1. The user should now be signed in without the need to provide a username or password.
 
 ## Troubleshoot SMS-based sign-in
