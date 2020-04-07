@@ -3,7 +3,7 @@ title: Optimize your cloud investment with Azure Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -31,6 +31,10 @@ Three key groups, outlined below, must be aligned in your organization to make s
 ### Key principles
 
 Use the principles outlined below to position your organization for success in cloud cost management.
+
+To learn more, watch the [Cost Management setting up for success](https://www.youtube.com/watch?v=dVuwITdSAZ4) video.
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### Planning
 
