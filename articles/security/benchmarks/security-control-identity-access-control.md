@@ -64,7 +64,6 @@ Wherever possible, use Azure Active Directory SSO instead than configuring indiv
 Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.
 
 - [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
-
 - [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 ## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
