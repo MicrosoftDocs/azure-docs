@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article will be helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
+The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
 
 ## Architecture
 
