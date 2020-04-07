@@ -27,9 +27,6 @@ TODO
 -  Customer intent statements: 
    - I want to know what the overall client-server architecture of Spool looks like.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
 - Discussion:
   - How do we want to describe client/server architecture to our customers?
 

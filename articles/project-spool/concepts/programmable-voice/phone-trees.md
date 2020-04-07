@@ -24,3 +24,4 @@ TODO
 
 - Discussion:
   - What sample(s) do we want to refer our customers to?
+  - How do we want to describe phone trees to our customers?

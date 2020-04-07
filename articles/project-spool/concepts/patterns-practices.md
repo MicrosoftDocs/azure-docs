@@ -23,7 +23,7 @@ TODO
    - I want to know what development patterns and practices I should keep in mind as I leverage Spool.
 
 - Discussion:
-  - What are the recommended patterns and practices?
+  - How do we want our customers thinking about general Spool patterns and practices?
 
 
 

@@ -68,7 +68,7 @@ TODO
    - I want to know what WebRTC protocols are and how they relate to spool.
 
 - Discussion:
-  - Is anything else needed here?
+  - Do you have any feedback on this initial draft?
   - How should we articulate how spool ties it all together?
   - What tutorials / quickstarts / concepts should be referenced within this page?
   - Is this technically accurate?

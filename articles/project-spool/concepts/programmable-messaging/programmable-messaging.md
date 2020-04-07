@@ -49,8 +49,7 @@ You may want to add voice and video to your applications as well. These resource
 
 - Discussion:
   - How do we want to present the possible messaging workflows to our users?
-  - Is there anything missing?
-  - Is the first draft headed in the right direction?
+  - Do you have any feedback on this initial draft?
   - Are all of the above-referenced tutorials, quickstarts, and conceptual docs valid?
 
 

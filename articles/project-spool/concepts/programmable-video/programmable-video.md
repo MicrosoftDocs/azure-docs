@@ -56,9 +56,9 @@ You may want to allow your users to make phone calls and send messages from with
   - How Twilio handles programmable voice: https://www.twilio.com/docs/voice
 
 - Discussion:
-  - Is there anything else that should go here?
   - Are all of the above-referenced tutorials, quickstarts, and conceptual docs valid?
   - Is anything missing?
-  - What are all of the possible video workflows?
+  - Do you have any feedback on this draft?
+  - How do we want to explain the various video workflows to our customers?
 
 

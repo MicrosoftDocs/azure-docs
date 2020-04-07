@@ -21,9 +21,7 @@ TODO
    - I want to know how to think about Media and Media Devices when I'm developing on spool.
 
 - Discussion:
-  - Is this needed? When working with WebRTC, 
+  - Is this needed?
 
-- TODOs:
-  - Draft initial content
 
 

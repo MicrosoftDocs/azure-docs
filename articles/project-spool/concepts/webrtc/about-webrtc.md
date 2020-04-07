@@ -39,11 +39,10 @@ TODO
 
 - Discussion:
    - How does programmable video relate to WebRTC? 
-   - How and when do I need to think about WebRTC as I work with programmable video?
    - How does programmable voice relate to WebRTC? 
-   - How and when do I need to think about WebRTC as I work with programmable voice?
    - How does programmable messaging relate to WebRTC? 
-   - How and when do I need to think about WebRTC as I work with programmable messaging?
+    - How and when do I need to think about WebRTC as I work with programmable video?    
+
 
 
 

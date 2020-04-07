@@ -23,7 +23,7 @@ TODO
 
 - Discussion:
   - Should this be grouped with Call Analytics under a "Call Metadata" page, or are these concepts different enough to justify individual pages?
-  - What do we want our customers to know about Call Detail Record?
+  - What do we want our customers to know about Call Detail Records?
   - Should we refer to any samples, quickstarts, or other pages from this page?
 
 
