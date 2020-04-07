@@ -44,6 +44,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 - [Learn more](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
 
+
 ## 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
@@ -52,7 +53,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- Test: [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
