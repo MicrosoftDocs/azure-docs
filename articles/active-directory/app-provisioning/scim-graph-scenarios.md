@@ -103,10 +103,10 @@ My application relies on Sharepoint to provide access to users to resources as w
 ## Scenario 5: Automatically create, update, and delete users and groups in Azure AD and Active Directory
 My application creates information about a user that customers need in Azure AD. This could be an HR application than manages hiring, a communications app that creates phone numbers for users, or some other app that generates data that would be baluable in Azure AD. How do I populate the user record in Azure AD with that data? 
 
-**Recommendation** The Microsoft graph exposes / Users and /Groups endpoints that you can integrate with today. Please note that this only supports pushing users into Azure AD, not Active Directory. 
+**Recommendation** The Microsoft graph exposes / Users and /Groups endpoints that you can integrate with today to provision users into Azure AD. Please note that those users will not be synchronized down to on prem Active Directory.  
 
 > [!NOTE]
-> Microsoft has a provisioning service that pulls in data from HR applications such as Workday and SuccessFactors. These integrates are built and managed by Microsoft. 
+> Microsoft has a provisioning service that pulls in data from HR applications such as Workday and SuccessFactors. These integrations are built and managed by Microsoft. For onboarding a new HR application to our service, you can request it [here](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests) on UserVoice. 
 
 ## Related articles
 
