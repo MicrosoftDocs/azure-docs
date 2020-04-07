@@ -33,6 +33,9 @@ Once you have configured AUs, you can apply this scope to your users who access 
 2. Browse to **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
 3. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 
+> [!Note]
+> Only users who've been assigned an admin role can access My Staff. If you enable My Staff for a user who is not assigned an admin role, they won't be able to access My Staff.
+
 ## Using My Staff
 
 When a user goes to My Staff, they are shown the names of the [administrative units](directory-administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
