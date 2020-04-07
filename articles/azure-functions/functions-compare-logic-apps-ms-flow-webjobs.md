@@ -6,7 +6,6 @@ ms.date: 04/09/2018
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
-
 # Choose the right integration and automation services in Azure
 
 This article compares the following Microsoft cloud services:
