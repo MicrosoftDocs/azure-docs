@@ -1,9 +1,11 @@
 - name: Certificates
   href: index.yml
+
 - name: Overview 
   items:
   - name: About certificates
     href: about-certificates.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -15,6 +17,7 @@
     href: quick-create-portal.md
   - name: Python
     href: quick-create-python.md
+
 - name: Tutorials 
   items:
   - name: Import a certificate
@@ -27,7 +30,8 @@
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-- name: How-to
+
+- name: How-to guides
   items:
 - name: Reference
   items:
@@ -48,6 +52,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
