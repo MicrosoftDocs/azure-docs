@@ -50724,7 +50724,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/ansible/index.md",
+      "source_path": "articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
     }
