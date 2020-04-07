@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -49,19 +49,18 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Contoso Azure AD*.
-1. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant:
+1. For **Metadata url**, enter the following URL replacing `{tenant}` with the domain name of your Azure AD tenant:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
-
-    **Do not** use the Azure AD v2.0 metadata endpoint, for example `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Doing so results in an error similar to `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` when attempting to sign in.
+    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.
-1. Leave the default values for **Scope**, **Response type**, and **Response mode**.
+1. For the **Scope**, enter the *openid profile*.
+1. Leave the default values for **Response type**, and **Response mode**.
 1. (Optional) Enter a value for **Domain_hint**. For example, *ContosoAD*. This is the value to use when referring to this identity provider using *domain_hint* in the request.
 1. Under **Identity provider claims mapping**, enter the following claims mapping values:
 
