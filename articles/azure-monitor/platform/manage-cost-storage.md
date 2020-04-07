@@ -295,7 +295,7 @@ Usage
 
 ### Data volume by computer
 
-The `Usage` data type does not include information at the completer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
+The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 union withsource = tt * 
