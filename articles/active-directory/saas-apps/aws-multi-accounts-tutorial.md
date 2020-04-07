@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) to connect multiple accounts | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure AD and multiple accounts of Amazon Web Services (AWS).
+description: Learn how to configure single sign-on between Azure AD and Amazon Web Services (AWS) (Legacy Tutorial).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,9 +18,9 @@ ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with multiple Amazon Web Services (AWS) accounts
+# Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) (Legacy Tutorial)
 
-In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with multiple accounts of Amazon Web Services (AWS).
+In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with Amazon Web Services (AWS) (Legacy Tutorial).
 
 Integrating Amazon Web Services (AWS) with Azure AD provides you with the following benefits:
 
@@ -185,6 +185,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 1. Click **Roles**, and then click **Create role**.
 
     ![Configure Single Sign-On Roles][16]
+
+	> [!NOTE]
+	> You should only use this approach if you have very less number of AWS Accounts and Roles in it. This model is not scalable as the AWS accounts and roles inside these accounts grows. Also this approach does not use AWS Role import functionality using Azure AD User Provisioning and so you have to manually add/update/delete the roles. For other limitations on this approach please see the details below.
 
 1. On the **Create role** page, perform the following steps:  
 
