@@ -1,6 +1,6 @@
 ---
 title: Integration and automation platform options in Azure 
-description: Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs.
+description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
