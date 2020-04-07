@@ -31,7 +31,7 @@ If a non-administrative user of organization 'Contoso' creates a test organizati
 
 * By default, the user who creates a organization is added as an external user in that new organization, and assigned the global administrator role in that organization.
 * The administrators of organization 'Contoso' have no direct administrative privileges to organization 'Test,' unless an administrator of 'Test' specifically grants them these privileges. However, administrators of 'Contoso' can control access to organization 'Test' if they control the user account that created 'Test.'
-* If you add/remove an administrator role for a user in one organization, the change does not affect the administrator roles that the user has in another organization.
+* If you add/remove an Azure AD role for a user in one organization, the change does not affect the administrator roles that the user has in any other Azure AD organization.
 
 ## Synchronization independence
 
