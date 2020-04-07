@@ -43,30 +43,23 @@ The pipeline used in this article is an altered version of [Sample 3: Income pre
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
-## Train a machine learning model
+## Create a pipeline parameter
 
-First, you need train an initial model. In this section, you train a classifier using data from only  the United States.
+Create pipeline parameters to dynamically set variables at runtime. For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data.
 
 1. Select the **Import Data** module.
 
     > [!NOTE]
     > This example uses the Import Data module to access data in a registered datastore. However, you can follow similar steps if you use alternative data access patterns.
 
-1. In the module detail pane, to the right of the canvas, specify your data source.
+1. In the module detail pane, to the right of the canvas, select your data source.
 
-   ![Screenshot that shows a sample configuration of the Import Data module](./media/how-to-retrain-designer/import-data-settings.png)
+1. Enter the path to your data. You can also select **Browse path** to browse your file tree. 
 
+1. Mouseover the **Path** field, and select the ellipses above the **Path** field that appear.
 
-1. Specify the path to your data. You can also select **Browse path** to browse your file tree. 
-
-## Create a pipeline parameter
-
-Create a pipeline parameter to dynamically set variables at runtime. For this example, you will change the training data path so that you can retrain your model on different data.
-
-1. Select the **Import Data** module.
-1. In the module details pane, to the right of the canvas, highlight the **Path** field.
-1. Select the ellipses above the **Path** field that appear.
 1. Select **Add to pipeline parameter**.
+
 1. Provide a parameter name and a default value.
 
    > [!NOTE]
