@@ -82,8 +82,7 @@ To configure alerts:
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
 #### Is the data path up and available for my load balancer VIP?
-<details>
-  <summary>Click to learn how to answer with metrics!</summary>
+<details><summary></summary>
 
 The VIP availability metric describes the health of the data path within the region to the compute host where your VMs are located. The metric is a reflection of the health of the Azure infrastructure. You can use the metric to:
 - Monitor the external availability of your service
