@@ -34,7 +34,6 @@ Our Programmable Video Tutorials will help you with more advanced scenarios:
 
 - How to create a video chatroom with Spool
 - How to build a screen-sharing app with Spool
-- How to build a file-sharing app with Spool
 - How to record videos
 
 You may want to allow your users to make phone calls and send messages from within your app. These conceptual overviews will help you get started:

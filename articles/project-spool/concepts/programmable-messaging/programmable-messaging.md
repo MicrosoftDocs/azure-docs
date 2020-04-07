@@ -32,6 +32,7 @@ Our Programmable Messaging Tutorials will help you with more advanced scenarios:
 - How to build a real-time chat application
 - How to send SMS and MMS messages
 - How to implement two-factor authentication
+- How to build a file-sharing app with Spool
 
 You may want to add voice and video to your applications as well. These resources will help you get started:
 
