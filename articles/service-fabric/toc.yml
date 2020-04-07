@@ -669,8 +669,6 @@
           href: service-fabric-cluster-upgrade-version-azure.md    
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md
-        - name: Upgrade the cluster's Ubuntu version
-          href: tutorial-upgrade-ubuntu-cluster.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
         - name: Enable disk encryption (Windows)
