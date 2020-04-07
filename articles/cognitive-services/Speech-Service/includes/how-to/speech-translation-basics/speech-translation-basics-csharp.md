@@ -129,6 +129,7 @@ static async Task TranslateSpeechAsync()
 {
     var translationConfig =
         SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+
     var fromLanguage = "en-US";
     var toLanguages = new List<string> { "it", "fr", "de" };
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
@@ -150,6 +151,7 @@ static async Task TranslateSpeechAsync()
 {
     var translationConfig =
         SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    
     var fromLanguage = "en-US";
     var toLanguages = new List<string> { "it", "fr", "de" };
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
@@ -167,6 +169,7 @@ static async Task TranslateSpeechAsync()
 {
     var translationConfig =
         SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    
     var fromLanguage = "en-US";
     var toLanguages = new List<string> { "it", "fr", "de" };
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
@@ -186,6 +189,7 @@ static async Task TranslateSpeechAsync()
 {
     var translationConfig =
         SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    
     var fromLanguage = "en-US";
     var toLanguages = new List<string> { "it", "fr", "de" };
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
@@ -198,16 +202,20 @@ static async Task TranslateSpeechAsync()
 
     if (result.Reason == ResultReason.TranslatedSpeech)
     {
-        Console.WriteLine($"Recognized: \"{result.Text}\" and translated to:");
+        Console.WriteLine($"Recognized: \"{result.Text}\":");
         foreach (var (language, translation) in result.Translations)
         {
-            Console.WriteLine($"({language}): {translation}");
+            Console.WriteLine($"Translated into '{language}': {translation}");
         }
     }
 }
 ```
 
-After a successful speech recognition, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target language and the value is the translated text.
+## Synthesize translations
+
+
+
+After a successful speech recognition and translation, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target language and the value is the translated text.
 
 [config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
 [audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
