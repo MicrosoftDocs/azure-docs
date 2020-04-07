@@ -16,21 +16,21 @@ Azure Cognitive Search supports fuzzy search, a type of query that scans for hig
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on similar terms, in addition to the exact term. Internally, the engine builds a graph of all possible edit versions, and then refers to the graph to find, score, and select results. 
+It's an expansion exercise that produces a match on similar terms, in addition to the exact term. Internally, the engine builds a graph of up to 50 variants per term, and then refers to the graph to find, score, and select results. 
 
-A match must start with the same first character, with other discrepancies limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, "where distance is the minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
+A match must start with the same first character, with other discrepancies limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
 In Azure Cognitive Search:
 
++ Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
+
 + The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), and `~1` signifies one degree of difference, or one edit.
 
-+ A fuzzy query can expand a term up to 50 additional permutations, although a typical expansion is usually much less. 
-
-+ Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
++ A fuzzy query can expand a term up to 50 additional permutations. 
 
 ## Indexing for fuzzy search
 
-If you are targeting specific fields for fuzzy search, think about which analyzer would produces optimum results for the graph. In contrast with other queries that bypass lexical analysis (namely, wildcard and regex), you might actually want lexical analyzers in your analysis chain so that you have a large pool of tokens, which gives the engine more to work with when constructing the graph. [Lexical analyzers](index-add-language-analyzers.md) are specified on the analyzer property of a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) operation. Some languages, particularly those with vowel mutations, benefit from the inflection and irregular word forms that Microsoft natural language processors can handle.
+If you are targeting specific fields for fuzzy search, think about which analyzer would produce optimum results for the graph. In contrast with other queries that bypass lexical analysis (namely, wildcard and regex), you might actually want lexical analyzers in your analysis chain so that you have a large pool of tokens, which gives the engine more to work with when constructing the graph. [Lexical analyzers](index-add-language-analyzers.md) are specified on the analyzer property of a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) operation. Some languages, particularly those with vowel mutations, benefit from the inflection and irregular word forms that Microsoft natural language processors can handle.
 
 > [!NOTE]
 > Ngram indexing, with a progression of short character sequences (two-character pairs for bigram, three for trigram, and so forth), is an alternative approach for spell corrections. If you are using fuzzy queries (`~`) in Azure Cognitive Search, avoid using ngram analyzer. It would not be a good fit in terms of constructing the graph.
@@ -50,7 +50,7 @@ Fuzzy queries are constructed using the full Lucene query syntax, invoking the [
 In Azure Cognitive Search, besides the term and distance (maximum of 2), there are no additional parameters to set on the query.
 
 > [!NOTE]
-> Fuzzy queries do not undergo the same level of [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) as full text search. The query input is added directly to the query tree. The only transformation performed is lower casing. The graph used to find and score matches will be based on the input term and the number of edits (2 by default).
+> During query processing, fuzzy queries do not undergo the same level of [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) as full text search. The query input is added directly to the query tree. The only transformation performed is lower casing. The graph used to find and score matches will be based on the input term and the number of edits (2 by default).
 
 ## How to test fuzzy search
 
