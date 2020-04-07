@@ -787,7 +787,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 How to export a vulnerability assessment report in Azure Security Center:
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implement-vulnerability-assessment
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -368,7 +368,7 @@
       href: service-fabric-get-started.md
     - name: Linux
       href: service-fabric-get-started-linux.md
-    - name: Mac OS
+    - name: macOS
       href: service-fabric-get-started-mac.md
     - name: Set up the Service Fabric CLI
       href: service-fabric-cli.md
@@ -406,8 +406,6 @@
       items:
       - name: Deploy a guest executable
         href: service-fabric-deploy-existing-app.md
-      - name: Deploy multiple guest executables
-        href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
       items:      
       - name: Docker compose (preview)
@@ -678,7 +676,9 @@
         - name: Manage cluster certificates
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
-          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Upgrade cluster nodes to use managed disks
+          href: upgrade-managed-disks.md      
     - name: Standalone clusters
       items:
       - name: Create

@@ -34,7 +34,8 @@ This article outlines, for IoT Central:
 - Jobs don't support complex types.
 - Array schema types aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
-- It's only available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
+- IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
+- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
 - Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 

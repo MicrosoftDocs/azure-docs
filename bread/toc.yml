@@ -152,6 +152,9 @@
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
+  - name: Azure Remote Rendering
+    tocHref: /azure/remote-rendering/
+    topicHref: /azure/remote-rendering/   
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -560,9 +563,6 @@
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
-  - name: Load Balancer
-    tocHref: /azure/load-balancer/
-    topicHref: /azure/load-balancer/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -666,7 +666,13 @@
         topicHref: /azure/frontdoor/
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
-        topicHref: /azure/internet-analyzer/      
+        topicHref: /azure/internet-analyzer/
+      - name: Internet Peering
+        tocHref: /azure/internet-peering/
+        topicHref: /azure/internet-peering/
+      - name: Load Balancer
+        tocHref: /azure/load-balancer/
+        topicHref: /azure/load-balancer/
       - name: Network Watcher
         tocHref: /azure/network-watcher/
         topicHref: /azure/network-watcher/
@@ -679,6 +685,12 @@
       - name: Traffic Manager
         tocHref: /azure/traffic-manager/
         topicHref: /azure/traffic-manager/
+      - name: Virtual Network
+        tocHref: /azure/virtual-network/
+        topicHref: /azure/virtual-network/
+      - name: Virtual WAN
+        tocHref: /azure/virtual-wan/
+        topicHref: /azure/virtual-wan/
       - name: VPN Gateway
         tocHref: /azure/vpn-gateway/
         topicHref: /azure/vpn-gateway/
@@ -759,8 +771,8 @@
     tocHref: /azure/site-reliability-engineering/
     topicHref: /azure/site-reliability-engineering/
   - name: Synapse Analytics
-    tocHref: /azure/sql-data-warehouse/
-    topicHref: /azure/sql-data-warehouse/
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/synapse-analytics/
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/

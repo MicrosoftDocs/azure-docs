@@ -13,6 +13,7 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Why update to Microsoft identity platform (v2.0)?
@@ -99,7 +100,7 @@ Historically, the most basic OpenID Connect sign-in flow with Microsoft identity
 
 The information that the `openid` scope affords your app access to is now restricted. The `openid` scope will only allow your app to sign in the user and receive an app-specific identifier for the user. If you want to get personal data about the user in your app, your app needs to request additional permissions from the user. Two new scopes, `email` and `profile`, will allow you to request additional permissions.
 
-* The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token, assuming the user has an addressable email address.
+* The `email` scope allows your app access to the user's primary email address through the `email` claim in the id_token, assuming the user has an addressable email address.
 * The `profile` scope affords your app access to all other basic information about the user, such as their name, preferred username, object ID, and so on, in the id_token.
 
 These scopes allow you to code your app in a minimal-disclosure fashion so you can only ask the user for the set of information that your app needs to do its job. For more information on these scopes, see [the Microsoft identity platform scope reference](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
@@ -131,7 +132,7 @@ For each app that you want to integrate with the Microsoft identity platform end
 App registrations that support work and school accounts and personal accounts have the following caveats:
 
 * Only two app secrets are allowed per application ID.
-* An application that wasn't registered in a tenant can only be managed by the account that registered it. It can’t be shared with other developers. This is the case for most apps that were registered using a personal Microsoft account in the App Registration Portal. If you’d like to share your app registration with multiple developers, register the application in a tenant using the new **App registrations** section of the Azure portal.
+* An application that wasn't registered in a tenant can only be managed by the account that registered it. It can't be shared with other developers. This is the case for most apps that were registered using a personal Microsoft account in the App Registration Portal. If you'd like to share your app registration with multiple developers, register the application in a tenant using the new **App registrations** section of the Azure portal.
 * There are several restrictions on the format of the redirect URL that is allowed. For more information about redirect URL, see the next section.
 
 ### Restrictions on redirect URLs

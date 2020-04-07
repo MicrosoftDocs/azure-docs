@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning
-description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
+description: This tutorial, second of a two-part series, shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,9 +17,7 @@ ms.custom: seodec18
 # Tutorial: Deploy an image classification model in Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
-
-Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  Now you're ready to deploy the model as a web service. A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
 In this part of the tutorial, you use Azure Machine Learning for the following tasks:
 
@@ -148,7 +146,7 @@ model = Model(ws, 'sklearn_mnist')
 
 
 myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
+inference_config = InferenceConfig(entry_script="score.py", environment=tutorial-env)
 
 service = Model.deploy(workspace=ws, 
                        name='sklearn-mnist-svc3', 
@@ -280,6 +278,7 @@ Test the deployed model with a random sample of 30 images from the test data.
 1. Print the returned predictions and plot them along with the input images. Red font and inverse image (white on black) is used to highlight the misclassified samples. 
 
  Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
+
 
 
 ```python

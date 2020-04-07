@@ -13,7 +13,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 03/04/2020
+  ms.date: 03/24/2020
   ms.author: dapine
 
 highlightedContent:
@@ -22,15 +22,15 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
@@ -42,9 +42,9 @@ conceptualContent:
         - itemType: quickstart
           text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: how-to-guide
-          text: Customize speech recognition for your apps
-          url: how-to-custom-speech.md
+        - itemType: quickstart
+          text: Recognize speech from an audio file
+          url: quickstarts/speech-to-text-from-file.md
       footerLink:
         text: See more
         url: index-speech-to-text.yml

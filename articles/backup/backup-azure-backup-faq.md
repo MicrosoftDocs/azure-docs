@@ -17,7 +17,7 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 
-You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
 
 ### How many datasources/items can be protected in a vault?
 

@@ -139,7 +139,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
 1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
 
-    ```bash
+    ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 

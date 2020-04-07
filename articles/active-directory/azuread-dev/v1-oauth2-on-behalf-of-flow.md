@@ -5,19 +5,16 @@ services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Service-to-service calls that use delegated user identity in the On-Behalf-Of flow
@@ -31,7 +28,7 @@ The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a serv
 
 ## On-Behalf-Of flow diagram
 
-The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to the middle-tier web API (API A) containing the user’s claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
+The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to the middle-tier web API (API A) containing the user's claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
 
 These steps constitute the On-Behalf-Of flow:
 ![Shows the steps in the OAuth2.0 On-Behalf-Of flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)

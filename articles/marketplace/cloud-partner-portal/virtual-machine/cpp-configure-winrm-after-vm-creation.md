@@ -1,13 +1,12 @@
 ---
 title: Configure WinRM after Azure virtual machine creation | Azure Marketplace
 description: Explains how to configure Windows Remote Management (WinRM) after the creation of an Azure-hosted virtual machine.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Configure WinRM after virtual machine creation

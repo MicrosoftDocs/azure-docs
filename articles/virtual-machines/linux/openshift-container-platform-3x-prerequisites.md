@@ -140,15 +140,15 @@ For more information on service principals, see [Create an Azure service princip
 
 ## Prerequisites applicable only to Resource Manager template
 
-Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
+Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom TLS/SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
 
 The template references specific secret names so you **must** use the bolded names listed above (case sensitive).
 
 ### Custom Certificates
 
-By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
+By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom TLS/SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
 
-You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the SSL certificate files.  Store the certificate data using the information from the following table.
+You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the TLS/SSL certificate files.  Store the certificate data using the information from the following table.
 
 | Secret Name      | Certificate file   |
 |------------------|--------------------|
