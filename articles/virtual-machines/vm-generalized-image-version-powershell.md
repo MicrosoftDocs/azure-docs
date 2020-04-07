@@ -3,6 +3,7 @@ title: Create a VM from a generalized image version
 description: Create a VM using a generalized image version in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: 
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/18/2020
