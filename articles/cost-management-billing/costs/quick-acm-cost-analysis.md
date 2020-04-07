@@ -3,7 +3,7 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -138,6 +138,10 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 
 ## Understanding grouping and filtering options
+
+Cost analysis has many grouping and filtering options. To watch a video about grouping and filtering options, watch the [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) video.
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
 
 The following table lists some of the most common grouping and filtering options and when you should use them.
 
