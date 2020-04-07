@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual network peering - Resource Manager - different subscriptions
+title: Create a VNet peering - different subscriptions
 titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions.
 services: virtual-network

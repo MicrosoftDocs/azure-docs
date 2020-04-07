@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/20/2020
 ---
 
 # How to add a custom skill to an Azure Cognitive Search enrichment pipeline
@@ -29,6 +29,8 @@ Custom WebAPI skill endpoints by default timeout if they don't return a response
         "uri": "https://[your custom skill uri goes here]",
         "timeout": "PT230S",
 ```
+
+Make sure the URI is secure (HTTPS).
 
 Currently, the only mechanism for interacting with a custom skill is through a Web API interface. The Web API needs must meet the requirements described in this section.
 

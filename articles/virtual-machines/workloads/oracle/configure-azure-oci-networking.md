@@ -32,7 +32,7 @@ The following image shows a high-level overview of the interconnection:
 
 * To establish connectivity between Azure and OCI, you must have an active Azure subscription and an active OCI tenancy.
 
-* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
+* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [Region Availability](oracle-oci-overview.md#region-availability).
 
 * Your Azure subscription must be enabled for this preview capability.
 

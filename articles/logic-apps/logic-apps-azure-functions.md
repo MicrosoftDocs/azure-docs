@@ -197,11 +197,11 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+If you set up your logic app to use the system-assigned identity or a manually-created user-assigned identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-To set up and use the system-assigned identity with your function, follow these steps:
+To set up and use the managed identity with your function, follow these steps:
 
-1. Enable the system-assigned identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Enable the managed identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Enable authentication in your Azure function and function app by following these steps:
 
@@ -212,7 +212,7 @@ To set up and use the system-assigned identity with your function, follow these 
 
 ### Set up anonymous authentication in your function
 
-To use your logic app's system-assigned identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
+To use your logic app's managed identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your function app. These steps use "FabrikamFunctionApp" as the example function app.
 

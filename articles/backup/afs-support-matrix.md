@@ -63,7 +63,10 @@ Backup for Azure file shares is available in the following GEOS:
 | ------------------------------------------------------------ | -------- |
 | Maximum total recovery points per  file share at any point in time | 200      |
 | Maximum retention of recovery  point created by on-demand backup | 10 years |
-| Maximum retention of recovery  point created by scheduled backup | 180 days |
+| Maximum retention of daily recovery points (snapshots) per file share| 200 days |
+| Maximum retention of weekly recovery points (snapshots) per file share | 200 weeks |
+| Maximum retention of monthly recovery points (snapshots) per file share | 120 months |
+| Maximum retention of  yearly recovery points (snapshots) per file share | 10 years |
 
 ## Supported restore methods
 

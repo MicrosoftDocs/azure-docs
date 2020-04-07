@@ -3,16 +3,16 @@ title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 01/31/2020
+ms.author: dapine
 ---
 
-# Audio Content Creation
+# Improve synthesis with Audio Content creation
 
 [Audio Content Creation](https://aka.ms/audiocontentcreation) is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products. You can use this tool to fine-tune public and custom voices for more accurate natural expressions, and manage your output in the cloud.
 
@@ -38,7 +38,7 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 Follow these steps to create a Speech resource and connect it with Speech Studio.
 
-1. Follow these instructions to [sign up for an Azure account](get-started.md#try-the-speech-service-using-a-new-azure-account) and [create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
+1. Follow these instructions to [sign up for an Azure account](get-started.md#new-resource) and [create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
 2. Sign into [Audio Content Creation](https://aka.ms/audiocontentcreation).
 3. Select an existing project, or click **Create New**.
 4. You can modify your subscription at any time with the **Settings** option, located in the top nav.
@@ -76,7 +76,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>

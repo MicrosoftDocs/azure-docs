@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -112,7 +112,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List role assignments for a user-assigned managed identity
 
-1. In the Azure portal, open a system-assigned managed identity.
+1. In the Azure portal, open a user-assigned managed identity.
 
 1. Click **Azure resources**.
 
@@ -124,11 +124,11 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List number of role assignments
 
-You can have up to **2000** role assignments in each subscription. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
+You can have up to **2000** role assignments in each subscription. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
 ![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead of individual users.
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 

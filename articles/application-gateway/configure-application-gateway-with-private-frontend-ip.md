@@ -22,7 +22,7 @@ This article guides you through the steps to configure an application gateway wi
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>Kv
+Sign in to the Azure portal at <https://portal.azure.com>
 
 ## Create an application gateway
 

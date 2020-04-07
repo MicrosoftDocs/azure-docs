@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: philmea 
   ms.author: philmea 
-  ms.date: 10/25/2019 
+  ms.date: 02/18/2020 
 
 landingContent:
   - title: About Azure IoT Central
@@ -19,14 +19,14 @@ landingContent:
         links:
           - text: What is Azure IoT Central?
             url: overview-iot-central.md
-          - text: IoT Solution options
-            url: overview-iot-central-tour.md
           - text: Tour the UI
             url: overview-iot-central-tour.md
       - linkListType: architecture
         links:
           - text: Azure IoT Central architecture
             url: concepts-architecture.md
+          - text: Application templates
+            url: concepts-app-templates.md
       - linkListType: quickstart
         links:
           - text: Create a new application
@@ -35,12 +35,14 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Set up a device template
-            url: howto-set-up-template.md
+          - text: Connect a device
+            url: tutorial-connect-device.md
           - text: Connect an IoT Plug and Play (preview) device
-            url: tutorial-add-device.md
+            url: tutorial-connect-pnp-device.md
       - linkListType: how-to-guide
         links:
+          - text: Set up a device template
+            url: howto-set-up-template.md
           - text: Prepare and connect an MX Chip IoT DevKit
             url: howto-connect-devkit.md
           - text: Connect other IoT clouds
@@ -49,8 +51,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Use device sets
-            url: howto-use-device-sets.md
+          - text: Use device groups
+            url: tutorial-use-device-groups.md
       - linkListType: how-to-guide
         links:
           - text: Manage your devices
@@ -64,9 +66,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create telemetry rules
-            url: howto-create-telemetry-rules.md
-          - text: Export to Blob Storage
-            url: howto-export-data-blob-storage.md                   
+            url: tutorial-create-telemetry-rules.md
+          - text: Export data to destinations in Azure
+            url: howto-export-data.md
+          - text: Explore the IoT Central APIs
+            url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/                    
       - linkListType: how-to-guide
         links:
           - text: Create custom rules

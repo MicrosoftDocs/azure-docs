@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 
@@ -10,7 +10,7 @@ ms.author: aahi
 
 #### [Version 3.0-preview](#tab/version-3)
 
-[v3 Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 #### [Version 2.1](#tab/version-2)
 
@@ -22,8 +22,9 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
@@ -37,11 +38,17 @@ After installing Python, you can install the client library with:
 pip install azure-ai-textanalytics
 ```
 
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
+
 #### [Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
 ```
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), which contains the code examples in this quickstart. 
 
 ---
 
@@ -61,9 +68,9 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 #### [Version 3.0-preview](#tab/version-3)
 
-The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. This quickstart uses a collection of functions to quickly send single documents.
+The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch. 
 
-When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. When processing single documents, only a `text` input is needed as can be seen in the examples below.  
+When batch processing text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
 
 The response object is a list containing the analysis information for each document. 
 
@@ -79,65 +86,91 @@ Text is sent to the API as a list of `documents`, which are `dictionary` objects
 
 These code snippets show you how to do the following tasks with the Text Analytics client library for Python:
 
+* [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
+## Authenticate the client
+
+#### [Version 3.0-preview](#tab/version-3)
+
+Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
+
+```python
+from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiKeyCredential
+
+def authenticate_client():
+    ta_credential = TextAnalyticsApiKeyCredential(key)
+    text_analytics_client = TextAnalyticsClient(
+            endpoint=endpoint, credential=ta_credential)
+    return text_analytics_client
+
+client = authenticate_client()
+```
+
+#### [Version 2.1](#tab/version-2)
+
+[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
+
+Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
+
+[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
+
+--- 
+
 ## Sentiment analysis
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Create a new function called `sentiment_analysis_example()` that takes the endpoint and key as arguments, then calls the `single_analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+Create a new function called `sentiment_analysis_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 
 ```python
-from azure.ai.textanalytics import single_analyze_sentiment
+def sentiment_analysis_example(client):
 
-def sentiment_analysis_example(endpoint, key):
-
-    document = "I had the best day of my life. I wish you were there with me."
-
-    response = single_analyze_sentiment(endpoint=endpoint, credential=key, input_text=document)
+    document = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(inputs=document)[0]
     print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-        response.document_scores.positive,
-        response.document_scores.neutral,
-        response.document_scores.negative,
+    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+        response.confidence_scores.positive,
+        response.confidence_scores.neutral,
+        response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
+        print("[Length: {}]".format(sentence.grapheme_length))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-            sentence.sentence_scores.positive,
-            sentence.sentence_scores.neutral,
-            sentence.sentence_scores.negative,
+        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+            sentence.confidence_scores.positive,
+            sentence.confidence_scores.neutral,
+            sentence.confidence_scores.negative,
         ))
 
             
-sentiment_analysis_example(endpoint, key)
+sentiment_analysis_example(client)
 ```
 
 ### Output
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=0.999; neutral=0.001; negative=0.000 
+Overall scores: positive=1.00; neutral=0.00; negative=0.00
 
-[Offset: 0, Length: 30]
+[Length: 30]
 Sentence 1 sentiment: positive
 Sentence score:
-positive=0.999
-neutral=0.001
-negative=0.000
+Positive=1.00
+Neutral=0.00
+Negative=0.00
 
-[Offset: 31, Length: 30]
+[Length: 30]
 Sentence 2 sentiment: neutral
 Sentence score:
-positive=0.212
-neutral=0.771
-negative=0.017
+Positive=0.21
+Neutral=0.77
+Negative=0.02
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -161,23 +194,21 @@ Document ID: 4 , Sentiment Score: 1.00
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Create a new function called `language_detection_example()` that takes the endpoint and key as arguments, then calls the `single_detect_languages()` function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
+Create a new function called `language_detection_example()` that takes the client as an argument, then calls the `detect_language()` function. The returned response object will contain the detected language in `primary_language` if successful, and an `error` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
 
 ```python
-from azure.ai.textanalytics import single_detect_language
-
-def language_detection_example(endpoint, key):
+def language_detection_example(client):
     try:
-        document = "Ce document est rédigé en Français."
-        response = single_detect_language(endpoint=endpoint, credential=key, input_text= document)
+        document = ["Ce document est rédigé en Français."]
+        response = client.detect_language(inputs = document, country_hint = 'us')[0]
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-language_detection_example(endpoint, key)
+language_detection_example(client)
 ```
 
 
@@ -213,26 +244,23 @@ Document ID: 3 , Language: Chinese_Simplified
 > * NER includes separate methods for detecting personal information. 
 > * Entity linking is a separate request than NER.
 
-Create a new function called `entity_recognition_example` that takes the endpoint and key as arguments, then calls the `single_recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
 
 ```python
-from azure.ai.textanalytics import single_recognize_entities
-
-def entity_recognition_example(endpoint, key):
+def entity_recognition_example(client):
 
     try:
-        document = "I had a wonderful trip to Seattle last week."
-        result = single_recognize_entities(endpoint=endpoint, credential=key, input_text= document)
-        
+        document = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(inputs= document)[0]
+
         print("Named Entities:\n")
         for entity in result.entities:
-                print("\tText: \t", entity.text, "\tType: \t", entity.type, "\tSubType: \t", entity.subtype,
-                      "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
-                      "\tConfidence Score: \t", round(entity.score, 3), "\n")
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_recognition_example(endpoint, key)
+entity_recognition_example(client)
 ```
 
 ### Output
@@ -240,74 +268,69 @@ entity_recognition_example(endpoint, key)
 ```console
 Named Entities:
 
-	Text: 	 Seattle 	Type: 	 Location 	SubType: 	 None 
-	Offset: 	 26 	Length: 	 26 	Confidence Score: 	 0.806 
+    Text:    Seattle        Category:        Location       SubCategory:     GPE
+    Length:          7      Confidence Score:        0.92
 
-	Text: 	 last week 	Type: 	 DateTime 	SubType: 	 DateRange 
-	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
+    Text:    last week      Category:        DateTime       SubCategory:     DateRange
+    Length:          9      Confidence Score:        0.8
 ```
 
 ## Using NER to detect personal information
 
-Create a new function called `entity_pii_example()` that takes the endpoint and key as arguments, then calls the `single_recognize_pii_entities()` function and gets the result. Then iterate through the results and print the entities.
+Create a new function called `entity_pii_example()` that takes the client as an argument, then calls the `recognize_pii_entities()` function and gets the result. Then iterate through the results and print the entities.
 
 ```python
-from azure.ai.textanalytics import single_recognize_pii_entities
+def entity_pii_example(client):
 
-def entity_pii_example(endpoint, key):
-
-        document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
+        document = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
 
 
-        result = single_recognize_pii_entities(endpoint=endpoint, credential=key, input_text= document)
+        result = client.recognize_pii_entities(inputs= document)[0]
         
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
-            print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
-            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+            print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
+            print("\t\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
         
-entity_pii_example(endpoint, key)
+entity_pii_example(client)
 ```
 
 ### Output
 
 ```console
-Personally Identifiable Information Entities: 
-	Text:  123-12-1234 	Type:  U.S. Social Security Number (SSN) 	Sub-Type:  
-		Offset:  33 	Length:  11 	Score: 0.850 
+Personally Identifiable Information Entities:
+    Text:  123-12-1234      Category:  U.S. Social Security Number (SSN)    SubCategory:  None
+        Length:  11     Score: 0.85
 ```
 
 
 ## Entity Linking
 
-Create a new function called `entity_linking_example()` that takes the endpoint and key as arguments, then calls the `single_recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
+Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
 ```python
-from azure.ai.textanalytics import single_recognize_linked_entities
-
-def entity_linking_example(endpoint, key):
+def entity_linking_example(client):
 
     try:
-        document = """Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        document = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
         to develop and sell BASIC interpreters for the Altair 8800. 
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
-        while also being the largest individual shareholder until May 2014."""
-        result = single_recognize_linked_entities(endpoint=endpoint, credential=key, input_text= document)
+        while also being the largest individual shareholder until May 2014."""]
+        result = client.recognize_linked_entities(inputs= document)[0]
 
         print("Linked Entities:\n")
         for entity in result.entities:
-            print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
+            print("\tName: ", entity.name, "\tId: ", entity.data_source_entity_id, "\tUrl: ", entity.url,
             "\n\tData Source: ", entity.data_source)
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
-                      "\tLength: {}\n".format(match.length))
+                print("\t\tScore: {0:.2f}".format(match.score), "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_linking_example(endpoint, key)
+entity_linking_example(client)
 ```
 
 ### Output
@@ -315,47 +338,48 @@ entity_linking_example(endpoint, key)
 ```console
 Linked Entities:
 
-	Name:  Altair 8800 	Id:  Altair 8800 	Url:  https://en.wikipedia.org/wiki/Altair_8800 
-	Data Source:  Wikipedia
-	Matches:
-		Text: Altair 8800
-		Score: 0.777 	Offset:  116 	Length: 11
+    Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+    Data Source:  Wikipedia
+    Matches:
+        Text: Altair 8800
+        Score: 0.78     Length: 11
 
-	Name:  Bill Gates 	Id:  Bill Gates 	Url:  https://en.wikipedia.org/wiki/Bill_Gates 
-	Data Source:  Wikipedia
-	Matches:
-		Text: Bill Gates
-		Score: 0.555 	Offset:  25 	Length: 10
+    Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+    Data Source:  Wikipedia
+    Matches:
+        Text: Bill Gates
+        Score: 0.55     Length: 10
 
-		Text: Gates
-		Score: 0.555 	Offset:  161 	Length: 5
+        Text: Gates
+        Score: 0.55     Length: 5
 
-	Name:  Paul Allen 	Id:  Paul Allen 	Url:  https://en.wikipedia.org/wiki/Paul_Allen 
-	Data Source:  Wikipedia
-	Matches:
-		Text: Paul Allen
-		Score: 0.533 	Offset:  40 	Length: 10
+    Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+    Data Source:  Wikipedia
+    Matches:
+        Text: Paul Allen
+        Score: 0.53     Length: 10
 
-	Name:  Microsoft 	Id:  Microsoft 	Url:  https://en.wikipedia.org/wiki/Microsoft 
-	Data Source:  Wikipedia
-	Matches:
-		Text: Microsoft
-		Score: 0.469 	Offset:  0 	Length: 9
+    Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+    Data Source:  Wikipedia
+    Matches:
+        Text: Microsoft
+        Score: 0.47     Length: 9
 
-		Text: Microsoft
-		Score: 0.469 	Offset:  150 	Length: 9
+        Text: Microsoft
+        Score: 0.47     Length: 9
 
-	Name:  April 4 	Id:  April 4 	Url:  https://en.wikipedia.org/wiki/April_4 
-	Data Source:  Wikipedia
-	Matches:
-		Text: April 4
-		Score: 0.248 	Offset:  54 	Length: 7
+    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+    Data Source:  Wikipedia
+    Matches:
+        Text: April 4
+        Score: 0.25     Length: 7
 
-	Name:  BASIC 	Id:  BASIC 	Url:  https://en.wikipedia.org/wiki/BASIC 
-	Data Source:  Wikipedia
-	Matches:
-		Text: BASIC
-		Score: 0.281 	Offset:  89 	Length: 5
+    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+    Data Source:  Wikipedia
+    Matches:
+        Text: BASIC
+        Score: 0.28     Length: 5
+
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -413,17 +437,15 @@ Document ID: 2
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Create a new function called `key_phrase_extraction_example()` that takes the endpoint and key as arguments, then calls the `single_extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
+Create a new function called `key_phrase_extraction_example()` that takes the client as an argument, then calls the `extract_key_phrases()` function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
-from azure.ai.textanalytics import single_extract_key_phrases
-
-def key_phrase_extraction_example(endpoint, key):
+def key_phrase_extraction_example(client):
 
     try:
-        document = "My cat might need to see a veterinarian."
+        document = ["My cat might need to see a veterinarian."]
 
-        response = single_extract_key_phrases(endpoint=endpoint, credential=key, input_text= document)
+        response = client.extract_key_phrases(inputs= document)[0]
 
         if not response.is_error:
             print("\tKey Phrases:")
@@ -435,16 +457,16 @@ def key_phrase_extraction_example(endpoint, key):
     except Exception as err:
         print("Encountered exception. {}".format(err))
         
-key_phrase_extraction_example(endpoint, key)
+key_phrase_extraction_example(client)
 ```
 
 
 ### Output
 
 ```console
-	Key Phrases:
-		 cat
-		 veterinarian
+    Key Phrases:
+         cat
+         veterinarian
 ```
 
 #### [Version 2.1](#tab/version-2)

@@ -1,14 +1,13 @@
 ---
-title: What is the Apache Hadoop technology stack? - Azure HDInsight
+title: What are Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
-keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 08/15/2019
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -20,7 +19,7 @@ Azure HDInsight is a fully managed, full-spectrum, open-source analytics service
 
 To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](../hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-## <a id="whatis"></a>What is MapReduce
+## What is MapReduce
 
 Apache Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
 
@@ -28,7 +27,7 @@ Apache Hadoop MapReduce is a software framework for writing jobs that process va
 
 * **Reducer**: Consumes tuples emitted by the Mapper and performs a summary operation that creates a smaller, combined result from the Mapper data
 
-A basic word count MapReduce job example is illustrated in the following diagram:	
+A basic word count MapReduce job example is illustrated in the following diagram:
 
  ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
@@ -47,7 +46,7 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
     [key]/t[value]
 
-For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
+For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following document:
 

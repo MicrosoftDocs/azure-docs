@@ -58,6 +58,18 @@ Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in add
 
 Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
+## Can I restrict users from creating projects?
+
+Yes. Log in to your cluster as an Azure Red Hat OpenShift administrator and execute this command:
+
+```
+oc adm policy \
+    remove-cluster-role-from-group self-provisioner \
+    system:authenticated:oauth
+```
+
+For more information, see the OpenShift documentation on [disabling self-provisioning](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning).
+
 ## Can a cluster have compute nodes across multiple Azure regions?
 
 No. All nodes in an Azure Red Hat OpenShift cluster must originate from the same Azure region.

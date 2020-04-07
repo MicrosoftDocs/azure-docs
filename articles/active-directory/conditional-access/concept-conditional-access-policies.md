@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 03/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,15 +29,15 @@ The assignments portion controls the who, what, and where of the Conditional Acc
 
 ### Users and groups
 
-Users and groups assign who the policy will include or exclude. This assignment can include all users, specific groups of users, directory roles, or external guest users. 
+[Users and groups](concept-conditional-access-users-groups.md) assign who the policy will include or exclude. This assignment can include all users, specific groups of users, directory roles, or external guest users. 
 
 ### Cloud apps or actions
 
-Cloud apps or actions can include or exclude cloud applications or user actions that will be subject to the policy.
+[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications or user actions that will be subject to the policy.
 
 ### Conditions
 
-A policy can contain multiple conditions.
+A policy can contain multiple [conditions](concept-conditional-access-conditions.md).
 
 #### Sign-in risk
 
@@ -69,6 +69,8 @@ The access controls portion of the Conditional Access policy controls how a poli
 
 ### Grant
 
+[Grant](concept-conditional-access-grant.md) provides administrators with a means of policy enforcement where they can block or grant access.
+
 #### Block access
 
 Block access does just that, it will block access under the specified assignments. The block control is powerful and should be wielded with the appropriate knowledge.
@@ -90,7 +92,7 @@ Administrators can choose to require one of the previous controls or all selecte
 
 ### Session
 
-Session controls can limit the experience 
+[Session controls](concept-conditional-access-session.md) can limit the experience 
 
 - Use app enforced restrictions
    - Currently works with Exchange Online and SharePoint Online only.
@@ -118,14 +120,14 @@ A Conditional Access policy must contain at minimum the following to be enforced
 
 ![Blank Conditional Access policy](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+The article [Common Conditional Access policies](concept-conditional-access-policy-common.md) includes some policies that we think would be useful to most organizations.
+
 ## Next steps
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Common Conditional Access policies](concept-conditional-access-policy-common.md)
-
 [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
-[Managing device compliance with Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Managing device compliance with Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security and Conditional Access](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security and Conditional Access](/cloud-app-security/proxy-intro-aad)

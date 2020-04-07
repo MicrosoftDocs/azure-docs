@@ -1,13 +1,11 @@
 ---
-title: Create an ingress controller for an internal network in Azure Kubernetes Service (AKS)
+title: Ingress controller on internal network
+titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
+
 ---
 
 # Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)

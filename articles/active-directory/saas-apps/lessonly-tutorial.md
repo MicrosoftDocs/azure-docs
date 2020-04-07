@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -28,7 +27,7 @@ In this tutorial, you'll learn how to integrate Lesson.ly with Azure Active Dire
 * Enable your users to be automatically signed-in to Lesson.ly with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -43,6 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Lesson.ly supports **SP** initiated SSO
 * Lesson.ly supports **Just In Time** user provisioning
+* Once you configure Lesson.ly you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Lesson.ly from the gallery
 
@@ -80,16 +80,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-     a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.lessonly.com/signin`
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.lessonly.com/auth/saml`
 
 	> [!NOTE]
 	> When referencing a generic name that **companyname** needs to be replaced by an actual name.
 	
-     b. In the **Reply URL (Assertion Customer Service URL)** text box, type a URL using the following pattern:
+    b. In the **Reply URL (Assertion Customer Service URL)** text box, type a URL using the following pattern:
     `https://<companyname>.lessonly.com/auth/saml/callback`
 
-     c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.lessonly.com/auth/saml/metadata`
     
 	> [!NOTE]
@@ -169,7 +169,7 @@ When you click the Lesson.ly tile in the Access Panel, you should be automatical
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

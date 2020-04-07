@@ -15,6 +15,8 @@
     href: web-query-data.md
 - name: Tutorials
   items:
+  - name: Write queries
+    href: write-queries.md
   - name: E2E programmatic Blob ingestion
     items:
       - name: C#
@@ -32,10 +34,22 @@
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
       href: ingest-data-overview.md
+    - name: Data ingestion properties
+      href: ingestion-properties.md
+    - name: Formats for data ingestion
+      href: ingestion-supported-formats.md
+  - name: Kusto Query Language
+    items:
+    - name: Quick reference guide
+      href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
-  - name: Security overview
-    href: security.md
+  - name: Security
+    items:  
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create cluster and database
@@ -51,7 +65,19 @@
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
-    items:
+    items: 
+    - name: One-click ingestion
+      items:
+      - name: One-click ingestion overview 
+        href: ingest-data-one-click.md
+      - name: One-click ingestion into a new table
+        href: one-click-ingestion-new-table.md
+      - name: One-click ingestion into an existing table
+        href: one-click-ingestion-existing-table.md
+    - name: Streaming ingestion
+      href: ingest-data-streaming.md
+    - name: Using LightIngest
+      href: lightingest.md    
     - name: Event Hub
       items:
       - name: Azure portal
@@ -82,10 +108,6 @@
         href: data-connection-iot-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-iot-hub-resource-manager.md
-    - name: One-click ingestion
-      href: ingest-data-one-click.md
-    - name: Streaming ingestion
-      href: ingest-data-streaming.md
     - name: Using SDKs
       items: 
       - name: Python
@@ -102,8 +124,6 @@
       href: ingest-json-formats.md  
   - name: Query data
     items:
-    - name: Write queries
-      href: write-queries.md
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
@@ -150,18 +170,32 @@
       href: sisense.md
     - name: Redash
       href: redash.md
+    - name: Kibana (K2Bridge connector)
+      href: k2bridge.md
   - name: Secure
     items:
+    - name: Network isolation (VNet)
+      items:
+        - name: Create a cluster in your VNet - Portal
+          href: vnet-create-cluster-portal.md
+        - name: Deploy your cluster to your VNet
+          href: vnet-deployment.md  
+        - name: Troubleshoot VNet cluster creation, connectivity, and operation 
+          href: vnet-deploy-troubleshoot.md
     - name: Manage cluster security
       href: manage-cluster-security.md
     - name: Configure managed identities
       href: managed-identities.md
     - name: Configure customer-managed-keys
       items:
+        - name: Portal
+          href: customer-managed-keys-portal.md
         - name: C#
           href: customer-managed-keys-csharp.md
         - name: Azure Resource Manager template
           href: customer-managed-keys-resource-manager.md
+    - name: Create Azure AD app
+      href: provision-azure-ad-app.md     
   - name: Manage
     items:
     - name: Cluster
@@ -182,6 +216,8 @@
             href: cluster-principal-python.md
           - name: Azure Resource Manager template
             href: cluster-principal-resource-manager.md
+      - name: Manage cluster language extensions
+        href: language-extensions.md
     - name: Database
       items:
       - name: Follower databases
@@ -208,16 +244,14 @@
         href: delete-data.md
       - name: Deal with duplicate data
         href: dealing-with-duplicates.md
-  - name: Deploy
-    items:
-    - name: Deploy your cluster to your virtual network
-      href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
       href: using-diagnostic-logs.md
     - name: Use metrics to monitor cluster health
       href: using-metrics.md
+    - name: Use resource health to monitor cluster health
+      href: monitor-with-resource-health.md
   - name: Integrate with other tools
     items:
     - name: Azure Data Factory
@@ -229,13 +263,21 @@
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
-        href: data-factory-command-activity.md   
+        href: data-factory-command-activity.md
+    - name: Microsoft Flow connector
+      items:
+      - name: Microsoft Flow connector
+        href: flow.md
+      - name: Microsoft Flow connector usage examples
+        href: flow-usage.md
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Analyze data in Azure Notebooks
+      href: azure-notebooks.md
     - name: Azure Pipelines
       href: devops.md  
   - name: Troubleshoot
@@ -282,5 +324,3 @@
       href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
-
-    

@@ -78,7 +78,9 @@ You'll need the following permissions in the Azure tenant to install Azure FarmB
 - Subscription - Owner
 - Resource Group in which FarmBeats is being installed - Owner
 
-The first two permissions are needed for [creating the AAD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application. The person installing FarmBeats needs to be an owner of the Resource Group in which FarmBeats is being installed.
+The first two permissions are needed for [creating the AAD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application.
+
+The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, please pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
 
 You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -90,7 +92,7 @@ Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
 ### Create an AAD application
 
-Azure FarmBeats requires Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed -
+Azure FarmBeats require Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed:
 
 - Tenant - AAD app creator
 - Subscription - Owner
@@ -115,7 +117,15 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
         ./create_aad_script.ps1
     ```
 
-4. The AAD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
+4. The script asks for the following three inputs:
+
+    - **FarmBeats Website Name**: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
+
+    - **Azure login ID**: Provide Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
+
+    - **Subscription ID**: This is the ID of the subscription in which you want to install Azure FarmBeats
+
+5. The AAD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
 
 ### Create Sentinel account
 
@@ -151,7 +161,7 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 
     ![Dependencies Tab](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
-8. Once the entered details are validated, select **OK**. The Terms of use page appears. Review the terms and select **Create** to start the installation. You will be redirected to the page where you can follow the installation progress.
+8. Once the entered details are validated, select **OK**. The Terms of use page appear. Review the terms and select **Create** to start the installation. You will be redirected to the page where you can follow the installation progress.
 
 Once the installation is complete, you can verify the installation and start using FarmBeats portal by navigating to the website name you provided during installation: https://\<FarmBeats-website-name>.azurewebsites.net. You should see FarmBeats user interface with an option to create Farms.
 
@@ -166,7 +176,7 @@ First-time users will be prompted to select a subscription and create a storage 
 1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
 
     ```azurepowershell-interactive
-        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
+        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
     ```
 
 2. By default, the file is downloaded to your home directory. Navigate to the directory.

@@ -3,14 +3,14 @@ title: "Quickstart: Set up sign-in for a single-page app (SPA)"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

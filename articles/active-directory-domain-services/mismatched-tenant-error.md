@@ -9,8 +9,8 @@ ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/27/2019
+ms.topic: troubleshooting
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
@@ -22,7 +22,7 @@ This article explains why the error occurs and how to resolve it.
 
 ## What causes this error?
 
-A mismatched directory error happens when an Azure AD DS managed domain and virtual network belong to two different Azure AD tenants. For example, you may have an Azure AD DS managed domain called *aadds.contoso.com* that runs in Contoso's Azure AD tenant. However, the Azure virtual network for managed domain is part of the Fabrikam Azure AD tenant.
+A mismatched directory error happens when an Azure AD DS managed domain and virtual network belong to two different Azure AD tenants. For example, you may have an Azure AD DS managed domain called *aaddscontoso.com* that runs in Contoso's Azure AD tenant. However, the Azure virtual network for managed domain is part of the Fabrikam Azure AD tenant.
 
 Azure uses role-based access control (RBAC) to limit access to resources. When you enable Azure AD DS in an Azure AD tenant, credential hashes are synchronized to the managed domain. This operation requires you to be a tenant admin for the Azure AD directory, and access to the credentials must be controlled. To deploy resources to an Azure virtual network and control traffic, you must have administrative privileges on the virtual network in which you deploy Azure AD DS.
 

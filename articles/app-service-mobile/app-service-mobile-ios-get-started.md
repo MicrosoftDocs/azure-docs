@@ -11,12 +11,6 @@ ms.date: 06/25/2019
 # Create an iOS app
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
-
 ## Overview
 
 This tutorial shows how to add [Azure App Service Mobile Apps](app-service-mobile-value-prop.md), a cloud backend service, to an iOS app. The first step is to create a new mobile backend on Azure. Then, download a simple *Todo list* iOS sample app that stores data in Azure.

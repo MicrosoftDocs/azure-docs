@@ -122,7 +122,7 @@ Once Elasticsearch reports as **Running**, you can add the Vamp DC/OS Universe p
 
 Now that Vamp is up and running, deploy a service from a blueprint. 
 
-In its simplest form, a [Vamp blueprint](https://vamp.io/documentation/using-vamp/blueprints/) describes the endpoints (gateways), clusters, and services to deploy. Vamp uses clusters to group different variants of the same service into logical groups for canary releasing or A/B testing.  
+In its simplest form, a [Vamp blueprint](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) describes the endpoints (gateways), clusters, and services to deploy. Vamp uses clusters to group different variants of the same service into logical groups for canary releasing or A/B testing.  
 
 This scenario uses a sample monolithic application called [**sava**](https://github.com/magneticio/sava), which is at version 1.0. The monolith is packaged in a Docker container, which is in Docker Hub under magneticio/sava:1.0.0. The app normally runs on port 8080, but you want to expose it under port 9050 in this case. Deploy the app through Vamp using a simple blueprint.
 
@@ -282,9 +282,9 @@ We also touched on some powerful features of Vamp:  merging a new service varian
 
 ## Next steps
 
-* Learn about managing Vamp actions through the [Vamp REST API](https://vamp.io/documentation/api/api-reference/).
+* Learn about managing Vamp actions through the [Vamp REST API](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Build Vamp automation scripts in Node.js and run them as [Vamp workflows](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Build Vamp automation scripts in Node.js and run them as [Vamp workflows](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* See additional [VAMP tutorials](https://vamp.io/documentation/tutorials/).
+* See additional [VAMP tutorials](https://docs.vamp.io/tutorials/).
 

@@ -52,6 +52,17 @@
     - name: Steps to deploy
       displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/deploy.md
+  - name: DoD Impact Level 4
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
@@ -129,6 +140,17 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: Media   
+    items:
+    - name: Overview
+      displayName: standards, Media MPAA
+      href: ./samples/media/index.md
+    - name: Control mapping
+      displayName: standards, Media
+      href: ./samples/media/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Media
+      href: ./samples/media/deploy.md
   - name: NIST SP 800-53 Rev4
     items:
     - name: Overview
@@ -203,7 +225,7 @@
   - name: Sequencing order of blueprint deployment
     displayName: customize
     href: ./concepts/sequencing-order.md
-  - name: Resource locking in Blueprints
+  - name: Resource locking in Azure Blueprints
     displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
 - name: How-to guides

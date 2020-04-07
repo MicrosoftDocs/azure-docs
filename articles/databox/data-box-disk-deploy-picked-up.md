@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -173,8 +173,6 @@ If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and h
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
-
----
 
 ## Next steps
 

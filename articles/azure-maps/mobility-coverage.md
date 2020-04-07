@@ -1,8 +1,8 @@
 ---
 title: Mobility (transit) coverage | Microsoft Azure Maps
-description: In this article, you will learn about Mobility coverage in Microsoft Azure Maps
-author: walsehgal
-ms.author: v-musehg
+description: In this article, you'll learn about Mobility coverage in Microsoft Azure Maps
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,9 +12,9 @@ manager: philmea
 
 # Azure Maps Mobility coverage
 
-Azure Maps offers a [Mobility service](https://aka.ms/AzureMapsMobilityService). The Mobility service improves the development time for applications with public transit, bike share, and scooter share features. It offers an option to route with multimodal trip planning options. Features for public transit include search for nearby stations, search for stops, search for transit lines, retrieve schedule information, retrieve real-time public transit arrivals, and list stops and route guides. The service returns real-time and static availability information to shared vehicles, such as, cars, bikes, and scooters. The API returns detailed and multimodal step-by-step itineraries and service alerts.
+Azure Maps offers a [Mobility service](https://aka.ms/AzureMapsMobilityService). The Mobility service improves the development time for applications with public transit, bike share, and scooter share features. Features for public transit include search for nearby stations, search for stops, search for transit lines, retrieve schedule information, retrieve real-time public transit arrivals, list stops, and list route guides. The service returns real-time and static availability information to shared vehicles, such as, cars, bikes, and scooters. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates bicycling, ride-hailing and transit options, all into one trip. Users cam access detailed and multimodal step-by-step itineraries and service alerts.
 
-Azure Maps doesn't have the same level of information and accuracy for all cities and countries/regions. The ability to call transit data depends on the city. The data may not include all public transit options and agencies that serve the city.
+Azure Maps doesn't have the same level of information and accuracy for all cities and countries/regions. The ability to call transit data depends on the city. And, the data may not include all public transit options and agencies that serve the city.
 
 The following table provides coverage information for Azure Maps Mobility service.
 

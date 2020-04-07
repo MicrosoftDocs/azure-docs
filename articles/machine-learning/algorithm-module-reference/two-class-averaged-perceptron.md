@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Two-Class Averaged Perceptron module
 
@@ -32,6 +32,8 @@ The simpler perceptron models are suited to learning linearly separable patterns
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, provide a specific set of values as arguments.
+
+    -   **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
   
 3.  For **Learning rate**, specify a value for the *learning rate*. The learning rate values control the size of the step that is used in stochastic gradient descent each time the model is tested and corrected.
   

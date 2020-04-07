@@ -3,14 +3,14 @@ title: Set up sign-in with a Microsoft Account account by using custom policies
 titleSuffix: Azure AD B2C
 description: How to use custom policies to enable Microsoft Account (MSA) as an identity provider using the OpenID Connect (OIDC) protocol.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
-ms.author: marsma
+ms.date: 02/19/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -25,7 +25,7 @@ This article shows you how to enable sign-in for users from a Microsoft account 
 - Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 - If you don't already have a Microsoft account, create one at [https://www.live.com/](https://www.live.com/).
 
-## Add an application
+## Register an application
 
 To enable sign-in for users with a Microsoft account, you need to register an application within the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant.
 
@@ -42,6 +42,19 @@ To enable sign-in for users with a Microsoft account, you need to register an ap
 1. Click **New client secret**
 1. Enter a **Description** for the secret, for example *MSA Application Client Secret*, and then click **Add**.
 1. Record the application password shown in the **Value** column. You use this value in the next section.
+
+## Configuring optional claims
+
+If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
+1. From the **Manage** section, select **App registrations**.
+1. Select the application you want to configure optional claims for in the list.
+1. From the **Manage** section, select **Token configuration (preview)**.
+1. Select **Add optional claim**.
+1. Select the token type you want to configure.
+1. Select the optional claims to add.
+1. Click **Add**.
 
 ## Create a policy key
 
@@ -90,10 +103,12 @@ You can define Azure AD as a claims provider by adding the **ClaimsProvider** el
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

@@ -1,6 +1,6 @@
 ---
 title: Add an Image layer to a map | Microsoft Azure Maps
-description: In this article, you will learn about how to overlay an image on a map using the Microsoft Azure Maps Web SDK.
+description: In this article, you'll learn about how to overlay an image on a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add an image layer to a map
 
-This article shows you how you can overlay an image to a fixed set of coordinates on the map. Here are few examples of the type of images often overlaid on maps:
+This article shows you how to overlay an image to a fixed set of coordinates. Here are a few examples of different images types that can be overlaid on maps:
 
 * Images captured from drones
 * Building floorplans
@@ -57,9 +57,9 @@ Here's the complete running code sample of the preceding code.
 
 ## Import a KML file as ground overlay
 
-This next sample shows how to overlay KML ground overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates, and a counter-clockwise rotation, whereas the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is of the Chartres cathedral, and is sourced from [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+This sample demonstrates how to add KML ground overlay information as an image layer on the map. KML ground overlays provide north, south, east, and west coordinates, and a counter-clockwise rotation. But, the image layer expects coordinates for each corner of the image. The KML ground overlay in this sample is for the Chartres cathedral, and it's sourced from [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-The following code uses the static `getCoordinatesFromEdges` function of the [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) class. It calculates the four corners of the image from the north, south, east, and west, and rotation information from the KML ground overlay.
+The code uses the static `getCoordinatesFromEdges` function from the [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) class. It calculates the four corners of the image using the north, south, east, west, and rotation information of the KML ground overlay.
 
 <br/>
 

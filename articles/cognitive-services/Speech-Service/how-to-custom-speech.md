@@ -3,13 +3,13 @@ title: "Get started with Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Custom Speech is a set of online tools that allow you to evaluate and improve our speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
+ms.date: 02/17/2020
+ms.author: dapine
 ---
 
 # What is Custom Speech?
@@ -38,7 +38,7 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 
 ## Set up your Azure account
 
-A Speech service subscription is required before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. Follow these instructions to create a standard Speech service subscription: [Create a Speech Subscription](get-started.md#try-the-speech-service-using-a-new-azure-account).
+A Speech service subscription is required before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. Follow these instructions to create a standard Speech service subscription: [Create a Speech Subscription](get-started.md#new-resource).
 
 > [!NOTE]
 > Please be sure to create standard (S0) subscriptions, free trial (F0) subscriptions are not supported.
@@ -55,6 +55,9 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 Content like data, models, tests, and endpoints are organized into **Projects** in the [Custom Speech portal](https://speech.microsoft.com/customspeech). Each project is specific to a domain and country/language. For example, you may create a project for call centers that use English in the United States.
 
 To create your first project, select the **Speech-to-text/Custom speech**, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
+
+> [!IMPORTANT]
+> The [Custom Speech portal](https://aka.ms/custom-speech) was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
 
 ## Next steps
 

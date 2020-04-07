@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 01/30/2020
+ ms.date: 03/05/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -49,3 +49,11 @@
 **Middle East and Africa**
 * South Africa North
 * UAE Central
+
+**Azure Government**
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Iowa
+* US Gov Texas
+* US Gov Virginia

@@ -3,10 +3,10 @@ title: "Tutorial: Authenticate users in a native client application"
 titleSuffix: Azure AD B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial

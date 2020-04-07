@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Azure Maps'
 description: This tutorial shows you how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -63,7 +63,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast) of the Azure Maps weather service to get daily weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast) of the Azure Maps weather service. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 
 ```python
@@ -124,7 +124,7 @@ display(Image(poi_range_map))
 ![Turbine locations](./media/weather-service-tutorial/location-map.png)
 
 
-We'll group the forecast data with the demo data based on the station ID of the weather data center. This grouping augments the demo data with the forecast data. 
+We'll group the forecast data with the demo data based on the station ID. The station ID is for the weather data center. This grouping augments the demo data with the forecast data.
 
 ```python
 # Group forecasted data for all locations

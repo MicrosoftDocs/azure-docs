@@ -3,7 +3,7 @@ title: Use device groups in your Azure IoT Central application | Microsoft Docs
 description: As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,8 +11,6 @@ manager: peterpfr
 ---
 
 # Tutorial: Use device groups to analyze device telemetry
-
-
 
 This article describes how, as an operator, to use device groups to analyze device telemetry in your Azure IoT Central application.
 
@@ -22,19 +20,19 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a device group
-> * USe a device group to analyze device telemetry
+> * Use a device group to analyze device telemetry
 
 ## Prerequisites
 
-Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **Environment Sensor** device template to work with.
+Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create simulated devices
 
-Before you create a device group, add at least five simulated devices from the **Environment Sensor** device template to use in this tutorial:
+Before you create a device group, add at least five simulated devices from the **MXChip IoT DevKit** device template to use in this tutorial:
 
-![Five simulated environmental sensor devices](./media/tutorial-use-device-groups/simulated-devices.png)
+![Five simulated sensor devices](./media/tutorial-use-device-groups/simulated-devices.png)
 
-For four of the environmental sensor devices, use the **Environmental Sensor properties** view to set the customer name to **Contoso**:
+For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso*:
 
 ![Set customer name to Contoso](./media/tutorial-use-device-groups/customer-name.png)
 
@@ -42,19 +40,19 @@ For four of the environmental sensor devices, use the **Environmental Sensor pro
 
 To create a device group:
 
-1. Choose **Device Groups** on the left pane.
+1. Choose **Device groups** on the left pane.
 
-1. Select **+ New**.
+1. Select **+**:
 
     ![New device group](media/tutorial-use-device-groups/image1.png)
 
-1. Give your device group a name such as **Contoso devices**. You can also add a description. A device group can only contain devices from a single device template. Choose the **Environmental Sensor** device template to use for this group.
+1. Give your device group the name *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template. Choose the **MXChip IoT DevKit** device template to use for this group.
 
-1. Create the query to identify the devices belonging to **Contoso** for the device group by selecting the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple queries and devices that meet **all** the criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group.
+1. To customize the device group to include only the devices belonging to **Contoso**, select **+ Filter**. Select the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple filters and devices that meet **all** the filter criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group:
 
     ![Device group query](media/tutorial-use-device-groups/image2.png)
 
-    > [!NOTE]
+    > [!TIP]
     > The device group is a dynamic query. Every time you view the list of devices, there may be different devices in the list. The list depends on which devices currently meet the criteria of the query.
 
 1. Choose **Save**.

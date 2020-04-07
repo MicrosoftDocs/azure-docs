@@ -17,7 +17,7 @@ ms.author: aahi
 Recognize person names in text.
 
 Languages:
-* Public preview: `English`
+* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
 
 | Subtype name | Description                                                      | Available starting with model version |
 |--------------|------------------------------------------------------------------|---------------------------------------|
@@ -39,12 +39,12 @@ Natural and human-made landmarks, structures, geographical features and geopolit
 
 Languages:
 
-* Public preview: `English`
+* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
 
 | Subtype name              | Description                                                                              | Available starting with model version |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A                       | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Geopolitical Entity (GPE) | Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Geopolitical Entity (GPE) - English only| Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### Organization  
 
@@ -52,7 +52,7 @@ Recognized organizations, corporations, agencies, and other groups of people. Fo
 
 Languages: 
 
-* Public preview: `English`
+* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
 
 | Subtype name | Description                                                                                             | Available starting with model version |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
@@ -151,7 +151,7 @@ Date and Time entities.
 
 Languages:
 
-* Public preview: `English`
+* Public preview: `Chinese-Simplified`, `English`, `French`, `German` and `Spanish`
 
 | Subtype name    | Examples                     |
 |-------------|------------------------------|
@@ -171,7 +171,7 @@ Numbers and numeric quantities.
 
 Languages:
 
-* Public preview: `English`
+* Public preview: `Chinese-Simplified`, `English`, `French`, `German` and `Spanish`
 
 | Subtype name    | Examples                     |
 |-------------|------------------------------|

@@ -42,6 +42,8 @@
         href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
+      - name: Expand an existing host pool
+        href: expand-existing-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -84,6 +86,12 @@
     href: publish-apps.md
   - name: Set up MSIX app attach
     href: app-attach.md
+  - name: Use Microsoft Teams
+    href: teams-on-wvd.md
+  - name: Set up Azure Multi-Factor Authentication
+    href: set-up-mfa.md
+  - name: Install language packs
+    href: language-packs.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
@@ -154,3 +162,5 @@
     href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
   - name: Microsoft 365 roadmap
     href: https://aka.ms/wvdroadmap
+  - name: Azure Resource Manager templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates

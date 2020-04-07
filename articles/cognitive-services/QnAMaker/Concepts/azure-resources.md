@@ -2,7 +2,7 @@
 title: Azure resources - QnA Maker
 description: QnA Maker uses several Azure sources, each with a different purpose. Understanding how they are used individually allows you to plan for and select the correct pricing tier or know when to change your pricing tier. Understanding how they are used in combination allows you to find and fix problems when they occur.
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 03/25/2020
 ---
 
 # Azure resources for QnA Maker
@@ -25,7 +25,9 @@ Plan to have a single QnA Maker resource hold all knowledge bases that have the 
 
 Typically there are three parameters you need to consider:
 
-* **The throughput you need from the service**: Select the appropriate [App Plan](https://azure.microsoft.com/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or down the App. This should also influence your Azure Cognitive Search SKU selection, see more details [here](https://docs.microsoft.com/azure/search/search-sku-tier).
+* **The throughput you need from the service**:
+    * Select the appropriate [App Plan](https://azure.microsoft.com/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or down the App.
+    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](https://docs.microsoft.com/azure/search/search-sku-tier). Additionally, you may need to adjust Cognitive Search [capacity](../../../search/search-capacity-planning.md) with replicas.
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide number of knowledge bases you need based on number of different subject domains. Once subject domain (for a single language) should be in one knowledge base.
 
@@ -47,8 +49,8 @@ The following table gives you some high-level guidelines.
 
 |Upgrade|Reason|
 |--|--|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA sets or document sources in your knowledge base.|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA pairs or document sources in your knowledge base.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check Cognitive Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service|You plan to have many knowledge bases.|
 
 Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
@@ -88,8 +90,8 @@ Each Azure resource created with QnA Maker has a specific purpose:
 
 The [Cognitive Search](../../../search/index.yml) resource is used to:
 
-* Store the QnA sets
-* Provide the initial ranking (ranker #1) of the QnA sets at runtime
+* Store the QnA pairs
+* Provide the initial ranking (ranker #1) of the QnA pairs at runtime
 
 #### Index usage
 
@@ -103,13 +105,13 @@ The first knowledge base created in the QnA Maker resource is used to determine 
 
 ### QnA Maker resource
 
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA sets at runtime.
+The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
 
 The second ranking applies intelligent filters that can include metadata and follow-up prompts.
 
 #### QnA Maker resource configuration settings
 
-When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource. 
+When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource.
 
 ### App service and App service plan
 
@@ -133,7 +135,7 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |App Service plan|✔|Fixed disk space allocated for an App Service plan. If other apps that sharing the same App Service plan use significant disk space, the QnAMaker App Service instance will encounter problems.|
 |App Service|X|Not possible by design|
 |Application Insights|✔|Can be shared|
-|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
+|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can't be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
 ### Using a single Cognitive Search service
 

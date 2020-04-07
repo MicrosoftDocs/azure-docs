@@ -1,14 +1,12 @@
 ---
 title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom:
 ---
 
@@ -62,13 +60,13 @@ Cost Management Contributor is the recommended least-privilege role. It allows p
 
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and/or manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
-- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#built-in-role-descriptions) if you want to act on a cost-based recommendation.
+- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
 
 ## Enterprise Agreement scopes
 
 Enterprise Agreement (EA) billing accounts, also called enrollments, have the following scopes:
 
-- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts.
+- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts. Reservation usage, along with all other usage, is applied to individual resources. Usage rolls-up to subscriptions within the billing account. To see reservation costs broken down to each resource, switch to view **Amortized cost** in cost analysis.
 
     Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Department** - Optional grouping of enrollment accounts.

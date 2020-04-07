@@ -3,7 +3,7 @@ title: Update of classic alerting & monitoring in Azure Monitor
 description: Description of the retirement of classic monitoring services and functionality, earlier shown in Azure portal under Alerts (classic). 
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi

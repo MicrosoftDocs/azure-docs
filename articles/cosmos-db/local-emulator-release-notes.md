@@ -21,6 +21,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.9.1
+
+- This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.
+
 ### 2.9.0
 
 - This release adds the option to set the consistency to consistent prefix and increase the maximum limits for users and permissions.

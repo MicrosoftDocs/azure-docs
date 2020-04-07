@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
+ms.date: 04/02/2020
 ---
 # What is Azure SQL Database managed instance?
 
@@ -61,7 +61,7 @@ The key features of managed instances are shown in the following table:
 | Portal support | Yes|
 | Built-in Integration Service (SSIS) | No - SSIS is a part of [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Built-in Analysis Service (SSAS) | No - SSAS is separate [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Built-in Reporting Service (SSRS) | No - use Power BI or SSRS IaaS |
+| Built-in Reporting Service (SSRS) | No - use [Power BI paginated reports](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on Azure VM. While Managed Instance cannot run SSRS as a service, it can host SSRS 2019 catalog databases for an external reporting server using SQL Server authentication. |
 |||
 
 ## vCore-based purchasing model
@@ -74,9 +74,6 @@ In vCore model, you can choose between generations of hardware.
 - **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-
-> [!IMPORTANT]
-> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ## Managed instance service tiers
 

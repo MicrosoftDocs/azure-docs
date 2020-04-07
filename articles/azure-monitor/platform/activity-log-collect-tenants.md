@@ -1,7 +1,6 @@
 ---
-title: Collect Azure Activity logs into a Log Analytics workspace across Azure tenants | Microsoft Docs
+title: Cross-tenant Azure activity logs in Azure Monitor
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to a Log Analytics workspace in Azure Monitor in a different tenant.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

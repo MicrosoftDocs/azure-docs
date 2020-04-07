@@ -1,13 +1,12 @@
 ---
 title: Retrieve operations API | Azure Marketplace
 description: Retrieves all the operations on the offer or to get a particular operation for the specified operationId.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 

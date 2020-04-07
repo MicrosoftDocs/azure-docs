@@ -9,9 +9,13 @@
   expanded: true
   items:
   - name: Connect machines to Azure Arc from the Azure portal
-    href: ./servers/quickstart-onboard-portal.md
+    href: ./servers/onboard-portal.md
   - name: Connect machines at scale using a service principal
-    href: ./servers/quickstart-onboard-powershell.md
+    href: ./servers/onboard-service-principal.md
+  - name: Connect machines to Azure Arc with PowerShell DSC
+    href: ./servers/onboard-dsc.md
+- name: Manage agent
+  href: ./servers/manage-agent.md 
 - name: Reference
   items:
     - name: Azure Connected Machine Agent CLI interface

@@ -2,7 +2,7 @@
 title: Firewall access rules
 description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to ("whitelisting") REST API and storage endpoint domain names or service-specific IP address ranges.
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 02/11/2020
 ---
 
 # Configure rules to access an Azure container registry behind a firewall
@@ -110,6 +110,10 @@ Search for the specific region, such as **Storage.AustraliaCentral**.
 In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
 
 For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
+
+## Configure client firewall rules for MCR
+
+If you need to access Microsoft Container Registry (MCR) from behind a firewall, see the guidance to configure [MCR client firewall rules](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR is the primary registry for all Microsoft-published docker images, such as Windows Server images.
 
 ## Next steps
 

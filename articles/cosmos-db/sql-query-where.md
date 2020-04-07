@@ -4,7 +4,7 @@ description: Learn about SQL WHERE clause for Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
 
 ---
@@ -30,10 +30,11 @@ WHERE <filter_condition>
   
    Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) for details.  
   
-
 ## Remarks
   
-  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition. 
+  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value `true` will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.
+
+  If you include your partition key in the `WHERE` clause as part of an equality filter, your query will automatically filter to only the relevant partitions.
 
 ## Examples
 

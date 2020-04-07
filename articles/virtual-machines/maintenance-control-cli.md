@@ -1,15 +1,13 @@
 ---
-title: Maintenance control for Azure virtual machines
-description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control.
-services: virtual-machines-linux
+title: Maintenance control 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
-
 ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
+#pmcontact: shants
 ---
 
 # Preview: Control updates with Maintenance Control and the Azure CLI
@@ -232,6 +230,18 @@ az maintenance applyupdate create \
 You can check on the progress of the updates using `az maintenance applyupdate get`. 
 
 You can use `default` as the update name to see results for the last update, or replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
+
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance control it will show default value.
 
 ### Isolated VM
 

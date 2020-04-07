@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
 ---
 # Extract N-Gram Features from Text module reference
@@ -68,7 +68,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1. Select the option **Normalize n-gram feature vectors** to normalize the feature vectors. If this option is enabled, each n-gram feature vector is divided by its L2 norm.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ### Use an existing n-gram dictionary
 
@@ -87,7 +87,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1.  For all other options, see the property descriptions in the [previous section](#create-a-new-n-gram-dictionary).
 
-1.  Run the pipeline.
+1.  Submit the pipeline.
 
 ### Score or publish a model that uses n-grams
 

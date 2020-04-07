@@ -2,15 +2,15 @@
 title: Known issues and limitations with online migrations to Azure SQL Database managed instance
 description: Learn about known issues/migration limitations associated with online migrations to Azure SQL Database managed instance.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 02/20/2020
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL Database managed instance

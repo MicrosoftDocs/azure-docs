@@ -1,20 +1,12 @@
 ---
-title: Sign up for Office 365 with Azure account | Microsoft Docs
+title: Sign up for Office 365 with Azure account
 description: Learn how to create an Office 365 subscription by using an Azure account
-services: ''
-documentationcenter: ''
 author: JiangChen79
-manager: adpick
-editor: ''
+ms.reviewer: adwise
 tags: billing,top-support-issue
-
-ms.assetid:
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 02/21/2020
 ms.author: banders
 
 ---

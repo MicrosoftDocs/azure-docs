@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
 ---
 # How to consume an Azure Machine Learning Studio (classic) web service
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
@@ -251,7 +253,7 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 library("RCurl")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
+# Accept TLS/SSL certificates issued by public Certificate Authorities
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()

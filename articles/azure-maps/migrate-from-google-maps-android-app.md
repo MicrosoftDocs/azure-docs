@@ -334,7 +334,7 @@ Here is an example of Google Maps with the language set to "fr".
 
 **After: Azure Maps**
 
-Azure Maps provides three different ways to set the language and the regional view of the map. The first option is to pass the language and regional view information to the `AzureMaps` class. This option uses the static `setLanguage` and `setView` methods globally. Meaning, the default language and regional view is set across all Azure Maps controls loaded in your app. This example sets French using the "fr-FR" language code.
+Azure Maps provides three different ways to set the language and the regional view of the map. The first option is to pass the language and regional view information to the `AzureMaps` class. This option uses the static `setLanguage` and `setView` methods globally. Meaning, the default language and regional view are set across all Azure Maps controls loaded in your app. This example sets French using the "fr-FR" language code.
 
 ```java
 static {
@@ -361,7 +361,7 @@ The second option is to pass the language and view information to the map contro
     />
 ```
 
-The third option is to program the language and regional map view using the maps `setStyle` method. This option updates the language and regional view any time the code executes.
+The third option is to program the language and regional map view using the maps `setStyle` method. This option updates the language and regional view anytime the code executes.
 
 ```java
 mapControl.onReady(map -> {
@@ -722,7 +722,7 @@ public void onMapReady(GoogleMap googleMap) {
 A tile layer can be added to the map in a similar way as any other layer. A formatted URL that has x, y, and zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Also, tile layers in Azure Maps support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders. To make the tile layer semi-transparent, an opacity value of 0.8 is used. Opacity and transparency, although similar, use inverted values. To convert between both options, subtract their value from the number one.
 
 > [!TIP]
-> In Azure Maps, it's convenient to render layers below other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, the following code can be used:
+> In Azure Maps, it's convenient to render layers below other layers, including base map layers. Also, it's often desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, the following code can be used:
 > `map.layers.add(myTileLayer, "labels");`
 
 ```java

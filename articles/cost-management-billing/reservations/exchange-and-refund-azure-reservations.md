@@ -2,13 +2,9 @@
 title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 
@@ -67,12 +63,10 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - There's no penalty or annual limits for exchanges.
 
 **Refund policies**
-- If you cancel a reservation, there may be a 12% early termination fee.
-- The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
+- There may be a 12% early termination fee for cancellations in future. We are currently not charging this penalty.
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft reserves the right to charge a 12% penalty for any returns. The penalty isn't currently charged, but will be charged in future.
+- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## Exchange non-premium storage for premium storage
 

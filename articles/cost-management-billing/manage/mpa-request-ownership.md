@@ -2,15 +2,10 @@
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
 description: Learn how to request billing ownership of Azure subscriptions from other users.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/13/2019
+ms.date: 02/13/2020
 ms.author: banders
 
 ---
@@ -140,7 +135,7 @@ Azure Marketplace products which are available for subscriptions that are manage
 
 ### Azure Reservations transfer
 
-Azure Reservations don't automatically move with subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+Azure Reservations don't automatically move with subscriptions. Either you can keep the Reservation in EAfor other subscriptions or [cancel the Reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) and partner can repurchase in CSP. 
 
 ### Access to Azure services
 

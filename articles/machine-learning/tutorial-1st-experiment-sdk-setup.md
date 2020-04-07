@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
@@ -79,7 +79,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
+1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
 
 1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
 
@@ -94,10 +94,6 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
 If you have custom widgets or prefer using Jupyter/JupyterLab select the **Jupyter** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
-
-> [!NOTE]
-> Compute instances (preview) are currently available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook. A VM will continue running and incurring cost unless you stop it. You can stop it manually from the **Compute** tab in the Studio, or see the [blog post](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) on enabling scheduled automatic shutdown for Azure VMs.
 
 ## Next steps
 

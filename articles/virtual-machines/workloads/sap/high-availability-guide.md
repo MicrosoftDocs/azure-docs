@@ -3,8 +3,8 @@ title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Do
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: msjuergent
-manager: patfilot
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -719,7 +719,7 @@ _**Figure 11:** Set SAP high-availability Azure Resource Manager parameters_
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Deploy virtual machines with corporate network connectivity (cross-premises) to use in production
-For production SAP systems, deploy Azure virtual machines with [corporate network connectivity (cross-premises)][planning-guide-2.2] by using Azure Site-to-Site VPN or Azure ExpressRoute.
+For production SAP systems, deploy Azure virtual machines with corporate network connectivity by using Azure Site-to-Site VPN or Azure ExpressRoute.
 
 > [!NOTE]
 > You can use your Azure Virtual Network instance. The virtual network and subnet have already been created and prepared.
@@ -864,7 +864,7 @@ To set the required DNS IP addresses, do the following steps.
 
 1. In the Azure portal, on the **DNS servers** blade, make sure that your virtual network **DNS servers** option is set to **Custom DNS**.
 2. Select your settings based on the type of network you have. For more information, see the following resources:
-   * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
+   * Add the IP addresses of the on-premises DNS servers.  
    You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
    * For deployments isolated in Azure: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
 

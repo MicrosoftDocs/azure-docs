@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
@@ -136,7 +136,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ## Dictionary
 

@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: What are conditions?
-            url: conditions.md
+            url: concept-conditional-access-conditions.md
           - text: How can I define locations?
             url: location-condition.md
           - text: What are controls?

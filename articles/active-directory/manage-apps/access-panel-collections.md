@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ Your users can use the My Apps portal to view and start the cloud-based applicat
 > [!NOTE]
 > This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## Enable My Apps preview features
+## Enable the latest My Apps features
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a user administrator or Global Administrator.
 
@@ -35,8 +35,8 @@ Your users can use the My Apps portal to view and start the cloud-based applicat
 3. Under **User feature previews**, select **Manage user feature preview settings**.
 
 4. Under **Users can use preview features for My Apps**, choose one of the following options:
-   * **Selected** - Enables preview features for a specific group. Use the **Select a group** option to select the group for which you want to enable preview features.  
-   * **All** - Enables preview features for all users.
+   * **Selected** - Enables the features for a specific group. Use the **Select a group** option to select the group for which you want to enable the features.  
+   * **All** - Enables the features for all users.
 
 > [!NOTE]
 > To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. After you enable the new My Apps experience, the **An updated My Applications experience is available** banner will display at the top of the My Apps page, and users can select **Try it** to view the new experience. To stop using the new experience, users can select **Yes** from the **Leave new experience** banner at the top of the page.

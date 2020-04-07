@@ -44,7 +44,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
 
 ## Use metadata to filter answer
 
-In a previous quickstart, metadata was added to two QnA sets to distinguish between two different questions. Add the metadata to the query to restrict the filter to just the relevant QnA set.
+In a previous quickstart, metadata was added to two QnA pairs to distinguish between two different questions. Add the metadata to the query to restrict the filter to just the relevant QnA pair.
 
 1. In Postman, change only the query JSON by adding the `strictFilters` property with the name/value pair of `service:qna_maker`. The body JSON should be:
 
@@ -74,7 +74,7 @@ In a previous quickstart, metadata was added to two QnA sets to distinguish betw
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
                 "score": 68.76,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",

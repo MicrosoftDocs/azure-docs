@@ -9,8 +9,8 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/6/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
@@ -22,14 +22,12 @@ If you're new to the Azure AD Application Proxy and want to learn more, see [How
 
 This article shows you how to create and configure an Azure AD Application Proxy connector to provide secure access to applications in an Azure AD DS managed domain.
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
-
 ## Before you begin
 
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
     * An **Azure AD Premium license** is required to use the Azure AD Application Proxy.
@@ -70,7 +68,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
         > [!NOTE]
         > The global administrator account used to register the connector must belong to the same directory where you enable the Application Proxy service.
         >
-        > For example, if the Azure AD domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
+        > For example, if the Azure AD domain is *aaddscontoso.com*, the global administrator should be `admin@aaddscontoso.com` or another valid alias on that domain.
 
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
    * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -95,16 +93,16 @@ For more information, see [Configure Kerberos constrained delegation (KCD) in Az
 
 Use the [Get-ADComputer][Get-ADComputer] to retrieve the settings for the computer on which the Azure AD Application Proxy connector is installed. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets.
 
-The following example gets information about the computer account named *appproxy.contoso.com*. Provide your own computer name for the Azure AD Application Proxy VM configured in the previous steps.
+The following example gets information about the computer account named *appproxy.aaddscontoso.com*. Provide your own computer name for the Azure AD Application Proxy VM configured in the previous steps.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-For each application server that runs the apps behind Azure AD Application Proxy use the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet to configure resource-based KCD. In the following example, the Azure AD Application Proxy connector is granted permissions to use the *appserver.contoso.com* computer:
+For each application server that runs the apps behind Azure AD Application Proxy use the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet to configure resource-based KCD. In the following example, the Azure AD Application Proxy connector is granted permissions to use the *appserver.aaddscontoso.com* computer:
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 If you deploy multiple Azure AD Application Proxy connectors, you must configure resource-based KCD for each connector instance.

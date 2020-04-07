@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Create an Azure VM cluster with Terraform and HCL
-description: Use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
+description: In this tutorial, you use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
+keywords: azure devops terraform vm virtual machine cluster
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create an Azure VM cluster with Terraform and HCL
@@ -23,11 +24,11 @@ You'll learn how to do the following tasks:
 ## 1. Set up Azure authentication
 
 > [!NOTE]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
+> If you [use Terraform environment variables](terraform-install-configure.md), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
 In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 
-1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
+1. [Set up an Azure AD service principal](terraform-install-configure.md#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
 
 2. Open a command prompt.
 
@@ -44,6 +45,8 @@ In this section, you generate an Azure service principal, and two Terraform conf
    variable client_secret {}
   
    provider "azurerm" {
+      version = "~>1.40"
+     
       subscription_id = var.subscription_id
       tenant_id = var.tenant_id
       client_id = var.client_id
@@ -124,7 +127,6 @@ In this section, you create a file that contains resource definitions for your i
       name                          = "testConfiguration"
       subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 

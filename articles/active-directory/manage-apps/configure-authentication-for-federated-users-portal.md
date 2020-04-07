@@ -95,9 +95,7 @@ Policies only take effect for a specific application when they are attached to a
 
 Only one HRD policy can be active on a service principal at any one time.  
 
-You can use either the Microsoft Azure Active Directory Graph API directly, or the Azure Active Directory PowerShell cmdlets to create and manage HRD policy.
-
-The Graph API that manipulates policy is described in the [Operations on policy](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) article on MSDN.
+You can use the Azure Active Directory PowerShell cmdlets to create and manage HRD policy.
 
 Following is an example HRD policy definition:
     
@@ -204,7 +202,7 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 #### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. 
+You can use the portal, or you can query [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. 
 
 Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
@@ -255,7 +253,7 @@ Use the previous example to get the **ObjectID** of the policy, and that of the 
 #### Step 2: Remove the policy assignment from the application service principal  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### Step 3: Check removal by listing the service principals to which the policy is assigned 
@@ -266,4 +264,4 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ## Next steps
 - For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-scenarios.md).
 - For more information about user single sign-on, see [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
-- Visit the [Active Directory developer's guide](../develop/v1-overview.md) for an overview of all developer-related content.
+- Visit the [Microsoft identity platform](../develop/v2-overview.md) for an overview of all developer-related content.

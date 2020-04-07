@@ -1,5 +1,6 @@
 ---
 title: "Azure Cloud Services Def. NetworkTrafficRules Schema | Microsoft Docs"
+description: Learn about NetworkTrafficRules, which limits the roles that can access the internal endpoints of a role. It combines with roles in a service definition file.
 ms.custom: ""
 ms.date: "04/14/2015"
 services: cloud-services

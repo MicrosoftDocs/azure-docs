@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Create an Application Gateway ingress controller in Azure Kubernetes Service
-description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
+description: In this tutorial, you create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
+keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service
@@ -24,7 +25,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
 - **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
 
@@ -72,7 +73,10 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.18"
+      # The "feature" block is required for AzureRM provider 2.x. 
+      # If you are using version 1.x, the "features" block is not allowed.
+      version = "~>2.0"
+      features {}
     }
 
     terraform {
@@ -437,11 +441,10 @@ Create Terraform configuration file that creates all the resources.
         }
       }
 
-      agent_pool_profile {
+      default_node_pool {
         name            = "agentpool"
-        count           = var.aks_agent_count
+        node_count      = var.aks_agent_count
         vm_size         = var.aks_agent_vm_size
-        os_type         = "Linux"
         os_disk_size_gb = var.aks_agent_os_disk_size
         vnet_subnet_id  = data.azurerm_subnet.kubesubnet.id
       }
@@ -760,7 +763,7 @@ When no longer needed, delete the resources created in this article.
 
 Replace the placeholder with the appropriate value. All resources within the specified resource group will be deleted.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 
