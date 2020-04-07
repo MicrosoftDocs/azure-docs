@@ -195,6 +195,8 @@ static async Task TranslateSpeechAsync()
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
     toLanguages.ForEach(translationConfig.AddTargetLanguage);
 
+    // TODO:
+
     using var recognizer = new TranslationRecognizer(translationConfig);
 
     Console.WriteLine($"Say something in '{fromLanguage}' that will be translated to '{string.Join(", ", toLanguages)}'.");
