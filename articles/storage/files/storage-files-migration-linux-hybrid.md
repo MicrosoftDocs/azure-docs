@@ -44,7 +44,7 @@ If you're not running Samba on your Linux server and rather want to migrate fold
 
 The resource configuration (compute and RAM) of the Windows Server instance that you deploy depends mostly on the number of items (files and folders) you'll be syncing. We recommend going with a higher-performance configuration if you have any concerns.
 
-[Learn how to size a Windows Server instance based on the number of items (files and folders) you need to sync](storage-sync-files-planning.md#recommended-system-resources).
+[Learn how to size a Windows Server instance based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > The previously linked article presents a table with a range for server memory (RAM). You can orient toward the smaller number for your server, but expect that initial sync can take significantly more time.
@@ -116,7 +116,7 @@ Background:
       /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
-      Outputs status to a log file as Unicode (overwrites existing log).
+      Outputs status to a log file as Unicode (overwrites the existing log).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -156,7 +156,7 @@ Background:
       /COPYALL
    :::column-end:::
    :::column span="1":::
-      COPY ALL file info (equivalent to /COPY:DATSOU)
+      COPY ALL file info (equivalent to /COPY:DATSOU).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -170,7 +170,7 @@ Background:
 
 ## Phase 8: User cut-over
 
-When you run the Robocopy command for the first time, your users and applications are still accessing files on the Linux Samba server and potentially changing them. It's possible that Robocopy has processed a directory and moves on to the next, and then a user in the source location (Linux) adds, changes, or deletes a file that will now not be processed in this current Robocopy run. This behavior is expected.
+When you run the Robocopy command for the first time, your users and applications are still accessing files on the Linux Samba server and potentially changing them. It's possible that Robocopy has processed a directory and moves on to the next, and then a user in the source location (Linux) adds, changes, or deletes a file that now won't be processed in this current Robocopy run. This behavior is expected.
 
 The first run is about moving the bulk of the data to your Windows Server instance and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 

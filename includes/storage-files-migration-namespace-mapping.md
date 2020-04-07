@@ -31,7 +31,7 @@ Syncing the root of the volume isn't always the best answer. There are benefits 
 
 #### A structured approach to a deployment map
 
-Before you deploy cloud storage in a subsequent step, it's important to create a map between on-premises folders and Azure file shares. This mapping will then inform how many and which Azure File Sync *sync group* resources you'll provision. A sync group ties the Azure file share and the folder on your server together and establishes a sync connection.
+Before you deploy cloud storage in a later step, it's important to create a map between on-premises folders and Azure file shares. This mapping will then inform how many and which Azure File Sync *sync group* resources you'll provision. A sync group ties the Azure file share and the folder on your server together and establishes a sync connection.
 
 To make the decision about how many Azure file shares you need, review the following limits and best practices. Doing so will help you optimize your map.
 
@@ -53,7 +53,7 @@ Another important aspect of Azure File Sync and a balanced performance and exper
 > [!IMPORTANT]
 > The most important scale vector for Azure File Sync is the number of items (files and folders) that need to be synchronized.
 
-Azure File Sync supports syncing up to 100,000 items to a single Azure file share. This limit can be exceeded and only depicts what the Azure File Sync team tests on a regular basis.
+Azure File Sync supports syncing up to 100,000 items to a single Azure file share. This limit can be exceeded and only shows what the Azure File Sync team tests on a regular basis.
 
 It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares.
 
