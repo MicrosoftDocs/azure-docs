@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
-description: Microsoft Azure Multi-Factor Authentication deployment planning
+title: Deployment considerations for Azure Multi-Factor Authentication
+description: Learn about deployment considerations and strategy for successful implementation of Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,11 +15,18 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Planning a cloud-based Azure Multi-Factor Authentication deployment
+# Plan an Azure Multi-Factor Authentication deployment
 
 People are connecting to organizational resources in increasingly complicated scenarios. People connect from organization-owned, personal, and public devices on and off the corporate network using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. Passwords, no matter their complexity, used across devices, networks, and platforms are no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts. Sophisticated phishing and other social engineering attacks can result in usernames and passwords being posted and sold across the dark web.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) helps safeguard access to data and applications. It provides an additional layer of security using a second form of authentication. Organizations can use [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
+
+This deployment guide shows you how to plan and then test an Azure Multi-Factor Authentication roll-out.
+
+To quickly see Azure Multi-Factor Authentication in action and then come back to understand additional deployment considerations:
+
+> [!div class="nextstepaction"]
+> [Enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
 ## Prerequisites
 
@@ -170,7 +177,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 If your users were enabled using per-user enabled and enforced Azure Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
-Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -314,7 +321,7 @@ On each AD FS server, in the local computer My Store, there will be a self-signe
 
 If the validity period of your certificates is nearing expiration, [generate and verify a new MFA certificate on each AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for 2 years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
+The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for two years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
 
 ## Implement your plan
 
@@ -354,6 +361,7 @@ Find solutions for common issues with Azure MFA at the [Troubleshooting Azure Mu
 
 ## Next steps
 
-* [What are authentication methods?](concept-authentication-methods.md)
-* [Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
-* Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+To see Azure Multi-Factor Authentication in action, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
