@@ -81,7 +81,7 @@
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
         href: amazon-web-service-tutorial.md
-      - name: Amazon Web Services (AWS) to connect multiple accounts
+      - name: Amazon Web Services (AWS) (Legacy Tutorial)
         href: aws-multi-accounts-tutorial.md
       - name: AMMS
         href: amms-tutorial.md
