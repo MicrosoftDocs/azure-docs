@@ -27,7 +27,7 @@ This feature is helpful in scenarios in which Azure Service Bus should be only a
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 ## Use Azure portal
-This section shows you how to use the Azure portal to create IP firewall rules for an Service Bus namespace. 
+This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 
 
 1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
 2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
