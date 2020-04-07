@@ -13,7 +13,7 @@ ms.date: 04/07/2020
 # Create a new Managed Service offer
 
 > [!IMPORTANT]
-> We're moving the management of your managed services offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a managed service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md#create-your-offer) to manage your offers.
+> We're moving the management of your managed services offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a managed service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers.
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
