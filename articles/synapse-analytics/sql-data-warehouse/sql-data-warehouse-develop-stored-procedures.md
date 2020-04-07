@@ -14,6 +14,7 @@ ms.custom: seo-lt-2019
 ---
 
 # Using stored procedures in Synapse SQL pool
+
 This article provides tips for developing SQL pool solutions by implementing stored procedures.
 
 ## What to expect
@@ -22,20 +23,21 @@ SQL pool supports many of the T-SQL features that are used in SQL Server. More i
 
 Also, to help you maintain the scale and performance of SQL pool, there are additional features and functionalities that have behavioral differences.
 
-
 ## Introducing stored procedures
+
 Stored procedures are a great way for encapsulating your SQL code, which is stored close to your SQL pool data. Stored procedures also help developers modularize their solutions by encapsulating the code into manageable units, thus facilitating greater code reusability. Each stored procedure can also accept parameters to make them even more flexible.
 
-SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure isn't pre-compiled code. 
+SQL pool provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure isn't pre-compiled code.
 
-In general, for data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It's more important to ensure the stored procedure code is correctly optimized for large queries. 
+In general, for data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It's more important to ensure the stored procedure code is correctly optimized for large queries.
 
 > [!TIP]
-> The goal is to save hours, minutes, and seconds, not milliseconds. So, it's helpful to think of stored procedures as containers for SQL logic.     
+> The goal is to save hours, minutes, and seconds, not milliseconds. So, it's helpful to think of stored procedures as containers for SQL logic.
 
 When SQL pool executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
 
 ## Nesting stored procedures
+
 When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
 
 SQL pool supports a maximum of eight nesting levels. In contrast, the nest level in SQL Server is 32.
@@ -45,6 +47,7 @@ The top-level stored procedure call equates to nest level 1.
 ```sql
 EXEC prc_nesting
 ```
+
 If the stored procedure also makes another EXEC call, the nest level increases to two.
 
 ```sql
@@ -54,6 +57,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
+
 If the second procedure then executes some dynamic SQL, the nest level increases to three.
 
 ```sql
@@ -64,12 +68,14 @@ GO
 EXEC prc_nesting
 ```
 
-SQL pool doesn't currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). As such, you need to track the nest level. It's unlikely that you'll exceed the eight nest level limit. But, if you do, you need to rework your code to fit the nesting levels within this limit.
+SQL pool doesn't currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). As such, you need to track the nest level. It's unlikely that you'll exceed the eight nest level limit. But, if you do, you need to rework your code to fit the nesting levels within this limit.
 
 ## INSERT..EXECUTE
-SQL pool doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There is, however, an alternative approach you can use. For an example, see the article on [temporary tables](sql-data-warehouse-tables-temporary.md). 
+
+SQL pool doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There is, however, an alternative approach you can use. For an example, see the article on [temporary tables](sql-data-warehouse-tables-temporary.md).
 
 ## Limitations
+
 There are some aspects of Transact-SQL stored procedures that aren't implemented in SQL pool, which are as follows:
 
 * temporary stored procedures
@@ -85,5 +91,5 @@ There are some aspects of Transact-SQL stored procedures that aren't implemented
 * return statement
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

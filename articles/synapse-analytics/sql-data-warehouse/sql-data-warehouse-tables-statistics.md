@@ -19,17 +19,17 @@ In this article, you'll find recommendations and examples for creating and updat
 
 ## Why use statistics
 
-The more SQL pool knows about your data, the faster it can execute queries against it. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries. 
+The more SQL pool knows about your data, the faster it can execute queries against it. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries.
 
-The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ## Automatic creation of statistic
 
-When the database AUTO_CREATE_STATISTICS option is on, SQL pool analyzes incoming user queries for missing statistics. 
+When the database AUTO_CREATE_STATISTICS option is on, SQL pool analyzes incoming user queries for missing statistics.
 
-If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. 
+If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 > [!NOTE]
 > Automatic creation of statistics is currently turned on by default.
@@ -60,14 +60,14 @@ These statements will trigger automatic creation of statistics:
 > [!NOTE]
 > Automatic creation of statistics are not created on temporary or external tables.
 
-Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table. 
+Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table.
 
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
+> The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) under a different user context.
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
+When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -77,9 +77,9 @@ The table_name is the name of the table that contains the statistics to display.
 
 ## Update statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
-Statistics on a country/region column in a customer table might never need to be updated since the distribution of values doesn't generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+Statistics on a country/region column in a customer table might never need to be updated since the distribution of values doesn't generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
 However, if your SQL pool only contains one country/region, and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
@@ -92,12 +92,12 @@ The following are recommendations updating statistics:
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
-This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. 
+This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data.
 
 > [!TIP]
 > When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics.
 
-There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. 
+There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture.
 
 You can use the following query to determine the last time your statistics were updated on each table.
 
@@ -131,29 +131,29 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a SQL pool, for example, usually need frequent statistics updates. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
+**Date columns** in a SQL pool, for example, usually need frequent statistics updates. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
-Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
 If your SQL pool contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
-For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
+For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Implementing statistics management
 
-It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. 
+It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load.
 
 The data load is when tables most frequently change their size and/or their distribution of values. Data-loading is a logical place to implement some management processes.
 
 The following guiding principles are provided for updating your statistics during the load process:
 
-* Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
-* Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
-* Consider updating static distribution columns less frequently.
-* Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
+- Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
+- Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+- Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+- Consider updating static distribution columns less frequently.
+- Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
-For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
+For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Examples: Create statistics
 
@@ -222,7 +222,7 @@ You can also combine the options together. The following example creates a filte
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
+For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### Create multi-column statistics
 
@@ -371,7 +371,6 @@ To create sampled statistics on all columns in the table, enter 3, and the sampl
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-
 ## Examples: Update statistics
 
 To update statistics, you can:
@@ -416,7 +415,7 @@ The UPDATE STATISTICS statement is easy to use. Just remember that it updates *a
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
-For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
+For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Statistics metadata
 
@@ -428,13 +427,13 @@ These system views provide information about statistics:
 
 | Catalog view | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |One row for each column. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each object in the database. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each schema in the database. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |One row for each statistics object. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |One row for each table (includes external tables). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |One row for each data type. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each column. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each object in the database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each schema in the database. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each statistics object. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each table (includes external tables). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each data type. |
 
 ### System functions for statistics
 
@@ -442,8 +441,8 @@ These system functions are useful for working with statistics:
 
 | System function | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Date the statistics object was last updated. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
 ### Combine statistics columns and functions into one view
 
@@ -493,7 +492,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. 
+The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation.
 
 > [!NOTE]
 > SQL pool computes cardinality estimates with any of the data in the statistics object.

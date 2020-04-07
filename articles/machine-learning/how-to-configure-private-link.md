@@ -201,25 +201,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -520,25 +504,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -762,25 +730,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -1039,25 +991,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
