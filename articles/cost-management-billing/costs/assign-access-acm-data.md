@@ -3,7 +3,7 @@ title: Assign access to Azure Cost Management data
 description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -16,9 +16,9 @@ For users with Azure Enterprise agreements, a combination of permissions granted
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't access a parent scope that child scopes roll up to.
 
-Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
+Watch the [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) video to learn about assigning access to view costs and charges with Azure role-based access control.
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## Cost Management scopes
 
