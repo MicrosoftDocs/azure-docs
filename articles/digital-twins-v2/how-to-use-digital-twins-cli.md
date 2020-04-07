@@ -17,7 +17,13 @@ ms.service: digital-twins
 
 # Azure Digital Twins CLI
 
-Azure Digital Twins has a CLI that you can use to perform most major actions with the service. This guide provides the CLI commands and other information that you need to use this tool.
+Azure Digital Twins has a CLI that you can use to perform most major actions with the service, including:
+* Managing an Azure Digital Twins instance
+* Configuring endpoints
+* Configuring role-based access control (RBAC)
+* Managing routes
+
+This guide provides the CLI commands for these tasks, and other information that you need to use this tool.
 
 ## Getting started
 
