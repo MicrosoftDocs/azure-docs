@@ -1,17 +1,17 @@
 ---
-title: Create a new Dynamics 365 Business Central offer in the Commercial Marketplace 
-description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
+title: Create a new Dynamics 365 Business Central offer in Microsoft commercial marketplace 
+description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal on Microsoft Partner Center. 
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/07/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
 
-This topic explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
+This article explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
 To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected.
 
@@ -159,23 +159,23 @@ You can optionally enter up to three search keywords to help customers find your
 
 If you want to let customers know that your app works with specific products, enter up to three product names here.
 
-### Support URLs
+### Help/Privacy URLs
 
 This section lets you provide links to help customers understand more about your offer.
 
 #### Help link
 
-Enter the URL where customers can learn more about your offer.
+Enter the URL where customers can learn more about your offer. Your **Help link** cannot be the same as your **Support URL** (explained below).
 
-#### Privacy policy URL
+#### Privacy policy link
 
 Enter the URL to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-### Contacts
+### Contact Information
 
 In this section, you must provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This info is not shown to customers, but will be available to Microsoft, and may be provided to CSP partners.
 
-In the **Support contact** section, you must also provide the **Support URL** where CSP partners can find support for your offer.
+In the **Support contact** section, you must also provide the **Support URL** where CSP partners can find support for your offer. Your Support URL cannot be the same as your **Help link**.
 
 ### Supporting documents
 
@@ -183,15 +183,7 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 ### Marketplace images
 
-In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
-
-#### Store logos
-
-Provide your offer's logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
-
-#### Hero
-
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
+In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format. Upload your offer logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
 
 #### Screenshots
 
