@@ -37,7 +37,7 @@ Exclusion paths can be configured by selecting **Configuration** > **General Set
 
 ## Access client certificate
 
-In App Service, SSL termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 

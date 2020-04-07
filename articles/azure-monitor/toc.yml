@@ -220,6 +220,8 @@
         href: app/api-custom-events-metrics.md
       - name: Troubleshoot ASP.NET
         href: app/asp-net-troubleshoot-no-data.md
+      - name: Remove Application Insights 
+        href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
       - name: Azure VM and scale set
