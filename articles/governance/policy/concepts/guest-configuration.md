@@ -197,14 +197,6 @@ assignment are automatically included.
 Guest Configuration policies currently only support assigning the same Guest Assignment once per
 machine, even if the Policy assignment uses different parameters.
 
-## Built-in resource modules
-
-When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is
-included with the latest version of DSC resource modules. This module can be downloaded from the
-PowerShell Gallery by using the 'Manual Download' link from the module page
-[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). The '.nupkg'
-file format can be renamed to '.zip' to uncompress and review.
-
 ## Client log files
 
 The Guest Configuration extension writes log files to the following locations:
