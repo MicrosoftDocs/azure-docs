@@ -26,7 +26,9 @@ In this article, you learn how to build a model using automated ML with AmlCompu
 
 ## How does remote differ from local?
 
-The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train a model with automated ML. The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This functionality allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as AmlCompute. Then you configure the remote resource and submit your code there.
+More features are available when you use a remote compute target.  For more details, see [Local and remote compute targets](concept-automated-ml.md#local-remote).
+
+The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train a model with automated ML. The workflow when training locally also applies to  remote targets as well. To train remotely, you first create a remote compute target such as AmlCompute. Then you configure the remote resource and submit your code there.
 
 This article shows the extra steps needed to run an automated ML experiment on a remote AmlCompute target. The workspace object, `ws`, from the tutorial is used throughout the code here.
 

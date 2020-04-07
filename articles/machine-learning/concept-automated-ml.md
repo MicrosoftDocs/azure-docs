@@ -142,47 +142,40 @@ See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default e
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-## Local and remote compute targets
+## <a name="local-remote"></a>Local and remote compute targets
 
-With the Python SDK, you can train your models on either a local computer or a remote compute target.  More features are available when you use the remote compute.  If you have small data and want to get started quickly, training on your local computer is your best choice.  When you use a remote compute, such as Azure Managed compute clusters, factor in setup time:
-* Around 1 minute for each node in the cluster 
-* Around 1.5 minutes for each child-run environment setup
-
+With the Azure automated ML, you choose either a local computer or a remote compute target to train your models.  More features are available when you use the remote compute.  If you have small data and want to get started quickly, training on your local computer is your best choice.  When you use a remote compute, such as Azure Managed compute clusters, factor in setup time.  Setup time can be around 2 minutes per child run, plus additional minutes for the cluster infrastructure if they are not yet up and running.
 
 | | Best for | Pros (Advantages)  |Cons (Handicaps)  |
 |---------|---------|---------|---------|
-|Local compute target | Small data, getting started, quick demo     |  Infrastructure resources are directly available, no environment setup time  <br/>   |  Subset of features available for remote compute targets <br/> Cannot parallelize         |
-|[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute) | Larger data, production data, production training    |  Full set of features <br/> Scale out to multiple child runs <br/> Dynamic scalability of compute cluster based on demand        |    Start-up time for cluster nodes, start up for each child run    |
+|Local compute target | Small data, getting started, quick demos     |   No environment setup time, infrastructure resources are directly available  |  Subset of features<br/> Can't parallelize <br/>    Can't use large data <br/>  No DNN-based featurization <br/> Python SDK only |
+|Remote compute target| Larger data, production data, production training    |  Full set of features <br/> Parallelize child runs <br/>  Large data support <br/> DNN-based featurization <br/> Dynamic scalability of compute cluster on demand <br/>No-code experience also available in studio        |    Start up time for cluster nodes <br/> Start up time for each child run    |
 
+The following table shows a summary of features available on local and remote compute targets.  Some of these features are available only in an Enterprise workspace.
 
-Use either a **local or a remote target** to:
-* Create and run experiments in notebooks
-* Register and visualize experiment's info and metrics in UI
-* Forecasting support
-* Create ONNX models
-* Ensemble iterations
-* Use subsampling
-* Apply data guardrails
-* View model interpretability in notebooks
+|Feature  |Local  |Remote  |Requires Enterprise  |
+|---------|---------|---------|---------|
+|Create and run experiments in notebooks     |✓|✓|         |
+|Register and visualize experiment's info and metrics in UI     |  ✓       |   ✓      |         |
+|Forecasting     |    ✓     |    ✓     |     ✓    |
+|ONNX models     |✓|     ✓    |         |
+|Ensemble iterations     |     ✓    |     ✓  |         |
+|Subsampling     |    ✓     |    ✓     |         |
+|Data guardrails     |     ✓    |    ✓  |         |
+|Model interpretability (in notebooks)     |    ✓     |     ✓    |     ✓    |
+|Feature Sweeping (or advanced transformers)     |    ?     |     ?    |         |
+|Custom featurizers support     |       ?     |     ?      |         |
+|Feature engineering customization SDK     |   ?     |     ?     |    ✓     |
+|Many models training SDK     |     ?     |     ?      |         |
+|Prophet or ARIMA models for forecasting      |     |    ✓     |    ✓     |
+|Multiple runs/iterations in parallel     |     |    ✓     |    ✓     |
+|Cancel an iteration      |     |    ✓     |         |
+|Continue a run      |     |    ✓     |         |
+|Data streaming (Large data support, up to 100 GB)     |     |    ✓     |   ✓      |
+|DNN-based text featurization      |     |    ✓     |    ✓     |
+|Feature engineering customization UI     |     |    ✓     |         |
+|Create and run experiments in studio web experience  |   | ✓ | ✓ |
 
-Not sure where these go yet:
-* Prophet or ARIMA models for forecasting
-* Feature Sweeping (or advanced transformers)
-* Custom featurizers support
-* Feature engineering customization SDK
-* Many models training SDK
-
-Switch to a **remote target** to add more flexibility and features:
-
-* Multiple runs/iterations running in parallel  
-* Cancel an iteration
-* Continue a run 
-* Data streaming (Large data support, up to 100GB) 
-* DNN-based text featurization 
-* Feature engineering customization UI 
-
-@@Not sure this goes here...?
-You also use a remote compute target in the studio to build a [no-code automated machine learning](how-to-use-automated-ml-for-ml-models.md) and view [model intrpretability](@@Do we have an article that shows this?).
 
 ## Automated ML in Azure Machine Learning
 
@@ -249,7 +242,9 @@ Resume run| ✓|
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md) 
+
++ Learn how to use a [remote compute target](how-to-auto-train-remote.md)
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
