@@ -53,10 +53,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed dataset authentication issue in sovereign cloud
     + Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores
   + **azureml-interpret**
-    + add global scores to visualization if local importance values are sparse
-    + update azureml-interpret to interpret-community 0.9.*
-    + fixed issue with downloading explanation that had sparse evaluation data (did not allow reconstructing explanation due to ys present but no eval data, since sparse eval data currently can't be uploaded)
-    + added sparse automl e2e support
+    + Added global scores to visualization if local importance values are sparse
+    + Updated azureml-interpret to use interpret-community 0.9.*
+    + Fixed issue with downloading explanation that had sparse evaluation data
+    + Added support of sparse format of the explanation object in AutoML
   + **azureml-pipeline-core**
     + Support ComputeInstance as compute target in pipelines
   + **azureml-train-automl-client**
