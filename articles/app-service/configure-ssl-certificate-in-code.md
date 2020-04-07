@@ -1,5 +1,5 @@
 ---
-title: Use SSL certificate in code
+title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
 ms.date: 11/04/2019
@@ -8,13 +8,13 @@ ms.custom: seodec18
 
 ---
 
-# Use an SSL certificate in your code in Azure App Service
+# Use a TLS/SSL certificate in your code in Azure App Service
 
 In your application code, you can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
 
-This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. If your app is in **Free** or **Shared** tier, you can [include the certificate file in your app repository](#load-certificate-from-file).
+This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or above. If your app is in **Free** or **Shared** tier, you can [include the certificate file in your app repository](#load-certificate-from-file).
 
-When you let App Service manage your SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
+When you let App Service manage your TLS/SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load an SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
 
 ## Load certificate from file
 
@@ -129,7 +129,7 @@ If you need to load a certificate file that you upload manually, it's better to 
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above.
+> This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or above.
 
 The following C# example loads a public certificate from a relative path in your app:
 
@@ -144,11 +144,11 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load an SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
 
 ## More resources
 
-* [Secure a custom DNS name with an SSL binding](configure-ssl-bindings.md)
+* [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
