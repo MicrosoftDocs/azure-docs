@@ -42801,6 +42801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-use-automated-ml-for-ml-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
