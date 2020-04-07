@@ -111,7 +111,7 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-More details and sample code for working with datasets and pipeline data can be found in [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-and-out-of-pipelines.md).
+More details and sample code for working with datasets and pipeline data can be found in [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## Set up a compute target
 
@@ -355,7 +355,7 @@ The line `Run.get_context()` is worth highlighting. This function retrieves a `R
 ws = Run.get_context().experiment.workspace
 ```
 
-For more detail, including alternate ways to pass and access data, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-and-out-of-pipelines.md).
+For more detail, including alternate ways to pass and access data, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## Submit the pipeline
 
