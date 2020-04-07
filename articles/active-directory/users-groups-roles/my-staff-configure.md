@@ -35,7 +35,7 @@ Once you have configured AUs, you can apply this scope to your users who access 
 
 ## Using My Staff
 
-When a user goes to My Staff, they are shown the names of the administrative units over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
+When a user goes to My Staff, they are shown the names of the [administrative units](directory-administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
 
 ## Licenses
 
@@ -48,11 +48,11 @@ Each user who's enabled in My Staff must be licensed, even if they don't use the
 
 The following roles have permission to reset a user's password:
 
-- Authentication administrator
-- Privileged authentication administrator
-- Global administrator
-- Helpdesk administrator
-- User administrator
+- [Authentication administrator](directory-assign-admin-roles.md#authentication-acministrator)
+- [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-acministrator)
+- [Global administrator](directory-assign-admin-roles.md#global-acministrator)
+- [Helpdesk administrator](directory-assign-admin-roles.md#helpdesk-acministrator)
+- [User administrator](directory-assign-admin-roles.md#user-acministrator)
 
 From **My Staff**, open a user's profile. Select **Reset password**.
 
