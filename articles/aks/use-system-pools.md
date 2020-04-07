@@ -25,16 +25,18 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool, and every system node pool contains at least one node. User node pools may contain zero or more nodes. System node pools have the following restrictions:
+System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool. System node pools have the following restrictions:
 
-* System pools contain only Linux nodes, and user node pools may contain Linux or Windows nodes.
-* VM SKUs for Nodes in system node pools must be minimally sized to 2 vCPUs and 4 GB of RAM.
+* System pools osType must be Linux.
+* User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* You can't use spot node pools for system node pools.
+* System node pools require a VM SKU of at least 2 vCPUd and 4GB memory.
+* System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
+* Spot node pools require user node pools.
 
 You can perform the following operations with node pools:
 
-* Change a system node pool to be a user node pool.
+* Change a system node pool to be a user node pool, provided you have another system node pool to take its place in the AKS cluster.
 * Change a user node pool to be a system node pool.
 * Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
@@ -166,3 +168,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
