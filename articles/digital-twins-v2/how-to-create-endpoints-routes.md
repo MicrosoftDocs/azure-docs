@@ -154,9 +154,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 ## Manage endpoints and routes with CLI
 
-Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found here:
-* [Manage endpoints via CLI](how-to-use-digital-twins-cli.md#adt-endpoints-configuration)
-* [Manage routes via CLI](how-to-use-digital-twins-cli.md#adt-routes)
+Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [Use the Azure Digital Twins CLI](how-to-use-digital-twins-cli.md).
 
 ## Next steps
 

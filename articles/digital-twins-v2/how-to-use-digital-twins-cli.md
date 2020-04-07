@@ -21,14 +21,14 @@ Azure Digital Twins has a CLI that you can use to perform most major actions wit
 
 ## Getting started
 
-First, [install the **Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+First, [install the **Azure CLI**](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!NOTE]
 > You can also install this extension in cloud shell. During public preview, this is done by running `az extension add --name azure-iot`.
 
 Next, get the **Azure IoT CLI Extension** by following these steps:
 
-1. Download the [latest snapshot](../CLI/azure_iot-0.0.1.dev6-py2.py3-none-any.whl) of the Azure Digital Twins enabled IoT CLI extension (a .whl file)
+1. Download the [latest snapshot](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FCLI%2Fazure_iot-0.0.1.dev6-py2.py3-none-any.whl) of the Azure Digital Twins enabled IoT CLI extension (a .whl file)
 2. Install the extension
 
     * There should only be one azure-iot extension installed in your shell at a time. If you have previously installed an IoT CLI extension, you cannot have both, and must first remove the old installation.
