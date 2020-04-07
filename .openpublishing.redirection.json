@@ -15372,7 +15372,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/overview-what-happened-to-workbench.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": true
     },
     {
@@ -39669,11 +39669,6 @@
       "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
       "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/service/quickstart-installation.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
