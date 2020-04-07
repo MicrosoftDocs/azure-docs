@@ -237,4 +237,4 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL statements in SQL Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements), and [T-SQL language elements in SQL Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+For more reference information, see [T-SQL statements in SQL Analytics](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md), and [T-SQL language elements in SQL Analytics](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
