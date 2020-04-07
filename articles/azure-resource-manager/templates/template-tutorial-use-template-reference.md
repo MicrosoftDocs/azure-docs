@@ -64,6 +64,14 @@ To complete this article, you need:
 
     ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
+    The SKU name uses a parameter value.  The parameter is called **storageAccountType**.
+
+1. Expand **parameters** to see how **storageAccountType** is defined:
+
+    ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+    The parameter has four allowed values.
+
 ## Find the template reference
 
 1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
@@ -73,7 +81,9 @@ To complete this article, you need:
 
     A resource provider usually has several API versions:
 
-    ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
+    ![Resource Manager template storage account resources skus](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
+
+
 
 1. Select **All resources** under **Storage** from the left pane. This page lists the resource types and versions of the storage resource provider. It is recommended to use the latest API versions for the resource types defined in your template.
 
@@ -93,7 +103,15 @@ From Visual Studio Code, add the additional storage account types as shown in th
 
 ## Deploy the template
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.
+Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.  To pass the parameter value, add the following switches to the deployment command:
+
+```azurecli
+--parameters storageAccountType 'Premium_ZRS'
+```
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
 
 ## Clean up resources
 
