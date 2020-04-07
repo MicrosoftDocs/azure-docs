@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Key Vault documentation
-summary: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+title: Keys documentation
+summary: Azure Key Vault enables Microsoft Azure applications and users to store and use keys. It supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys.
 
 metadata:
-  title: Azure Key Vault documentation - keys 
-  description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  title: Keys 
+  description: Azure Key Vault enables Microsoft Azure applications and users to store and use keys. It supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys.
   services: key-vault
   ms.service: key-vault
   ms.subservice: keys

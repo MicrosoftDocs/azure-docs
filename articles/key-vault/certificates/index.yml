@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Key Vault documentation
-summary: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+title: Certificates
+summary: Azure Key Vault enables Microsoft Azure applications and users to store and use certificates, which are built on top of keys and secrets and add an automated renewal feature.
 
 metadata:
   title: Azure Key Vault documentation - Certificates 
-  description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  description: Azure Key Vault enables Microsoft Azure applications and users to store and use certificates, which are built on top of keys and secrets and add an automated renewal feature.
   services: key-vault
   ms.service: key-vault
   ms.subservice: certificates
