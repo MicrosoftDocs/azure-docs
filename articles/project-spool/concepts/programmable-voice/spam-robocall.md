@@ -12,19 +12,18 @@ ms.service: azure-project-spool
 
 ---
 
+
+# Spam and Robocall Detection
+
+TODO
+
+### meta
+
 -  Customer intent statements: 
    - I want to know when inbound calls are likely spam or robocalls.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
+  - What do we want to tell our users about Spam/Robocall protection?
 
-- TODOs:
-  - Draft initial content
 
-# Spam and Robocall Detection
+

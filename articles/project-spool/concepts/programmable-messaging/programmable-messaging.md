@@ -12,19 +12,45 @@ ms.service: azure-project-spool
 
 ---
 
+# Programmable Messaging
+
+Spool's SDKs and APIs help you build rich messaging experiences.
+
+You can use Spool to build real-time chat on top of the same technology that powers Skype and Teams chat.
+
+The flow supporting messaging looks like this:
+
+1. Provision a Spool API key
+2. TODO
+
+Our Programmable Messaging Quickstarts will help you get started:
+
+- Get Started With Programmable Messaging
+
+Our Programmable Messaging Tutorials will help you with more advanced scenarios:
+
+- How to build a real-time chat application
+- How to send SMS and MMS messages
+- How to implement two-factor authentication
+
+You may want to add voice and video to your applications as well. These resources will help you get started:
+
+- About Programmable Video
+- About Programmable Voice
+- How Voice, Video, and Messaging Relate
+- Get Started With Programmable Video
+- Get Started With Programmable Voice
+
+
+### Meta
+
 -  Customer intent statements: 
-   - I want to know how to send messages with Project Spool.
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
+   - I want to know how to think about "messaging" when I'm working with Spool.
 
 - Discussion:
-  - TODO
+  - How do we want to present the possible messaging workflows to our users?
+  - Is there anything missing?
+  - Is the first draft headed in the right direction?
+  - Are all of the above-referenced tutorials, quickstarts, and conceptual docs valid?
 
-- TODOs:
-  - Draft initial content
 
-# Programmable Messaging

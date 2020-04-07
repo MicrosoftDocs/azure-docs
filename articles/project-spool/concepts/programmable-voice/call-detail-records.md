@@ -12,19 +12,20 @@ ms.service: azure-project-spool
 
 ---
 
+# Call Detail Records
+
+TODO
+
+### meta
+
 -  Customer intent statements: 
    - I want to know how my provisioned phone numbers are being used.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
+  - Should this be grouped with Call Analytics under a "Call Metadata" page, or are these concepts different enough to justify individual pages?
+  - What do we want our customers to know about Call Detail Record?
+  - Should we refer to any samples, quickstarts, or other pages from this page?
 
-- TODOs:
-  - Draft initial content
 
-# Call Detail Records
+
+

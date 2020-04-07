@@ -12,20 +12,17 @@ ms.service: azure-project-spool
 
 ---
 
+# Call Analytics
+
+TODO
+
+### meta
+
 -  Customer intent statements: 
    - I want to know how my users would rate their call quality
    - I want to track disconnections / interruptions
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
+  - What do we want to tell users about call analytics?
 
-- TODOs:
-  - Draft initial content
 
-# Call Analytics

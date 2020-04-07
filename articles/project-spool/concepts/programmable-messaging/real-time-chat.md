@@ -12,19 +12,18 @@ ms.service: azure-project-spool
 
 ---
 
--  Customer intent statements: 
-   - I want to know what "Chat" means in the context of Spool
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
-- Discussion:
-  - TODO
-
-- TODOs:
-  - Draft initial content
 
 # Real-Time Chat
+
+TODO
+
+### meta
+
+-  Customer intent statements: 
+   - I want to know what "Real-Time Chat" means in the context of Spool
+
+- Discussion:
+  - Is this needed as a concept, or can it be tucked into Programmable Messaging?
+
+
+

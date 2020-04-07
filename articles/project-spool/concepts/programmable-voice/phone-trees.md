@@ -12,19 +12,16 @@ ms.service: azure-project-spool
 
 ---
 
+# Phone Trees
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
-   - TODO
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
+   - I would like to know what phone trees are and how I can use them.
 
 - Discussion:
-  - TODO
-  
-- TODOs:
-  - Draft initial content
-
-# WebRTC and Voice
+  - Is this a priority?
+  - What sample(s) do we want to refer our customers to?

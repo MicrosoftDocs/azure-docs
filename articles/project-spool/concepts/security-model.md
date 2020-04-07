@@ -12,23 +12,19 @@ ms.service: azure-project-spool
 ---
 
 
+# Security Model
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
    - I want to know what the overall security model of Spool looks like.
    - I'm worried that my customers have security concerns (see: zoom) and I don't know how to reassure them.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
-
-- TODOs:
-  - Draft initial content
-
-# Security Model
+  - What information can we provide to users who are concerned about security?
+  - What kinds of security-related patterns and practices should developers keep in mind?
 
 
-TODO

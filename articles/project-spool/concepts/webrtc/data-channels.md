@@ -12,19 +12,16 @@ ms.service: azure-project-spool
 
 ---
 
+# Data Channels
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
    - I want to know what Data Channels are.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Protocols
-
 - Discussion:
-  - TODO
+  - Is this page needed?
 
-- TODOs:
-  - Draft initial content
-
-# Data Channels

@@ -12,19 +12,14 @@ ms.service: azure-project-spool
 
 ---
 
+# SMS and MMS
+
+TODO
+
+### meta
+
 -  Customer intent statements: 
-   - I want to know what "Chat" means in the context of Spool
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
+   - I want to know how to think about SMS and MMS in the context of Spool
 
 - Discussion:
-  - TODO
-
-- TODOs:
-  - Draft initial content
-
-# SMS and MMS
+  - Is this page needed, or can it be tucked into programmable messaging?

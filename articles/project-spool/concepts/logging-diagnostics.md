@@ -12,19 +12,18 @@ ms.service: azure-project-spool
 
 ---
 
+# Logging and Diagnostics
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
    - I want to know what logging and diagnostics tools Spool offers.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
+  - What do we want our customers to know about logging and diagnostics?
 
-- TODOs:
-  - Draft initial content
 
-# Logging and Diagnostics
+

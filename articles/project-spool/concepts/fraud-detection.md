@@ -12,20 +12,16 @@ ms.service: azure-project-spool
 
 ---
 
+# Fraud Detection
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
    - I want to know that my Spool billing is protected
    - I want to know why my payment method has been put on hold
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
-
-- TODOs:
-  - Draft initial content
-
-# Fraud Detection
+  - What do we want our customers to know about fraud detection?

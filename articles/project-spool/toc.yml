@@ -19,6 +19,17 @@
   items:
   - name: About Project Spool
     href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Get Started With Project Spool
+    href: quickstarts/get-started.md
+  - name: Get Started With Programmable Voice
+    href: quickstarts/get-started-with-programmable-voice.md
+  - name: Get Started With Programmable Video
+    href: quickstarts/get-started-with-programmable-video.md
+  - name: Get Started With Programmable Messaging
+    href: quickstarts/get-started-with-programmable-messaging.md
 - name: Tutorials
   expanded: true
   items:
@@ -45,16 +56,12 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Conceptual Overview
-    href: concepts/conceptual-overview.md
   - name: Programmable Voice
     items:
       - name: About Programmable Voice
         href: concepts/programmable-voice/programmable-voice.md
       - name: Phone Numbers
         href: concepts/programmable-voice/phone-numbers.md
-      - name: WebRTC and Voice
-        href: concepts/programmable-voice/webrtc-voice.md
       - name: SIP, VOIP, and PSTN
         href: concepts/programmable-voice/sip-voip-pstn.md
       - name: Phone Trees
@@ -69,8 +76,6 @@
     items: 
       - name: About Programmable Video
         href: concepts/programmable-video/programmable-video.md
-      - name: WebRTC and Video
-        href: concepts/programmable-video/webrtc-video.md
   - name: Programmable Messaging
     items: 
       - name: About Programmable Messaging
@@ -89,10 +94,12 @@
         href: concepts/webrtc/data-channels.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
+  - name: How Voice, Video, and Messaging Relate
+    href: concepts/voice-video-messaging.md
   - name: Signaling
     href: concepts/signaling.md
-  - name: Rooms
-    href: concepts/rooms.md
+  - name: Spaces
+    href: concepts/spaces.md
   - name: Media and Media Devices
     href: concepts/media-devices.md
   - name: SDK Options
