@@ -100,11 +100,13 @@ Jump to a resource provider namespace:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
@@ -140,7 +142,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityDetonation](#microsoftsecuritydetonation)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
@@ -1235,6 +1236,13 @@ Jump to a resource provider namespace:
 > | vaults / eventGridFilters | No |
 > | vaults / secrets | No |
 
+## Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | connectedClusters | Yes |
+
 ## Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
@@ -1287,6 +1295,16 @@ Jump to a resource provider namespace:
 > | workspaces | Yes |
 > | workspaces / computes | No |
 > | workspaces / eventGridFilters | No |
+
+## Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | applyUpdates | No |
+> | configurationAssignments | No |
+> | maintenanceConfigurations | Yes |
+> | updates | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -1763,13 +1781,6 @@ Jump to a resource provider namespace:
 > | tasks | No |
 > | topologies | No |
 > | workspaceSettings | No |
-
-## Microsoft.SecurityDetonation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | chambers | Yes |
 
 ## Microsoft.SecurityGraph
 

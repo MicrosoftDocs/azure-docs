@@ -95,11 +95,13 @@ Jump to a resource provider namespace:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
@@ -135,7 +137,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityDetonation](#microsoftsecuritydetonation)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
@@ -1230,6 +1231,13 @@ Jump to a resource provider namespace:
 > | vaults / eventGridFilters | No | No |
 > | vaults / secrets | No | No |
 
+## Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | connectedClusters | Yes | Yes |
+
 ## Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
@@ -1282,6 +1290,16 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 > | workspaces / computes | No | No |
 > | workspaces / eventGridFilters | No | No |
+
+## Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | applyUpdates | No | No |
+> | configurationAssignments | No | No |
+> | maintenanceConfigurations | Yes | Yes |
+> | updates | No | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -1765,13 +1783,6 @@ Jump to a resource provider namespace:
 > | tasks | No | No |
 > | topologies | No | No |
 > | workspaceSettings | No | No |
-
-## Microsoft.SecurityDetonation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | chambers | Yes | Yes |
 
 ## Microsoft.SecurityGraph
 
