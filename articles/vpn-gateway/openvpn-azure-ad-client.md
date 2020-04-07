@@ -236,10 +236,6 @@ azurevpn -i azurevpnconfig.xml
 ```
 to force the import use the **-f** switch as well
 
-```
-azurevpn -i azurevpnconfig.xml -f
-```
-
 
 ## Next steps
 
