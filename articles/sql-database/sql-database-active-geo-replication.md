@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
+ms.date: 04/06/2020
 ---
 
 # Creating and using active geo-replication
@@ -96,7 +96,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **User-controlled failover and failback**
 
-  A secondary database can explicitly be switched to the primary role at any time by the application or the user. During a real outage the “unplanned” option should be used, which immediately promotes a secondary to be the primary. When the failed primary recovers and is available again, the system automatically marks the recovered primary as a secondary and bring it up-to-date with the new primary. Due to the asynchronous nature of replication, a small amount of data can be lost during unplanned failovers if a primary fails before it replicates the most recent changes to the secondary. When a primary with multiple secondaries fails over, the system automatically reconfigures the replication relationships and links the remaining secondaries to the newly promoted primary without requiring any user intervention. After the outage that caused the failover is mitigated, it may be desirable to return the application to the primary region. To do that, the failover command should be invoked with the “planned” option.
+  A secondary database can explicitly be switched to the primary role at any time by the application or the user. During a real outage the "unplanned" option should be used, which immediately promotes a secondary to be the primary. When the failed primary recovers and is available again, the system automatically marks the recovered primary as a secondary and bring it up-to-date with the new primary. Due to the asynchronous nature of replication, a small amount of data can be lost during unplanned failovers if a primary fails before it replicates the most recent changes to the secondary. When a primary with multiple secondaries fails over, the system automatically reconfigures the replication relationships and links the remaining secondaries to the newly promoted primary without requiring any user intervention. After the outage that caused the failover is mitigated, it may be desirable to return the application to the primary region. To do that, the failover command should be invoked with the "planned" option.
 
 ## Preparing secondary database for failover
 
@@ -108,14 +108,19 @@ To ensure that your application can immediately access the new primary after fai
 
 ## Configuring secondary database
 
-Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload,  a secondary with lower compute size may not be able to keep up with it. It will cause the redo lag on the secondary and potential unavailability. A secondary database that is lagging behind the primary also risks a large data loss should a forced failover be required. To mitigate these risks, effective active geo-replication will throttle the primary's log rate to allow its secondaries to catch up. The other consequence of an imbalanced secondary configuration is that after failover the application’s performance will suffer due to insufficient compute capacity of the new primary. It will be required to upgrade to a higher compute to the necessary level, which will not be possible until the outage is mitigated. 
+Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. A secondary database that is lagging behind the primary also risks a large data loss, should a forced failover be required. To mitigate these risks, active geo-replication will throttle the primary's log rate if necessary to allow its secondaries to catch up. 
 
+The other consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](sql-database-high-availability.md) failover at the end of the scale up process.
 
 > [!IMPORTANT]
-> The published RPO = 5 sec cannot be guaranteed unless the secondary database is configured with the same compute size as the primary. 
+> The published 5 sec RPO SLA cannot be guaranteed unless the secondary database is configured with the same or higher compute size as the primary. 
 
+If you decide to create the secondary with lower compute size, the log IO percentage chart in Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your primary database is P6 (1000 DTU) and its log write percent is 50%, the secondary needs to be at least P4 (500 DTU). To retrieve historical log IO data, use the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view. To retrieve recent log write data with higher granularity that better reflects short-term spikes in log rate, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view. 
 
-If you decide to create the secondary with lower compute size, the log IO percentage chart on Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your Primary database is P6 (1000 DTU) and its log IO percent is 50% the secondary needs to be at least P4 (500 DTU). You can also retrieve the log IO data using [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) or [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) database views.  The throttling is reported as a HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait state in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views. 
+Transaction log rate throttling on the primary due to lower compute size on a secondary is reported using the HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait type, visible in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views. 
+
+> [!NOTE]
+> Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](sql-database-purchase-models.md).
 
