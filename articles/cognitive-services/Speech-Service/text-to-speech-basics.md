@@ -35,7 +35,7 @@ In this article, you learn common design patterns for doing text-to-speech synth
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java Basics include]()]
+[!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

@@ -113,6 +113,8 @@
       items:
         - name: What is text-to-speech?
           href: text-to-speech.md
+        - name: Text-to-speech basics
+          href: text-to-speech-basics.md
     - name: Quickstart
       items:
         - name: Synthesize speech to a speaker
