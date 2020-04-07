@@ -100,10 +100,11 @@ These code snippets show you how to do the following tasks with the Text Analyti
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
 
 ```python
-from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiKeyCredential
+from azure.ai.textanalytics import TextAnalyticsClient
+from azure.core.credentials import AzureKeyCredential
 
 def authenticate_client():
-    ta_credential = TextAnalyticsApiKeyCredential(key)
+    ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, credential=ta_credential)
     return text_analytics_client
@@ -132,7 +133,7 @@ Create a new function called `sentiment_analysis_example()` that takes the clien
 def sentiment_analysis_example(client):
 
     document = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(inputs=document)[0]
+    response = client.analyze_sentiment(documents = document)[0]
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
         response.confidence_scores.positive,
@@ -147,8 +148,7 @@ def sentiment_analysis_example(client):
             sentence.confidence_scores.neutral,
             sentence.confidence_scores.negative,
         ))
-
-            
+          
 sentiment_analysis_example(client)
 ```
 
@@ -156,7 +156,7 @@ sentiment_analysis_example(client)
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=1.00; neutral=0.00; negative=0.00
+Overall scores: positive=1.00; neutral=0.00; negative=0.00 
 
 [Length: 30]
 Sentence 1 sentiment: positive
@@ -203,7 +203,7 @@ Create a new function called `language_detection_example()` that takes the clien
 def language_detection_example(client):
     try:
         document = ["Ce document est rédigé en Français."]
-        response = client.detect_language(inputs = document, country_hint = 'us')[0]
+        response = client.detect_language(documents = document, country_hint = 'us')[0]
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -251,12 +251,12 @@ def entity_recognition_example(client):
 
     try:
         document = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(inputs= document)[0]
+        result = client.recognize_entities(documents = document)[0]
 
         print("Named Entities:\n")
         for entity in result.entities:
             print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.score, 2), "\n")
+                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -275,35 +275,6 @@ Named Entities:
     Length:          9      Confidence Score:        0.8
 ```
 
-## Using NER to detect personal information
-
-Create a new function called `entity_pii_example()` that takes the client as an argument, then calls the `recognize_pii_entities()` function and gets the result. Then iterate through the results and print the entities.
-
-```python
-def entity_pii_example(client):
-
-        document = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
-
-
-        result = client.recognize_pii_entities(inputs= document)[0]
-        
-        print("Personally Identifiable Information Entities: ")
-        for entity in result.entities:
-            print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
-        
-entity_pii_example(client)
-```
-
-### Output
-
-```console
-Personally Identifiable Information Entities:
-    Text:  123-12-1234      Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Length:  11     Score: 0.85
-```
-
-
 ## Entity Linking
 
 Create a new function called `entity_linking_example()` that takes the client as an argument, then calls the `recognize_linked_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
@@ -317,7 +288,7 @@ def entity_linking_example(client):
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""]
-        result = client.recognize_linked_entities(inputs= document)[0]
+        result = client.recognize_linked_entities(documents = document)[0]
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -326,7 +297,7 @@ def entity_linking_example(client):
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.2f}".format(match.score), "\tLength: {}\n".format(match.grapheme_length))
+                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score), "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -338,48 +309,47 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+    Name:  Altair 8800     Id:  Altair 8800     Url:  https://en.wikipedia.org/wiki/Altair_8800 
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.78     Length: 11
+        Confidence Score: 0.00     Length: 11
 
-    Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+    Name:  Bill Gates     Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
     Data Source:  Wikipedia
     Matches:
         Text: Bill Gates
-        Score: 0.55     Length: 10
+        Confidence Score: 0.00     Length: 10
 
         Text: Gates
-        Score: 0.55     Length: 5
+        Confidence Score: 0.00     Length: 5
 
-    Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+    Name:  Paul Allen     Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
     Data Source:  Wikipedia
     Matches:
         Text: Paul Allen
-        Score: 0.53     Length: 10
+        Confidence Score: 0.00     Length: 10
 
-    Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+    Name:  Microsoft     Id:  Microsoft     Url:  https://en.wikipedia.org/wiki/Microsoft 
     Data Source:  Wikipedia
     Matches:
         Text: Microsoft
-        Score: 0.47     Length: 9
+        Confidence Score: 0.00     Length: 9
 
         Text: Microsoft
-        Score: 0.47     Length: 9
+        Confidence Score: 0.00     Length: 9
 
-    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+    Name:  April 4     Id:  April 4     Url:  https://en.wikipedia.org/wiki/April_4 
     Data Source:  Wikipedia
     Matches:
         Text: April 4
-        Score: 0.25     Length: 7
+        Confidence Score: 0.00     Length: 7
 
-    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+    Name:  BASIC     Id:  BASIC     Url:  https://en.wikipedia.org/wiki/BASIC 
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.28     Length: 5
-
+        Confidence Score: 0.00     Length: 5
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -445,7 +415,7 @@ def key_phrase_extraction_example(client):
     try:
         document = ["My cat might need to see a veterinarian."]
 
-        response = client.extract_key_phrases(inputs= document)[0]
+        response = client.extract_key_phrases(documents = document)[0]
 
         if not response.is_error:
             print("\tKey Phrases:")
