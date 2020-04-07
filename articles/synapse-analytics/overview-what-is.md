@@ -15,18 +15,24 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Today enterprise analytics requires operating at massive scale on any kind of data--raw, refined, or highly curated. To build these kinds of analytics solutions, enterprises have needed to stitch together big data and data warehousing technologies such as Spark and SQL. Then integrate them into rich data pipelines that work across data in relational stores and data lakes.  Solutions like this are difficult to build, configure, secure, and maintain and delay enterprises from quickly getting the insights they need.
+Today enterprise analytics requires operating at massive scale on any kind of data, whether raw, refined, or highly curated. In the past, building these kinds of analytics solutions required enterprises to stitch together big data and data warehousing technologies such as Spark and SQL. Next, they'd need to integrate them into rich data pipelines that work across data in relational stores and data lakes.  
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** to orchestrate activities and data movement. Azure Synapse comes with a web-native **Studio** user experience that provides a single experience and model for management, monitoring, coding, and security.
+Solutions like this are difficult to build, configure, secure, and maintain, which delays the swift extraction of intelligent insight.
 
-Azure Synapse provides the simplest and fastest way for an enterprise to get insights on any data at any size, using the analytics they are most familiar with. It integrates deeply with **Power BI** allowing data engineers to build analytics solutions that work end-to-end to provide Business Intelligence. Azure Synapse lets enterprises build predictive analytics with machine learning via its built-in support for **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight from all data at any scale, across data warehouses and big data analytics systems​. It brings together the best of the **SQL** technologies used in enterprise data warehousing, **Spark** technologies used in big data analytics, and **Pipelines** to orchestrate activities and data movement. 
+
+Azure Synapse comes with a web-native **Studio** user experience that provides a single experience and model for management, monitoring, coding, and security.
+
+Azure Synapse provides the simplest and fastest way for an enterprise to gather insights on any data at any size, using the analytics they're most familiar with. It integrates deeply with **Power BI** allowing data engineers to build analytics solutions that work end-to-end to provide Business Intelligence. 
+
+Additionally, Azure Synapse facilitates predictive model building and advanced analytics with machine learning via its built-in support for **AzureML**.
 
 
 ## Key Features & Benefits
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system, enabling enterprises to implement data warehousing and data virtualization 
+* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
 scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to 
 address streaming and machine learning scenarios.
 
@@ -54,7 +60,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 ### Built-in Orchestration via Pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory allowing you to create rich data pipelines without using a separate orchestration engine.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
 
 * Move data between Synapse and 85+ on-premises data sources
 * Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
@@ -70,7 +76,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 ### Synapse Studio
 
-**Synapse Studio** is the web-native experience that ties it all together for data engineers, allowing them in one location to do every task they need to build a complete solution.
+**Synapse Studio** is the web-native experience that ties everything together for data engineers, allowing them in one location to do every task they need to build a complete solution.
 
 * Build an end-to-end analytics solution in one place: ingest, explore, prepare, orchestrate, visualize
 * Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
@@ -78,7 +84,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 ## Next steps
 
-* Explore [Azure Synapse architecture](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-* Quickly [create a SQL pool](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
-* [Load sample data](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-sample-databases)
+* Explore [Azure Synapse architecture](https://review.docs.microsoft.com/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+* Quickly [create a SQL pool](https://review.docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
+* [Load sample data](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-sample-databases)
 *  Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
