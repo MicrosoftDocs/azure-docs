@@ -28,14 +28,17 @@ This feature is available in the **Premium** container registry service tier. Fo
 * **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. In each account, create a blob container for image transfer. For example, create a container named *transfer*.
 * **Key vaults** Create key vaults to store secrets in the same Azure subscription or subscriptions as your source and target registries. If needed, create source and target key vaults with the [Azure CLI](../key-vault/quick-create-cli.md) or other tools.
 
+> [!NOTE]
+> The Azure CLI examples in this article use a `resourceGroup` environment variable for the resource group. Depending on your scenario, you may need separate resource groups for your source and target environments. All examples are formatted for the Bash shell.
+
 ## Scenario overview
 
 You create the following three resources for ACR Transfer. All are created using PUT operations. These resources operate on your *source* and *target* registries and storage accounts.
 
 * **ExportPipeline** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the source storage blob container URI and the key vault secret URI of the storage SAS token. 
 * **ImportPipeline** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the target storage blob container URI and the key vault secret URI of the storage SAS token. An import trigger is enabled by default, so the pipeline runs automatically when artifacts land in the target storage container. 
-* **PipelineRun** Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
-  You run the ExportPipeline manually by creating a PipelineRun resource. When you run the ExportPipeline, you specify the artifacts to be exported.  
+* **PipelineRun** - Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
+  You run the ExportPipeline manually by creating a PipelineRun resource and specify the artifacts to export.  
 
   If an import trigger is enabled, an ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
 
@@ -75,7 +78,7 @@ az keyvault secret set \
   --vault-name sourcekeyvault 
 ```
 
-In the command output, take note of the secret's URI (`id`). You use the URIs in the export pipelines. Example:
+In the command output, take note of the secret's URI (`id`). You use the URI in the export pipelines. Example:
 
 ```azurecli
 https://sourcekeyvault.vault-int.azure-int.net/secrets/acrexportsas/xxxxxxxxxxxxxxx
@@ -116,17 +119,17 @@ https://targetkeyvault.vault-int.azure-int.net/secrets/acrimportsas/xxxxxxxxxxxx
 
 ## Create identities 
 
-Create user-assigned managed identities for source and target key vaults by running the [az identity create][az-identity-create] command. 
+Create user-assigned managed identities to access source and target key vaults by running the [az identity create][az-identity-create] command. 
 
 ```azurecli
-# Managed identity for source vault
+# Managed identity to access source vault
 az identity create \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name sourceId  
 
-# Managed identity for target vault
+# Managed identity to access target vault
 az identity create \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name targetId 
 ```
 
@@ -134,19 +137,19 @@ Set the following variables using the [az identity show][az-identity-show] comma
 
 ```azurecli
 sourcePrincipalID=$(az identity show \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name sourceId --query principalId --output tsv) 
 
 sourceResourceID=$(az identity show \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name sourceId --query id --output tsv) 
 
 targetPrincipalID=$(az identity show \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name targetId --query principalId --output tsv) 
 
 targetResourceID=$(az identity show \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --name targetId --query id --output tsv) 
 ```
 
@@ -157,13 +160,13 @@ Run the [az keyvault set-policy][az-keyvault-set-policy] command to grant the so
 ```azurecli
 # Source key vault
 az keyvault set-policy --name sourcekeyvault \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --object-id $sourcePrincipalID \
   --secret-permissions get
 
 # Target key vault
 az keyvault set-policy --name targetkeyvault \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --object-id $targetPrincipalID \
   --secret-permissions get
 ```
@@ -183,13 +186,13 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |registryName     | Name of your source container registry      |
 |exportPipelineName     |  Name you choose for the export pipeline       |
 |targetUri     |  URI of the container in your source storage account. Example: `https://sourcestorage.blob.core.windows.net/transfer`       |
-|keyVaultUri     |  URI of the SAS token secret in the source key vault. Example: `https://sourcevault.vault-int.azure-int.net/secrets/acrexportsas`       |
+|keyVaultUri     |  URI of the SAS token secret in the source key vault. Example: `https://sourcevault.vault-int.azure-int.net/secrets/acrexportsas/xxxxxxxxxx`       |
 
 Run [az deployment group create][az-deployment-group-create] to create the resource.
 
 ```azurecli
 az deployment group create \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json \
   --parameters userAssignedIdentity=$sourceResourceID
@@ -221,7 +224,7 @@ Run [az deployment group create][az-deployment-group-create] to run the resource
 
 ```azurecli
 az deployment group create \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
@@ -264,7 +267,7 @@ Run [az deployment group create][az-deployment-group-create] to create the resou
 
 ```azurecli
 az deployment group create \ 
-  --resource-group myResourceGroup \ 
+  --resource-group $resourceGroup \ 
   --template-file azuredeploy.json \ 
   --parameters azuredeploy.parameters.json \
   --parameters userAssignedIdentity=$targetResourceID 
@@ -291,7 +294,7 @@ Run [az deployment group create][az-deployment-group-create] to run the resource
 
 ```azurecli
 az deployment group create \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroup \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
