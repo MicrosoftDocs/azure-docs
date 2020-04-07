@@ -2,16 +2,12 @@
 title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 03/31/2020
 ms.author: ryanwi
