@@ -28,6 +28,19 @@ The recommended best practice is to use at least two subnets - one for the Cycle
 
 Follow the instructions here to [create one or more subnets in your Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
 
+### Using multiple Subnets for compute
+
+CycleCloud clusters may be configured to run nodes and nodearrays across multiple subnets as long as all VMs can communicate within the cluster and with CycleCloud (perhaps via [Return Proxy](./return-proxy.md)).  For example, it is often useful to launch the Master node or submitter nodes in a subnet with different security rules from the execute nodes.  The default cluster types in CycleCloud assume a single subnet for the entire cluster, but the subnet may be configured per node or nodearray using the `SubnetId` attribute in the node template.
+
+However, the default hosts-file based hostname resolution applied to CycleCloud clusters only generates a hosts-file for the node's subnet by default.  So, when creating a cluster that spans multiple subnets, hostname resolution must also be customized for the cluster.
+
+There are 2 basic cluster template changes required to support multiple compute subnets:
+
+1. Set the `SubnetId` attribute on each node or nodearray that is not in the default subnet for the cluster.
+2. Configure hostname resolution for all subnets, by either:
+   1. Using an Azure DNS Zone and disabling the default hosts-file based resolution
+   2. Or, set the `CycleCloud.hosts.standalone_dns.subnets` attribute to either CIDR range of the VNet, or a comma-separated list of CIDR ranges for each subnet.  See the [node Configuration Reference](../cluster-references/configuration-reference.md) for details.
+
 ## Network Security Group Settings for the CycleCloud Subnet
 
 Configuring your Azure Virtual Network for security is a broad topic, well beyond the scope of this document.
