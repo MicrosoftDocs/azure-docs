@@ -45,7 +45,7 @@ That's why they register a secret (an application password or certificate) with 
 > [!NOTE]
 > Adding sign-in to a web app is about protecting the web app itself. That protection is achieved by using *middleware* libraries, not the Microsoft Authentication Library (MSAL). The preceding scenario, [Web app that signs in users](scenario-web-app-sign-user-overview.md), covered that subject.
 >
-> This scenario covers how to call web APIs from a web app. You must get access tokens for those web APIs. To acquire those tokens, you use MSAL libraries to acquire these tokens.
+> This scenario covers how to call web APIs from a web app. You must get access tokens for those web APIs. You use MSAL libraries to acquire these tokens.
 
 Development for this scenario involves these specific tasks:
 
