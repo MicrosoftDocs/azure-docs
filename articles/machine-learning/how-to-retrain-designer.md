@@ -58,6 +58,8 @@ Create pipeline parameters to dynamically set variables at runtime. For this exa
 
 1. Mouseover the **Path** field, and select the ellipses above the **Path** field that appear.
 
+    ![Screenshot that shows how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
+
 1. Select **Add to pipeline parameter**.
 
 1. Provide a parameter name and a default value.
@@ -66,8 +68,6 @@ Create pipeline parameters to dynamically set variables at runtime. For this exa
    > You can inspect and edit your pipeline parameters by selecting the **Settings** gear icon next to the title of your pipeline draft. 
 
 1. Select **Save**.
-
-    ![Screenshot that shows how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Submit the pipeline run.
 
@@ -78,21 +78,20 @@ The designer saves all pipeline output, including trained models, to the default
 1. Wait for the pipeline to finish running.
 1. Select the **Train Model** module.
 1. In the module details pane, to the right of the canvas, select **Outputs + logs**.
-1. You can find mind your model in **Other outputs** along with the run logs.
+1. You can find your model in **Other outputs** along with run logs.
 1. Alternatively, select the **View output** icon. From here, you can follow the instruction in the dialog to navigate directly to your datastore. 
 
 ![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
-
 ## Publish a training pipeline
 
-You can publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the future. A pipeline endpoint creates a REST endpoint to call your pipeline for future runs. In this example, your pipeline endpoint lets you reuse your pipeline to retrain a model on different data.
+Publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the future. A pipeline endpoint creates a REST endpoint to invoke pipeline in the future. In this example, your pipeline endpoint lets you reuse your pipeline to retrain a model on different data.
 
 1. Select **Publish** above the designer canvas.
 1. Select or create a pipeline endpoint.
 
    > [!NOTE]
-   > You can publish multiple pipelines to a single endpoint. Each pipeline in the endpoint is given a version number, which you can specify when you call the pipeline endpoint.
+   > You can publish multiple pipelines to a single endpoint. Each pipeline in a given endpoint is given a version number, which you can specify when you call the pipeline endpoint.
 
 1. Select **Publish**.
 
