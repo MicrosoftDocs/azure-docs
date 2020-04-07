@@ -17,6 +17,58 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-04-13
+
+### Azure Machine Learning SDK for Python v1.3.0
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Added additional telemetry around post-training operations.
+    + Speeds up automatic ARIMA training by using conditional sum of squares (CSS) training for series of length longer than 100. Note that the length used is stored as the constant ARIMA_TRIGGER_CSS_TRAINING_LENGTH w/in the TimeSeriesInternal class at /src/azureml-automl-core/azureml/automl/core/shared/constants.py
+    + The user logging of forecasting runs was improved, now more information on what phase is currently running will be shown in the log
+    + Disallowed target_rolling_window_size to be set to values less then 2
+  + **azureml-automl-runtime**
+    + Improved the error message shown when duplicated timestamps are found.
+    + Disallowed target_rolling_window_size to be set to values less then 2.
+    + Fixed the lag imputation failure. The issue was caused by the insufficient number of observations needed to seasonally decompose a series. The "de-seasonalized" data is used to compute a partial autocorrelation function (PACF) to determine the lag length.
+  + **azureml-contrib-pipeline-steps**
+    + Accept string compute names to be passed to ParallelRunConfig
+  + **azureml-core**
+    +  Added Environment.clone(new_name) API to create a copy of Environment object
+    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property - Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
+    +  Dataset: enable data access to credential-less Datastore of Azure SQL DB and ADLS Gen 2 using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell), [ADLS Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
+    +  Dataset: fix a bug that dataset may not be able to download file with path containing unicode characters because of system local setting.
+    + Ensure dataset's mount cache respect the minimum disk space requirement in Azure Machine Learning Compute to avoid making the node becoming unusable and causing the job to be canceled
+    + Added user_managed flag in RSection which indicates whether the environment is managed by user or by AzureML.
+  + **azureml-dataprep**
+    +  Dataset: enable data access to credential-less Datastore of Azure SQL DB and ADLS Gen 2 using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell), [ADLS Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
+    + Fixed Dataset authentication issue in sovereign clouds
+    + Fixed `Dataset.to_spark_dataframe` failing for Datasets created from Azure PostgreSQL datastores
+  + **azureml-interpret**
+    + add global scores to visualization if local importance values are sparse
+    + update azureml-interpret to interpret-community 0.9.*
+    + fixed issue with downloading explanation that had sparse evaluation data (did not allow reconstructing explanation due to ys present but no eval data, since sparse eval data currently can't be uploaded)
+    + added sparse automl e2e support
+  + **azureml-pipeline-core**
+    + Support ComputeInstance as compute target in pipelines
+  + **azureml-train-automl-client**
+    + Added additional telemetry around post-training operations.
+    + Fixed the regression in early stopping
+    + Deprecated azureml.dprep.Dataflow as a valid type for input data.
+    +  Changing default AutoML experiment timeout to 6 days.
+  + **azureml-train-automl-runtime**
+    + Added additional telemetry around post-training operations.
+    + added sparse automl e2e support
+  
 ## 2020-03-23
 
 ### Azure Machine Learning SDK for Python v1.2.0
