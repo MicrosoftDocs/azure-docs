@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.author: rolyon
 ---
 
@@ -22,11 +22,20 @@ ms.author: rolyon
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you transfer an Azure subscription to a different Azure Active Directory (Azure AD) directory, some artifacts are not transferred to the destination directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the destination directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure your managed identities still work, you must take additional steps.
+When you transfer an Azure subscription to a different Azure Active Directory (Azure AD) directory, some artifacts are not transferred to the target directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the target directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure your managed identities still work, you must take additional steps.
 
-This article describes the procedure and scripts you can use to transfer your subscription to different Azure AD directory and still maintain your custom roles, role assignments, and managed identities.
+This article describes the procedure you can use to transfer your subscription to different Azure AD directory and still maintain your custom roles, role assignments, and managed identities.
 
-## Understand the impact of transferring a subscription
+## Overview of transfer process
+
+![Transfer subscription diagram](./media/transfer-subscription/transfer-subscription.png)
+
+### Why would you transfer a subscription to different directory?
+
+- You want to manage a subscription in your primary Azure AD directory.
+- You've acquired a company and you want to manage a subscription in your primary Azure AD directory.
+
+### Understand the impact of transferring a subscription
 
 > [!IMPORTANT]
 > Transferring a subscription does require downtime to complete the process.
@@ -35,12 +44,12 @@ Depending on your situation, the following table lists the impact of transferrin
 
 | You are using  | Impact of a transfer  | What you can do  |
 | --------- | --------- | --------- |
-| Role assignments for any of the following: **Service Principal**, **SQL Azure**, **Managed Identity** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | Currently, there is not a procedure for this scenario. You must investigate the impact of these role assignment deletions. |
-| Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | You must manually re-create the custom role definitions and role assignments in the destination directory. |
-| Role assignments for any of the following: **User**, **Group** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | Before initiating the transfer, follow the instructions in this article to transfer your role assignments to the destination directory. |
-| Custom roles | All custom role definitions and role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | You must manually re-create the custom role definitions and role assignments in the destination directory. |
+| Role assignments for any of the following: **Service Principal**, **SQL Azure**, **Managed Identity** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | Currently, there is not a procedure for this scenario. You must investigate the impact of these role assignment deletions. |
+| Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
+| Role assignments for any of the following: **User**, **Group** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | Before initiating the transfer, follow the instructions in this article to transfer your role assignments to the target directory. |
+| Custom roles | All custom role definitions and role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
 
-## What gets transferred?
+### What gets transferred?
 
 The following table lists the artifacts that will get transferred when you follow the steps in this article.
 
@@ -57,28 +66,20 @@ The following table lists the artifacts that will get transferred when you follo
 | Custom role definitions | Yes |
 | Role assignments for custom roles | Yes |
 
-## Overview of transfer process
-
-![Transfer subscription diagram](./media/transfer-subscription/transfer-subscription.png)
-
 ## Prerequisites
 
 To complete these steps, you will need:
 
 - Role in the source directory that can read all users and all service principals
-- [Owner](built-in-roles.md#owner) role in the destination directory
+- [Owner](built-in-roles.md#owner) role in the target directory
 
-## Step 1: Clean up source directory
+## Step 1: Prepare for the transfer
 
-If you have role assignments in the source directory that aren't needed, you should delete. This will also ensure that your service can successfully run without the role assignment prior to the transfer rather than during the transfer process.
+### Inventory role assignments in the source directory
 
-1. Sign into the Azure portal for the source directory.
+1. Sign in to the Azure portal as an administrator of the billing account that has the subscription that you want to transfer.
 
 1. Open the subscription you want to transfer.
-
-1. Delete any role assignments that you no longer need or do not want to transfer.
-
-## Step 2: Inventory role assignments in the source directory
 
 1. If you have multiple subscriptions, select the subscription you want to transfer by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) and [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
@@ -95,7 +96,9 @@ If you have role assignments in the source directory that aren't needed, you sho
     Get-AzRoleAssignment | Export-Csv "RoleAssignments.csv"
     ```
 
-## Step 3: Inventory custom roles in the source directory
+1. Review the list of role assignments to determine if there are any role assignments that might not be needed in the target directory.
+
+### Inventory custom roles in the source directory
 
 1. List the custom roles. 
 
@@ -111,7 +114,7 @@ If you have role assignments in the source directory that aren't needed, you sho
 
 1. Save each custom role that references the subscription as a separate JSON file.
 
-## Step 4: Inventory other artifacts in the source directory
+### Inventory other artifacts in the source directory
 
 > [!IMPORTANT]
 > There are other artifacts that have a dependency on a subscription or a particular directory. This article lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, this article cannot list all dependencies. 
@@ -120,43 +123,45 @@ If you have role assignments in the source directory that aren't needed, you sho
 
 1. Determine if you are using Key Vault access policies.
 
-## Step 5: Determine object mappings
+### Determine object mappings
 
-1. Based on the list of role assignments, determine which of the following objects will be needed in the destination directory:
+1. Based on the list of role assignments, determine which of the following objects will be needed in the target directory:
 
     - Users
     - Groups
     - User-assigned managed identities
     - System-assigned managed identities
 
-1. In the destination directory, verify you have the objects that you will need.
+1. In the target directory, verify you have the objects that you will need.
 
-1. If necessary, in the destination directory, create the objects you will need.
+1. If necessary, in the target directory, create the objects you will need.
 
-## Step 6: Transfer billing ownership of the subscription
+## Step 2: Transfer billing ownership
 
-In this step, you transfer the billing ownership of the subscription from the source directory to the destination directory.
+In this step, you transfer the billing ownership of the subscription from the source directory to the target directory.
 
 > [!WARNING]
 > When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscriptions. Be sure you complete the previous steps before performing this step.
 
 1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
-1. Once you finish transferring ownership, return back to this article to restore the role assignments in the destination directory.
+1. Once you finish transferring ownership, return back to this article to restore the role assignments in the target directory.
 
-## Step 7: Create custom roles in destination directory
+## Step 3: Recreate artifacts
 
-1. In the destination directory, sign-in as the user that accepted the transfer request.
+### Create custom roles in target directory
+
+1. In the target directory, sign-in as the user that accepted the transfer request.
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
 
-1. In the destination directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
 
-## Step 8: Create role assignments in destination directory
+### Create role assignments in target directory
 
-1. In the destination directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. In the target directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
 
-## Step 9: Create other artifacts in the source directory
+### Create other artifacts in the source directory
 
 
 ## Next steps
