@@ -20,6 +20,7 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 | Versions | IssueType | Description | Resolution | 
 |----------|-----------|-|-|
 | **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Feature** | VeryHigh service move cost | **Brief desc** We have introduced new move cost value VeryHigh that provides additional flexibility in some usage scenarios. For more details please consult the [Service movement cost](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) documentation.
+| **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Bug** | Subclustered balancing | **Brief desc** Improved balancing for subclustered metrics which previously caused suboptimal balancing in some situations. For more information, see [Subclustering documentation](https://docs.microsoft.com/en-us/azure/service-fabric/cluster-resource-manager-subclustering).
 
 ## Service Fabric Common Bug Fixes
 
