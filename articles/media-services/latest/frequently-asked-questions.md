@@ -272,8 +272,6 @@ There are two ways to improve download speed:
    1. Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
    1. Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
 
-### PlayReady for Windows 10 
-
 ## Next steps
 
 [Media Services v3 overview](media-services-overview.md)
