@@ -31,7 +31,7 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure and provides the first part of the endpoint URL. The form validates that the endpoint name is unique.
 
-1. Specify your the static website endpoint in the **Origin hostname** field. 
+1. Specify your static website endpoint in the **Origin hostname** field. 
 
    To find your static website endpoint, navigate to the **Static website** settings for your storage account.  Copy the primary endpoint and paste it into the CDN configuration.
 
