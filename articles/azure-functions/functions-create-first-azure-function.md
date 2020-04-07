@@ -9,7 +9,7 @@ ms.custom: mvc, devcenter, cc996988-fb4f-47
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP triggered function in the Azure portal.
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +27,7 @@ You must have a function app to host the execution of your functions. A function
 
 Next, create a function in the new function app.
 
-## <a name="create-function"></a>Create an HTTP triggered function
+## <a name="create-function"></a>Create an HTTP trigger function
 
 1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
  
