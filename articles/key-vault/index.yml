@@ -20,18 +20,19 @@ highlightedContent:
   items:
     - title: Introduction to Azure Key Vault
       itemType: overview
-      itemType: concept
-      url: ./fundamentals/best-practices-and-patterns.md
+      url: ./general/overview.md
     - title: Basic concepts
       itemType: overview
       url: ./general/basic-concepts.md
     - title: Soft delete
       itemType: overview
-      url: ../general/overview-soft-delete.md
+      url: ./general/overview-soft-delete.md
+    - title: Logging
+      itemType: overview
+      url: ./general/logging.md
     - title: Throttling
       itemType: overview
-      url: ../general/overview-throttling.md
-
+      url: ./general/overview-throttling.md
 conceptualContent:
   items:
     - title: Certificates
@@ -39,10 +40,10 @@ conceptualContent:
         - url: ./certificates/introduction.md
           itemType: download
           text: About certificates
-        - url: ../certificates/certificate-scenarios.md
+        - url: ./certificates/certificate-scenarios.md
           itemType: overview
           text: Get started with Key Vault certificates
-        - url: ../certificates/create-certificate-scenarios.md
+        - url: ./certificates/create-certificate-scenarios.md
           itemType: overview
           text: Monitor and manage certificate creation
       footerLink:
@@ -51,13 +52,13 @@ conceptualContent:
 
     - title: Keys
       links:
-        - url: ../keys/about-keys.md
+        - url: ./keys/about-keys.md
           itemType: overview
           text:  About keys
-        - url: ../keys/hsm-protected-keys.md
+        - url: ./keys/hsm-protected-keys.md
           itemType: quickstart
           text:  Import HSM-protected keys to Key Vault
-        - url: ../keys/hsm-protected-keys-vendor-agnostic-byok.md
+        - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
           itemType: overview
           text:  Import vendor-agnostic HSM-protected keys
       footerLink:
