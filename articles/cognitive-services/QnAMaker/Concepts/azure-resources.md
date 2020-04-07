@@ -45,6 +45,16 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
+## Recommended Settings
+
+|Target QPS | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Instance   | S1, 1 Instance    |
+| 50         | S3, 10 Instances       | S1, 12 Instances         |
+| 80         | S3, 10 Instances      |  S3, 12 Instances  |
+| 100         | P3V2, 10 Instances  | S3, 12 Instances, 3 Partitions   |
+| 200 to 250         | P3V2, 20 Instances | S3, 12 Instances, 3 Partitions    |
+
 ## When to change a pricing tier
 
 |Upgrade|Reason|
