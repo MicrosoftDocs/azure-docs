@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
 ---

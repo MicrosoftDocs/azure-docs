@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 01/15/2020
 ---
 # Firewall rules in Azure Database for PostgreSQL - Single Server
 Azure Database for PostgreSQL server firewall prevents all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
@@ -28,10 +28,12 @@ For example, if your application connects with JDBC driver for PostgreSQL, you m
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
 
 ## Connecting from Azure
-To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. There are a couple of methods to enable these types of connections. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. Alternatively, you can set the **Allow access to Azure services** option to **ON** in the portal from the **Connection security** pane and hit **save**. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL server.
+It is recommended that you find the outgoing IP address of any application or service and explicitly allow access to those individual IP addresses or ranges. For example, you can find the outgoing IP address of an Azure App Service or use a public IP tied to a virtual machine or other resource (see below for info on connecting with a virtual machine's private IP over service endpoints). 
+
+If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all Azure datacenter IP addresses. This setting can be enabled from the Azure portal by setting the **Allow access to Azure services** option to **ON** from the **Connection security** pane and hitting **Save**. From the Azure CLI, a firewall rule setting with starting and ending address equal to 0.0.0.0 does the equivalent. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL server.
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> The **Allow access to Azure services** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
 ![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)

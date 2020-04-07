@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 07/12/2019
+ms.date: 03/05/2020
 ---
 
 # Enable logging in Azure Machine Learning
@@ -78,22 +78,6 @@ compute_target = ComputeTarget.attach(
 compute.wait_for_completion(show_output=True)
 ```
 
-## Logging during image creation
-
-Enabling logging during image creation will allow you to see any errors during the build process. Set the `show_output` param on the `wait_for_deployment()` function.
-
-```python
-from azureml.core.webservice import Webservice
-
-service = Webservice.deploy_from_image(deployment_config=your_config,
-                                       image=image,
-                                       name="example-image",
-                                       workspace=ws
-                                       )
-
-service.wait_for_deployment(show_output=True)
-```
-
 ## Logging for deployed models
 
 To retrieve logs from a previously deployed web service, load the service and use the `get_logs()` function. The logs may contain detailed information about any errors that occurred during deployment.
@@ -112,7 +96,7 @@ You can also log custom stack traces for your web service by enabling Applicatio
 service.update(enable_app_insights=True)
 ```
 
-See the [how-to](how-to-enable-app-insights.md) for more information on how to work with Application Insights in Azure Machine Learning studio.
+For more information, see [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md).
 
 ## Python native logging settings
 
@@ -122,3 +106,7 @@ Certain logs in the SDK may contain an error that instructs you to set the loggi
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
+
+## Next steps
+
+* [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)

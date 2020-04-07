@@ -47,6 +47,8 @@
     items:
     - name: Feature update
       href: azure-ad-roles-features.md
+    - name: PowerShell for Azure AD roles
+      href: powershell-for-azure-ad-roles.md
     - name: Assign roles
       href: pim-how-to-add-role-to-user.md
     - name: Approve requests
@@ -67,7 +69,7 @@
         href: azure-ad-custom-roles-configure.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
-  - name: Manage Azure resource roles
+  - name: Manage Azure roles
     items:
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
@@ -81,7 +83,7 @@
       href: pim-resource-roles-configure-role-settings.md
     - name: Configure alerts
       href: pim-resource-roles-configure-alerts.md
-    - name: View activity and audit history
+    - name: View audit history
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
@@ -97,7 +99,7 @@
         href: pim-how-to-perform-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
-    - name: Azure resource roles
+    - name: Azure roles
       items:
       - name: Create an access review
         href: pim-resource-roles-start-access-review.md

@@ -3,7 +3,7 @@ title: View Azure Update Management update assessments
 description: This article describes how to view update assessments for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
 ---
 # View Azure Update Management update assessments
@@ -24,7 +24,7 @@ Select **Missing updates** to view the list of updates that are missing from you
 
 ## Update classifications
 
-The following tables list the update classifications in Update Management, with a definition for each classification.
+The following tables list the supported update classifications in Update Management, with a definition for each classification.
 
 ### Windows
 
@@ -53,6 +53,8 @@ sudo yum -q --security check-update
 ```
 
 There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who have enabled this functionality on their own.
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself, there is no need to install anything. For further information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 ## Next steps
 

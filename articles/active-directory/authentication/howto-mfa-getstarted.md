@@ -1,11 +1,11 @@
 ---
-title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
-description: Microsoft Azure Multi-Factor Authentication deployment planning
+title: Deployment considerations for Azure Multi-Factor Authentication
+description: Learn about deployment considerations and strategy for successful implementation of Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -15,11 +15,18 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Planning a cloud-based Azure Multi-Factor Authentication deployment
+# Plan an Azure Multi-Factor Authentication deployment
 
 People are connecting to organizational resources in increasingly complicated scenarios. People connect from organization-owned, personal, and public devices on and off the corporate network using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. Passwords, no matter their complexity, used across devices, networks, and platforms are no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts. Sophisticated phishing and other social engineering attacks can result in usernames and passwords being posted and sold across the dark web.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) helps safeguard access to data and applications. It provides an additional layer of security using a second form of authentication. Organizations can use [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
+
+This deployment guide shows you how to plan and then test an Azure Multi-Factor Authentication roll-out.
+
+To quickly see Azure Multi-Factor Authentication in action and then come back to understand additional deployment considerations:
+
+> [!div class="nextstepaction"]
+> [Enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
 ## Prerequisites
 
@@ -82,18 +89,18 @@ We recommend that organizations use Conditional Access to define their network u
 ### Configuring a named location
 
 1. Open **Azure Active Directory** in the Azure portal
-2. Click **Conditional Access**
-3. Click **Named Locations**
-4. Click **New Location**
+2. Select **Security**
+3. Under **Manage**, choose **Named Locations**
+4. Select **New Location**
 5. In the **Name** field, provide a meaningful name
-6. Select whether you are defining the location using IP ranges or Countries/Regions
-   1. If using IP Ranges
-      1. Decide whether to mark the location as Trusted. Signing in from a trusted location lowers a user's sign-in risk. Only mark this location as trusted if you know the IP ranges entered are established and credible in your organization.
+6. Select whether you are defining the location using *IP ranges* or *Countries/Regions*
+   1. If using *IP Ranges*
+      1. Decide whether to *Mark as trusted location*. Signing in from a trusted location lowers a user's sign-in risk. Only mark this location as trusted if you know the IP ranges entered are established and credible in your organization.
       2. Specify the IP Ranges
-   2. If using Countries/Regions
+   2. If using *Countries/Regions*
       1. Expand the drop-down menu and select the countries or regions you wish to define for this named location.
-      2. Decide whether to Include unknown areas. Unknown areas are IP addresses that can't be mapped to a country/region.
-7. Click **Create**
+      2. Decide whether to *Include unknown areas*. Unknown areas are IP addresses that can't be mapped to a country/region.
+7. Select **Create**
 
 ## Plan authentication methods
 
@@ -134,7 +141,7 @@ A text message that contains a verification code is sent to the user, the user i
 
 ## Plan registration policy
 
-Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it’s a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure MFA will allow your users to be registered to use both features.
+Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it's a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure MFA will allow your users to be registered to use both features.
 
 ### Registration with Identity Protection
 
@@ -170,7 +177,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 If your users were enabled using per-user enabled and enforced Azure Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
-Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -218,7 +225,7 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 ### Create Conditional Access policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
-1. Browse to **Azure Active Directory**, **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
    ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Provide a meaningful name for your policy.
@@ -272,7 +279,7 @@ If you have an NPS instance deployed and in use already, reference [Integrate yo
 
 #### Prepare NPS for users that aren't enrolled for MFA
 
-Choose what happens when users that aren’t enrolled with MFA try to authenticate. Use the registry setting `REQUIRE_USER_MATCH` in the registry path `HKLM\Software\Microsoft\AzureMFA` to control the feature behavior. This setting has a single configuration option.
+Choose what happens when users that aren't enrolled with MFA try to authenticate. Use the registry setting `REQUIRE_USER_MATCH` in the registry path `HKLM\Software\Microsoft\AzureMFA` to control the feature behavior. This setting has a single configuration option.
 
 | Key | Value | Default |
 | --- | --- | --- |
@@ -314,7 +321,7 @@ On each AD FS server, in the local computer My Store, there will be a self-signe
 
 If the validity period of your certificates is nearing expiration, [generate and verify a new MFA certificate on each AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for 2 years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
+The following guidance details how to manage the Azure MFA certificates on your AD FS servers. When you configure AD FS with Azure MFA, the certificates generated via the `New-AdfsAzureMfaTenantCertificate` PowerShell cmdlet are valid for two years. Renew and install the renewed certificates prior to expiration to ovoid disruptions in MFA service.
 
 ## Implement your plan
 
@@ -333,7 +340,7 @@ Now that you have planned your solution, you can implement by following the step
    1. [Combined MFA and SSPR](howto-registration-mfa-sspr-combined.md)
    1. With [Identity Protection](../identity-protection/howto-mfa-policy.md)
 1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
-1. [Keep track of who’s enrolled](#identify-non-registered-users)
+1. [Keep track of who's enrolled](#identify-non-registered-users)
 
 > [!TIP]
 > Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
@@ -354,6 +361,7 @@ Find solutions for common issues with Azure MFA at the [Troubleshooting Azure Mu
 
 ## Next steps
 
-* [What are authentication methods?](concept-authentication-methods.md)
-* [Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
-* Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+To see Azure Multi-Factor Authentication in action, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

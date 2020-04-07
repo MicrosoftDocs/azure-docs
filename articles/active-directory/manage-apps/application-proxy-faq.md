@@ -49,9 +49,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 
 No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### Is SSL termination (SSL/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
+### Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
+The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
 
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 
@@ -109,7 +109,7 @@ No, this scenario isn't supported because Application Proxy will terminate TLS t
 
 Refer to [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
-### Can I use Kerberos Constrained Delegation in the Remote Desktop Gateway publishing scenario?
+### Can I use Kerberos Constrained Delegation (Single Sign-On - Windows Integrated Authentication) in the Remote Desktop Gateway publishing scenario?
 
 No, this scenario isn't supported.  
 
@@ -117,7 +117,7 @@ No, this scenario isn't supported.
 
 Yes, it’s expected. The pre-authentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
 
-### Is the Remote Desktop Web Client supported?
+### Is the Remote Desktop Web Client (HTML5) supported?
 
 No, this scenario isn't currently supported. Follow our [UserVoice](https://aka.ms/aadapuservoice) feedback forum for updates on this feature.
 
@@ -131,6 +131,10 @@ Yes, it's expected. If the user’s computer is Azure AD joined, the user signs 
 
 Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md).
 
+### Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
+
+The [SharePoint mobile app](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
+
 ## Active Directory Federation Services (AD FS) publishing 
 
 ### Can I use Azure AD Application Proxy as AD FS proxy (like Web Application Proxy)?
@@ -142,6 +146,8 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 ### Does WebSocket support work for applications other than QlikSense?
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
+
+Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client (HTML5) do not work through Azure AD Application Proxy presently.
 
 ## Link translation
 

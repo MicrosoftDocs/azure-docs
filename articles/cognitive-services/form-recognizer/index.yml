@@ -8,7 +8,7 @@ metadata:
   description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
@@ -45,6 +45,10 @@ landingContent:
             url: quickstarts/python-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
+      - linkListType: tutorial
+        links:
+          - text: Use Form Recognizer with Logic Apps
+            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:

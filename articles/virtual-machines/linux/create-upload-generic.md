@@ -1,21 +1,11 @@
 ---
-title: Create and upload a Linux VHD in Azure
+title: Create and upload a Linux VHD 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: MicahMcKittrick-MSFT
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: mimckitt
+ms.author: guybo
 
 ---
 # Information for Non-endorsed Distributions
@@ -40,7 +30,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 ## General Linux Installation Notes
 * The Hyper-V virtual hard disk (VHDX) format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
-* Azure only supports generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format, and from dynamically expanding to a fixed sized disk. You can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
 * The maximum size allowed for the VHD is 1,023 GB.
 * When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks.
 * Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
@@ -93,7 +83,7 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
     size=$(qemu-img info -f raw --output json "$rawdisk" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-    rounded_size=$((($size/$MB + 1)*$MB))
+    rounded_size=$(((($size+$MB-1)/$MB)*$MB))
     
     echo "Rounded Size = $rounded_size"
     ```

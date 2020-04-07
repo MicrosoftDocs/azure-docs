@@ -54,7 +54,7 @@ cluster.
 * When you want to isolate different parts of the storage for reasons of security, or to simplify
 administration.
 
-For a 48-node cluster, we recommend 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When you have multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
+For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 
@@ -121,7 +121,7 @@ If you need to request a quota increase, do the following steps:
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

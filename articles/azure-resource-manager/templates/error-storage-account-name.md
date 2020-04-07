@@ -14,7 +14,7 @@ If your storage account name includes prohibited characters, you receive an erro
 
 ```
 Code=AccountNameInvalid
-Message=S!torageckrexph7isnoc is not a valid storage account name. Storage account name must be 
+Message=S!torageckrexph7isnoc is not a valid storage account name. Storage account name must be
 between 3 and 24 characters in length and use numbers and lower-case letters only.
 ```
 
@@ -44,14 +44,14 @@ Make sure your storage account name does not exceed 24 characters. The [uniqueSt
 
 ```json
 "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+    "description": "The value to use for starting the storage account name."
     }
+  }
 }
 ```
 

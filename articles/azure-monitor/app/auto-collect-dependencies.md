@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
 description: Application Insights automatically collect and visualize dependencies
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: nikmd23
 ms.author: nimolnar
@@ -84,6 +82,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 - Set up custom dependency tracking for [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Set up custom dependency tracking for [Java](../../azure-monitor/app/java-agent.md).
+- Set up custom dependency tracking for [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
 - [Write custom dependency telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.

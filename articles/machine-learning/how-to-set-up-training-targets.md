@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/13/2020
 ms.custom: seodec18
 ---
 # Set up and use compute targets for model training 
@@ -20,7 +20,7 @@ With Azure Machine Learning, you can train your model on a variety of resources 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning workspace.
  
 In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
-1. __Create__ a compute target if you don’t already have one.
+1. __Create__ a compute target if you don't already have one.
 2. __Attach__ the compute target to your workspace.
 3. __Configure__ the compute target so that it contains the Python environment and package dependencies needed by your script.
 
@@ -48,7 +48,7 @@ Learn more about [submitting experiments](#submit) at the end of this article.
 
 ## What's an estimator?
 
-To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class.  This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn). We recommend using an estimator for training as it automatically contructs embedded objects like an environment or RunConfiguration objects for you. If you wish to have more control over how these objects are created and specfify what packages to install for your experiement run, follow [these steps](#amlcompute) to submit your training experiments using a RunConfiguration object on an Azure Machine Learning Compute.
+To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class.  This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn). We recommend using an estimator for training as it automatically constructs embedded objects like an environment or RunConfiguration objects for you. If you wish to have more control over how these objects are created and specify what packages to install for your experiment run, follow [these steps](#amlcompute) to submit your training experiments using a RunConfiguration object on an Azure Machine Learning Compute.
 
 For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
@@ -83,7 +83,7 @@ Use the sections below to configure these compute targets:
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
-Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 ### <a id="amlcompute"></a>Azure Machine Learning Compute
 
@@ -108,7 +108,7 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
-Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 #### <a id="persistent"></a>Persistent compute
 
@@ -130,7 +130,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
-Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 
 ### <a id="vm"></a>Remote virtual machines
@@ -148,15 +148,30 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
 
 1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name (FQDN), user name, and password for the virtual machine. In the example, replace \<fqdn> with the public FQDN of the VM, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the VM.
 
+    > [!IMPORTANT]
+    > The following Azure regions do not support attaching a virtual machine using the public IP address of the VM. Instead, use the Azure Resource Manager ID of the VM with the `resource_id` parameter:
+    >
+    > * US East
+    > * US West 2
+    > * US South Central
+    >
+    > The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -178,7 +193,7 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
-Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 ### <a id="hdinsight"></a>Azure HDInsight 
 
@@ -192,6 +207,15 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the hostname, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<clustername> with the name of your cluster. Replace \<username> and \<password> with the SSH user name and password for the cluster.
 
+    > [!IMPORTANT]
+    > The following Azure regions do not support attaching an HDInsight cluster using the public IP address of the cluster. Instead, use the Azure Resource Manager ID of the cluster with the `resource_id` parameter:
+    >
+    > * US East
+    > * US West 2
+    > * US South Central
+    >
+    > The resource ID of the cluster can be constructed using the subscription ID, resource group name, and cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -202,6 +226,11 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -219,7 +248,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
-Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
+Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
 
 ### <a id="azbatch"></a>Azure Batch 
@@ -228,9 +257,9 @@ Azure Batch is used to run large-scale parallel and high-performance computing (
 
 To attach Azure Batch as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
--	**Azure Batch compute name**: A friendly name to be used for the compute within the workspace
--	**Azure Batch account name**: The name of the Azure Batch account
--	**Resource Group**: The resource group that contains the Azure Batch account.
+-    **Azure Batch compute name**: A friendly name to be used for the compute within the workspace
+-    **Azure Batch account name**: The name of the Azure Batch account
+-    **Resource Group**: The resource group that contains the Azure Batch account.
 
 The following code demonstrates how to attach Azure Batch as a compute target:
 
@@ -359,7 +388,7 @@ For more information, see [Resource management](reference-azure-machine-learning
 
 ## Set up with VS Code
 
-You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
+You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) for Azure Machine Learning.
 
 ## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 
@@ -409,13 +438,15 @@ Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
-* Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+* Submit an experiment via the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 
 ## Create run configuration and submit run using Azure Machine Learning CLI
 
 You can use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md) to create run configurations and submit runs on different compute targets. The following examples assume that you have an existing Azure Machine Learning Workspace and you have logged in to Azure using `az login` CLI command. 
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 ### Create run configuration
 
@@ -501,7 +532,7 @@ When you start a training run where the source directory is a local Git reposito
 
 See these notebooks for examples of training with various compute targets:
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

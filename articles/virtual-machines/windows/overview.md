@@ -61,7 +61,7 @@ The [size](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of the
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
 ## VM Limits
-Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-supportability/resource-manager-core-quotas-request.md)
+Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 

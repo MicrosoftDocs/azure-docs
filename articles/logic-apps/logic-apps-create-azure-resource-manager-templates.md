@@ -21,7 +21,7 @@ For more about Azure Resource Manager templates, see these topics:
 
 * [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md)
 * [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
-* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
 

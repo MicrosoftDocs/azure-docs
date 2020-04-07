@@ -1,13 +1,12 @@
 ---
 title: Virtual Machine Offer Settings tab in the Cloud Partner Portal for Azure Marketplace 
 description: Describes the Offer Settings tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine Offer Settings tab

@@ -8,7 +8,7 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: iainfou
 
@@ -30,7 +30,7 @@ This article shows you how to install the DNS Server tools then use the DNS cons
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -48,7 +48,7 @@ To create and modify DNS records in Azure AD DS, you need to install the DNS Ser
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
-1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aadds.contoso.com*, then select **Next**.
+1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aaddscontoso.com*, then select **Next**.
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
 
@@ -65,7 +65,7 @@ With the DNS Server tools installed, you can administer DNS records on the Azure
 > To administer DNS in an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown, including **DNS** installed in the previous section. Select **DNS** to launch the DNS Management console.
-1. In the **Connect to DNS Server** dialog, select **The following computer**, then enter the DNS domain name of the managed domain, such as *aadds.contoso.com*:
+1. In the **Connect to DNS Server** dialog, select **The following computer**, then enter the DNS domain name of the managed domain, such as *aaddscontoso.com*:
 
     ![Connect to the Azure AD DS managed domain in the DNS console](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

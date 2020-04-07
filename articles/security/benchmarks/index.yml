@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Security Benchmarks Introduction
+          - text: Azure Security Benchmark Introduction
             url: introduction.md
           - text: Overview of Azure Security Controls
             url: overview.md

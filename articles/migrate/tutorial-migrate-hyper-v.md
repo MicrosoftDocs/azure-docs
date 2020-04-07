@@ -3,7 +3,7 @@ title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
+ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
 # Migrate Hyper-V VMs to Azure 
@@ -45,7 +45,7 @@ Before you begin this tutorial, you should:
 
 ## Add the Azure Migrate Server Migration tool
 
-If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Migration tool to the project.
+If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Assessment tool to the project.
 
 If you followed the second tutorial and already have an Azure Migrate project, add the Azure Migrate: Server Migration tool as follows:
 
@@ -62,10 +62,10 @@ If you followed the second tutorial and already have an Azure Migrate project, a
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight Hyper-V VM appliance.
+Azure Migrate Server Migration runs a software agent on Hyper-V Hosts or cluster nodes to orchestrate and replicate data to Azure Migrate and doesn't require a dedicated appliance for migration.
 
-- The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
-- The appliance is also used by the Azure Migrate: Server Assessment tool, to migrate Hyper-V VMs to Azure.
+- The Azure Migrate : Server Assessment appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
+- Migration orchestration and data replication is handled by Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent.
 
 To set up the appliance:
 - If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial, and don't need to do it again.
@@ -117,7 +117,7 @@ Install the downloaded setup file (AzureSiteRecoveryProvider.exe) on each releva
     - Specify the proxy name as **http://ip-address**, or **http://FQDN**. HTTPS proxy servers aren't supported.
    
 
-6. Make sure that the provider can reach the [required URLs](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access).
+6. Make sure that the provider can reach the [required URLs](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
 7. In **Registration**, after the host is registered, click **Finish**.
 
 ## Replicate Hyper-V VMs
@@ -150,7 +150,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
     ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+10. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -176,7 +176,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Service bus**: Azure Migrate: Server Migration uses the Service Bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
 
 
 ## Track and monitor
@@ -238,7 +238,10 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+    - Stops replication for the on-premises machine.
+    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Cleans up replication state information for the VM.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.

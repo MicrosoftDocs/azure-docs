@@ -2,8 +2,8 @@
 title: 'Quickstart: Onboard in Azure Sentinel'
 description: Learn how to collect data in Azure Sentinel by following this Quickstart document.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -72,4 +72,4 @@ After your data sources are connected, your data starts streaming into Azure Sen
 In this document, you learned about connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Stream data from [Common Error Format appliances](connect-common-event-format.md) into Azure Sentinel.
+- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.

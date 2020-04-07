@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 01/10/2020
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 > For an optimal migration experience, Microsoft recommends creating an instance of  Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 > [!IMPORTANT]
-> It's important to reduce the duration of the online migration process as much as possible, to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours before migration process is restarted.
+> Reduce the duration of the online migration process as much as possible to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours before migration process is restarted.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -65,7 +65,7 @@ To complete this tutorial, you need to:
     > [!IMPORTANT]
     > Regarding the storage account used as part of the migration, you must either:
     > * Choose to allow all network to access the storage account.
-    > * Set up ACLs for the virtual network. For more information, see the article [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+    > * Turn on [subnet delegation](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation) on MI subnet and update the Storage Account firewall rules to allow this subnet.
 
 * Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -158,7 +158,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
@@ -203,7 +203,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     | | |
     |--------|---------|
-    |**SMB Network location share** | The local SMB network share or Azure file share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
+    |**SMB Network location share** | The local SMB network share or Azure file share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'. For improved performance, it's recommended to use separate folder for each database to be migrated. You can provide the database level file share path by using the **Advanced Settings** option. |
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure Storage container for restore operation. If using Azure File share, use the storage account name pre-pended with AZURE\ as the username. |
     |**Password** | Password for the user. If using Azure file share, use a storage account key as the password. |
     |**Subscription of the Azure Storage Account** | Select the subscription that contains the Azure Storage Account. |
@@ -211,10 +211,11 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     ![Configure Migration Settings](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
+    > [!NOTE]
+    > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result from an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to the storage account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-> [!NOTE]
-  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to the storage account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
-
+    > [!IMPORTANT]
+    > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
 2. Select **Save**.
 

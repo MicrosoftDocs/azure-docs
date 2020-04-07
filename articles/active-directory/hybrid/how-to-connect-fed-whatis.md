@@ -37,7 +37,7 @@ This topic is the home for information on federation-related functionalities for
 | [Add a new AD FS server](how-to-connect-fed-management.md#addadfsserver) |Expand an AD FS farm with an additional AD FS server after initial installation. |
 | [Add a new AD FS WAP server](how-to-connect-fed-management.md#addwapserver) |Expand an AD FS farm with an additional Web Application Proxy (WAP) server after initial installation. |
 | [Add a new federated domain](how-to-connect-fed-management.md#addfeddomain) |Add another domain to be federated with Azure AD. |
-| [Update the SSL certificate](how-to-connect-fed-ssl-update.md)| Update the SSL certificate for an AD FS farm. |
+| [Update the TLS/SSL certificate](how-to-connect-fed-ssl-update.md)| Update the TLS/SSL certificate for an AD FS farm. |
 | [Renew federation certificates for Office 365 and Azure AD](how-to-connect-fed-o365-certs.md)|Renew your O365 certificate with Azure AD.|
 | **Other federation configuration** | |
 | [Federate multiple instances of Azure AD with single instance of AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 

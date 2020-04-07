@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/01/2020
 ---
 
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
@@ -26,7 +26,7 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 
 ## Availability for HDInsight clusters
 
-Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Storage Gen1 as the default files system with a few exceptions.
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Storage Gen1 as the default files system with a few exceptions. Note that the cluster and the storage account must be hosted in the same region.
 
 HDInsight clusters can use Data Lake Storage Gen1 in two ways:
 
@@ -126,6 +126,8 @@ To configure Data Lake Storage access from your HDInsight cluster, you must have
 > [!NOTE]  
 > If you are going to use Azure Data Lake Storage Gen1 as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Storage Gen1 as additional storage to an existing HDInsight cluster is not a supported scenario.
 
+For more information on the basics of the access control model for Data Lake Storage Gen1, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
 ## Access files from the cluster
 
 There are several ways you can access the files in Data Lake Storage from an HDInsight cluster.
@@ -205,7 +207,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## Identify storage path from Abmari
+## Identify storage path from Ambari
 
 To identify the complete path to the configured default store, navigate to **HDFS** > **Configs** and enter `fs.defaultFS` in the filter input box.
 

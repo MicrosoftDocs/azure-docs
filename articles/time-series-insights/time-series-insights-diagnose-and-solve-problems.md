@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
 ---
 
@@ -94,6 +94,22 @@ To fix the lag:
 1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You are charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
 
 2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
+
+## Problem: data was showing previously but is no longer showing
+
+TSI is no longer ingesting data but events are still streaming into Iot Hub or Event Hub
+
+### Cause A: your hub access key was regenerated and your environment needs updating
+
+This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub.
+
+To update your Time Series Insights environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+
+   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
+
+Select the event source(s) that have from which ingestion has stopped, paste in the new key and click Save.
+
+   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## Problem: my event source's timestamp property name setting doesn't work
 

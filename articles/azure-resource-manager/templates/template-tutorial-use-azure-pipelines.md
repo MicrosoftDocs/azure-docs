@@ -189,7 +189,7 @@ To create a pipeline with a step to deploy a template:
 
     Make the following changes:
 
-    * **deloymentScope**: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this tutorial. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+    * **deploymentScope**: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this tutorial. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
     * **ConnectedServiceName**: Specify the service connection name that you created earlier.
     * **SubscriptionName**:  Specify the target subscription ID.
     * **action**: the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.

@@ -8,22 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/20/2020
 ms.author: pafarley
 
 ---
 
 # What's new in Form Recognizer?
 
-This article highlights the major changes that come with new versions of the Form Recognizer API.
+The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
 > [!NOTE]
-> The quickstarts and guides in this doc set always use the latest version of the API, unless they specify otherwise.
+> The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
 
-## Form Recognizer 2.0 (preview)
+## March 2020 
+
+### Extraction enhancements
+
+This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
+ 
+### Form Recognizer Sample Labeling Tool is now open-source
+
+The Form Recognizer Sample Labeling Tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+
+For more information about the Form Recognizer Sample Labeling Tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+
+### Labeling value types
+
+Value types are now available for use with the Form Recognizer Sample Labeling Tool. These value types are currently supported: 
+
+* String
+* Number 
+* Integer
+* Date 
+* Time
+
+This image shows what value type selection looks like within the Form Recognizer Sample Labeling Tool:
+
+> [!div class="mx-imgBorder"]
+> ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
+
+The extracted table are available in the JSON output in `pageResults`.
+
+### Table visualization 
+
+The Form Recognizer Labeling Tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing with the Form Recognizer Sample Labeling Tool. This feature can be toggled on/off using the layers option. 
+
+This is an example of how tables are recognized and extracted:
+
+> [!div class="mx-imgBorder"]
+> ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
 
 > [!IMPORTANT]
-> Form Recognizer 2.0 is currently available for subscriptions in the `West US 2` and `West Europe` regions. If your subscription is not in this region, use the 1.0 API. The quickstarts for training and using a custom model are available for both v1.0 and v2.0.
+> Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
+
+### TLS 1.2 enforcement
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
+## January 2020
+
+This release introduces the Form Recognizer 2.0 (preview). In the sections below, you'll find more information about new features, enhancements, and changes. 
 
 ### New features
 

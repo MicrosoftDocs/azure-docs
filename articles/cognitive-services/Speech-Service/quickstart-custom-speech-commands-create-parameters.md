@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech s
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll add parameters to a Custom Commands application.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -87,7 +87,7 @@ Modify the Completion rule that you created in [the previous quickstart](./quick
 1. Edit the Speech Response action to use `OnOff` and `SubjectDevice`:
 
    ```
-   Ok, turning {OnOff} the {SubjectDevice}
+   - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
 ## Try it out
@@ -107,4 +107,4 @@ Open the Test chat panel and try a few interactions.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Quickstart: Use Custom Commands with Custom Voice (Preview)](./quickstart-custom-speech-commands-select-custom-voice.md)

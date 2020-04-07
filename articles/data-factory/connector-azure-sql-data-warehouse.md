@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ---
 
 # Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
@@ -256,6 +256,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Example: using SQL query**
 
@@ -438,7 +439,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, and `modifiedDateTimeEnd` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
 
 >[!NOTE]
 >If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -479,7 +480,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 ### Staged copy by using PolyBase
 
-When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob storage instance (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
+When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob storage instance (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code.
 
@@ -525,15 +526,15 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those mentioned in [Best practices for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+The following sections provide best practices in addition to those mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 #### Required database permission
 
-To use PolyBase, the user that loads data into SQL Data Warehouse must have ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add the user as a member of the **db_owner** role. Learn how to do that in the [SQL Data Warehouse overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+To use PolyBase, the user that loads data into SQL Data Warehouse must have ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add the user as a member of the **db_owner** role. Learn how to do that in the [SQL Data Warehouse overview](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 #### Row size and data type limits
 
-PolyBase loads are limited to rows smaller than 1 MB. It cannot be used to load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL Data Warehouse service capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase loads are limited to rows smaller than 1 MB. It cannot be used to load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL Data Warehouse service capacity limits](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 When your source data has rows greater than 1 MB, you might want to vertically split the source tables into several small ones. Make sure that the largest size of each row doesn't exceed the limit. The smaller tables can then be loaded by using PolyBase and merged together in Azure Synapse Analytics.
 
@@ -607,7 +608,7 @@ Using COPY statement supports the following configuration:
 2. Format settings are with the following:
 
    1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
-   2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
+   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
       2. `nullValue` is left as default or set to **empty string** ("").
@@ -618,7 +619,7 @@ Using COPY statement supports the following configuration:
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, and `modifiedDateTimeEnd` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 
@@ -699,7 +700,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 * SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
@@ -734,7 +735,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
->Refer to [Table data types in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
+>Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
 
 | Azure Synapse Analytics data type    | Data Factory interim data type |
 | :------------------------------------ | :----------------------------- |
@@ -767,4 +768,4 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varchar                               | String, Char[]                 |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

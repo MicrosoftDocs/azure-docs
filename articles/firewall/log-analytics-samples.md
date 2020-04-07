@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/23/2020
 ms.author: victorh
 ---
 
@@ -161,6 +161,15 @@ AzureDiagnostics
 | sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
+## Sample logs
+
+The following log samples show the data included in a log entry.
+
+![log entry](media/log-analytics-samples/log1.png)
+
+![log entry](media/log-analytics-samples/log2.png)
+
+![log entry](media/log-analytics-samples/log3.png)
 ## Next steps
 
 To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).

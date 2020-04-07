@@ -3,12 +3,12 @@ title: Data Science using Scala and Spark on Azure - Team Data Science Process
 description: How to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -248,12 +248,12 @@ Next, query the table for fare, passenger, and tip data; filter out corrupt and 
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## Data exploration and visualization
-After you bring the data into Spark, the next step in the Data Science process is to gain a deeper understanding of the data through exploration and visualization. In this section, you examine the taxi data by using SQL queries. Then, import the results into a data frame to plot the target variables and prospective features for visual inspection by using the auto-visualization feature of Jupyter.
+After you bring the data into Spark, the next step in the Data Science process is to gain a deeper understanding of the data through exploration and visualization. In this section, you examine the taxi data by using SQL queries. Then, import the results into a data frame to plot the target variables and prospective features for visual inspection by using the automatic visualization Jupyter feature.
 
 ### Use local and SQL magic to plot data
 By default, the output of any code snippet that you run from a Jupyter notebook is available within the context of the session that is persisted on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the `%%local` magic to run the code snippet on the Jupyter server.
 
-* **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
+* **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This setting means the output will be available in the local mode.
 * `%%local` **magic**. The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
 
 ### Query the data by using SQL
@@ -847,7 +847,7 @@ Create plots by using Python matplotlib.
 ### Create a GBT regression model
 Create a GBT regression model by using the Spark ML `GBTRegressor()` function, and then evaluate the model on test data.
 
-[Gradient-boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. You can use GBTs for regression and classification. They can handle categorical features, do not require feature scaling, and can capture nonlinearities and feature interactions. You also can use them in a multiclass-classification setting.
+[Gradient-boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS trains decision trees iteratively to minimize a loss function. You can use GBTS for regression and classification. They can handle categorical features, do not require feature scaling, and can capture nonlinearities and feature interactions. You also can use them in a multiclass-classification setting.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

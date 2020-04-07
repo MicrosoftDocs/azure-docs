@@ -139,4 +139,6 @@ These steps include the following terminology:
 
 ## Next steps
 
-Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+* Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+
+* Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md).

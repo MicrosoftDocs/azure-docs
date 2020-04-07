@@ -107,16 +107,16 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "healthCheckUrl": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check URL."
-        }
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the health check URL."
+      }
     },
     "healthCheckAuthAPIKey": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check Azure Function function authorization key."
-        }
+      "type": "string",
+      "metadata": {
+          "description": "Specifies the health check Azure Function function authorization key."
+      }
     }
     ```
 
@@ -127,7 +127,7 @@ The purpose of this section is to show you how to include a health check step in
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-	  "location": "[parameters('azureResourceLocation')]",
+      "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
@@ -175,8 +175,8 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "dependsOn": [
-        "[resourceId('Microsoft.DeploymentManager/artifactSources', variables('rolloutArtifactSource').name)]",
-        "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+      "[resourceId('Microsoft.DeploymentManager/artifactSources', variables('rolloutArtifactSource').name)]",
+      "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
     ],
     ```
 
@@ -184,36 +184,36 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "stepGroups": [
-        {
-            "name": "stepGroup1",
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
-            "postDeploymentSteps": []
+      {
+        "name": "stepGroup1",
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
+          "postDeploymentSteps": []
         },
         {
-            "name": "stepGroup2",
-            "dependsOnStepGroups": ["stepGroup1"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
-            "postDeploymentSteps": [
-                {
-                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
-                }
-            ]
+          "name": "stepGroup2",
+          "dependsOnStepGroups": ["stepGroup1"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
+          "postDeploymentSteps": [
+            {
+              "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+            }
+          ]
         },
         {
-            "name": "stepGroup3",
-            "dependsOnStepGroups": ["stepGroup2"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
-            "postDeploymentSteps": []
+          "name": "stepGroup3",
+          "dependsOnStepGroups": ["stepGroup2"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
+           "postDeploymentSteps": []
         },
         {
-            "name": "stepGroup4",
-            "dependsOnStepGroups": ["stepGroup3"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
-            "postDeploymentSteps": []
+          "name": "stepGroup4",
+          "dependsOnStepGroups": ["stepGroup3"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
+          "postDeploymentSteps": []
         }
     ]
     ```

@@ -175,9 +175,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type** || Must be set to `cosmosDBTrigger`. |
-|**direction** || Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
-|**name** || The variable name used in function code that represents the list of documents with changes. |
+|**type** | n/a | Must be set to `cosmosDBTrigger`. |
+|**direction** | n/a | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The variable name used in function code that represents the list of documents with changes. |
 |**connectionStringSetting**|**ConnectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
 |**databaseName**|**DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** |**CollectionName** | The name of the collection being monitored. |
@@ -1110,9 +1110,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `documentdb`.        |
-|**direction**     || Must be set to `in`.         |
-|**name**     || Name of the binding parameter that represents the document in the function.  |
+|**type**     | n/a | Must be set to `documentdb`.        |
+|**direction**     | n/a | Must be set to `in`.         |
+|**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
@@ -1449,9 +1449,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `documentdb`.        |
-|**direction**     || Must be set to `out`.         |
-|**name**     || Name of the binding parameter that represents the document in the function.  |
+|**type**     | n/a | Must be set to `documentdb`.        |
+|**direction**     | n/a | Must be set to `out`.         |
+|**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
 |**collectionName** |**CollectionName**  | The name of the collection where the document is created. |
 |**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |

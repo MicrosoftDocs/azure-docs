@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Provide optional claims to your Azure AD app
@@ -82,10 +81,10 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires. |       |
 | `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
-| `nickname`    | Nickname                        | An additional name for the user. The nickname is separate from first or last name. | 
-| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD   |
-| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD  |
-| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
+| `nickname`    | Nickname                        | An additional name for the user. The nickname is separate from first or last name. Requires the `profile` scope.| 
+| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
+| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD .  Requires the `profile` scope. |
+| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. Requires the `profile` scope.|
 
 ### Additional properties of optional claims
 
@@ -114,12 +113,13 @@ Some optional claims can be configured to change the way the claim is returned. 
 		}
 	```
 
-This OptionalClaims object causes the ID token returned to the client to include another upn with the additional home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication). 
+This OptionalClaims object causes the ID token returned to the client to include a upn claim with the additional home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication). 
 
 ## Configuring optional claims
 
 > [!IMPORTANT]
-> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is Graph.  Thus, the access token is created using the Graph manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for Graph to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
+> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is the Microsoft Graph API.  Thus, the access token is created using the Microsoft Graph API manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for the Microsoft Graph API to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
+
 
 You can configure optional claims for your application through the UI or application manifest.
 
@@ -204,7 +204,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 | `additionalProperties` | Collection (Edm.String) | Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.                                                                                                                                               |
 ## Configuring directory extension optional claims
 
-In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [Add custom data to resources using extensions](https://docs.microsoft.com/graph/extensibility-overview). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
+In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) - note that schema and open extensions are not supported by optional claims, only the AAD-Graph style directory extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
 > [!NOTE]
 > - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
@@ -266,7 +266,7 @@ This section covers the configuration options under optional claims for changing
    If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
 
    - idToken for the OIDC ID token
-   - accessToken for the OAuth/OIDC access token
+   - accessToken for the OAuth access token
    - Saml2Token for SAML tokens.
 
    > [!NOTE]
@@ -346,7 +346,7 @@ In this section, you can walk through a scenario to see how you can use the opti
 There are multiple options available for updating the properties on an application’s identity configuration to enable and configure optional claims:
 -    You can use the **Token configuration (preview)** UI (see example below)
 -    You can use the **Manifest** (see example below). Read the [Understanding the Azure AD application manifest document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) first for an introduction to the manifest.
--	It's also possible to write an application that uses the [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) to update your application. The [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Graph API reference guide can help you with configuring the optional claims.
+-	It's also possible to write an application that uses the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) to update your application. The [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
 
 **Example:** 
 In the example below, you will use the **Token configuration (preview)** UI and **Manifest** to add optional claims to the access, ID, and SAML tokens intended for your application. Different optional claims will be added to each type of token that the application can receive:

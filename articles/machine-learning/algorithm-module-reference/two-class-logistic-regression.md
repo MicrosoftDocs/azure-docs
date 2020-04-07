@@ -8,9 +8,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Two-Class Logistic Regression module
 
@@ -37,11 +37,12 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
   
 3.  For **Optimization tolerance**, specify a threshold value to use when optimizing the model. If the improvement between iterations falls below the specified threshold, the algorithm is considered to have converged on a solution, and training stops.  
   
 4.  For **L1 regularization weight** and **L2 regularization weight**, type a value to use for the regularization parameters L1 and L2. A non-zero value is recommended for both.  
-  
      *Regularization* is a method for preventing overfitting by penalizing models with extreme coefficient values. Regularization works by adding the penalty that is associated with coefficient values to the error of the hypothesis. Thus, an accurate model with extreme coefficient values would be penalized more, but a less accurate model with more conservative values would be penalized less.  
   
      L1 and L2 regularization have different effects and uses.  
@@ -70,13 +71,12 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   
-9. Run the pipeline.  
+9. Submit the pipeline.  
   
 ## Results
 
 After training is complete:
-
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md) and select **Visualize**.   
+ 
   
 + To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) module. 
 

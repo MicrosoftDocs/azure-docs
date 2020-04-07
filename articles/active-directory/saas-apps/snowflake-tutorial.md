@@ -115,6 +115,9 @@ To configure Azure AD single sign-on with Snowflake, perform the following steps
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    
+	In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

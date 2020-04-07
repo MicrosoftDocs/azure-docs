@@ -56,7 +56,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 1. In the **Onboarding** area, select or create a workspace in which to store the data. <br>
 2. If you can’t see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
 	
-3. Select **Add servers** to view instructions on how to install the Microsoft Monitoring Agent. 
+3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
 4. After onboarding, you can monitor the machines under **Compute and apps**.
 
@@ -67,7 +67,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 To view if Microsoft Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 Here you can see the integrations currently enabled.
 
-  ![Azure Security Center Threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
+  ![Azure Security Center threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
 
 - If you've already onboarded the servers to Azure Security Center standard tier, you need take no further action. Azure Security Center will automatically onboard the servers to Microsoft Defender ATP. Onboarding might take up to 24 hours.
 
@@ -89,19 +89,21 @@ If you have a proxy or firewall that is blocking anonymous traffic, as a Microso
 
 To generate a benign Microsoft Defender ATP test alert:
 
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a Command Prompt window.
+1. Create a folder 'C:\test-MDATP-test'.
 
-2. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a command line window.
+
+1. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
 
    ![A Command Prompt window with the command above](media/security-center-wdatp/image4.jpeg)
 
 3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
 
-4. To review the alert in Security Center, go to **Security Alerts** > **Suspicious Powershell CommandLine**.
+4. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 
 5. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
 

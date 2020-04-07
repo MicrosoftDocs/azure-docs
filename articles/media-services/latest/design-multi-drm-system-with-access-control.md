@@ -1,5 +1,5 @@
 ---
-title: Design of a multi-DRM content protection system with access control - Azure Media Services | Microsoft Docs
+title: A multi-DRM content protection system - Azure Media Services v3
 description: This articles gives detailed description of how to design a multi-DRM content protection system with Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -209,7 +209,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation

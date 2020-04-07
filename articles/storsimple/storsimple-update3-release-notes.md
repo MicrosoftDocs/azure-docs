@@ -1,18 +1,10 @@
 ---
-title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
+title: StorSimple 8000 Series Update 3 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017

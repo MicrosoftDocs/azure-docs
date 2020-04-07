@@ -1,7 +1,7 @@
 ---
 title: "Develop an application on Kubernetes"
 services: azure-dev-spaces
-ms.date: 07/08/2019
+ms.date: 02/20/2020
 ms.topic: quickstart
 description: "This quickstart shows you how to use Azure Dev Spaces and the command line to develop an application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -22,9 +22,9 @@ In this guide, you will learn how to:
 
 You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
@@ -34,9 +34,11 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -70,10 +72,13 @@ In order to run your application on Azure Dev Spaces, you need a Dockerfile and 
 Generate the Docker and Helm chart assets for running the application in Kubernetes using the `azds prep` command:
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
+
+> [!TIP]
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 ## Build and run code in Kubernetes
 
@@ -136,7 +141,7 @@ To deploy an updated version of your service, you can update any file in your pr
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

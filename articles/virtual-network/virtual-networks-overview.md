@@ -33,7 +33,7 @@ As you build your network in Azure, it is important to keep in mind the followin
 - Ensure non-overlapping address spaces. Make sure your VNet address space (CIDR block) does not overlap with your organization's other network ranges.
 - Your subnets should not cover the entire address space of the VNet. Plan ahead and reserve some address space for the future.
 - It is recommended you have fewer large VNets than multiple small VNets. This will prevent management overhead.
-- Secure your VNet using Network Security Groups (NSGs).
+- Secure your VNet's by assigning Network Security Groups (NSGs) to the subnets beneath them.
 
 ## Communicate with the internet
 
@@ -74,7 +74,7 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 
 ## Azure VNet limits
 
-There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
+There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## Pricing
 

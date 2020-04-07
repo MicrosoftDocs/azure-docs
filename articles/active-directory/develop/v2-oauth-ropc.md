@@ -18,7 +18,6 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials

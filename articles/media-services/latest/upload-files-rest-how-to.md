@@ -16,7 +16,7 @@ ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using REST
+# Upload files into a Media Services v3 account using REST
 
 In Media Services, you upload your digital files into a blob container associated with an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files). Once the files are uploaded into the asset's container, your content is stored securely in the cloud for further processing  and streaming.
 

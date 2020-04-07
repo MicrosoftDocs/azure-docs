@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -21,6 +21,9 @@ ms.reviewer: bagovind
 # List role assignments using Azure RBAC and the REST API
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the REST API.
+
+> [!NOTE]
+> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
 
 ## List role assignments
 
@@ -34,22 +37,25 @@ In RBAC, to list access, you list the role assignments. To list role assignments
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role assignments.
 
-    | Scope | Type |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
-    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
      
 1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=atScope()` | Lists role assignments for only the specified scope, not including the role assignments at subscopes. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
-    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal. If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed. This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=atScope()` | Lists role assignments for only the specified scope, not including the role assignments at subscopes. |
+    > | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal.<br/>If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed.<br/>This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lists role assignments for the specified user or service principal and at the specified scope. |
+    > | `$filter=principalId+eq+'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
 
 ## Next steps
 

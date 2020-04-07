@@ -65,10 +65,13 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 
 **Scenario** | **DPM/MABS**
 --- | ---
-**MABS on an Azure VM** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB of RAM.
-**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB of RAM.
-**MABS on-premises** | Supported 64-bit operating systems:<br/><br/> MABS v3 and later: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 and later: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> All MABS versions: Windows Server 2012 R2.<br/><br/>All MABS versions: Windows Storage Server 2012 R2.
+**MABS on an Azure VM** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**MABS on-premises** |  MABS v3 and later: Windows Server 2016 or Windows Server 2019
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
+
+>[!NOTE]
+>Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
 
 ## Management support
 
@@ -105,11 +108,34 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 The DPM server/MABS needs access to these URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+
+With public peering: Ensure access to the following domains/addresses:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+With Microsoft peering, please select the following services/regions and relevant community values:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure Region (according to the location of your Recovery Services vault)
+* Azure Storage (according to the location of your Recovery Services vault)
+
+For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
 
 ### DPM/MABS connectivity to Azure Backup
 

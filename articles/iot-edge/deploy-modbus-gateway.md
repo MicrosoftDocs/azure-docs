@@ -21,6 +21,7 @@ This article covers how to create your own container image for a Modbus module (
 This article assumes that you're using Modbus TCP protocol. For more information about how to configure the module to support Modbus RTU, see the [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub.
 
 ## Prerequisites
+
 * An Azure IoT Edge device. For a walkthrough on how to set up one, see [Deploy Azure IoT Edge on Windows](quickstart.md) or [Linux](quickstart-linux.md).
 * The primary key connection string for the IoT Edge device.
 * A physical or simulated Modbus device that supports Modbus TCP. You will need to know its IPv4 address.
@@ -66,7 +67,7 @@ View the data coming through the Modbus module:
 iotedge logs modbus
 ```
 
-You can also view the telemetry the device is sending by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension).
+You can also view the telemetry the device is sending by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension).
 
 ## Next steps
 

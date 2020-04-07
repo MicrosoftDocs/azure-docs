@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,16 +30,23 @@ More information about emergency access accounts and why they are important can 
 
 ## Typical policies deployed by organizations
 
-* [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
-* [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
-* [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
-* [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+* [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)\*
+* [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)\*
+* [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)\*
+* [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)\*
+
+\* These four policies when configured together, would mimic functionality enabled by [security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
+
+## Additional policies
+
 * [Risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Require trusted location for MFA registration](howto-conditional-access-policy-registration.md)
 * [Block access by location](howto-conditional-access-policy-location.md)
 * [Require compliant device](howto-conditional-access-policy-compliant-device.md)
+* [Block access except specific apps](howto-conditional-access-policy-block-access.md)
 
 ## Next steps
 
 - [Simulate sign in behavior using the Conditional Access What If tool.](troubleshoot-conditional-access-what-if.md)
+
 - [Use report-only mode for Conditional Access to determine the impact of new policy decisions.](concept-conditional-access-report-only.md)

@@ -1,12 +1,11 @@
 ---
 title: Connect Linux computers to Azure Monitor | Microsoft Docs
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
+ms.date: 01/21/2020
 
 ---
 
@@ -19,7 +18,7 @@ The Log Analytics agent for Linux can be installed by using one of the following
 * [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](gateway.md). 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
 
-To understand the supported configuration, review [supported Linux operating systems](log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-firewall-requirements).
+To understand the supported configuration, review [supported Linux operating systems](log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. It can only be configured to report to both a System Center Operations Manager management group and Log Analytics workspace concurrently, or to either individually.
@@ -70,9 +69,10 @@ Before installing the Log Analytics agent for Linux, you need the workspace ID a
 
 The Log Analytics agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 and one for x86 architectures. 
 
-For Azure VMs, we recommend you install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
+> [!NOTE]
+> For Azure VMs, we recommend you install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
 
-1. Transfer the appropriate bundle (x86 or x64) to your Linux VM or physical computer, using scp/sftp.
+1. [Download](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) and transfer the appropriate bundle (x64 or x86) to your Linux VM or physical computer, using scp/sftp.
 
 2. Install the bundle by using the `--install` argument. To onboard to a Log Analytics workspace during installation, provide the `-w <WorkspaceID>` and `-s <workspaceKey>` parameters copied earlier.
 

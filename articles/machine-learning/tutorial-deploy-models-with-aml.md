@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning
-description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
+description: This tutorial, second of a two-part series, shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/26/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
@@ -17,9 +17,7 @@ ms.custom: seodec18
 # Tutorial: Deploy an image classification model in Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
-
-Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  Now you're ready to deploy the model as a web service. A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
 In this part of the tutorial, you use Azure Machine Learning for the following tasks:
 
@@ -37,7 +35,7 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  *img-classification-part2-deploy.ipynb* notebook in your cloned *tutorials/image-classification-mnist-data* folder.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
 
@@ -297,7 +295,6 @@ Get the scoring web service's HTTP endpoint, which accepts REST client calls. Yo
 print(service.scoring_uri)
 ```
 
-
 ## Test the deployed service
 
 Earlier, you scored all the test data with the local version of the model. Now you can test the deployed model with a random sample of 30 images from the test data.  
@@ -386,6 +383,6 @@ service.delete()
 
 + Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
-+  [Make predictions on large quantities of data](how-to-run-batch-predictions.md) asynchronously.
++  [Make predictions on large quantities of data](how-to-use-parallel-run-step.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
 + Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 

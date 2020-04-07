@@ -19,11 +19,15 @@ In this article, you'll learn how to:
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
 
+>[!NOTE]
+>**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
 ## Prerequisites
 
 Before you back up a SQL Server database, check the following criteria:
 
-1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
+1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 2. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 4. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
@@ -77,7 +81,7 @@ To create a rule using PowerShell:
 
 **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
 
-**Deploy an HTTP proxy server to route traffic**. When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
+**Deploy an HTTP proxy server to route traffic**. When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. There are no wildcard domains in use with Azure Backup to add to the allow list for your proxy rules. You will need to use the public IP ranges for these services provided by Azure. The extensions are the only component that's configured for access to the public internet.
 
 Connectivity options include the following advantages and disadvantages:
 
@@ -86,7 +90,11 @@ Connectivity options include the following advantages and disadvantages:
 Allow IP ranges | No additional costs | Complex to manage because the IP address ranges change over time <br/><br/> Provides access to the whole of Azure, not just Azure Storage
 Use NSG service tags | Easier to manage as range changes are automatically merged <br/><br/> No additional costs <br/><br/> | Can be used with NSGs only <br/><br/> Provides access to the entire service
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
-Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
+Use an HTTP proxy | Single point of internet access to VMs <br/> | Additional costs to run a VM with the proxy software <br/> No published FQDN addresses, allow rules will be subject to Azure IP address changes
+
+#### Private Endpoints
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ### Database naming guidelines for Azure Backup
 
@@ -99,6 +107,9 @@ Avoid using the following elements in database names:
 * Forward slash '/'
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
+>[!NOTE]
+>The **Configure Protection** operation for databases with special characters like "+" or "&" in their name is not supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -246,7 +257,7 @@ To create a backup policy:
 14. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let’s assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. As per the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. As per the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 ## Enable auto-protection  
 

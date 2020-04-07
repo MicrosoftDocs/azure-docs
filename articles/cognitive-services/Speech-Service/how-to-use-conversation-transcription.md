@@ -27,7 +27,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels.
 
-- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
+- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## Prerequisites
@@ -66,7 +66,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -85,7 +85,7 @@ class Program
         // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
-        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+        // Voice signature format example: { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -108,6 +108,7 @@ Sample code highlights include:
 - Registering the events of interest
 - Adding or removing participants to the conversation using the Conversation object
 - Streaming the audio
+- In Speech SDK version 1.9.0 and onwards both `int` and `string` value types are supported in the voice signature version field.
 
 The transcription and speaker identifier come back in the registered events.
 
@@ -131,7 +132,7 @@ public class MyConversationTranscriber
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
-            using (var conversation = new Conversation(config, meetingId))
+            using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
                 using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
@@ -184,7 +185,7 @@ public class MyConversationTranscriber
                     // Add participants to the conversation.
                     // Create voice signatures using REST API described in the earlier section in this document.
                     // Voice signature needs to be in the following format:
-                    // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
+                    // { "Version": <Numeric string or integer value>, "Tag": "string", "Data": "string" }
 
                     var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
                     var speakerB = Participant.From("Speaker_B", "en-us", signatureB);

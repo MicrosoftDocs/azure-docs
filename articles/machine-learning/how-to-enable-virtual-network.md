@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/13/2019
+ms.date: 03/13/2020
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -28,7 +28,7 @@ This article also provides detailed information about *advanced security setting
 > Unless specifically called out, using resources such as storage accounts or compute targets inside a virtual network will work with both machine learning pipelines, and non-pipeline workflows such as script runs.
 
 > [!WARNING]
-> Microsoft does not support using the Azure Machine Learning designer or automated machine learning (from the studio) with resources inside a virtual network.
+> Microsoft does not support using the Azure Machine Learning Studio features such as Automated ML, Datasets, Datalabeling, Designer, and Notebooks if the underlying storage has virtual network enabled.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ This article also provides detailed information about *advanced security setting
 
 ## Use a storage account for your workspace
 
-To use an Azure storage account for the workspace in a virtual network, do the following:
+To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
 1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
 
@@ -54,12 +54,12 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 
    ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. On the __Firewalls and virtual networks__ page, do the following:
+1. On the __Firewalls and virtual networks__ page, do the following actions:
     - Select __Selected networks__.
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute  resides (see step 1).
 
         > [!IMPORTANT]
-        > The storage account must be in the same virtual network as the compute instances or clusters used for training or inference.
+        > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
@@ -76,7 +76,23 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 > The default storage account is
 > automatically provisioned when you create a workspace.
 >
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
+> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
+
+## Use Azure Data Lake Storage Gen 2
+
+Azure Data Lake Storage Gen 2 is a set of capabilities for big data analytics, built on Azure Blob storage. It can be used to store data used to train models with Azure Machine Learning. 
+
+To use Data Lake Storage Gen 2 inside the virtual network of your Azure Machine Learning workspace, use the following steps:
+
+1. Create an Azure Data Lake Storage gen 2 account. For more information, see [Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Use the steps 2-4 in the previous section, [Use a storage account for your workspace](#use-a-storage-account-for-your-workspace), to put the account in the virtual network.
+
+When using Azure Machine Learning with Data Lake Storage Gen 2 inside a virtual network, use the following guidance:
+
+* If you use the __SDK to create a dataset__, and the system running the code __is not in the virtual network__, use the `validate=False` parameter. This parameter skips validation, which fails if the system is not in the same virtual network as the storage account. For more information, see the [from_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method.
+
+* When using Azure Machine Learning Compute Instance or compute cluster to train a model using the dataset, it must be in the same virtual network as the storage account.
 
 ## Use a key vault instance with your workspace
 
@@ -85,7 +101,8 @@ The key vault instance that's associated with the workspace is used by Azure Mac
 * Passwords to Azure Container Repository instances
 * Connection strings to data stores
 
-To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, do the following:
+To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
+
 1. Go to the key vault that's associated with the workspace.
 
    [![The key vault that's associated with the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -94,7 +111,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
    ![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
-1. On the __Firewalls and virtual networks__ page, do the following:
+1. On the __Firewalls and virtual networks__ page, do the following actions:
     - Under __Allow access from__, select __Selected networks__.
     - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
     - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
@@ -105,10 +122,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## <a name="compute-instance"></a>Use a Machine Learning Compute
 
-> [!NOTE]
-> Compute instances (preview) are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
-> Use one of these regions to create a compute instance that can be added to virtual network.
-
 To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
@@ -116,15 +129,16 @@ To use an Azure Machine Learning compute instance or compute cluster in a virtua
 > * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 
-The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
-
-* One network security group
-* One public IP address
-* One load balancer
-
-These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+> [!TIP]
+> The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
+> 
+> * One network security group
+> * One public IP address
+> * One load balancer
+> 
+> These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 ### <a id="mlcports"></a> Required ports
@@ -155,15 +169,16 @@ The NSG rule configuration in the Azure portal is shown in the following images:
 
 ### <a id="limiting-outbound-from-vnet"></a> Limit outbound connectivity from the virtual network
 
-If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, do the following:
+If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, use the following steps:
 
 - Deny outbound internet connection by using the NSG rules.
 
-- Limit outbound traffic to the following:
-   - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
+- For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
+   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
-   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureCloud.Region_Name__ (for example, AzureCloud.NorthCentralUS)
+   - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
+   - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
@@ -186,12 +201,12 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Estimator training__
+> __Estimator training__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```
@@ -220,21 +235,21 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 ### Create a compute cluster in a virtual network
 
-To create a Machine Learning Compute cluster, do the following:
+To create a Machine Learning Compute cluster, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
-1. In the __Application__ section, select __Compute__, and then select __Add compute__.
+1. Select __Compute__ on the left.
 
-1. To configure this compute resource to use a virtual network, do the following:
+1. Select __Training clusters__ from the center, and then select __+__.
 
-    a. For __Network configuration__, select __Advanced__.
+1. In the __New Training Cluster__ dialog, expand the __Advanced settings__ section.
 
-    b. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+1. To configure this compute resource to use a virtual network, perform the following actions in the __Configure virtual network__ section:
 
-    c. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-
-    d. In the __Subnet__ drop-down list, select the subnet to use.
+    1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+    1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
+    1. In the __Subnet__ drop-down list, select the subnet to use.
 
    ![The virtual network settings for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -294,14 +309,14 @@ For specific information on using Azure Databricks with a virtual network, see [
 > [!IMPORTANT]
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
-To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, do the following:
+To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, use the following steps:
 
 1. Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
     * [Create and manage Azure virtual networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. To allow Azure Machine Learning to communicate with the SSH port on the VM or cluster, configure a source entry for the network security group. The SSH port is usually port 22. To allow traffic from this source, do the following:
+1. To allow Azure Machine Learning to communicate with the SSH port on the VM or cluster, configure a source entry for the network security group. The SSH port is usually port 22. To allow traffic from this source, do the following actions:
 
     * In the __Source__ drop-down list, select __Service Tag__.
 
@@ -329,36 +344,32 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
 ## Use Azure Kubernetes Service (AKS)
 
-To add AKS in a virtual network to your workspace, do the following:
+To add AKS in a virtual network to your workspace, use the following steps:
 
 > [!IMPORTANT]
 > Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) how-to and plan the IP addressing for your cluster.
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
 
-1. In the [Azure portal](https://portal.azure.com), make sure that the NSG that controls the virtual network has an inbound rule that's enabled for Azure Machine Learning by using __AzureMachineLearning__ as the **SOURCE**.
+> [!WARNING]
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
 
-    [![Azure Machine Learning Add Compute pane](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
-1. Select your Azure Machine Learning workspace.
+1. Select __Compute__ on the left.
 
-1. In the __Application__ section, select __Compute__, and then select __Add compute__.
+1. Select __Inference clusters__ from the center, and then select __+__.
 
-1. To configure this compute resource to use a virtual network, do the following:
+1. In the __New Inference Cluster__ dialog, select __Advanced__ under __Network configuration__.
 
-    - For __Network configuration__, select __Advanced__.
+1. To configure this compute resource to use a virtual network, perform the following actions:
 
-    - In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
-
-    - In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-
-    - In the __Subnet__ drop-down list, select the subnet.
-
-    - In the __Kubernetes Service address range__ box, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
-
-    - In the __Kubernetes DNS service IP address__ box, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
-
-    - In the __Docker bridge address__ box, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.17.0.1/16).
+    1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+    1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
+    1. In the __Subnet__ drop-down list, select the subnet.
+    1. In the __Kubernetes Service address range__ box, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
+    1. In the __Kubernetes DNS service IP address__ box, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
+    1. In the __Docker bridge address__ box, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.17.0.1/16).
 
    ![Azure Machine Learning: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -390,6 +401,82 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
+### Use private IPs with Azure Kubernetes Service
+
+By default, a public IP address is assigned to AKS deployments. When using AKS inside a virtual network, you can use a private IP address instead. Private IP addresses are only accessible from inside the virtual network or joined networks.
+
+A private IP address is enabled by configuring AKS to use an _internal load balancer_. 
+
+> [!IMPORTANT]
+> You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
+
+The following code snippet demonstrates how to **create a new AKS cluster**, and then update it to use a private IP/internal load balancer:
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = "default"
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__Azure CLI__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+```
+
+The contents of the `body.json` file referenced by the command are similar to the following JSON document:
+
+```json
+{ 
+    "location": "<region>", 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+> [!NOTE]
+> Currently, you cannot configure the load balancer when performing an __attach__ operation on an existing cluster. You must first attach the cluster, and then perform an update operation to change the load balancer.
+
+For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
+
 ## Use Azure Firewall
 
 When using Azure Firewall, you must configure a network rule to allow traffic to and from the following addresses:
@@ -406,9 +493,107 @@ When adding the rule, set the __Protocol__ to any, and the ports to `*`.
 
 For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
+## Use Azure Container Registry
+
+> [!IMPORTANT]
+> Azure Container Registry (ACR) can be put inside a virtual network, however you must meet the following prerequisites:
+>
+> * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
+> * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+> * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
+> * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute).
+>
+>     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+
+1. To find the name of the Azure Container Registry for your workspace, use one of the following methods:
+
+    __Azure portal__
+
+    From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
+
+    ![Azure Container Registry for the workspace](./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png)
+
+    __Azure CLI__
+
+    If you have [installed the Machine Learning extension for Azure CLI](reference-azure-machine-learning-cli.md), you can use the `az ml workspace show` command to show the workspace information.
+
+    ```azurecli-interactive
+    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
+    ```
+
+    This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
+
+1. To limit access to your virtual network, use the steps in [Configure network access for registry](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
+
+1. Use the Azure Machine Learning Python SDK to configure a compute cluster to build docker images. The following code snippet demonstrates how to do this:
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Update the workspace to use an existing compute cluster
+    ws.update(image_build_compute = 'mycomputecluster')
+    ```
+
+    > [!IMPORTANT]
+    > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
+    
+    For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) method reference.
+
+1. If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultArmId": {
+        "type": "string"
+        },
+        "workspaceName": {
+        "type": "string"
+        },
+        "containerRegistryArmId": {
+        "type": "string"
+        },
+        "applicationInsightsArmId": {
+        "type": "string"
+        },
+        "storageAccountArmId": {
+        "type": "string"
+        },
+        "location": {
+        "type": "string"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.MachineLearningServices/workspaces",
+        "apiVersion": "2019-11-01",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "sku": {
+            "tier": "enterprise",
+            "name": "enterprise"
+        },
+        "properties": {
+            "sharedPrivateLinkResources":
+    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+            "keyVault": "[parameters('keyVaultArmId')]",
+            "containerRegistry": "[parameters('containerRegistryArmId')]",
+            "applicationInsights": "[parameters('applicationInsightsArmId')]",
+            "storageAccount": "[parameters('storageAccountArmId')]"
+        }
+        }
+    ]
+    }
+    ```
+
 ## Next steps
 
 * [Set up training environments](how-to-set-up-training-targets.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
-* [Securely deploy models with SSL](how-to-secure-web-service.md)
-
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

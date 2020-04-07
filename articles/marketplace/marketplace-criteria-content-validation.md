@@ -1,21 +1,19 @@
 ---
 title: Marketplace criteria content validation | Azure Marketplace 
 description: This article describes how to become a publisher on the marketplace.  
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/31/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Azure Marketplace listing guidelines
 
 This document contains requirement guidelines as well as a checklist for reviewers for new offers and services listed to Azure Marketplace.
 
-All offers must meet the [All Listing Requirements](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) indicated below. Additional requirements and checklists are provided for specific listing types including: offers with attached [trials](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [containers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements), and [consulting offers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
+All offers must meet the [All Listing Requirements](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) indicated below. Additional requirements and checklists are provided for specific listing types including: offers with attached [trials](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements), [containers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements), and [consulting offers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## All listing requirements

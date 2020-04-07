@@ -60,7 +60,7 @@ The following are other parameters that can be set on your image definition so t
 * Eula - can be used to point to an end-user license agreement specific to the image definition.
 * Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
-* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
+* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 
@@ -156,7 +156,7 @@ Images can also be shared, at scale, even across tenants using a multi-tenant ap
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
-- Storage costs of storing the Shared Image versions. Cost depends on the number of replicas of the image version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be changed for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Storage costs of storing the Shared Image versions. Cost depends on the number of replicas of the image version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be charged for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
 
 ## Updating resources
@@ -228,7 +228,7 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
    To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
-   ```bash
+   ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 

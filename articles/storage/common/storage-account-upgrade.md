@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/25/2019
 ms.author: tamram  
 ---
 
@@ -15,7 +15,7 @@ ms.author: tamram
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
 
-Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
+Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is straightforward. You can upgrade using the Azure portal, PowerShell, or Azure CLI. There is no downtime or risk of data loss associated with upgrading to a general-purpose v2 storage account. The account upgrade happens via a simple Azure Resource Manager operation that changes the account type.
 
 > [!IMPORTANT]
 > Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
@@ -48,7 +48,7 @@ To upgrade a general-purpose v1 account to a general-purpose v2 account using Az
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
-```cli
+```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
@@ -163,4 +163,4 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Next steps
 
-* [Create a storage account](storage-quickstart-create-account.md)
+* [Create a storage account](storage-account-create.md)

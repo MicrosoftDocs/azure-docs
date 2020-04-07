@@ -1,18 +1,8 @@
 ---
 title:  Deploy IBM DB2 pureScale on Azure
 description: Learn how to deploy an example architecture used recently to migrate an enterprise from its IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: 
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
@@ -148,7 +138,5 @@ For more information about these and other known problems, see the kb.md file in
 -   [DB2 pureScale Clusters Data Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
-
--   [Platform Modernization Alliance: IBM DB2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

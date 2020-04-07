@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 3/19/2020
 ---
 
 # Audit Logs in Azure Database for MySQL
@@ -108,6 +108,9 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 
 ### Table access
 
+> [!NOTE]
+> Table access logs are only output for MySQL 5.7.
+
 | **Property** | **Description** |
 |---|---|
 | `TenantId` | Your tenant ID |
@@ -130,6 +133,60 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 | `table_s` | Name of table accessed |
 | `sql_text_s` | Full query text |
 | `\_ResourceId` | Resource URI |
+
+## Analyze logs in Azure Monitor Logs
+
+Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, you can perform further analysis of your audited events. Below are some sample queries to help you get started. Make sure to update the below with your server name.
+
+- List GENERAL events on a particular server
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last 
+    ```
+
+- List CONNECTION events on a particular server
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ```
+
+- Summarize audited events on a particular server
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
+    ```
+
+- Graph the audit event type distribution on a particular server
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart 
+    ```
+
+- List audited events across all MySQL servers with Diagnostic Logs enabled for audit logs
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ``` 
 
 ## Next steps
 

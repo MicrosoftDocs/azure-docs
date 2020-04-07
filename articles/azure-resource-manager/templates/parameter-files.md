@@ -14,16 +14,16 @@ The parameter file has the following format:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "<first-parameter-name>": {
-            "value": "<first-value>"
-        },
-        "<second-parameter-name>": {
-            "value": "<second-value>"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
+    },
+    "<second-parameter-name>": {
+      "value": "<second-value>"
     }
+  }
 }
 ```
 
@@ -33,21 +33,21 @@ The following parameter file includes a plain text value and a value that is sto
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "<first-parameter-name>": {
-            "value": "<first-value>"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
+    },
+    "<second-parameter-name>": {
+      "reference": {
+        "keyVault": {
+          "id": "<resource-id-key-vault>"
         },
-        "<second-parameter-name>": {
-            "reference": {
-                "keyVault": {
-                    "id": "<resource-id-key-vault>"
-                },
-                "secretName": "<secret-name>"
-            }
-        }
+        "secretName": "<secret-name>"
+      }
     }
+  }
 }
 ```
 
@@ -59,20 +59,20 @@ To figure out how to define the parameter values, open the template you're deplo
 
 ```json
 "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ]
-    }
+  "storagePrefix": {
+    "type": "string",
+    "maxLength": 11
+  },
+  "storageAccountType": {
+    "type": "string",
+    "defaultValue": "Standard_LRS",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS",
+    "Standard_ZRS",
+    "Premium_LRS"
+    ]
+  }
 }
 ```
 
@@ -80,14 +80,14 @@ The first detail to notice is the name of each parameter. The values in your par
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-        },
-        "storageAccountType": {
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+    },
+    "storageAccountType": {
     }
+  }
 }
 ```
 
@@ -95,16 +95,16 @@ Notice the type of the parameter. The values in your parameter file must have th
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": ""
-        },
-        "storageAccountType": {
-            "value": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": ""
+    },
+    "storageAccountType": {
+      "value": ""
     }
+  }
 }
 ```
 
@@ -112,16 +112,16 @@ Next, look for a default value. If a parameter has a default value, you can prov
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": "" // This value must be provided.
-        },
-        "storageAccountType": {
-            "value": "" // This value is optional. Template will use default value if not provided.
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "" // This value must be provided.
+    },
+    "storageAccountType": {
+      "value": "" // This value is optional. Template will use default value if not provided.
     }
+  }
 }
 ```
 
@@ -129,16 +129,16 @@ Finally, look at the allowed values and any restrictions like max length. They t
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": "storage"
-        },
-        "storageAccountType": {
-            "value": "Standard_ZRS"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "storage"
+    },
+    "storageAccountType": {
+      "value": "Standard_ZRS"
     }
+  }
 }
 ```
 
@@ -148,30 +148,30 @@ The following example shows the formats of different parameter types.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "exampleString": {
-            "value": "test string"
-        },
-        "exampleInt": {
-            "value": 4
-        },
-        "exampleBool": {
-            "value": true
-        },
-        "exampleArray": {
-            "value": [
-                "value 1",
-                "value 2"
-            ]
-        },
-        "exampleObject": {
-            "value": {
-                "property1": "value1",
-                "property2": "value2"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "exampleString": {
+      "value": "test string"
+    },
+    "exampleInt": {
+      "value": 4
+    },
+    "exampleBool": {
+      "value": true
+    },
+    "exampleArray": {
+      "value": [
+        "value 1",
+        "value 2"
+      ]
+    },
+    "exampleObject": {
+      "value": {
+        "property1": "value1",
+        "property2": "value2"
+      }
+    }
    }
 }
 ```

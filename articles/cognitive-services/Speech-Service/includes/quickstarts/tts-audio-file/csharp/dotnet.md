@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 04/04/2020
 ms.author: erhopf
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## Open your project in Visual Studio
 
@@ -60,6 +59,8 @@ namespace helloworld
 Before you can initialize a `SpeechSynthesizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `SynthesisToAudioFileAsync()` method.
 
 ````C#
+// Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
+// The default language is "en-us".
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
@@ -180,7 +181,7 @@ namespace helloworld
 
 Now you're ready to build your app and test our speech synthesis using the Speech service.
 
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
+1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
 3. **Start synthesis** - Your text is converted to speech, and saved in the audio data specified.
 

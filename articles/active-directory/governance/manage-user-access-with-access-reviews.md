@@ -29,7 +29,7 @@ With Azure Active Directory (Azure AD), you can easily ensure that users have ap
 
 - Azure AD Premium P2
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create and perform an access review
 

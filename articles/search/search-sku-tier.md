@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 03/30/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
@@ -17,22 +17,29 @@ When you create an Azure Cognitive Search service, a [resource is created](searc
 
 Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
 
-Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
+## Feature availability by tier
 
-> [!NOTE] 
-> The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
->
+Almost every feature is available on every tier, including Free, but a feature or workflow that is resource intensive might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
 
-## Available tiers
+The following table describes tier-related feature constraints.
 
-Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
+| Feature | Limitations |
+|---------|-------------|
+| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
+
+## Tiers (SKUs)
+
+Tiers are differentiated by:
 
 + Quantity of indexes and indexers you can create
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
 
-**Free** creates a limited search service on a cluster, shared with other subscribers. You can complete small projects, including quickstarts and tutorials, but you cannot scale the service or run significant workloads. **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default.
+**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+
+**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
 
 ![Pricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Pricing tiers of Azure Cognitive Search")
 
@@ -46,10 +53,10 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Base cost of service at minimum configuration (create a service)
++ Fixed cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
 + Incremental cost when scaling up (add replicas or partitions)
 + Bandwidth charges (outbound data transfer) 
-+ Cognitive search (attach Cognitive Services for AI enrichment, Azure storage for knowledge store)
++ Cognitive search (attaching Cognitive Services for AI enrichment, or using Azure storage for knowledge store)
 
 ### Service costs
 
@@ -93,19 +100,23 @@ The billing rate is hourly per SU. Each tier has a progressively higher rate. Hi
 
 Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis.
 
-## How to manage and reduce costs
+## How to manage costs
 
-In addition to the following suggestions, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
+The following suggestions can help you keep costs at a minimum:
 
-- Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
++ Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
-- Consolidate all services into one resource group, such as Azure Cognitive Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
++ Consolidate all services into one resource group, such as Azure Cognitive Search, Cognitive Services, and any other Azure services used in your solution. In the Azure portal, find the resource group and use the **Cost Management** commands for insight into actual and projected spending.
 
-- Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
++ Consider Azure Web App for your front-end application so that requests and responses stay within the data center boundary.
 
-- Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
++ Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-You can't shut down a search service to reduce your bill. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
+Additionally, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) for built-in tools and features related to spending.
+
+Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
+
+In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
 
 ## How to evaluate capacity requirements
 
@@ -117,7 +128,6 @@ In Azure Cognitive Search, capacity is structured as *replicas* and *partitions*
 
 > [!NOTE]
 > All Standard and Storage Optimized tiers support [flexible combinations of replicas and partitions](search-capacity-planning.md#chart) so you can [optimize your system for speed or storage](search-performance-optimization.md) by changing the balance. The Basic tier offers up to three replicas for high availability but has only one partition. Free tiers don't provide dedicated resources: computing resources are shared by multiple subscribers.
-
 
 ### Evaluating capacity
 
@@ -139,7 +149,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (typeahead) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
++ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
@@ -183,7 +193,7 @@ The Free tier and preview features don't provide [service-level agreements (SLAs
 
 + Allow metrics to build around queries, and collect data around usage patterns (queries during business hours, indexing during off-peak hours). Use this data to inform service provisioning decisions. Though it's not practical at an hourly or daily cadence, you can dynamically adjust partitions and resources to accommodate planned changes in query volumes. You can also accommodate unplanned but sustained changes if levels hold long enough to warrant taking action.
 
-+ Remember that the only downside of underprovisioning is that you might have to tear down a service if actual requirements are greater than your predictions. To avoid service disruption, you would create a new service at a higher tier and run it side by side until all apps and requests target the new endpoint.
++ Remember that the only downside of under provisioning is that you might have to tear down a service if actual requirements are greater than your predictions. To avoid service disruption, you would create a new service at a higher tier and run it side by side until all apps and requests target the new endpoint.
 
 ## Next steps
 

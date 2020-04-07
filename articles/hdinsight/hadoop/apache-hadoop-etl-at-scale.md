@@ -2,13 +2,12 @@
 title: Extract, transform, and load (ETL) at Scale - Azure HDInsight 
 description: Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
 author: ashishthaps
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 06/13/2019
 ms.author: ashishth
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 03/03/2020
 ---
 
 # Extract, transform, and load (ETL) at scale
@@ -35,7 +34,7 @@ For more information, see [Use Apache Oozie with Apache Hadoop to define and run
 
 ### Azure Data Factory
 
-Azure Data Factory provides orchestration capabilities in the form of platform-as-a-service. It is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation.
+Azure Data Factory provides orchestration capabilities in the form of platform-as-a-service. It's a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation.
 
 Using Azure Data Factory, you can:
 
@@ -47,11 +46,11 @@ For more information on Azure Data Factory, see the [documentation](../../data-f
 
 ## Ingest file storage and result storage
 
-Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Storage. Files can be in any format, but typically they are flat files like CSVs.
+Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Storage. Files can be in any format, but typically they're flat files like CSVs.
 
 ### Azure Storage
 
-[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) has specific scalability targets. For more information, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md). For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you are using a subset of the data or all of the data.
+[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) has specific scalability targets. For more information, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md). For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you're using a subset of the data or all of the data.
 
 Azure Storage has several different types of blobs.  An *append blob* is a great option for storing web logs or sensor data.  
 
@@ -81,13 +80,13 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 Azure SQL DW is a great choice to store cleaned and prepared results for future analytics.  Azure HDInsight can be used to perform those services for Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) is a relational database store optimized for analytic workloads.  Azure SQL DW scales based on partitioned tables.  Tables can be partitioned across multiple nodes.  Azure SQL DW nodes are selected at the time of creation.  They can scale after the fact, but that's an active process that might require data movement. See [SQL Data Warehouse - Manage Compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) for more information.
+Azure SQL Data Warehouse (SQL DW) is a relational database store optimized for analytic workloads.  Azure SQL DW scales based on partitioned tables.  Tables can be partitioned across multiple nodes.  Azure SQL DW nodes are selected at the time of creation.  They can scale after the fact, but that's an active process that might require data movement. For more information, see [SQL Data Warehouse - Manage Compute](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### Apache HBase
 
 Apache HBase is a key-value store available in Azure HDInsight.  Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides performant random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
-Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. HBase can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.   
+Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. HBase can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
 HBase is an excellent destination for sensor and log data for future analysis.
 
@@ -101,9 +100,9 @@ Azure offers three different relational databases as platform-as-a-service (PAAS
 * [Azure Database for MySQL](../../mysql/overview.md)  is an implementation of Oracle MySQL.
 * [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) is an implementation of PostgreSQL.
 
-These products scale up, which means that they are scaled by adding more CPU and memory.  You can also choose to use premium disks with the products for better I/O performance.
+These products scale up, which means that they're scaled by adding more CPU and memory.  You can also choose to use premium disks with the products for better I/O performance.
 
-## Azure Analysis Services 
+## Azure Analysis Services
 
 Azure Analysis Services (AAS) is an analytical data engine used in decision support and business analytics, providing the analytical data for business reports and client applications such as Power BI, Excel, Reporting Services reports, and other data visualization tools.
 
@@ -111,11 +110,11 @@ Analysis cubes can scale by changing tiers for each individual cube.  For more i
 
 ## Extract and Load
 
-Once the data exists in Azure, you can use many services to extract and load it into other products.  HDInsight supports Sqoop and Flume. 
+Once the data exists in Azure, you can use many services to extract and load it into other products.  HDInsight supports Sqoop and Flume.
 
 ### Apache Sqoop
 
-Apache Sqoop is a tool designed for efficiently transferring data between structured, semi-structured, and unstructured data sources. 
+Apache Sqoop is a tool designed for efficiently transferring data between structured, semi-structured, and unstructured data sources.
 
 Sqoop uses MapReduce to import and export the data, to provide parallel operation and fault tolerance.
 
@@ -123,14 +122,14 @@ Sqoop uses MapReduce to import and export the data, to provide parallel operatio
 
 Apache Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. Flume has a simple and flexible architecture based on streaming data flows. Flume is robust and fault-tolerant with tunable reliability mechanisms and many failover and recovery mechanisms. Flume uses a simple extensible data model that allows for online analytic application.
 
-Apache Flume cannot be used with Azure HDInsight.  An on-premises Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Storage.  For more information, see [Using Apache Flume with HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume can't be used with Azure HDInsight.  An on-premises Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Storage.  For more information, see [Using Apache Flume with HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## Transform
 
-Once data exists in the chosen location, you need to clean it, combine it, or prepare it for a specific usage pattern.  Hive, Pig, and Spark SQL are all good choices for that kind of work.  They are all supported on HDInsight. 
+Once data exists in the chosen location, you need to clean it, combine it, or prepare it for a specific usage pattern.  Hive, Pig, and Spark SQL are all good choices for that kind of work.  They're all supported on HDInsight.
 
 ## Next steps
 
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Using Apache Hive as an ETL Tool](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Using Apache Hive as an ETL Tool](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Move data from Azure SQL Database To Apache Hive table](./apache-hadoop-use-sqoop-mac-linux.md)

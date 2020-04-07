@@ -1,18 +1,20 @@
 ---
-title: Enable SSL in a container group
-description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances
+title: Enable SSL with sidecar container
+description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 02/14/2020
 ---
-# Enable an SSL endpoint in a container group
+# Enable an SSL endpoint in a sidecar container
 
 This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running an SSL provider. By setting up a container group with a separate SSL endpoint, you enable SSL connections for your application without changing your application code.
 
-You set up a container group consisting of two containers:
+You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
 * A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use SSL. 
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. 
+
+See [Next steps](#next-steps) for other approaches to enabling SSL in a container group.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,13 +46,13 @@ You should now see three files in the directory: the certificate request (`ssl.c
 
 ### Create Nginx configuration file
 
-In this section, you create a configuration file for Nginx to use SSL. Start by copying the following text into a new file named`nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
+In this section, you create a configuration file for Nginx to use SSL. Start by copying the following text into a new file named `nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code nginx.conf
 ```
 
-In `location`, be sure to set `proxy_pass` with the correct port for app. In this example, we set port 80 for the `aci-helloworld` container.
+In `location`, be sure to set `proxy_pass` with the correct port for your app. In this example, we set port 80 for the `aci-helloworld` container.
 
 ```console
 # nginx Configuration File
@@ -79,7 +81,7 @@ http {
 
         # Protect against the BEAST attack by not using SSLv3 at all. If you need to support older browsers (IE6) you may need to add
         # SSLv3 to the list of protocols below.
-        ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
+        ssl_protocols              TLSv1.2;
 
         # Ciphers set to best allow protection from Beast, while providing forwarding secrecy, as defined by Mozilla - https://wiki.mozilla.org/Security/Server_Side_TLS#Nginx
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
@@ -119,9 +121,9 @@ http {
 Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
 
 ```console
-cat nginx.conf | base64 -w 0 > base64-nginx.conf
-cat ssl.crt | base64 -w 0 > base64-ssl.crt
-cat ssl.key | base64 -w 0 > base64-ssl.key
+cat nginx.conf | base64 > base64-nginx.conf
+cat ssl.crt | base64 > base64-ssl.crt
+cat ssl.key | base64 > base64-ssl.key
 ```
 
 ## Deploy container group
@@ -188,7 +190,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
@@ -210,17 +212,18 @@ For a successful deployment, output is similar to the following:
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
 ------------  ---------------  --------  -------------------------------------------------------  -------------------  ---------  ---------------  --------  ----------
-app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
+app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
 ## Verify SSL connection
 
-To view the running application, navigate to its IP address in your browser. For example, the IP address shown in this example is `52.157.22.76`. You must use `https://<IP-ADDRESS>` to see the running application, because of the Nginx server configuration. Attempts to connect with `http://<IP-ADDRESS>` fail.
+Use your browser to navigate to the public IP address of the container group. The IP address shown in this example is `52.157.22.76`, so the URL is **https://52.157.22.76**. You must use HTTPS to see the running application, because of the Nginx server configuration. Attempts to connect over HTTP fail.
 
 ![Browser screenshot showing application running in an Azure container instance](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. This behavior is expected.
+> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. You might need to accept the warning or adjust browser or certificate settings to proceed to the page. This behavior is expected.
+
 >
 
 ## Next steps
@@ -229,4 +232,8 @@ This article showed you how to set up an Nginx container to enable SSL connectio
 
 While this article uses Nginx in the sidecar, you can use another SSL provider such as [Caddy](https://caddyserver.com/).
 
-Another approach to enabling SSL in a container group is to deploy the group in an [Azure virtual network](container-instances-vnet.md) with an [Azure application gateway](../application-gateway/overview.md). The gateway can be set up as an SSL endpoint. See a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) you can adapt to enable SSL termination on the gateway.
+If you deploy your container group in an [Azure virtual network](container-instances-vnet.md), you can consider other options to enable an SSL endpoint for a backend container instance, including:
+
+* [Azure Functions Proxies](../azure-functions/functions-proxies.md)
+* [Azure API Management](../api-management/api-management-key-concepts.md)
+* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

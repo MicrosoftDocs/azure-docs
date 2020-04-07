@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Windows device
 
-Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine, install the prerequisites, and then delete it when you're finished.
+Try out Azure IoT Edge by deploying containerized code to a virtual IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device. Using a virtual machine allows you to quickly create a test machine, install the prerequisites, and then delete it when you're finished.
 
 In this quickstart you learn how to:
 
@@ -36,8 +36,10 @@ You use the Azure CLI to complete many of the steps in this quickstart. Azure Io
 Add the Azure IoT extension to the cloud shell instance.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prerequisites
 
@@ -46,7 +48,7 @@ Cloud resources:
 * A resource group to manage all the resources you use in this quickstart.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus2 
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge device:
@@ -101,7 +103,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-cli-iot-ext extension.
+   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-iot extension.
 
 2. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub.
 
@@ -154,7 +156,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
 5. Run PowerShell as an administrator again.
 
-6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
+6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -223,7 +225,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
    ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
-You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension).
+You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## Clean up resources
 
@@ -241,7 +243,7 @@ az group delete --name IoTEdgeResources
 
 In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
 
-The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic. 
+The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic.
 
 > [!div class="nextstepaction"]
 > [Start developing IoT Edge modules for Windows devices](tutorial-develop-for-windows.md)

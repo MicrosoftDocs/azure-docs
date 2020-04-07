@@ -228,7 +228,7 @@ You can choose to define output binding data using the `context.done` method ins
 context.bindingData
 ```
 
-Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example).
+Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs-trigger.md).
 
 ### context.done method
 
@@ -359,6 +359,7 @@ The `context.res` (response) object has the following properties:
 | _headers_ | An object that contains the response headers.             |
 | _isRaw_   | Indicates that formatting is skipped for the response.    |
 | _status_  | The HTTP status code of the response.                     |
+| _cookies_ | An array of HTTP cookie objects that are set in the response. An HTTP cookie object has a `name`, `value`, and other cookie properties, such as `maxAge` or `sameSite`. |
 
 ### Accessing the request and response 
 
@@ -404,7 +405,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
 
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the consumption and premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes.
 
@@ -414,14 +415,17 @@ The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates w
 
 ## Node version
 
-The following table shows the Node.js version used by each major version of the Functions runtime:
+The following table shows current supported Node.js versions for each major version of the Functions runtime, by operating system:
 
-| Functions version | Node.js version | 
-|---|---|
-| 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | _Active LTS_ and _Maintenance LTS_ Node.js versions (~10 recommended). Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to `~10`.|
+| Functions version | Node version (Windows) | Node Version (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2 (locked by the runtime) | n/a |
+| 2.x  | ~8<br/>~10 (recommended)<br/>~12<sup>*</sup> | ~8 (recommended)<br/>~10  |
+| 3.x | ~10<br/>~12 (recommended)  | ~10<br/>~12 (recommended) |
 
-You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
+<sup>*</sup>Node ~12 is currently allowed on version 2.x of the Functions runtime. However, for best performance, we recommend using Functions runtime version 3.x with Node ~12. 
+
+You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function. Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~10`.
 
 ## Dependency management
 In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.

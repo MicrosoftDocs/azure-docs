@@ -2,7 +2,7 @@
 title: Set up text messaging as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity using text messages as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up text messaging as your verification method
@@ -24,7 +23,7 @@ If you're prompted to set this up immediately after you sign in to your work or 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+>If you don't see a phone option, it's possible that your organization doesn't allow you to use this option for verification. In this case, you'll need to choose another method or contact your organization's help desk for more assistance.
 
 ## Set up text messages from the Security info page
 

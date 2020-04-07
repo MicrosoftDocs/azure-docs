@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/27/2019
+ms.date: 04/02/2020
 ---
 # What is Azure SQL Database managed instance?
 
@@ -61,12 +61,12 @@ The key features of managed instances are shown in the following table:
 | Portal support | Yes|
 | Built-in Integration Service (SSIS) | No - SSIS is a part of [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Built-in Analysis Service (SSAS) | No - SSAS is separate [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Built-in Reporting Service (SSRS) | No - use Power BI or SSRS IaaS |
+| Built-in Reporting Service (SSRS) | No - use [Power BI paginated reports](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on Azure VM. While Managed Instance cannot run SSRS as a service, it can host SSRS 2019 catalog databases for an external reporting server using SQL Server authentication. |
 |||
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for managed instances gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for managed instances gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 In vCore model, you can choose between generations of hardware.
 
@@ -74,9 +74,6 @@ In vCore model, you can choose between generations of hardware.
 - **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-
-> [!IMPORTANT]
-> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ## Managed instance service tiers
 
@@ -297,7 +294,7 @@ The following diagram outlines surface area compatibility in managed instance:
 
 ### Key differences between SQL Server on-premises and in a managed instance
 
-The managed instance deployment option benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that service is not running in an environment you do not fully control:
+The managed instance deployment option benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control:
 
 - High-availability is built in and pre-configured using technology similar to [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain.
@@ -319,7 +316,7 @@ The following table shows several properties, accessible through Transact SQL, t
 
 |Property|Value|Comment|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database. This **does not** indicate SQL engine version 12 (SQL Server 2014). Managed instance always runs the latest stable SQL engine version, which is equal to or higher than latest available RTM version of SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies a managed instance.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:`<instanceName>`.`<dnsPrefix>`.database.windows.net, where `<instanceName>` is name provided by the customer, while `<dnsPrefix>` is autogenerated part of the name guaranteeing global DNS name uniqueness ("wcus17662feb9ce98", for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|

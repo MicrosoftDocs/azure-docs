@@ -14,18 +14,26 @@
     href: concept-azure-machine-learning-architecture.md
 
 - name: Tutorials
+  expanded: true
   items:
   - name: Studio & Designer
     items:
-    - name: 'Designer: 1. Train a regression model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 'Designer: 2. Deploy that model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-    - name: Create an automated ML experiment
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
+    - name: Designer (drag-and-drop)
+      items:
+      - name: 'Designer: 1. Train a regression model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-train-score.md
+      - name: 'Designer: 2. Deploy that model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-deploy.md
+    - name: Automated ML (UI)
+      items:
+      - name: Create an automated ML experiment
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-first-experiment-automated-ml.md
+      - name: Forecast demand with automated ML (Bike share data)
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -51,12 +59,21 @@
       - name: Batch score a classification model
         displayName: pipelines
         href: tutorial-pipeline-batch-scoring-classification.md
+    - name: Go from experiment to production
+      displayName: mlops, mlopspython, production
+      href: tutorial-convert-ml-experiment-to-production.md
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
       href: tutorial-1st-r-experiment.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+  - name: Visual Studio Code
+    items:
+    - name: Set up Azure Machine Learning extension
+      href: tutorial-setup-vscode-extension.md
+    - name: Train and deploy a TensorFlow image classification model
+      href: tutorial-train-deploy-image-classification-model-vscode.md
 
 - name: Samples
   items:
@@ -65,20 +82,28 @@
     href: samples-notebooks.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+  - name: Designer datasets
+    href: sample-designer-datasets.md
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
-
+  - name: Designer pipelines
+    href: samples-designer.md
 - name: Concepts
   items:
   - name: Workspace
     href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
-  - name: Data
-    href: concept-data.md    
+  - name: Data ingestion
+    href: concept-data-ingestion.md    
+  - name: Data access
+    href: concept-data.md  
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
+  - name: Distributed training
+    displayName: parallellization, deep learning, deep neural network, dnn
+    href: concept-distributed-training.md
   - name: Model management (MLOps)
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
@@ -89,10 +114,15 @@
     displayName: studio
     href: concept-designer.md
   - name: Algorithm cheat sheet
-    href: /azure/machine-learning/algorithm-cheat-sheet   
+    href: /azure/machine-learning/algorithm-cheat-sheet
+  - name: How to select algorithms
+    href: /azure/machine-learning/how-to-select-algorithms       
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
+  - name: Manage ML pitfalls
+    displayName: automl, auto ml, risks
+    href: concept-manage-ml-pitfalls.md    
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
@@ -115,8 +145,13 @@
         - name: Use virtual networks
           displayName: vnet, blob
           href: how-to-enable-virtual-network.md
+        - name: Use Private Link
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
+        - name: Use Azure AD identity in AKS deployments
+          href: how-to-use-azure-ad-identity.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
       - name: Set up authentication
@@ -124,8 +159,8 @@
         href: how-to-setup-authentication.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
-      - name: Event grid integration
-        href: concept-event-grid-integration.md
+  - name: Event grid integration
+    href: concept-event-grid-integration.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
@@ -138,6 +173,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
@@ -155,9 +192,6 @@
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
       href: how-to-save-write-experiment-files.md
-    - name: Use VS Code extension
-      displayName: Visual Studio Code, VSCode, tools, ai, vs
-      href: how-to-vscode-tools.md
     - name: Interactive debugging
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-set-up-vs-code-remote.md
@@ -166,53 +200,49 @@
       href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
-    - name: Connect to data in Azure Storage
-      displayName: blob, get, fileshare, access storage, mount, download
-      href: how-to-access-data.md
-    - name: Get data from a datastore
-      displayName: data, data set, register, access data
-      href: how-to-create-register-datasets.md
-    - name: Train with datasets
-      displayName: data, dataset, mount
-      href: how-to-train-with-datasets.md
-    - name: Detect drift on datasets
-      displayName: data, dataset
-      href: how-to-monitor-datasets.md
-    - name: Version & track datasets
-      displayName: data, data set
-      href: how-to-version-track-datasets.md     
-    - name: Get data labeled
-      displayName: data, dataset, labeling
-      href: how-to-create-labeling-projects.md
-    - name: Label images
-      displayName: data, dataset, labeling
-      href: how-to-label-images.md
+    - name: Label data
+      items:
+      - name: Get data labeled
+        displayName: data, dataset, labeling
+        href: how-to-create-labeling-projects.md
+      - name: Label images
+        displayName: data, dataset, labeling
+        href: how-to-label-images.md
+      - name: Create datasets with labels
+        displayName: data, labels, torchvision
+        href: how-to-use-labeled-dataset.md
+    - name: Get data
+      items:
+      - name: Data ingestion with Azure Data Factory
+        displayName: data, ingestion, adf
+        href: how-to-data-ingest-adf.md
+      - name: DevOps for data ingestion
+        displayName: data, ingestion, devops
+        href: how-to-cicd-data-ingestion.md
+      - name: Import data in the designer
+        displayName: designer, data, import, dataset, datastore
+        href: how-to-designer-import-data.md
+    - name: Access data
+      items:
+      - name: Connect to Azure Storage
+        displayName: blob, get, fileshare, access, mount, download, data lake
+        href: how-to-access-data.md
+      - name: Get data from a datastore
+        displayName: data, data set, register, access data
+        href: how-to-create-register-datasets.md
+    - name: Manage & consume data
+      items:
+      - name: Train with datasets
+        displayName: data, dataset, mount
+        href: how-to-train-with-datasets.md
+      - name: Detect drift on datasets
+        displayName: data, dataset
+        href: how-to-monitor-datasets.md
+      - name: Version & track datasets
+        displayName: data, data set
+        href: how-to-version-track-datasets.md
   - name: Train models
     items:
-    - name: Use the designer
-      displayName: sample designer experiments
-      items:
-      - name: "Predict price"
-        displayName: regression, studio
-        href:  how-to-designer-sample-regression-automobile-price-basic.md
-      - name: "Predict price (advanced)"
-        displayName: regression, studio
-        href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-      - name: "Predict income"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-predict-income.md
-      - name: "Predict credit risk (advanced)"
-        displayName: classification, studio
-        href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-      - name: "Predict churn"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-churn.md
-      - name: "Predict flight delays"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Text classification"
-        displayName: classification, studio
-        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training
@@ -234,8 +264,6 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-    - name: Chainer
-      href: how-to-train-chainer.md
   - name: Interpret models
     displayName: interpretability
     items:
@@ -252,7 +280,7 @@
       displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use automated ML (interface)
-      href: how-to-create-portal-experiments.md
+      href: how-to-use-automated-ml-for-ml-models.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
@@ -272,7 +300,7 @@
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
     - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
+      displayName: log, monitor, metrics, Databricks
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
@@ -309,29 +337,19 @@
       href: how-to-deploy-existing-model.md
     - name: Troubleshoot & debug
       href: how-to-troubleshoot-deployment.md
-  - name: Consume web services
-    items:
-    - name: Consume in real-time
+    - name: Create clients
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
-    - name: Run batch predictions
-      displayName: score scoring batch consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions.md
-    - name: Designer batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-      href: how-to-run-batch-predictions-designer.md
-    - name: Debug & troubleshoot batch predictions
-      displayName: debug_batch consume pipeline parallelrunstep inference
-      href: how-to-debug-batch-predictions.md
-  - name: Monitor models
-    items:
-    - name: Collect & evaluate model data
-      displayName: track production
-      href: how-to-enable-data-collection.md
-    - name: Detect data drift
-      href: how-to-monitor-data-drift.md
-    - name: Monitor with Application Insights
-      href: how-to-enable-app-insights.md
+    - name: Monitor models
+      items:
+      - name: Collect & evaluate model data
+        displayName: track production
+        href: how-to-enable-data-collection.md
+      - name: Detect data drift
+        href: how-to-monitor-data-drift.md
+      - name: Monitor with Application Insights
+        href: how-to-enable-app-insights.md
+
   - name: Build & use ML pipelines
     displayName: pipelines
     items:
@@ -339,14 +357,32 @@
       href: how-to-create-your-first-pipeline.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
+    - name: Trigger a pipeline
+      href: how-to-trigger-published-pipeline.md
     - name: Debug & troubleshoot pipelines
+      displayName: designer
       href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: 'Designer: Retrain using published pipelines'
+    - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Designer execute Python code
+      displayName: feature extraction, feature engineering
+      href: how-to-designer-python.md
+    - name: Use parallel run step
+      displayName: score scoring batch consume pipeline parallelrunstep inference
+      href: how-to-use-parallel-run-step.md
+    - name: Debug & troubleshoot parallel run step
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-parallel-run-step.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -401,3 +437,6 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
+  - name: Designer accessibility features
+    displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
+    href: designer-accessibility.md

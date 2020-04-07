@@ -42,7 +42,7 @@ The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
-* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 There are a three ways to retrieve this information for deployed web services:
 
@@ -73,12 +73,12 @@ There are a three ways to retrieve this information for deployed web services:
 
 ### Secured web service
 
-If you secured the deployed web service using an SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
 
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
 
 ### Authentication for services
 
@@ -274,11 +274,11 @@ This example demonstrates how to use Go to call the web service created from the
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"net/http"
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "net/http"
 )
 
 // Features for this model are an array of decimal values
@@ -286,35 +286,35 @@ type Features []float64
 
 // The web service input can accept multiple sets of values for scoring
 type InputData struct {
-	Data []Features `json:"data",omitempty`
+    Data []Features `json:"data",omitempty`
 }
 
 // Define some example data
 var exampleData = []Features{
-	[]float64{
-		0.0199132141783263, 
-		0.0506801187398187, 
-		0.104808689473925, 
-		0.0700725447072635, 
-		-0.0359677812752396, 
-		-0.0266789028311707, 
-		-0.0249926566315915, 
-		-0.00259226199818282, 
-		0.00371173823343597, 
-		0.0403433716478807,
-	},
-	[]float64{
-		-0.0127796318808497, 
-		-0.044641636506989, 
-		0.0606183944448076, 
-		0.0528581912385822, 
-		0.0479653430750293, 
-		0.0293746718291555, 
-		-0.0176293810234174, 
-		0.0343088588777263, 
-		0.0702112981933102, 
-		0.00720651632920303,
-	},
+    []float64{
+        0.0199132141783263, 
+        0.0506801187398187, 
+        0.104808689473925, 
+        0.0700725447072635, 
+        -0.0359677812752396, 
+        -0.0266789028311707, 
+        -0.0249926566315915, 
+        -0.00259226199818282, 
+        0.00371173823343597, 
+        0.0403433716478807,
+    },
+    []float64{
+        -0.0127796318808497, 
+        -0.044641636506989, 
+        0.0606183944448076, 
+        0.0528581912385822, 
+        0.0479653430750293, 
+        0.0293746718291555, 
+        -0.0176293810234174, 
+        0.0343088588777263, 
+        0.0702112981933102, 
+        0.00720651632920303,
+    },
 }
 
 // Set to the URI for your service
@@ -323,32 +323,32 @@ var serviceUri string = "<your web service URI>"
 var authKey string = "<your key or token>"
 
 func main() {
-	// Create the input data from example data
-	jsonData := InputData{
-		Data: exampleData,
-	}
-	// Create JSON from it and create the body for the HTTP request
-	jsonValue, _ := json.Marshal(jsonData)
-	body := bytes.NewBuffer(jsonValue)
+    // Create the input data from example data
+    jsonData := InputData{
+        Data: exampleData,
+    }
+    // Create JSON from it and create the body for the HTTP request
+    jsonValue, _ := json.Marshal(jsonData)
+    body := bytes.NewBuffer(jsonValue)
 
-	// Create the HTTP request
-	client := &http.Client{}
-	request, err := http.NewRequest("POST", serviceUri, body)
-	request.Header.Add("Content-Type", "application/json")
+    // Create the HTTP request
+    client := &http.Client{}
+    request, err := http.NewRequest("POST", serviceUri, body)
+    request.Header.Add("Content-Type", "application/json")
 
-	// These next two are only needed if using an authentication key
-	bearer := fmt.Sprintf("Bearer %v", authKey)
-	request.Header.Add("Authorization", bearer)
+    // These next two are only needed if using an authentication key
+    bearer := fmt.Sprintf("Bearer %v", authKey)
+    request.Header.Add("Authorization", bearer)
 
-	// Send the request to the web service
-	resp, err := client.Do(request)
-	if err != nil {
-		fmt.Println("Failure: ", err)
-	}
+    // Send the request to the web service
+    resp, err := client.Do(request)
+    if err != nil {
+        fmt.Println("Failure: ", err)
+    }
 
-	// Display the response received
-	respBody, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(respBody))
+    // Display the response received
+    respBody, _ := ioutil.ReadAll(resp.Body)
+    fmt.Println(string(respBody))
 }
 ```
 

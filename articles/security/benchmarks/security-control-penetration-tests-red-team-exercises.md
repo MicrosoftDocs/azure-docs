@@ -26,7 +26,7 @@ Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are no
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here: 
+You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

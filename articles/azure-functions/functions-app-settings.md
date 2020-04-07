@@ -15,11 +15,19 @@ There are other global configuration options in the [host.json](functions-host-j
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The Application Insights instrumentation key if you're using Application Insights. See [Monitor Azure Functions](functions-monitoring.md).
+The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTIONSTRING`. For more information, see [Monitor Azure Functions](functions-monitoring.md). 
 
 |Key|Sample value|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
+
+## APPLICATIONINSIGHTS_CONNECTIONSTRING
+
+The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTIONSTRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` when your function app requires the added customizations supported by using the connection string. For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md). 
+
+|Key|Sample value|
+|---|------------|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
@@ -27,14 +35,14 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 ## AzureWebJobsDashboard
 
-Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
+Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. This setting is only valid for apps that target version 1.x of the Azure Functions runtime. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
-> [!TIP]
-> For performance and experience, it is recommended to use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of AzureWebJobsDashboard
+> [!NOTE]
+> For better performance and experience, runtime version 2.x and later versions use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of `AzureWebJobsDashboard`.
 
 ## AzureWebJobsDisableHomepage
 
@@ -74,7 +82,7 @@ Specifies the repository or provider to use for key storage. Currently, the supp
 
 ## AzureWebJobsStorage
 
-The Azure Functions runtime uses this storage account connection string for all functions except for HTTP triggered functions. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
+The Azure Functions runtime uses this storage account connection string for all functions except for HTTP triggered functions. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
@@ -136,7 +144,7 @@ The language worker runtime to load in the function app.  This will correspond t
 
 ## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-For consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -144,7 +152,7 @@ For consumption & Premium plans only. Connection string for storage account wher
 
 ## WEBSITE\_CONTENTSHARE
 
-For consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|

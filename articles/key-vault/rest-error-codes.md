@@ -50,14 +50,14 @@ The "Authorization" header is the access token that is required with every call 
 
 ### The token lacks the correct resource associated with it. 
 
-When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for **all* tokens to access a Key Vault is <https://vault.keyvault.net> (with no trailing slash).
+When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for **all** tokens to access a Key Vault is *https:\//vault.keyvault.net* (with no trailing slash).
 
 ### The token is expired
 
 Tokens are base64 encoded and the values can be decoded at websites such as [http://jwt.calebb.net](http://jwt.calebb.net). Here is the above token decoded:
 
 ```
-	{
+    {
  typ: "JWT",
  alg: "RS256",
  x5t: "nbCwW11w3XkB-xUaXwKRSLjMHGQ",
@@ -95,7 +95,7 @@ It is important that all of the values be properly identified in the token in or
 
 ### Troubleshooting 401
 
-401s should be investigated from the point of token generation, before the request is made to the key vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to https://login.microsoftonline.com. A request looks like this:
+401s should be investigated from the point of token generation, before the request is made to the key vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to `https://login.microsoftonline.com`. A request looks like this:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1

@@ -82,7 +82,7 @@ Encrypt all sensitive information in transit. Ensure that any clients connecting
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-Understanding encryption in transit with Azure:
+Understand encryption in transit with Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
@@ -114,7 +114,7 @@ https://docs.microsoft.com/azure/information-protection/deployment-roadmap
 
 Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
 
-Understanding Azure RBAC:
+Understand Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -161,4 +161,3 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ## Next steps
 
 See the next security control: [Vulnerability Management](security-control-vulnerability-management.md)
-

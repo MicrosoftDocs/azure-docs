@@ -68,7 +68,7 @@ For code examples that show how to authorize and call management operations from
 
 The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Microsoft recommends using the Azure Resource Manager deployment model when you create a new storage account. If possible, Microsoft also recommends that you recreate existing classic storage accounts with the Resource Manager model. Although you can create a storage account using the classic deployment model, the classic model is less flexible and will eventually be deprecated.
 
-For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
+For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

@@ -1,11 +1,7 @@
 ---
 title: Abnormal rise in exception volume - Azure Application Insights
 description: Monitor application exceptions with Smart Detection in Azure Application Insights for unusual patterns in exception volume.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/08/2017
 
 ---

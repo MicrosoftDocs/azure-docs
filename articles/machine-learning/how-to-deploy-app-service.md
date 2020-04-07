@@ -26,7 +26,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 * Advanced [authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
 * [Autoscale](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
-* [SSL support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
+* [TLS support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
@@ -46,7 +46,7 @@ For more information on features provided by Azure App Service, see the [App Ser
     > * `model` - The registered model that will be deployed.
     > * `inference_config` - The inference configuration for the model.
     >
-    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prepare for deployment
 
@@ -62,9 +62,9 @@ Before deploying, you must define what is needed to run the model as a web servi
     > [!IMPORTANT]
     > The Azure Machine Learning SDK does not provide a way for the web service access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
+    > Another alternative that may work for your scenario is [batch predictions](how-to-use-parallel-run-step.md), which does provide access to datastores when scoring.
 
-    For more information on entry scripts, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+    For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -90,7 +90,7 @@ These entities are encapsulated into an __inference configuration__. The inferen
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > When deploying to Azure App Service, you do not need to create a __deployment configuration__.
@@ -100,7 +100,7 @@ For more information on inference configuration, see [Deploy models with Azure M
 To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -118,7 +118,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with th e value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with th e value returned previously from `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -165,7 +165,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     This command returns information similar to the following JSON document:
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",
@@ -268,6 +268,6 @@ print(response.json())
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
+* [Use a TLS/SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

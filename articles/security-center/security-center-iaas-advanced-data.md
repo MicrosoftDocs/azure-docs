@@ -57,7 +57,7 @@ To create a new workspace, follow the instructions in [Create a Log Analytics wo
 To connect the SQL Server’s host to a workspace, follow the instructions in [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## Set up email notification for ATP alerts 
+## Set up email notification for security alerts 
 
 You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 

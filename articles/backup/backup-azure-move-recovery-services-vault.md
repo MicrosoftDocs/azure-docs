@@ -14,6 +14,10 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US2, South central US, West Central US, West Central US2, West US, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, and UK West.
 
+## Unsupported regions
+
+France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, China North, China North2, China East, China East2
+
 ## Prerequisites for moving Recovery Services vault
 
 - During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).

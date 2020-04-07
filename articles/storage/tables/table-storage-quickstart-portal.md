@@ -17,7 +17,7 @@ This quickstart shows how to create tables and entities in the web-based Azure p
 
 ## Prerequisites
 
-To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
+To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-account-create.md).
 
 ## Add a table
 

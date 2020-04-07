@@ -9,17 +9,19 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 # As a developer new to Azure Digital Twins, I need to understand how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
 # Quickstart: Find available rooms by using Azure Digital Twins
 
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
+
 The Azure Digital Twins service allows you to re-create a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them.
 
 This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building. It shows you how to find available rooms in that building. With Digital Twins, you can associate many sensors with your environment. You also can find out if the air quality of your available room is optimal with the help of a simulated sensor for carbon dioxide. One of the sample applications generates random sensor data to help you visualize this scenario.
 
-The following video summarizes quickstart setup:
+The following video summarizes the quickstart setup:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
@@ -80,11 +82,11 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 
 1. The provisioning step might take a few minutes. It also provisions an IoT Hub within your Digital Twins instance. It loops through until the IoT Hub shows Status=`Running`.
 
-    [![Provision the sample - Status=Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Provision the sample - Status=Running](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. At the end of the execution, copy the `ConnectionString` of the device for use in the device simulator sample. Copy only the string outlined in this image.
 
-    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -101,7 +103,7 @@ Build and run the sensor simulator device application by following these steps.
 1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`. Save the updated file.
 1. Run `dotnet run` to start sending sensor data. It will be sent to Azure Digital Twins as shown in the following image.
 
-     [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Device Connectivity](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. Let this simulator run so that you can view results side by side with the next step action. This window shows you the simulated sensor data sent to Digital Twins. The next step queries in real time to find available rooms with fresh air.
 
@@ -121,7 +123,7 @@ The sensor sample simulates random data values for two sensors. They're motion a
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in `digital-twins-samples-csharp`. Use the following command:
 

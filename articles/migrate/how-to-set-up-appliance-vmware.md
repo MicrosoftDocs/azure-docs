@@ -1,29 +1,23 @@
 ---
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 03/23/2020
 ---
 
 
 # Set up an appliance for VMware VMs
 
-This article describes how to set up the Azure Migrate appliance if you're assessing VMware VMs with the Azure Migrate Server Assessment tool, or migrating VMware VMs to Azure with agentless migration using the Azure Migrate Server Migration tool.
+This article describes how to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
-The VMware VM appliance is a lightweight appliance used by Azure Migrate Server Assessment/Migration to do the following:
+The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Server Assessment and Server Migration to discover on-premises VMware VMs, send VM metadata/performance data to Azure, and for replication of VMware VMs during agentless migration.
 
-- Discover on-premises VMware VMs.
-- Send metadata and performance data for discovered VMs to Azure Migrate Server Assessment/Migration.
-
-[Learn more](migrate-appliance.md) about the Azure Migrate appliance.
+You can set up the Azure Migrate appliance for VMware VM assessment using an OVA template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the OVA template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
 
 
-## Appliance deployment steps
+## Appliance deployment (OVA)
 
-To set up the appliance you:
+To set up the appliance using an OVA template you:
 - Download an OVA template file, and import it to vCenter Server.
 - Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
 - Configure the appliance for the first time, and register it with the Azure Migrate project.
@@ -34,7 +28,7 @@ To set up the appliance you:
 2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
-
+  ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
 
 ### Verify security
 
@@ -44,12 +38,8 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For the latest appliance version, the generated hash should match these settings.
+3. For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## Create the appliance VM
@@ -57,6 +47,8 @@ Check that the OVA file is secure, before you deploy it.
 Import the downloaded file, and create a VM.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
+![Menu command for deploying an OVF template](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
 3. In **Name** and **Location**, specify a friendly name for the VM. Select the inventory object in which the VM
 will be hosted.
@@ -69,12 +61,12 @@ will be hosted.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ## Configure the appliance
 
-Set up the appliance for the first time.
+Set up the appliance for the first time. If you deploy the appliance using a script instead of an OVA template, the first two steps in the procedure aren't applicable.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password for the appliance.
@@ -111,11 +103,11 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. You can scope the discovery by limiting access to the vCenter account. [Learn more](set-discovery-scope.md).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the access privileges needed.
 
 > [!NOTE]
 > This input is optional and is needed to enable application discovery and agentless dependency visualization.

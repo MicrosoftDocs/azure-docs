@@ -49,7 +49,7 @@ Some features are currently restricted to Linux containers:
 * Multiple containers per container group
 * Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
 * [Resource usage metrics](container-instances-monitor.md) with Azure Monitor
-* [Virtual network deployment](container-instances-vnet.md) (preview)
+* [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
 For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
@@ -61,12 +61,9 @@ For Windows container deployments, use images based on common [Windows base imag
 
 Azure Container Instances supports scheduling of [multi-container groups](container-instances-container-groups.md) that share a host machine, local network, storage, and lifecycle. This enables you to combine your main application container with other supporting role containers, such as logging sidecars.
 
-## Virtual network deployment (preview)
+## Virtual network deployment
 
-Currently in preview, this feature of Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). By deploying container instances into a subnet within your virtual network, they can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
-
-> [!IMPORTANT]
-> Certain features of Azure Container Instances are in preview, and some [limitations apply](container-instances-vnet.md#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of these features may change prior to general availability (GA).
+Currently available for production workloads in a subset of Azure regions, this feature of Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). By deploying container instances into a subnet within your virtual network, they can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## Next steps
 

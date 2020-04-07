@@ -1,16 +1,165 @@
 ---
 title: Query Azure Update Management logs
-description: This article describes how to query the logs for Update Management
+description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 09/26/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ---
-# Query update records for Update Management in Log Analytics
+# Query update records for Update Management in Azure Monitor Logs
 
-In addition to the details that are provided in the Azure portal, you can do searches against the logs. On the solution pages, select **Log Analytics**. The **Log Search** pane opens.
+In addition to the details that are provided in the Update Management solution, you can search against the logs stored in your Log Analytics workspace. From the solution page, in the left-hand pane select **Logs**. The **Log Search** page opens.
 
 You can also learn how to customize the queries or use them from different clients and more by visiting:  [Log Analytics search API documentation](https://dev.loganalytics.io/).
+
+## Update records
+
+Records that are collected by Update Management for Windows and Linux VMs and the data types that appear in log search results. The following sections describe those records.
+
+### Required updates
+
+A record with a type of `RequiredUpdate` is created that represents updates required by a machine. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| Computer | Fully-qualified domain name of reporting machine. |
+| KBID | Knowledge base article ID for the Windows update. |
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. | 
+| Product | The products for which the update is applicable for. | 
+| PublishDate | The date the update is ready to be downloaded and installed from Windows Update. |
+| Server | | 
+| SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
+| TimeGenerated | Date and time that the record was created. | 
+| Type | *Update* | 
+| UpdateClassification | Indicates the type of updates that can be applied. For Windows:<br> *Critical updates*<br> *Security updates*<br> *Update rollups*<br> *Feature packs*<br> *Service packs*<br> *Definition updates*<br> *Tools*<br> *Updates*. For Linux:<br> *Critical and security updates*<br> *Other* |
+| UpdateSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
+| UpdateTitle | The title of the update.|
+
+### Update
+
+A record with a type of `Update` is created that represents updates available and their installation status for a machine. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| ApprovalSource | Applies to Windows operating system only. Value is *Microsoft Update*. |
+| Approved | *True* or *False* |
+| Classification | *Updates* |
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* or *Non-Azure*. |
+| MSRCBulletinID | Security bulletin ID number | 
+| MSRCSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |  
+| KBID | Knowledge base article ID for the Windows update. |
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| UpdateID | Unique identifier of the software update. |
+| RevisionNumber | The revision number of a specific revision of an update. |
+| Optional | *True* or *False* | 
+| RebootBehavior | The reboot behavior after installing/uninstalling an update. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
+| Type | *Update* |
+| VMUUID | Unique identifier for the virtual machine. |
+| MG | Unique identifier for the management group or Log Analytics workspace. | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
+| SourceSystem | *OperationsManager* | 
+| TimeGenerated | Date and time that the record was created. | 
+| SourceComputerId | Unique identifier representing the source computer. | 
+| Title | The title of the update. |
+| PublishedDate (UTC) | The date the update is ready to be downloaded and installed from Windows Update.  |
+| UpdateState | The current state of the update. | 
+| Product | The products for which the update is applicable for. |
+| SubscriptionId | Unique identifier for the Azure subscription. | 
+| ResourceGroup | Name of the resource group the resource is a member of. | 
+| ResourceProvider | Specifies the resource provider. | 
+| Resource | Name of the resource. | 
+| ResourceType | Name of the resource type. | 
+
+### Update Agent
+
+A record with a type of `UpdateAgent` is created that provides details of the update agent on the machine. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| Computer | Fully-qualified domain name of reporting machine. |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| OSVersion | The version of the operating system. |
+| Server | |
+| SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. |
+| TimeGenerated | Date and time that the record was created. |
+| Type | *Update* | 
+| WindowsUpdateAgentVersion | Version of the Windows Update agent. |
+| WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
+
+### Update Deployment Status 
+
+A record with a type of `UpdateRunProgress` is created that provides update deployment status of a scheduled deployment by machine. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* or *Non-Azure*. | 
+| CorrelationId | Unique identifier of the runbook job run for the update. |
+| EndTime | The time when the synchronization process ended. | 
+| ErrorResult | Windows Update error code generated if an update fails to install. | 
+| InstallationStatus | The possible installation states of an update on the client computer,<br> *NotStarted* - job not triggered yet.<br> *FailedToStart* - unable to start the job on machine.<br> *Failed* - job started but failed with an exception.<br> *InProgress* - job in progress.<br> *MaintenanceWindowExceeded* - if execution was remaining but maintenance window interval reached.<br> *Succeeded* - job succeeded.<br> *InstallFailed* - update failed to install successfully.<br> *NotIncluded*<br> *Excluded* |
+| KBID | Knowledge base article ID for the Windows update. | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| OSType | Specifies the type of operating system, *Windows* or *Linux*. | 
+| Product | The products for which the update is applicable for. |
+| Resource | Name of the resource. | 
+| ResourceId | Unique identifier for the resource that the record is associated with. |
+| ResourceProvider | Specifies the resource provider. | 
+| ResourceType | Name of the resource type. | 
+| SourceComputerId | Unique identifier representing the source computer. | 
+| SourceSystem | *OperationsManager* |
+| StartTime | Time time when the update is scheduled to be installed. |
+| SubscriptionId | Unique identifier for the Azure subscription. | 
+| SucceededOnRetry | Shows when the update execution failed on the first attempt and the current operation is a retry attempt. |
+| TimeGenerated | Date and time that the record was created. |
+| Title | The title of the update. |
+| Type | *UpdateRunProgress* |
+| UpdateId | Unique identifier of the software update. |
+| VMUUID | Unique identifier for the virtual machine. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
+
+### Update Summary 
+
+A record with a type of `UpdateSummary` is created that provides update summary by machine. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* or *Non-Azure*. | 
+| CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
+| OldestMissingSecurityUpdateBucket | Values are:<br> *Recent* if value is less than 30 days<br> *30 days ago*<br> *60 days ago*<br> *90 days ago*<br> *120 days ago*<br> *150 days ago*<br> *180 days ago*<br> *Older* when value is greater than 180 days | 
+| OldestMissingSecurityUpdateInDays | Total number of days for the oldest update detected as applicable that has not been installed. |
+| OsVersion | The version of the operating system. |
+| OtherUpdatesMissing | Count of detected updates missing. |
+| Resource |  Name of the resource. | 
+| ResourceGroup | Name of the resource group the resource is a member of. |
+| ResourceId | Unique identifier for the resource that the record is associated with. |
+| ResourceProvider | Specifies the resource provider. |
+| ResourceType | Name of the resource type. |
+| RestartPending | *True* or *False*. |
+| SecurityUpdatesMissing | Count of missing security updates applicable.| 
+| SourceComputerId | Unique identifier for the virtual machine. |
+| SourceSystem | *OpsManager* | 
+| SubscriptionId | Unique identifier for the Azure subscription. |
+| TimeGenerated | Date and time that the record was created. |
+| TotalUpdatesMissing | Total number of missing updates applicable. | 
+| Type | *UpdateSummary* |
+| VMUUID | Unique identifier for the virtual machine. |
+| WindowsUpdateAgentVersion | Version of the Windows Update agent. |
+| WindowsUpdateSetting | Shows the status of the Windows Update agent. Possible values are:<br> *Scheduled installation*<br> *Notify before installation*<br> Error returned from unhealthy WUA agent. | 
+| WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
 
 ## Sample queries
 

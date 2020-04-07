@@ -25,6 +25,7 @@ Ensure that all system data, configurations, and secrets are automatically backe
 Enable Azure Backup and configure the backup source (Azure VMs, SQL Server, or File Shares), as well as the desired frequency and retention period.
 
 How to enable Azure Backup:
+
 https://docs.microsoft.com/azure/backup/
 
 ## 9.2: Perform complete system backups and backup any customer managed keys
@@ -36,9 +37,11 @@ https://docs.microsoft.com/azure/backup/
 Enable Azure Backup and target VM(s), as well as the desired frequency and retention periods. Backup customer managed keys within Azure Key Vault.
 
 How to enable Azure Backup:
+
 https://docs.microsoft.com/azure/backup/
 
 How to backup key vault keys in Azure:
+
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## 9.3: Validate all backups including customer managed keys

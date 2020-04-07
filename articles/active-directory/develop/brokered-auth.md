@@ -13,7 +13,6 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.collection: M365-identity-device-management
 ---
 
 # Brokered authentication in Android

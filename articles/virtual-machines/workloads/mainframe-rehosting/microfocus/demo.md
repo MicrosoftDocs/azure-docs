@@ -3,7 +3,7 @@ title: Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0
 description: Run the Micro Focus BankDemo application on Azure Virtual Machines (VMs) to learn to use Micro Focus Enterprise Server and Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ---
@@ -14,6 +14,9 @@ When you set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 o
 
 CICs stands for Customer Information Control System, the transaction platform used by many of the online mainframe applications. The BankDemo application is great for learning how Enterprise Server and Enterprise Developer operate and how to manage and deploy an actual application complete with green screen
 terminals.
+
+> [!NOTE]
+> Coming soon: Instructions for setting up [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) on Azure VMs.
 
 ## Prerequisites
 

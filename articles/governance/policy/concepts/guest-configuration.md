@@ -92,7 +92,7 @@ The following table shows a list of supported operating system on Azure images:
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
@@ -209,17 +209,17 @@ file format can be renamed to '.zip' to uncompress and review.
 
 The Guest Configuration extension writes log files to the following locations:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Where `<version>` refers to the current version number.
 
 ### Collecting logs remotely
 
 The first step in troubleshooting Guest Configuration configurations or modules should be to use the
-`Test-GuestConfigurationPackage` cmdlet following the steps in
-[Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+`Test-GuestConfigurationPackage` cmdlet following the steps how to
+[create a custom Guest Configuration audit policy for Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
@@ -231,8 +231,8 @@ machines, the following example PowerShell script can be helpful. For more infor
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### Linux
@@ -244,16 +244,18 @@ the following example Bash script can be helpful. For more information, see
 ```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
 ## Guest Configuration samples
 
-Samples for Policy Guest Configuration are available in the following locations:
+Source for the Policy Guest Configuration built-in initiatives are available in the following
+locations:
 
-- [Samples index - Guest Configuration](../samples/index.md#guest-configuration)
-- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
+- [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
+- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## Next steps
 

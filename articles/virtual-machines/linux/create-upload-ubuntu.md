@@ -1,16 +1,11 @@
 ---
 title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: MicahMcKittrick-MSFT
-
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: mimckitt
+ms.author: guybo
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
@@ -21,7 +16,7 @@ Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.u
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
 ## Prerequisites
@@ -93,7 +88,16 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         (recommended) sudo apt-get dist-upgrade
 
         # sudo reboot
+	
+	Ubuntu 18.04.04:
+	
+		# sudo apt-get update
+		# sudo apt-get install --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+		# sudo apt-get install --install-recommends linux-cloud-tools-generic-hwe-18.04
+		(recommended) sudo apt-get dist-upgrade
 
+		# sudo reboot
+	
 	**See also:**
 	- [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 	- [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)

@@ -220,7 +220,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
-deletion](../../../azure-resource-manager/complete-mode-deletion.md). Change history provides
+deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history provides
 details about when a change was detected and a _visual diff_ for each change. A change detection is
 triggered when the Resource Manager properties are added, removed, or altered.
 

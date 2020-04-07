@@ -1,9 +1,8 @@
 ---
 title: Handling review feedback for Azure Apps offer in the Commercial Marketplace 
 description: How to handle review feedback for Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

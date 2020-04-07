@@ -16,9 +16,7 @@
     href: manage-app-groups.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool.md
-  - name: 6. Deploy a management tool
-    href: manage-resources-using-ui.md
-  - name: 7. Set up service alerts
+  - name: 6. Set up service alerts
     href: set-up-service-alerts.md
 - name: How-to
   items:
@@ -44,8 +42,10 @@
         href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
+      - name: Expand an existing host pool
+        href: expand-existing-host-pool.md
   - name: Create a profile container
-    items: 
+    items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
@@ -66,10 +66,16 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts dynamically
+  - name: Scale session hosts automatically
     href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
+  - name: Deploy the management tool
+    items:
+      - name: Azure Resource Manager template
+        href: manage-resources-using-ui.md
+      - name: PowerShell
+        href: manage-resources-using-ui-powershell.md
   - name: Use service diagnostics
     items:
         - name: Deploy the diagnostics tool
@@ -80,6 +86,12 @@
     href: publish-apps.md
   - name: Set up MSIX app attach
     href: app-attach.md
+  - name: Use Microsoft Teams
+    href: teams-on-wvd.md
+  - name: Set up Azure Multi-Factor Authentication
+    href: set-up-mfa.md
+  - name: Install language packs
+    href: language-packs.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
@@ -124,6 +136,8 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Linux support
+    href: linux-overview.md
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API
@@ -148,3 +162,5 @@
     href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
   - name: Microsoft 365 roadmap
     href: https://aka.ms/wvdroadmap
+  - name: Azure Resource Manager templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates

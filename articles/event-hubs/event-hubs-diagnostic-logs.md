@@ -135,6 +135,10 @@ Example:
 ```
 
 ## Next steps
-* [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Event Hubs API overview](event-hubs-api-overview.md)
-* [Get started with Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
+- [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs API overview](event-hubs-api-overview.md)
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

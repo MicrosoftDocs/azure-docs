@@ -1,5 +1,5 @@
 ---
-title: 'Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)'
+title: 'Ingest data with Azure Data Explorer .NET Standard SDK (Preview)'
 description: In this article, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.
 author: orspod
 ms.author: orspodek
@@ -121,7 +121,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## Define ingestion mapping
 
 Map the incoming CSV data to the column names used when creating the table.
-Provision a [CSV column mapping object](/azure/kusto/management/tables#create-ingestion-mapping) on that table
+Provision a [CSV column mapping object](/azure/kusto/management/create-ingestion-mapping-command) on that table
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";

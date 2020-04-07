@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 11/04/2019
+ms.date: 03/23/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -407,12 +407,14 @@ when the condition is met.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs after a Resource Provider has handled a create or update resource request
-and has returned a success status code. A template deployment occurs if there are no related
-resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
+resource request and has returned a success status code. A template deployment occurs if there are
+no related resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+The duration of the deployment depends on the complexity of resources included in the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
-are marked as non-compliant, but no action is taken on that resource.
+are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
+resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
 
 ### DeployIfNotExists properties
 
@@ -457,7 +459,7 @@ related resources to match and the template deployment to execute.
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
-  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md),
+  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/templates/deploy-to-subscription.md),
     _ResourceGroup_ indicates a deployment to a resource group.
   - A _location_ property must be specified in the _Deployment_ when using subscription level
     deployments.
@@ -560,7 +562,7 @@ Gatekeeper v3 admission control rule.
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
 
-### EnforceRegoPolicy example
+### EnforceOPAConstraint example
 
 Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
 Engine.

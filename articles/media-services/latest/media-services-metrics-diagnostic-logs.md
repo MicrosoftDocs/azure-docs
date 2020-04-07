@@ -1,5 +1,5 @@
 ---
-title: Monitor metrics and diagnostic logs via Azure Monitor
+title: Media Services metrics and diagnostic logs with Azure Monitor
 titleSuffix: Azure Media Services
 description: Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
@@ -51,7 +51,7 @@ You can monitor the following account metrics.
 |StreamingPolicyQuota|Streaming Policy quota|Streaming Policies quota in your account.|
 |StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the Streaming Policy quota already used.|
 
-You should also review [account quotas and limitations](limits-quotas-constraints.md).
+You should also review [account quotas and limits](limits-quotas-constraints.md).
 
 ### Streaming Endpoint
 

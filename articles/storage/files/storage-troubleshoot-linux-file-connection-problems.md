@@ -124,25 +124,24 @@ The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. 
 
 If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
-<a id="authorizationfailureportal"></a>
-## Error “Authorization failure” when browsing to an Azure file share in the portal
+<a id="noaaccessfailureportal"></a>
+## Error "No access" when you try to access or delete an Azure File Share  
+When you try to access or delete an Azure file share in the portal, you may receive the following error:
 
-When you browse to an Azure file share in the portal, you may receive the following error:
+No access  
+Error code: 403 
 
-Authorization failure  
-You do not have access
-
-### Cause 1: Your user account does not have access to the storage account
+### Cause 1: Virtual network or firewall rules are enabled on the storage account
 
 ### Solution for cause 1
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-### Cause 2: Virtual network or firewall rules are enabled on the storage account
+### Cause 2: Your user account does not have access to the storage account
 
 ### Solution for cause 2
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
@@ -282,6 +281,14 @@ However, these changes might not be ported yet to all the Linux distributions. I
 You can work around this problem by specifying a hard mount. A hard mount forces the client to wait until a connection is established or until it's explicitly interrupted. You can use it to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
+
+## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
+
+### Cause
+This error is logged because Azure Files [does not currently support SMB multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+### Solution
+This error can be ignored.
 
 ## Need help? Contact support.
 

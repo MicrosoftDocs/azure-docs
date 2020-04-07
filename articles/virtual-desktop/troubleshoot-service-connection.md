@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop service connections
 
@@ -46,11 +47,11 @@ If the host status is `NoHeartBeat`, that means the VM isn't responding and the 
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
 ---------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True 	Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True 	Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
+WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
 ```
 
 There are a few things you can do to fix the NoHeartBeat status.
@@ -76,4 +77,4 @@ If updating FSLogix doesn't work, the issue might be that a BiSrv component is e
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

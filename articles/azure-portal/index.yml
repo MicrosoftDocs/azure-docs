@@ -89,3 +89,13 @@ landingContent:
           - text: Turn on high contrast
             url: azure-portal-change-theme-high-contrast.md
  
+
+   # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: ../azure-portal/supportability/how-to-create-azure-support-request.md
+          - text: Troubleshoot region or SKU subscription issues
+            url: ../azure-portal/supportability/sku-series-unavailable.md

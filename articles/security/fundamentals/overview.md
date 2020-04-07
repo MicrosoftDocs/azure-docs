@@ -66,7 +66,7 @@ The [Security and Audit solution](../../security-center/security-center-intro.md
 In addition, you can configure Security & Compliance to [automatically carry out specific actions](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) when a specific event is detected.
 
 ### Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
 Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. This reduces the risk of security configuration errors that might take place during manual deployments.
 
@@ -139,16 +139,16 @@ In Application Diagnostics, you can view events grouped in these ways:
 The section provides additional information regarding key features in Azure storage security and summary information about these capabilities.
 
 ### Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/common/storage-security-guide.md) model can be controlled through Role-Based Access Control (RBAC).
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md) model can be controlled through Role-Based Access Control (RBAC).
 
 ### Shared Access Signature
 A [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
 
 ### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
--	[Transport-level encryption](../../storage/common/storage-security-guide.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../../storage/common/storage-security-guide.md), such as [SMB 3.0 encryption](../../storage/common/storage-security-guide.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
+-	[Wire encryption](../../storage/blobs/security-recommendations.md), such as [SMB 3.0 encryption](../../storage/blobs/security-recommendations.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -	Client-side encryption, to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
@@ -230,11 +230,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) pro
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway (also known as “SSL offload” or “SSL bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
+It allows you to optimize web farm productivity by offloading CPU intensive TLS termination to the Application Gateway (also known as “TLS offload” or “TLS bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
 
 It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 
-Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [Secure Sockets Layer (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) offload, custom health probes, support for multi-site, and many others.
+Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [TLS offload](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), custom health probes, support for multi-site, and many others.
 
 ### Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
@@ -263,9 +263,9 @@ Traffic Manager provides a range of traffic-routing methods to suit different ap
 ### Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. Azure Load Balancer can be configured to:
 
--	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Forward external traffic to a specific virtual machine
 

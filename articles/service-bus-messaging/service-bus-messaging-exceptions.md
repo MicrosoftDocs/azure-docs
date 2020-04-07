@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
-description: List of Service Bus messaging exceptions and suggested actions.
+description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/23/2020
 ms.author: aschhab
 
 ---
@@ -48,7 +48,7 @@ The following table lists messaging exception types, and their causes, and notes
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Service isn't able to process the request at this time. |Client can wait for a period of time, then retry the operation. |Client may retry after certain interval. If a retry results in a different exception, check retry behavior of that exception. |
 | [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |Lock token associated with the message has expired, or the lock token isn't found. |Dispose the message. |Retry doesn't help. |
 | [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Lock associated with this session is lost. |Abort the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object. |Retry doesn't help. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Generic messaging exception that may be thrown in the following cases:<br /> An attempt is made to create a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) using a name or path that belongs to a different entity type (for example, a topic).<br />  An attempt is made to send a message larger than 256 KB. The server or service encountered an error during processing of the request. See the exception message for details. It's usually a transient exception. |Check the code and ensure that only serializable objects are used for the message body (or use a custom serializer). Check the documentation for the supported value types of the properties and only use supported types. Check the [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) property. If it's **true**, you can retry the operation. |Retry behavior is undefined and might not help. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Generic messaging exception that may be thrown in the following cases:<p>An attempt is made to create a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) using a name or path that belongs to a different entity type (for example, a topic).</p><p>An attempt is made to send a message larger than 256 KB. </p>The server or service encountered an error during processing of the request. See the exception message for details. It's usually a transient exception.</p><p>The request was terminated because the entity is being throttled. Error code: 50001, 50002, 50008. </p> | Check the code and ensure that only serializable objects are used for the message body (or use a custom serializer). <p>Check the documentation for the supported value types of the properties and only use supported types.</p><p> Check the [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) property. If it's **true**, you can retry the operation. </p>| If the exception is due to throttling, wait for a few seconds and retry the operation again. Retry behavior is undefined and might not help in other scenarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Attempt to create an entity with a name that is already used by another entity in that service namespace. |Delete the existing entity or choose a different name for the entity to be created. |Retry doesn't help. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |The messaging entity has reached its maximum allowable size, or the maximum number of connections to a namespace has been exceeded. |Create space in the entity by receiving messages from the entity or its subqueues. See [QuotaExceededException](#quotaexceededexception). |Retry might help if messages have been removed in the meantime. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus returns this exception if you attempt to create an invalid rule action. Service Bus attaches this exception to a deadlettered message if an error occurs while processing the rule action for that message. |Check the rule action for correctness. |Retry doesn't help. |
@@ -69,7 +69,7 @@ For queues and topics, it's often the size of the queue. The error message prope
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
-Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
+Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xxx-xxx'. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
@@ -107,26 +107,52 @@ For queues and topics, the timeout is specified either in the [MessagingFactoryS
 ## Connectivity, certificate, or timeout issues
 The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
-- Browse to or [wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
-- Run the following command to check if any port is blocked on the firewall. Depending on the library you use, other ports are also used. For example: 443, 5672, 9354.
+- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
+
+    An example of successful message:
+    
+    ```xml
+    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+    ```
+    
+    An example of failure error message:
+
+    ```json
+    <Error>
+        <Code>400</Code>
+        <Detail>
+            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+        </Detail>
+    </Error>
+    ```
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. 
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     On Linux:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. Keep it running for approximately 1 minute to know if the connections are partially blocked. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
-- Obtain a network trace if the previous steps don't help and analyze it or contact [Microsoft Support](https://support.microsoft.com/).
+- Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 
+## Issues that may occur with service upgrades/restarts
+Backend service upgrades and restarts may cause the following impact to your applications:
+
+- Requests may be momentarily throttled.
+- There may be a drop in incoming messages/requests.
+- The log file may contain error messages.
+- The applications may be disconnected from the service for a few seconds.
+
+If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
 
 ## Next steps
 

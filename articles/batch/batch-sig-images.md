@@ -2,13 +2,13 @@
 title: Use the Shared Image Gallery to create a custom pool - Azure Batch | Microsoft Docs
 description: Create a Batch pool with the Shared Image Gallery to provision custom images to compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
+ms.author: labrenne
 ---
 
 # Use the Shared Image Gallery to create a custom pool
@@ -34,6 +34,9 @@ Using a Shared Image configured for your scenario can provide several advantages
 * **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## Prerequisites
+
+> [!NOTE]
+> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
 
 * **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
@@ -82,6 +85,9 @@ Once you have successfully created your managed image, you need to create a Shar
 ## Create a pool from a Shared Image using the Azure CLI
 
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
+
+> [!NOTE]
+> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
 
 ```azurecli
 az batch pool create \

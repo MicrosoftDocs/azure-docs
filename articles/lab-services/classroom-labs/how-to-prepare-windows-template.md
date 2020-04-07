@@ -14,10 +14,10 @@ ms.author: enewman
 ---
 # Guide to setting up a Windows template machine in Azure Lab Services
 
-If you’re setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.
+If you're setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.
 
 >[!IMPORTANT]
->This article contains PowerShell snippets to streamline the machine template modification process.  For all the PowerShell scripts shown, you’ll want to run them in Windows PowerShell with administrator privileges. In Windows 10, a quick way of doing that is to right-click the Start Menu and choose the "Windows PowerShell (Admin)".
+>This article contains PowerShell snippets to streamline the machine template modification process.  For all the PowerShell scripts shown, you'll want to run them in Windows PowerShell with administrator privileges. In Windows 10, a quick way of doing that is to right-click the Start Menu and choose the "Windows PowerShell (Admin)".
 
 ## Install and configure OneDrive
 
@@ -61,7 +61,7 @@ If you are on a machine that is not using Active Directory, users can manually m
 
 If your virtual machine is connected to Active Directory, you can set the template machine to automatically prompt your students to move the known folders to OneDrive.  
 
-You’ll need to retrieve your Office Tenant ID first.  For further instructions, see [find your Office 365 Tenant ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  You can also get the Office 365 Tenant ID by using the following PowerShell.
+You'll need to retrieve your Office Tenant ID first.  For further instructions, see [find your Office 365 Tenant ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  You can also get the Office 365 Tenant ID by using the following PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -128,7 +128,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ### Install Microsoft Office 365
 
-If your template machine needs Office, we recommend installation of Office through the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). You will need to create a reusable configuration file using the [Office 365 Client Configuration Service](https://config.office.com/) to choose which architecture, what features you’ll need from Office, and how often it updates.
+If your template machine needs Office, we recommend installation of Office through the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). You will need to create a reusable configuration file using the [Office 365 Client Configuration Service](https://config.office.com/) to choose which architecture, what features you'll need from Office, and how often it updates.
 
 1. Go to [Office 365 Client Configuration Service](https://config.office.com/) and download your own configuration file.
 2. Download [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117).  Downloaded file will be `setup.exe`.
@@ -137,7 +137,7 @@ If your template machine needs Office, we recommend installation of Office throu
 
 ### Change the Microsoft Office 365 update channel
 
-Using the Office Configuration Tool, you can set how often Office receives updates.  However, if you need to modify how often Office receives updates after installation, you can change the update channel url.  Update channel url addresses can be found at [change the update channel after you enable Office 365 clients to receive updates from Configuration Manager]/configmgr/sum/deploy-use/manage-office-365-proplus-updates#bkmk_channel). The example below shows how to set Office 365 to use the Monthly Update Channel.
+Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Office 365 ProPlus update channel for devices in your organization](https://docs.microsoft.com/deployoffice/change-update-channels). The example below shows how to set Office 365 to use the Monthly Update Channel.
 
 ```powershell
 # Update to the Office 365 Monthly Channel
@@ -180,7 +180,7 @@ We recommend having all Microsoft Store apps be updated to their latest versions
 3. Select **Download** and updates from the drop-down menu.
 4. Click **Get update** button.
 
-You can also use Powershell to update Microsoft Store applications that are already installed.
+You can also use PowerShell to update Microsoft Store applications that are already installed.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -203,7 +203,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
 If you need additional languages installed on the virtual machine, you can add them through the Microsoft Store.
 
 1. Launch Microsoft Store
-2. Search for “language pack”
+2. Search for "language pack"
 3. Choose language to install
 
 If you are already logged on to the template VM, use ["Install language pack" shortcut](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) to go directly to the appropriate settings page.
@@ -229,3 +229,6 @@ Install other apps commonly used for teaching through the Windows Store app. Sug
 ## Conclusion
 
 This article has shown you optional steps to prepare your Windows template VM for an effective class.  Steps include installing OneDrive and installing Office 365, installing the updates for Windows and installing updates for Microsoft Store apps.  We also discussed how to set updates to a schedule that works best for your class.  
+
+## Next steps
+See the article on how to control Windows shutdown behavior to help with managing costs: [Guide to controlling Windows shutdown behavior](how-to-windows-shutdown.md)

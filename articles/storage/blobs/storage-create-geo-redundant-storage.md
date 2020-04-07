@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
@@ -19,7 +19,7 @@ ms.subservice: blobs
 
 This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
 
-When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account.
+When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account.
 
 RA-GRS works by replicating transactions from a primary region to a secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 

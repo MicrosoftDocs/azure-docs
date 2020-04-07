@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create Apache HBase cluster into virtual network
 
-In this section, you create a Linux-based Apache HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Apache Hadoop clusters in HDInsight, see [Create Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+In this section, you create a Linux-based Apache HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../../azure-resource-manager/templates/deploy-powershell.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Apache Hadoop clusters in HDInsight, see [Create Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
 > Some properties are hard-coded into the template. For example:

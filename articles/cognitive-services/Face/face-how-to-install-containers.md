@@ -1,5 +1,5 @@
 ---
-title: Install and run containers - FACE API
+title: Install and run containers - Face
 titleSuffix: Azure Cognitive Services
 description: This article shows you how to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-You must meet the following prerequisites before you use the Face API containers.
+You must meet the following prerequisites before you use the Face service containers.
 
 |Required|Purpose|
 |--|--|
@@ -41,7 +41,7 @@ You must meet the following prerequisites before you use the Face API containers
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for each Face service container.
 
 | Container | Minimum | Recommended | Transactions per second<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
@@ -54,7 +54,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with docker pull
 
-Container images for the Face API are available. 
+Container images for the Face service are available. 
 
 | Container | Repository |
 |-----------|------------|
@@ -127,7 +127,7 @@ If you run the container with an output [mount](./face-resource-container-config
 
 ## Billing
 
-The Face API containers send billing information to Azure by using a Face API resource on your Azure account. 
+The Face service containers send billing information to Azure by using a Face resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -139,11 +139,11 @@ For more information about these options, see [Configure containers](./face-reso
 
 ## Summary
 
-In this article, you learned concepts and workflow for how to download, install, and run Face API containers. In summary:
+In this article, you learned concepts and workflow for how to download, install, and run Face service containers. In summary:
 
 * Container images are downloaded from the Azure Container Registry.
 * Container images run in Docker.
-* You can use either the REST API or the SDK to call operations in Face API containers by specifying the host URI of the container.
+* You can use either the REST API or the SDK to call operations in Face service containers by specifying the host URI of the container.
 * You must specify billing information when you instantiate a container.
 
 > [!IMPORTANT]

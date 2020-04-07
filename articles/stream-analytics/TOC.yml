@@ -23,13 +23,11 @@
     href: stream-analytics-manage-job.md
   - name: 2 - Run Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: 3 - Run a Javascript UDF
-    href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in Azure Pipelines
+  - name: 3 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Run a C# UDF
+  - name: 4 - Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
-  - name: 6 - Create custom .NET deserializer
+  - name: 5 - Create custom .NET deserializer
     href: custom-deserializer.md
 - name: Samples
   items:
@@ -61,10 +59,19 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: User-defined functions
+    items:
+    - name: Machine learning UDF
+      href: machine-learning-udf.md
+    - name: C# UDF
+      href: stream-analytics-edge-csharp-udf-methods.md
+    - name: JavaScript UDF
+      href: stream-analytics-javascript-user-defined-functions.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units
       href: stream-analytics-streaming-unit-consumption.md
+      displayName: scale, performance
     - name: Improve query performance
       href: stream-analytics-parallelization.md
     - name: Repartition your input
@@ -119,6 +126,8 @@
       href: blob-output-managed-identity.md
     - name: Authenticate with managed identity - Power BI
       href: powerbi-output-managed-identity.md
+    - name: Encrypt your data
+      href: data-protection.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -166,6 +175,8 @@
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
     - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
+    - name: Export and deploy with Azure Resource Manager
+      href: resource-manager-export.md
   - name: Visual Studio
     items:
     - name: Install tools
@@ -176,12 +187,12 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Write .NET UDF
-      href: stream-analytics-edge-csharp-udf-methods.md
   - name: Visual Studio Code
     items:
     - name: Test locally with sample data
@@ -192,6 +203,8 @@
       href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: JobConfig.json fields
+      href: job-config-json.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -218,6 +231,9 @@
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language
   items:
+    - name: Stream Analytics Query Language overview
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Built-in Functions
       items:
         - name: Built-in Functions Overview

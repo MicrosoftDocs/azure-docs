@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
 
@@ -33,7 +34,7 @@ Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Windows Virtual Desktop
 - Provision a Windows Virtual Desktop host pool
-- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Enable your Azure NetApp Files subscription](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## Set up your Azure NetApp Files account
 
@@ -51,11 +52,11 @@ To get started, you need to set up an Azure NetApp Files account.
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -67,7 +68,7 @@ To get started, you need to set up an Azure NetApp Files account.
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
 8. Select the **Add** button.
-9. When the **New NetApp account** blade opens, enter the following values:
+9. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
@@ -86,7 +87,7 @@ Next, create a new capacity pool:
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.
 3. Select **Add pool**.
-4. When the **New capacity pool** blade opens, enter the following values:
+4. When the **New capacity pool** tab opens, enter the following values:
 
     - For **Name**, enter a name for the new capacity pool.
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
@@ -121,7 +122,7 @@ Next, you'll need to create a new volume.
 
 1. Select **Volumes**, then select **Add volume**.
 
-2. When the **Create a volume** blade opens, enter the following values:
+2. When the **Create a volume** tab opens, enter the following values:
 
     - For **Volume name**, enter a name for the new volume.
     - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.

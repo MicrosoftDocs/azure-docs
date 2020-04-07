@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
 ---
 
@@ -31,7 +31,7 @@ In addition to **Content-Type** and **Content-Disposition**, Azure Digital Twins
 
 The four main JSON schemas are:
 
-[![JSON schemas](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![JSON schemas](media/how-to-add-blobs/blob-models-swagger-img.png)](media/how-to-add-blobs/blob-models-swagger-img.png#lightbox)
 
 JSON blob metadata conforms to the following model:
 
@@ -191,7 +191,7 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | The ID of the space to associate the blob with |
 | PATH_TO_FILE | The path to your text file |
 
-[![cURL example](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![cURL example](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
 A successful POST returns the ID of the new the blob.
 
@@ -203,7 +203,7 @@ The following sections describe the core blob-related API endpoints and their fu
 
 You can attach blobs to devices. The following image shows the Swagger reference documentation for your Management APIs. It specifies device-related API endpoints for blob consumption and any required path parameters to pass into them.
 
-[![Device blobs](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![Device blobs](media/how-to-add-blobs/blobs-device-api-swagger-img.png)](media/how-to-add-blobs/blobs-device-api-swagger-img.png#lightbox)
 
 For example, to update or create a blob and attach the blob to a device, make an authenticated HTTP PATCH request to:
 
@@ -221,7 +221,7 @@ Successful requests return a JSON object as [described earlier](#blobs-response-
 
 You can also attach blobs to spaces. The following image lists all space API endpoints responsible for handling blobs. It also lists any path parameters to pass into those endpoints.
 
-[![Space blobs](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![Space blobs](media/how-to-add-blobs/blobs-space-api-swagger-img.png)](media/how-to-add-blobs/blobs-space-api-swagger-img.png#lightbox)
 
 For example, to return a blob attached to a space, make an authenticated HTTP GET request to:
 
@@ -241,7 +241,7 @@ A PATCH request to the same endpoint updates metadata descriptions and creates v
 
 You can attach blobs to user models (for example, to associate a profile picture). The following image shows relevant user API endpoints and any required path parameters, like `id`:
 
-[![User blobs](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![User blobs](media/how-to-add-blobs/blobs-users-api-swagger-img.png)](media/how-to-add-blobs/blobs-users-api-swagger-img.png#lightbox)
 
 For example, to fetch a blob attached to a user, make an authenticated HTTP GET request with any required form data to:
 
@@ -257,23 +257,41 @@ Successful requests return a JSON object as [described earlier](#blobs-response-
 
 ## Common errors
 
-A common error involves not supplying the correct header information:
+* A common error involves not supplying the correct header information:
 
-```JSON
-{
-    "error": {
-        "code": "400.600.000.000",
-        "message": "Invalid media type in first section."
-    }
-}
-```
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "Invalid media type in first section."
+      }
+  }
+  ```
 
-To resolve this error, verify that the overall request has an appropriate **Content-Type** header:
+  To resolve this error, verify that the overall request has an appropriate **Content-Type** header:
 
-* `multipart/mixed`
-* `multipart/form-data`
+     * `multipart/mixed`
+     * `multipart/form-data`
 
-Also, verify that each multipart chunk has a corresponding **Content-Type** as needed.
+  Also, verify that each *multipart chunk* has an appropriate corresponding **Content-Type**.
+
+* A second common error arises when multiple blobs are assigned to the same resource in your [spatial intelligence graph](concepts-objectmodel-spatialgraph.md):
+
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "SpaceBlobMetadata already exists."
+      }
+  }
+  ```
+
+  > [!NOTE]
+  > The **message** attribute will vary based on the resource. 
+
+  Only one blob (of each kind) may be attached to each resource within your spatial graph. 
+
+  To resolve this error, update the existing blob by using the appropriate API HTTP PATCH operation. Doing so will replace the existing blob data with the desired data.
 
 ## Next steps
 

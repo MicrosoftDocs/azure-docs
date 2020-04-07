@@ -1,13 +1,13 @@
 ---
 title: Use Azure CLI to configure customer-managed keys
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -69,7 +69,7 @@ az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
     --object-id $storage_account_principal \
-    --key-permissions get recover unwrapKey wrapKey
+    --key-permissions get unwrapKey wrapKey
 ```
 
 ## Create a new key
@@ -81,6 +81,8 @@ az keyvault key create
     --name <key> \
     --vault-name <key-vault>
 ```
+
+Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## Configure encryption with customer-managed keys
 
@@ -116,11 +118,21 @@ When you create a new version of a key, you'll need to update the storage accoun
 
 To change the key used for Azure Storage encryption, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) as shown in [Configure encryption with customer-managed keys](#configure-encryption-with-customer-managed-keys) and provide the new key name and version. If the new key is in a different key vault, also update the key vault URI.
 
+## Revoke customer-managed keys
+
+If you believe that a key may have been compromised, you can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurecli-interactive
+az keyvault delete-policy \
+    --name <key-vault> \
+    --object-id $storage_account_principal
+```
+
 ## Disable customer-managed keys
 
-When you disable customer-managed keys, your storage account is then encrypted with Microsoft-managed keys. To disable customer-managed keys, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption-key-source parameter` to `Microsoft.Storage`, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+When you disable customer-managed keys, your storage account is once again encrypted with Microsoft-managed keys. To disable customer-managed keys, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption-key-source parameter` to `Microsoft.Storage`, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
-```powershell
+```azurecli-interactive
 az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \

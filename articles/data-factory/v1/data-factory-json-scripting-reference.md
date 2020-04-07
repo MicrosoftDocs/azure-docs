@@ -3553,7 +3553,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
 #### Example: Using Anonymous authentication
 
@@ -4068,7 +4068,7 @@ To define a HTTP linked service, set the **type** of the linked service to **Htt
 | --- | --- | --- |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
@@ -5548,7 +5548,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
 
 ### JSON example
 

@@ -2,12 +2,9 @@
 title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
+
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
 ---
@@ -29,7 +26,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 ## Create an Azure disk
 
-When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) service principal for your cluster the `Contributor` role to the disk's resource group.
+When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) service principal for your cluster the `Contributor` role to the disk's resource group. Alternatively, you can use the system assigned managed identity for permissions instead of the service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 For this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 

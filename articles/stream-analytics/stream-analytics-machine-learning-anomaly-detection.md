@@ -17,6 +17,12 @@ The machine learning models assume a uniformly sampled time series. If the time 
 
 The machine learning operations do not support seasonality trends or multi-variate correlations at this time.
 
+## Anomaly detection using machine learning in Azure Stream Analytics
+
+The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
+
 ## Model behavior
 
 Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model’s training.
@@ -142,12 +148,6 @@ Sample code to run the non-partitioned configurations above is located in the [S
 
 ### Identifying bottlenecks
 Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hub metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
-
-## Anomaly detection using machine learning in Azure Stream Analytics
-
-The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
 
 ## Next steps
 

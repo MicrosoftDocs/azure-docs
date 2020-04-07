@@ -1,17 +1,19 @@
 ---
 title: Azure Monitor supported metrics by resource type
 description: List of metrics available for each resource type with Azure Monitor.
-author: anirudhcavale
+author: rboucher
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
-ms.date: 12/18/2019
-ms.author: ancav
+ms.date: 04/06/2020
+ms.author: robb
 ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+> [!NOTE]
+> This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via Github may be written over without warning. Contact the author of this article for details on how to make permanent updates.
+
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -19,8 +21,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 >
 > For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
-
-
 
 
 ## Microsoft.AnalysisServices/servers
@@ -97,15 +97,15 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |EventHubDroppedEvents|Dropped EventHub Events|Count|Total|Number of events skipped because of queue size limit reached|Location|
 |EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|Total size of EventHub events in bytes|Location|
 |Requests|Requests|Count|Total|Gateway request metrics with multiple dimensions|Location,Hostname,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory|
+|NetworkConnectivity|Network Connectivity Status of Resources (Preview)|Count|Total|Network Connectivity status of dependent resource types from API Management service|Location,ResourceType|
 
 
 ## Microsoft.AppConfiguration/configurationStores
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|HttpIncomingRequestCount|HttpIncomingRequestCount|Count|Count|Total number of incoming http requests.|None|
-|FailedHttpRequestCount|FailedHttpRequestCount|Count|Count|Failed http requests.|None|
-|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Count|Average|Latency on an http request.|None|
+|HttpIncomingRequestCount|HttpIncomingRequestCount|Count|Count|Total number of incoming http requests.|StatusCode|
+|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Count|Average|Latency on an http request.|StatusCode|
 
 
 ## Microsoft.AppPlatform/Spring
@@ -167,21 +167,21 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |LeavingPoolNodeCount|Leaving Pool Node Count|Count|Total|Number of nodes leaving the Pool|None|
 |UnusableNodeCount|Unusable Node Count|Count|Total|Number of unusable nodes|None|
 |PreemptedNodeCount|Preempted Node Count|Count|Total|Number of preempted nodes|None|
-|TaskStartEvent|Task Start Events|Count|Total|Total number of tasks that have started|None|
-|TaskCompleteEvent|Task Complete Events|Count|Total|Total number of tasks that have completed|None|
-|TaskFailEvent|Task Fail Events|Count|Total|Total number of tasks that have completed in a failed state|None|
-|PoolCreateEvent|Pool Create Events|Count|Total|Total number of pools that have been created|None|
-|PoolResizeStartEvent|Pool Resize Start Events|Count|Total|Total number of pool resizes that have started|None|
-|PoolResizeCompleteEvent|Pool Resize Complete Events|Count|Total|Total number of pool resizes that have completed|None|
-|PoolDeleteStartEvent|Pool Delete Start Events|Count|Total|Total number of pool deletes that have started|None|
-|PoolDeleteCompleteEvent|Pool Delete Complete Events|Count|Total|Total number of pool deletes that have completed|None|
-|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been successfully deleted.|None|
-|JobDeleteStartEvent|Job Delete Start Events|Count|Total|Total number of jobs that have been requested to be deleted.|None|
-|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been successfully disabled.|None|
-|JobDisableStartEvent|Job Disable Start Events|Count|Total|Total number of jobs that have been requested to be disabled.|None|
-|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been successfully started.|None|
-|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been successfully terminated.|None|
-|JobTerminateStartEvent|Job Terminate Start Events|Count|Total|Total number of jobs that have been requested to be terminated.|None|
+|TaskStartEvent|Task Start Events|Count|Total|Total number of tasks that have started|poolId,jobId|
+|TaskCompleteEvent|Task Complete Events|Count|Total|Total number of tasks that have completed|poolId,jobId|
+|TaskFailEvent|Task Fail Events|Count|Total|Total number of tasks that have completed in a failed state|poolId,jobId|
+|PoolCreateEvent|Pool Create Events|Count|Total|Total number of pools that have been created|poolId|
+|PoolResizeStartEvent|Pool Resize Start Events|Count|Total|Total number of pool resizes that have started|poolId|
+|PoolResizeCompleteEvent|Pool Resize Complete Events|Count|Total|Total number of pool resizes that have completed|poolId|
+|PoolDeleteStartEvent|Pool Delete Start Events|Count|Total|Total number of pool deletes that have started|poolId|
+|PoolDeleteCompleteEvent|Pool Delete Complete Events|Count|Total|Total number of pool deletes that have completed|poolId|
+|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been successfully deleted.|jobId|
+|JobDeleteStartEvent|Job Delete Start Events|Count|Total|Total number of jobs that have been requested to be deleted.|jobId|
+|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been successfully disabled.|jobId|
+|JobDisableStartEvent|Job Disable Start Events|Count|Total|Total number of jobs that have been requested to be disabled.|jobId|
+|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been successfully started.|jobId|
+|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been successfully terminated.|jobId|
+|JobTerminateStartEvent|Job Terminate Start Events|Count|Total|Total number of jobs that have been requested to be terminated.|jobId|
 
 
 ## Microsoft.BatchAI/workspaces
@@ -413,6 +413,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 
 
+
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -463,9 +464,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account’s Blob service in bytes.|BlobType,Tier|
-|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account’s Blob service.|BlobType,Tier|
-|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account’s Blob service.|None|
+|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType,Tier|
+|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType,Tier|
+|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|None|
 |IndexCapacity|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
@@ -478,9 +479,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account’s Table service in bytes.|None|
-|TableCount|Table Count|Count|Average|The number of table in the storage account’s Table service.|None|
-|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account’s Table service.|None|
+|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|None|
+|TableCount|Table Count|Count|Average|The number of table in the storage account's Table service.|None|
+|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -492,11 +493,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account’s File service in bytes.|FileShare|
-|FileCount|File Count|Count|Average|The number of file in the storage account’s File service.|FileShare|
-|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account’s File service.|None|
-|FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account’s Files Service.|FileShare|
-|FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account’s File service in bytes.|FileShare|
+|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
+|FileCount|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
+|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
+|FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
@@ -509,9 +510,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account’s Queue service in bytes.|None|
-|QueueCount|Queue Count|Count|Average|The number of queue in the storage account’s Queue service.|None|
-|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account’s Queue service.|None|
+|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account's Queue service in bytes.|None|
+|QueueCount|Queue Count|Count|Average|The number of queue in the storage account's Queue service.|None|
+|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -533,11 +534,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DataIn|Data In|Bytes|Total|Size of incoming data in bytes.|ApiName,OperationName,Region|
 |DataOut|Data Out|Bytes|Total|Size of outgoing data in bytes.|ApiName,OperationName,Region|
 |Latency|Latency|MilliSeconds|Average|Latency in milliseconds.|ApiName,OperationName,Region|
+|TotalTokenCalls|Total Token Calls|Count|Total|Total number of token calls.|ApiName,OperationName,Region|
 |CharactersTranslated|Characters Translated|Count|Total|Total number of characters in incoming text request.|ApiName,OperationName,Region|
 |CharactersTrained|Characters Trained|Count|Total|Total number of characters trained.|ApiName,OperationName,Region|
 |SpeechSessionDuration|Speech Session Duration|Seconds|Total|Total duration of speech session in seconds.|ApiName,OperationName,Region|
 |TotalTransactions|Total Transactions|Count|Total|Total number of transactions.|None|
-|TotalTokenCalls|Total Token Calls|Count|Total|Total number of token calls.|ApiName,OperationName,Region|
+|ProcessedImages|Processed Images|Count|Total| Number of Transactions for image processing.|ApiName,FeatureName,Channel,Region|
 
 ## Microsoft.Compute/virtualMachines
 
@@ -552,16 +554,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|None|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|None|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|None|
-|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
-|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
-|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
-|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|Data Disk QD (Deprecated)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
-|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
-|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk QD|OS Disk QD (Deprecated)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk QD|OS Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
 |Data Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|LUN|
 |Data Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|LUN|
 |Data Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|LUN|
@@ -574,8 +576,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |OS Disk Queue Depth|OS Disk Queue Depth (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
 |Inbound Flows|Inbound Flows|Count|Average|Inbound Flows are number of current flows in the inbound direction (traffic going into the VM)|None|
 |Outbound Flows|Outbound Flows|Count|Average|Outbound Flows are number of current flows in the outbound direction (traffic going out of the VM)|None|
-|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|None|
-|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|None|
+|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|None|
+|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|None|
 |Premium Data Disk Cache Read Hit|Premium Data Disk Cache Read Hit (Preview)|Percent|Average|Premium Data Disk Cache Read Hit|LUN|
 |Premium Data Disk Cache Read Miss|Premium Data Disk Cache Read Miss (Preview)|Percent|Average|Premium Data Disk Cache Read Miss|LUN|
 |Premium OS Disk Cache Read Hit|Premium OS Disk Cache Read Hit (Preview)|Percent|Average|Premium OS Disk Cache Read Hit|None|
@@ -597,16 +599,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|VMName|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|None|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|None|
-|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
-|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
-|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
-|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|Data Disk QD (Deprecated)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
-|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
-|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk QD|OS Disk QD (Deprecated)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk QD|OS Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
 |Data Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|LUN,VMName|
 |Data Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|LUN,VMName|
 |Data Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|LUN,VMName|
@@ -619,8 +621,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |OS Disk Queue Depth|OS Disk Queue Depth (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|VMName|
 |Inbound Flows|Inbound Flows|Count|Average|Inbound Flows are number of current flows in the inbound direction (traffic going into the VM)|VMName|
 |Outbound Flows|Outbound Flows|Count|Average|Outbound Flows are number of current flows in the outbound direction (traffic going out of the VM)|VMName|
-|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|VMName|
-|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|VMName|
+|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|VMName|
+|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|VMName|
 |Premium Data Disk Cache Read Hit|Premium Data Disk Cache Read Hit (Preview)|Percent|Average|Premium Data Disk Cache Read Hit|LUN,VMName|
 |Premium Data Disk Cache Read Miss|Premium Data Disk Cache Read Miss (Preview)|Percent|Average|Premium Data Disk Cache Read Miss|LUN,VMName|
 |Premium OS Disk Cache Read Hit|Premium OS Disk Cache Read Hit (Preview)|Percent|Average|Premium OS Disk Cache Read Hit|VMName|
@@ -642,16 +644,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|None|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|None|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|None|
-|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
-|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
-|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
-|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|Data Disk QD (Deprecated)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
-|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Deprecated)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
-|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Deprecated)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Deprecated)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
-|OS Per Disk QD|OS Disk QD (Deprecated)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period for OS disk|None|
+|OS Per Disk QD|OS Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
 |Data Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|LUN|
 |Data Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|LUN|
 |Data Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|LUN|
@@ -664,8 +666,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |OS Disk Queue Depth|OS Disk Queue Depth (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|None|
 |Inbound Flows|Inbound Flows|Count|Average|Inbound Flows are number of current flows in the inbound direction (traffic going into the VM)|None|
 |Outbound Flows|Outbound Flows|Count|Average|Outbound Flows are number of current flows in the outbound direction (traffic going out of the VM)|None|
-|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|None|
-|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate (Preview)|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|None|
+|Inbound Flows Maximum Creation Rate|Inbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of inbound flows (traffic going into the VM)|None|
+|Outbound Flows Maximum Creation Rate|Outbound Flows Maximum Creation Rate|CountPerSecond|Average|The maximum creation rate of outbound flows (traffic going out of the VM)|None|
 |Premium Data Disk Cache Read Hit|Premium Data Disk Cache Read Hit (Preview)|Percent|Average|Premium Data Disk Cache Read Hit|LUN|
 |Premium Data Disk Cache Read Miss|Premium Data Disk Cache Read Miss (Preview)|Percent|Average|Premium Data Disk Cache Read Miss|LUN|
 |Premium OS Disk Cache Read Hit|Premium OS Disk Cache Read Hit (Preview)|Percent|Average|Premium OS Disk Cache Read Hit|None|
@@ -730,6 +732,21 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |HyperVMemoryUtilization|Edge Compute - Memory Usage|Percent|Average|Amount of RAM in Use|InstanceName|
 
 
+## Microsoft.DataCatalog/datacatalogs
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|AssetDistributionByClassification|Asset distribution by classification|Count|Total|Indicates the number of assets with a certain classification assigned, i.e. they are classified with that label.|Classification,Source|
+|AssetDistributionByStorageType|Asset distribution by storage type|Count|Total|Indicates the number of assets with a certain storage type.|StorageType|
+|NumberOfAssetsWithClassifications|Number of assets with at least one classification|Count|Average|Indicates the number of assets with at least one tag classification.|None|
+|ScanCancelled|Scan Cancelled|Count|Total|Indicates the number of scans cancelled.|None|
+|ScanCompleted|Scan Completed|Count|Total|Indicates the number of scans completed successfully.|None|
+|ScanFailed|Scan Failed|Count|Total|Indicates the number of scans failed.|None|
+|ScanTimeTaken|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|None|
+|CatalogActiveUsers|Daily Active Users|Count|Total|Number of active users daily|None|
+|CatalogUsage|Usage Distribution by Operation|Count|Total|Indicate the number of operation user makes to the catalog, i.e., Access, Search, Glossary.|Operation|
+
+
 ## Microsoft.DataFactory/datafactories
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -771,6 +788,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|None|
 |JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|None|
 |JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|None|
+|JobStage|Jobs in Stage|Count|Total|Number of jobs in each stage.|None|
 
 
 ## Microsoft.DataLakeStore/accounts
@@ -782,6 +800,18 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DataRead|Data Read|Bytes|Total|Total amount of data read from the account.|None|
 |WriteRequests|Write Requests|Count|Total|Count of data write requests to the account.|None|
 |ReadRequests|Read Requests|Count|Total|Count of data read requests to the account.|None|
+
+
+## Microsoft.DataShare/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ShareCount|Sent Shares|Count|Maximum|Number of sent shares in the account|ShareName|
+|ShareSubscriptionCount|Received Shares|Count|Maximum|Number of received shares in the account|ShareSubscriptionName|
+|SucceededShareSynchronizations|Sent Share Succeeded Snapshots|Count|Count|Number of sent share succeeded snapshots in the account|None|
+|FailedShareSynchronizations|Sent Share Failed Snapshots|Count|Count|Number of sent share failed snapshots in the account|None|
+|SucceededShareSubscriptionSynchronizations|Received Share Succeeded Snapshots|Count|Count|Number of received share succeeded snapshots in the account|None|
+|FailedShareSubscriptionSynchronizations|Received Share Failed Snapshots|Count|Count|Number of received share failed snapshots in the account|None|
 
 
 ## Microsoft.DBforMariaDB/servers
@@ -862,6 +892,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |network_bytes_ingress|Network In|Bytes|Total|Network In across active connections|None|
 
 
+## Microsoft.DBforPostgreSQL/singleservers
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|cpu_percent|CPU percent|Percent|Average|CPU percent|None|
+|memory_percent|Memory percent|Percent|Average|Memory percent|None|
+|iops|IOPS|Count|Average|IO Operations per second|None|
+|storage_percent|Storage percent|Percent|Average|Storage percent|None|
+|storage_used|Storage used|Bytes|Average|Storage used|None|
+|active_connections|Active Connections|Count|Average|Active Connections|None|
+|network_bytes_egress|Network Out|Bytes|Total|Network Out across active connections|None|
+|network_bytes_ingress|Network In|Bytes|Total|Network In across active connections|None|
+|connections_failed|Failed Connections|Count|Total|Failed Connections|None|
+|connections_succeeded|Succeeded Connections|Count|Total|Succeeded Connections|None|
+|maximum_used_transactionIDs|Maximum Used Transaction IDs|Count|Average|Maximum Used Transaction IDs|None|
+
+
 
 
 
@@ -894,8 +941,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.endpoints.latency.storage|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|None|
 |d2c.endpoints.egress.storage.bytes|Routing: data delivered to storage|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
 |d2c.endpoints.egress.storage.blobs|Routing: blobs delivered to storage|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
-|EventGridDeliveries|Event Grid deliveries(preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|ResourceId,Result,EventType|
+|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|ResourceId,Result,EventType|
 |EventGridLatency|Event Grid latency (preview)|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|ResourceId,EventType|
+|RoutingDeliveries|Routing Deliveries (preview)|Milliseconds|Total|The number of times IoT Hub attempted to deliver messages to all endpoints using routing. To see the number of successful or failed attempts, use the Result dimension. To see the reason of failure, like invalid, dropped, or orphaned, use the FailureReasonCategory dimension. You can also use the EndpointName and EndpointType dimensions to understand how many messages were delivered to your different endpoints. The metric value increases by one for each delivery attempt, including if the message is delivered to multiple endpoints or if the message is delivered to the same endpoint multiple times.|ResourceId,EndpointType,EndpointName,FailureReasonCategory,Result,RoutingSource|
+|RoutingDeliveryLatency|Routing Delivery Latency (preview)|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into an endpoint. You can use the EndpointName and EndpointType dimensions to understand the latency to your different endpoints.|ResourceId,EndpointType,EndpointName,RoutingSource|
 |d2c.twin.read.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|None|
 |d2c.twin.read.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|None|
 |d2c.twin.read.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|None|
@@ -945,6 +994,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AttestationAttempts|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName,Status,Protocol|
 
 
+
+
 ## Microsoft.DocumentDB/databaseAccounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -952,32 +1003,62 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AddRegion|Region Added|Count|Count|Region Added|Region|
 |AvailableStorage|Available Storage|Bytes|Total|Total available storage reported at 5 minutes granularity|CollectionName,DatabaseName,Region|
 |CassandraConnectionClosures|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|APIType,Region,ClosureReason|
+|CassandraKeyspaceDelete|Cassandra Keyspace Deleted|Count|Count|Cassandra Keyspace Deleted|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraKeyspaceThroughputUpdate|Cassandra Keyspace Throughput Updated|Count|Count|Cassandra Keyspace Throughput Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraKeyspaceUpdate|Cassandra Keyspace Updated|Count|Count|Cassandra Keyspace Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |CassandraRequestCharges|Cassandra Request Charges|Count|Total|RUs consumed for Cassandra requests made|APIType,DatabaseName,CollectionName,Region,OperationType,ResourceType|
 |CassandraRequests|Cassandra Requests|Count|Count|Number of Cassandra requests made|APIType,DatabaseName,CollectionName,Region,OperationType,ResourceType,ErrorCode|
+|CassandraTableDelete|Cassandra Table Deleted|Count|Count|Cassandra Table Deleted|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraTableThroughputUpdate|Cassandra Table Throughput Updated|Count|Count|Cassandra Table Throughput Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraTableUpdate|Cassandra Table Updated|Count|Count|Cassandra Table Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |CreateAccount|Account Created|Count|Count|Account Created|None|
 |DataUsage|Data Usage|Bytes|Total|Total data usage reported at 5 minutes granularity|CollectionName,DatabaseName,Region|
 |DeleteAccount|Account Deleted|Count|Count|Account Deleted|None|
 |DocumentCount|Document Count|Count|Total|Total document count reported at 5 minutes granularity|CollectionName,DatabaseName,Region|
 |DocumentQuota|Document Quota|Bytes|Total|Total storage quota reported at 5 minutes granularity|CollectionName,DatabaseName,Region|
+|GremlinDatabaseDelete|Gremlin Database Deleted|Count|Count|Gremlin Database Deleted|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinDatabaseThroughputUpdate|Gremlin Database Throughput Updated|Count|Count|Gremlin Database Throughput Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinDatabaseUpdate|Gremlin Database Updated|Count|Count|Gremlin Database Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphDelete|Gremlin Graph Deleted|Count|Count|Gremlin Graph Deleted|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinGraphThroughputUpdate|Gremlin Graph Throughput Updated|Count|Count|Gremlin Graph Throughput Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphUpdate|Gremlin Graph Updated|Count|Count|Gremlin Graph Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |IndexUsage|Index Usage|Bytes|Total|Total index usage reported at 5 minutes granularity|CollectionName,DatabaseName,Region|
 |MetadataRequests|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName,CollectionName,Region,StatusCode,Role|
-|MongoRequestCharge|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
-|MongoRequests|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
+|MongoCollectionDelete|Mongo Collection Deleted|Count|Count|Mongo Collection Deleted|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoCollectionThroughputUpdate|Mongo Collection Throughput Updated|Count|Count|Mongo Collection Throughput Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoCollectionUpdate|Mongo Collection Updated|Count|Count|Mongo Collection Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDBDatabaseUpdate|Mongo Database Updated|Count|Count|Mongo Database Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDatabaseDelete|Mongo Database Deleted|Count|Count|Mongo Database Deleted|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoDatabaseThroughputUpdate|Mongo Database Throughput Updated|Count|Count|Mongo Database Throughput Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoRequestCharge|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName,CollectionName,Region,CommandName,ErrorCode,Status|
+|MongoRequests|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName,CollectionName,Region,CommandName,ErrorCode,Status|
 |MongoRequestsCount|Mongo Request Rate|CountPerSecond|Average|Mongo request Count per second|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsDelete|Mongo Delete Request Rate|CountPerSecond|Average|Mongo Delete request per second|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsInsert|Mongo Insert Request Rate|CountPerSecond|Average|Mongo Insert count per second|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsQuery|Mongo Query Request Rate|CountPerSecond|Average|Mongo Query request per second|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
 |MongoRequestsUpdate|Mongo Update Request Rate|CountPerSecond|Average|Mongo Update request per second|DatabaseName,CollectionName,Region,CommandName,ErrorCode|
+|NormalizedRUConsumption|Normalized RU Consumption|Percent|Maximum|Max RU consumption percentage per minute|CollectionName,DatabaseName,Region|
 |ProvisionedThroughput|Provisioned Throughput|Count|Maximum|Provisioned Throughput|DatabaseName,CollectionName|
 |RegionFailover|Region Failed Over|Count|Count|Region Failed Over|None|
 |RemoveRegion|Region Removed|Count|Count|Region Removed|Region|
 |ReplicationLatency|P99 Replication Latency|MilliSeconds|Average|P99 Replication Latency across source and target regions for geo-enabled account|SourceRegion,TargetRegion|
+|ServerSideLatency|Server Side Latency|MilliSeconds|Average|Server Side Latency|DatabaseName,CollectionName,Region,ConnectionMode,OperationType,PublicAPIType|
 |ServiceAvailability|Service Availability|Percent|Average|Account requests availability at one hour, day or month granularity|None|
-|TotalRequestUnits|Total Request Units|Count|Total|Request Units consumed|DatabaseName,CollectionName,Region,StatusCode,OperationType|
-|TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseName,CollectionName,Region,StatusCode,OperationType|
+|SqlContainerDelete|Sql Container Deleted|Count|Count|Sql Container Deleted|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlContainerThroughputUpdate|Sql Container Throughput Updated|Count|Count|Sql Container Throughput Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlContainerUpdate|Sql Container Updated|Count|Count|Sql Container Updated|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseDelete|Sql Database Deleted|Count|Count|Sql Database Deleted|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlDatabaseThroughputUpdate|Sql Database Throughput Updated|Count|Count|Sql Database Throughput Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseUpdate|Sql Database Updated|Count|Count|Sql Database Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableDelete|AzureTable Table Deleted|Count|Count|AzureTable Table Deleted|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|TableTableThroughputUpdate|AzureTable Table Throughput Updated|Count|Count|AzureTable Table Throughput Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableUpdate|AzureTable Table Updated|Count|Count|AzureTable Table Updated|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TotalRequestUnits|Total Request Units|Count|Total|Request Units consumed|DatabaseName,CollectionName,Region,StatusCode,OperationType,Status|
+|TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseName,CollectionName,Region,StatusCode,OperationType,Status|
 |UpdateAccountKeys|Account Keys Updated|Count|Count|Account Keys Updated|KeyType|
 |UpdateAccountNetworkSettings|Account Network Settings Updated|Count|Count|Account Network Settings Updated|None|
 |UpdateAccountReplicationSettings|Account Replication Settings Updated|Count|Count|Account Replication Settings Updated|None|
+|UpdateDiagnosticsSettings|Account Diagnostic Settings Updated|Count|Count|Account Diagnostic Settings Updated|DiagnosticSettingsName,ResourceGroupName|
 
 
 
@@ -1019,6 +1100,21 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DroppedEventCount|Dropped Events|Count|Total|Total dropped events matching to this event subscription|DropReason,EventSubscriptionName|
 |DeadLetteredCount|Dead Lettered Events|Count|Total|Total dead lettered events matching to this event subscription|DeadLetterReason,EventSubscriptionName|
 
+## Microsoft.EventGrid/systemTopics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|PublishSuccessCount|Published Events|Count|Total|Total events published to this topic|None|
+|PublishFailCount|Publish Failed Events|Count|Total|Total events failed to publish to this topic|ErrorType,Error|
+|UnmatchedEventCount|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|None|
+|PublishSuccessLatencyInMs|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|None|
+|MatchedEventCount|Matched Events|Count|Total|Total events matched to this event subscription|EventSubscriptionName|
+|DeliveryAttemptFailCount|Delivery Failed Events|Count|Total|Total events failed to deliver to this event subscription|Error,ErrorType,EventSubscriptionName|
+|DeliverySuccessCount|Delivered Events|Count|Total|Total events delivered to this event subscription|EventSubscriptionName|
+|DestinationProcessingDurationInMs|Destination Processing Duration|Milliseconds|Average|Destination processing duration in milliseconds|EventSubscriptionName|
+|DroppedEventCount|Dropped Events|Count|Total|Total dropped events matching to this event subscription|DropReason,EventSubscriptionName|
+|DeadLetteredCount|Dead Lettered Events|Count|Total|Total dead lettered events matching to this event subscription|DeadLetterReason,EventSubscriptionName|
+
 ## Microsoft.EventGrid/eventSubscriptions
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1038,6 +1134,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |PublishFailCount|Publish Failed Events|Count|Total|Total events failed to publish to this topic|ErrorType,Error|
 |UnmatchedEventCount|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|None|
 |PublishSuccessLatencyInMs|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|None|
+
 
 
 
@@ -1102,6 +1199,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |CapturedBytes|Captured Bytes.|Bytes|Total|Captured Bytes for Microsoft.EventHub.|None|
 |CPU|CPU|Percent|Maximum|CPU utilization for the Event Hub Cluster as a percentage|Role|
 |AvailableMemory|Available Memory|Percent|Maximum|Available memory for the Event Hub Cluster as a percentage of total memory.|Role|
+|Size|Size of an EventHub in Bytes.|Bytes|Average|Size of an EventHub in Bytes.|Role|
 
 
 ## Microsoft.HDInsight/clusters
@@ -1122,9 +1220,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ObservedCapacity|Observed Capacity|Count|Average|The capacity reported to autoscale when it executed.|None|
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
-
-
-
 ## Microsoft.Insights/Components
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1137,9 +1232,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |browserTimings/receiveDuration|Receiving response time|MilliSeconds|Average|Time between the first and last bytes, or until disconnection.|None|
 |browserTimings/sendDuration|Send request time|MilliSeconds|Average|Time between network connection and receiving the first byte.|None|
 |browserTimings/totalDuration|Browser page load time|MilliSeconds|Average|Time from user request until DOM, stylesheets, scripts and images are loaded.|None|
-|dependencies/count|Dependency calls|Count|Count|Count of calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
-|dependencies/duration|Dependency duration|MilliSeconds|Average|Duration of calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
-|dependencies/failed|Dependency call failures|Count|Count|Count of failed dependency calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|dependencies/count|Dependency calls|Count|Count|Count of calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|dependencies/duration|Dependency duration|MilliSeconds|Average|Duration of calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|dependencies/failed|Dependency call failures|Count|Count|Count of failed dependency calls made by the application to external resources.|dependency/type,dependency/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
 |pageViews/count|Page views|Count|Count|Count of page views.|operation/synthetic,cloud/roleName|
 |pageViews/duration|Page view load time|MilliSeconds|Average|Page view load time|operation/synthetic,cloud/roleName|
 |performanceCounters/requestExecutionTime|HTTP request execution time|MilliSeconds|Average|Execution time of the most recent request.|cloud/roleInstance|
@@ -1161,6 +1256,20 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |traces/count|Traces|Count|Count|Trace document count|trace/severityLevel,operation/synthetic,cloud/roleName,cloud/roleInstance|
 
 
+## Microsoft.IoTCentral/IoTApps
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|connectedDeviceCount|Total Connected Devices|Count|Average|Number of devices connected to IoT Central|None|
+|c2d.property.read.success|Successful Device Property Reads from IoT Central|Count|Total|The count of all successful property reads initiated from IoT Central|None|
+|c2d.property.read.failure|Failed Device Property Reads from IoT Central|Count|Total|The count of all failed property reads initiated from IoT Central|None|
+|d2c.property.read.success|Successful Device Property Reads from Devices|Count|Total|The count of all successful property reads initiated from devices|None|
+|d2c.property.read.failure|Failed Device Property Reads from Devices|Count|Total|The count of all failed property reads initiated from devices|None|
+|c2d.property.update.success|Successful Device Property Updates from IoT Central|Count|Total|The count of all successful property updates initiated from IoT Central|None|
+|c2d.property.update.failure|Failed Device Property Updates from IoT Central|Count|Total|The count of all failed property updates initiated from IoT Central|None|
+|d2c.property.update.success|Successful Device Property Updates from Devices|Count|Total|The count of all successful property updates initiated from devices|None|
+|d2c.property.update.failure|Failed Device Property Updates from Devices|Count|Total|The count of all failed property updates initiated from devices|None|
+
 
 ## Microsoft.KeyVault/vaults
 
@@ -1177,7 +1286,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |CacheUtilization|Cache utilization|Percent|Average|Utilization level in the cluster scope|None|
-|QueryDuration|Query duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
+|QueryDuration|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |IngestionUtilization|Ingestion utilization|Percent|Average|Ratio of used ingestion slots in the cluster|None|
 |KeepAlive|Keep alive|Count|Average|Sanity check indicates the cluster responds to queries|None|
 |IngestionVolumeInMB|Ingestion volume (in MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|Database|
@@ -1185,10 +1294,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |EventsProcessedForEventHubs|Events processed (for Event/IoT Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event/IoT Hub|EventStatus|
 |IngestionResult|Ingestion result|Count|Count|Number of ingestion operations|IngestionResultDetails|
 |CPU|CPU|Percent|Average|CPU utilization level|None|
-|ContinuousExportNumOfRecordsExported|Continuous export – num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|None|
+|ContinuousExportNumOfRecordsExported|Continuous export – num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName,Database|
 |ExportUtilization|Export Utilization|Percent|Maximum|Export utilization|None|
 |ContinuousExportPendingCount|Continuous Export Pending Count|Count|Maximum|The number of pending continuous export jobs ready for execution|None|
-|ContinuousExportMaxLatenessMinutes|Continuous Export Max Lateness Minutes|Count|Maximum|The max lateness in minutes of all continuous exports pending and ready for execution|None|
+|ContinuousExportMaxLatenessMinutes|Continuous Export Max Lateness|Count|Maximum|The lateness (in minutes) reported by the continuous export jobs in the cluster|None|
 |ContinuousExportResult|Continuous Export Result|Count|Count|Indicates whether Continuous Export succeeded or failed|ContinuousExportName,Result,Database|
 |StreamingIngestDuration|Streaming Ingest Duration|Milliseconds|Average|Streaming ingest duration in milliseconds|None|
 |StreamingIngestDataRate|Streaming Ingest Data Rate|Count|Average|Streaming ingest data rate (MB per second)|None|
@@ -1198,6 +1307,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TotalNumberOfThrottledQueries|Total number of throttled queries|Count|Total|Total number of throttled queries|None|
 |TotalNumberOfThrottledCommands|Total number of throttled commands|Count|Total|Total number of throttled commands|CommandType|
 |TotalNumberOfExtents|Total number of extents|Count|Total|Total number of data extents|None|
+|InstanceCount|Instance Count|Count|Average|Total instance count|None|
 
 
 ## Microsoft.Logic/workflows
@@ -1238,11 +1348,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BillingUsageNativeOperation|Billing Usage for Native Operation Executions|Count|Total|Number of native operation executions getting billed.|None|
 |BillingUsageStandardConnector|Billing Usage for Standard Connector Executions|Count|Total|Number of standard connector executions getting billed.|None|
 |BillingUsageStorageConsumption|Billing Usage for Storage Consumption Executions|Count|Total|Number of storage consumption executions getting billed.|None|
-|BillingUsageNativeOperation|Billing Usage for Native Operation Executions|Count|Total|Number of native operation executions getting billed.|None|
-|BillingUsageStandardConnector|Billing Usage for Standard Connector Executions|Count|Total|Number of standard connector executions getting billed.|None|
-|BillingUsageStorageConsumption|Billing Usage for Storage Consumption Executions|Count|Total|Number of storage consumption executions getting billed.|None|
-
-
 
 ## Microsoft.Logic/integrationServiceEnvironments
 
@@ -1285,9 +1390,20 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
+|Cancelled Runs|Cancelled Runs|Count|Total|Number of runs cancelled for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Cancel Requested Runs|Cancel Requested Runs|Count|Total|Number of runs where cancel was requested for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Completed Runs|Completed Runs|Count|Total|Number of runs completed successfully for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Started Runs|Started Runs|Count|Total|Number of runs started for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Failed Runs|Failed Runs|Count|Total|Number of runs failed for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Finalizing Runs|Finalizing Runs|Count|Total|Number of runs entered finalizing state for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Not Responding Runs|Not Responding Runs|Count|Total|Number of runs not responding for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Not Started Runs|Not Started Runs|Count|Total|Number of runs in not started state for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Preparing Runs|Preparing Runs|Count|Total|Number of runs that are preparing for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Provisioning Runs|Provisioning Runs|Count|Total|Number of runs that are provisioning for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Queued Runs|Queued Runs|Count|Total|Number of runs that are queued for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Started Runs|Started Runs|Count|Total|Number of runs started for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Starting Runs|Starting Runs|Count|Total|Number of runs started for this workspace|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Errors|Errors|Count|Total|Number of run errors in this workspace|Scenario|
+|Warnings|Warnings|Count|Total|Number of run warnings in this workspace|Scenario|
 |Model Register Succeeded|Model Register Succeeded|Count|Total|Number of model registrations that succeeded in this workspace|Scenario|
 |Model Register Failed|Model Register Failed|Count|Total|Number of model registrations that failed in this workspace|Scenario,StatusCode|
 |Model Deploy Started|Model Deploy Started|Count|Total|Number of model deployments started in this workspace|Scenario|
@@ -1340,13 +1456,21 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |StreamingPolicyCount|Streaming Policy count|Count|Average|How many streaming policies are already created in current media service account|None|
 |StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|Percent|Average|Streaming Policy used percentage in current media service account|None|
 
+
+## Microsoft.MixedReality/remoteRenderingAccounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|AssetsConverted|Assets Converted|Count|Total|Total number of assets converted|AppId,ResourceId,SDKVersion|
+|ActiveRenderingSessions|Active Rendering Sessions|Count|Total|Total number of active rendering sessions|AppId,ResourceId,SessionType,SDKVersion|
+
 ## Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |AverageReadLatency|Average read latency|MilliSeconds|Average|Average read latency in milliseconds per operation|None|
 |AverageWriteLatency|Average write latency|MilliSeconds|Average|Average write latency in milliseconds per operation|None|
-|VolumeLogicalSize|Volume logical size|Bytes|Average|Logical size of the volume (used bytes)|None|
+|VolumeLogicalSize|Volume Consumed Size|Bytes|Average|Logical size of the volume (used bytes)|None|
 |VolumeSnapshotSize|Volume snapshot size|Bytes|Average|Size of all snapshots in volume|None|
 |ReadIops|Read iops|CountPerSecond|Average|Read In/out operations per second|None|
 |WriteIops|Write iops|CountPerSecond|Average|Write In/out operations per second|None|
@@ -1355,8 +1479,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|VolumePoolAllocatedUsed|Volume pool allocated used|Bytes|Average|Allocated used size of the pool|None|
-|VolumePoolTotalLogicalSize|Volume pool total logical size|Bytes|Average|Sum of the logical size of all the volumes belonging to the pool|None|
+|VolumePoolAllocatedUsed|Pool Allocated To Volume Size|Bytes|Average|Allocated used size of the pool|None|
+|VolumePoolTotalLogicalSize|Pool Consumed Size|Bytes|Average|Sum of the logical size of all the volumes belonging to the pool|None|
 
 ## Microsoft.Network/networkInterfaces
 
@@ -1379,7 +1503,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |SnatConnectionCount|SNAT Connection Count|Count|Total|Total number of new SNAT connections created within time period|FrontendIPAddress,BackendIPAddress,ConnectionState|
 |AllocatedSnatPorts|Allocated SNAT Ports (Preview)|Count|Total|Total number of SNAT ports allocated within time period|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
 |UsedSnatPorts|Used SNAT Ports (Preview)|Count|Total|Total number of SNAT ports used within time period|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
-
 
 ## Microsoft.Network/dnszones
 
@@ -1454,8 +1577,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |FailedRequests|Failed Requests|Count|Total|Count of failed requests that Application Gateway has served|BackendSettingsPool|
 |ResponseStatus|Response Status|Count|Total|Http response status returned by Application Gateway|HttpStatusGroup|
 |CurrentConnections|Current Connections|Count|Total|Count of current connections established with Application Gateway|None|
+|NewConnectionsPerSecond|New connections per second|CountPerSecond|Average|New connections per second established with Application Gateway|None|
 |CpuUtilization|CPU Utilization|Percent|Average|Current CPU utilization of the Application Gateway|None|
 |CapacityUnits|Current Capacity Units|Count|Average|Capacity Units consumed|None|
+|FixedBillableCapacityUnits|Fixed Billable Capacity Units|Count|Average|Minimum capacity units that will be charged|None|
+|EstimatedBilledCapacityUnits|Estimated Billed Capacity Units|Count|Average|Estimated capacity units that will be charged|None|
 |ComputeUnits|Current Compute Units|Count|Average|Compute Units consumed|None|
 |BackendResponseStatus|Backend Response Status|Count|Total|The number of HTTP response codes generated by the backend members. This does not include any response codes generated by the Application Gateway.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
 |TlsProtocol|Client TLS Protocol|Count|Total|The number of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol.|Listener,TlsProtocol|
@@ -1466,9 +1592,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BackendConnectTime|Backend Connect Time|MilliSeconds|Average|Time spent establishing a connection with a backend server|Listener,BackendServer,BackendPool,BackendHttpSetting|
 |BackendFirstByteResponseTime|Backend First Byte Response Time|MilliSeconds|Average|Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server|Listener,BackendServer,BackendPool,BackendHttpSetting|
 |BackendLastByteResponseTime|Backend Last Byte Response Time|MilliSeconds|Average|Time interval between start of establishing a connection to backend server and receiving the last byte of the response body|Listener,BackendServer,BackendPool,BackendHttpSetting|
-|MatchedCount|Web Application Firewall Total Rule Distribution|Count|Total|Web Application Firewall Total Rule Distribution for the incoming traffic|RuleGroup,RuleId|
-|BlockedCount|Web Application Firewall Blocked Requests Rule Distribution|Count|Total|Web Application Firewall blocked requests rule distribution|RuleGroup,RuleId|
-|BlockedReqCount|Web Application Firewall Blocked Requests Count|Count|Total|Web Application Firewall blocked requests count|None|
+|MatchedCount|Web Application Firewall v1 Total Rule Distribution|Count|Total|Web Application Firewall v1 Total Rule Distribution for the incoming traffic|RuleGroup,RuleId|
+|BlockedCount|Web Application Firewall v1 Blocked Requests Rule Distribution|Count|Total|Web Application Firewall v1 blocked requests rule distribution|RuleGroup,RuleId|
+|BlockedReqCount|Web Application Firewall v1 Blocked Requests Count|Count|Total|Web Application Firewall v1 blocked requests count|None|
+
 
 ## Microsoft.Network/virtualNetworkGateways
 
@@ -1496,6 +1623,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |LineProtocol|LineProtocol|Count|Average|Line protocol status of the port|Link|
 |PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Average|Bits ingressing Azure per second|Link|
 |PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Average|Bits egressing Azure per second|Link|
+
+
 
 ## Microsoft.Network/expressRouteCircuits
 
@@ -1564,6 +1693,18 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BackendHealthPercentage|Backend Health Percentage|Percent|Average|The percentage of successful health probes from the HTTP/S proxy to backends|Backend,BackendPool|
 |WebApplicationFirewallRequestCount|Web Application Firewall Request Count|Count|Total|The number of client requests processed by the Web Application Firewall|PolicyName,RuleName,Action|
 
+
+## Microsoft.Network/privateDnsZones
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|QueryVolume|Query Volume|Count|Total|Number of queries served for a Private DNS zone|None|
+|RecordSetCount|Record Set Count|Count|Maximum|Number of Record Sets in a Private DNS zone|None|
+|RecordSetCapacityUtilization|Record Set Capacity Utilization|Percent|Maximum|Percent of Record Set capacity utilized by a Private DNS zone|None|
+|VirtualNetworkLinkCount|Virtual Network Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone|None|
+|VirtualNetworkLinkCapacityUtilization|Virtual Network Link Capacity Utilization|Percent|Maximum|Percent of Virtual Network Link capacity utilized by a Private DNS zone|None|
+|VirtualNetworkWithRegistrationLinkCount|Virtual Network Registration Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone with auto-registration enabled|None|
+|VirtualNetworkWithRegistrationCapacityUtilization|Virtual Network Registration Link Capacity Utilization|Percent|Maximum|Percent of Virtual Network Link with auto-registration capacity utilized by a Private DNS zone|None|
 
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -1689,20 +1830,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Average_Size Stored In Paging Files|Size Stored In Paging Files|Count|Average|Average_Size Stored In Paging Files|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Uptime|Uptime|Count|Average|Average_Uptime|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Users|Users|Count|Average|Average_Users|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Current Disk Queue Length|Current Disk Queue Length|Count|Average|Average_Current Disk Queue Length|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk Reads/sec|Disk Reads/sec|Count|Average|Average_Disk Reads/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk Transfers/sec|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk Writes/sec|Disk Writes/sec|Count|Average|Average_Disk Writes/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Free Megabytes|Free Megabytes|Count|Average|Average_Free Megabytes|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_% Free Space|% Free Space|Count|Average|Average_% Free Space|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Available MBytes|Available MBytes|Count|Average|Average_Available MBytes|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_% Committed Bytes In Use|% Committed Bytes In Use|Count|Average|Average_% Committed Bytes In Use|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes Received/sec|Bytes Received/sec|Count|Average|Average_Bytes Received/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes Sent/sec|Bytes Sent/sec|Count|Average|Average_Bytes Sent/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes Total/sec|Bytes Total/sec|Count|Average|Average_Bytes Total/sec|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_% Processor Time|% Processor Time|Count|Average|Average_% Processor Time|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Processor Queue Length|Processor Queue Length|Count|Average|Average_Processor Queue Length|Computer,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Heartbeat|Heartbeat|Count|Total|Heartbeat|Computer,OSType,Version,SourceComputerId|
 |Update|Update|Count|Average|Update|Computer,Product,Classification,UpdateState,Optional,Approved|
@@ -1723,6 +1856,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |IngressTrafficRate|Ingress Traffic Rate|BitsPerSecond|Average|Ingress traffic rate in bits per second|ConnectionId|
 |EgressTrafficRate|Egress Traffic Rate|BitsPerSecond|Average|Egress traffic rate in bits per second|ConnectionId|
 
+
 ## Microsoft.PowerBIDedicated/capacities
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1732,6 +1866,22 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |qpu_high_utilization_metric|QPU High Utilization|Count|Total|QPU High Utilization In Last Minute, 1 For High QPU Utilization, Otherwise 0|No Dimensions|
 |memory_metric|Memory|Bytes|Average|Memory. Range 0-3 GB for A1, 0-5 GB for A2, 0-10 GB for A3, 0-25 GB for A4, 0-50 GB for A5 and 0-100 GB for A6|No Dimensions|
 |memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|No Dimensions|
+
+
+## Microsoft.ProjectBabylon/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|AssetDistributionByClassification|Asset distribution by classification|Count|Total|Indicates the number of assets with a certain classification assigned, i.e. they are classified with that label.|Classification,Source,ResourceId|
+|AssetDistributionByStorageType|Asset distribution by storage type|Count|Total|Indicates the number of assets with a certain storage type.|StorageType,ResourceId|
+|CatalogActiveUsers|Daily Active Users|Count|Total|Number of active users daily|ResourceId|
+|CatalogUsage|Usage Distribution by Operation|Count|Total|Indicate the number of operation user makes to the catalog, i.e., Access, Search, Glossary.|Operation,ResourceId|
+|NumberOfAssetsWithClassifications|Number of assets with at least one classification|Count|Average|Indicates the number of assets with at least one tag classification.|ResourceId|
+|ScanCancelled|Scan Cancelled|Count|Total|Indicates the number of scans cancelled.|ResourceId|
+|ScanCompleted|Scan Completed|Count|Total|Indicates the number of scans completed successfully.|ResourceId|
+|ScanFailed|Scan Failed|Count|Total|Indicates the number of scans failed.|ResourceId|
+|ScanTimeTaken|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|ResourceId|
+
 
 
 
@@ -1817,8 +1967,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 
 
-
-
 ## Microsoft.Sql/servers/databases
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1845,21 +1993,38 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
+|tempdb_data_size<sup>2</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
+|tempdb_log_used_percent<sup>2</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
 |app_memory_percent|App memory percentage|Percent|Average|App memory percentage. Applies to serverless databases.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Allocated data storage. Not applicable to data warehouses.|None|
 |memory_usage_percent|Memory percentage|Percent|Maximum|Memory percentage. Applies only to data warehouses.|None|
+|dw_backup_size_gb|Data Storage Size|Count|Total|Data Storage Size is comprised of the size of your data and the transaction log. The metric is counted towards the 'Storage' portion of your bill. Applies only to data warehouses.|None|
+|dw_snapshot_size_gb|Snapshot Storage Size|Count|Total|Snapshot Storage Size is the size of the incremental changes captured by snapshots to create user-defined and automatic restore points. The metric is counted towards the 'Storage' portion of your bill. Applies only to data warehouses.|None|
+|dw_geosnapshot_size_gb|Disaster Recovery Storage Size|Count|Total|Disaster Recovery Storage Size is reflected as 'Disaster Recovery Storage' in your bill. Applies only to data warehouses.|None|
+|wlg_allocation_relative_to_system_percent|Workload group allocation by system percent|Percent|Maximum|Allocated percentage of resources relative to the entire system per workload group. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|wlg_allocation_relative_to_wlg_effective_cap_percent|Workload group allocation by cap resource percent|Percent|Maximum|Allocated percentage of resources relative to the specified cap resources per workload group. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|wlg_active_queries|Workload group active queries|Count|Total|Active queries within the workload group. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|wlg_queued_queries|Workload group queued queries|Count|Total|Queued queries within the workload group. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|active_queries|Active queries|Count|Total|Active queries across all workload groups. Applies only to data warehouses.|None|
+|queued_queries|Queued queries|Count|Total|Queued queries across all workload groups. Applies only to data warehouses.|None|
+|wlg_active_queries_timeouts|Workload group query timeouts|Count|Total|Queries that have timed out for the workload group. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_min_resource_percent|Effective min resource percent|Percent|Maximum|Minimum percentage of resources reserved and isolated for the workload group, taking into account the service level minimum. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_cap_resource_percent|Effective cap resource percent|Percent|Maximum|A hard limit on the percentage of resources allowed for the workload group, taking into account Effective Min Resource Percentage allocated for other workload groups. Applies only to data warehouses.|WorkloadGroupName,IsUserDefined|
 |full_backup_size_bytes|Full backup storage size|Bytes|Maximum|Cumulative full backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|None|
 |diff_backup_size_bytes|Differential backup storage size|Bytes|Maximum|Cumulative differential backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|None|
-|log_backup_size_bytes|Log backup storage size|Bytes|Maximum|Cumulative log backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|None|
+|log_backup_size_bytes|Log backup storage size|Bytes|Maximum|Cumulative log backup storage size. Applies to vCore-based and Hyperscale databases.|None|
+|snapshot_backup_size_bytes|Snapshot backup storage size|Bytes|Maximum|Cumulative snapshot backup storage size. Applies to Hyperscale databases.|None|
+|base_blob_size_bytes|Base blob storage size|Bytes|Maximum|Base blob storage size. Applies to Hyperscale databases.|None|
 
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -1889,14 +2054,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_cpu_limit|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|None|
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|None|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|sqlserver_process_memory_percent<sup>1</sup>|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|tempdb_data_size<sup>2</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
+|tempdb_log_used_percent<sup>2</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
+
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
+
 
 ## Microsoft.Sql/servers
 
@@ -1938,9 +2108,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account’s Blob service in bytes.|BlobType,Tier|
-|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account’s Blob service.|BlobType,Tier|
-|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account’s Blob service.|None|
+|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType,Tier|
+|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType,Tier|
+|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|None|
 |IndexCapacity|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
@@ -1953,9 +2123,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account’s Table service in bytes.|None|
-|TableCount|Table Count|Count|Average|The number of table in the storage account’s Table service.|None|
-|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account’s Table service.|None|
+|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|None|
+|TableCount|Table Count|Count|Average|The number of table in the storage account's Table service.|None|
+|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -1967,11 +2137,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account’s File service in bytes.|FileShare|
-|FileCount|File Count|Count|Average|The number of file in the storage account’s File service.|FileShare|
-|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account’s File service.|None|
-|FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account’s Files Service.|FileShare|
-|FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account’s File service in bytes.|FileShare|
+|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
+|FileCount|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
+|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
+|FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
@@ -1984,9 +2154,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account’s Queue service in bytes.|None|
-|QueueCount|Queue Count|Count|Average|The number of queue in the storage account’s Queue service.|None|
-|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account’s Queue service.|None|
+|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account's Queue service in bytes.|None|
+|QueueCount|Queue Count|Count|Average|The number of queue in the storage account's Queue service.|None|
+|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -2086,6 +2256,46 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |InputEventsSourcesBacklogged|Backlogged Input Events|Count|Maximum|Backlogged Input Events|LogicalName,PartitionId|
 |InputEventsSourcesPerSecond|Input Sources Received|Count|Total|Input Sources Received|LogicalName,PartitionId|
 
+## Microsoft.Synapse/workspaces
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|OrchestrationPipelineRunsEnded|Pipeline runs ended|Count|Total|Count of orchestration pipeline runs that succeeded, failed, or were cancelled|Result,FailureType,Pipeline|
+|OrchestrationActivityRunsEnded|Activity runs ended|Count|Total|Count of orchestration activities that succeeded, failed, or were cancelled|Result,FailureType,Activity,ActivityType,Pipeline|
+|OrchestrationTriggersEnded|Triggers ended|Count|Total|Count of orchestration triggers that succeeded, failed, or were cancelled|Result,FailureType,Trigger|
+|SQLOnDemandLoginAttempts|Login attempts|Count|Total|Count of login attempts that succeded or failed|Result|
+|SQLOnDemandQueriesEnded|Queries ended|Count|Total|Count of queries that succeeded, failed, or were cancelled|Result|
+|SQLOnDemandQueryProcessedBytes|Data processed|Bytes|Total|Amount of data processed by queries|None|
+
+## Microsoft.Synapse/workspaces/bigDataPools
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|SparkJobsEnded|Ended applications|Count|Total|Count of ended applications|JobType,JobResult|
+|CoresCapacity|Cores capacity|Count|Maximum|Cores capacity|None|
+|MemoryCapacityGB|Memory capacity (GB)|Count|Maximum|Memory capacity (GB)|None|
+
+## Microsoft.Synapse/workspaces/sqlPools
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|DWULimit|DWU limit|Count|Maximum|Service level objective of the SQL pool|None|
+|DWUUsed|DWU used|Count|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage|None|
+|DWUUsedPercent|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|None|
+|ConnectionsBlockedByFirewall|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high|None|
+|AdaptiveCacheHitPercent|Adaptive cache hit percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|None|
+|AdaptiveCacheUsedPercent|Adaptive cache used percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|None|
+|LocalTempDBUsedPercent|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|None|
+|MemoryUsedPercent|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the SQL pool|None|
+|Connections|Connections|Count|Total|Count of Total logins to the SQL pool|Result|
+|WLGActiveQueries|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined,WorkloadGroup|
+|WLGActiveQueriesTimeouts|Workload group query timeouts|Count|Total|Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits)|IsUserDefined,WorkloadGroup|
+|WLGAllocationBySystemPercent|Workload group allocation by system percent|Percent|Maximum|The percentage allocation of resources relative to the entire system|IsUserDefined,WorkloadGroup|
+|WLGAllocationByMaxResourcePercent|Workload group allocation by max resource percent|Percent|Maximum|Displays the percentage allocation of resources relative to the Effective cap resource percent per workload group. This metric provides the effective utilization of the workload group|IsUserDefined,WorkloadGroup|
+|WLGEffectiveCapResourcePercent|Effective cap resource percent|Percent|Maximum|The effective cap resource percent for the workload group. If there are other workload groups with min_percentage_resource > 0, the effective_cap_percentage_resource is lowered proportionally|IsUserDefined,WorkloadGroup|
+|wlg_effective_min_resource_percent|Effective min resource percent|Percent|Minimum|The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels|IsUserDefined,WorkloadGroup|
+|WLGQueuedQueries|Workload group queued queries|Count|Total|Cumulative count of requests queued after the max concurrency limit was reached|IsUserDefined,WorkloadGroup|
+
 ## Microsoft.TimeSeriesInsights/environments
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2099,6 +2309,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag|Count|Average|Difference between the sequence number of last enqueued message in the event source partition and sequence number of messages being processed in Ingress|None|
 |WarmStorageMaxProperties|Warm Storage Max Properties|Count|Maximum|Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU|None|
 |WarmStorageUsedProperties|Warm Storage Used Properties |Count|Maximum|Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU|None|
+
+
 
 ## Microsoft.TimeSeriesInsights/environments/eventsources
 
@@ -2138,15 +2350,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Percentage CPU|Percentage CPU|Percent|Average|The CPU utilization. This value is reported with 100% representing all processor cores on the system. As an example, a 2-way VM using 50% of a four-core system is completely using two cores.|None|
 |PercentageCpuReady|Percentage CPU Ready|Milliseconds|Total|Ready time is the time spend waiting for CPU(s) to become available in the past update interval.|None|
 
-
-
-
-
-
-
-
-
-
 ## Microsoft.Web/serverfarms
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2167,7 +2370,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TcpLastAck|TCP Last Ack|Count|Average|TCP Last Ack|Instance|
 |TcpTimeWait|TCP Time Wait|Count|Average|TCP Time Wait|Instance|
 
-## Microsoft.Web/sites (excluding functions)
+## Microsoft.Web/sites (excluding functions) 
+
+> [!NOTE]
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+
+> [!IMPORTANT]
+> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
@@ -2186,7 +2395,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|Instance|
+|ResponseTime|Response Time|Seconds|Total|Response Time|Instance|
+|AverageResponseTime|Average Response Time (deprecated)|Seconds|Average|Average Response Time|Instance|
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|
@@ -2208,6 +2418,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
 
 ## Microsoft.Web/sites (functions)
+
+> [!NOTE]
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
@@ -2234,7 +2447,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
 |HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
 |FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
-
 
 ## Microsoft.Web/sites/slots
 
@@ -2319,3 +2531,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 * [Read about metrics in Azure Monitor](data-platform.md)
 * [Create alerts on metrics](alerts-overview.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
+

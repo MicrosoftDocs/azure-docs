@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/08/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -20,6 +20,9 @@ ms.reviewer: bagovind
 # List role assignments using Azure RBAC and the Azure portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
+
+> [!NOTE]
+> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
 
 ## List role assignments for a user or group
 
@@ -109,7 +112,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List role assignments for a user-assigned managed identity
 
-1. In the Azure portal, open a system-assigned managed identity.
+1. In the Azure portal, open a user-assigned managed identity.
 
 1. Click **Azure resources**.
 
@@ -118,6 +121,16 @@ To list access for a user, group, service principal, or managed identity, you li
     ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. To change the subscription, click the **Subscriptions** list.
+
+## List number of role assignments
+
+You can have up to **2000** role assignments in each subscription. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+
+![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
+
+![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## Next steps
 

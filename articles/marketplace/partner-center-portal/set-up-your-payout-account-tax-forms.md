@@ -2,10 +2,9 @@
 Description: In order to receive money from offer sales in the commercial marketplace, you need to set up your payout account and fill out the necessary tax forms.
 title: Set up your payout account and tax forms | Azure Marketplace
 ms.date: 12/10/2019
-ms.topic: article
-author: qianw211
-manager: evansma
-ms.author: v-qiwe
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ---
 # Set up your payout account and tax forms

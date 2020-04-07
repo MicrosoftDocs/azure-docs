@@ -3,20 +3,20 @@ title: "Tutorial: Register an application"
 titleSuffix: Azure AD B2C
 description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Register an application in Azure Active Directory B2C
 
-Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
 
 In this article, you learn how to:
 
@@ -84,7 +84,7 @@ Once the application registration is complete, enable the implicit grant flow:
 
 ## Create a client secret
 
-If your application exchanges a code for a token, you need to create an application secret.
+If your application exchanges an authorization code for an access token, you need to create an application secret.
 
 #### [Applications](#tab/applications/)
 

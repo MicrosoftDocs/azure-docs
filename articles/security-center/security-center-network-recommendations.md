@@ -1,5 +1,5 @@
 ---
-title: Protecting your network resources in Azure Security Center  | Microsoft Docs
+title: Protecting your network resources in Azure Security Center
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na

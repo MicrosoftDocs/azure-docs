@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
+ms.date: 03/06/2020
 ---
 
 # Azure machine learning monitoring data reference
@@ -190,5 +190,5 @@ The valid values for the RunType dimension are:
 
 ## See Also
 
-- See [Monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
+- See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

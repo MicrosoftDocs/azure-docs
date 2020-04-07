@@ -1,12 +1,12 @@
 ---
-title: Passwordless security key sign (preview) - Azure Active Directory
+title: Passwordless security key sign-in (preview) - Azure Active Directory
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 02/12/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,7 +15,7 @@ ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign in (preview)
+# Enable passwordless security key sign-in (preview)
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
@@ -37,7 +37,9 @@ To use security keys for logging in to web apps and services, you must have a br
 
 ## Prepare devices for preview
 
-Devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+Azure AD joined devices that you pilot with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+
+Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
 
 ## Enable passwordless authentication method
 
@@ -60,7 +62,7 @@ Registration features for passwordless authentication methods rely on the combin
 1. Sign in if not already.
 1. Click **Security Info**.
    1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
-   1. If they don’t have at least one Azure Multi-Factor Authentication method registered, they must add one.
+   1. If they don't have at least one Azure Multi-Factor Authentication method registered, they must add one.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
@@ -76,13 +78,13 @@ In the example below a user has already provisioned their FIDO2 security key. Th
 
 ## Troubleshooting and feedback
 
-If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
+If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
-   1. Category: Security and Privacy
-   1. Subcategory: FIDO
-1. To capture logs, use the option: **Recreate my Problem**
+   - Category: Security and Privacy
+   - Subcategory: FIDO
+1. To capture logs, use the option to **Recreate my Problem**
 
 ## Known issues
 
@@ -92,7 +94,7 @@ Administrator provisioning and de-provisioning of security keys is not available
 
 ### UPN changes
 
-If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register their FIDO2 security keys.
+We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
 
 ## Next steps
 

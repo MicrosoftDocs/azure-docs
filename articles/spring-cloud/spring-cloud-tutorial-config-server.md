@@ -3,8 +3,8 @@ title: Tutorial - Set up your Config Server instance in Azure Spring Cloud
 description: In this tutorial, you learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
 ---
 

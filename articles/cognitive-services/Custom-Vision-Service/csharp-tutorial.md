@@ -64,7 +64,7 @@ The images for this project are included. They are referenced in the **LoadImage
 
 ### Train the classifier and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. You can use the name of the iteration to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. You can use the name of the iteration to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 

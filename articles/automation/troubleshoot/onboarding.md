@@ -153,7 +153,7 @@ Once you remove the solutions you can unlink your workspace. It is important to 
   * Remove Update Deployments (Schedules) from your Automation Account
 * Start/Stop VMs during off-hours
   * Remove any locks on solution components in your Automation Account under **Settings** > **Locks**.
-  * For additional steps to remove the Start/Stop VMs during off-hours solution see, [Remove the Start/Stop VM during off-hours solution](../automation-solution-vm-management.md##remove-the-solution).
+  * For additional steps to remove the Start/Stop VMs during off-hours solution see, [Remove the Start/Stop VM during off-hours solution](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA Extension failures
 

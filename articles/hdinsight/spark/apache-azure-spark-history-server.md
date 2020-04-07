@@ -158,7 +158,7 @@ Select the **Data Skew** tab. The corresponding skewed tasks display based on th
 
 #### Specify Parameters
 
-The **Specify Parameters** section displays the parameters, which are used to detect Data Skew. The default rule is: The task data read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters. The **Skewed Stage** and **Skew Char** sections will update accordingly.
+The **Specify Parameters** section displays the parameters, which are used to detect Data Skew. The default rule is: The task data read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters. The **Skewed Stage** and **Skew Chart** sections will update accordingly.
 
 #### Skewed Stage
 

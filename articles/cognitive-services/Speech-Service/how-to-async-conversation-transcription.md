@@ -37,7 +37,7 @@ SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey",
 speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
-speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyChannel.UriQueryParameter);
+speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);
 
 // Set the property for real-time plus asynchronous transcription
 //speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
@@ -46,12 +46,13 @@ speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyCha
 String conversationId = UUID.randomUUID().toString();
 
 // Create a Conversation
-Conversation conversation = new Conversation(speechConfig, conversationId);
+Future<Conversation> conversationFuture = Conversation.createConversationAsync(speechConfig, conversationId);
+Conversation conversation = conversationFuture.get();
 
 // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
 // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
-PullAudioInputStreamCallback wavfilePullStreamCallback = Helper.OpenWavFile("16Khz16Bits8channelsOfRecordedPCMAudio.wav");
-// Create an audio stream format assuming the file used above is 16Khz, 16 bits and 8 channel pcm wav file
+PullAudioInputStreamCallback wavfilePullStreamCallback = Helper.OpenWavFile("16kHz16Bits8channelsOfRecordedPCMAudio.wav");
+// Create an audio stream format assuming the file used above is 16kHz, 16 bits and 8 channel pcm wav file
 AudioStreamFormat audioStreamFormat = AudioStreamFormat.getWaveFormatPCM((long)16000, (short)16,(short)8);
 // Create an input stream
 AudioInputStream audioStream = AudioInputStream.createPullStream(wavfilePullStreamCallback, audioStreamFormat);
@@ -99,7 +100,7 @@ If you want real-time _plus_ asynchronous, comment and uncomment the appropriate
 
 ```java
 // Set the property for asynchronous transcription
-//speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyChannel.UriQueryParameter);
+//speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);
 
 // Set the property for real-time plus asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);

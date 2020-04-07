@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
 ---
-# Create and publish a managed application definition
+# Tutorial: Create and publish a managed application definition
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that fulfill organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
 
-To publish a managed application for the service catalog, you must:
+To publish a managed application to your Azure Service Catalog, you must:
 
 * Create a template that defines the resources to deploy with the managed application.
 * Define the user interface elements for the portal when deploying the managed application.
@@ -202,6 +202,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## Bring your own storage for the managed application definition
+You can choose to store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs.
+
+> [!NOTE]
+> Bring your own storage is only supported with ARM Template or REST API deployments of the managed application definition.
+
+### Select your storage account
+You must [create a storage account](../../storage/common/storage-account-create.md) to contain your managed application definition for use with Service Catalog.
+
+Copy the storage account's resource ID. It will be used later when deploying the definition.
+
+### Set the role assignment for "Appliance Resource Provider" in your storage account
+Before your managed application definition can be deployed to your storage account, you must give contributor permissions to the **Appliance Resource Provider** role so that it can write the definition files to your storage account's container.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
+1. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
+1. In the **Add role assignment** window, select the **Contributor** role. 
+1. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
+1. Under **Select** search for **Appliance Resource Provider** role and select it.
+1. Save the role assignment.
+
+### Deploy the managed application definition with an ARM Template 
+
+Use the following ARM Template to deploy your packaged managed application as a new managed application definition in Service Catalog whose definition files are stored and maintained in your own storage account:
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+We have added a new property named **storageAccountId** to your applicationDefintion's properties and provide storage account id you wish to store your definition in as its value:
+
+You can verify that the application definition files are saved in your provided storage account in a container titled **applicationdefinitions**.
+
+> [!NOTE]
+> For added security, you can create a managed applications definition store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in Service Catalog.
 
 ### Make sure users can see your definition
 

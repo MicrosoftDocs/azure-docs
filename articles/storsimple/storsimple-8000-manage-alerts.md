@@ -1,18 +1,9 @@
 ---
-title: View and manage alerts for StorSimple 8000 series device | Microsoft Docs
+title: View and manage alerts for StorSimple 8000 series device
 description: Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Device Manager service to manage alerts.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 

@@ -163,4 +163,4 @@ You can use this MongoDB connector to export JSON documents as-is from a MongoDB
 To copy data from MongoDB to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -16,7 +16,7 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 ## Run the iotedge 'check' command
 
-Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which runs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
@@ -39,6 +39,28 @@ The types of checks run by the tool can be classified as:
 * Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
 For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## Gather debug information with iotedge 'support-bundle' command
+
+When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge Security Manager and container engine logs, 'iotedge check' JSON output and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
+
+Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last 6 hours, `6d` since the last 6 days, `6m` since the last 6 minutes and so on. Include the `--help` flag to see a complete list of options.
+
+
+* On Linux:
+
+  ```bash
+  sudo iotedge support-bundle --since 6h
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge support-bundle --since 6h
+  ```
+
+> [!WARNING]
+> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
 ## Standard diagnostic steps
 
@@ -100,7 +122,7 @@ On Windows:
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level elements should have no leading spaces.
 
 On Linux:
 
@@ -116,7 +138,7 @@ On Windows:
 
 ### Check container logs for issues
 
-Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing. 
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing.
 
    ```cmd
    iotedge logs <container name>
@@ -158,11 +180,11 @@ Replace `env: {}` with:
    ```
 
    > [!WARNING]
-   > YAML files cannot contain tabs as identation. Use 2 spaces instead.
+   > YAML files cannot contain tabs as identation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
 
 Save the file and restart the IoT Edge security manager.
 
-You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### Restart containers
 
@@ -244,7 +266,7 @@ A container fails to run, and the edgeAgent logs show a 403 error.
 
 **Root cause**
 
-The Iot Edge agent doesn't have permissions to access a module's image.
+The IoT Edge agent doesn't have permissions to access a module's image.
 
 **Resolution**
 
@@ -260,7 +282,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Root cause**
 
-The IoT Edge runtime can only support hostnames that are shorter than 64 characters. Physical machines usually don't have long hostnames, but the issue is more common on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
+The IoT Edge runtime can only support hostnames that are shorter than 64 characters. Physical machines usually don't have long hostnames, but the issue is more common on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long.
 
 **Resolution**
 
@@ -297,7 +319,7 @@ The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for perfor
 
 **Resolution**
 
-For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
+For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to set environment variables:
 
 In the Azure portal:
 
@@ -335,7 +357,7 @@ The `Get-WinEvent` PowerShell command relies on a registry entry to be present t
 
 Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -346,10 +368,10 @@ Windows Registry Editor Version 5.00
 
 ## IoT Edge module fails to send a message to the edgeHub with 404 error
 
-A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs: 
+A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs:
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Root cause**
@@ -386,7 +408,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
 
 ```json
 {
@@ -396,7 +418,7 @@ Specify the DNS server for your environment in the container engine settings whi
 
 The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
 
-Place `daemon.json` in the right location for your platform: 
+Place `daemon.json` in the right location for your platform:
 
 | Platform | Location |
 | --------- | -------- |
@@ -405,7 +427,7 @@ Place `daemon.json` in the right location for your platform:
 
 If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 
-*Restart the container engine for the updates to take effect*
+Restart the container engine for the updates to take effect.
 
 | Platform | Command |
 | --------- | -------- |
@@ -426,10 +448,10 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
-Be sure to set this for the *edgeAgent* and *edgeHub* modules as well.
+Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
 ## Next steps
 
-Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
+Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve.
 
 If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help.

@@ -26,7 +26,7 @@ Custom Translator provides different features to build custom translation system
 
 |Feature  |Description  |
 |---------|---------|
-|[Leverage neural machine translation technology](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by leveraging neural machine translation (NMT) provided by Custom translator.       |
+|[Leverage neural machine translation technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by leveraging neural machine translation (NMT) provided by Custom translator.       |
 |[Build systems that knows your business terminology](what-are-parallel-documents.md)     |  Customize and build translation systems using parallel documents, that understand the terminologies used in your own business and industry.       |
 |[Use a dictionary to build your models](what-is-dictionary.md)     |   If you don't have training data set, you can train a model with only dictionary data.       |
 |[Collaborate with others](how-to-manage-settings.md#share-your-workspace)     |   Collaborate with your team by sharing your work with different people.     |
@@ -34,7 +34,7 @@ Custom Translator provides different features to build custom translation system
 
 ## Get better translations
 
-Microsoft Translator released [Neural Machine Translation (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the industry-standard [Statistical Machine Translation (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations. [Custom Translator](https://portal.customtranslator.azure.ai) provides NMT for your custom models resulting better translation quality.
+Microsoft Translator released [Neural Machine Translation (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the industry-standard [Statistical Machine Translation (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations. [Custom Translator](https://portal.customtranslator.azure.ai) provides NMT for your custom models resulting better translation quality.
 
 You can use previously translated documents to build a translation system. These documents include domain-specific terminology and style, better than a standard translation system. Users can upload ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX, and XLSX documents.
 

@@ -11,11 +11,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 03/17/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Sign in any Azure Active Directory user using the multi-tenant application pattern
@@ -34,7 +33,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
 4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent)
 
-Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
+Let’s look at each step in detail. You can also jump straight to the sample [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## Update registration to be multi-tenant
 
@@ -112,7 +111,7 @@ Some permissions can be consented to by a regular user, while others require a t
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message is displayed saying the user isn’t able to consent.
 
-Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, your application receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Azure AD Graph API][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
+Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, your application receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
 
 If your application uses permissions that require admin consent, you need to have a gesture such as a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=admin_consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests do not need the `prompt=admin_consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
@@ -173,13 +172,12 @@ In this article, you learned how to build an application that can sign in a user
 
 ## Related content
 
-* [Multi-tenant application samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Multi-tenant application sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes]
-* [Azure AD Graph API permission scopes][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -189,8 +187,6 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
@@ -210,10 +206,6 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md

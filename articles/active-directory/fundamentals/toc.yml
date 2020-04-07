@@ -5,8 +5,12 @@
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: Compare Azure AD with ADDS
+    href: active-directory-compare-azure-ad-to-ad.md
   - name: What's new in Azure Active Directory
     href: whats-new.md
+  - name: What's new in Microsoft 365 Government
+    href: whats-new-microsoft-365-government.md
 - name: Quickstarts
   expanded: true
   items:
@@ -17,8 +21,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Identity secure score
-    href: identity-secure-score.md 
   - name: Security
     items:
     - name: Enable MFA
@@ -27,22 +29,30 @@
       href: concept-fundamentals-security-defaults.md
     - name: Block legacy authentication
       href: concept-fundamentals-block-legacy-authentication.md
-  - name: Groups and access management
-    href: active-directory-manage-groups.md
-  - name: Group-based licensing
-    href: active-directory-licensing-whatis-azure-portal.md
-  - name: Azure AD architecture
-    href: active-directory-architecture.md
-  - name: Default user permissions
-    href: users-default-permissions.md
-  - name: Deployment 30, 90, and beyond
+    - name: Identity secure score
+      href: identity-secure-score.md 
+  - name: Groups and users
+    items:
+    - name: Groups and access management
+      href: active-directory-manage-groups.md
+    - name: Group-based licensing
+      href: active-directory-licensing-whatis-azure-portal.md
+    - name: Default user permissions
+      href: users-default-permissions.md
+  - name: Architecture
+    items:
+    - name: Azure AD architecture
+      href: active-directory-architecture.md
+  - name: Deployment guide
+    items:
+    - name: Deployment 30, 90, and beyond
     href: active-directory-deployment-checklist-p2.md
-  - name: Identity data storage for the EU
-    href: active-directory-data-storage-eu.md
-  - name: Identity data storage for Austrailia
-    href: active-directory-data-storage-australia.md
-  - name: What's new in Microsoft 365 Government
-    href: whats-new-microsoft-365-government.md
+  - name: Data storage
+    items:
+    - name: Identity data storage for Europe
+      href: active-directory-data-storage-eu.md
+    - name: Identity data storage for Australia and New Zealand
+      href: active-directory-data-storage-australia-newzealand.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction

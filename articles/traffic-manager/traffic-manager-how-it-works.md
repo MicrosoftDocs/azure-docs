@@ -3,7 +3,7 @@ title: How Azure Traffic Manager works | Microsoft Docs
 description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: allensu
+ms.author: rohink
 ---
 
 # How Traffic Manager Works
@@ -29,7 +29,7 @@ When a client attempts to connect to a service, it must first resolve the DNS na
 
 ## Traffic Manager example
 
-Contoso Corp have developed a new partner portal. The URL for this portal is https://partners.contoso.com/login.aspx. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
+Contoso Corp have developed a new partner portal. The URL for this portal is `https://partners.contoso.com/login.aspx`. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
 
 To achieve this configuration, they complete the following steps:
 
@@ -44,7 +44,7 @@ To achieve this configuration, they complete the following steps:
 
 ### How clients connect using Traffic Manager
 
-Continuing from the previous example, when a client requests the page https://partners.contoso.com/login.aspx, the client performs the following steps to resolve the DNS name and establish a connection:
+Continuing from the previous example, when a client requests the page `https://partners.contoso.com/login.aspx`, the client performs the following steps to resolve the DNS name and establish a connection:
 
 ![Connection establishment using Traffic Manager][2]
 

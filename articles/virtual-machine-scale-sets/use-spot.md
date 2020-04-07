@@ -1,30 +1,20 @@
 ---
-title: Create a scale set that uses Azure Spot VMs (Preview) 
+title: Create a scale set that uses Azure Spot VMs 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 03/25/2020
 ms.author: cynthn
 ---
 
-# Preview: Azure Spot VMs for virtual machine scale sets 
+# Azure Spot VMs for virtual machine scale sets 
 
 Using Azure Spot on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot instances. Therefore, Spot instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Spot instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. A Spot scale set is deployed in a single fault domain and offers no high availability guarantees.
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
 
 ## Pricing
 
@@ -91,50 +81,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## Resource Manager templates
 
-The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Spot* as the value. Be sure to use *2019-03-01* API version or higher. 
+The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). 
 
-In order to set the eviction policy to deletion, add the 'evictionPolicy' parameter and set it to *delete*.
-
-The following example creates a Linux Spot scale set named *myScaleSet* in *West Central US*, which will *delete* the VMs in the scale set on eviction:
+For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":` section in your template: 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.
+
 ## FAQ
 
 **Q:** Once created, is a Spot instance the same as standard instance?
@@ -154,7 +114,7 @@ The following example creates a Linux Spot scale set named *myScaleSet* in *West
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **Q:** Can I convert existing scale sets to Spot scale sets?
@@ -203,6 +163,5 @@ The following example creates a Linux Spot scale set named *myScaleSet* in *West
 **A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## Next steps
-Now that you have created a scale set with Spot VMs, try deploying our [auto scale template using Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Check out the [virtual machine scale set pricing page](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) for pricing details.

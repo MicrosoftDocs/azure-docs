@@ -13,7 +13,6 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Accounts & tenant profiles (Android)
@@ -48,7 +47,7 @@ An account in the Microsoft identity platform consists of:
 
 ## Account overview diagram
 
-![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.svg)
 
 In the above diagram:
 

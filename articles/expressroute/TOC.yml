@@ -16,6 +16,8 @@
     href: how-to-routefilter-portal.md
 - name: Concepts
   items:
+  - name: Work remotely
+    href: work-remotely-support.md
   - name: Connectivity models
     href: expressroute-connectivity-models.md
   - name: Circuits and peering
@@ -70,6 +72,8 @@
     items:
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+    - name: Using VPN as a backup
+      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md      
 - name: How-to guides
   items:
   - name: Create and modify a circuit
@@ -228,6 +232,8 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: ExpressRoute for Cloud Solution Providers (CSP)
     href: expressroute-for-cloud-solution-providers.md
+  - name: CrossConnections API development for partners
+    href: cross-connections-api-development.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
     items:

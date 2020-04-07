@@ -29,7 +29,7 @@ As an administrator, you [create an access review of groups or applications](cre
 - Azure AD Premium P2
 - Global administrator, User administrator, Security administrator, or Security reader
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## View an access review
 

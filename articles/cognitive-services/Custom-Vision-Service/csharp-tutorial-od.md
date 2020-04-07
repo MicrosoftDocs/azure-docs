@@ -60,6 +60,9 @@ This next bit of code creates an object detection project. The created project w
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. The following code associates each of the sample images with its tagged region.
 
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
+
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
 
 Then, this map of associations is used to upload each sample image with its region coordinates. You can upload up to 64 images in a single batch.

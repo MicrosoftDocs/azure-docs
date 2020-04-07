@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Detect and frame faces in an image with the Android SDK"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you will create a simple Android app that uses the Face API to detect and frame faces in an image. 
+description: In this tutorial, you will create a simple Android app that uses the Face service to detect and frame faces in an image. 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,13 +16,13 @@ ms.author: pafarley
 
 # Tutorial: Create an Android app to detect and frame faces in an image
 
-In this tutorial, you will create an Android application that uses the Azure Face API, through the Java SDK, to detect human faces in an image. The application displays a selected image and draws a frame around each detected face.
+In this tutorial, you will create an Android application that uses the Azure Face service, through the Java SDK, to detect human faces in an image. The application displays a selected image and draws a frame around each detected face.
 
 This tutorial shows you how to:
 
 > [!div class="checklist"]
 > - Create an Android application
-> - Install the Face API client library
+> - Install the Face client library
 > - Use the client library to detect faces in an image
 > - Draw a frame around each detected face
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
+- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) with API level 22 or later (required by the Face client library).
 
@@ -120,7 +120,7 @@ Run the application and browse for an image with a face. Wait a few seconds to a
 
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face API Java SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
+In this tutorial, you learned the basic process for using the Face Java SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
 
 > [!div class="nextstepaction"]
 > [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

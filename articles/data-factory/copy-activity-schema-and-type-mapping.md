@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 02/13/2020
 ms.author: jingwang
 
 ---
@@ -257,11 +257,11 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }

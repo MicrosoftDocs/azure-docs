@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 01/10/2020
 ---
 # Quickstart: Build a console app using the .Net V4 SDK to manage Azure Cosmos DB SQL API account resources.
 
@@ -109,7 +109,7 @@ Time Elapsed 00:00:34.17
 While still in the application directory, install the Azure Cosmos DB client library for .NET Core by using the dotnet add package command.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### Copy your Azure Cosmos account credentials from the Azure portal

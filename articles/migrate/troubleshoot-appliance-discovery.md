@@ -35,14 +35,7 @@ If you receive the error "The provided manifest file is invalid: Invalid OVF man
 This can happen if the appliance machine is behind a proxy.
 
 - Make sure you provide the authorization credentials if the proxy needs them.
-- If you're using a URL-based firewall proxy to control outbound connectivity, add these URLs to an allow list:
-
-    - [URLs for VMware assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [URLs for Hyper-V assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [URLs for VMware agentless migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [URLS for VMware agent-based migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [URLs for Hyper-V migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
-
+- If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  Date/time synchronization error
@@ -56,7 +49,7 @@ An error about date and time synchronization (802) indicates that the server clo
 
 ## "UnableToConnectToServer"
 
-If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that can accept the message.
+If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at `https://\*servername*.com:9443/sdk` that can accept the message.
 
 - Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - If the issue still occurs in the latest version, the appliance might be unable to resolve the specified vCenter Server name, or the specified port might be wrong. By default, if the port is not specified, the collector will try to connect to port number 443.
@@ -71,7 +64,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
+    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
     - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
@@ -82,7 +75,7 @@ If you receive the error 60030 or 60031, "An Azure Key Vault management operatio
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about the required Azure roles and permissions.
 
 ## Error 60028: Discovery couldn't be initiated
 
@@ -97,7 +90,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
 - Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
 - Delete the resource group previously created for the Azure Migrate project. Create another resource group to start again.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
+- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about Azure Active Directory application permissions.
 
 
 ## Error 50004: Can't connect to host or cluster
@@ -123,11 +116,11 @@ If you wait and the state doesn't change, select **Refresh** on the **Servers** 
 If this doesn't work and you're discovering VMware servers:
 
 - Verify that the vCenter account you specified has permissions set correctly, with access to at least one VM.
-- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](tutorial-assess-vmware.md#set-the-scope-of-discovery) about scoping discovery.
+- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
 
 ## VM data not in portal
 
-If discovered VMs don't appear in the portal, wait a few minutes. It takes up to 30 minutes for discovered data to appear in the portal. If there's no data after 30 mins, try refreshing, as follows
+If discovered VMs don't appear in the portal or if the VM data is outdated, wait a few minutes. It takes up to 30 minutes for changes in discovered VM configuration data to appear in the portal. It may take a few hours for changes in application data to appear. If there's no data after this time, try refreshing, as follows
 
 1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
 2. Under **Manage**, select **Agent Health**.
@@ -142,7 +135,7 @@ If you delete VMs and they still appear in the portal, wait 30 minutes. If they 
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
 
-Typical app discovery errors are summarized in the table.
+Typical app discovery errors are summarized in the table. 
 
 **Error** | **Cause** | **Action**
 --- | --- | --- | ---
@@ -153,6 +146,7 @@ Typical app discovery errors are summarized in the table.
 10004: "Unable to discover installed applications for <Windows/Linux> machines." |  Credentials to access <Windows/Linux> machines weren't provided in the appliance.| Add a credential to the appliance that has access to the <Windows/Linux> machines.
 10005: "Unable to access the on-premises server". | The access credentials might be wrong. | Update the appliance credentials make sure you can access the relevant machine with them. 
 10006: "Unable to access the on-premises server". | This might occur if the machine operating system isn't Windows or Linux.|  Only use app discovery for Windows/Linux.
+10007: "Unable to process the metadata retrieved" | This internal error occurred while trying to deserialize JSON | Contact Microsoft Support for a resolution
 9000/9001/9002: "Unable to discover the applications installed on the server". | VMware tools might not be installed or is corrupted. | Install/reinstall VMware tools on the relevant machine, and check it's running.
 9003: Unable to discover the applications installed on the server". | This might occur if the machine operating system isn't Windows or Linux. | Only use app discovery for Windows/Linux.
 9004: "Unable to discover the applications installed on the server". | This might happen if the VM is powered off. | For discovery, make sure the VM is on.
@@ -161,8 +155,21 @@ Typical app discovery errors are summarized in the table.
 9008: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
 9009: "Unable to retrieve the applications installed the server". | Can occur if the Windows User Account Control (UAC) settings on the server are restrictive, and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server, and configure the UAC setting on the server to one of the lower two levels.
 9010: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
+9011: "File to download from guest is not found on the guest VM" | The issue can occur due to an internal error. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9012: "Result file contents are empty." | The issue can occur due to an internal error. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9013: "A new temporary profile is created for every login to the VMware VM" | A new temporary profile is created for every login into the VM | Ensure the user name provided in the guest VM credentials is in UPN format.
+9015: "Unable to connect to VMware VMs due to insufficient privileges on vCenter" | Guest Operations role is not enabled on the vCenter user account | Ensure Guest Operations role is enabled on the vCenter user account.
+9016: "Unable to connect to VMware VMs as the guest operations agent is out of data" | VMware tools is not properly installed or is not up to date. | Ensure the VMware  tools is properly installed and up to date.
+9017: "File with discovered metadata is not found on the VM." | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution.
+9018: "PowerShell is not installed in the Guest VMs." | PowerShell is not available in the guest VM. | Install PowerShell in the guest VM.
+9019: "Unable to discover due to guest VM operation failures" | VMware guest operation failed on the VM. | Ensure that the VM credentials are valid and user name provided in the guest VM credentials is in UPN format.
+9020: "File creation permission is denied." | The role associated to the user or the group policy is restricting the user to create the file in the folder | Check if the guest user provided has create permission for the file in the folder. See **Notifications** in Server Assessment for the name of the folder.
+9021: "File create permission is denied in folder System Temp Path." | VMware tool version on the VM is unsupported | Upgrade your VMware tool version above 10.2.0.
+9022: "Get WMI object access is denied." | The role associated to the user or the group policy is restricting the user to access WMI object. | Please contact Microsoft Support.
+9023: "SystemRoot environment variable value is empty." | Not known | Please contact Microsoft Support.
+9024: "TEMP environment variable value is empty." | Not known | Please contact Microsoft Support.
+9025: "PowerShell is corrupt in the Guest VMs." | Not known | Reinstall PowerShell in the guest VM and check if PowerShell can be run on the guest VM.
 8084: "Unable to discover applications due to VMware error: <Exception from VMware>" | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen if an exception is thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Search for the message in the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), and follow the steps to fix. If you can't fix, contact Microsoft support.
-
 
 
 

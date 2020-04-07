@@ -42,13 +42,13 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/).
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
 ```javascript
 const util = require('util');
 const fs = require('fs');
-const TrainingApiClient = require("@azure/cognitiveservices-customvision-training");
-const PredictionApiClient = require("@azure/cognitiveservices-customvision-prediction");
+const TrainingApi = require("@azure/cognitiveservices-customvision-training");
+const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -61,7 +61,7 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "classifyModel";
 
-const trainer = new TrainingApiClient(trainingKey, endPoint);
+const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 (async () => {
     console.log("Creating project...");
@@ -105,7 +105,7 @@ await Promise.all(fileUploadPromises);
 
 ### Train the classifier and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
 console.log("Training...");
@@ -129,7 +129,7 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```javascript
-    const predictor = new PredictionApiClient(predictionKey, endPoint);
+    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
     const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
