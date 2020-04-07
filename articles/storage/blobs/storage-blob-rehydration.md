@@ -65,6 +65,7 @@ Blobs in the archive tier should be stored for a minimum of 180 days. Deleting o
 1. Select **Save** at the bottom.
 
 ![Change storage account tier](media/storage-tiers/blob-access-tier.png)
+![Check rehydrate status](media/storage-tiers/rehydrate-status.png)
 
 # [Powershell](#tab/azure-powershell)
 The following PowerShell script can be used to change the blob tier of an archive blob. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
