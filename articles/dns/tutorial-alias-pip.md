@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a network infrastructure.
 > * Create a web server virtual machine with a public IP.
-> * Create an alias record the points to the public IP.
+> * Create an alias record that points to the public IP.
 > * Test the alias record.
 
 
