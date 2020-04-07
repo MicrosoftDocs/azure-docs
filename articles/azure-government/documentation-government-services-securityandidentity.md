@@ -93,8 +93,6 @@ For details on the service and how to use it, see the [Azure Sentinel public doc
 
 ### Variations
 
-Unless otherwise specified, new feature releases to general availability will be available in Azure Sentinel Government within three months of their release in the Azure Sentinel commercial environment.
-
 - **Office 365 data connector**  
 The Office 365 data connector can be used only for [Office 365 GCC High](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 
