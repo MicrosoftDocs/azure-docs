@@ -537,17 +537,12 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### Examples
-
 #### Example
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
