@@ -164,28 +164,29 @@ For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3
 
 It is now recommended to use the server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-## Offline FairPlay Streaming for iOS
+## Offline streaming
+
+### FairPlay Streaming for iOS
 
 The following frequently asked questions provide assistance with troubleshooting offline FairPlay streaming for iOS:
 
-### Why does only audio play but not video during offline mode?
+#### Why does only audio play but not video during offline mode?
 
 This behavior seems to be by design of the sample app. When an alternate audio track is present (which is the case for HLS) during offline mode, both iOS 10 and iOS 11 default to the alternate audio track. To compensate this behavior for FPS offline mode, remove the alternate audio track from the stream. To do this on Media Services, add the dynamic manifest filter "audio-only=false." In other words, an HLS URL ends with .ism/manifest(format=m3u8-aapl,audio-only=false). 
 
-
-### Why does it still play audio only without video during offline mode after I add audio-only=false?
+#### Why does it still play audio only without video during offline mode after I add audio-only=false?
 
 Depending on the content delivery network (CDN) cache key design, the content might be cached. Purge the cache.
 
-### Is FPS offline mode also supported on iOS 11 in addition to iOS 10?
+#### Is FPS offline mode also supported on iOS 11 in addition to iOS 10?
 
 Yes. FPS offline mode is supported for iOS 10 and iOS 11.
 
-### Why can't I find the document "Offline Playback with FairPlay Streaming and HTTP Live Streaming" in the FPS Server SDK?
+#### Why can't I find the document "Offline Playback with FairPlay Streaming and HTTP Live Streaming" in the FPS Server SDK?
 
 Since FPS Server SDK version 4, this document was merged into the "FairPlay Streaming Programming Guide."
 
-### What is the downloaded/offline file structure on iOS devices?
+#### What is the downloaded/offline file structure on iOS devices?
 
 The downloaded file structure on an iOS device looks like the following screenshot. The `_keys` folder stores downloaded FPS licenses, with one store file for each license service host. The `.movpkg` folder stores audio and video content. The first folder with a name that ends with a dash followed by a numeric contains video content. The numeric value is the PeakBandwidth of the video renditions. The second folder with a name that ends with a dash followed by 0 contains audio content. The third folder named "Data" contains the master playlist of the FPS content. Finally, boot.xml provides a complete description of the `.movpkg` folder content. 
 
@@ -219,6 +220,59 @@ A sample boot.xml file:
     </DataItem>
   </DataItems>
 </HLSMoviePackage>
+```
+
+### Widevine streaming for Android
+
+#### How can I deliver persistent licenses (offline-enabled) for some clients/users and non-persistent licenses (offline-disabled) for others? Do I have to duplicate the content and use separate content key?
+
+Since Media Services v3 allows an Asset to have multiple StreamingLocators. You can have
+
+1. One ContentKeyPolicy with license_type = "persistent", ContentKeyPolicyRestriction with claim on "persistent", and its StreamingLocator;
+1. Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
+1. The two StreamingLocators have different ContentKey.
+
+Depending on business logic of custom STS, different claims are issued in the JWT token. With the token, only the corresponding license can be obtained and only the corresponding URL can be played.
+
+#### What is the mapping between the Widevine and Media Services DRM security levels?
+
+Google's "Widevine DRM Architecture Overview" defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md),
+five different security levels are outlined. This section explains how the security levels map.
+
+The Google's "Widevine DRM Architecture Review" doc defines the following three security levels:
+
+1. Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
+1. Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
+1. Security Level 3 Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security.
+
+At the same time, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
+
+1. Software-based white-box crypto is required.
+1. Software crypto and an obfuscated decoder is required.
+1. The key material and crypto operations must be performed within a hardware backed TEE.
+1. The crypto and decoding of content must be performed within a hardware backed TEE.
+1. The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.
+
+Both security levels are defined by Google Widevine. The difference is in its usage level: architecture level or API level. The five security levels are used in the Widevine API. The content_key_specs object, which
+contains security_level is deserialized and passed to the Widevine global delivery service by Azure Media Services Widevine license service. The table below shows the mapping between the two sets of security levels.
+
+| **Security Levels Defined in Widevine Architecture** |**Security Levels Used in Widevine API**|
+|---|---| 
+| **Security Level 1**: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.|**security_level=5**: The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.<br/><br/>**security_level=4**: The crypto and decoding of content must be performed within a hardware backed TEE.|
+**Security Level 2**: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.| **security_level=3**: The key material and crypto operations must be performed within a hardware backed TEE. |
+| **Security Level 3**: Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security. | **security_level=2**: Software crypto and an obfuscated decoder are required.<br/><br/>**security_level=1**: Software-based whitebox crypto is required.|
+
+#### Why does content download take so long?
+
+There are two ways to improve download speed:
+
+1. Enable CDN so that end users are more likely to hit CDN instead of origin/streaming endpoint for content download. If user hits streaming endpoint, each HLS segment or DASH fragment is dynamically packaged and encrypted. Even though this latency is in millisecond scale for each segment/fragment, when you have an hour long video, the accumulated latency can be large causing longer download.
+1. Provide end users the option to selectively download video quality layers and audio tracks instead of all contents. For offline mode, there is no point to download all of the quality layers. There are two ways to achieve this:
+
+   1. Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
+   1. Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
+
+### PlayReady for Windows 10 
 
 ## Next steps
 
