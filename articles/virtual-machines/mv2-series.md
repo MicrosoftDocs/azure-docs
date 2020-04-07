@@ -5,7 +5,7 @@
  author: ayshakeen
  ms.service: virtual-machines
  ms.topic: article
- ms.date: 02/03/2020
+ ms.date: 04/07/2020
  ms.author: lahugh
 ---
 
@@ -29,12 +29,17 @@ Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines
 |---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
-| Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
-| Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](./linux/generation-2.md) for instructions on how to find and select an image.
+<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](./linux/generation-2.md) for instructions on how to find and select an image. Minimum operating system releases required for all the four different Mv2-series VM types list like:
 
-<sup>2</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only: “GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
+- Windows Server 2019
+- SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
+- Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
+- Oracle Enterprise Linux 7.7 or later
+
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
