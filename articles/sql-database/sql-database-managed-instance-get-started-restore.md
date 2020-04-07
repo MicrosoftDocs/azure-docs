@@ -40,7 +40,7 @@ This quickstart:
 
 In SSMS, follow these steps to restore the Wide World Importers database to your Managed Instance. The database backup file is stored in a pre-configured Azure Blob storage account.
 
-1. Open SMSS and connect to your Managed Instance.
+1. Open SSMS and connect to your Managed Instance.
 2. From the left-hand menu, right-click your Managed Instance and select **New Query** to open a new query window.
 3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) in your Managed Instance.
 

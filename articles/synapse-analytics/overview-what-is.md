@@ -27,14 +27,12 @@ Azure Synapse provides the simplest and fastest way for an enterprise to gather 
 
 Additionally, Azure Synapse facilitates predictive model building and advanced analytics with machine learning via its built-in support for **AzureML**.
 
-
 ## Key Features & Benefits
 
 ### Industry-leading SQL
 
 * **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to 
-address streaming and machine learning scenarios.
+scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
 
 * Synapse SQL offers both **serverless** and **provisioned** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, provision pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the serverless, always-available SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
@@ -72,7 +70,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * Assign users to Role to simplify access to analytics resources
 * Fine-grained access control on data and code
-*  A single dashboard to monitor resources, usage, and users across SQL and Spark
+* A single dashboard to monitor resources, usage, and users across SQL and Spark
 
 ### Synapse Studio
 
@@ -87,4 +85,4 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Explore [Azure Synapse architecture](https://review.docs.microsoft.com/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
 * Quickly [create a SQL pool](https://review.docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
 * [Load sample data](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-sample-databases)
-*  Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+* Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
