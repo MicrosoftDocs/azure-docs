@@ -166,7 +166,7 @@ provisioningState       : Succeeded
 
 ## Enable with PowerShell
 
-To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). It's available from the Azure PowerShell Gallery. This script iterates through:
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). It's available from the Azure PowerShell Gallery. This script iterates through:
 
 - Every virtual machine and virtual machine scale set in your subscription.
 - The scoped resource group that's specified by *ResourceGroup*.
