@@ -150,12 +150,21 @@ The **LocalizedString** element contains the following attributes:
 
 The ElementType reference to a claim type, a claim transformation, or a user interface element in the policy to be localized.
 
+| Element to localize | ElementType | ElementId |StringId |
+| --------- | -------- | ----------- |----------- |
+| Identity provider name |`ClaimsProvider`| | The ID of the ClaimsExchange element|
+| Claim type attributes|`ClaimType`|Name of the claim type| The attribute of the claim to be localized. Possible values: `AdminHelpText`, `DisplayName`, `PatternHelpText`, and `UserHelpText`.|
+|Error message|`ErrorMessage`||The ID of the error message |
+|Copies localized strings into claims|`GetLocalizedStringsTra nsformationClaimType`||The name of the output claim|
+|Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
+|Predicate group user message|`InputValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
+|User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
+
+## Examples
+
 ### ClaimsProvider
 
 The ClaimsProvider value is used to localize claim provider name. 
-
-- **ElementType** set to `ClaimsProvider`
-- **StringId** is the Id of the ClaimsExchange element
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -181,10 +190,6 @@ The following example shows how to localize the claim provider name.
 
 The ClaimType value is used to localize one of the claim attributes. 
 
-- **ElementType** set to `ClaimType`.
-- **ElementId** is the name of the claim type.
-- **StringId** the attribute of the claim to be localized.
-
 ```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
@@ -205,9 +210,6 @@ The following example shows how to localize the DisplayName, UserHelpText, and P
 ### ErrorMessage
 
 The ErrorMessage value is used to localize one of the system error messages. 
-
-- **ElementType** set to `ErrorMessage`.
-- **StringId** the ID of the error message.
 
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -230,8 +232,6 @@ The following example shows how to localize the UserMessageIfClaimsPrincipalAlre
 
 The `GetLocalizedStringsTransformationClaimType` value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
 
-- **ElementType** set to `GetLocalizedStringsTransformationClaimType`.
-- **StringId** the name of the output claim.
 
 ```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -256,10 +256,6 @@ The following example shows how to localize the output claims of the  GetLocaliz
 ### Predicate
 
 The Predicate value is used to localize one of the [Predicate](predicates.md) error messages. 
-
-- **ElementType** set to `Predicate`.
-- **ElementId** is the name of the predicate.
-- **StringId** the attribute of the predicate to be localized. 
 
 ```xml
 <Predicates>
@@ -294,10 +290,6 @@ The following example shows how to localize the predicate help text.
 
 The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages. 
 
-- **ElementType** set to `InputValidation`.
-- **ElementId** The ID of the PredicateValidation element.
-- **StringId** The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.
-
 ```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomPassword">
@@ -329,12 +321,7 @@ The following example shows how to localize the predicate validation group help 
 
 ### UxElement
 
-The UxElement value is used to localize one of the user interface elements. 
-
-- **ElementType** set to `UxElement`.
-- **StringId** the ID of the user interface element to be localized.
-
-The following example shows how to localize the continue and cancel buttons.
+The UxElement value is used to localize one of the user interface elements. The following example shows how to localize the continue and cancel buttons.
 
 ```XML
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
