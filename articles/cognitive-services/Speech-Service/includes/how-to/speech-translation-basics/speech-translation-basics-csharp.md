@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 04/07/2020
 ms.author: dapine
 ---
 
@@ -16,10 +16,11 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Import dependencies
 
-To run the examples in this article, include the following `using` statements at the top of your script.
+To run the examples in this article, include the following `using` statements at the top of the *Program.cs* file.
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
@@ -27,76 +28,117 @@ using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 ```
 
+## Sensitive data and environment variables
+
+The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource subscription key and region. The `Program` class contains two `static readonly string` values that are assigned from the host machines environment variables, namely `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, making them accessible within method bodies of the class. For more information on environment variables, see [environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+
+```csharp
+public class Program
+{
+    static readonly string SPEECH__SUBSCRIPTION__KEY =
+        Environment.GetEnvironmentVariable(nameof(SPEECH__SUBSCRIPTION__KEY));
+    
+    static readonly string SPEECH__SERVICE__REGION =
+        Environment.GetEnvironmentVariable(nameof(SPEECH__SERVICE__REGION));
+
+    static Task Main() => Task.CompletedTask;
+}
+```
+
 ## Create a speech translation configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechTranslationConfig`][config]. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
-> [!NOTE]
+> [!TIP]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-There are a few ways that you can initialize a [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet):
+There are a few ways that you can initialize a [`SpeechTranslationConfig`][config]:
 
 * With a subscription: pass in a key and the associated region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet) is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
+Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
 
 ```csharp
 public class Program
 {
-    static async Task Main()
-    {
-        await TranslateSpeechAsync();
+    static readonly string SPEECH__SUBSCRIPTION__KEY =
+        Environment.GetEnvironmentVariable(nameof(SPEECH__SUBSCRIPTION__KEY));
+    
+    static readonly string SPEECH__SERVICE__REGION =
+        Environment.GetEnvironmentVariable(nameof(SPEECH__SERVICE__REGION));
 
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadLine();
-    }
+    static async Task Main()
+        => await TranslateSpeechAsync();
 
     static async Task TranslateSpeechAsync()
     {
         var translationConfig =
-            SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+            SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
     }
 }
 ```
 
-To set the speech recognition language and target translation language, use the speech translation configuration instance. As an example of how to specify a speech translation from english to italian, consider the following:
+## Change source language
+
+One common task of speech translation is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, interact with the [`SpeechTranslationConfig`][config] instance, assigning to the `SpeechRecognitionLanguage` property.
 
 ```csharp
 static async Task TranslateSpeechAsync()
 {
     var translationConfig =
-        SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
 
     // Recognize speech from this language
-    translationConfig.SpeechRecognitionLanguage = "en-US";
-    
-    // Translate it to this language. See, https://aka.ms/speech/sttt-languages
-    translationConfig.AddTargetLanguage("it");
+    translationConfig.SpeechRecognitionLanguage = "it-IT";
 }
 ```
 
-## Initialize a recognizer
+The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
 
-After you've created a [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet), the next step is to initialize a [`TranslationRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet). When you initialize a [`TranslationRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet), you'll need to pass it your `translationConfig`. This provides the credentials that the speech service requires to validate your request.
+## Add translation language
 
-If you're recognizing speech using your device's default microphone, here's what the [`TranslationRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet) should look like:
+Another common task of speech translation is to specify target translation languages, at least one is required but multiples are supported. In the following code snippet, both French and German as translation language targets.
 
 ```csharp
 static async Task TranslateSpeechAsync()
 {
     var translationConfig =
-        SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    translationConfig.SpeechRecognitionLanguage = "en-US";
-    translationConfig.AddTargetLanguage("it");
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+
+    translationConfig.SpeechRecognitionLanguage = "it-IT";
+    
+    // Translate it to this language. See, https://aka.ms/speech/sttt-languages
+    translationConfig.AddTargetLanguage("fr");
+    translationConfig.AddTargetLanguage("de");
+}
+```
+
+With every call to [`AddTargetLanguage`][addlang], a new target translation language is specified. In other words, when speech is recognized from the source language, each target translation is available as part of the resulting translation operation.
+
+## Initialize a translation recognizer
+
+After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translationConfig`. This provides the credentials that the speech service requires to validate your request.
+
+If you're recognizing speech using your device's default microphone, here's what the [`TranslationRecognizer`][recognizer] should look like:
+
+```csharp
+static async Task TranslateSpeechAsync()
+{
+    var translationConfig =
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    var fromLanguage = "en-US";
+    var toLanguages = new List<string> { "it", "fr", "de" };
+    translationConfig.SpeechRecognitionLanguage = fromLanguage;
+    toLanguages.ForEach(translationConfig.AddTargetLanguage);
 
     using var recognizer = new TranslationRecognizer(translationConfig);
 }
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet).
+If you want to specify the audio input device, then you'll need to create an [`AudioConfig`][audioconfig] and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`][recognizer].
 
 > [!TIP]
 > [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
@@ -107,25 +149,28 @@ First, you'll reference the `AudioConfig` object as follows:
 static async Task TranslateSpeechAsync()
 {
     var translationConfig =
-        SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    translationConfig.SpeechRecognitionLanguage = "en-US";
-    translationConfig.AddTargetLanguage("it");
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    var fromLanguage = "en-US";
+    var toLanguages = new List<string> { "it", "fr", "de" };
+    translationConfig.SpeechRecognitionLanguage = fromLanguage;
+    toLanguages.ForEach(translationConfig.AddTargetLanguage);
 
     using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
     using var recognizer = new TranslationRecognizer(translationConfig, audioConfig);
 }
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet), instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileOutput` and pass the `filename` parameter.
-
+If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`][audioconfig], instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileInput` and pass the `filename` parameter.
 
 ```csharp
 static async Task TranslateSpeechAsync()
 {
     var translationConfig =
-        SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    translationConfig.SpeechRecognitionLanguage = "en-US";
-    translationConfig.AddTargetLanguage("it");
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    var fromLanguage = "en-US";
+    var toLanguages = new List<string> { "it", "fr", "de" };
+    translationConfig.SpeechRecognitionLanguage = fromLanguage;
+    toLanguages.ForEach(translationConfig.AddTargetLanguage);
 
     using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
     using var recognizer = new TranslationRecognizer(translationConfig, audioConfig);
@@ -134,29 +179,39 @@ static async Task TranslateSpeechAsync()
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on either microphone input or an audio file stream. Regardless, speech must first be recognized before it can be translated.
-
-### Translate to multiple languages
-
-
-
-### Dictation mode
-
-When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`EnableDictation`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet) method on your [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet).
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Regardless, speech must first be recognized before it can be translated. For more information about speech-to-text, see [the basics of speech recognition](../../../speech-to-text-basics.md). After all objects have been configured and initialized, call the recognize-once function and get the result.
 
 ```csharp
-translationConfig.EnableDictation();
+static async Task TranslateSpeechAsync()
+{
+    var translationConfig =
+        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+    var fromLanguage = "en-US";
+    var toLanguages = new List<string> { "it", "fr", "de" };
+    translationConfig.SpeechRecognitionLanguage = fromLanguage;
+    toLanguages.ForEach(translationConfig.AddTargetLanguage);
+
+    using var recognizer = new TranslationRecognizer(translationConfig);
+
+    Console.WriteLine($"Say something in '{fromLanguage}' that will be translated to '{string.Join(", ", toLanguages)}'.");
+    var result = await recognizer.RecognizeOnceAsync();
+
+    if (result.Reason == ResultReason.TranslatedSpeech)
+    {
+        Console.WriteLine($"Recognized: \"{result.Text}\" and translated to:");
+        foreach (var (language, translation) in result.Translations)
+        {
+            Console.WriteLine($"({language}): {translation}");
+        }
+    }
+}
 ```
 
-## Change source language
+After a successful speech recognition, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target language and the value is the translated text.
 
-A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechTranslationConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet), then add this line directly below it.
-
-```csharp
-translationConfig.SpeechRecognitionLanguage = "it-IT";
-```
-
-The [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet) property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
-
+[config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
+[audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
+[recognizer]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet
+[recognitionlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
+[addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
+[translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
