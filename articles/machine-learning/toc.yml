@@ -18,14 +18,12 @@
   items:
   - name: Studio & Designer
     items:
-    - name: Designer (drag-and-drop)
-      items:
-      - name: 'Designer: 1. Train a regression model'
-        displayName: studio
-        href: tutorial-designer-automobile-price-train-score.md
-      - name: 'Designer: 2. Deploy that model'
-        displayName: studio
-        href: tutorial-designer-automobile-price-deploy.md
+    - name: 'Designer: 1. Train a regression model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-train-score.md
+    - name: 'Designer: 2. Deploy that model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-deploy.md
     - name: Automated ML (UI)
       items:
       - name: Create an automated ML experiment
@@ -34,6 +32,9 @@
       - name: Forecast demand with automated ML (Bike share data)
         displayName: automl, automated, auto ml, portal, ui
         href: tutorial-automated-ml-forecast.md
+    - name: Label image data
+      displayName: tag, tagging, images
+      href: tutorial-labeling.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -355,6 +356,8 @@
     items:
     - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
+    - name: Moving data into and between ML pipeline steps (Python)
+      href: how-to-move-data-in-out-of-pipelines.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
     - name: Trigger a pipeline
