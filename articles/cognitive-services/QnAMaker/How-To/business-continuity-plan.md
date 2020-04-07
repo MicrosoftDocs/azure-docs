@@ -11,7 +11,8 @@ The primary objective of the business continuity plan is to create a resilient k
 
 ## Business continuity with traffic manager
 
-![QnA Maker bcp plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+> [!div class="mx-imgBorder"]
+> ![QnA Maker bcp plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
 The high-level idea as represented above is as follows:
 
