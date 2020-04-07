@@ -129,7 +129,7 @@ As log records are generated, each operation is evaluated and assessed for wheth
 
 The actual log generation rates imposed at run time may also be influenced by feedback mechanisms, temporarily reducing the allowable log rates so the system can stabilize. Log file space management, avoiding running into out of log space conditions and Availability Group replication mechanisms can temporarily decrease the overall system limits.
 
-Log rate governor traffic shaping is surfaced via the following wait types (exposed in the [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Log rate governor traffic shaping is surfaced via the following wait types (exposed in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) views):
 
 | Wait Type | Notes |
 | :--- | :--- |
@@ -138,6 +138,7 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 | INSTANCE_LOG_RATE_GOVERNOR | Instance level limiting |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback control, availability group physical replication in Premium/Business Critical not keeping up |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Geo-replication feedback control, limiting log rate to avoid high data latency and unavailability of geo-secondaries|
 |||
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
