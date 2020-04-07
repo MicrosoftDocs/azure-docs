@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Blob storage?
     href: storage-blobs-overview.md
+  - name: Compare core storage services
+    href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   expanded: true
 - name: Blob storage
   items:
@@ -11,8 +13,6 @@
     items:
     - name: Introduction to Blob storage
       href: storage-blobs-introduction.md
-    - name: Compare core storage services
-      href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
     items:
     - name: Work with blobs

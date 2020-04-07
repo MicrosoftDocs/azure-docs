@@ -11,11 +11,9 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Introduction to Azure Storage services available through a storage account
+# Introduction to the core Azure Storage services
 
-The core Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. The core Azure Storage services offer a massively scalable object store for data objects, disk storage for Azure virtual machines (VMs), a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store.
-
-The core Azure Storage services are:
+The core Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. Core storage services offer a massively scalable object store for data objects, disk storage for Azure virtual machines (VMs), a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store. The services are:
 
 - **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
 - **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
@@ -25,9 +23,9 @@ The core Azure Storage services are:
 
 ## Core storage services
 
-The core Azure Storage includes these data services:
+Azure Storage includes the following data services:
 
-- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data.
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data. Also includes support for big data analytics.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
@@ -37,15 +35,15 @@ Each service is accessed through a storage account. To get started, see [Create 
 
 ## Scenarios
 
-The following table compares Files, Blobs, Disks, Tables, and Queues, and shows example scenarios appropriate for each.
+The following table compares Files, Blobs, Disks, Tables, and Queues, and shows example scenarios for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
 | **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to store development and debugging tools that need to be accessed from many virtual machines. |
 | **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Disks** | Provides client libraries and a [REST interface](/rest/api/compute/manageddisks/disks/disks-rest-api) that allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
-| **Azure Queues** | Provides client libraries and a [REST interface](/rest/api/storageservices/queue-service-rest-api) for asynchronous message queueing between application components. | For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
-| **Azure Tables** | Provides client libraries and a [REST interface](/rest/api/storageservices/table-service-rest-api) that allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table storage versus teh Azure Cosmos DB Table API, see [Developing with Azure Cosmos DB Table API and Azure Table storage](../../cosmos-db/table-support?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc).json . |
+| **Azure Queues** | Provides client libraries and a [REST interface](/rest/api/storageservices/queue-service-rest-api) for asynchronous message queueing between application components. | You want to store lists of messages to be processed asynchronously. <br><br>For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Azure Tables** | Provides client libraries and a [REST interface](/rest/api/storageservices/table-service-rest-api) that allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table storage versus the Azure Cosmos DB Table API, see [Developing with Azure Cosmos DB Table API and Azure Table storage](../../cosmos-db/table-support?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json). |
 
 ## Blob storage
 
@@ -105,7 +103,7 @@ For more information about managed disks, see [Introduction to Azure managed dis
 
 ## Types of storage accounts
 
-Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model.For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ## Secure access to storage accounts
 
@@ -131,7 +129,7 @@ The Azure Storage client libraries provide methods for encrypting data from the 
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy] (../common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](../common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## Transfer data to and from Azure Storage
 
@@ -143,7 +141,7 @@ When making decisions about how your data is stored and accessed, you should als
 
 ## Storage APIs, libraries, and tools
 
-You can access resources in a storage account by any language that can make HTTP/HTTPS requests. Additionally, the core Azure Storage services offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
+You can access resources in a storage account by any language that can make HTTP/HTTPS requests. Additionally, the core Azure Storage services offer programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 ### Azure Storage data API and library references
 
@@ -178,4 +176,4 @@ You can access resources in a storage account by any language that can make HTTP
 
 ## Next steps
 
-To get up and running with core Azure Storage, see [Create a storage account](storage-account-create.md).
+To get up and running with core Azure Storage services, see [Create a storage account](storage-account-create.md).
