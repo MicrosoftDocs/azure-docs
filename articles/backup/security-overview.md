@@ -62,6 +62,8 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 
 * Deleted backup data is retained for an additional 14 days from the date of deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data. [Learn more about recovering deleted backup data](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
 
+* For data backed up using the Microsoft Azure Recovery Services (MARS) agent, a passphrase is used to ensure data is encrypted before upload to Azure Backup and decrypted only after download from Azure Backup. The passphrase details are only available to the user who created the passphrase and the agent that is configured with it. Nothing is transmitted or shared with the service. This ensures complete security of your data as any data that is exposed inadvertently (such as a man-in-the-middle attack on the network) is unusable without the passphrase, and the passphrase isn't sent on the network.
+
 ## Compliance with standardized security requirements
 
 To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)

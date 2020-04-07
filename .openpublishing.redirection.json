@@ -346,6 +346,17 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-centos-vm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/linux-dsvm-intro.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": true
+    },
+    
+    {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
       "redirect_document_id": false
@@ -1996,6 +2007,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-java.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-node.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/visual-search-sdk-python.md",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -2902,7 +2933,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/overview-more-machine-learning.md",
-      "redirect_url": "/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning",
       "redirect_document_id": false
     },
     {
@@ -2982,7 +3013,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/support-for-aml-services.md",
-      "redirect_url": "https://aka.ms/aml-forum-service",
+      "redirect_url": "https://social.msdn.microsoft.com/Forums/home?forum=AzureMachineLearningService",
       "redirect_document_id": false
     },
     {
@@ -3072,17 +3103,17 @@
     },
     {
       "source_path": "articles/machine-learning/studio/live-chat.md",
-      "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
+      "redirect_url": "https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/studio/datamarket-deprecation.md",
-      "redirect_url": "https://microsoft.com/cognitive",
+      "redirect_url": "https://azure.microsoft.com/services/cognitive-services/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/r-developers-guide.md",
-      "redirect_url": "/azure/architecture/data-guide/technology-choices/r-developers-guide",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/r-developers-guide",
       "redirect_document_id": false
     },
     {
@@ -4036,8 +4067,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-government/documentation-government-k8.md",
+      "redirect_url": "/azure/azure-government",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-linked-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
       "redirect_document_id": false
     },
     {
@@ -5108,6 +5149,11 @@
     {
       "source_path": "articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/shared-device-mode.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-shared-devices",
       "redirect_document_id": true
     },
     {
@@ -7561,7 +7607,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
-      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -7592,6 +7638,11 @@
     {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
       "redirect_document_id": false
     },
     {
@@ -15156,7 +15207,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-portal-experiments",
+      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
       "redirect_document_id": false
     },
     {
@@ -19157,6 +19208,11 @@
     {
       "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
       "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-backup-azure-files.md",
+      "redirect_url": "/azure/backup/backup-afs",
       "redirect_document_id": false
     },
     {
@@ -29740,6 +29796,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-apply-system-updates.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-investigation.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#security-alerts-investigation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-threat-intel.md",
+      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-apply-disk-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-confidence-score.md",
       "redirect_url": "/azure/security-center/security-center-intro",
       "redirect_document_id": false
@@ -32217,11 +32293,6 @@
     {
       "source_path": "articles/expressroute/expressroute-security-attributes.md",
       "redirect_url": "/azure/expressroute/expressroute-security-controls",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -46965,6 +47036,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -47322,6 +47398,11 @@
     {
       "source_path": "articles/active-directory-domain-services/contact-us.md",
       "redirect_url": "https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/compatible-software.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
       "redirect_document_id": false
     },
     {
@@ -50498,6 +50579,20 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-managed-instance"
+    },
+    {
+      "source_path": "articles/aks/integrate-azure.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
     }
   ]
 }
