@@ -10,40 +10,38 @@ ms.custom:
 
 This article shows how to transfer images or other registry artifacts in bulk from one Azure container registry to another registry. The source and target registries can be in the same or different subscriptions, or potentially different Active Directory tenants or Azure clouds. 
 
-To transfer images, you create a transfer *pipeline*:
+To transfer images, you create a *transfer pipeline* that replicates artifacts between registries by using blob storage:
 
-* Create source and target storage resources, and store storage access secrets in Azure key vaults 
-* Create and run a resource that exports images to the source storage account 
-* Copy images from the source storage account to the target storage account
-* Create a resource that imports images to the target registry. You can set up the import pipeline to trigger whenever images are in the source storage account
+* Images from a source registry are packaged into a blob placed in a source storage account 
+* The blob is copied from the source storage account to a target storage account
+* The blob in the target storage account gets unpacked into artifacts in the target registry. You can set up the import pipeline to trigger whenever the image blob updates in the target storage.
 
 Transferring registry images is a more general, scalable alternative to [importing images](container-registry-import-images.md) from one container registry to another.
 
-In this article, you use the Azure CLI and Azure Resource Manager templates to create the resources and transfer pipeline. If you'd like to use the Azure CLI locally, you must have Azure CLI version **XXX** or later installed and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+In this article, you use the Azure CLI and Azure Resource Manager templates to create the resources and transfer pipeline. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
 ## Prerequisites
 
-* **Container registries** - For this scenario you need an existing source registry with images you want to transfer, and a target registry. The source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-cli.md). 
-* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. In each account, create a blob container for image transfer. For example, create a container named *transfer*
+* **Container registries** - You need an existing source registry with images to transfer, and a target registry. The source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. In each account, create a blob container for image transfer. For example, create a container named *transfer*.
 * **Key vaults** Create key vaults to store secrets in the same Azure subscription or subscriptions as your source and target registries. If needed, create source and target key vaults with the [Azure CLI](../key-vault/quick-create-cli.md) or other tools.
 
 ## Scenario overview
 
 You create the following three resources for ACR Transfer. All are created using PUT operations. These resources operate on your *source* and *target* registries and storage accounts.
 
-* **ExportPipeline** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the storage blob container URI and the key vault secret URI of the storage SAS token. 
-* **ImportPipeline** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the storage blob container URI and the key vault secret URI of the storage SAS token. An import trigger is enabled by default, so the pipeline runs automatically when artifacts land in the target storage container. 
+* **ExportPipeline** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the source storage blob container URI and the key vault secret URI of the storage SAS token. 
+* **ImportPipeline** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the target storage blob container URI and the key vault secret URI of the storage SAS token. An import trigger is enabled by default, so the pipeline runs automatically when artifacts land in the target storage container. 
 * **PipelineRun** Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
+  You run the ExportPipeline manually by creating a PipelineRun resource. When you run the ExportPipeline, you specify the artifacts to be exported.  
 
-You run the ExportPipeline manually by creating a PipelineRun resource. When you run the ExportPipeline, you specify the artifacts to be exported.  
-
-If an import trigger is enabled, an ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
+  If an import trigger is enabled, an ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
 
 ### Things to know
-* The ImportPipeline and ExportPipeline may be located in different Active Directory tenants, or different Azure clouds. If run in different tenants or clouds, you need separate managed identities and key vaults for the export and import resources.
-* ExportPipelines and ImportPipelines also support system-assigned identities. In this case, assign the identity permissions to your key vault after the export resource is created and before running. 
+* The ImportPipeline and ExportPipeline may be located in different Active Directory tenants, or different Azure clouds. If run in different tenants or clouds, you need separate managed identities and key vaults for the export and import resources. 
+* ExportPipelines and ImportPipelines also support system-assigned identities. In this case, assign the identity permissions to your key vault after the ExportPipeline resource is created and before running. 
 
 ## Create and store SAS tokens
 
@@ -216,7 +214,7 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |registryName     | Name of your source container registry      |
 |pipelineRunName     |  Name you choose for the run       |
 |pipelineResourceId     |  Resource ID of the export pipeline. Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`       |
-|targetName     |  Name you choose for the blob for exported artifacts in your source storage account, such a *myblob*
+|targetName     |  Name you choose for the artifacts blob exported to your source storage account, such a *myblob*
 |artifacts | Array of source images to transfer. Example: `[samples/hello-world:v1", "samples/nginx:v1"]`
 
 Run [az deployment group create][az-deployment-group-create] to run the resource.
@@ -259,13 +257,13 @@ Parameter  |Value  |
 |---------|---------|
 |registryName     | Name of your target container registry      |
 |importPipelineName     |  Name you choose for the import pipeline       |
-|sourceUri     |  URI of the container in your target storage account, used as a source for the import pipeline. Example: `https://targetstorage.blob.core.windows.net/transfer`       |
+|sourceUri     |  URI of the container in your target storage account, which is the source for the import pipeline. Example: `https://targetstorage.blob.core.windows.net/transfer`       |
 |keyVaultUri     |  URI of the SAS token secret in the target key vault. Example: `https://targetvault.vault-int.azure-int.net/secrets/acrimportsas`       |
 
 Run [az deployment group create][az-deployment-group-create] to create the resource.
 
 ```azurecli
-az group deployment create \ 
+az deployment group create \ 
   --resource-group myResourceGroup \ 
   --template-file azuredeploy.json \ 
   --parameters azuredeploy.parameters.json \
@@ -286,7 +284,7 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |---------|---------|
 |registryName     | Name of your source container registry      |
 |pipelineRunName     |  Name you choose for the run       |
-|pipelineResourceId     |  Resource ID of the import pipeline. Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`       |
+|pipelineResourceId     |  Resource ID of the import pipeline. Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Name of the blob for exported artifacts in your storage account, such a *myblob*
 
 Run [az deployment group create][az-deployment-group-create] to run the resource.
