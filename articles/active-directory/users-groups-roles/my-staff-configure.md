@@ -91,4 +91,5 @@ You can view audit logs for actions taken in My Staff in the Azure Active Direct
 
 ## Next steps
 
-[Azure Active Directory editions](../fundamentals/active-directory-whatis.md)
+[My Staff user documentation](../user-help/my-staff-team-manager.md)
+[Administrative units documentation](directory-administrative-units.md)

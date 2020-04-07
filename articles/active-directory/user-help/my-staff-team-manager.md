@@ -75,6 +75,3 @@ After you register a phone number for a user, they can use it to sign in with SM
 
     ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/remove-number.png)
 
-## Next steps
-
-[Azure Active Directory editions](../fundamentals/active-directory-whatis.md)
