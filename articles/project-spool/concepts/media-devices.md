@@ -11,22 +11,19 @@ ms.topic: conceptual
 ms.service: azure-project-spool
 ---
 
+# Media and Media Devices
+
+TODO
+
+### meta
 
 -  Customer intent statements: 
    - I want to know how to think about Media and Media Devices when I'm developing on spool.
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
-  - TODO
+  - Is this needed? When working with WebRTC, 
 
 - TODOs:
   - Draft initial content
 
-# Media and Media Devices
 
-TODO

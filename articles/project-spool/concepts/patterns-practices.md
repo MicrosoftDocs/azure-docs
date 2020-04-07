@@ -12,25 +12,19 @@ ms.service: azure-project-spool
 
 ---
 
+# Patterns and Practices
+
+TODO
+
+
+### meta
+
 -  Customer intent statements: 
    - I want to know what development patterns and practices I should keep in mind as I leverage Spool.
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
 
 - Discussion:
   - What are the recommended patterns and practices?
 
-- TODOs:
-  - Draft initial content
 
-
-
-# Patterns and Practices
-
-TODO
 
 
