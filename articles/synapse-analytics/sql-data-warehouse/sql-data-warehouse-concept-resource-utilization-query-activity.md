@@ -19,7 +19,7 @@ Azure Synapse Analytics provides a rich monitoring experience within the Azure p
 
 ## Resource utilization
 
-The following metrics are available in the Azure portal for SQL Analytics. These metrics are surfaced through [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
+The following metrics are available in the Azure portal for SQL Analytics. These metrics are surfaced through [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
 | Metric Name             | Description                                                  | Aggregation Type |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
