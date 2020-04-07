@@ -85,7 +85,7 @@
       href: deployment-tutorial-pipeline.md
   - name: Advanced templates
     items:
-    - name: Utilize template reference
+    - name: Use template reference
       href: template-tutorial-use-template-reference.md
     - name: Create multiple instances
       displayName: iteration,copy
