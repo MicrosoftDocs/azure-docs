@@ -224,8 +224,8 @@
         href: app/asp-net-troubleshoot-no-data.md
     - name: Codeless monitoring
       items: 
-      - name: Any Environment - Java (Preview)
-        href: app/java-ipa.md
+      - name: Any environment - Java (preview)
+        href: app/java-agent-3.0.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
