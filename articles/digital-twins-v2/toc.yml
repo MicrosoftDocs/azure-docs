@@ -6,6 +6,18 @@
     href: overview.md
   - name: Differences from Public Preview 1
     href: overview-differences.md
+- name: Quickstart
+  items:
+  - name: Create and configure Azure Digital Twins
+    href: quickstart.md
+- name: Tutorials
+  items:
+  - name: Instantiate the scenario
+    href: tutorial-1-instantiate.md
+  - name: Send telemetry from IoT Hub
+    href: tutorial-2-telemetry.md
+  - name: Handle events with an Azure Function app
+    href: tutorial-3-events.md
 - name: Concepts
   items:
   - name: Create a twin type
