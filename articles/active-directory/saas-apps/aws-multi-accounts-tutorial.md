@@ -32,8 +32,8 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 ![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
->[!NOTE]
->Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD.
+> [!NOTE]
+> Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD. You should only use this approach if you have very less number of AWS Accounts and Roles in it. This model is not scalable as the AWS accounts and roles inside these accounts grows. Also this approach does not use AWS Role import functionality using Azure AD User Provisioning and so you have to manually add/update/delete the roles. For other limitations on this approach please see the details below.
 
 **Please note that we do not recommend to use this approach for following reasons:**
 
@@ -185,9 +185,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 1. Click **Roles**, and then click **Create role**.
 
     ![Configure Single Sign-On Roles][16]
-
-	> [!NOTE]
-	> You should only use this approach if you have very less number of AWS Accounts and Roles in it. This model is not scalable as the AWS accounts and roles inside these accounts grows. Also this approach does not use AWS Role import functionality using Azure AD User Provisioning and so you have to manually add/update/delete the roles. For other limitations on this approach please see the details below.
 
 1. On the **Create role** page, perform the following steps:  
 
