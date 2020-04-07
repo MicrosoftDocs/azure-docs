@@ -24,7 +24,7 @@ Over the years the directory integration tools have grown and evolved.
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md) incorporates the components and functionality previously released in DirSync and Azure AD Sync, for synchronizing between AD DS forests and Azure AD.  
 - [Azure AD Connect cloud provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) is a new Microsoft agent for synching from AD DS to Azure AD, useful for scenarios such as merger and acquisition where the acquired company's AD forests are isolated from the parent company's AD forests.
 
-To learn more about the differences between Azure AD Connect sync and Azure AD Connect cloud provisioning, see the article [What is Azure AD Connect cloud provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) .
+To learn more about the differences between Azure AD Connect sync and Azure AD Connect cloud provisioning, see the article [What is Azure AD Connect cloud provisioning?](../cloud-provisioning/what-is-cloud-provisioning.md)
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
