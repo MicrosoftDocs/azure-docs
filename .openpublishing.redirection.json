@@ -15206,11 +15206,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
-      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/service/how-to-create-register-datasets.md",
       "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
       "redirect_document_id": true
@@ -42801,6 +42796,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
+      "redirect_url": "/azure/machine-learning/how-to-use-automated-ml-for-ml-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
@@ -47037,7 +47037,7 @@
     },
     {
       "source_path": "articles/iot-central/core/tutorial-connect-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs",
       "redirect_document_id": true
     },
     {
