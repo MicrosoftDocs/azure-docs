@@ -39,7 +39,7 @@ Before you begin your experiment, you should determine the kind of machine learn
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
 > [!NOTE]
-> If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx-in-c#-apps). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
+> If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx-in-c-apps). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
