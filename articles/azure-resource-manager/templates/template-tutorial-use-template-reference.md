@@ -97,15 +97,21 @@ From Visual Studio Code, add the additional storage account types as shown in th
 
 ## Deploy the template
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.  To pass the parameter value, add the following switches to the deployment command:
+Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.  To pass the parameter value, add the following switch to the deployment command:
+
+# [CLI](#tab/CLI)
 
 ```azurecli
---parameters storageAccountType 'Premium_ZRS'
+--parameters storageAccountType='Premium_ZRS'
 ```
+
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 -storageAccountType "Premium_ZRS"
 ```
+
+---
 
 ## Clean up resources
 
