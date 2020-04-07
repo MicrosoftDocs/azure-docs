@@ -480,6 +480,8 @@
       items:
       - name: Change feed overview
         href: change-feed.md
+      - name: Change feed design patterns
+        href: change-feed-design-patterns.md
       - name: Reading change feed
         href: read-change-feed.md
       - name: Change feed processor
