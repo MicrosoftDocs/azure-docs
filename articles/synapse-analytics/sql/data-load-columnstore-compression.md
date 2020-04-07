@@ -18,6 +18,7 @@ ms.custom: azure-synapse
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
 ## Why the rowgroup size matters
+
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
 For more information about rowgroups, see [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
@@ -28,7 +29,7 @@ For best query performance, the goal is to maximize the number of rows per rowgr
 
 ## Rowgroups can get trimmed during compression
 
-During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed. 
+During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
@@ -36,11 +37,11 @@ For more information on bulk loading, see [Bulk load into a clustered columnstor
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
-as 
+as
 with cte
 as
 (
@@ -52,18 +53,19 @@ select   tb.[name]                    AS [logical_table_name]
 ,        rg.[trim_reason_desc]        AS trim_reason_desc
 ,        mp.[physical_name]           AS physical_name
 FROM    sys.[schemas] sm
-JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]
 JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
 JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
 JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
-                                        AND rg.[distribution_id]    = nt.[distribution_id]                                              
+                                        AND rg.[distribution_id]    = nt.[distribution_id]
 )
 select *
 from cte;
 ```
 
 The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
+
 - BULKLOAD: This trim reason is used when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups if there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but sets the trim reason to BULKLOAD. In this scenario, consider increasing your batch load to include more rows. Also, reevaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
 - MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The following sections explain how to estimate memory required and allocate more memory.
 - DICTIONARY_SIZE: This trim reason indicates that rowgroup trimming occurred because there was at least one string column with wide and/or high cardinality strings. The dictionary size is limited to 16 MB in memory and once this limit is reached the row group is compressed. If you do run into this situation, consider isolating the problematic column into a separate table.
@@ -95,7 +97,6 @@ Use the following techniques to reduce the memory requirements for compressing r
 ### Use fewer columns
 
 If possible, design the table with fewer columns. When a rowgroup is compressed into the columnstore, the columnstore index compresses each column segment separately. Therefore the memory requirements to compress a rowgroup increase as the number of columns increases.
-
 
 ### Use fewer string columns
 
@@ -136,9 +137,8 @@ OPTION (MAXDOP 1);
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
 - To increase the DWUs, see [How do I scale performance?](../sql-data-warehouse/quickstart-scale-compute-portal.md)
-- To change the resource class for a query, see [Change a user resource class example](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class). 
+- To change the resource class for a query, see [Change a user resource class example](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
 
 ## Next steps
 
 To find more ways to improve performance in SQL Analytics, see the [Performance overview](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-

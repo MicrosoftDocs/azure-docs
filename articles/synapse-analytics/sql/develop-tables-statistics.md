@@ -23,13 +23,13 @@ Provided in this article are recommendations and examples for creating and updat
 
 The more the SQL pool resource knows about your data, the faster it can execute queries. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do for query optimization.  
 
-The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
-SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan. 
+SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan.
 
 > [!IMPORTANT]
 > Automatic creation of statistics is currently turned on by default.
@@ -60,7 +60,7 @@ These statements will trigger the automatic creation of statistics:
 > [!NOTE]
 > The automatic creation of statistics is not generated on temporary or external tables.
 
-Automatic creation of statistics is done synchronously. So, you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table. 
+Automatic creation of statistics is done synchronously. So, you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table.
 
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
@@ -77,9 +77,9 @@ The table_name is the name of the table that contains the statistics to display,
 
 ### Update statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
-Statistics on a country or region column in a customer table might never need to be updated because the distribution of values doesn't usually change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+Statistics on a country or region column in a customer table might never need to be updated because the distribution of values doesn't usually change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
 However, when your data warehouse only contains one country or region and you bring in data from a new country or region, then you need to update statistics on the country or region column.
 
@@ -128,9 +128,9 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
-Statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+Statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
 But, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column. For further information, review the [Statistics](/sql/relational-databases/statistics/statistics) article.
 
@@ -140,11 +140,11 @@ It's often a good idea to extend your data-loading process to ensure that statis
 
 The following guiding principles are provided for updating your statistics during the load process:
 
-* Ensure that each loaded table has at least one statistics object updated. This process updates the table size (row count and page count) information as part of the statistics update.
-* Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently because these values won't be included in the statistics histogram.
-* Consider updating static distribution columns less frequently.
-* Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
+- Ensure that each loaded table has at least one statistics object updated. This process updates the table size (row count and page count) information as part of the statistics update.
+- Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+- Consider updating "ascending key" columns such as transaction dates more frequently because these values won't be included in the statistics histogram.
+- Consider updating static distribution columns less frequently.
+- Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
@@ -212,7 +212,7 @@ You can also combine the options together. The following example creates a filte
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
+For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 #### Create multi-column statistics
 
@@ -360,7 +360,6 @@ To create sampled statistics on all columns in the table, enter 3, and the sampl
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-
 ### Examples: Update statistics
 
 To update statistics, you can:
@@ -404,7 +403,7 @@ The UPDATE STATISTICS statement is easy to use. Just remember that it updates *a
 > When updating all statistics on a table, SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary tables](develop-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
-For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql).
+For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### Statistics metadata
 
@@ -416,13 +415,13 @@ These system views provide information about statistics:
 
 | Catalog view | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |One row for each column. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each object in the database. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each schema in the database. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |One row for each statistics object. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |One row for each table (includes external tables). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |One row for each data type. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each column. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each object in the database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each schema in the database. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each statistics object. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each table (includes external tables). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |One row for each data type. |
 
 #### System functions for statistics
 
@@ -430,8 +429,8 @@ These system functions are useful for working with statistics:
 
 | System function | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Date the statistics object was last updated. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
 #### Combine statistics columns and functions into one view
 
@@ -527,9 +526,8 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL 
 
 For further improve query performance, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-
-
 ## Statistics in SQL on-demand (preview)
+
 Statistics are created per particular column for particular dataset (storage path).
 
 ### Why use statistics
@@ -545,7 +543,7 @@ The SELECT statement will trigger automatic creation of statistics.
 > [!NOTE]
 > Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
 
-Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted. 
+Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
 
 ### Manual creation of statistics
 
@@ -592,15 +590,19 @@ The following examples show you how to use various options for creating statisti
 > You can create single-column statistics only at this moment.
 
 The following stored procedure is used to create statistics:
+
 ```sql
 sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
+
 Arguments:
 [ @stmt = ] N'statement_text' -
-Specifies a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify samples of data to be used. If TABLESAMPLE isn't specified, FULLSCAN will be used. 
+Specifies a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify samples of data to be used. If TABLESAMPLE isn't specified, FULLSCAN will be used.
+
 ```sql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
+
 > [!NOTE]
 > CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
 
@@ -624,11 +626,11 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year 
+EXEC sys.sp_create_file_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
-        FORMAT = ''CSV'', 
-        FIELDTERMINATOR ='','', 
+        FORMAT = ''CSV'',
+        FIELDTERMINATOR ='','',
         ROWTERMINATOR = ''\n''
     )
 WITH (
@@ -656,11 +658,11 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type 
+EXEC sys.sp_create_file_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
-    ) AS [nyc] 
+    ) AS [nyc]
     TABLESAMPLE(5 PERCENT)
 '
 ```
@@ -668,21 +670,23 @@ FROM OPENROWSET(
 ### Examples: Update statistics
 
 To update statistics, you need to drop and create statistics. The following stored procedure is used to drop statistics:
+
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
 Arguments:
-[ @stmt = ] N'statement_text' - 
-Specifies the same Transact-SQL statement used when the statistics were created. 
+[ @stmt = ] N'statement_text' -
+Specifies the same Transact-SQL statement used when the statistics were created.
 
 To update the statistics for the year column in the dataset, which is based on the population.csv file, you need to drop and create statistics:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type 
+EXEC sys.sp_drop_file_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
-    ) AS [nyc] 
+    ) AS [nyc]
     TABLESAMPLE(5 PERCENT)
 '
 GO
@@ -698,11 +702,11 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type 
+EXEC sys.sp_create_file_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
-    ) AS [nyc] 
+    ) AS [nyc]
     TABLESAMPLE(5 PERCENT)
 '
 ```
@@ -717,12 +721,12 @@ The following examples show you how to use various options for creating statisti
 To create statistics on a column, provide a name for the statistics object and the name of the column.
 
 ```sql
-CREATE STATISTICS statistics_name   
-ON { external_table } ( column )   
-    WITH   
-        { FULLSCAN 
+CREATE STATISTICS statistics_name
+ON { external_table } ( column )
+    WITH
+        { FULLSCAN
           | [ SAMPLE number PERCENT ] }
-        , { NORECOMPUTE }      
+        , { NORECOMPUTE }
 ```
 
 Arguments:
@@ -756,6 +760,7 @@ CREATE STATISTICS sState on census_external_table (STATENAME) WITH SAMPLE 5 perc
 ### Examples: Update statistics
 
 To update statistics, you need to drop and create statistics. Drop statistics first:
+
 ```sql
 DROP STATISTICS census_external_table.sState
 ```

@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
     | **Subscription** | *Your subscription* | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | *Any resource group* | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+    | **Resource group** | *Any resource group* | For valid resource group names, see [Naming rules and restrictions](/sql/azure/architecture/best-practices/naming-conventions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Workspace name** | mysampleworkspace | Specifies the name of the workspace, which will also be used for connection endpoints.|
     | **Region** | East US2 | Specifies the location of the workspace.|
     | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifies the ADLS Gen2 storage account name to use as primary storage and the file system to use.|
