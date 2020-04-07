@@ -37,7 +37,7 @@ conceptualContent:
   items:
     - title: Certificates
       links:
-        - url: ./certificates/introduction.md
+        - url: ./certificates/about-certificates.md
           itemType: download
           text: About certificates
         - url: ./certificates/certificate-scenarios.md
