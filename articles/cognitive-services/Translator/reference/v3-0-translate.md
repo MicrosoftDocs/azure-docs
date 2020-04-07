@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/07/2020
 ms.author: swmachan
 ---
 
@@ -450,6 +450,14 @@ The response is:
 
 ### Obtain alignment information
 
+Alignment is returned as a string value of the following format for every word of the source. The information for each word is separated by a space, including for non-space-separated languages (scripts) like Chinese:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. The method returns no error in that case.
+
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
 ```curl
@@ -480,8 +488,10 @@ Obtaining alignment information is an experimental feature that we have enabled 
 * Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
   - from English to any other language;
-  - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;
+  - from any other language to English except for Chinese Simplified to English;
   - from Japanese to Korean or from Korean to Japanese.
+  - from Japanese to Chinese Simplified and Chinese Simplified to Japanese. 
+  - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified. 
 * You will not receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
 * Alignment is not available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
@@ -511,7 +521,7 @@ The response is:
 
 ### Translate with dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names.
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names.
 
 The markup to supply uses the following syntax.
 
