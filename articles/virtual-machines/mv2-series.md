@@ -34,7 +34,7 @@ Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines
 
 <sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](./linux/generation-2.md) for instructions on how to find and select an image. Minimum operating system releases required for all the four different Mv2-series VM types list like:
 
-- Windows Server 2019
+- Windows Server 2019 or later
 - SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
 - Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
 - Oracle Enterprise Linux 7.7 or later
