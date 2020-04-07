@@ -180,7 +180,7 @@ This issue can have one of the following causes:
 
 If your subscription isn't configured for the Automation resource provider, you can't query or fetch information on machines in that subscription. Use the following steps to verify the registration for the subscription.
 
-1. In the [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), access the Azure service list.
+1. In the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), access the Azure service list.
 
 2. Select **All services**, and then select **Subscriptions** in the General service group. 
 
@@ -543,7 +543,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |`0x80070005`| An access denied error can be caused by any one of the following:<br> Infected computer<br> Windows Update settings not configured correctly<br> File permission error with %WinDir%\SoftwareDistribution folder<br> Insufficient disk space on the system drive (C:).
 |Any other generic exception     | Run a search on the internet for  possible solutions, and work with your local IT support.         |
 
-Reviewing the **%Windir%\Windowsupdate.log** file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Reviewing the **%Windir%\Windowsupdate.log** file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 
 You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any issues with Windows Update on the machine.
 
