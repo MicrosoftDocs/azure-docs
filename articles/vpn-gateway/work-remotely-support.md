@@ -16,9 +16,9 @@ ms.author: alzam
 >This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
-This article describes the options that are available to organizations to setup remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.
+This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.
 
-The Azure point-to-site solution is cloud based and can be provisioned quickly to cater for the increased demand of users to work from home. It can scale up easily and turned off just as easily and quickly when the increased capacity is not needed anymore.
+The Azure point-to-site solution is cloud-based and can be provisioned quickly to cater for the increased demand of users to work from home. It can scale up easily and turned off just as easily and quickly when the increased capacity is not needed anymore.
 
 ## About Point-to-Site VPN
 
@@ -32,7 +32,7 @@ The table below shows the client operating systems and the authentication option
 
 In this scenario, the remote users only need to access to resources that are in Azure.
 
-![point-to-site](./media/working-remotely-support/scenario1.png "Scanario 1")
+![point-to-site](./media/working-remotely-support/scenario1.png "Scenario 1")
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
@@ -55,10 +55,10 @@ In this scenario, the remote users need to access to resources that are in Azure
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
-1. Create a Virtual Network Gateway (if one does not exist)
-2. Configure point-to-site VPN on the gateway (see Scenario 1 above)
-3. Configure site-to-site tunnel on Azure Virtual Network Gateway with BGP enabled
-4. Configure on premises device to connect to Azure Virtual Network Gateway
+1. Create a virtual network gateway (if one does not exist).
+2. Configure point-to-site VPN on the gateway (see Scenario 1 above).
+3. Configure a site-to-site tunnel on the Azure virtual network gateway with BGP enabled.
+4. Configure the on-premises device to connect to Azure virtual network gateway.
 5. Download the point-to-site profile from the Azure portal and distribute to clients
 
 [Follow this link to learn how to setup a site-to-site VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
