@@ -1,6 +1,6 @@
 ---
 title: Import document format guidelines - QnA Maker
-description: Understand how the types of URLs are used to import and create QnA sets.
+description: Understand how the types of URLs are used to import and create QnA pairs.
 ms.topic: reference
 ms.date: 04/06/2020
 ---
