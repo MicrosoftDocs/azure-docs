@@ -9,7 +9,7 @@ ms.date: 04/07/2020
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 
-## Business continuity architecture with traffic manager
+## Business continuity with traffic manager
 
 ![QnA Maker bcp plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
