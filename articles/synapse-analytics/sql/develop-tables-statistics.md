@@ -65,9 +65,9 @@ Automatic creation of statistics is done synchronously. So, you may incur slight
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
+> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) under a different user context.
 
-When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
+When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -737,7 +737,7 @@ FULLSCAN
 Compute statistics by scanning all rows. FULLSCAN and SAMPLE 100 PERCENT have the same results. FULLSCAN cannot be used with the SAMPLE option.
 
 SAMPLE number PERCENT
-Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100. 
+Specifies the approximate percentage or number of rows in the table or indexed view for the query optimizer to use when it creates statistics. Number can be from 0 through 100.
 
 SAMPLE cannot be used with the FULLSCAN option.
 
