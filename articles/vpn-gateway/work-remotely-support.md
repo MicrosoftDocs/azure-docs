@@ -36,16 +36,16 @@ In this scenario, the remote users only need to access to resources that are in 
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
-1. Create a Virtual Network Gateway (if one does not exist)
-2. Configure point-to-site VPN on the gateway
+1. Create a Virtual Network Gateway (if one does not exist).
+2. Configure point-to-site VPN on the gateway.
 
-   * [For certificate authentication, follow this link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
-   * [For OpenVPN, follow this link](vpn-gateway-howto-openvpn.md).
-   * [For Azure AD authentication, follow this link](openvpn-azure-ad-tenant.md).
-   * [For troubleshooting point-to-site connections, follow this link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+   * For certificate authentication, follow [this link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
+   * For OpenVPN, follow [this link](vpn-gateway-howto-openvpn.md).
+   * For Azure AD authentication, follow [this link](openvpn-azure-ad-tenant.md).
+   * For troubleshooting point-to-site connections, follow [this link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 3. Download and distribute the VPN client configuration
-4. Distribute the certificates (if certificate authentication is selected) to the clients
-5. Connect to Azure VPN
+4. Distribute the certificates (if certificate authentication is selected) to the clients.
+5. Connect to Azure VPN.
 
 ## Scenario 2 - Users need access to resources in Azure and/or on-prem resources
 
