@@ -21,13 +21,12 @@ Today enterprise analytics requires operating at massive scale on any kind of da
 
 Azure Synapse provides the simplest and fastest way for an enterprise to get insights on any data at any size, using the analytics they are most familiar with. It integrates deeply with **Power BI** allowing data engineers to build analytics solutions that work end-to-end to provide Business Intelligence. Azure Synapse lets enterprises build predictive analytics with machine learning via its built-in support for **AzureML**.
 
-
 ## Key Features & Benefits
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system, enabling enterprises to implement data warehousing and data virtualization 
-scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to 
+* **Synapse SQL** is a distributed query system, enabling enterprises to implement data warehousing and data virtualization
+scenarios using standard T-SQL experiences familiar to data engineers. It also expands the capabilities of SQL to
 address streaming and machine learning scenarios.
 
 * Synapse SQL offers both **serverless** and **provisioned** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, provision pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the serverless, always-available SQL endpoint.
@@ -66,7 +65,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * Assign users to Role to simplify access to analytics resources
 * Fine-grained access control on data and code
-*  A single dashboard to monitor resources, usage, and users across SQL and Spark
+* A single dashboard to monitor resources, usage, and users across SQL and Spark
 
 ### Synapse Studio
 
@@ -78,7 +77,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 ## Next steps
 
-* Explore [Azure Synapse architecture](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-* Quickly [create a SQL pool](https://review.docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
-* [Load sample data](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-sample-databases)
-*  Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+* Explore [Azure Synapse architecture](sql-data-warehouse/massively-parallel-processing-mpp-architecture.md)
+* Quickly [create a SQL pool](sql-data-warehouse/create-data-warehouse-portal.md)
+* [Load sample data](sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)
+* Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
