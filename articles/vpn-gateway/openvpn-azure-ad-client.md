@@ -229,7 +229,7 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 
 ### Can I import the profile from a command line prompt?
 
-You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **C:\Users\<uresname>\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
+You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
 
 ```
 azurevpn -i azurevpnconfig.xml 
