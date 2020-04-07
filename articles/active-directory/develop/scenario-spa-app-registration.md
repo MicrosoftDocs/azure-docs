@@ -53,6 +53,9 @@ The following applies for apps using MSAL.js for the first time. Further bellow 
 5.You have now registered your SPA redirect URI. 
 [final screenshot] 
 
+>[!NOTE] 
+>Applications created in the SPA platform will by default be enabled for the Auth Code Flow. To actually take advantage of this flow, you will have to update your app to be using MSAL 2.0. Once none of your in production apps are using MSAL.js and Implicit Flow, you can uncheck the implicit settings in the SPA platform tile of the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
+
 You can now refer to the [tutorial](link TODO) for a guide to using MSAL in your app. 
 
 ### Existing Application Migrating from MSAL.js 1.0 to 2.0
@@ -75,7 +78,7 @@ If you already have an application using MSAL.js 1.0 in production and would lik
 [screenshot] 
 
 #### Uncheck implicit settings 
-Once all of your apps using this client ID in production have succesfully integrated MSAL 2.0, you should uncheck the implicit settings. Note that these settings apply to the entire app registration. Ensure that this app registration is not using the [implicit flow](doc) in production before uncecking these settings to avoid breaking this flow.
+Once all of your apps using this client ID in production have succesfully integrated MSAL 2.0, you should uncheck the implicit settings. Note that these settings apply to the entire app registration. Ensure that this app registration is not using the [implicit flow](doc) in production before unchecking these settings to avoid breaking this flow.
 +screenshot 
 
 
@@ -103,25 +106,6 @@ If your application also needs to get access tokens to call APIs, make sure to s
 New applications created in the SPA platofrm will by default be enabled for the authorization code flow. To actually take advantage of this flow, you will have to update your application to be using MSAL 2.0. Once none of your in production apps are using MSAL.js 1.0 and implicit flow, you can uncheck the implicit settings in the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
 
 Applications using MSAL.js 1.0 will still be using the implicit flow. The latest [OAuth Best Current Practices](link) now recommends using the authotization code flow rather than the implicit flow for SPAs. Having limited lifetime refresh tokens will also help your application adapt to modern browser cookie privacy limitations such as [Safari ITP](link). 
-
-## API permissions
-
-Single-page applications can call APIs on behalf of the signed-in user. They need to request delegated permissions. For details, see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [App's code configuration](scenario-spa-app-configuration.md)
-+Note for hybrid flow. If your app using Hybrid (link to docs) (.NET) leave ID checked 
-
-Applications created in the SPA platofrm will by default be enabled for the Auth Code Flow. To actually take advantage of this flow, you will have to update your app to be using MSAL 2.0. Once none of your in production apps are using MSAL.js and Implicit Flow, you can uncheck the implicit settings in the SPA platform tile of the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
-
-If you already have a redirect URI registered for your app using MSAL.js 1.0 that you would like to now use with your app using MSAL.js 2.0, you will need to update that URI to be in the "SPA" platform. To do this, first go to the authentication blade of your app registration. In the "Web" tile, you will see a link to update your "SPA" redirect URIs. From the panel on the side, select which redirect URIs you would like to update to type "SPA". These URIs will be moved from the "Web" platform to the "SPA" platform. Your app will still be able to use the implicit flow until you uncheck implicit settings. 
-## MSAL.js 1.0 
-
-On the same **Authentication** page, under **Advanced settings**, you must also enable **Implicit grant**. If your application is only signing in users and getting ID tokens, it's enough to select the **ID tokens** check box.
-
-If your application also needs to get access tokens to call APIs, make sure to select the **Access tokens** check box as well. For more information, see [ID tokens](./id-tokens.md) and [Access tokens](./access-tokens.md).
 
 ## API permissions
 
