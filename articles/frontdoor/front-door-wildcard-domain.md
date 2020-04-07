@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - Support for wildcard domains
-description: This article helps you understand how Azure Front Door supports mapping and managing wildcard domains in the list of custom domains
+description: This article helps you understand how Azure Front Door Service supports mapping and managing wildcard domains in the list of custom domains.
 services: frontdoor
 author: sharad4u
 ms.service: frontdoor
@@ -14,52 +14,47 @@ ms.author: sharadag
 
 # Wildcard domains
 
-Other than apex domains and subdomains, you can map a wildcard domain name to your list of frontend hosts or custom domains in your Front Door profile. Having wildcard domains in your Front Door configuration:
-
-- Simplifies traffic routing behavior for multiple subdomains for an API, application, or website from the same routing rule.
-- Avoids having to modify the configuration to add or specify each subdomain separately. As an example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` using the same routing rule by adding the wildcard domain `*.contoso.com`.
+Other than apex domains and subdomains, you can map a wildcard domain name to your list of frontend hosts or custom domains in your Azure Front Door Service profile. Having wildcard domains in your Azure Front Door Service configuration simplifies traffic routing behavior for multiple subdomains for an API, application, or website from the same routing rule. You don't need to modify the configuration to add or specify each subdomain separately. As an example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same routing rule and adding the wildcard domain `*.contoso.com`.
 
 Key scenarios that are improved with support for wildcard domains include:
 
-- You don't need to onboard each subdomain in your Front Door profile and then enable HTTPS to bind a certificate for each subdomain.
-- You're no longer required to change your production Front Door configuration if an application adds a new subdomain. Previously, you had to add the subdomain, bind a certificate to it, attach a web application firewall (WAF) policy, and then add the domain to different routing rules.
+- You don't need to onboard each subdomain in your Azure Front Door Service profile and then enable HTTPS to bind a certificate for each subdomain.
+- You're no longer required to change your production Azure Front Door Service configuration if an application adds a new subdomain. Previously, you had to add the subdomain, bind a certificate to it, attach a web application firewall (WAF) policy, and then add the domain to different routing rules.
 
 > [!NOTE]
-> Currently, wildcard domains are only supported via API, PowerShell, and CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
+> Currently, wildcard domains are only supported via API, PowerShell, and the Azure CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
 
 ## Adding wildcard domains
 
-You can add a wildcard domain under the frontend hosts or domains section. Similar to subdomains, Front Door validates that there is CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
+You can add a wildcard domain under the section for frontend hosts or domains. Similar to subdomains, Azure Front Door Service validates that there is CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `contoso.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.contoso.azurefd.net` validates the CNAME record map for the wildcard.
 
 > [!NOTE]
 > Azure DNS supports wildcard records.
 
-You can add as many single level subdomains of the wildcard domain in frontend hosts, up to the limit of the frontend hosts. This functionality might be required for:
+You can add as many single-level subdomains of the wildcard domain in frontend hosts, up to the limit of the frontend hosts. This functionality might be required for:
 
 - Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).
 
 - Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without additional domain ownership validation, `*.bar.contosonews.com` needs to be added.
 
-### Limitations for adding wildcard domains and their subdomains
-
 You can add wildcard domains and their subdomains with certain limitations:
 
-- If a wildcard domain is added to a Front Door profile:
-  - The wildcard domain can't be added to any other Front Door profile.
-  - Subdomains of the wildcard domain can't be added to another Front Door profile or an Azure Content Delivery Network (CDN) from Microsoft profile.
-- If a subdomain of a wildcard domain is added to a Front Door or Azure (CDN) from Microsoft profile, then the wildcard domain can't be added to other Front Door profiles.
-- If two profiles (Front Door or Azure CDN from Microsoft) have various subdomains of a root domain, then wildcard domains can't be added to either of the profiles.
+- If a wildcard domain is added to an Azure Front Door Service profile:
+  - The wildcard domain can't be added to any other Azure Front Door Service profile.
+  - Subdomains of the wildcard domain can't be added to another Azure Front Door Service profile or an Azure Content Delivery Network profile.
+- If a subdomain of a wildcard domain is added to an Azure Front Door Service profile or Azure Content Delivery Network profile, then the wildcard domain can't be added to other Azure Front Door Service profiles.
+- If two profiles (Azure Front Door Service or Azure Content Delivery Network) have various subdomains of a root domain, then wildcard domains can't be added to either of the profiles.
 
 ## Certificate binding
 
 For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on the wildcard domain. The certificate binding for a wildcard domain requires a wildcard certificate. That is, the subject name of the certificate should also have the wildcard domain.
 
 > [!NOTE]
-> Currently, only using your own custom SSL certificate option is available for enabling HTTPS for wildcard domains. Front Door managed certificates can't be used for wildcard domains.
+> Currently, only using your own custom SSL certificate option is available for enabling HTTPS for wildcard domains. Azure Front Door Service managed certificates can't be used for wildcard domains.
 
-You can choose to use the same wildcard certificate from your Key Vault or from Front Door managed certificates for subdomains.
+You can choose to use the same wildcard certificate from your Azure Key Vault or from Azure Front Door Service managed certificates for subdomains.
 
-If a subdomain is added for a wildcard domain that already has a certificate associated with it, then HTTPS for the subdomain can't be disabled. The subdomain uses the certificate binding for the wildcard domain, unless a different Key Vault or Front Door managed certificate overrides it.
+If a subdomain is added for a wildcard domain that already has a certificate associated with it, then HTTPS for the subdomain can't be disabled. The subdomain uses the certificate binding for the wildcard domain, unless a different Key Vault or Azure Front Door Service managed certificate overrides it.
 
 ## WAF policies
 
@@ -69,13 +64,13 @@ If you don't want a WAF policy to run for a subdomain, you can create a blank WA
 
 ## Routing rules
 
-When configuring a routing rule, you can select a wildcard domain as a frontend host. You can also have different route behavior for wildcard domains and subdomains. As described in [how Front Door does route matching](front-door-route-matching.md), the most specific match for the domain across different routing rules is chosen at runtime.
+When configuring a routing rule, you can select a wildcard domain as a frontend host. You can also have different route behavior for wildcard domains and subdomains. As described in [How Front Door does route matching](front-door-route-matching.md), the most specific match for the domain across different routing rules is chosen at runtime.
 
 > [!IMPORTANT]
-> You must have matching path patterns across your routing rules, or your clients will see failures. For example, you have two routing rules like Route 1 (`*.foo.com/*` mapped to Backend Pool A) and Route 2 (`bar.foo.com/somePath/*` mapped to Backend Pool B). Then, a request arrives for `bar.foo.com/anotherPath/*`. Front Door selects Route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
+> You must have matching path patterns across your routing rules, or your clients will see failures. For example, you have two routing rules like Route 1 (`*.foo.com/*` mapped to Backend Pool A) and Route 2 (`bar.foo.com/somePath/*` mapped to Backend Pool B). Then, a request arrives for `bar.foo.com/anotherPath/*`. Azure Front Door Service selects Route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [create a Front Door profile](quickstart-create-front-door.md).
 - Learn how to [add a custom domain on Front Door](front-door-custom-domain.md).
 - Learn how to [enable HTTPS on a custom domain](front-door-custom-domain-https.md).
