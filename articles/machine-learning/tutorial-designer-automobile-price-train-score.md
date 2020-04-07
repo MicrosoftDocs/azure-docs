@@ -99,7 +99,7 @@ You can visualize the data to understand the dataset that you'll use.
 
 1. Select the **Automobile price data (Raw)** module.
 
-1. In the module details pane to the right of the canvas, select **Outputs**.
+1. In the module details pane to the right of the canvas, select **Outputs + log**.
 
 1. Select the graph icon to visualize the data.
 
@@ -265,7 +265,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
 ## Submit the pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a pipeline run at any point while building pipelines in the designer. You can do this to check your work as you go to verify your pipeline works as expected.
+Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a valid pipeline run at any point, which can be used to review changes to your pipeline during development.
 
 1. At the top of the canvas, select **Submit**.
 
@@ -279,6 +279,8 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
     1. Select **Submit**.
     
     You can view run status and details at the top right of the canvas.
+    
+    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
 
 ### View scored labels
 
@@ -286,7 +288,7 @@ After the run completes, you can view the results of the pipeline run. First, lo
 
 1. Select the **Score Model** module to view its output.
 
-1. In the module details pane to the right of the canvas, select **Outputs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
+1. In the module details pane to the right of the canvas, select **Outputs + logs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
@@ -298,7 +300,7 @@ Use the **Evaluate Model** to see how well the trained model performed on the te
 
 1. Select the **Evaluate Model** module to view its output.
 
-1. In the module details pane to the right of the canvas, select **Output** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
+1. In the module details pane to the right of the canvas, select **Outputs + logs** > graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to view results.
 
 The following statistics are shown for your model:
 

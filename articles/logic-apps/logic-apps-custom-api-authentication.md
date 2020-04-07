@@ -305,7 +305,7 @@ In the **Authorization** section, include these properties:
 
 | Property | Required | Description |
 | -------- | -------- | ----------- |
-| `type` | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. |
+| `type` | Yes | The authentication type. For TLS/SSL client certificates, the value must be `ClientCertificate`. |
 | `password` | No | The password for accessing the client certificate (PFX file) |
 | `pfx` | Yes | The base64-encoded contents of the client certificate (PFX file) |
 ||||

@@ -74,6 +74,8 @@
       href: openvpn-azure-ad-mfa.md   
     - name: Configure Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
+    - name: Configure Azure VPN Client for Windows 10
+      href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md  
   - name: Routing

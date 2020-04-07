@@ -228,9 +228,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
     * - nofile 100000
     ```
 
-* **Use native SSL implementation for netty**
+* **Use native TLS/SSL implementation for netty**
 
-    Netty can use OpenSSL directly for SSL implementation stack to achieve better performance. In the absence of this configuration netty will fall back to Java's default SSL implementation.
+    Netty can use OpenSSL directly for TLS implementation stack to achieve better performance. In the absence of this configuration netty will fall back to Java's default TLS implementation.
 
     on Ubuntu:
     ```bash

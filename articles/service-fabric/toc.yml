@@ -134,6 +134,8 @@
       href: service-fabric-cluster-security.md
     - name: Built-in security controls
       href: service-fabric-security-controls.md
+    - name: Certificate-based authentication in Service Fabric 
+      href: cluster-security-certificates.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -148,6 +150,8 @@
         href: service-fabric-docker-compose.md
       - name: Resource governance
         href: service-fabric-resource-governance.md
+      - name: Probes
+        href: probes-codepackage.md
     - name: Reliable Services      
       items:
       - name: Reliable Services overview
@@ -265,6 +269,10 @@
         href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
+    - name: Initializer CodePackages
+      href: initializer-codepackages.md
+    - name: RunToCompletion
+      href: run-to-completion.md
   - name: Clusters
     items:
     - name: Clusters overview
@@ -317,6 +325,8 @@
         href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
       - name: Balance a cluster
         href: service-fabric-cluster-resource-manager-balancing.md
+      - name: Subclustering
+        href: cluster-resource-manager-subclustering.md
       - name: Throttling
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: Service movement
@@ -368,7 +378,7 @@
       href: service-fabric-get-started.md
     - name: Linux
       href: service-fabric-get-started-linux.md
-    - name: Mac OS
+    - name: macOS
       href: service-fabric-get-started-mac.md
     - name: Set up the Service Fabric CLI
       href: service-fabric-cli.md
@@ -406,8 +416,6 @@
       items:
       - name: Deploy a guest executable
         href: service-fabric-deploy-existing-app.md
-      - name: Deploy multiple guest executables
-        href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
       items:      
       - name: Docker compose (preview)
@@ -661,6 +669,8 @@
           href: service-fabric-cluster-upgrade-version-azure.md    
         - name: Upgrade cluster configuration
           href: service-fabric-cluster-config-upgrade-azure.md
+        - name: Upgrade the cluster's Ubuntu version
+          href: tutorial-upgrade-ubuntu-cluster.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
         - name: Enable disk encryption (Windows)
@@ -678,7 +688,9 @@
         - name: Manage cluster certificates
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
-          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Upgrade cluster nodes to use managed disks
+          href: upgrade-managed-disks.md      
     - name: Standalone clusters
       items:
       - name: Create

@@ -161,7 +161,7 @@ Some examples include:
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['kNN regressor'],
+      whitelist_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,

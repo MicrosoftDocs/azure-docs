@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -11,12 +11,17 @@ maintain that consistency. This article explains how resource locking works in A
 see an example of resource locking and application of _deny assignments_, see the
 [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
 
+> [!NOTE]
+> Resource locks deployed by Azure Blueprints are only applied to resources deployed by the
+> blueprint assignment. Existing resources, such as those in resource groups that already exist,
+> don't have locks added to them.
+
 ## Locking modes and states
 
 Locking Mode applies to the blueprint assignment and it has three options: **Don't Lock**, **Read
 Only**, or **Do Not Delete**. The locking mode is configured during artifact deployment during a
 blueprint assignment. A different locking mode can be set by updating the blueprint assignment.
-Locking modes, however, can't be changed outside of Blueprints.
+Locking modes, however, can't be changed outside of Azure Blueprints.
 
 Resources created by artifacts in a blueprint assignment have four states: **Not Locked**, **Read
 Only**, **Cannot Edit / Delete**, or **Cannot Delete**. Each artifact type can be in the **Not
@@ -24,7 +29,7 @@ Locked** state. The following table can be used to determine the state of a reso
 
 |Mode|Artifact Resource Type|State|Description|
 |-|-|-|-|
-|Don't Lock|*|Not Locked|Resources aren't protected by Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
+|Don't Lock|*|Not Locked|Resources aren't protected by Azure Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
 |Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and tags on the resource group can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 |Read Only|Non-resource group|Read Only|The resource can't be altered in any way -- no changes and it can't be deleted.|
 |Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
@@ -33,7 +38,7 @@ Locked** state. The following table can be used to determine the state of a reso
 
 It's typically possible for someone with appropriate [role-based access
 control](../../../role-based-access-control/overview.md) (RBAC) on the subscription, such as the
-'Owner' role, to be allowed to alter or delete any resource. This access isn't the case when
+'Owner' role, to be allowed to alter or delete any resource. This access isn't the case when Azure
 Blueprints applies locking as part of a deployed assignment. If the assignment was set with the
 **Read Only** or **Do Not Delete** option, not even the subscription owner can perform the blocked
 action on the protected resource.
@@ -111,8 +116,8 @@ ways to do so.
 - Updating the blueprint assignment to a locking mode of **Don't Lock**
 - Delete the blueprint assignment
 
-When the assignment is removed, the locks created by Blueprints are removed. However, the resource
-is left behind and would need to be deleted through normal means.
+When the assignment is removed, the locks created by Azure Blueprints are removed. However, the
+resource is left behind and would need to be deleted through normal means.
 
 ## How blueprint locks work
 
@@ -121,7 +126,7 @@ applied to artifact resources during assignment of a blueprint if the assignment
 Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
-lock outside Blueprints.
+lock outside Azure Blueprints.
 
 ![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 

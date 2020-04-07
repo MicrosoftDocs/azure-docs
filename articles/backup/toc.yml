@@ -32,8 +32,6 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
-  - name: Back up Azure Files file shares
-    href: tutorial-backup-azure-files.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -166,10 +164,10 @@
       href: backup-azure-manage-mars.md
   - name: Azure File share backup
     items:
+    - name: Overview
+      href: azure-file-share-backup-overview.md
     - name: From the Azure portal
       items:
-      - name: Overview
-        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore
@@ -338,6 +336,8 @@
       href: backup-rm-template-samples.md
   - name: Security
     items:
+    - name: Overview
+      href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
     - name: Security for cloud workloads
@@ -384,6 +384,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Compliance 
+    href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum

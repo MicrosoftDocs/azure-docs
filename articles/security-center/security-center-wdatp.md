@@ -56,7 +56,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 1. In the **Onboarding** area, select or create a workspace in which to store the data. <br>
 2. If you can’t see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
 	
-3. Select **Add servers** to view instructions on how to install the Microsoft Monitoring Agent. 
+3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
 4. After onboarding, you can monitor the machines under **Compute and apps**.
 
