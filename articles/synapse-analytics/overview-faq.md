@@ -19,16 +19,16 @@ In this guide, you'll find the most frequently asked questions for Synapse Analy
 
 ### Q: What is Azure Synapse Analytics
 
-A: Azure Synapse is an integrated data platform for BI, AI, and continuous intelligence. It connects various Analytics runtimes such as SQL and Spark through a single platform that provides a unified way to:
+A: Azure Synapse is an integrated data platform for BI, AI, and continuous intelligence. It connects various analytics runtimes such as SQL and Spark through a single platform that provides a unified way to:
 
-- Secure your analytics resources: network, managing single sign-on  access to pool, data, and development artifacts.
+- Secure your analytics resources, including network, managing single sign-on  access to pool, data, and development artifacts.
 - Easily Monitor and quickly optimize, react, and debug  events happening in your workspace activities at any layer.
-- Manage your metadata across engines. Create a Spark table and it will be automatically available in your SQL Analytics databases.
-- Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts, and Data Scientists on the same platform.
+- Manage your metadata across engines. Create a Spark table and it will be automatically available in your Azure Synapse databases.
+- Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts, and Data Scientists on to the same platform.
 
 ### Q: How do I get started with Azure Synapse Analytics
 
-A: To start using Azure Synapse Analytics, create a Synapse workspace (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts into our repository. If you need to connect to public dataset, create a new linked service with the following attributes:
+A: To start using Azure Synapse Analytics, create a Synapse workspace (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts in our repository. If you need to connect to a public dataset, create a new linked service with the following attributes:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""**)
@@ -37,7 +37,7 @@ A: To start using Azure Synapse Analytics, create a Synapse workspace (it's free
 
 A: Azure Synapse has the following capabilities:
 
-- SQL Analytics offers analytics capabilities either with SQL pool or SQL on-demand (preview) (Serverless).
+- Analytics capabilities are offered through SQL pool or SQL on-demand (preview) (Serverless).
 - Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to bring your data and operationalize all of your code development
@@ -45,7 +45,7 @@ A: Azure Synapse has the following capabilities:
 
 ### Q: How does Azure Synapse Analytics relate to Azure SQL Data Warehouse
 
-A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform, which includes SQL pool as the data warehouse solution. This platform combines data exploration, ingestion, transformation, preparation, and serving analytics layer.
+A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform, which includes SQL pool as the data warehouse solution. This platform combines data exploration, ingestion, transformation, preparation, and a serving analytics layer.
 
 ## Use cases
 
