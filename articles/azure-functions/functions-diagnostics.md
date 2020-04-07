@@ -30,7 +30,7 @@ To start Azure Functions diagnostics:
 
 Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, named Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you're interested in. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
-:::image type="content" source="./media/functions-diagnostics/./media/functions-diagnostics/genie.png" alt-text="Genie is Azure Functions diagnostics' interface." border="false":::
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie is Azure Functions diagnostics' interface." border="false":::
 
 After selecting a tile, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. Select any of these topics to investigate the issues further. Also, you can select **View Full Report** to explore all the topics on a single page.
 
