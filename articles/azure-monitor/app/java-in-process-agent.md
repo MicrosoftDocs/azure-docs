@@ -45,7 +45,7 @@ Create a configuration file named `ApplicationInsights.json`, and place it in th
 
 You can find your connection string in your Application Insights resource:
 
-:::image type="content" source="media/java-ipa/connectionstring.png" alt-text="Application Insights Connection String" width="75%" :::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String" width="75%":::
 
 **4. That's it!**
 
