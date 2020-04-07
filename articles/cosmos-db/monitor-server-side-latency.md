@@ -14,7 +14,7 @@ Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your accoun
 
 If you see unusually large latency for point operations such as:
 
-* A get or set operation with partition key and id in direct mode
+* A get or set operation with partition key and ID in direct mode
 * A read or write operation or
 * A query
 
@@ -34,7 +34,7 @@ You can look up the diagnostic log to see the size of data returned. If you see 
 
 1. Next select the **Server Side Latency**  metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Server Side Latency** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   ![Choose the Server Side Latency metric from the Azure portal](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Choose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/serverside-latency-metric.png)
 
 ## Filters for server-side latency
 
