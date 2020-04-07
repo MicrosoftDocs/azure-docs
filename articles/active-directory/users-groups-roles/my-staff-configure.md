@@ -50,7 +50,7 @@ The following roles have permission to reset a user's password:
 
 - [Authentication administrator](directory-assign-admin-roles.md#authentication-administrator)
 - [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-administrator)
-- [Global administrator](directory-assign-admin-roles.md#global-administrator)
+- [Global administrator](directory-assign-admin-roles.md#global-administrator--company-administrator)
 - [Helpdesk administrator](directory-assign-admin-roles.md#helpdesk-administrator)
 - [User administrator](directory-assign-admin-roles.md#user-administrator)
 
