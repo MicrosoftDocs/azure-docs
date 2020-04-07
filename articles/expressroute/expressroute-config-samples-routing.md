@@ -19,9 +19,9 @@ This page provides interface and routing configuration samples for Cisco IOS-XE 
 > 
 
 ## MTU and TCP MSS settings on router interfaces
-The maximum transmission unit for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
+The maximum transmission unit (MTU) for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
 
-Unlike an Azure VPN gateway, the TCP maximum segment size for an ExpressRoute circuit does not need to be specified.
+Unlike an Azure VPN gateway, the TCP maximum segment size (MSS) for an ExpressRoute circuit does not need to be specified.
 
 The router configuration samples in this article apply to all peerings. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute routing requirements](expressroute-routing.md) for more details on routing.
 
@@ -92,7 +92,7 @@ Use route maps and prefix lists to filter prefixes propagated into your network.
 
 ### Configure BFD
 
-You'll configure BFD in two places—one at the interface level and another at BGP level. The example here is for QinQ interface. 
+You'll configure BFD in two places: one at the interface level and another at BGP level. The example here is for the QinQ interface. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -149,7 +149,7 @@ This sample provides the subinterface definition for a subinterface with two VLA
     }                           
 
 ### Set up eBGP sessions
-You must set up a BGP session with Microsoft for every peering. Set up a BGP session by using the following sample. If the IPv4 address that you used for your sub interface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
+You must set up a BGP session with Microsoft for every peering. Set up a BGP session by using the following sample. If the IPv4 address that you used for your subinterface was a.b.c.d, then the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
     routing-options {
         autonomous-system <Customer_ASN>;
