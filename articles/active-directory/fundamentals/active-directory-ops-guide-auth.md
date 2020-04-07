@@ -129,7 +129,7 @@ If you have domain-joined Windows devices that aren't registered in the cloud, o
 
 ![A screenshot of grant in conditional access policy requiring hybrid device](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](../conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant.md) as a control in those policies.
+If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) as a control in those policies.
 
 ![A screenshot of grant in conditional access policy requiring device compliance](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
@@ -243,7 +243,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Use Conditional Access policies to [implement MFA](../conditional-access/plan-conditional-access.md), rather than using a **per-user MFA**
 - Have a small set of core policies that can apply to multiple applications
 - Define empty exception groups and add them to the policies to have an exception strategy
-- Plan for [break glass](../users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency.md) accounts without MFA controls
+- Plan for [break glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Office 365 client applications, for example, Teams, OneDrive for Business, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
 - Assignment to policies should be implemented through groups, not individuals
 - Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
