@@ -61,16 +61,17 @@ In the `ApplicationInsights.json` file, you can additionally configure:
 
 * Cloud role name
 * Cloud role instance
+* Application log capture
 * JMX metrics
+* Micrometer
+* Heartbeat
 * Sampling
-* Logging capture threshold
 * HTTP Proxy
-* Heartbeat interval
 * Self diagnostics
 
 See details at [3.0 Public Preview: Configuration Options](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options).
 
-## Autocollected requests, dependencies, and logs
+## Autocollected requests, dependencies, logs, and metrics
 
 ### Requests
 
@@ -102,6 +103,11 @@ See details at [3.0 Public Preview: Configuration Options](https://github.com/mi
 * java.util.logging
 * Log4j
 * SLF4J/Logback
+
+### Metrics
+
+* Micrometer
+* JMX Metrics
 
 ## Sending custom telemetry from your application
 
@@ -139,6 +145,15 @@ and use that for sending custom telemetry.
 telemetryClient.trackEvent("WinGame");
 ```
 ### Metrics
+
+You can send metric telemetry via [Micrometer](https://micrometer.io):
+
+```java
+  Counter counter = Metrics.counter("test_counter");
+  counter.increment();
+```
+
+Or you can also use Application Insights Java SDK 2.x:
 
 ```java
   telemetryClient.trackMetric("queueLength", 42.0);
