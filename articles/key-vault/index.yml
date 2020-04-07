@@ -33,6 +33,9 @@ highlightedContent:
     - title: Throttling
       itemType: overview
       url: ./general/overview-throttling.md
+    - title: Security
+      itemType: overview
+      url: ./general/security-overview.md
 conceptualContent:
   items:
     - title: Certificates
