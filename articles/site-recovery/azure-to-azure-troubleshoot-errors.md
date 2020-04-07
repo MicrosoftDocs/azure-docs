@@ -11,7 +11,7 @@ ms.author: rochakm
 
 # Troubleshoot Azure-to-Azure VM replication errors
 
-This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VMs) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix).
+This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VMs) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
 ## Azure resource quota issues (error code 150097)
 
@@ -372,13 +372,13 @@ You might not see the VM that you want to enable for replication if a stale Site
 
 ## Unable to select a virtual machine for protection
 
-### Issue 1: The virtual machine has an extension installed in a failed or unresponsive state
+### Possible cause
+
+The virtual machine has an extension installed in a failed or unresponsive state
+
+### Fix the problem
 
 Go to **Virtual machines** > **Settings** > **Extensions** and check for any extensions in a failed state. Uninstall any failed extension, and then try again to protect the virtual machine.
-
-### Issue 2: The VM's provisioning state isn't valid
-
-See the troubleshooting steps in [The VM's provisioning state is not valid](#the-vms-provisioning-state-is-not-valid-error-code-150019).
 
 ## The VM's provisioning state isn't valid (error code 150019)
 
