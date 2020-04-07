@@ -46,14 +46,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     +  Added Environment.clone(new_name) API to create a copy of Environment object
     +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
     + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
-    +  Dataset: enable data access to credential-less Datastore of Azure SQL DB and ADLS Gen 2 using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell), [ADLS Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
-    +  Dataset: fix a bug that dataset may not be able to download file with path containing unicode characters because of system local setting.
-    + Ensure dataset's mount cache respect the minimum disk space requirement in Azure Machine Learning Compute to avoid making the node becoming unusable and causing the job to be canceled
+    +  Dataset: fixed dataset download failure if data path containing unicode characters
+    +  Dataset: improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled
     + Added user_managed flag in RSection which indicates whether the environment is managed by user or by AzureML.
   + **azureml-dataprep**
-    +  Dataset: enable data access to credential-less Datastore of Azure SQL DB and ADLS Gen 2 using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell), [ADLS Gen 2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
-    + Fixed Dataset authentication issue in sovereign clouds
-    + Fixed `Dataset.to_spark_dataframe` failing for Datasets created from Azure PostgreSQL datastores
+    + Fixed dataset authentication issue in sovereign cloud
+    + Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores
   + **azureml-interpret**
     + add global scores to visualization if local importance values are sparse
     + update azureml-interpret to interpret-community 0.9.*
