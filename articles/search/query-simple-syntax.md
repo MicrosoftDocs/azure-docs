@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/03/2020
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -64,9 +64,15 @@ The NOT operator is a minus sign. For example, `wifi –luxury` will search for 
 > [!NOTE]  
 >  The `searchMode` option controls whether a term with the NOT operator is ANDed or ORed with the other terms in the query in the absence of a `+` or `|` operator. Recall that `searchMode` can be set to either `any` (default) or `all`. If you use `any`, it will increase the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`. If you use `all`, it will increase the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if You want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.
 
-## Suffix operator
+<a name="prefix-search"></a>
 
-The suffix operator is an asterisk `*`. For example, `lux*` will search for documents that have a term that starts with `lux`, ignoring case.  
+## Suffix `*` operator for prefix search
+
+The suffix operator is an asterisk `*`. For example, `cap*` will search for documents that have a term that starts with `cap`, ignoring case. 
+
+Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. 
+
+If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and the full Lucene syntax.
 
 ## Phrase search operator
 

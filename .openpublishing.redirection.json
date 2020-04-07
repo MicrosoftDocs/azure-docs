@@ -346,6 +346,17 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-centos-vm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/linux-dsvm-intro.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": true
+    },
+    
+    {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
       "redirect_document_id": false
@@ -4056,8 +4067,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-government/documentation-government-k8.md",
+      "redirect_url": "/azure/azure-government",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-linked-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
       "redirect_document_id": false
     },
     {
@@ -7586,7 +7607,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
-      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -7617,6 +7638,11 @@
     {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
       "redirect_document_id": false
     },
     {
@@ -19182,6 +19208,11 @@
     {
       "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
       "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-backup-azure-files.md",
+      "redirect_url": "/azure/backup/backup-afs",
       "redirect_document_id": false
     },
     {
@@ -32262,11 +32293,6 @@
     {
       "source_path": "articles/expressroute/expressroute-security-attributes.md",
       "redirect_url": "/azure/expressroute/expressroute-security-controls",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -47010,6 +47036,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -50557,6 +50588,165 @@
     {
       "source_path": "articles/aks/use-cosmosdb-osba-mongo-app.md",
       "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/ship-application.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-aks.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-cni-networking.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-kubenet-networking.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-kubenet-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-rbac.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-rbac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-application-gateway.md",
+      "redirect_url": "/azure/developer/ansible/application-gateway-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-azure-web-apps.md",
+      "redirect_url": "/azure/developer/ansible/azure-web-apps-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-scale-azure-web-apps.md",
+      "redirect_url": "/azure/developer/ansible/azure-web-apps-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-data-cache-for-redis-configure.md",
+      "redirect_url": "/azure/developer/ansible/cache-for-redis-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-run-playbook-in-cloudshell.md",
+      "redirect_url": "/azure/developer/ansible/cloudshell-run-playbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-data-cosmos-configure.md",
+      "redirect_url": "/azure/developer/ansible/cosmos-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-devtest-labs-configure.md",
+      "redirect_url": "/azure/developer/ansible/devtest-labs-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-manage-azure-dynamic-inventories.md",
+      "redirect_url": "/azure/developer/ansible/dynamic-inventory-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-azure-hdinsight-configure.md",
+      "redirect_url": "/azure/developer/ansible/hdinsight-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-install-configure.md",
+      "redirect_url": "/azure/developer/ansible/install-on-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-matrix.md",
+      "redirect_url": "/azure/developer/ansible/module-version-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-mysql.md",
+      "redirect_url": "/azure/developer/ansible/mysql-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-overview.md",
+      "redirect_url": "/azure/developer/ansible/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-route-table.md",
+      "redirect_url": "/azure/developer/ansible/route-table-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-service-bus-queue-configure.md",
+      "redirect_url": "/azure/developer/ansible/service-bus-queue-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-service-bus-topic-configure.md",
+      "redirect_url": "/azure/developer/ansible/service-bus-topic-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-deploy-solution-template.md",
+      "redirect_url": "/azure/developer/ansible/solution-template-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vnet-peering-configure.md",
+      "redirect_url": "/azure/developer/ansible/virtual-network-peering-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-vm.md",
+      "redirect_url": "/azure/developer/ansible/vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vm-create-from-shared-generalized-image.md",
+      "redirect_url": "/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-manage-linux-vm.md",
+      "redirect_url": "/azure/developer/ansible/vm-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-auto-scale-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-auto-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-deploy-app-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-deploy-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vmss-update-image.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-update-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/",
+      "redirect_url": "/azure/developer/ansible/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/index.yml",
+      "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
     }
   ]
