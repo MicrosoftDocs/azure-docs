@@ -4,13 +4,13 @@ description: How to set up your Security info (preview) for your work or school 
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
 ---
 
@@ -18,7 +18,7 @@ ms.author: curtand
 
 You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
-You'll only see this prompt if you haven’t set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
+You'll only see this prompt if you haven't set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
