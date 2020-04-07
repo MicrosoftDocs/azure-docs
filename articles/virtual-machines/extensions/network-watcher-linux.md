@@ -88,7 +88,7 @@ You can deploy Azure VM extensions with an Azure Resource Manager template. To d
 
 The following example deploys the Network Watcher Agent VM extension to an existing VM deployed through the classic deployment model:
 
-```azurecli
+```console
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```

@@ -4,10 +4,9 @@ description: Deploy your first PHP Hello World to Azure App Service in minutes. 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a PHP web app in Azure
 
 > [!NOTE]
@@ -91,7 +90,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
   < JSON data removed for brevity. >
 }
 ```
-You’ve created an empty new web app, with git deployment enabled.
+You've created an empty new web app, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.

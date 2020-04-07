@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Quickstart: Use Java to connect to and query data in Azure Database for MySQL

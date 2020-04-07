@@ -16,7 +16,7 @@ The textual editor in Azure Automation can be used to edit [PowerShell runbooks]
 
 The textual editor includes a feature to insert code for cmdlets, assets, and child runbooks into a runbook. Instead of typing in the code yourself, you can select from a list of available resources and the editor inserts the appropriate code into the runbook.
 
-Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. For more information, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
+Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. For more information, see [Publishing a runbook](manage-runbooks.md#publishing-a-runbook).
 
 This article provides detailed steps for performing different functions with this editor. These are not applicable to [graphical runbooks](automation-runbook-types.md#graphical-runbooks). To work with these runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -53,7 +53,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 
 ### Insert an asset into a runbook
 
-1. In the Canvas of the textual editor, position the cursor where you want to place the code for the child runbook.
+1. In the Canvas control of the textual editor, position the cursor where you want to place the code for the child runbook.
 2. Expand the **Assets** node in the Library control.
 3. Expand the node for the desired asset type.
 4. Right-click the asset name to insert and select **Add to canvas**. For [variable assets](automation-variables.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas**, depending on whether you want to get or set the variable.
@@ -61,7 +61,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 
 ## Editing an Azure Automation runbook using Windows PowerShell
 
-To edit a runbook with Windows PowerShell, use the editor of your choice and save the runbook to a ".ps1"file. You can use the [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) cmdlet to retrieve the contents of the runbook. You can use the  [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) cmdlet to replace the existing draft runbook with the modified one.
+To edit a runbook with Windows PowerShell, use the editor of your choice and save the runbook to a **.ps1** file. You can use the [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) cmdlet to retrieve the contents of the runbook. You can use the  [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) cmdlet to replace the existing draft runbook with the modified one.
 
 ### Retrieve the contents of a runbook using Windows PowerShell
 
@@ -78,7 +78,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### Change the contents of a runbook using Windows PowerShell
 
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. This is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#import-a-runbook).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. This is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#importing-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"

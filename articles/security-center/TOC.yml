@@ -31,6 +31,8 @@
 
 - name: Tutorials
   items:
+  - name: Planning and operations guide
+    href: security-center-planning-and-operations-guide.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
   - name: Respond to incidents
@@ -40,9 +42,7 @@
 
 - name: Concepts
   items:
-  - name: Secure Score in Security Center
-    href: security-center-secure-score.md
-  - name: The enhanced Secure Score
+  - name: Secure score
     href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md
@@ -62,20 +62,22 @@
       href: azure-kubernetes-service-integration.md
   - name: Threat protection and security alerts
     items:
+    - name: Threat protection in Azure Security Center
+      href: threat-protection.md
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
     - name: Reference list of alerts
       href: alerts-reference.md
+    - name: Alerts schemas
+      href: alerts-schemas.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
       href: security-center-incident.md
-    - name: Threat protection in Azure Security Center
-      href: threat-protection.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
-    - name: Security alerts map and threat intelligence
-      href: security-center-threat-intel.md       
+    - name: Threat reports
+      href: security-center-threat-report.md
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
 
@@ -153,6 +155,8 @@
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
+    - name: Manage investigation user data
+      href: security-center-investigation-user-data.md
   - name: Apply cloud defenses
     items:
     - name: Manage just-in-time access
@@ -163,25 +167,6 @@
       href: security-center-file-integrity-monitoring.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
-      
-  - name: Archive
-    items:
-    - name: Apply disk encryption
-      href: security-center-apply-disk-encryption.md
-    - name: Apply system updates
-      href: security-center-apply-system-updates.md
-    - name: Install Endpoint Protection
-      href: security-center-install-endpoint-protection.md
-    - name: Threat reports
-      href: security-center-threat-report.md
-    - name: Alert confidence score
-      href: security-center-confidence-score.md
-    - name: Investigation
-      href: security-center-investigation.md
-    - name: Manage investigation user data
-      href: security-center-investigation-user-data.md
-    - name: Planning and operations
-      href: security-center-planning-and-operations-guide.md
 
 - name: Reference
   items:
@@ -207,6 +192,8 @@
     href: security-center-features-retirement-july2019.md
   - name: Endpoint protection assessment and recommendations 
     href: security-center-endpoint-protection.md
+  - name: Secure score (legacy)
+    href: security-center-secure-score.md
 
 - name: Resources
   items:

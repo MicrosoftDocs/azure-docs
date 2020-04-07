@@ -75,6 +75,7 @@ The NPS server needs to be able to communicate with the following URLs over port
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
@@ -300,7 +301,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
+4. Verify that `https://login.microsoftonline.com/` is accessible from the server running the extension.
 
 ---
 

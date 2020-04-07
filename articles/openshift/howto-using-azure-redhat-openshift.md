@@ -75,7 +75,15 @@ Follow these steps to create a virtual network containing two empty subnets.
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
+   PULL_SECRET="<optional-pull-secret>"
    ```
+   >[!NOTE]
+   > The optional pull secret enables your cluster to access Red Hat container registries along with additional content.
+   >
+   > Access your pull secret by navigating to https://cloud.redhat.com/openshift/install/azure/installer-provisioned and clicking *Copy Pull Secret*.
+   >
+   > You will need to log in to your Red Hat account, or create a new Red Hat account with your business email and accept the terms and conditions.
+ 
 
 2. Create a resource group for your cluster.
 
@@ -128,7 +136,8 @@ az aro create \
   -n "$CLUSTER" \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
-  --worker-subnet "$CLUSTER-worker"
+  --worker-subnet "$CLUSTER-worker" \
+  --pull-secret "$PULL_SECRET"
 ```
 
 >[!NOTE]

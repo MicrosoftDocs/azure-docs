@@ -157,7 +157,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 ### How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
 For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
-```bash
+```azurecli
 az sf cluster create -h
 ```
 
@@ -516,6 +516,7 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 ### Can I use scale sets with Accelerated Networking?
 
 Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. For example
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -535,6 +536,7 @@ Yes. To use accelerated networking, set enableAcceleratedNetworking to true in y
 ### How can I configure the DNS servers used by a scale set?
 
 To create a virtual machine scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
+
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -634,9 +636,11 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 ### Is it possible to integrate scale sets with Azure Monitor logs?
 
 Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
-```
+
+```azurecli
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
+
 You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
 > [!NOTE]

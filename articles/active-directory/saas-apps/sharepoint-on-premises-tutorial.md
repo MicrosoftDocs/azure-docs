@@ -12,23 +12,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: miguego
 
+
 ---
-# Tutorial: Azure Active Directory integration with SharePoint on-premises
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with SharePoint on-premises
 
-In this tutorial, you learn how to integrate SharePoint on-premises with Azure Active Directory (Azure AD).
-Integrating SharePoint on-premises with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate SharePoint on-premises with Azure Active Directory (Azure AD). When you integrate SharePoint on-premises with Azure AD, you can:
 
-* You can control in Azure AD who has access to SharePoint on-premises.
-* You can enable your users to be automatically signed-in to SharePoint on-premises (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to SharePoint on-premises.
+* Enable your users to be automatically signed-in to SharePoint on-premises with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -39,13 +37,13 @@ To configure Azure Active Directory integration with SharePoint on-premises, you
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure Active Directory single sign-on in a test environment. Users from Azure Active Directory would be able to access your Sharepoint On-Premises.
+In this tutorial, you configure and test Azure Active Directory single sign-on in a test environment. Users frlom Azure Active Directory would be able to access your Sharepoint On-Premises.
 
 ## Create the Enterprise Applications in Azure Portal for SharePoint On-Premises
 
 To configure the integration of SharePoint on-premises into Azure AD, you need to add SharePoint on-premises from the gallery to your list of managed SaaS apps.
 
-**To add SharePoint on-premises from the gallery, perform the following steps:**
+To add SharePoint on-premises from the gallery, perform the following steps:
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -288,16 +286,15 @@ The configuration works for a single web application, but needs additional confi
 	$t.UseWReplyParameter=$true
 	$t.Update()
 	```
-
 5. In Central Administration, go to the web application and enable the existing trusted identity provider.
 
 You might have other scenario where you want to give access to your On-Premise Sharepoint for your internal users, for this scenario you would have to deploy Microsoft Azure Active Directory Connect that will permits to sync your On-Premise users with Azure Active Directory, this setup would be part of another article. 
 
-## Additional resources 
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

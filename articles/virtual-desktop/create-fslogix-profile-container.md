@@ -52,11 +52,11 @@ To get started, you need to set up an Azure NetApp Files account.
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -68,7 +68,7 @@ To get started, you need to set up an Azure NetApp Files account.
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
 8. Select the **Add** button.
-9. When the **New NetApp account** blade opens, enter the following values:
+9. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
@@ -87,7 +87,7 @@ Next, create a new capacity pool:
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.
 3. Select **Add pool**.
-4. When the **New capacity pool** blade opens, enter the following values:
+4. When the **New capacity pool** tab opens, enter the following values:
 
     - For **Name**, enter a name for the new capacity pool.
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
@@ -122,7 +122,7 @@ Next, you'll need to create a new volume.
 
 1. Select **Volumes**, then select **Add volume**.
 
-2. When the **Create a volume** blade opens, enter the following values:
+2. When the **Create a volume** tab opens, enter the following values:
 
     - For **Volume name**, enter a name for the new volume.
     - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.

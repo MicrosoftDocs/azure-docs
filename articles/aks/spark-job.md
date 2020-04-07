@@ -1,6 +1,6 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
-description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
+description: Use Azure Kubernetes Service (AKS) to create and run an Apache Spark job for large-scale data processing.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
@@ -181,7 +181,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 
 Upload the jar file to the Azure storage account with the following commands.
 
-```bash
+```azurecli
 CONTAINER_NAME=jars
 BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
@@ -236,8 +236,10 @@ Submit the job using `spark-submit`.
 This operation starts the Spark job, which streams job status to your shell session. While the job is running, you can see Spark driver pod and executor pods using the kubectl get pods command. Open a second terminal session to run these commands.
 
 ```console
-$ kubectl get pods
+kubectl get pods
+```
 
+```output
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
 spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
@@ -265,7 +267,7 @@ kubectl get pods --show-all
 
 Output:
 
-```bash
+```output
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
@@ -278,7 +280,7 @@ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 
 Within these logs, you can see the result of the Spark job, which is the value of Pi.
 
-```bash
+```output
 Pi is roughly 3.152155760778804
 ```
 

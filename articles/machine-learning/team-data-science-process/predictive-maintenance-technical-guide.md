@@ -170,7 +170,7 @@ service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template, the data factory
 is made up of three
 [pipelines](../../data-factory/concepts-pipelines-activities.md)
-that move and process the data using various technologies.  Access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. Errors under your datasets are due to data factory being deployed before the data generator was started. Those errors can be ignored and do not prevent your data factory from functioning
+that move and process the data using various technologies.  Access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. Errors under your datasets are due to data factory being deployed before the data generator was started. Those errors can be ignored and do not prevent your data factory from functioning.
 
 ![Data Factory dataset errors](./media/predictive-maintenance-technical-guide/data-factory-dataset-error.png)
 
@@ -269,7 +269,7 @@ specific to the data brought in.
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
 * One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
-* The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES ![SQL icon](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+* The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES ![SQL icon](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE.
    
     ![Manage icon](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -363,7 +363,8 @@ containing data (for example, prediction results) for visualization.
      <br/>
    * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Ellipsis icon](./media/predictive-maintenance-technical-guide/icon-elipsis.png) and then choose **Schedule Refresh**.
      <br/>
-     **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+     > [!NOTE]
+     > If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
      <br/>
      ![Schedule refresh](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>

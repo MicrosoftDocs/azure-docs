@@ -9,5 +9,5 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Creating an incremental snapshot for managed disks
+# Create an incremental snapshot for managed disks - PowerShell
 [!INCLUDE [virtual-machines-disks-incremental-snapshot-powershell](../../../includes/virtual-machines-disks-incremental-snapshot-powershell.md)]

@@ -142,6 +142,10 @@ A daily job with no gaps in the output streams of the job:
 
 ![Self-dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Self-dependency example")
 
+For a demonstration on how to create dependent pipelines in your Azure Data Factory using tumbling window trigger, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
+
 ## Monitor dependencies
 
 You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. Under the actions column, you can rerun the trigger or view its dependencies.

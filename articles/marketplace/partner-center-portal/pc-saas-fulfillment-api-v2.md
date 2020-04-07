@@ -1,13 +1,12 @@
 ---
 title: SaaS Fulfillment API v2 | Azure Marketplace 
 description: This article explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace by using the associated fulfillment v2 APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # SaaS fulfillment APIs, version 2 
@@ -276,7 +275,7 @@ Internal server error.
 
 Gets the specified SaaS subscription. Use this call to get license information and plan information.
 
-##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -588,7 +587,7 @@ Internal server error.
 
 Unsubscribe and delete the specified subscription.
 
-##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 

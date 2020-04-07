@@ -35,7 +35,7 @@ Each job has an output for the transformed data, and you can control what happen
 
 The following image shows how data is sent to Stream Analytics, analyzed, and sent for other actions like storage or presentation:
 
-![Stream Analytics intro pipeline](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
+![Stream Analytics intro pipeline](./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png)
 
 ## Key capabilities and benefits
 

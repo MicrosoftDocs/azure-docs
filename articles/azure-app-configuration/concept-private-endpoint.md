@@ -22,7 +22,7 @@ Using private endpoints for your App Configuration store enables you to:
 > [!NOTE]
 > Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.
 
-## Conceptual Overview
+## Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
 
@@ -34,26 +34,18 @@ When you create a private endpoint for a service in your VNet, a consent request
 
 Service account owners can manage consent requests and private endpoints through the `Private Endpoints` tab of the config store in the [Azure portal](https://portal.azure.com).
 
-### Private Endpoints for App Configuration 
+### Private endpoints for App Configuration 
 
 When creating a private endpoint, you must specify the App Configuration store to which it connects. If you have multiple App Configuration instances within an account, you need a separate private endpoint for each store.
 
-#### Resources for creating private endpoints
-
-For more detailed information on creating a private endpoint for your App Configuration store, refer to the following articles:
-
-- [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
-- [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
-
-### Connecting to Private Endpoints
+### Connecting to private endpoints
 
 Azure relies upon DNS resolution to route connections from the VNet to the configuration store over a private link. You can quickly find connections strings in the Azure portal by selecting your App Configuration store, then selecting **Settings** > **Access Keys**.  
 
 > [!IMPORTANT]
 > Use the same connection string to connect to your App Configuration store using private endpoints as you would use for a public endpoint. Don't connect to the storage account using its `privatelink` subdomain URL.
 
-## DNS changes for Private Endpoints
+## DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
@@ -68,13 +60,19 @@ If you are using a custom DNS server on your network, clients must be able to re
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the store name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
 
-#### Resources for configuring your DNS server with private endpoints
-
-For more information, see:
-
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
-
 ## Pricing
 
 Enabling private endpoints requires a [Standard tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store.  To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+
+## Next steps
+
+Learn more about creating a private endpoint for your App Configuration store, refer to the following articles:
+
+- [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
+- [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
+- [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+
+Learn to configure your DNS server with private endpoints:
+
+- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)

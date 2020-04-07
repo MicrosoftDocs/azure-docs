@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/29/2020
+ms.date: 03/23/2020
 ms.author: mblythe
 
 ---
@@ -36,7 +36,7 @@ With Role-Based Access Control (RBAC), you can assign users to roles at three di
 * resource group
 * resource
 
-The permissions you assign inherit from subscription down to the resource. The published dashboard is a resource. You may already have users assigned to roles for the subscription that apply for the published dashboard.
+The permissions you assign inherit from the subscription down to the resource. The published dashboard is a resource. You may already have users assigned to roles for the subscription that apply for the published dashboard.
 
 Let's say you have an Azure subscription and various members of your team have been assigned the roles of *owner*, *contributor*, or *reader* for the subscription. Users who are owners or contributors can list, view, create, modify, or delete dashboards within the subscription. Users who are readers can list and view dashboards, but can't modify or delete them. Users with reader access can make local edits to a published dashboard, such as when troubleshooting an issue, but they can't publish those changes back to the server. They can make a private copy of the dashboard for themselves.
 
@@ -56,7 +56,7 @@ Before assigning access, you must publish the dashboard.
 
     ![publish your dashboard](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
 
-     By default, sharing publishes your dashboard to a resource group named **dashboards**.
+     By default, sharing publishes your dashboard to a resource group named **dashboards**. To select a different resource group, clear the checkbox.
 
 Your dashboard is now published. If the permissions inherited from the subscription are suitable, you don't need to do anything more. Other users in your organization can access and modify the dashboard based on their subscription level role.
 
@@ -64,15 +64,15 @@ Your dashboard is now published. If the permissions inherited from the subscript
 
 You can assign a group of users to a role for that dashboard.
 
-1. After publishing the dashboard, in **Sharing + access control**, select **Manage users**.
+1. After publishing the dashboard, select the **Share** or **Unshare** option to access **Sharing + access control**.
+
+1. In **Sharing + access control**, select **Manage users**.
 
     ![manage users for a dashboard](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
 
-    To access **Sharing + access control** from a dashboard, select the **Share** or **Unshare** option.
-
 1. Select **Role assignments** to see existing users that are already assigned a role for this dashboard.
 
-1. To add a new user or group, select **Add**.
+1. To add a new user or group, select **Add** then **Add role assignment**.
 
     ![add a user for access to the dashboard](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
 
@@ -80,11 +80,7 @@ You can assign a group of users to a role for that dashboard.
 
 1. Select the user or group to assign to the role. If you don't see the user or group you're looking for in the list, use the search box. Your list of available groups depends on the groups you've created in Active Directory.
 
-1. When you have finished adding users or groups, select **OK**.
-
-    The new assignment is added to the list of users. Its **Access** is listed as **Assigned** rather than **Inherited**.
-
-    ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+1. When you've finished adding users or groups, select **Save**.
 
 ## Next steps
 

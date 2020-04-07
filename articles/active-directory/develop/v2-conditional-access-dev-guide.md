@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
@@ -182,3 +182,4 @@ To try out this scenario, see our [JS SPA On-behalf-of code sample](https://gith
 * For more Azure AD code samples, see [samples](sample-v2-code.md).
 * For more info on the MSAL SDK's and access the reference documentation, see [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
+* Learn more about [Conditional access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
