@@ -48,11 +48,11 @@ Each user who's enabled in My Staff must be licensed, even if they don't use the
 
 The following roles have permission to reset a user's password:
 
-- [Authentication administrator](directory-assign-admin-roles.md#authentication-acministrator)
-- [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-acministrator)
-- [Global administrator](directory-assign-admin-roles.md#global-acministrator)
-- [Helpdesk administrator](directory-assign-admin-roles.md#helpdesk-acministrator)
-- [User administrator](directory-assign-admin-roles.md#user-acministrator)
+- [Authentication administrator](directory-assign-admin-roles.md#authentication-administrator)
+- [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Global administrator](directory-assign-admin-roles.md#global-administrator)
+- [Helpdesk administrator](directory-assign-admin-roles.md#helpdesk-administrator)
+- [User administrator](directory-assign-admin-roles.md#user-administrator)
 
 From **My Staff**, open a user's profile. Select **Reset password**.
 
