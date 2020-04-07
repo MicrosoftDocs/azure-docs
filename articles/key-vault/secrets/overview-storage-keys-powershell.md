@@ -262,5 +262,4 @@ The output of this command will show your SAS definition string.
 ## Next steps
 
 - [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
-- [About keys, secrets, and certificates](../general/about-keys-secrets-and-certificates.md)
 - [Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
