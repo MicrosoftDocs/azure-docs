@@ -1,26 +1,24 @@
 ---
-title: "Quickstart: List text-to-speech voices, Python - Speech service"
+title: "List text-to-speech voices, Python - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
+description: In this article, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
 ---
 
-# Quickstart: Get the list of text-to-speech voices using Python
+# Get the list of text-to-speech voices using Python
 
-In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region. For a list of supported regions, see [regions](regions.md).
+In this article, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region. For a list of supported regions, see [regions](regions.md).
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
+This article requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
 
 ## Prerequisites
-
-This quickstart requires:
 
 * Python 2.7.x or 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor

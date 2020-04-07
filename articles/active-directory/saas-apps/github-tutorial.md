@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -23,9 +23,8 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate GitHub with Azure Active Directory (Azure AD). When you integrate GitHub with Azure AD, you can:
 
-* Control in Azure AD who has access to GitHub.
-* Enable your users to be automatically signed-in to GitHub with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to your GitHub Enterprise Cloud Organization.
+* Manage access to your GitHub Enterprise Cloud Organization in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -42,8 +41,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * GitHub supports **SP** initiated SSO
 
-* GitHub supports [**Automated** user provisioning](github-provisioning-tutorial.md)
-* Once you configure the GitHub you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* GitHub supports [**Automated** user provisioning (organization invitations)](github-provisioning-tutorial.md)
+* Once you configure GitHub you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding GitHub from the gallery
 
@@ -162,6 +161,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
     d. Click on **Edit** icon to edit the **Signature Method** and **Digest Method** from **RSA-SHA1** and **SHA1** to **RSA-SHA256** and **SHA256** as shown below.
+    
+    e. Update the **assertion consumer service URL (Reply URL)** from the default URL so that it the URL in Github matches the URL in the Azure app registration.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 
@@ -220,5 +221,3 @@ When you click the GitHub tile in the Access Panel, you should be automatically 
 - [Try GitHub with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect GitHub with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

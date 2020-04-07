@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares
@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Prerequisites
 
 * Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
-* After you complete the setup tutorial, open the **tutorials/regression-automated-ml.ipynb** notebook using the same notebook server.
+* After you complete the setup tutorial, open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook using the same notebook server.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` to get the required packages.
 

@@ -1,6 +1,6 @@
 ---
 title: View the monthly estimated lab cost trend in Azure DevTest Labs
-description: Learn about the Azure DevTest Labs monthly estimated cost trend chart.
+description: This article provides information on how to track the cost of your lab (monthly estimated cost trend chart) in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---

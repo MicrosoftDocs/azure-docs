@@ -37,7 +37,6 @@ To view the current secondary region of your geo-redundant storage or read-acces
 
 ![Storage account overview](./media/documentation-government-services-storage-accountoverview.png)
 
-
 ### Storage service and feature availability by Azure Government region
 
 | Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
@@ -47,9 +46,9 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
-| [Locally redundant storage](../storage/common/storage-redundancy-lrs.md) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant storage](../storage/common/storage-redundancy-grs.md) |GA |GA |GA |GA |GA |GA |
-| [Read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Locally redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
+| [Read-access geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
 | [Premium Storage](../virtual-machines/windows/disks-types.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
@@ -69,7 +68,7 @@ These are the URLs for storage accounts in Azure Government:
 >
 >
 
-For more information on APIs, see the [Cloud Storage Account Constructor](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.cloudstorageaccount).
+For more information on APIs, see the [Cloud Storage Account Constructor](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
@@ -78,7 +77,7 @@ The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 >
 >
 
-When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ URL for the Azure Government portal. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.md).
+When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ URL for the Azure Government portal. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:

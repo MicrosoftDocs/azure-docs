@@ -1,14 +1,10 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 04/04/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -16,8 +12,7 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first C++ project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">create an empty sample project</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Install the Speech SDK for your development environment</a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Install the Speech SDK for your development environment and create an empty sample project<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -34,19 +29,19 @@ Next, open your project in Visual Studio.
 
 Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `recognizeIntent()`.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,72-80)]
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource. 
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource.
 
 > [!IMPORTANT]
-> Your starter key and authoring keys will not work. You must use your prediction key and location that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition). 
+> Your starter key and authoring keys will not work. You must use your prediction key and location that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 Insert this code in the `recognizeIntent()` method. Make sure you update these values:
 
-* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. 
+* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location.  Use **Region identifier** from [region](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -65,14 +60,14 @@ Now, let's create an `IntentRecognizer`. Insert this code in the `recognizeInten
 
 ## Add a LanguageUnderstandingModel and Intents
 
-You need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation. 
+You need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation.
 
-Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
+Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID.
 
 >[!TIP]
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
 ## Recognize an intent
 
@@ -80,7 +75,7 @@ From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync
 
 Insert this code below your model:
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=43)]
 
 ## Display the recognition results (or errors)
 
@@ -88,23 +83,23 @@ When the recognition result is returned by the Speech service, you'll want to do
 
 Insert this code below `auto result = recognizer->RecognizeOnceAsync().get();`:
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=46-71)]
 
 ## Check your code
 
-At this point, your code should look like this:  
+At this point, your code should look like this:
 
 > [!NOTE]
 > We've added some comments to this version.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-79)]
 
 ## Build and run your app
 
 Now you're ready to build your app and test our speech recognition using the Speech service.
 
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
-2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
+2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps

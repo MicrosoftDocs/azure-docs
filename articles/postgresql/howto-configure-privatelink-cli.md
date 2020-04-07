@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for PostgreSQL - Single server (Preview) CLI setup method
+title: Private Link - Azure CLI - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure CLI
 author: kummanish
 ms.author: manishku
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ---
 
-# Create and manage Private Link for Azure Database for PostgreSQL - Single server (Preview) using CLI
+# Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports General Purpose and Memory Optimized pricing tiers.
+> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
 
 ## Prerequisites
 
@@ -117,6 +117,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
+
 ## Connect to a VM from the internet
 
 Connect to the VM *myVm* from the internet as follows:
@@ -127,7 +130,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the *downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 
@@ -155,6 +158,7 @@ Connect to the VM *myVm* from the internet as follows:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
 

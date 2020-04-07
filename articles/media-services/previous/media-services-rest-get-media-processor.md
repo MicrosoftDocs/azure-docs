@@ -55,7 +55,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Response:

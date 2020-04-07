@@ -78,6 +78,8 @@
     href: /rest/api/azure-resourcegraph/
   - name: OpenAPI
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
   - name: Azure roadmap

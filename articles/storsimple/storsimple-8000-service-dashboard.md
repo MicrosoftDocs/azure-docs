@@ -1,5 +1,5 @@
 ---
-title: Use StorSimple 8000 series device summary | Microsoft Docs
+title: Use service summary blade for StorSimple 8000 series device
 description: Describes the StorSimple service summary blade and explains how to use it to monitor the health of your StorSimple solution.
 services: storsimple
 documentationcenter: ''

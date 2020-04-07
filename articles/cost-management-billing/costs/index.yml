@@ -10,8 +10,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.manager: dougeby
-  ms.date: 12/18/2019
+  ms.date: 01/31/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,6 +32,10 @@ landingContent:
         url: understand-cost-mgt-data.md
       - text: Understand and work with scopes
         url: understand-work-scopes.md
+    - linkListType: video
+      links:
+      - text: Azure Cost Management videos
+        url: https://www.youtube.com/c/AzureCostManagement
 
   # Card (optional)
   - title: Analyze and manage Azure costs
@@ -63,16 +66,6 @@ landingContent:
         url: /power-bi/desktop-connect-azure-cost-management
 
   # Card (optional)
-  - title: Analyze and manage AWS costs
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-      - text: Set up and configure AWS integration
-        url: aws-integration-set-up-configure.md
-      - text: Manage AWS costs and usage
-        url: aws-integration-manage.md
-
-  # Card (optional)
   - title: Cost Management APIs
     linkLists:
     - linkListType: concept
@@ -89,3 +82,24 @@ landingContent:
         url: /azure/templates/microsoft.consumption/budgets
       - text: Cost Management REST API Samples
         url: https://github.com/Azure-Samples/Cost-Management-Samples
+
+  # Card (optional)
+  - title: Latest features
+    linkLists:
+    - linkListType: whats-new
+      links:
+      - text: Monthly updates
+        url: https://azure.microsoft.com/blog/tag/cost-management
+      - text: Features now available
+        url: https://azure.microsoft.com/updates/cost-management-features-now-available-october-2019
+
+
+  # Card (optional)
+  - title: Analyze and manage AWS costs
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Set up and configure AWS integration
+        url: aws-integration-set-up-configure.md
+      - text: Manage AWS costs and usage
+        url: aws-integration-manage.md

@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 1/28/2020
 ---
 
 # Read input in any format using .NET custom deserializers
@@ -75,7 +75,7 @@ The parameter `stream` is the stream containing the serialized object. `Deserial
 
 ## Deserializer examples
 
-This section shows you how to write custom deserializers for Protobuf and CSV. For additional examples, visit [Azure Stream Analytics on GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+This section shows you how to write custom deserializers for Protobuf and CSV. For additional examples, such as AVRO format for Event Hub Capture, visit [Azure Stream Analytics on GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### Protocol buffer (Protobuf) format
 

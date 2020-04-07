@@ -75,14 +75,14 @@
       href: pay-by-invoice.md
     - name: Create additional subscriptions
       href: create-subscription.md
+    - name: Transfer CSP subscriptions
+      href: transfer-subscriptions-subscribers-csp.md
     - name: Export subscription information
       href: export-subscriptions.md
   - name: Manage Enterprise Agreement subscriptions
     items:
     - name: Get started in the Azure EA portal
       href: ea-portal-get-started.md
-    - name: Understand your EA bill
-      href: ../understand/review-enterprise-agreement-bill.md
     - name: EA roles in Azure
       href: understand-ea-roles.md
     - name: Azure EA portal administration
@@ -99,8 +99,6 @@
       href: ea-portal-vm-reservations.md
     - name: Troubleshoot Azure EA portal access
       href: ea-portal-troubleshoot.md
-    - name: EA tasks in Microsoft Customer Agreement
-      href: mca-enterprise-operations.md
 - name: Troubleshoot
   items:
   - name: No subscriptions found
@@ -128,13 +126,13 @@
     - name: Review resource usage
       href: review-service-usage-api.md
   - name: .NET samples
-  items:
-  - name: Invoice API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-  - name: Usage API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-  - name: RateCard API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+    items:
+    - name: Invoice API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Usage API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: RateCard API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Reference
   items:
   - name: Billing Automation Scenarios

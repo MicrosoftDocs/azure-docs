@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor PowerShell Samples | Microsoft Docs
 description: Azure Monitor PowerShell Samples
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

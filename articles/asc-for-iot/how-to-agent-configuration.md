@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
 
 ---
@@ -133,7 +133,6 @@ Default values are available in the proper schema in [GitHub](https\://aka.ms/io
 |Diagnostic event|eventPriorityDiagnostic| Off| False| Agent related diagnostic events. Use this event for verbose logging.| 
 |Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
 |Dropped events statistics |eventPriorityDroppedEventsStatistics |Low |True|Agent related event statistics. |
-|Message statistics|eventPriorityMessageStatistics |Low |True |Agent related message statistics. |
 |Connected hardware|eventPriorityConnectedHardware |Low |True |Snapshot of all hardware connected to the device.|
 |Listening ports|eventPriorityListeningPorts |High |True |Snapshot of all open listening ports on the device.|
 |Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|

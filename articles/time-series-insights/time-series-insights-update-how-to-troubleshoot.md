@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
 ---
 
@@ -67,6 +67,20 @@ You might be sending data without the Time Series ID.
 
     > [!NOTE]
     > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
+
+## Problem: Data was showing, but now ingestion has stopped
+
+- Your event source key may have been regenerate and your Preview environment needs the new event source key.
+
+This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub. 
+
+To update your Time Series Insights Preview environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+
+   [![Update key.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+
+Select the event source(s) that have from which ingestion has stopped, paste in the new key and click Save.
+
+   [![Update key.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## Problem: My event source's Timestamp property name doesn't work
 

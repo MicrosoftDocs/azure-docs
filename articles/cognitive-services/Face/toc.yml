@@ -13,6 +13,8 @@
       href: Quickstarts/csharp-sdk.md
     - name: Python SDK
       href: QuickStarts/python-sdk.md
+    - name: Go SDK
+      href: QuickStarts/go-sdk.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -77,8 +79,6 @@
       href: face-resource-container-config.md
     - name: Use container instances
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-  - name: Use the Face Connected Service
-    href: vs-face-connected-service.md
 - name: Reference
   items:
   - name: Face API
@@ -114,6 +114,8 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+  - name: Encryption
+    href: face-encryption-of-data-at-rest.md
   - name: Release notes
     href: ReleaseNotes.md

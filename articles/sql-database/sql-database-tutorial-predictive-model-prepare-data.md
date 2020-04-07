@@ -19,6 +19,8 @@ ms.date: 07/26/2019
 
 In part one of this three-part tutorial series, you'll import and prepare data from an Azure SQL database using R. Later in this series, you'll use this data to train and deploy a predictive machine learning model in R with Azure SQL Database Machine Learning Services (preview).
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
 In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside a SQL database using stored procedures.

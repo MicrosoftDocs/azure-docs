@@ -47,7 +47,7 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |
 
 > [!NOTE]
-> ClustergMSAIdentity value be in format "mysfgmsa@mydomain".
+> ClustergMSAIdentity value must be in format "mysfgmsa@mydomain".
 
 [Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting **ClustergMSAIdentity** when service fabric needs to run under gMSA. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain machine group that includes all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.  
 This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. These accounts are also useful for automatic password management. For more information, see [Getting Started with Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431.aspx).  

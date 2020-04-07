@@ -1,16 +1,16 @@
 ﻿---
-title: Run jobs end-to-end using templates - Azure Batch | Microsoft Docs
-description: Create Batch pools, jobs, and tasks with template files and the Azure CLI. 
+title: Run jobs end-to-end using templates - Azure Batch
+description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data. 
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.assetid: 
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
 ---
 # Use Azure Batch CLI templates and file transfer
@@ -28,7 +28,7 @@ are not developers. With only CLI commands, you can create a pool, upload input 
 associated tasks, and download the resulting output data. No additional code is
 required. Run the CLI commands directly or integrate them into scripts.
 
-Batch templates build on the [existing Batch support in the Azure
+Batch templates build on the existing Batch support in the [Azure
 CLI](batch-cli-get-started.md#json-files-for-resource-creation) for JSON files to specify property values when creating pools,
 jobs, tasks, and other items. Batch templates add the following capabilities:
 
@@ -101,7 +101,7 @@ the following main concepts:
     -   Allow property values to be specified in a body section, with only
         parameter values needing to be supplied when the template is used. For
         example, the complete definition for a pool could be placed in the body
-        and only one parameter defined for pool id; only a pool ID string
+        and only one parameter defined for `poolId`; only a pool ID string
         therefore needs to be supplied to create a pool.
         
     -   The template body can be authored by someone with knowledge of Batch and

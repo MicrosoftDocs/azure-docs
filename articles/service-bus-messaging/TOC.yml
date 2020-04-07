@@ -13,26 +13,23 @@
     items:
     - name: Create a Service Bus queue
       items:
-      - name: Azure portal 
-        href: service-bus-quickstart-portal.md     
+      - name: Azure portal
+        href: service-bus-quickstart-portal.md
       - name: Azure PowerShell
         href: service-bus-quickstart-powershell.md
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
-      - name: Azure Resource Manager template
+      - name: ARM template
+        displayName: Resource Manager      
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
-      items:      
+      items:
       - name: .NET
         href: service-bus-dotnet-get-started-with-queues.md
       - name: Java
         href: service-bus-java-how-to-use-queues.md
       - name: Node.js
-        items:
-        - name: azure/service-bus package
-          href: service-bus-nodejs-how-to-use-queues-new-package.md          
-        - name: azure-sb package
-          href: service-bus-nodejs-how-to-use-queues.md
+        href: service-bus-nodejs-how-to-use-queues-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
       - name: Python
@@ -41,30 +38,26 @@
         href: service-bus-ruby-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
-    - name: Create topics and subscriptions 
+    - name: Create topics and subscriptions
       items:
       - name: Azure portal
         href: service-bus-quickstart-topics-subscriptions-portal.md
-      - name: Azure Resource Manager template
+      - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
-      items: 
+      items:
       - name: .NET
         href: service-bus-dotnet-how-to-use-topics-subscriptions.md
       - name: Java
         href: service-bus-java-how-to-use-topics-subscriptions.md
       - name: Node.js
-        items:
-        - name: azure/service-bus package
-          href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
-        - name: azure-sb package
-          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+        href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
       - name: Python
         href: service-bus-python-how-to-use-topics-subscriptions.md
       - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md      
+        href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
   - name: Update inventory - PowerShell
@@ -73,6 +66,8 @@
     href: service-bus-tutorial-topics-subscriptions-portal.md
   - name: Update inventory - CLI
     href: service-bus-tutorial-topics-subscriptions-cli.md
+  - name: Respond to events via Event Grid
+    href: service-bus-to-event-grid-integration-example.md
 - name: Samples
   items:
   - name: Service Bus samples
@@ -93,7 +88,7 @@
     href: service-bus-outages-disasters.md
   - name: Throttling
     href: service-bus-throttling.md
-  - name: Security  
+  - name: Security
     items:
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
@@ -105,17 +100,21 @@
         - name: Authentication with Shared Access Signatures
           href: service-bus-sas.md
       - name: Use Azure Active Directory
-        items: 
-        - name: Authenticate with managed identities for Azure resources 
+        items:
+        - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md
-        - name: Authenticate from an application 
+        - name: Authenticate from an application
           href: authenticate-application.md
     - name: Built-in security controls
       href: service-bus-messaging-security-controls.md
+    - name: Network security
+      href: network-security.md
 - name: How-to guides
   items:
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: deprecate-service-bus-management.md
   - name: Create a namespace
-    href: service-bus-create-namespace-portal.md  
+    href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
     - name: Message handling
@@ -132,8 +131,6 @@
         href: message-expiration.md
       - name: Message handling using Azure Event Grid
         href: service-bus-to-event-grid-integration-concept.md
-      - name: Azure Event Grid examples
-        href: service-bus-to-event-grid-integration-example.md
     - name: Topic filters and actions
       href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
@@ -158,10 +155,6 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
-      - name: Use firewalls
-        href: service-bus-ip-filtering.md
-      - name: Virtual Network service endpoints
-        href: service-bus-service-endpoints.md
       - name: Dead-letter queues
         href: service-bus-dead-letter-queues.md
       - name: Prefetch messages
@@ -182,6 +175,10 @@
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Send and receive messages from queues (legacy azure-sb)
+      href: service-bus-nodejs-how-to-use-queues.md
+    - name: Publish and subscribe for messages (legacy azure-sb)
+      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities
@@ -194,7 +191,7 @@
       href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
-    - name: Use Azure Resource Manager templates
+    - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
       - name: Create a namespace
@@ -205,7 +202,13 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure customer-managed keys for encryption at rest
+    - name: Configure firewalls
+      href: service-bus-ip-filtering.md
+    - name: Configure virtual network service endpoints
+      href: service-bus-service-endpoints.md
+    - name: Configure private endpoints (preview)
+      href: private-link-service.md
+    - name: Configure customer-managed keys
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:

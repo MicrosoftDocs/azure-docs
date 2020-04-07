@@ -101,7 +101,7 @@ The following table summarizes the high availability capability of various accou
 |Zone failures – availability | Availability loss | No availability loss | No availability loss |
 |Read latency | Cross region | Cross region | Low |
 |Write latency | Cross region | Cross region | Low |
-|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multi master and more than one region, data loss is limited to the bounded staleness configured on your account. <br/><br/> Data loss during regional outage can be avoided by configuring strong consistency with multiple regions. This option comes with tradeoffs that impact availability and performance.      |
+|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multi master and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
 |Regional outage – availability | Availability loss | Availability loss | No availability loss |
 |Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
 

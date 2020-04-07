@@ -1,11 +1,9 @@
 ---
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: mlearned
+
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -92,8 +90,6 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
-- *DenyEscalatingExec*
-- *AlwaysPullImages*
 
 Currently, you can't modify the list of admission controllers in AKS.
 
@@ -134,7 +130,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 
 ## Can I move/migrate my cluster between Azure tenants?
 
-The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## Can I move/migrate my cluster between subscriptions?
 
@@ -182,11 +178,10 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
@@ -205,7 +200,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
-
+[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent

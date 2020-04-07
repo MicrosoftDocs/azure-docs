@@ -56,7 +56,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm][helm-installed] to run the Windows service on your cluster. Navigate to the `charts` directory and use Helm run the Windows service:
+The sample application uses [Helm 3][helm-installed] to run the Windows service on your cluster. Navigate to the `charts` directory and use Helm run the Windows service:
 
 ```console
 cd charts/
@@ -129,14 +129,14 @@ Navigate to the `webfrontend` directory and use the `azds prep` and `azds up` co
 
 ```console
 cd ../../webfrontend-linux/
-azds prep --public
+azds prep --enable-ingress
 azds up
 ```
 
-The `azds prep --public` command generates the Helm chart and Dockerfiles for your application.
+The `azds prep --enable-ingress` command generates the Helm chart and Dockerfiles for your application.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](../how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](../how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 The `azds up` command runs your service in the namespace.
 

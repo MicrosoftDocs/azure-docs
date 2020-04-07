@@ -1,8 +1,6 @@
 ---
 title:  Profile web apps on an Azure VM - Application Insights Profiler
 description: Profile web apps on an Azure VM by using Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining

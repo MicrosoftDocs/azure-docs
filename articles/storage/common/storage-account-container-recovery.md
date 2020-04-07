@@ -1,11 +1,13 @@
 ---
 title: Storage Account Container Recovery
 description: Storage Account Container Recovery
+services: storage
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
 ms.date: 10/30/2019
 ms.service: storage
+manager: dcscontentpm
 ---
 
 # Storage Account container recovery

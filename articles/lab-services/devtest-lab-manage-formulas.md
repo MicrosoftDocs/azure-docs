@@ -1,6 +1,6 @@
 ---
 title: Manage formulas in Azure DevTest Labs to create VMs | Microsoft Docs
-description: Learn how to update and remove Azure DevTest Labs formulas
+description: This article illustrates how to create a formula from either a base (custom image, Marketplace image, or another formula) or an existing VM.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
@@ -35,38 +35,39 @@ For more information about adding users and permissions, see [Add owners and use
 ### Create a formula from a base
 The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 
 3. From the list of labs, select the desired lab.  
 
-4. On the lab's page, select **Formulas (reusable bases)**.
-   
-    ![Formula menu](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
-
+4. On the lab's page, select **Formulas (reusable bases)** on the left menu.
 5. On the **Formulas** page, select **+ Add**.
    
     ![Add a formula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. On the **Choose a base** page, select the base (custom image, Marketplace image, or formula) from which you want to create the formula.
-   
-    ![Base list](./media/devtest-lab-create-formulas/base-list.png)
-
+6. On the **Choose a base** page, select the base (custom image or Marketplace image) from which you want to create the formula.
 7. On the **Basic Settings** tab of the **Create formula** page, specify the following values:
    
 	* **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
+    - Enter an optional **description** for the formula. 
 	* **User name** - Enter a user name that is granted administrator privileges.
 	* **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-	* **VM size** - Select **Change Size** to change the size of the VM. 
+
+        Select **Use a saved secret** if you want to use a secret from Azure Key Vault instead of using a password. 
+	* **Virtual machine size** - Select **Change Size** to change the size of the VM. 
+    - **OS disk type** - select the type of disk you want to use (Standard HDD, Standard SSD, or Premium SSD).
 	* **Artifacts** - Select **Add or Remove artifacts** page, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md).
+
+        ![Basic settings page](./media/devtest-lab-create-formulas/basic-settings.png)
 8. Switch to the **Advanced settings** tab, and specify the following values:
     - **Virtual network** - To change the virtual network, select **Change Vnet**. 
     - **Subnet** - To change the subnet, select **Change Subnet**. 
     - **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For more information about shared IP addresses, see [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md).
-    - **Expiration date and time** - Specify the expiration date and time for the VM so that the VM is automatically deleted. 
-    - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.     
-    - **Number of claimable instances** - specify how many of claimable instances you want to create. 
+    - **Expiration date and time** - You can't edit this field. 
+    - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.  
+
+        ![Basic settings page](./media/devtest-lab-create-formulas/advanced-settings.png)
 8. Select **Submit** to create the formula.
 
 9. When the formula has been created, it displays in the list on the **Formulas** page.

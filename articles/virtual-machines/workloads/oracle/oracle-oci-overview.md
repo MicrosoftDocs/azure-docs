@@ -24,7 +24,7 @@ Microsoft and Oracle have partnered to provide low latency, high throughput cros
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud. 
 
 > [!IMPORTANT]
-> This cross-cloud capability is currently in preview, and [limitations apply](#preview-limitations). To establish low latency connectivity between Azure and OCI, your Azure subscription must first be enabled for this capability. You must enroll in the preview by completing this short [survey form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). You will receive an email back once your subscription has been enrolled. You aren't able to use the capability until you receive a confirmation email. You may also contact your Microsoft representative to be enabled for this preview. Access to the preview capability is subject to availability and restricted by Microsoft in its sole discretion. Completion of the survey does not guarantee access. This preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for Microsoft Azure Previews for details. Some aspects of this feature may change prior to general availability (GA).
+> This cross-cloud capability is currently in preview, and [limitations apply](#region-availability). To establish low latency connectivity between Azure and OCI, your Azure subscription must first be enabled for this capability. You must enroll in the preview by completing this short [survey form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). You will receive an email back once your subscription has been enrolled. You aren't able to use the capability until you receive a confirmation email. You may also contact your Microsoft representative to be enabled for this preview. Access to the preview capability is subject to availability and restricted by Microsoft in its sole discretion. Completion of the survey does not guarantee access. This preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for Microsoft Azure Previews for details. Some aspects of this feature may change prior to general availability (GA).
 
 If you are interested in deploying Oracle solutions entirely on Azure infrastructure, see [Oracle VM images and their deployment on Microsoft Azure](oracle-vm-solutions.md).
 
@@ -44,9 +44,13 @@ The following diagram is a high-level overview of the connected solution. For si
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
-## Preview limitations
+## Region Availability 
 
-* Cross-cloud connectivity in preview is limited to the Azure East US (eastus), UK South (uksouth), and Canada Central (canadacentral) regions and the OCI Ashburn (US East), London (UK South), and Toronto (Canada Southeast) regions. For UK South, please use Availability Domain 1 (AD 1) in OCI when deploying the inter-connect for lower latencies.
+Cross-cloud connectivity is limited to the following regions:
+* Azure East US (eastus) & OCI Ashburn (US East)
+* Azure UK South (uksouth) & OCI London (UK South)
+* Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
+* Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
 
 ## Networking
 

@@ -1,11 +1,7 @@
 ---
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
 
 ---

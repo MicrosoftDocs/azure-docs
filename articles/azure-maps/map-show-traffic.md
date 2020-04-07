@@ -1,7 +1,7 @@
 ---
 title: Show traffic on a map | Microsoft Azure Maps
 description: In this article you will learn, how to display traffic data on a map using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.custom: codepen
 There are two types of traffic data available in Azure Maps:
 
 - Incident data - consists of point and line-based data for things such as construction, road closures, and accidents.
-- Flow data - provides metrics on the flow of traffic on the roads. Traffic flow data is often used to color the roads based on how much traffic is slowing down the flow relative to the speed limit or some other metric. The traffic flow data in Azure Maps has three different metrics of measurement:
+- Flow data - provides metrics on the flow of traffic on the roads. Often, traffic flow data is used to color the roads. The colors are based on how much traffic is slowing down the flow, relative to the speed limit, or another metric. The traffic flow data in Azure Maps has three different metrics of measurement:
     - `relative` - is relative to the free-flow speed of the road.
     - `absolute` - is the absolute speed of all vehicles on the road.
     - `relative-delay` - displays areas that are slower than the average expected delay.

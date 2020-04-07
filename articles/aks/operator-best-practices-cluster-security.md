@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Cluster security in Azure Kubernetes Services (AKS)
+title: Best practices for cluster security
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
+
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)
@@ -20,7 +18,7 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 > * Use Azure Active Directory and role-based access controls to secure API server access
 > * Secure container access to node resources
 > * Upgrade an AKS cluster to the latest Kubernetes version
-> * Keep nodes update to date and automatically apply security patches
+> * Keep nodes up to date and automatically apply security patches
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 

@@ -40,6 +40,8 @@ landingContent:
             url: quickstarts/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts/python-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts/go-sdk.md
       - linkListType: how-to-guide
         links:
           - text: Specify a face detection model
@@ -57,6 +59,8 @@ landingContent:
             url: quickstarts/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts/python-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts/go-sdk.md
       - linkListType: how-to-guide
         links:
           - text: Specify a face recognition model

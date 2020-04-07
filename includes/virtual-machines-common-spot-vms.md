@@ -1,7 +1,6 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
@@ -14,21 +13,12 @@ Using Spot VMs allows you to take advantage of our unused capacity at a signific
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Spot VMs, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A Spot VM offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs with 30 seconds notice. 
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
 
 ## Eviction policy
 
 VMs can be evicted based on capacity or the max price you set. For virtual machines, the eviction policy is set to *Deallocate* which moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy the evicted VMs at a later time. However, reallocating Spot VMs will be dependent on there being available Spot capacity. The deallocated VMs will count against your spot vCPU quota and you will be charged for your underlying disks. 
 
 Users can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
-
-> [!IMPORTANT]
-> For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
 
 
 | Option | Outcome |
@@ -50,7 +40,7 @@ The following VM sizes are not supported for Spot VMs:
 
 Spot VMs can't currently use ephemeral OS disks.
 
-Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet and Department of Defense (DoD) in the Azure Government region.
+Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
 
 ## Pricing
 

@@ -1,17 +1,13 @@
 ---
-title: Use the portal for maintenance notifications for Azure VMs
+title: Use the portal for maintenance notifications
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the portal.
-services: virtual-machines
 author: shants123
-tags: azure-service-management,azure-resource-manager
-
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-
+#pmcontact: shants
 ---
 
 # Handling planned maintenance notifications using the portal

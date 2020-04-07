@@ -3,14 +3,11 @@ title: Upgrade your Azure account
 description: Describes how you can upgrade your Azure account.
 keywords: pay as you go upgrade
 author: bandersmsft
-manager: jureid
+ms.reviewer: sasrin
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -24,7 +21,7 @@ If you've signed up for an [Azure for Students Starter account](https://azure.mi
 
 ## Upgrade your Azure free account
 
-When you upgrade your Azure free account, you keep your remaining credit for the full 30 days from when you signed up. For example: If you signed up on 1 November and upgrade on 5 November, any unused credits will be available until 30 November. You also have access to free services for 12 months after the upgrade.
+When you upgrade your Azure free account, you keep your remaining credit for the full 30 days from when you signed up. For example: If you signed up on November 1st and upgrade on November 5th, any unused credits will be available until November 30th. You also have access to free services for 12 months after the upgrade.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Search for **Subscriptions.**

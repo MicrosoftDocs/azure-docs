@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a module of Azure Machine Learning designer (preview).
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 
@@ -82,7 +82,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - **Inplace**. The values in the columns used as inputs are replaced with the new calculated values. 
     - **ResultOnly**. A single column is returned containing the results of the math operation.
   
-1.  Run the pipeline.  
+1.  Submit the pipeline.  
   
 ## Results
 

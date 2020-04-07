@@ -6,7 +6,7 @@ manager: nitinme
 description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
 ---
 

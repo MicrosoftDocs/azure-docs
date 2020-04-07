@@ -4,13 +4,13 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
 ---
 
 # Add storage targets
 
-*Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache instance. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
+*Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
 You can define up to ten different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
@@ -30,11 +30,9 @@ A new Blob storage target needs an empty Blob container or a container that is p
 
 You can create a new container from this page just before adding it.
 
-To define an Azure Blob container, enter this information.
-
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
+To define an Azure Blob container, enter this information.
 
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
@@ -76,7 +74,7 @@ Steps to add the RBAC roles:
 1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
 
    > [!NOTE]
-   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the previews (before GA) might need to use the older name for the service principal.
+   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who participated in previews (before GA) might need to use the older name for the service principal.
 
 1. Click the **Save** button at the bottom.
 
@@ -88,7 +86,10 @@ Steps to add the RBAC roles:
 
 An NFS storage target has more fields than the Blob storage target. These fields specify how to reach the storage export and how to efficiently cache its data. Also, an NFS storage target lets you create multiple namespace paths if the NFS host has more than one export available.
 
-![Screenshot of add storage target page with NFS target defined](media/hpc-cache-add-nfs-target.png)
+![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
+
+> [!NOTE]
+> Before you create an NFS storage target, make sure your storage system is accessible from the Azure HPC Cache and meets permission requirements. Storage target creation will fail if the cache can't access the storage system. Read [NFS storage requirements](hpc-cache-prereqs.md#nfs-storage-requirements) and [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md) for details.
 
 Provide this information for an NFS-backed storage target:
 
@@ -123,7 +124,7 @@ When finished, click **OK** to add the storage target.
 ### Choose a usage model
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
+When you create a storage target that points to an NFS storage system, you need to choose the usage model for that target. This model determines how your data is cached.
 
 There are three options:
 
@@ -135,7 +136,7 @@ There are three options:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
-  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is only written to the back-end storage system after it has been in the cache for an hour with no additional changes.
+  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
 

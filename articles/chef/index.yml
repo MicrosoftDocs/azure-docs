@@ -50,4 +50,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a Windows VM
-            url: /azure/virtual-machines/windows/chef-automation?/azure/chef/toc.json&bc=/azure/bread/toc.json
+            url: chef-automation.md

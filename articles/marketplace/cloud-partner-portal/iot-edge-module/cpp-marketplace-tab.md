@@ -1,16 +1,18 @@
 ---
 title: Marketplace description for an Azure IoT Edge module | Azure Marketplace
 description: Create the marketplace description for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # IoT Edge module Marketplace tab
+
+>[!Important]
+>Starting March 30th, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
 
@@ -124,7 +126,7 @@ Use the following guidelines for a Hero logo:
 *  Avoid using most text when you're designing the logo. The publisher name, plan title, the offer long summary, and a create button are embedded programmatically inside the logo when the offer's listed. 
 * Include an unused rectangular space on the  right-side of your hero logo. This blank space is 415x100 pixels, and offset from the left by 370 pixels.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)

@@ -3,14 +3,14 @@ title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 01/13/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
-# Server side encryption of Azure managed disks
+# Server-side encryption of Azure managed disks
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
@@ -26,15 +26,23 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
 ## Customer-managed keys
 
-You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
+You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
+
+Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. The Storage service generates data encryption keys and encrypts them with customer-managed keys using RSA encryption. The envelope encryption allows you to rotate (change) your keys periodically as per your compliance policies without impacting your VMs. When you rotate your keys, the Storage service re-encrypts the data encryption keys with the new customer-managed keys. 
+
+You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
+
+For premium SSDs, standard SSDs, and standard HDDs: When you disable or delete your key, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.
+
+For ultra disks, when you disable or delete a key, any VMs with ultra disks using the key won't automatically shut down. Once you deallocate and restart the VMs then the disks will stop using the key and then VMs won't come back online. To bring the VMs back online, you must assign a new key or enable the existing key.
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM, which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 The following list explains the diagram in even more detail:
@@ -52,22 +60,22 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ### Supported regions
 
-Only the following regions are currently supported:
-
-- Available as a GA offering in the East US, West US 2, and South Central US regions.
-- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
-- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
+- If this feature is enabled for your disk, you cannot disable it.
+    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
+- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2048 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
+- Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
 
 ### CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
@@ -78,10 +86,13 @@ For now, customer-managed keys have the following restrictions:
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
+    > [!IMPORTANT]
+    > Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
+
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
-    location=WestCentralUS
+    location=westcentralus
     keyVaultName=yourKeyVaultName
     keyName=yourKeyName
     diskEncryptionSetName=yourDiskEncryptionSetName
@@ -94,35 +105,35 @@ For now, customer-managed keys have the following restrictions:
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.	Create an instance of a DiskEncryptionSet. 
+1.    Create an instance of a DiskEncryptionSet. 
     
-    ```azurecli
-    keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
+        ```azurecli
+        keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
+    
+        keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+    
+        az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
+        ```
 
-    keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
-    az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
-    ```
+        > [!NOTE]
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
-1.	Grant the DiskEncryptionSet resource access to the key vault. 
-
-    > [!NOTE]
-    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
-
-    ```azurecli
-    desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-
-    az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
-    az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
-    ```
+        ```azurecli
+        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
+    
+        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+    
+        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
+        ```
 
 #### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
 rgName=yourResourceGroupName
 vmName=yourVMName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -132,15 +143,28 @@ diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $
 az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
+
+#### Encrypt existing unattached managed disks 
+
+Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+```azurecli
+rgName=yourResourceGroupName
+diskName=yourDiskName
+diskEncryptionSetName=yourDiskEncryptionSetName
+ 
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+```
+
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
-rgName=ssecmktesting
-vmssName=ssecmktestvmss5
-location=WestCentralUS
+rgName=yourResourceGroupName
+vmssName=yourVMSSName
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
-diskEncryptionSetName=diskencryptionset786
+diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
@@ -154,7 +178,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskSkuName=Premium_LRS
 diskSizeinGiB=30
-location=WestCentralUS
+location=westcentralus
 diskLUN=2
 diskEncryptionSetName=yourDiskEncryptionSetName
 
@@ -166,6 +190,32 @@ az disk create -n $diskName -g $rgName -l $location --encryption-type Encryption
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
 az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
+
+```
+
+#### Change the key of a DiskEncryptionSet to rotate the key for all the resources referencing the DiskEncryptionSet
+
+```azurecli
+
+rgName=yourResourceGroupName
+keyVaultName=yourKeyVaultName
+keyName=yourKeyName
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+
+keyVaultId=$(az keyvault show --name $keyVaultName--query [id] -o tsv)
+
+keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+
+az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url $keyVaultKeyUrl --source-vault $keyVaultId
+
+```
+
+#### Find the status of server-side encryption of a disk
+
+```azurecli
+
+az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
 
 ```
 

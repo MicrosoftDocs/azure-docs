@@ -110,7 +110,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 
 Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn more about managing Azure IoT Hub:
 
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Set up diagnostic logs](iot-hub-monitor-resource-health.md)
 
 To further explore the capabilities of IoT Hub, see:
 

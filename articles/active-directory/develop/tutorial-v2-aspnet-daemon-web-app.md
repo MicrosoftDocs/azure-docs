@@ -18,7 +18,6 @@ ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Build a multitenant daemon that uses the Microsoft identity platform endpoint
@@ -37,7 +36,8 @@ The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect 
 
 The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
 
-For a simpler console daemon application, see the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
 
 ## Scenario
 

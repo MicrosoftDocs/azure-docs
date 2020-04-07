@@ -7,10 +7,9 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
 
 ---
 
@@ -28,7 +27,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 Azure [load balancer](../load-balancer/load-balancer-overview.md) distributes incoming traffic among healthy virtual machine instances. 
 
-First, create a public Basic Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Standard Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. In the search box, type **load balancer**. Under **Marketplace** in the search results, pick **Load balancer**.
 1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information:
@@ -63,7 +62,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-	![Create a virtual machine scale set](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    ![Create a virtual machine scale set](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
 
 1. Select **Next** to move the the other pages. 
 1. Leave the defaults for the **Instance** and **Disks** pages.

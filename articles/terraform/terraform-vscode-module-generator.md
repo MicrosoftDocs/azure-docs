@@ -20,7 +20,7 @@ In this article, you learn how to do the following tasks:
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - **Visual Studio Code**: [Download Visual Studio Code](https://code.visualstudio.com/download) for your platform.
-- **Terraform**: [Install Terraform](/azure/virtual-machines/linux/terraform-install-configure ) to run the module created by Yeoman.
+- **Terraform**: [Install Terraform](terraform-install-configure.md) to run the module created by Yeoman.
 - **Docker**: [Install Docker](https://www.docker.com/get-started) to run the module created by the Yeoman generator.
 - **Go programming language**: [Install Go](https://golang.org/) as Yeoman-generated test cases are code using the Go language.
 

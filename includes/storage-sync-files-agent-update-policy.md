@@ -34,7 +34,7 @@ The following instructions describe how to change the settings after you've comp
 Open a PowerShell console and navigate to the directory where you installed the sync agent then import the server cmdlets. By default this would look something like this:
 ```powershell
 cd 'C:\Program Files\Azure\StorageSyncAgent'
-Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
+Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
 You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy setting and determine if you want to change it.

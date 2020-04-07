@@ -1,13 +1,12 @@
 ---
 title: Deploy an Azure VM from a user VHD | Azure Marketplace
 description: Explains how to deploy a user VHD image to create an Azure VM instance.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Deploy an Azure VM from a user VHD

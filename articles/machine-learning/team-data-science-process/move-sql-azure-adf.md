@@ -3,18 +3,18 @@ title: SQL Server data to SQL Azure with Azure Data Factory - Team Data Science 
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
 
-This article shows how to move data from an on-premises SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach which has the advantages of a replicated staging copy, though [we suggest to look at our Datamigration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+This article shows how to move data from an on-premises SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach that has the advantages of a replicated staging copy, though [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 For a table that summarizes various options for moving data to an Azure SQL Database, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md).
 
@@ -26,12 +26,12 @@ With ADF, existing data processing services can be composed into data pipelines 
 Consider using ADF:
 
 * when data needs to be continually migrated in a hybrid scenario that accesses both on-premises and cloud resources
-* when the data is transacted or needs to be modified or have business logic added to it when being migrated.
+* when the data needs transformations or have business logic added to it when being migrated.
 
 ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
-We set up an ADF pipeline that composes two data migration activities. Together they move data on a daily basis between an on-premises SQL database and an Azure SQL Database in the cloud. The two activities are:
+We set up an ADF pipeline that composes two data migration activities. Together they move data on a daily basis between an on-premises SQL Database and an Azure SQL Database in the cloud. The two activities are:
 
 * copy data from an on-premises SQL Server database to an Azure Blob Storage account
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
@@ -63,7 +63,7 @@ You can either adapt the procedure provided here to a set of your own data or fo
 The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure Azure Data Factory Integration Runtime
-The Integration Runtime is a customer managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway".
+The Integration Runtime is a customer-managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway".
 
 To set up, [follow the instructions for creating a pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -72,7 +72,7 @@ A linked service defines the information needed for Azure Data Factory to connec
 
 1. On-premises SQL Server
 2. Azure Blob Storage
-3. Azure SQL database
+3. Azure SQL Database
 
 The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
@@ -130,7 +130,7 @@ The table definition for the on-premises SQL Server is specified in the followin
 }
 ```
 
-The column names were not included here. You can sub-select on the column names by including them here (for details check the [ADF documentation](../../data-factory/copy-activity-overview.md) topic.
+The column names were not included here. You can subselect on the column names by including them here (for details check the [ADF documentation](../../data-factory/copy-activity-overview.md) topic.
 
 Copy the JSON definition of the table into a file called *onpremtabledef.json* file and save it to a known location (here assumed to be *C:\temp\onpremtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
@@ -297,4 +297,4 @@ The *startdate* and *enddate* parameter values need to be replaced with the actu
 
 Once the pipeline executes, you should be able to see the data show up in the container selected for the blob, one file per day.
 
-Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more information on how to do this and other capabilities provided by ADF, see the [ADF documentation](https://azure.microsoft.com/services/data-factory/).
+We have not leveraged the functionality provided by ADF to pipe data incrementally. For more information on how to do this and other capabilities provided by ADF, see the [ADF documentation](https://azure.microsoft.com/services/data-factory/).

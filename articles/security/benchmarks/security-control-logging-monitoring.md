@@ -74,7 +74,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
+If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS Logs(Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
 
 How to collect Azure Virtual Machine internal host logs with Azure Monitor:
 

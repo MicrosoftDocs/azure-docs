@@ -4,7 +4,7 @@ description: Prerequisites for Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
 ---
 
@@ -18,10 +18,10 @@ Start by creating a new Azure subscription. Use a separate subscription for each
 
 To create a new Azure subscription in the Azure portal:
 
-* Navigate to the [Subscriptions blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-* Click the **+ Add** button at the top
-* Sign in if prompted
-* Select an offer and walk through the steps to create a new subscription
+1. Navigate to the [Subscriptions blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Click the **+ Add** button at the top
+1. Sign in if prompted
+1. Select an offer and walk through the steps to create a new subscription
 
 ## Configure subscription owner permissions
 
@@ -99,6 +99,6 @@ Create the storage service endpoint from the Azure portal.
 
    ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
-## Next step: Create the vFXT cluster
+## Next steps
 
 After completing these prerequisites, you can create the cluster. Read [Deploy the vFXT cluster](avere-vfxt-deploy.md) for instructions.

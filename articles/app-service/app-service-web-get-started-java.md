@@ -1,6 +1,6 @@
 ---
 title: 'QuickStart: Create a Java app on Windows'
-description: Deploy your first Java Hello World to Azure App Service on Windows in minutes. The Maven Plugin for App Service makes it convenient to deploy Java apps.
+description: Deploy your first Java Hello World to Azure App Service on Windows in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, java, maven, quickstart
 author: msangapu-msft
 
@@ -18,7 +18,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create Java web app on Linux](./containers/quickstart-java.md).
 >
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
 
 > [!NOTE]
 > The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
@@ -55,7 +55,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.8.0</version>
+        <version>1.9.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -115,9 +115,20 @@ Once deployment has completed, browse to the deployed application using the foll
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
+> [!div class="nextstepaction"]
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Learn More about Maven plugins for Azure](https://github.com/microsoft/azure-maven-plugins)

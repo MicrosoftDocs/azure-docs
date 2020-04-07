@@ -1,29 +1,27 @@
 ---
 title: What's New - Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
-author: diberry
-manager: nitinme
-ms.custom: experiment-luis-0519
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: diberry
+ms.date: 02/11/2020
 ---
 
 # What's new in Language Understanding
 
-Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
+Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
-## Release notes 
+## Release notes
+
+### March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
 ### November 4, 2019 - Ignite
 
+* Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+
 * Improved developer productivity
-    * General availability of our [prediction endpoint V3](luis-migration-api-v3.md). 
-    * Ability to import and export apps with .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process. 
+    * General availability of our [prediction endpoint V3](luis-migration-api-v3.md).
+    * Ability to import and export apps with .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process.
 * Language expansion
     * [Arabic and Hindi](luis-language-support.md) in public preview.
 * Prebuilt models
@@ -32,8 +30,8 @@ Learn what's new in the service. These items include release notes, videos, blog
     * Italian [prebuilt entities](luis-reference-prebuilt-entities.md#italian-entity-support) - age, currency, dimension, number, and percentage resolution changed from V2.
 * Enhanced user experience in [preview.luis.ai portal](https://preview.luis.ai) - revamped labeling experience to enable building and debugging complex models. Try the preview portal tutorials:
     * [Intents only](tutorial-intents-only.md)
-    * [Decomposable machine-learned entity](tutorial-machine-learned-entity.md) 
-* Advance language understanding capabilities - [building sophisticated language models](luis-concept-entity-types.md) with less effort. 
+    * [Decomposable machine-learned entity](tutorial-machine-learned-entity.md)
+* Advance language understanding capabilities - [building sophisticated language models](luis-concept-entity-types.md) with less effort.
 * Define machine learning features at the model level and enable models to be used as signals to other models, for example using entities as features to intents and to other entities.
 * New, expanded [limits](luis-boundaries.md) - higher maximum for phrase lists and total phrases, new model as a feature limits
 * Extract information from text in the format of deep hierarchy structure, making conversation applications more powerful.
@@ -69,7 +67,7 @@ The following features were released at the Build 2019 Conference:
 
 * [Preview of V3 API migration guide](luis-migration-api-v3.md)
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
-* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
+* [Improved prebuilt domains](luis-reference-prebuilt-domains.md)
 * [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
@@ -78,6 +76,10 @@ The following features were released at the Build 2019 Conference:
 [Bot Framework](https://blog.botframework.com/)
 
 ## Videos
+
+### 2019 Ignite videos
+
+[Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### 2019 Build videos
 

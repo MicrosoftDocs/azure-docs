@@ -116,7 +116,7 @@ It depends on the type of metastore that your cluster is configured to use.
 
 For a default metastore: The default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 
-For a custom metastore: The lifecycle of the metastore is not tied to a cluster’s lifecycle. Therefore, you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persists even after you delete and re-create the HDInsight cluster.
+For a custom metastore: The lifecycle of the metastore is not tied to a cluster's lifecycle. Therefore, you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persists even after you delete and re-create the HDInsight cluster.
 
 For more information, see [Use external metadata stores in Azure HDInsight](hdinsight-use-external-metadata-stores.md).
 
@@ -130,7 +130,7 @@ Yes, you can migrate a Hive metastore from an ESP to a non-ESP cluster.
 
 ### How can I estimate the size of a Hive metastore database?
 
-A Hive metastore is used to store the metadata for data sources that are used by the Hive server.The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in [Hive metastore best practices](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
+A Hive metastore is used to store the metadata for data sources that are used by the Hive server.The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in [Hive metastore guidelines](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
 
 ### Do you support any other database other than Azure SQL Database as an external metastore?
 
@@ -226,9 +226,9 @@ In scenarios in which you must control the schedule, you can use the following s
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
 ### Why is LLAP available on Spark ESP clusters?
-On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accommodate for the resource usage of LLAP (e.g. minimum D13V2). 
 
-### How can I add addional AAD groups after creating an ESP cluster?
+### How can I add additional AAD groups after creating an ESP cluster?
 There are two ways to achieve this:
 1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
 2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 

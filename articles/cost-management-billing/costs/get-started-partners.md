@@ -1,20 +1,22 @@
 ---
 title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
 ---
 
 # Get started with Azure Cost Management for partners
 
-Azure Cost Management is natively available for partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Azure Cost Management](../index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access for their customers. Customers can use Cost Management features when enabled by their CSP partner.
+Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Azure Cost Management](../index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access for their customers.
+
+For direct partners and indirect providers, the global admin and admin agents of the indirect provider can access Cost Management in the partner tenant. Resellers and customers can access Cost Management in the customer tenant and view costs for the subscriptions, where costs are computed and shown at retail rates. However, they must have RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
+
+Customers can use Cost Management features when enabled by their CSP partner.
 
 CSP partners use Cost Management to:
 
@@ -95,9 +97,9 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer in a billing currency. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
 
-The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter.
+The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
 
 ## Partner access to billing scopes in Cost Management
 
@@ -132,18 +134,14 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
 
-To view costs for the customer tenant, open **Cost Management + Billing** and select the relevant Microsoft Partner Agreement billing account.
 
-![Select a billing account](./media/get-started-partners/select-billing-account.png)
+### View customer costs
 
-Under **Billing**, select **Azure subscriptions**, and then select a customer.
-
-![Select an Azure subscription customer](./media/get-started-partners/subscriptions-select-customer.png)
-
-select **Cost analysis** and start reviewing costs.
-Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
+To view costs for the customer tenant, open **Cost Management + Billing**. Select **Cost analysis** and then change the scope to the customer tenant subscription to start reviewing costs.
 
 ![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
 
 Amortized views and actual costs for reserved instances in the RBAC scopes show zero charges. Reserved instance costs are only showing in billing scopes where the purchases were made.
 
@@ -184,7 +182,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | productID | Identifier for the product that has accrued charges by consumption or purchase. It is the concatenated key of productID and SKuID, as shown in the Partner Center. | The ID of the product. |
 | product | Name of the product that has accrued charges by consumption or purchase, as shown on the invoice. | The product name in the catalog. |
 | serviceFamily | Shows the service family for the product purchased or charged. For example, Storage or Compute. | N/A |
-| productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. | N/A |
+| productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. | CommerceSubscriptionID |
 | productOrderName | The name of the Azure plan that the subscription belongs to. For example, Azure Plan. | N/A|
 | consumedService | Consumed service (legacy taxonomy) as used in legacy EA usage details. | Service shown in the Partner Center. For example, Microsoft.Storage, Microsoft.Compute, and microsoft.operationalinsights. |
 | meterID | Metered identifier for measured consumption. | The ID of the used meter. |
@@ -192,7 +190,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | meterCategory | Identifies the top-level service for usage. | The top-level service for the usage. |
 | meterSubCategory | Defines the type or subcategory of Azure service that can affect the rate. | The type of Azure service that can affect the rate.|
 | meterRegion | Identifies the location of the datacenter for certain services that are priced based on datacenter location. | The regional location of a data center for services, where applicable and populated. |
-| subscription ID | Unique Microsoft generated identifier for the Azure subscription. | N/A |
+| subscription ID | Unique Microsoft generated identifier for the Azure subscription. | EntitlementID |
 | subscriptionName | Name of the Azure subscription. | N/A |
 | Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. | N/A |

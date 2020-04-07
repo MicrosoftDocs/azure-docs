@@ -44,14 +44,14 @@ landingContent:
 
   - title: Marketplace offers
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Managed Services offers in Azure Marketplace
-            url: ./concepts/managed-services-offers.md
       - linkListType: how-to-guide
         links:
           - text: Publish Managed Services offers
             url: ./how-to/publish-managed-services-offers.md
+      - linkListType: concept
+        links:
+          - text: Managed Services offers in Azure Marketplace
+            url: ./concepts/managed-services-offers.md
 
   - title: Samples and templates
     linkLists:
@@ -61,6 +61,24 @@ landingContent:
             url: https://github.com/Azure/Azure-Lighthouse-samples/
           - text: Index of Azure Lighthouse samples
             url: ./samples/index.md
+
+  - title: Work with Azure services
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure Monitor Logs at scale
+            url: ./how-to/monitor-at-scale.md
+          - text: Deploy Azure Policy at scale
+            url: ./how-to/policy-at-scale.md
+
+  - title: Azure portal experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
 
   - title: Reference - Downloads
     linkLists:
@@ -88,15 +106,6 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
   
-  - title: Azure portal experiences
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and manage customers
-            url: ./how-to/view-manage-customers.md
-          - text: View and manage service providers
-            url: ./how-to/view-manage-service-providers.md
-
   - title: Get involved
     linkLists:
       - linkListType: get-started

@@ -19,7 +19,7 @@ This section covers backup operation failure of Azure Virtual machine.
 * Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verify that another backup service is not running.
-  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Verify that the VM has internet connectivity.
   * Make sure another backup service is not running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -78,8 +78,8 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 * If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the below steps:
   * Stop the MSDTC service
   * Open a command prompt (cmd)
-  * Run command “msdtc -uninstall”
-  * Run command “msdtc -install”
+  * Run command "msdtc -uninstall"
+  * Run command "msdtc -install"
   * Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
@@ -120,7 +120,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
    * Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
 
-   * [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Open certificates on a local computer console](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
@@ -185,7 +185,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | The VM Agent isn't present on the virtual machine: <br>Install any prerequisite and the VM Agent. Then restart the operation. |Read more about [VM Agent installation and how to validate VM Agent installation](#vm-agent). |
 | **Error code**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Error message**: The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
-
+| **Error code**:  UserErrorRequestDisallowedByPolicy <BR> **Error message**: An invalid policy is configured on the VM which is preventing Snapshot operation. | If you have an Azure Policy that [governs tags within your environment](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), either consider changing the policy from a [Deny effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) to a [Modify effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify), or create the resource group manually according to the [naming schema required by Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## Jobs
 
 | Error details | Workaround |
@@ -274,6 +274,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
 Get more information on how to set up a static IP through PowerShell:
 
-* [How to add a static internal IP to an existing VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [How to add a static internal IP to an existing VM](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

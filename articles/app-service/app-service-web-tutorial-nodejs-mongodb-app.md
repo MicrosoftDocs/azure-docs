@@ -6,10 +6,9 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build a Node.js and MongoDB app in Azure
 
 > [!NOTE]
@@ -195,7 +194,7 @@ module.exports = {
 };
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required due to [connection string requirements](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 

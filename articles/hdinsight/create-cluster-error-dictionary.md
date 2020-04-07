@@ -1,13 +1,14 @@
 ---
-title: Create a cluster error dictionary
-description: Learn how to create a cluster error dictionary.
-ms.reviewer: hrasheed
+title: Azure HDInsight Create a cluster - error dictionary
+description: Learn how to troubleshoot errors that occur when creating Azure HDInsight clusters
+
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
 ---
 
 
@@ -153,7 +154,7 @@ If you plan to use network security groups to control network traffic, take 
 
 ---
 
-## Error code: StoragePermissionsBlockedForMsi  
+## Error code: StoragePermissionsBlockedForMsi
 
 ### Error
 
@@ -168,13 +169,13 @@ You didn't provide the permissions required to manage identity. The user-assigne
 1. Open the Azure portal.
 1. Go to your storage account.
 1. Look under **Access Control (IAM)**.
-1. Make sure that the Storage Blob Data Contributor role or the Storage Blob Data Owner role has "Assigned" access to the user-assigned managed identity for the subscription.
+1. Make sure that the user has the Storage Blob Data Contributor role or the Storage Blob Data Owner role assigned to them.
 
 For more information, see [Set up permissions for the managed identity on the Data Lake Storage Gen2 account](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ---
 
-## Error code: InvalidNetworkSecurityGroupSecurityRules  
+## Error code: InvalidNetworkSecurityGroupSecurityRules
 
 ### Error
 
@@ -191,12 +192,12 @@ If you plan to use network security groups to control network traffic, take 
 - Identify the Azure region that you plan to use for HDInsight, and create a safe list of the IP addresses for your region. For more information, see [Health and management services: Specific regions](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
 - Identify the IP addresses that HDInsight requires. For more information, see [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 - Create or modify the network security groups for the subnet that you plan to install HDInsight into. For network security groups, allow inbound traffic on port 443 from the IP addresses. This configuration ensures that HDInsight management services can reach the cluster from outside the virtual network.
-  
+
 ---
 
 ## Error code: Cluster setup failed to install components on one or more hosts
 
-###  Error
+### Error
 
 "Cluster setup failed to install components on one or more hosts. Please retry your request."
 
@@ -206,7 +207,43 @@ Typically, this error is generated when there's a transient problem or an Azure 
 
 ### Resolution
 
-Check the [Azure status](https://status.azure.com/status) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
+Check the [Azure status](https://status.azure.com) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
+
+---
+
+## Error Code: FailedToConnectWithClusterErrorCode
+
+### Error
+
+Unable to connect to cluster management endpoint. Please retry later.
+
+### Cause
+
+HDInsight Service cannot connect to your cluster when attempting to create the cluster
+
+### Resolution
+
+If you are using custom VNet network security group (NSGs) and user-defined routes (UDRs), ensure that your cluster can communicate with HDInsight management services. For additional information see [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+
+---
+
+## Error Code: Deployments failed due to policy violation: 'Resource '<Resource URI>' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>"},"policyDefinition": <Policy Definition>
+
+### Cause
+
+Subscription-based Azure policies can deny the creation of public IP addresses. HDInsight cluster creation requires two public IPs.
+
+The following policies generally impact cluster creation:
+
+* Policies which prevent creating IP Addresses or Load balancers within the subscription.
+* Policy which prevent creating storage accounts.
+* Policy which prevent deleting networking resources such as IP Addresses or Load Balancers.
+
+### Resolution
+
+Delete or Disable the subscription-based Azure policy while creating HDInsight Cluster.
+
+---
 
 ## Next steps
 

@@ -27,7 +27,6 @@ The following table shows each development environment covered in this article, 
 | [Azure Databricks](#aml-databricks) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 | [The Data Science Virtual Machine (DSVM)](#dsvm) | Similar to the cloud-based compute instance (Python and the SDK are pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
 
-
 This article also provides additional usage tips for the following tools:
 
 * [Jupyter Notebooks](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
@@ -53,12 +52,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 The Azure Machine Learning [compute instance (preview)](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
-
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
-
 
 Learn more about [compute instances](concept-compute-instance.md).
 
@@ -95,7 +89,7 @@ To use the DSVM as a development environment:
 
         * To create an Ubuntu Data Science Virtual Machine, use the following command:
 
-            ```azurecli
+            ```azurecli-interactive
             # create a Ubuntu DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
@@ -104,7 +98,7 @@ To use the DSVM as a development environment:
 
         * To create a Windows Data Science Virtual Machine, use the following command:
 
-            ```azurecli
+            ```azurecli-interactive
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
@@ -114,13 +108,13 @@ To use the DSVM as a development environment:
 
     * For Ubuntu DSVM:
 
-        ```shell
+        ```bash
         conda activate py36
         ```
 
     * For Windows DSVM:
 
-        ```shell
+        ```bash
         conda activate AzureML
         ```
 
@@ -145,13 +139,13 @@ When you're using a local computer (which might also be a remote virtual machine
 
     Run the following command to create the environment.
 
-    ```shell
+    ```bash
     conda create -n myenv python=3.6.5
     ```
 
     Then activate the environment.
 
-    ```shell
+    ```bash
     conda activate myenv
     ```
 
@@ -159,13 +153,13 @@ When you're using a local computer (which might also be a remote virtual machine
 
 1. Run the following commands in your new environment to enable environment-specific IPython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
 
-    ```shell
+    ```bash
     conda install notebook ipykernel
     ```
 
     Then run the following command to create the kernel:
 
-    ```shell
+    ```bash
     ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
@@ -173,7 +167,7 @@ When you're using a local computer (which might also be a remote virtual machine
 
     This command installs the base Azure Machine Learning SDK with notebook and `automl` extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
 
-    ```shell
+    ```bash
     pip install azureml-sdk[notebooks,automl]
     ```
 
@@ -186,20 +180,19 @@ When you're using a local computer (which might also be a remote virtual machine
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-
    It will take several minutes to install the SDK. For more information on installation options, see the [install guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 1. Install other packages for your machine learning experimentation.
 
     Use either of the following commands and replace *\<new package>* with the package you want to install. Installing packages via `conda install` requires that the package is part of the current channels (new channels can be added in Anaconda Cloud).
 
-    ```shell
+    ```bash
     conda install <new package>
     ```
 
     Alternatively, you can install packages via `pip`.
 
-    ```shell
+    ```bash
     pip install <new package>
     ```
 
@@ -213,19 +206,19 @@ To enable these components in your Jupyter Notebook environment:
 
 1. Open an Anaconda prompt and activate your environment.
 
-    ```shell
+    ```bash
     conda activate myenv
     ```
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
 
-    ```CLI
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
 1. Launch the Jupyter Notebook server with the following command:
 
-    ```shell
+    ```bash
     jupyter notebook
     ```
 
@@ -244,7 +237,6 @@ To enable these components in your Jupyter Notebook environment:
     ```
 
 1. To configure the Jupyter Notebook to use your Azure Machine Learning workspace, go to the [Create a workspace configuration file](#workspace) section.
-
 
 ### <a id="vscode"></a>Visual Studio Code
 
@@ -328,7 +320,7 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    + In AutoML config, when using Azure Databricks add the following parameters:
        1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
         2. ```spark_context=sc``` is based on the default spark context.
-   + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after the restart, detach and reattach your cluster.
+   + Or, if you have an old SDK version, deselect it from cluster's installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after the restart, detach and reattach your cluster.
 
 If install was successful, the imported library should look like one of these:
 
@@ -391,7 +383,6 @@ You can create the configuration file in three ways:
     ```
 
     This code writes the configuration file to the *.azureml/config.json* file.
-
 
 ## Next steps
 

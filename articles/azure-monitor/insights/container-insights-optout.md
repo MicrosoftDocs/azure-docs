@@ -55,20 +55,20 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         "metadata": {
            "description": "Location of the AKS resource e.g. \"East US\""
          }
-       }
        },
     "aksResourceTagValues": {
       "type": "object",
       "metadata": {
         "description": "Existing all tags on AKS Cluster Resource"
+        }
       }
-    },
+     },
     "resources": [
       {
         "name": "[split(parameters('aksResourceId'),'/')[8]]",
         "type": "Microsoft.ContainerService/managedClusters",
         "location": "[parameters('aksResourceLocation')]",
-        "tags": "[parameters('aksResourceTagValues')]"
+        "tags": "[parameters('aksResourceTagValues')]",
         "apiVersion": "2018-03-31",
         "properties": {
           "mode": "Incremental",
@@ -135,7 +135,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -153,7 +153,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

@@ -74,6 +74,8 @@ Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-
 
 For more information about the import and export APIs, see [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities](iot-hub-bulk-identity-mgmt.md).
 
+Device identities can also be exported and imported from an IoT Hub via the Service API via either the [REST API](/rest/api/iothub/service/jobclient/createimportexportjob) or one of the IoT Hub [Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks).
+
 ## Device provisioning
 
 The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as table storage, blob storage, or Cosmos DB to store any additional device data.

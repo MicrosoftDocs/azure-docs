@@ -46,7 +46,7 @@ Before starting this tutorial, you need to complete the following tasks:
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
 You also need an Ubuntu (14.04 or 16.04) machine with Docker installed. This machine is used by Azure DevOps Services during the Azure Pipelines processes. 
-One way to create this machine is to use the image available in the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
+One way to create this machine is to use the image available in the Azure Marketplace. 
 
 ## Step 1: Configure your Azure DevOps Services organization 
 

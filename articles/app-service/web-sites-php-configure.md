@@ -31,20 +31,6 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 3. Click the **Save** button at the top of the **General settings** blade.
 
-### Azure PowerShell (Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Open Azure PowerShell, and login to your account:
-
-        PS C:\> Connect-AzAccount
-2. Set the PHP version for the app.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. The PHP version is now set. You can confirm these settings:
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
-
 ### Azure CLI 
 
 To use the Azure Command-Line Interface, you must [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.

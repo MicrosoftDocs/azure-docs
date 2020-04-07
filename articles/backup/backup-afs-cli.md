@@ -99,7 +99,7 @@ If you want to trigger an on-demand backup for your file share instead of waitin
 
 You need to define the following parameters to trigger an on-demand backup:
 
-* **--container-name** is the name of the storage account hosting the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list) command.
+* **--container-name** is the name of the storage account hosting the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) command.
 * **--item-name** is the name of the file share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) command.
 * **--retain-until** specifies the date until when you want to retain the recovery point. The value should be set in UTC time format (dd-mm-yyyy).
 

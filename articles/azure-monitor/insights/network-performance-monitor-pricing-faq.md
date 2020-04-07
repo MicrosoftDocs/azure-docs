@@ -1,7 +1,6 @@
 ---
 title: Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs
 description: Frequently asked questions - Azure Network Performance Monitor
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi

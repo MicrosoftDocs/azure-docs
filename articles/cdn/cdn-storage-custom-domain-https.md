@@ -1,5 +1,6 @@
 ---
 title: Access storage blobs using an Azure CDN custom domain over HTTPS
+description: Learn how to add an Azure CDN custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
 documentationcenter: ''
 author: mdgattuso

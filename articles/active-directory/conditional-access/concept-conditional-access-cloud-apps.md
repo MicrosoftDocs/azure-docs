@@ -1,12 +1,12 @@
 ---
-title: Client apps in Conditional Access policy - Azure Active Directory
-description: 
+title: Cloud apps or actions in Conditional Access policy - Azure Active Directory
+description: What are cloud apps or actions in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,14 +15,14 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps and actions
+# Conditional Access: Cloud apps or actions
 
-Cloud apps or actions is a key part of a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions. 
+Cloud apps or actions are a key signal in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## Microsoft cloud applications
 
@@ -36,7 +36,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Azure SQL Database and Data Warehouse](../../sql-database/sql-database-conditional-access.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
-- [Microsoft Azure Information Protection](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
 - Microsoft Azure Subscription Management
 - Microsoft Cloud App Security
@@ -45,7 +45,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Microsoft Intune Enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Microsoft Intune Enrollment](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search in Bing
@@ -76,7 +76,6 @@ Key applications that are included in the Office 365 (preview) client app:
 
    - Microsoft Flow
    - Microsoft Forms
-   - Microsoft Office 365 Portal
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
@@ -86,6 +85,7 @@ Key applications that are included in the Office 365 (preview) client app:
    - Office 365 Yammer
    - Office Delve
    - Office Online
+   - Office.com
    - OneDrive
    - PowerApps
    - Skype for Business Online
@@ -121,6 +121,7 @@ User actions are tasks that can be performed by a user. The only currently suppo
 
 ## Next steps
 
-- [Conditional Access policy components](concept-conditional-access-policies.md)
+- [Conditional Access: Conditions](concept-conditional-access-conditions.md)
+
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Client application dependencies](service-dependencies.md)
-- [Microsoft Intune: Require MFA for device enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)

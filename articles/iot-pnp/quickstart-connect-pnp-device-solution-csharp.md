@@ -1,8 +1,8 @@
 ---
 title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution | Microsoft Docs
 description: Use C# (.NET) to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/30/2019
 ms.topic: quickstart
 ms.service: iot-pnp

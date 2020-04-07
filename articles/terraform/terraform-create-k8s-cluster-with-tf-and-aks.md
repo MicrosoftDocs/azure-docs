@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform
-description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
+description: In this tutorial, you create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
+keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -20,9 +21,9 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 
@@ -66,7 +67,10 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.5"
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
     }
 
     terraform {
@@ -294,7 +298,7 @@ In this section, you see how to do the following tasks:
 
 ## Create the Kubernetes cluster
 
-In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
+In this section, you see how to use the `terraform init` command to create the resources defined in the configuration files you created in the previous sections.
 
 1. In Cloud Shell, initialize Terraform. Replace the placeholders with appropriate values for your environment.
 

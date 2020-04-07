@@ -53,6 +53,13 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
 
+At the top of your python file, import the `Schedule` and `ScheduleRecurrence` classes:
+
+```python
+
+from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
+```
+
 ### Create a time-based schedule
 
 The `ScheduleRecurrence` constructor has a required `frequency` argument that must be one of the following strings: "Minute", "Hour", "Day", "Week", or "Month". It also requires an integer `interval` argument specifying how many of the `frequency` units should elapse between schedule starts. Optional arguments allow you to be more specific about starting times, as detailed in the [ScheduleRecurrence SDK docs](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
@@ -122,7 +129,7 @@ def stop_by_schedule_id(ws, schedule_id):
     s.disable()
     return s
 
-stop_by_schedule(ws, schedule_id)
+stop_by_schedule_id(ws, schedule_id)
 ```
 
 If you then run `Schedule.list(ws)` again, you should get an empty list.
@@ -138,3 +145,4 @@ For more information, see:
 
 * Learn more about [pipelines](concept-ml-pipelines.md)
 * Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
+

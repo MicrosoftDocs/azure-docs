@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -30,9 +30,9 @@ Azure Media Services lets you deliver live events to your customers on the Azure
 
 ## Live Event types
 
-A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through or live encoding. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: An on-premises live encoder sends a multiple bitrate stream. The ingested stream passes through the Live Event without any further processing. 
+* **LiveEventEncodingType.None**: An on-premises live encoder sends a multiple bitrate stream. The ingested stream passes through the Live Event without any further processing. Also called the pass-through mode.
 * **LiveEventEncodingType.Standard**: An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
 * **LiveEventEncodingType.Premium1080p**: An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrates pairs.
 
@@ -77,13 +77,15 @@ When creating a Live Event, you can specify the following options:
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
 
     If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
+    
+* When creating the event, you can choose to turn on Live Transcriptions. <br/> By default, live transcription is disabled. You can't change this property while the Live Event or its associated Live Outputs are running. 
 
 ### Naming rules
 
 * Max live event name is 32 characters.
 * The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
@@ -101,7 +103,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     Non-vanity URL is the default mode in Media Services v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL isn't a problem.
 
-    If a client app doesn’t need to pre-generate an ingest URL before the Live Event is created, let Media Services autogenerate the Access Token for the live event.
+    If a client app doesn't need to pre-generate an ingest URL before the Live Event is created, let Media Services autogenerate the Access Token for the live event.
 
 * Vanity URL
 
@@ -123,7 +125,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
 * *your access token*: The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *stream name*: Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: “video1_audio1”, “video2_audio1”, “stream”.
+* *stream name*: Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: "video1_audio1", "video2_audio1", "stream".
 
 #### Non-vanity URL
 
@@ -170,7 +172,11 @@ Once you have the stream flowing into the Live Event, you can begin the streamin
 
 For detailed information about Live Outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Ask questions, give feedback, get updates
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
+
+## Ask questions and get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

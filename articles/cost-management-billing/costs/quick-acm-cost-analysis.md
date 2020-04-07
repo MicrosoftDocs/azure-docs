@@ -1,14 +1,12 @@
 ---
-title: Quickstart - Explore Azure costs with cost analysis | Microsoft Docs
+title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with cost analysis
@@ -23,12 +21,13 @@ In this quickstart, you learn how to:
 - Customize cost views
 - Download cost analysis data
 
-
 ## Prerequisites
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
 For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
+
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Sign in to Azure
 
@@ -40,13 +39,17 @@ To review your costs in cost analysis, open the scope in the Azure portal and se
 
 The scope you select is used throughout Cost Management to provide data consolidation and control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope, which others roll up to, and then filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
 
+Watch the video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) to learn more about how to use Cost Analysis.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
+
 The initial cost analysis view includes the following areas.
 
 **Accumulated cost view**: Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but you can change to other built-in views. For more information, see [Customize cost views](#customize-cost-views).
 
 **Actual cost**: Shows the total usage and purchase costs for the current month, as they're accrued and will show on your bill.
 
-**Forecast**: Shows the total forecasted costs for time period you choose. (Forecast is in preview.)
+**Forecast**: Shows the total forecasted costs for time period you choose.
 
 **Budget**: Shows the planned spending limit for the selected scope, if available.
 
@@ -55,6 +58,12 @@ The initial cost analysis view includes the following areas.
 **Pivot (donut) charts**: Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the largest to smallest costs for the current month. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by service (meter category), location (region), and child scope by default. For example, enrollment accounts are under billing accounts, resource groups are under subscriptions, and resources are under resource groups.
 
 ![Initial view of cost analysis in the Azure portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+
+### Understand forecast
+
+Cost forecast shows a projection of your estimated costs for the selected time period. The model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
+
+The model uses a maximum of six months of training data to project costs for a year. At a minimum, it needs seven days of training data to change its prediction. The prediction is based on dramatic changes, such as spikes and dips, in cost and usage patterns. Forecast doesn't generate individual projections for each item in **Group by** properties. It only provides a forecast for total accumulated costs. If you use multiple currencies, the model provides forecast for costs only in USD.
 
 ## Customize cost views
 
@@ -107,7 +116,7 @@ By default, cost analysis shows all usage and purchase costs as they are accrued
 
 ![Change between actual and amortized cost to see reservation purchases spread across the term and allocated to the resources that used the reservation](./media/quick-acm-cost-analysis/metric-picker.png)
 
-Amortized cost breaks down reservation purchases into daily chunks and spreads them over the duration of the reservation term. For example, instead of seeing a $365 purchase on January 1, you'll see a $1 purchase every day from January 1 to December 31. In addition to basic amortization, these costs are also reallocated and associated by using the specific resources that used the reservation. For example, if that $1 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Note that unused reservation costs can be seen only when viewing amortized cost.
+Amortized cost breaks down reservation purchases into daily chunks and spreads them over the duration of the reservation term. For example, instead of seeing a $365 purchase on January 1, you'll see a $1.00 purchase every day from January 1 to December 31. In addition to basic amortization, these costs are also reallocated and associated by using the specific resources that used the reservation. For example, if that $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Note that unused reservation costs can be seen only when viewing amortized cost.
 
 Due to the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. In general, the total cost of months with a reservation purchase will decrease when viewing amortized costs, and months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases at this time.
 
@@ -129,6 +138,10 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 
 ## Understanding grouping and filtering options
+
+Cost analysis has many grouping and filtering options. To watch a video about grouping and filtering options, watch the [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) video.
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
 
 The following table lists some of the most common grouping and filtering options and when you should use them.
 
@@ -163,11 +176,17 @@ For more information about terms, see [Understand the terms used in the Azure us
 
 Save and share customized views with others by pinning cost analysis to the Azure portal dashboard or by copying a link to cost analysis.
 
+Watch the video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) to learn more about how to use the portal to share cost knowledge around your organization.
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 To pin cost analysis, select the pin icon in the upper-right corner. Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
 
 To share a link to cost analysis, select **Share** at the top of the blade. A custom URL will show, which opens this specific view for this specific scope. If you don't have cost access and get this URL, you'll see an "access denied" message.
 
 To learn more about granting access to costs for each supported scope, review [Understand and work with scopes](understand-work-scopes.md).
+
+
 
 ## Automation and offline analysis
 

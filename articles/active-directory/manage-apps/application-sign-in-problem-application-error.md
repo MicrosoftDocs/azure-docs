@@ -69,7 +69,7 @@ To add an attribute in the Azure AD configuration that will be sent in the Azure
 
 Signing in to the app fails because the SAML response is missing an attribute such as a role. Or it fails because the app expects a different format or value for the **NameID** (User Identifier) attribute.
 
-If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## Add an attribute to the Azure AD app configuration
 

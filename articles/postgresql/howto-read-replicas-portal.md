@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 01/24/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
@@ -22,6 +22,9 @@ These steps must be used to prepare a master server in the General Purpose or Me
 1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
 
 2. On the server sidebar, under **SETTINGS**, select **Replication**.
+
+> [!NOTE] 
+> If you see **Disable replication support** grayed out, the replication settings are already set on your server by default. You can skip the following steps and go to create a read replica. 
 
 3. Select **Enable Replication Support**. 
 

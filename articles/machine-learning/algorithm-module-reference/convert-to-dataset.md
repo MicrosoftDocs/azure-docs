@@ -14,7 +14,7 @@ ms.date: 10/10/2019
 
 # Convert to Dataset
 
-This article describes how to use the Convert to Dataset module in Azure Machine Learning designer to convert any data for a pipeline to the designer's internal format.
+This article describes how to use the Convert to Dataset module in Azure Machine Learning designer (preview) to convert any data for a pipeline to the designer's internal format.
   
 Conversion is not required in most cases. Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
 
@@ -47,7 +47,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
     Note that the **ReplaceValues** operation applies only to exact matches. For example, these strings would not be affected: `obs.`, `obsolete`.  
  
   
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
 
 ## Results
 

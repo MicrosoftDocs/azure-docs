@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,7 +22,7 @@ With the location condition in Conditional Access, you can control access to you
 ## Define locations
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
 1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
@@ -48,6 +48,7 @@ More information about the location condition in Conditional Access can be found
    1. **Include** select **Selected locations**
    1. Select the blocked location you created for your organization.
    1. Click **Select** > **Done** > **Done**.
+1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
 1. Under **Access controls** > **Block**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.

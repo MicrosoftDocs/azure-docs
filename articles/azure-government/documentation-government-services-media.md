@@ -26,7 +26,7 @@ For Azure Media Services v3 availability, see [Azure clouds and regions in which
 
 ## Media Services v2
 
-For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
+For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](https://docs.microsoft.com/azure/media-services/previous/).
 
 ## Connecting  
 

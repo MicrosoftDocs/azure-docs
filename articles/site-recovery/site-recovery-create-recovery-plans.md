@@ -1,17 +1,13 @@
 ---
 title: Create/customize recovery plans in Azure Site Recovery 
 description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: raynew
+ms.topic: how-to
+ms.date: 01/23/2020
 ---
 
 # Create and customize recovery plans
 
-This article describes how to create and customize a recovery plan in [Azure Site Recovery](site-recovery-overview.md). Before you start, [learn more](recovery-plan-overview.md) about recovery plans.
+This article describes how to create and customize a recovery plan for failover in [Azure Site Recovery](site-recovery-overview.md). Before you start, [learn more](recovery-plan-overview.md) about recovery plans.
 
 ## Create a recovery plan
 
@@ -19,23 +15,25 @@ This article describes how to create and customize a recovery plan in [Azure Sit
 2. In **Create recovery plan**, specify a name for the plan.
 3. Choose a source and target based on the machines in the plan, and select **Resource Manager** for the deployment model. The source location must have machines that are enabled for failover and recovery. 
 
-   **Failover** | **Source** | **Target** 
+    **Failover** | **Source** | **Target** 
    --- | --- | ---
-   Azure to Azure | Azure region |Azure region
-   VMware  to Azure | Configuration server | Azure
-   Physical machines to Azure | Configuration server | Azure   
-   Hyper-V managed by VMM to Azure  | VMM display name | Azure
-   Hyper-V without VMM to Azure | Hyper-V site name | Azure
-   VMM to VMM |VMM friendly name | VMM display name 
+   Azure to Azure | Select the Azure region | Select the Azure region
+   VMware  to Azure | Select the configuration server | Select Azure
+   Physical machines to Azure | Select the configuration server | Select Azure   
+   Hyper-V to Azure | Select the Hyper-V site name | Select Azure
+   Hyper-V (managed by VMM) to Azure  | Select the VMM server | Select Azure
+  
+    Note the following:
+    -  You can only use a recovery plan for failover from the source location to Azure. You can't use a recovery plan for failback from Azure.
+    - The source location must have machines that are enabled for failover and recovery. 
+    - A recovery plan can contain machines with the same source and target. 
+    - You can include VMware VMs and Hyper-V VMs managed by VMM, in the same plan.
+    - VMware VMs and physical servers can be in the same plan.
 
-   > [!NOTE]
-   > A recovery plan can contain machines with the same source and target. 
-   > VMware and Hyper-V VMs managed by VMM can't be in the same plan. VMware VMs and physical servers can be in the same plan, where the source is a configuration server.
-
-2. In **Select items virtual machines**, select the machines (or replication group) that you want to add to the plan. Then click **OK**.
+4. In **Select items virtual machines**, select the machines (or replication group) that you want to add to the plan. Then click **OK**.
     - Machines are added default group (Group 1) in the  plan. After failover, all machines in this group start at the same time.
     - You can only select machines are in the source and target locations that you specified. 
-1. Click **OK** to create the plan.
+5. Click **OK** to create the plan.
 
 ## Add a group to a plan
 
@@ -53,7 +51,7 @@ You can customize a recovery plan by adding a script or manual action. Note that
 - If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan. [Learn more](site-recovery-runbook-automation.md).
 - If you're replicating Hyper-V VMs managed by System Center VMM, you can create a script on the on-premises VMM server, and include it in the recovery plan.
 - When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 is created with the name *Group 1: pre-steps*. All pre-steps are listed inside this set. You can add a script on the primary site only if you have a VMM server deployed.
-- If you add an manual action, when the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
+- If you add a manual action, when the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
 - To create a script on the VMM server, follow the instructions in [this article](hyper-v-vmm-recovery-script.md).
 - Scripts can be applied during failover to the secondary site, and during failback from the secondary site to the primary. Support depends on your replication scenario:
     

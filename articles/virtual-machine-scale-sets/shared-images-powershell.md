@@ -124,7 +124,7 @@ $vmssConfig = New-AzVmssConfig `
 # Reference the image version
 Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption "FromImage" `
-  -Id $imageVersion.Id
+  -ImageReferenceId $imageVersion.Id
 
 # Complete the configuration
 Set-AzVmssOsProfile $vmssConfig `
