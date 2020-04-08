@@ -12,13 +12,15 @@ ms.date: 04/08/2020
 ---
 # Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input value. It does this by scanning for terms having a similar composition to the input term. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
+Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input string. It does this by scanning for terms having a similar composition. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on terms that have a similar composition. In contrast with language analyzers that can handle irregularities between singular and plural forms (mice and mouse), the differentials handled by fuzzy search are strictly limited to characters at face value. 
+It's an expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the engine builds a graph of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for each term (`search=university~ of~ washington~`). 
 
-Internally, the engine builds a graph of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for each term (`search=university~ of~ washington~`). The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the most relevant ones. For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results, with the most relevant ones at the top.
+The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the topmost relevant matches in the response. 
+
+For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results. In contrast with language analyzers that can handle irregularities between singular and plural forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value with no attempt at reconciling the semantic differences. "Universe" and "inverse" will match because the character discrepancies are small.
 
 A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
@@ -28,20 +30,24 @@ In Azure Cognitive Search:
 
 + The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), but you could specify `~1` for one degree of difference, or one edit. 
 
-+ A fuzzy query can expand a term up to 50 additional permutations. This limit is not configurable, but you can effectively reduce the number of expansions by decreasing the edits to 1. The response will consist of documents containing a relevant match (up to 50).
++ A fuzzy query can expand a term up to 50 additional permutations. This limit is not configurable, but you can effectively reduce the number of expansions by decreasing the edit distance to 1.
+
++ Responses consist of documents containing a relevant match (up to 50).
 
 Collectively, the graphs are submitted as match criteria against tokens in the index. As you can imagine, fuzzy search is inherently slower than other query forms. The size and complexity of your index can determine whether the benefits are enough to offset the latency of the response.
 
+> [!NOTE]
+> Because fuzzy search tends to be slow, it might be worthwhile to investigate alternatives such as n-gram indexing, with its progression of short character sequences (two and three character sequences for bigram and trigram tokens). Depending on your language and query surface, n-gram might give you better performance.
+>
+> Another alternative, which you could consider if you want to handle just the most egregious cases, would be a [synonym map](search-synonyms.md). For example, mapping "search" to "serach, serch, sarch", or "retrieve" to "retreive".
+
 ## Indexing for fuzzy search
 
-For fuzzy search, analyzers are not used during query processing to build the term graph, but they are used during indexing. Recall that for fuzzy search, the query tree is a graph of terms. The inverted index will be searched using permutations from the graph, rather than just the input term itself. As such, analyzers become relevant in that terms in the graph need to match tokens in the index.
+Analyzers are not used during query processing to create an expansion graph, but that doesn't mean analyzers should be ignored in fuzzy search scenarios. After all, analyzers are used during indexing to create tokens against which matching is done, whether the query is free form, filtered search, or a fuzzy search with a graph as input. 
 
-Generally, when assigning analyzers on a per-field basis, the decision to fine-tune the analysis chain is based on the primary use case (a filter or full text search) rather than specialized query forms like fuzzy search. For this reason, there is not a specific analyzer recommendation for fuzzy search. However, if test queries are not producing the matches you expect, you could try varying the indexing analyzer, setting it to a [language analyzer](index-add-language-analyzers.md), to see if you get better results. Some languages, particularly those with vowel mutations, can benefit from the inflection and irregular word forms generated by the Microsoft natural language processors.
+Generally, when assigning analyzers on a per-field basis, the decision to fine-tune the analysis chain is based on the primary use case (a filter or full text search) rather than specialized query forms like fuzzy search. For this reason, there is not a specific analyzer recommendation for fuzzy search. 
 
-> [!NOTE]
-> Because fuzzy search tends to be slow, it can be worthwhile to investigate alternatives such as n-gram indexing, with its progression of short character sequences (two and three character sequences for bigram and trigram tokens). Depending on your language and query surface, n-gram might give you better performance.
->
-> Another alternative, which you could consider if you want to handle just the most egregious cases, would be a synonym map. For example, mapping "search" to "serach, serch, sarch", or "retrieve" to "retreive".
+However, if test queries are not producing the matches you expect, you could try varying the indexing analyzer, setting it to a [language analyzer](index-add-language-analyzers.md), to see if you get better results. Some languages, particularly those with vowel mutations, can benefit from the inflection and irregular word forms generated by the Microsoft natural language processors. In some cases, using the right language analyzer can make a difference in whether a term is tokenized in a way that is compatible with the value provided by the user.
 
 ## How to use fuzzy search
 
