@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
+ms.date: 03/31/2020
 ---
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -46,7 +46,7 @@ Use the information in the table below for your Script Action. See [Customize HD
 
 ## Use Hue with HDInsight clusters
 
-SSH Tunneling is the only way to access Hue on the cluster once it is running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
+You can only have one user account with Hue on regular clusters. For multi-user access, enable [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) on the cluster. SSH Tunneling is the only way to access Hue on the cluster once it's running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
 
 > [!NOTE]  
 > We recommend using Firefox web browser to follow the instructions below.
@@ -108,9 +108,9 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 1. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 
-1. Hue does not understand Apache Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
+1. Hue doesn't understand Apache Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
-     	set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 

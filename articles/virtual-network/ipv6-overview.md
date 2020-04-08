@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/01/2020
+ms.date: 03/31/2020
 ms.author: kumud
 ---
 
@@ -52,7 +52,8 @@ IPv6 for Azure VNet includes the following capabilities:
     - Optional outbound rules which provide full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
     - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
     - Optional IPv6 ports can be reused on backend instances using the *Floating IP* feature of load-balancing rules 
-- [Standard IPv6 internal Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.  
+    - Note: Load balancing does not perform any protocol translation (no NAT64). 
+- [Standard IPv6 internal Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.   
 - Basic IPv6 public Load Balancer support for compatibility with legacy deployments
 - [Reserved IPv6 Public IP addresses and address ranges](ipv6-public-ip-address-prefix.md) provide stable, predictable IPv6 addresses which ease whitelisting of your azure-hosted applications for your company and your customers.
 - Instance-level Public IP provides IPv6 Internet connectivity directly to individual VMs.
@@ -67,8 +68,9 @@ IPv6 for Azure VNET is a foundational feature set which enables customers to hos
 
 ## Limitations
 The current IPv6 for Azure virtual network release has the following limitations:
-- IPv6 for Azure virtual network is available in all global Azure regions, but only in Global Azure- not yet in government clouds.
-- ExpressRoute and VPN gateways cannot be used in a VNET with IPv6 enabled, either directly or peered with "UseRemoteGateway". 
+- IPv6 for Azure virtual network is available in all global Azure Commercial regions using all deployment methods.  Deployment in the US Government cloud is temporarily limited to ARM (JSON) template, Command Line Interface (CLI) and Powershell.  IPv6 support in the US Government cloud portal will be availble shortly.  
+- ExpressRoute gateways CAN be used for IPv4-only traffic in a VNET with IPv6 enabled.  Support for IPv6 traffic is on our roadmap.   
+- VPN gateways CANNOT be used in a VNET with IPv6 enabled, either directly or peered with "UseRemoteGateway".
 - The Azure platform (AKS, etc.) does not support IPv6 communication for Containers.  
 
 ## Pricing
