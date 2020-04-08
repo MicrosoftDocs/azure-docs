@@ -143,8 +143,41 @@ In the example above, note how *reportedCondition* is a property of the *service
 These are the current limitations on using `JOIN` in the Azure Digital Twins Query Store Language:
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* Additional runtime limitations may be exposed, such as restricting how many levels of `JOIN` can be included.
-* During the preview release, only one level of `JOIN` is supported.
+* During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
+* The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
+
+## Best practices and recommendations
+
+Below are some tips for querying with Azure Digital Twins.
+
+* Consider the query pattern during the model design phase. Try to make sure relationships that need to be answered in a single query are modeled as a single-level relationship.
+* Design properties in a way that will avoid large result sets from graph traversal.
+* You can significantly reduce the number of queries you need by building an array of twins and querying with the `IN` operator. For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, you can:
+
+    1. Find floors in the building based on `contains` relationship
+        ```sql
+        SELECT Floor
+        FROM DIGITALTWINS Building
+        JOIN Floor RELATED Building.contains
+        WHERE Building.$dtId = @buildingId
+        ``` 
+    2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named *Floor* in the query below).
+
+        In client app:
+        ```csharp
+        var floors = "['floor1','floor2', ..'floorn']"; 
+        ```
+        In query:
+        ```sql
+        SELECT Room
+        FROM DIGITALTWINS Floor
+        JOIN Room RELATED Floor.contains
+        WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
+        AND Room. Temperature > 72
+        AND IS_OF_MODEL(Room, 'urn:contosocom:DigitalTwins:Room:1')
+        ```
+* Property names and values are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+
 
 ## Next steps
 
