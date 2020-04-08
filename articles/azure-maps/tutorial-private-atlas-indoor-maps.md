@@ -1,9 +1,9 @@
 ---
 title: Use Private Atlas to create indoor maps data | Microsoft Docs 
 description: Learn how to render an indoor map into your web application using the Azure Maps Private Atlas.
-author: farah-alyasari
-ms.author: v-faalya
-ms.date: 03/19/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 04/08/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,6 +15,7 @@ manager: philmea
 This tutorial shows you how to use the Azure Maps Private Atlas APIs. The Private Atlas lets you show indoor maps within your web application, and it provides you with the necessary functionalities to control your indoor maps data. In this tutorial, you learn how to use the Private Atlas APIs to:
 
 > [!div class="checklist"]
+
 > * Upload your indoor map DWG package
 > * Convert your DWG package into map data
 > * Create a data set from your map data
@@ -30,13 +31,13 @@ To use the Azure Maps Private Atlas APIs:
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
 2. [Enable Private Atlas](how-to-manage-private-atlas.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-4. Check that your DWG package meets the [DWG package requirements](dwg-requirements.md)
+4. Check that your DWG package meets the [DWG package requirements](dwg-requirements.md) or use the [Sample DWG package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Upload a DWG package
 
-Begin by using the [Data Upload API]() to upload your DWG package to Azure Maps resources. The API returns a status URL pointing to the uploaded package. You can use the status URL to check the upload status. Download the uploaded data. Or obtain the `udid` for the uploaded data. In this case, we want the `udid` to access the uploaded package. Follow the steps below to obtain the `udid`.
+Begin by using the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload your DWG package to Azure Maps resources. The API returns a status URL pointing to the uploaded package. You can use the status URL to check the upload status. Download the uploaded data. Or obtain the `udid` for the uploaded data. In this case, we want the `udid` to access the uploaded package. Follow the steps below to obtain the `udid`.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -93,11 +94,11 @@ If you meet errors while you're converting your DWG package, see the [DWG conver
 
 ## Create a data set
 
-The data set is a collection of map data entities, such as buildings. To make a data set, use the [Dataset Create API](). It takes a conversion ID for a DWG package, and it produces a set containing the map data. The steps below show you how to make a data set.
+The data set is a collection of map data entities, such as buildings. To make a data set, use the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). It takes a conversion ID for a DWG package, and it produces a set containing the map data. The steps below show you how to make a data set.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Dataset Create API]() to create a new data set. The URL of the request should have a format like the one below:
+2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new data set. The URL of the request should have a format like the one below:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<conversion-udid>&type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -112,7 +113,7 @@ The data set is a collection of map data entities, such as buildings. To make a 
     ![data-management](./media/tutorial-private-atlas-indoor-maps/dataset-ID.png)
 
 
-Use the [Dataset List API]() to view details of the data sets in your Private Atlas. When you're done using a data set, you can remove it using the [Dataset Delete API](). 
+Use the [Dataset List API](https://docs.microsoft.com/rest/api/maps/dataset/listpreview) to view details of the data sets in your Private Atlas. When you're done using a data set, you can remove it using the [Dataset Delete API](https://docs.microsoft.com/rest/api/maps/dataset/deletepreview).
 
 Don't delete your data set yet. The next section shows you how to produce a tile set from the data in your data set.
 
@@ -138,15 +139,15 @@ A tile set is a set of vector tiles that render on the map. It's produced from t
     ![data-management](./media/tutorial-private-atlas-indoor-maps/tileset-udid.png)
 
 
-To delete your tile set, use the [Tileset Delete API](). If you delete an in-use tile set, then those tiles won't render on the map at the application runtime. Use the [Tileset List API]() to see all the tile sets in your Azure Maps Private Atlas.
+To delete your tile set, use the [Tileset Delete API](https://docs.microsoft.com/rest/api/maps/tileset/deletepreview). If you delete an in-use tile set, then those tiles won't render on the map at the application runtime. Use the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview) to see all the tile sets in your Azure Maps Private Atlas.
 
 ## Query Azure Maps WFS APIs
 
-Learn about your map features by calling the [WFS API](). The steps below show you how to obtain a feature ID, we'll use this feature ID later to create a feature state set.
+Learn about your map features by calling the [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how to obtain a feature ID, we'll use this feature ID later to create a feature state set.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **GET** request to the [WFS API]() to view a list of the collections in your data set. Replace `<dataset-udid>` with your data set ID, similarly use your Azure Maps primary key instead of the placeholder.
+2. Make a **GET** request to the [WFS API](https://docs.microsoft.com/rest/api/maps/wfs) to view a list of the collections in your data set. Replace `<dataset-udid>` with your data set ID, similarly use your Azure Maps primary key instead of the placeholder.
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/<dataset-udid>/collections?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
@@ -193,7 +194,7 @@ We'll refer to the style properties of this feature as states, and we'll use the
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](). Use the data set ID of the data set that contains the state you want to modify. Here's how the URL should look like:
+2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use the data set ID of the data set that contains the state you want to modify. Here's how the URL should look like:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetID=<dataset-udid>&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -266,7 +267,7 @@ We'll refer to the style properties of this feature as states, and we'll use the
 
 4. Copy the state set ID from the response body
 
-5. Use the [Feature Update States API]() to update the state. Pass the state set ID, data set ID, and feature ID, with your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+5. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the state set ID, data set ID, and feature ID, with your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<stateset-udid>&datasetID=<dataset-udid>&featureID=<feature-ID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -286,15 +287,16 @@ We'll refer to the style properties of this feature as states, and we'll use the
     }
     ```
 
-7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you had [dynamic styling implemented]() for an indoor map, then the update would reflect in your rendered map at the specified time stamp.
+7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you had [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, then the update would reflect in your rendered map at the specified time stamp.
 
-The [Feature Get States API]() lets you learn about the state of a feature using its feature ID. You can also delete the state set and its resource using the [Feature State Delete API]().
+The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) lets you learn about the state of a feature using its feature ID. You can also delete the state set and its resource using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
+
 > * Upload your indoor map DWG package
 > * Convert your DWG package into map data
 > * Create a data set from your map data
@@ -306,10 +308,10 @@ In this tutorial, you learned how to:
 You're now equipped with the skills you need to move on to the next guides: 
 
 > [!div class="nextstepaction"]
-> [Use the Indoor Maps module]()
+> [Use the Indoor Maps module](how-to-use-indoor-module.md)
 
 > [!div class="nextstepaction"]
-> [Implement dynamic styling for indoor maps]()
+> [Implement dynamic styling for indoor maps](indoor-map-dynamic-styling.md))
 
 > [!div class="nextstepaction"]
 > [Bulk import data to an existing data set](how-to-ingest-bulk-data-in-dataset.md)
@@ -320,19 +322,20 @@ You're now equipped with the skills you need to move on to the next guides:
 Learn more about the different Azure Maps services discussed in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload]()
+> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-dwg-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion]()
+> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-dwg-package)
 
 > [!div class="nextstepaction"]
-> [Dataset]()
+> [Dataset](private-atlas-for-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset]()
+> [Tileset](private-atlas-for-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [WFS service]()
+> [Feature State set](private-atlas-for-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set]()
+> [WFS service](private-atlas-for-indoor-maps.md#web-feature-services-api)
+

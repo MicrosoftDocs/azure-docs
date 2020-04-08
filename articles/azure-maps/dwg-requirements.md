@@ -12,7 +12,7 @@ manager: philMea
 
 # DWG package requirements
 
-The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a DWG package, for a single facility, into an indoor map [Datasets](private-atlas-for-indoor-maps.md#datasets). This article describes the DWG package requirements for the Conversion API.
+The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a DWG package, for a single facility, into an indoor map [Datasets](private-atlas-for-indoor-maps.md#datasets). This article describes the DWG package requirements for the Conversion API. Optionally, you can download and use a [Sample DWG package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 ## Prerequisites
 
