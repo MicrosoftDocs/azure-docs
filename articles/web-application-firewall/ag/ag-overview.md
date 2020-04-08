@@ -35,7 +35,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
 
-* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 40 websites that are protected by a web application firewall.
+* Protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites that are protected by a web application firewall.
 
 * Create custom WAF policies for different sites behind the same WAF 
 
