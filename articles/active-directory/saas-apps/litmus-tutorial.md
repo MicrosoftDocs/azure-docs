@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Litmus Configuration](./media/litmus-tutorial/configure1.png)
 
-    a. Switch on the the **Enable SAML** toggle.
+    a. Switch on the **Enable SAML** toggle.
 
     b. Select **Generic** for the provider.
 
@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **SAML 2.0 Endpoint(HTTP)** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    b. Open downloaded **Certificate (Base64)** file from Azure portal into Notepad and paste the content into **X.509 Certificate** textbox.
+    b. Open downloaded **Certificate** file from Azure portal into Notepad and paste the content into **X.509 Certificate** textbox.
 
     c. Click **Save SAML settings**.
 
