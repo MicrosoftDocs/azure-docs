@@ -27,7 +27,7 @@ If your query fails when with the error saying 'File cannot be opened because it
 
 ## Next steps
 
-Take a look at these articles to learn more about how to use SQL on-demand:
+Review the following articles to learn more about how to use SQL on-demand:
 
 - [Query single CSV file](query-single-csv-file.md)
 

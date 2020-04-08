@@ -13,14 +13,14 @@ ms.reviewer: jrasnick
 
 Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
-You can change the default database collation from the Azure portal when you create a new SQL Analytics pool database. This capability makes it even easier to create a new database using one of the 3800 supported database collations.
+You can change the default database collation from the Azure portal when you create a new SQL pool database. This capability makes it even easier to create a new database using one of the 3800 supported database collations.
 
 You can specify the default SQL Analytics on-demand database collation at creation time using CREATE DATABASE statement.
 
 ## Changing collation
 To change the default collation for SQL Analytics pool database, you simple update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
-To change the default collation for SQL Analytics on-demand database, you can use ALTER DATABASE statement.
+To change the default collation for SQL on-demand database, you can use ALTER DATABASE statement.
 
 ## List of unsupported collation types
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -103,4 +103,12 @@ To check the current collation for the database, you can run the following T-SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. You can learn more about the DatabasePropertyEx function on MSDN.
+
+## Next steps
+
+Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
+
+- [Best Practices for SQL pool](best-practices-sql-pool.md)
+- [Best practices for SQL on-demand](best-practices-sql-on-demand)
+
 

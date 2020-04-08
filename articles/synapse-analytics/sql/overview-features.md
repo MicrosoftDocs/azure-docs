@@ -123,3 +123,9 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | JSON | Yes | [Yes](query-json-files.md) |
 | [Delta-lake](https://delta.io/) | No | No |
 | [CDM](https://docs.microsoft.com/common-data-model/) | No | No |
+
+## Next steps
+Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
+
+- [Best Practices for SQL pool](best-practices-sql-pool.md)
+- [Best practices for SQL on-demand](best-practices-sql-on-demand)

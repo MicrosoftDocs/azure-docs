@@ -55,6 +55,6 @@ Different professional roles can benefit from SQL on-demand:
 - BI Professionals can quickly create Power BI reports on top of data in the lake and Spark tables. 
 
 ## Next steps
-
+For more information, see the following articles:
 - [Connect to your endpoint](connect-overview.md)
 - [Query your files](develop-storage-files-overview.md)

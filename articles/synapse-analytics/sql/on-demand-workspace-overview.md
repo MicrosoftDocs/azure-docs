@@ -145,6 +145,6 @@ A user that is logged into SQL on-demand service must be authorized to access an
 
 
 ## Next steps
-
+Additional information on endpoint connection and querying files can be found in the following articles: 
 - [Connect to your endpoint](connect-overview.md)
 - [Query your files](develop-storage-files-overview.md)
