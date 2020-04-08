@@ -24,7 +24,17 @@ If Synapse Studio can't establish connection to SQL on-demand, you'll notice tha
 
 ## Query fails because file cannot be opened
 
-If your query fails when with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL on-demand can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, SQL on-demand is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+If your query fails with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL on-demand can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, SQL on-demand is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+
+## Query fails because it cannot be executed due to current resource constraints 
+
+If your query fails with the error message 'This query cannot be executed due to current resource constraints', it means that SQL OD is not able to execute it at this moment due to resource constraints: 
+
+- Please make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they will be VARCHAR(8000) by default. 
+
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
+
+- Visit [performance best practices for SQL on-demand](best-practices-sql-on-demand.md) to optimize query.  
 
 ## Next steps
 
