@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/06/2020
+ms.date: 04/07/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -109,6 +109,7 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 04/07/2020: Change in [Setting up Pacemaker on SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to clarify cloud-netconfig-azure instructions
 - 04/06/2020: Changes in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) and in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) to remove references to NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (replaced by [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 03/31/2020: Change in [High availability of SAP HANA on Azure VMs on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) and [High availability of SAP HANA on Azure VMs on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) to add instructions how to specify stripe size when creating striped volumes
 - 03/27/2020: Change in [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) to align the file system mount options to NetApp TR-4746 (remove the sync mount option)
