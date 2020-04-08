@@ -78,9 +78,9 @@ Depending on your settings, the user can then use the phone number you set up to
 
 To manage a user's phone number, you must be assigned one of the following roles:
 
-- Authentication administrator
-- Privileged authentication administrator
-- Global administrator
+- [Authentication administrator](directory-assign-admin-roles.md#authentication-administrator)
+- [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Global administrator](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
 ## Search
 
