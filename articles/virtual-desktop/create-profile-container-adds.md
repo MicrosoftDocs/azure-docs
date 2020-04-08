@@ -1,6 +1,6 @@
 ---
-title: Create FSLogix profile container Active Directory Domain Services - Azure
-description: This article describes how to create an FSLogix profile container with Azure Active Directory Domain Services.
+title: Create FSLogix profile container Azure Files and Active Directory Domain Services - Azure
+description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,9 +11,9 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Create an FSLogix profile container with Azure AD DS
+# Create an FSLogix profile container with Azure Files and Azure AD DS
 
-This article will show you how to create an FSLogix profile container with Azure Active Directory Domain Services (AD DS).
+This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
 ## Configure Azure AD DS
 
@@ -204,9 +204,9 @@ From the Azure portal, navigate to the **Files share** created in the previous s
    #Optional
    Install-Module Microsoft.RdInfra.RdPowershell
 
-   \$brokerurl = "https://rdbroker.wvd.microsoft.com"
+   $brokerurl = "https://rdbroker.wvd.microsoft.com"
 
-   Add-RdsAccount -DeploymentUrl \$brokerurl
+   Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
    When prompted for credentials, enter the same user that was granted the Tenant Creator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
