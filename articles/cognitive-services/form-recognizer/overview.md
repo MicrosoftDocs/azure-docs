@@ -24,7 +24,8 @@ Form Recognizer is made up of the following services:
 * **Prebuilt receipt model** - Extract data from USA sales receipts using a prebuilt model.
 * **Layout API** - Extract text and table structures, along with their bounding box coordinates, from documents.
 
-<!-- add diagram -->
+> [!div class="mx-imgBorder"]
+> ![Form Recognizer diagram](media/diagram.png)
 
 ## Custom models
 
