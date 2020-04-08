@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Azure SQL DB/MI
+  items: 
   - name: Overview
     items:
     - name: What is SQL Database?
