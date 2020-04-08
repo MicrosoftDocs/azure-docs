@@ -46,7 +46,7 @@ Some popular applications running on WSFC include:
 
 Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
 
-## Persistent Reservation flow
+## Persistent reservation flow
 
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
 
@@ -74,21 +74,22 @@ The flow is as follows:
 
 ### Ultra disks reservation flow
 
-Because ultra disks offer an additional throttle, their reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Ultra disks offer an additional throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
 
 ## Ultra disk performance throttles
 
-Because ultra disks have the unique capability of allowing you to set your performance, there are exposed modifiable attributes you can use to adjust performance. By default, there are only two modifiable attributes but, shared ultra disks have two additional attributes.
+Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two additional attributes.
 
 
 |Attribute  |Description  |
 |---------|---------|
 |DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the share disk with write access.         |
 |DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
-|DiskIOPSReadOnly     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
-|DiskMBpsReadOnly     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
+|DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
+|DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
+ * Applies to shared ultra disks only
 
 The following formulas explain how the performance attributes can be set, since they are user modifiable:
 
@@ -102,26 +103,27 @@ The following formulas explain how the performance attributes can be set, since 
 
 ### Examples
 
-#### Two nodes, cluster shared volume
+#### Two nodes cluster using cluster shared volumes
+
+The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultatenous write-access to the disk which results in the ReadWrite throttle being split across the two VMs and the ReadOnly throttle not being used.
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
 :::image-end:::
 
-With a 2-node WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​.
+#### Two node cluster without cluster share volumes
 
-#### Two nodes, no cluster share volume
+The following is an example of a 2-node WSFC that isn't using clustered shared volumes. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle only being used by the secondary.
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
 
 :::image-end:::
 
-2-node WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
+#### Four node Linux cluster
 
-#### Four node example
+
+The following is an example of a 4-node Linux cluster with a single Writer and three scale-out Readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle being split by the secondary VMs.
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
 
 :::image-end:::
-
-4-node Linux cluster with a single Writer and three scale-out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.

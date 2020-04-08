@@ -10,4 +10,7 @@ ms.subservice: disks
 ---
 
 # Using Azure ultra disks
+
+This article explains how to deploy and use an ultra disk, for conceptual information about ultra disks, refer to [What disk types are available in Azure?](disks-types.md).
+
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

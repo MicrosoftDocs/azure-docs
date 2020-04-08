@@ -11,20 +11,20 @@ ms.custom: include file
 ---
 For now, ultra disks have additional limitations, they are as follows:
 
-The only infrastructure redundancy options currently available to ultra disks are availability zones, VMs using any other redundancy options cannot attach an ultra disk.
+The only infrastructure redundancy options currently available to ultra disks are availability zones, VMs using any other redundancy options cannot attach an ultra disk.  though ultra disks are not offered in every availability zone of these regions:
 
-VMs using availability zones in the following regions can attach ultra disks, though disks are not offered in every availability zone of these regions:
+The following table outlines the available regions and their corresponding availability options:
 
-- East US 2
-- East US
-- West US 2
-- SouthEast Asia
-- North Europe
-- West Europe
-- UK South 
-
-> [!IMPORTANT]
-> If your VMs are using no infrastructure redundancy options, then they must be in the West US region in order to attach ultra disks. 
+|Regions  |No infrastructure Redundancy  |Availability zones  |
+|---------|---------|---------|
+|West US     |         |         |
+|West US 2    |         |         |
+|East US     |         |         |
+|East US 2     |         |         |
+|SouthEast Asia     |         |         |
+|North Europe     |         |         |
+|West Europe     |         |         |
+|UK South     |         |         |
 
 - Are only supported on the following VM series:
     - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
@@ -38,3 +38,5 @@ VMs using availability zones in the following regions can attach ultra disks, th
 - Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery
 - The current maximum limit for IOPS on GA VMs is 80,000.
+
+Azure ultra disks offer up to 16 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in account limits, contact Azure Support.

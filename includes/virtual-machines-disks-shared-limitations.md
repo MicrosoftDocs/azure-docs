@@ -20,9 +20,7 @@ When sharing ultra disks, they have the following additional limitations:
 
 - Currently only supported in West US.
 - Currently limited to ARM or SDK support.
-- Can only be enabled on data disks, not OS disks.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- Azure Backup and Azure Site Recovery support is not yet available.
 
 ### Premium SSDs
 
