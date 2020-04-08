@@ -4,7 +4,7 @@
   href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
-  - name: What is Azure Synapse Analytics
+  - name: What is Azure Synapse Analytics?
     href: overview-what-is.md
   # - name: Who can benefit
   #   href: overview-who-can-benefit-azure-synapse-analytics
