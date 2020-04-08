@@ -18,7 +18,7 @@ ms.author: rolyon
 # Transfer an Azure subscription to a different Azure AD directory (Preview)
 
 > [!IMPORTANT]
-> Following these steps to transfer a subscription is currently in public preview.
+> Following these steps to transfer a subscription to a different Azure AD directory is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -113,7 +113,7 @@ To complete these steps, you will need:
 
 1. Save the list of role assignments.
 
-    When you transfer a subscription, all of the role role assignments are **permanently** deleted so it is important to save a copy.
+    When you transfer a subscription, all of the role assignments are **permanently** deleted so it is important to save a copy.
 
 1. Review the list of role assignments. There might be role assignments you won't need in the target directory.
 
@@ -217,7 +217,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create custom roles in target directory
 
-1. In the target directory, sign-in as the user that accepted the transfer request.
+1. In the target directory, sign in as the user that accepted the transfer request.
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
         
