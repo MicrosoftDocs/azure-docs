@@ -26,7 +26,7 @@ Safari is not alone in blocking third-party cookies to enhance user privacy - Br
 
 ## Overview of the solution
 
-In order to continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA  redeems this code for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third-party cookies.  MSAL.js 2.0, the Microsoft identity platform library for SPAs, implements the authorization code flow for SPAs and is a drop-in replacement for MSAL.js 1.x with minor updates.
+In order to continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA  redeems this code for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token flow to get new tokens.  MSAL.js 2.0, the Microsoft identity platform library for SPAs, implements the authorization code flow for SPAs and is a drop-in replacement for MSAL.js 1.x with minor updates.
 
 For Azure AD, native clients and SPAs follow the same protocol guidance:
 
