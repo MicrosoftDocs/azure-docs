@@ -124,7 +124,7 @@ Users in each role need to complete the following steps:
 
 ## STEP 8: Network Security
 
-To configure the workspace firewall, virtual network, and Private Link see instructions here \&lt;\&lt;insert link\&gt;\&gt;.
+To configure the workspace firewall, virtual network, and [Private Link](../../sql-database/sql-database-private-endpoint-overview.md).
 
 ## STEP 9: Completion
 

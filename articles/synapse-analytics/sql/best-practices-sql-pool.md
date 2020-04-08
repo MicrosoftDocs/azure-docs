@@ -35,7 +35,7 @@ It's equally important to update statistics as significant changes happen to you
 
 To shorten statistics maintenance time, be selective about which columns have statistics, or need the most frequent updating. For example, you might want to update date columns where new values may be added daily. Focus on having statistics for columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Additional information on statistics can be found in the [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles.
+Additional information on statistics can be found in the [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles.
 
 ## Group INSERT statements into batches
 
@@ -79,7 +79,7 @@ The most common example of a table distributed by a column outperforming a Round
 For example, if you have an orders table distributed by order_id, and a transactions table also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. Data movement operations are then eliminated. Fewer steps mean a faster query. Less data movement also makes for faster queries.
 
 > [!NOTE]
-When loading a distributed table, your incoming data shouldn't be sorted on the distribution key. Doing so will slow down your loads.
+> When loading a distributed table, your incoming data shouldn't be sorted on the distribution key. Doing so will slow down your loads.
 
 The article links provided below will give you additional details about improving performance via selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement:
 
@@ -104,7 +104,7 @@ More information about partitioning is detailed in the [Table partitioning](../s
 INSERT, UPDATE, and DELETE statements run in a transaction. When they fail, they must be rolled back. To reduce the potential for a long rollback, minimize transaction sizes whenever possible.  Minimizing transaction sizes can be done by dividing INSERT, UPDATE, and DELETE statements into parts. For example, if you have an INSERT that you expect to take 1 hour, you can break up the INSERT into four parts. Each run will then be shortened to 15 minutes.  
 
 > [!TIP]
-Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE, or INSERT to empty tables to reduce rollback risk.  
+> Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE, or INSERT to empty tables to reduce rollback risk.  
 
 Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly. Then you can switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
 
@@ -127,7 +127,7 @@ Reducing query results sizes helps you avoid client-side issues caused by large 
 
 When defining your DDL, use the smallest data type that will support your data as doing so will improve query performance.  This recommendation is particularly important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  Additionally, define columns as VARCHAR when that is all that is needed rather than using NVARCHAR.
 
-Please see the [Table overview](develop-tables-overview.md), [Table data types](develop-tables-data-types.md), and [CREATE TABLE](/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles for a more detailed review of essential concepts relevant to the above information.
+Please see the [Table overview](develop-tables-overview.md), [Table data types](develop-tables-data-types.md), and [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles for a more detailed review of essential concepts relevant to the above information.
 
 ## Use temporary heap tables for transient data
 
@@ -135,7 +135,7 @@ When you're temporarily landing data on SQL pools, heap tables will generally ma
 
 Loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session that created it. Consequently, they may only work in limited scenarios. Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
-For additional guidance, refer to the [Temporary tables](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [CREATE TABLE](/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles.
+For additional guidance, refer to the [Temporary tables](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) articles.
 
 ## Optimize clustered columnstore tables
 

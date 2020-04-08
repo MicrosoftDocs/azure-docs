@@ -559,8 +559,8 @@ When statistics are stale, new ones will be created. The algorithm goes through 
 
 Manual stats are never declared stale.
 
->[!NOTE]
-Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
+> [!NOTE]
+> Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
