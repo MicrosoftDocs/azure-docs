@@ -2,7 +2,7 @@
 title: Create Durable Functions using the Azure portal  
 description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/23/2020
 ms.reviewer: azfuncdf
 ---
 
@@ -25,13 +25,15 @@ By default, the function app created uses version 2.x of the Azure Functions run
 
 ## Install the durable-functions npm package (JavaScript only)
 
-If you are creating JavaScript Durable Functions, you will need to install the [`durable-functions` npm package](https://www.npmjs.com/package/durable-functions).
+If you are creating JavaScript Durable Functions, you'll need to install the [`durable-functions` npm package](https://www.npmjs.com/package/durable-functions):
 
-1. Select your function app's name, followed by **Platform Features**, then **Advanced tools (Kudu)**.
+1. From your function app's page, select **Advanced Tools** under **Development Tools** in the left pane.
 
    ![Functions platform features choose Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
-2. Inside the Kudu console, select **Debug console** then **CMD**.
+2. In the **Advanced Tools** page, select **Go**.
+
+3. Inside the Kudu console, select **Debug console**, and then **CMD**.
 
    ![Kudu debug console](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
 
@@ -53,29 +55,23 @@ If you are creating JavaScript Durable Functions, you will need to install the [
 
 ## Create an orchestrator function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
+1. In your function app, select **Functions** from the left pane, and then select **Add** from the top menu. 
 
-   ![Functions quickstart page in the Azure portal](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+1. In the search field of the **New Function** page, enter `durable`, and then choose the **Durable Functions HTTP starter** template.
 
-1. Choose **More templates** then **Finish and view templates**.
+   ![Select Durable Functions HTTP starter](./media/durable-functions-create-portal/durable-functions-http-starter-template.png)
 
-    ![Functions quickstart choose more templates](./media/durable-functions-create-portal/add-first-function.png)
+1. For the **New Function** name, enter `HttpStart`, and then select **Create Function**.
 
-1. In the search field, type `durable` and then choose the  **Durable Functions HTTP starter** template.
+   The function created is used to start the orchestration.
 
-1. When prompted, select **Install** to install the Azure DurableTask extension and any dependencies in the function app. You only need to install the extension once for a give function app. After installation succeeds, select **Continue**.
+1. Create another function in the function app, this time by using the **Durable Functions orchestrator** template. Name your new orchestration function `HelloSequence`.
 
-    ![Install binding extensions](./media/durable-functions-create-portal/install-durabletask-extension.png)
-
-1. After the installation completes, name the new function `HttpStart` and choose **Create**. The function created is used to start the orchestration.
-
-1. Create another function in the function app, this time by using the **Durable Functions Orchestrator** template. Name your new orchestration function `HelloSequence`.
-
-1. Create a third function named `Hello` by using the **Durable Functions Activity** template.
+1. Create a third function named `Hello` by using the **Durable Functions activity** template.
 
 ## Test the durable function orchestration
 
-1. Go back to the **HttpStart** function, choose **</> Get function URL** and **Copy** the URL. You use this URL to start the **HelloSequence** function.
+1. Go back to the **HttpStart** function, choose **Get function Url**, and select the **Copy to clipboard** icon to copy the URL. You use this URL to start the **HelloSequence** function.
 
 1. Use an HTTP tool like Postman or cURL to send a POST request to the URL that you copied. The following example is a cURL command that sends a POST request to the durable function:
 
