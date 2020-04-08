@@ -261,3 +261,8 @@ To verify your profile:
 
     If everything's set up correctly, you should see a **Directory** with a name that's formatted like this: `<user SID>-<username>`.
 
+## Next steps
+
+Now that you've prepared your profile container, you can use it to create host pools. To learn more, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile).
+
+You can also find more detailed information about concepts related to FSlogix containers for Azure files in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
