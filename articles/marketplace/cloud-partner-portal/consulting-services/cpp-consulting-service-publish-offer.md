@@ -12,7 +12,7 @@ ms.author: dsindona
 # Publish a consulting service offer
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 After you finish **Offer Settings**, **Storefront Details**, and **Contacts**, select **Publish** and provide an email address. When Microsoft is ready to publish your offer, you receive an email to preview it before it goes live. You can return to the portal to check the status of your offer at any time.
 

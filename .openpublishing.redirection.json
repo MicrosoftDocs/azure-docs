@@ -27476,11 +27476,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
-      "redirect_url": "/azure/storage/common/storage-decide-blobs-files-disks",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
       "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
       "redirect_document_id": true
@@ -27778,11 +27773,6 @@
     {
       "source_path": "articles/storage/storage-incremental-snapshots.md",
       "redirect_url": "/azure/virtual-machines/windows/incremental-snapshots",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/storage/storage-introduction.md",
-      "redirect_url": "/azure/storage/common/storage-introduction",
       "redirect_document_id": true
     },
     {
@@ -39924,6 +39914,11 @@
       "source_path": "articles/app-service/web-sites-java-add-app.md",
       "redirect_url": "/azure/app-service/app-service-web-get-started-java",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-decide-blobs-files-disks.md",
+      "redirect_url": "/azure/storage/common/storage-introduction",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
