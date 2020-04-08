@@ -32,7 +32,7 @@ both built-in and custom definitions.
 ## Register Guest Configuration resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. You can register
-through the (portal)[../../../azure-resource-manager/management/resource-providers-and-types#azure-portal], (Azure PowerShell)[../../../azure-resource-manager/management/resource-providers-and-types#azure-powershell], or (Azure CLI)[../../../azure-resource-manager/management/resource-providers-and-types#azure-cli]. The resource provider is registered automatically if
+through the [portal](../../../azure-resource-manager/management/resource-providers-and-types#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types#azure-powershell), or [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types#azure-cli). The resource provider is registered automatically if
 assignment of a Guest Configuration policy is done through the portal.
 
 ## Validation tools
