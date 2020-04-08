@@ -57,7 +57,7 @@ additionalContent:
           - url: /azure/storage/blobs/data-lake-storage-introduction
             text: Learn about storage for enterprise data lakes (Data Lake Storage)
           - url: /azure/storage/blobs/data-lake-storage-data-scenarios
-            text: Options and tools to process big data    
+            text: Understand options and tools to process big data    
         # Card
         - title: Cloud-hosted file shares
           links:
