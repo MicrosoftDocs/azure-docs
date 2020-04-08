@@ -164,7 +164,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-Use [Azure Products by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=media-services&regions=all) to determine if Media Services is available in a given datacenter.
+Use [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) to determine whether Media Services is available in a specific datacenter.
 
 ### Streaming endpoints 
 
