@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 03/30/2020
 ms.author: alzam
 
 ---
@@ -29,7 +29,7 @@ Point-to-site VPN can use one of the following protocols:
 >IKEv2 and OpenVPN for P2S are available for the Resource Manager deployment model only. They are not available for the classic deployment model. Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the basic SKU, you will have to delete and recreate a production SKU Virtual Network Gateway.
 >
 
-## Migrating from SSPT to IKEv2 or OpenVPN
+## Migrating from SSTP to IKEv2 or OpenVPN
 
 There may be cases when you want to support more than 128 concurrent P2S connection to a VPN gateway but are using SSTP. In such a case, you need to move to IKEv2 or OpenVPN protocol.
 

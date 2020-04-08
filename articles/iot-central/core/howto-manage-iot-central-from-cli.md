@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
+ms.date: 03/27/2020
 ms.topic: how-to
 manager: philmea
 ---
@@ -26,6 +26,14 @@ If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI
 
 > [!TIP]
 > If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+
+## Install the extension
+
+The commands in this article are part of the **azure-iot** CLI extension. Run the following command to install the extension:
+
+```azurecli-interactive
+az extension add --name azure-iot
+```
 
 ## Create an application
 

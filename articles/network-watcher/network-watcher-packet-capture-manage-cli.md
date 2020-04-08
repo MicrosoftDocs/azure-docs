@@ -51,13 +51,13 @@ Run the `az vm extension set` command to install the packet capture agent on the
 
 For Windows virtual machines:
 
-```azurecli
+```azurecli-interactive
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentWindows --version 1.4
 ```
 
 For Linux virtual machines:
 
-```azurecli
+```azurecli-interactive
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
 ```
 
@@ -66,12 +66,14 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 To ensure that the agent is installed, run the `vm extension show` command and pass it the resource group and virtual machine name. Check the resulting list to ensure the agent is installed.
 
 For Windows virtual machines:
-```azurecli
+
+```azurecli-interactive
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
 For Linux virtual machines:
-```azurecli
+
+```azurecli-interactive
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name AzureNetworkWatcherExtension
 ```
 
@@ -101,12 +103,11 @@ The following sample is an example of the response from running `az vm extension
 
 Once the preceding steps are complete, the packet capture agent is installed on the virtual machine.
 
-
 ### Step 1
 
 Retrieve a storage account. This storage account is used to store the packet capture file.
 
-```azurecli
+```azurecli-interactive
 az storage account list
 ```
 
@@ -114,7 +115,7 @@ az storage account list
 
 At this point, you are ready to create a packet capture.  First, let's examine the parameters you may want to configure. Filters are one such parameter that can be used to limit the data that is stored by the packet capture. The following example sets up a packet capture with several  filters.  The first three filters collect outgoing TCP traffic only from local IP 10.0.0.3 to destination ports 20, 80 and 443.  The last filter collects only UDP traffic.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
@@ -175,11 +176,11 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 Running the `az network watcher packet-capture show-status` command, retrieves the status of a currently running, or completed packet capture.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-The following example is the output from the `az network watcher packet-capture show-status` command. The following example is when the capture is Stopped, with a StopReason of TimeExceeded. 
+The following example is the output from the `az network watcher packet-capture show-status` command. The following example is when the capture is Stopped, with a StopReason of TimeExceeded.
 
 ```
 {
@@ -200,7 +201,7 @@ cketCaptures/packetCaptureName",
 
 By running the `az network watcher packet-capture stop` command, if a capture session is in progress it is stopped.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
@@ -209,7 +210,7 @@ az network watcher packet-capture stop --name packetCaptureName --location westc
 
 ## Delete a packet capture
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus
 ```
 

@@ -5,7 +5,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity

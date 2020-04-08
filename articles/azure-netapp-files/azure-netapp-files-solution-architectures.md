@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 03/27/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -22,6 +22,7 @@ This article provides references to best practices that can help you understand 
 ## Azure High-Performance Computing (HPC) solutions
 
 * [Run reservoir simulation software on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [Run MPI workloads with Azure Batch and Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 
 ## Azure Kubernetes Service (AKS) solutions
 
@@ -49,7 +50,7 @@ This article provides references to best practices that can help you understand 
 * [Speed up your SAP HANA system copies using Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Cloud Volumes ONTAP and Azure NetApp Files: SAP HANA system migration made easy](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/) 
 
-## Talon solutions
+## Global File Caching solutions
 
 * [Globally distributed enterprise file sharing with Azure NetApp Files and Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)
 

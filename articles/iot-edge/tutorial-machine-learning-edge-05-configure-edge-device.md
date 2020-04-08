@@ -159,7 +159,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
 
     * Create the resource group if it does not exist already
     * Create the virtual machine
-    * Add NSG exceptions for the VM for ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ), and 443 (SSL)
+    * Add NSG exceptions for the VM for ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ), and 443 (TLS)
     * Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
 
 7. The script outputs the SSH connection string for connecting to the VM. Copy the connection string for the next step.

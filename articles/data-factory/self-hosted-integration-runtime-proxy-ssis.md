@@ -20,7 +20,7 @@ This article describes how to run SQL Server Integration Services (SSIS) package
 
 With this feature, you can access data on-premises without having to [join your Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
 
-This feature splits packages that contain a data flow task with an on-premises data source into two staging tasks: 
+This feature splits any SSIS data flow task that has an on-premises data source into two staging tasks: 
 * The first task, which runs on your self-hosted IR, first moves data from the on-premises data source into a staging area in your Azure Blob storage.
 * The second task, which runs on your Azure-SSIS IR, then moves data from the staging area into the intended data destination.
 
@@ -47,11 +47,11 @@ Finally, you download and install the latest version of the self-hosted IR, as w
 
 If you haven't already done so, create an Azure Blob storage-linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure data factory-linked service](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Be sure to do the following:
 - For **Data Store**, select **Azure Blob Storage**.  
-- For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime**.  
+- For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your Azure-SSIS IR nor your self-hosted IR), because we use the default Azure IR to fetch access credentials for your Azure Blob Storage  
 - For **Authentication method**, select **Account key**, **SAS URI**, or **Service Principal**.  
 
     >[!TIP]
-    >If you select **Service Principal**, grant at least the *Storage Blob Data Contributor* role. For more information, refer to [Azure Blob storage connector](connector-azure-blob-storage.md#linked-service-properties).
+    >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, refer to [Azure Blob storage connector](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -148,7 +148,7 @@ If the staging tasks on your self-hosted IR require Windows authentication, [con
 
 Your staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. On the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment**, and then do the following:
 
-1. Assign the *Adjust memory quotas for a process* and *Replace a process level token* policies to the self-hosted IR service account. This should occur  automatically when you install your self-hosted IR with the default service account. If you use a different service account, assign the same policies to it.
+1. Assign the *Adjust memory quotas for a process* and *Replace a process level token* policies to the self-hosted IR service account. This should occur automatically when you install your self-hosted IR with the default service account. If it doesn't, assign those policies manually. If you use a different service account, assign the same policies to it.
 
 1. Assign the *Log on as a service* policy to the Windows Authentication account.
 
@@ -166,7 +166,7 @@ If you need to use strong cryptography/more secure network protocol (TLS 1.2) an
 
 ## Current limitations
 
-- Only data flow tasks with Open Database Connectivity (ODBC)/OLEDB/Flat File sources or OLEDB destination are currently supported. 
+- Only data flow tasks with Open Database Connectivity (ODBC)/OLEDB/Flat File sources are currently supported. 
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
 - *ParameterMapping* in OLEDB Source is not supported yet. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview container. Using Azure Storage Explorer, you can connect to our public preview container by entering the above SAS URI.
 

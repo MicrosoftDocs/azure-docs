@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -182,6 +182,8 @@ The following is an example of a RESTful technical profile configured with an HT
 
 ## OAuth2 bearer authentication 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
 
 ```http
@@ -192,6 +194,7 @@ A bearer token is an opaque string. It can be a JWT access token or any string t
 
 - **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
+
 
 ## Using OAuth2 Bearer  
 
@@ -215,18 +218,18 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), or by using the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)).  
+You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), or by using the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
 
-The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
+The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). You may need to modify this to interface with your Identity Provider. 
 
-You may need to modify this to interface with your Identity Provider. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
+For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
 <TechnicalProfile Id="SecureREST-AccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="ServiceUrl">https://login.microsoftonline.com/microsoft.com/oauth2/v2.0/token</Item>
+    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.microsoft.com/oauth2/v2.0/token</Item>
     <Item Key="AuthenticationType">Basic</Item>
      <Item Key="SendClaimsIn">Form</Item>
   </Metadata>
@@ -265,7 +268,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 1. Ensure you add the claim used above as an input claim:
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 After you add the above snippets, your technical profile should look like the following XML code:
@@ -285,7 +288,7 @@ After you add the above snippets, your technical profile should look like the fo
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

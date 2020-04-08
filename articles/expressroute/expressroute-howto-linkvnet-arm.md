@@ -2,12 +2,12 @@
 title: 'ExpressRoute: Link a VNet to a circuit: Azure PowerShell'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell.
 services: expressroute
-author: ganesr
+author: charwen
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/20/2018
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
 
 ---

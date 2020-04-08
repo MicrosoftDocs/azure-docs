@@ -5,7 +5,6 @@ services: active-directory
 author: jmprieur
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -72,7 +71,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > We have configured your project with values of your app's properties and it's ready to run. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### Step 3: Run your Visual Studio project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
