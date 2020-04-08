@@ -6,8 +6,6 @@
   items:
   - name: What is Azure Synapse Analytics
     href: overview-what-is.md
-  # - name: Who can benefit
-  #   href: overview-who-can-benefit-azure-synapse-analytics
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -142,20 +140,14 @@
         href: ./security/synapse-workspace-managed-vnet.md
       - name: Synapse workspace Managed private endpoints
         href: ./security/synapse-workspace-managed-private-endpoints.md
-      - name: Firewall rules
-        href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Virtual network service endpoints
-        href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Virtual network private link
-        href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ./sql/active-directory-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/active-directory-authentication.mdon
       - name: Multi-Factor Auth
-        href: ./sql/mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/mfa-authentication.md
       - name: SQL authorization
-        href: ./sql/sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql/sql-authentication.md
     - name: Access control
       items:
       - name: Overview
