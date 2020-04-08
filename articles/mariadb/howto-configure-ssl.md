@@ -96,8 +96,20 @@ client = Mysql2::Client.new(
         :password => 'yourpassword',    
         :database => 'quickstartdb',
         :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+        :ssl_mode => 'required'
     )
 ```
+#### Ruby on Rails
+```ruby
+default: &default
+  adapter: mysql2
+  username: username@mydemoserver
+  password: yourpassword
+  host: mydemoserver.mariadb.database.azure.com
+  sslca: BaltimoreCyberTrustRoot.crt.pem
+  sslverify: true
+```
+
 ### Golang
 ```go
 rootCertPool := x509.NewCertPool()
