@@ -106,7 +106,7 @@ You can use the following script to perform the registration and enable the feat
 ### 1.2 Domain join your storage account
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 > [!IMPORTANT]
-> We recommend you to provide an AD Organizational Unit (OU) that does NOT enforce password expiration. If you use an OU with password expiration configured, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-ad-account-password).
+> The domain join cmdlet below will create an AD account to represent the storage account (file share ) in AD. We recommend you to check if there is a default max password age set at the AD domain you plan to register the storage account (file share) to. You can run this [Get-ADDefaultDomainPasswordPolicy](https://docs.microsoft.com/powershell/module/addsadministration/get-addefaultdomainpasswordpolicy?view=win10-ps) cmdlet to get the MaxPasswordAge. If the MaxPasswordAge is configured, you must update the password of the AD account that will be created below to re before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-ad-account-password).
 
 
 ```PowerShell
@@ -133,6 +133,11 @@ Join-AzStorageAccountForAuth `
         -Name "<storage-account-name-here>" `
         -DomainAccountType "ComputerAccount" `
         -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+
+#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+
+#
+
 ```
 
 The following description summarizes all actions performed when the `Join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
