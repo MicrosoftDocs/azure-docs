@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/11/2020
+ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -62,11 +62,14 @@ No.
 
 ### What edition of Azure AD do I need to access the property?
 
-To access this property using the related API, you need an Azure AD Premium edition.
+You can access this property in all editions of Azure AD.
 
 ### What permission do I need to read the property?
 
-To read this property, you need to grant the following right: **AuditLogs.Read.All** 
+To read this property, you need to grant the following rights: 
+
+- AuditLogs.Read.All
+- Organisation.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -78,7 +81,7 @@ Each interactive sign-in that was successful results in an update of the underly
 
 To generate a lastSignInDateTime timestamp, you need a successful sign-in. Because the lastSignInDateTime property is a new feature, the value of the lastSignInDateTime property can be blank if:
 
-- The last successful sign-in of a user took place before this feature was released.
+- The last successful sign-in of a user took place before this feature was released (December 1st, 2019).
 - The affected user account was never used for a successful sign-in.
 
 ## Next steps
