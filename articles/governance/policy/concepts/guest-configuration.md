@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They do not
+apply configurations. The exception is [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
