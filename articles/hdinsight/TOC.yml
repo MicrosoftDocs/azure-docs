@@ -680,6 +680,8 @@
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: Troubleshoot Apache HBase
         href: ./hbase/apache-troubleshoot-hbase.md
+      - name: REST API to query Apache HBase
+        href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
   items:
   - name: Overview
