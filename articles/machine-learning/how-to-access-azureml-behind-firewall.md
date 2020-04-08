@@ -14,15 +14,22 @@ ms.date: 03/24/2020
 
 # Use Azure Machine Learning workspace behind Azure Firewall
 
-Azure Firewall can be used to restrict access to and from your Azure Machine Learning workspace and the public internet. However, there are hosts, IP addresses, and ports that need to be enabled on the firewall for your workspace to correctly function. Use the information in this article to correctly configure your firewall for Azure Machine Learning.
+This article contains information on configuring Azure Firewall for use with Azure Machine Learning.
 
-
+Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace.
 
 ## Hosts
 
-You must configure a network rule allowing traffic to and from the following addresses:
+Your development environment, and the Azure Machine Learning workspace, need to access the hosts listed in this section. 
 
-__Azure specific hosts__
+On your firewall, create a network rule allowing traffic to and from the following addresses:
+
+> [!TIP]
+> When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
+>
+> For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+
+__Azure-specific hosts__
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
@@ -44,11 +51,5 @@ __Python-related hosts__
 | **anaconda.com** | Used when installing conda packages |
 | **pypi.org** | Used when installing pip packages |
 
-When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 
-For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
-
-## IP Addresses
-
-## Ports
 
