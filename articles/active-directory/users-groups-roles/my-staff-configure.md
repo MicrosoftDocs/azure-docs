@@ -17,7 +17,7 @@ ms.custom: oldportal;it-pro;
 ---
 # Manage your users with My Staff (preview)
 
-My Staff enables a figure of authority, such as a store manager or a team lead, to ensure that their staff members are able access to their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a team manager. With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
+My Staff enables you to delegate to a figure of authority, such as a store manager or a team lead, the permissions to ensure that their staff members are able access to their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a team manager. With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
 
 Before you configure My Staff for your organization, we recommend that you review this documentation as well as the [user documentation](../user-help/my-staff-team-manager.md) to ensure you understand the functionality and impact of this feature on your users. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
 
