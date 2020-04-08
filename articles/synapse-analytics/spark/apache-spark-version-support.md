@@ -1243,3 +1243,9 @@ zict==0.1.2
 zipp==0.6.0
 
 zlib==1.2.8
+
+## Next steps
+
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark Concepts](apache-spark-concepts.md)

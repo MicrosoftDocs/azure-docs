@@ -132,5 +132,5 @@ In this quickstart, you learned how to create a Synapse Analytics Apache Spark p
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
-> [!NOTE]
-> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../spark/apache-spark-notebook-create-spark-use-sql.md) or [IntelliJ](../spark/intellij-tool-synapse.md) experiences instead.

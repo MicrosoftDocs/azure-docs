@@ -215,5 +215,5 @@ Input/output data using Resilient Distributed Datasets (RDDs) does not show in d
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
