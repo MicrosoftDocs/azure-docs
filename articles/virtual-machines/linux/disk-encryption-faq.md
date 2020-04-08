@@ -59,7 +59,7 @@ Storage server-side encryption encrypts Azure managed disks in Azure Storage. Ma
 Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the ephemeral resource disk with a customer-managed key.
 - If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
 - If your requirements include encrypting only data at rest with customer-managed key, then use [Server-side encryption with customer-managed keys](disk-encryption.md). You cannot encrypt a disk with both Azure Disk Encryption and Storage server-side encryption with customer-managed keys. 
-- If your Linux distro is not listed under [supported operating systems for Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) or you are using a scenario called out in the [unsupported scenarios for Windows](disk-encryption-windows.md#unsupported-scenarios), consider [Server-side encryption with customer-managed keys](disk-encryption.md).
+- If your Linux distro is not listed under [supported operating systems for Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) or you are using a scenario called out in the [unsupported scenarios for Windows](disk-encryption-linux.md#unsupported-scenarios), consider [Server-side encryption with customer-managed keys](disk-encryption.md).
 - If your organization's policy allows you to encrypt content at rest with an Azure-managed key, then no action is needed - the content is encrypted by default. For managed disks, the content inside storage is encrypted by default with Server-side encryption with platform-managed key. The key is managed by the Azure Storage service. 
 
 
