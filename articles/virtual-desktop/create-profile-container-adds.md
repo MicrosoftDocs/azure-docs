@@ -19,7 +19,7 @@ This article will show you how to create an FSLogix profile container with Azure
 
 To configure your Azure AD DS account to create FSLogix profile containers:
 
-1. Sign in to the Microsoft Azure portal with an account that has contributor or administrator permissions.
+1. Sign in to the Azure portal with an account that has contributor or administrator permissions.
 
 2. Select **New**, then in the search bar, search for and select **Azure Active Directory Domain Services**.
 
@@ -32,7 +32,7 @@ To configure your Azure AD DS account to create FSLogix profile containers:
    - Select an empty resource group or create a new one by selecting **Create new**.
    - Select a location.
 
-   ![A screenshot of the Basics tab in Azure AD DS.](media/basics-tab.png)
+    ![A screenshot of the Basics tab in Azure AD DS.](media/basics-tab.png)
 
 5. For the **Network** tab, configure a virtual network or select an existing one. We recommend you create a new one by selecting **Create new** and entering the following information:
 
@@ -41,7 +41,7 @@ To configure your Azure AD DS account to create FSLogix profile containers:
    - Subnet name
    - Subnet address range
 
-   ![A screenshot of the Network tab. The user has selected Create New and is in the process of creating a new network.](media/network-tab.png)
+    ![A screenshot of the Network tab. The user has selected Create New and is in the process of creating a new network.](media/network-tab.png)
 
 6. For the **Administrator group** tab, select the Azure AD users that will manage the Azure AD DS configuration.
 
@@ -49,7 +49,7 @@ To configure your Azure AD DS account to create FSLogix profile containers:
 
 8. Finally, you'll see the **Summary** tab. Review the information to make sure you've selected the right settings. When you're done, select **OK** to start the deployment.
 
-   ![A screenshot of the Summary tab in Azure AD DS.](media/summary-tab.png)
+    ![A screenshot of the Summary tab in Azure AD DS.](media/summary-tab.png)
 
    To check your deployment's progress, select the **Notifications** icon in the global controls bar.
 
@@ -71,7 +71,7 @@ To add an admin:
 
 5. In the left pane, select **Members**, then select **Add members** in the main pane. This will show a list of all users available in Azure AD. Select the name of the user profile you just created.
 
-## Create and configure an Azure Files storage account
+## Set up an Azure Files Storage account
 
 Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). For more information about this process, see our [Azure Storage Documentation](../storage/common/storage-introduction.md).
 
@@ -95,7 +95,7 @@ To enable authentication:
 
 6. Once the deployment is done, select **Go to resource**.
 
-7. Select **Configuration** from the pane on the left side of the screen, then enable **Azure Active Directory authentication for Azure Files** in the main pane. Confirm this change by selecting **Save**.
+7. Select **Configuration** from the pane on the left side of the screen, then enable **Azure Active Directory authentication for Azure Files** in the main pane. When you're done, select **Save**.
 
 8. Select **Overview** in the pane on the left side of the screen, then select **Files** in the main pane.
 
@@ -139,12 +139,12 @@ From the Azure portal, navigate to the **Files share** created in the previous s
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Replace **<desired-drive-letter>** with a drive letter of your choice (for example, `y:`).
-    - Replace all instances of **<storage-account-name>** with the name of the storage account you specified earlier.
-    - Replace **<share-name>** with the name of the share you created earlier.
-    - Replace **<storage-account-key>** with the storage account key from Azure.
+    - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
+    - Replace all instances of `<storage-account-name>` with the name of the storage account you specified earlier.
+    - Replace `<share-name>` with the name of the share you created earlier.
+    - Replace `<storage-account-key>` with the storage account key from Azure.
 
-    Here's an example of what the command will look like:  
+    For example:  
   
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -156,13 +156,13 @@ From the Azure portal, navigate to the **Files share** created in the previous s
      icacls <mounted-drive-letter>: /grant <user-email>:(f)
      ```
 
-    - Replace **<mounted-drive-letter>** with a drive letter of choice.
-    - Replace **<user-email>** with the UPN of the user who will be accessing the session host VMs and needs a profile.
+    - Replace `<mounted-drive-letter>` with the letter of the drive you want the user to use.
+    - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
 
-    Here's an example of what the command will look like:
+    For example:
      
      ```cmd
-     icacls y: /grant alexwilber\@airlift2020outlook.onmicrosoft.com:(f)
+     icacls y: /grant john.doe@contoso.com:(f)
      ```
 
 ## Configure your profile container
@@ -182,13 +182,13 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 
 6. Run **Registry Editor** (RegEdit) as an administrator.
 
-7. Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, right-click on **FSLogix**, select **New**, then select **Key**.
+7. Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, right-click on **FSLogix**, select **New**, and then select **Key**.
 
 8. Create a new key named **Profiles**.
 
-9. Right-click on **Profiles**, select **New**, and select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
+9. Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
-   ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
+    ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
 10. Right-click on **Profiles**, select **New**, and then select **Multi-String Value**. Name the value **VHDLocations** and set enter the URI for the Azure Files share `\\fsprofile.file.core.windows.net\share` as the Data value.
 
@@ -209,7 +209,7 @@ From the Azure portal, navigate to the **Files share** created in the previous s
    Add-RdsAccount -DeploymentUrl \$brokerurl
    ```
 
-   When prompted for credentials, enter the same user that was granted the Tenant Creator role or RDS Owner/RDS Contributor role on the Windows Virtual Desktop tenant.
+   When prompted for credentials, enter the same user that was granted the Tenant Creator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
 
 2. Run the following cmdlets to assign the user to the remote desktop group:
 
@@ -225,23 +225,23 @@ From the Azure portal, navigate to the **Files share** created in the previous s
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Here's an example of what the command will look like:
+    For example:
 
      ```powershell
-     $pool1 = "airlift2020"
+     $pool1 = "contoso"
      
-     $tenant = "airlift2020"
+     $tenant = "contoso"
      
      $appgroup = "Desktop Application Group"
      
-     $user1 = "debra.berger@airlift2020outlook.onmicrosoft.com"
+     $user1 = "jane.doe@contoso.com"
      
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-## Verify the profile
+## Make sure your profile works
 
-Now all you have to do is verify the profile you created exists.
+Now all you have to do is make sure the profile you created exists and works as intended.
 
 To verify your profile:
 
