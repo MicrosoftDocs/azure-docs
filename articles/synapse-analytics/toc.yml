@@ -10,10 +10,8 @@
     href: overview-cheat-sheet.md
   - name: FAQ
     href: overview-faq.md
-- name: Release notes
-  items:
-  # - name: Recent release
-  #   href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Release notes
+    href: release-notes.md
 - name: Quickstarts
   items:
   - name: Create an Azure Synapse workspace
