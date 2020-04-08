@@ -42,7 +42,7 @@ Knowing the active message count is useful in determining whether a queue builds
 If an application wants to scale resources based on the length of the queue, it should do so with a measured pace. The acquisition of the message counters is an expensive operation inside the message broker, and executing it frequently directly and adversely impacts the entity performance.
 
 > [!NOTE]
-> The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. To verify that your messages have been forwarded, get message count on the subscription (for example, using REST API). Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. 
+> The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. Get the message count at the subscription and verify that it's greater than 0. Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. 
 
 If you look at the subscriptions, then they would have non-zero message count (which add up to 323MB of space for this entire entity).
 
