@@ -11,9 +11,9 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Prepare Azure Files for an FSLogix profile containers
+# Prepare Azure files for FSLogix profile containers
 
-This article will show you how to prepare Azure Files to create an FSLogix profile container.
+This article will show you how to prepare Azure files to create an FSLogix profile container.
 
 ## Configure Azure Active Directory Domain Services
 
