@@ -43,23 +43,15 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
-## 1.5.xx.0
+## 1.5.20.0
 
 ### Release status
-04/08/2020: Released for download
+04/09/2020: Released for download
 
 ### Fixed issues
-This hotfix build allows... 
+This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
 
 ## 1.5.18.0
-
->[!WARNING]
-> There is an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.  This  will cause the synchronization run profile to fail with the error "the inbound sync rules in scope have different join criteria".
-> 
-> Please do not upgrade to this build if your tenant has the Group Filtering feature enabled and uses mS-DS-ConsistencyGuid as the source anchor. A hotfix is going to be released soon that addresses this issue.
-> 
-> If you have already upgraded and are seeing the issue above, please disable the out of box sync rule 'In from AD - Group Filtering' and create a clone of it. Edit the cloned sync rule and remove the existing join condition as shown below. Please note that this will cause a full synchronization to run on the connector.
-
 
 ### Release status
 04/02/2020: Released for download
