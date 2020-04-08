@@ -78,16 +78,16 @@ such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) that's used to register nodes.
+Proxy support for the DSC agent is available in Windows version 1809 and later. You enable this option by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) that's used to register nodes.
 
 >[!NOTE]
->Azure Automation State Configuration does not provide DSC proxy support for earlier versions of Windows.
+>Azure Automation State Configuration doesn't provide DSC proxy support for earlier versions of Windows.
 
 For Linux nodes, the DSC agent supports the proxy and uses the `http_proxy` variable to determine the URL.
 
 #### Azure Automation State Configuration network ranges and namespace
 
-We recommend that you use the IP addresses listed in the following table when you're defining exceptions. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and it contains the currently deployed ranges and any upcoming changes to the IP ranges.
+We recommend that you use the IP addresses listed in the following table when you're defining exceptions. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. This file contains the currently deployed ranges and any upcoming changes to the IP ranges. It is updated weekly.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
 
@@ -106,8 +106,6 @@ If you have an Automation account that's defined for a specific region, you can 
 | Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | UK South | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-
-For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center.
 
 > [!NOTE]
 > The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.
