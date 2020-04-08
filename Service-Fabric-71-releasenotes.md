@@ -10,6 +10,7 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 ## Key Annoucements
 -  Service Fabric applications with [Managed Identities](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) enabled can directly [reference a keyvault](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) secret URL as environment/parameter variable. Service Fabric will automatically resolve the secret using the application's managed identity.
 - [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
+- Endpoint certificates of Service Fabric applications can be declared by subject common name.
   
 
 ## Upcoming Breaking Changes
@@ -21,6 +22,7 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 |----------|-----------|-|-|
 | **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Feature** | VeryHigh service move cost | **Brief desc** We have introduced new move cost value VeryHigh that provides additional flexibility in some usage scenarios. For more details please consult the [Service movement cost](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) documentation.
 | **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Bug** | Subclustered balancing | **Brief desc** Improved balancing for subclustered metrics which previously caused suboptimal balancing in some situations. For more information, see [Subclustering documentation](https://docs.microsoft.com/en-us/azure/service-fabric/cluster-resource-manager-subclustering).
+| **Windows 7.1.** | **Feature** | SSL certs declared by CN | **Brief desc** Application endpoint certificates can be declared by subject common name to enable auto-rollover. For more details please refer to [specifying endpoints in service manifest](https::/docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources.md).
 
 ## Service Fabric Common Bug Fixes
 
