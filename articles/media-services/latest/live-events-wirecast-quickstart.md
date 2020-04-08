@@ -176,4 +176,4 @@ The output you created is now available for on-demand streaming as long as your 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [What article is next in sequence](./live-events-outputs-concept.md)
+> [Live Events and Live Outputs in Media Services](./live-events-outputs-concept.md)
