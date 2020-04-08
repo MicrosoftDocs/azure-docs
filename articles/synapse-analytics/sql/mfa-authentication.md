@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 SQL Analytics support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication.
 
-**Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 For all the features discussed in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image:
 

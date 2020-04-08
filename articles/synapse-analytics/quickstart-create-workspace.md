@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ## Sign in to the Azure portal
 

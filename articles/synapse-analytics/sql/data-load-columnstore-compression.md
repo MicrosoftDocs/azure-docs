@@ -21,7 +21,7 @@ Rowgroup quality is determined by the number of rows in a rowgroup. Increasing t
 
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
-For more information about rowgroups, see [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
+For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Target size for rowgroups
 
@@ -33,7 +33,7 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
 
 ## How to monitor rowgroup quality
 
@@ -136,7 +136,7 @@ OPTION (MAXDOP 1);
 
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
-- To increase the DWUs, see [How do I scale performance?](../sql-data-warehouse/quickstart-scale-compute-portal.md)
+- To increase the DWUs, see [How do I scale performance?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - To change the resource class for a query, see [Change a user resource class example](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
 
 ## Next steps

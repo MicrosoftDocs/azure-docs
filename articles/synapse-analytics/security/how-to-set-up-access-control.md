@@ -52,10 +52,10 @@ Create and populate three security groups for your workspace:
 
 Identify this information about your storage:
 
-  - The ADLSGEN2 account to use for your workspace. This document calls it STG1.  STG1 is considered the "primary" storage account for your workspace.
-  - The container inside WS1 that your Synapse workspace will use by default. This document calls it CNT1.  This container is used for:
-    - Storing the backing data files for Spark tables
-    - Execution logs for Spark jobs
+- The ADLSGEN2 account to use for your workspace. This document calls it STG1.  STG1 is considered the "primary" storage account for your workspace.
+- The container inside WS1 that your Synapse workspace will use by default. This document calls it CNT1.  This container is used for:
+  - Storing the backing data files for Spark tables
+  - Execution logs for Spark jobs
 
 - Using the Azure portal, assign the security groups the following roles on CNT1
 
@@ -67,9 +67,9 @@ Identify this information about your storage:
 
 In the Azure portal, create a Synapse workspace:
 
-  - Name the workspace WS1
-  - Choose STG1 for the Storage account
-  - Choose CNT1 for the container that is being used as the "filesystem".
+- Name the workspace WS1
+- Choose STG1 for the Storage account
+- Choose CNT1 for the container that is being used as the "filesystem".
 - Open WS1 in Synapse Studio
 - Select **Manage** > **Access Control** assign the security groups to the following Synapse roles.
   - Assign **WS1\_WSAdmins** to Synapse Workspace admins
@@ -118,7 +118,8 @@ Users in each role need to complete the following steps:
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
 > [!TIP]
-> - Some steps will deliberately not be allowed depending on the role. 
+>
+> - Some steps will deliberately not be allowed depending on the role.
 > - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 
 ## STEP 8: Network Security

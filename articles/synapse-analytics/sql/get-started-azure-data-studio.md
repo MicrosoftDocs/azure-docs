@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
@@ -90,5 +90,5 @@ Explore other ways to connect to SQL Analytics:
 
 * [SSMS](get-started-ssms.md)
 * [Power BI](get-started-power-bi-professional.md)
-* [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
+* [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [sqlcmd](get-started-connect-sqlcmd.md)

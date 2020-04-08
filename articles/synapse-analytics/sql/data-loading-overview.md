@@ -79,8 +79,8 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../..
 Tools and services you can use to move data to Azure Storage:
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../../storage/common/storage-use-azcopy-v10.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL pool, see [Load data into SQL pool](../../data-factory/load-azure-sql-data-warehouse.md).
+- [AZCopy utility](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable.
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL pool, see [Load data into SQL pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## 3. Prepare the data for loading
 
@@ -122,7 +122,7 @@ To load data with PolyBase, you can use any of these loading options:
 
 ### Non-PolyBase loading options
 
-If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase.
+If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) or the [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). bcp loads directly to SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase.
 
 ## 5. Transform the data
 
