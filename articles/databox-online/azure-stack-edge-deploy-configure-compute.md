@@ -40,7 +40,7 @@ To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource
 
 1. In the Azure portal of your Azure Stack Edge resource, go to Overview. In the right-pane, on the **Compute** tile, select **Get started**.
 
-    ![Get started with compute](./media/data-box-edge-deploy-configure-compute/configure-compute-1.png)
+    ![Get started with compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-1.png)
 
 2. On the **Configure Edge compute** tile, select **Configure compute**.
 3. On the **Configure Edge compute** blade, input the following:
@@ -51,11 +51,11 @@ To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource
     |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
     |Name     |Enter a name for your IoT Hub resource.         |
 
-    ![Get started with compute](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Get started with compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
 4. Select **Create**. The IoT Hub resource creation takes a couple minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
     
-    ![Get started with compute](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Get started with compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge device, the IoT Hub gets created but is not shown in the compute configuration. 
@@ -75,7 +75,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
     4. To mount the Edge share, select the check box for **Use the share with Edge compute**.
     5. Select the **Storage account**, **Storage service**, an existing user, and then select **Create**.
 
-        ![Add an Edge share](./media/data-box-edge-deploy-configure-compute/add-edge-share-1.png) 
+        ![Add an Edge share](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-1.png) 
 
     If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
 
@@ -87,12 +87,12 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
 2. Add an Edge local share on the Edge device by repeating all the steps in the preceding step and selecting the check box for **Configure as Edge local share**. The data in the local share stays on the device.
 
-    ![Add an Edge local share](./media/data-box-edge-deploy-configure-compute/add-edge-share-2.png)
+    ![Add an Edge local share](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
 3. Select **Add share(s)** to see the updated list of shares.
 
-    ![Updated list of shares](./media/data-box-edge-deploy-configure-compute/add-edge-share-3.png) 
+    ![Updated list of shares](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-3.png) 
  
 
 ## Add a module
@@ -116,11 +116,11 @@ In this section, you add a custom module to the IoT Edge device that you created
     |Trigger name     | A unique name for your trigger.         |
     |Environment variables| Optional information that will help define the environment in which your module will run.   |
 
-    ![Add and configure module](./media/data-box-edge-deploy-configure-compute/add-module-1.png)
+    ![Add and configure module](./media/azure-stack-edge-deploy-configure-compute/add-module-1.png)
 
 3. Select **Add**. The module gets added. The **Add module** tile updates to indicate that the module is deployed. 
 
-    ![Module deployed](./media/data-box-edge-deploy-configure-compute/add-module-2.png)
+    ![Module deployed](./media/azure-stack-edge-deploy-configure-compute/add-module-2.png)
 
 ### Verify data transform and transfer
 
@@ -130,23 +130,23 @@ To verify that the module is running, do the following:
 
 1. Select the **Add module** tile. This takes you to the **Modules** blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be *running*.
 
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-1.png)
+    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
 1.    In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1.    Add data to the local share.
 
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer.
 
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 You have completed the validation process.
 
