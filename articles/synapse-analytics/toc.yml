@@ -28,8 +28,8 @@
       href: quickstart-create-sql-pool.md
   - name: Use SQL on-demand
     href: quickstart-sql-on-demand.md
-  - name: Getting started experience 
-    href: get-started.md
+  # - name: Getting started experience 
+  #   href: get-started.md
 - name: Tutorials
   items:
   - name: Run Apache Spark applications for Spark pools
