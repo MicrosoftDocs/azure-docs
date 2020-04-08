@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/24/2020
+ms.date: 04/8/2020
 ms.author: aahi
 ---
 
@@ -240,8 +240,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### [Version 3.0-preview](#tab/version-3)
 
 > [!NOTE]
-> In version `3.0-preview`:
-> * NER includes separate methods for detecting personal information. 
+> In version `3.0-preview`: 
 > * Entity linking is a separate request than NER.
 
 Create a new function called `entity_recognition_example` that takes the client as an argument, then calls the `recognize_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
