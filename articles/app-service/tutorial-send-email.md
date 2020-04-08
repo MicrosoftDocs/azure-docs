@@ -3,20 +3,20 @@ title: 'Tutorial: send email with Logic Apps'
 description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
 
 ms.topic: tutorial
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ms.custom: mvc
 ---
 
 # Tutorial: Send email and invoke other business processes from App Service
 
-In this tutorial, you learn how to integrate your App Service app with the business processes you need. This is a common to web app scenarios, such as:
+In this tutorial, you learn how to integrate your App Service app with your business processes. This is common to web app scenarios, such as:
 
 - Send confirmation email for a transaction
 - Add user to Facebook group
 - Connect to third-party systems like SAP, SalesForce, etc.
 - Exchange standard B2B messages
 
-In this tutorial, you send emails from your App Service app using Gmail using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
+In this tutorial, you send emails with Gmail from your App Service app by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
 
 ## Prerequisite
 
@@ -71,9 +71,9 @@ Deploy an app with the language framework of your choice to App Service. To foll
     The schema is now generated for the request data you want. In practice, you can just capture the actual request data your application code generates and let Azure generate the JSON schema for you. 
 1. At the top of the Logic Apps Designer, select **Save**. 
 
-    You can now see the URL of your HTTP request trigger. 
+    You can now see the URL of your HTTP request trigger. Select the copy icon to copy it for later use.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![](./media/tutorial-send-email/http-request-url.png)
 
     This HTTP request definition is a trigger to anything you want to do in this logic app, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
@@ -121,7 +121,9 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 ## Add HTTP request code to app
 
-Make sure you have copied the URL of the HTTP request trigger from earlier. First, create an app setting in your App Service app. In the [Cloud Shell](https://shell.azure.com), you can do it with the following command (replace *\<app-name>*, *\<resource-group-name>*, and *\<logic-app-url>*):
+Make sure you have copied the URL of the HTTP request trigger from earlier. Because it contains sensitive information, it's best practice that you don't put it into the code directly. With App Service, you can reference it as an environment variable instead, using app settings. 
+
+In the [Cloud Shell](https://shell.azure.com), create the app setting with the following command (replace *\<app-name>*, *\<resource-group-name>*, and *\<logic-app-url>*):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
