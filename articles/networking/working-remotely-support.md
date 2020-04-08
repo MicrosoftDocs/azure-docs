@@ -77,11 +77,11 @@ For your deployments in other public clouds, Microsoft can provide global connec
 
 The following articles discuss how different Azure networking features can be used to scale users to work remotely:
 
-| **Article** | **Last update** |
+| **Article** | **Description** |
 | --- | --- |
-| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | March 23, 2020 |
-| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | March 23, 2020 |
-| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | March 23, 2020 |
+| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | Learn about your available options to set up remote access for users or to supplement their existing solutions with additional capacity for your organization.|
+| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | Learn how to use Azure Virtual WAN to address the remote connectivity needs of your organization.|
+| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | Learn how to use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. |
 | [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)| March 23, 2020 |
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
 | [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | March 23, 2020 |
