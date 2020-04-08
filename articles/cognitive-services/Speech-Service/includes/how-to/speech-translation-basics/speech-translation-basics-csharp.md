@@ -217,7 +217,7 @@ After a successful speech recognition and translation, the result contains all t
 
 ### Event-based synthesis
 
-The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the result. If you're translating to multiple languages, only the language that
+The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the result. If you're translating to multiple languages, only one 
 
 ```csharp
 static async Task TranslateSpeechAsync()
