@@ -106,12 +106,26 @@ Windows Server Nano Server isn't supported in any version.
 
 ## Guest Configuration Extension network requirements
 
-Virtual machines in Azure don't require outbound network access
-to Azure service endpoints to communicate
-with the Guest Configuration service.
-The service always uses private networking for communication.
+Virtual machines in Azure can use either their local network adapter
+or a private link to communicate with the Guest Configuration service.
+
 Azure Arc machines will need to communicate to Azure services
 to report compliance status.
+
+### Communicate over virtual networks
+
+Virtual machines using virtual networks for communication will require outbound
+access to Azure datacenters on port `443`. If you're using a private virtual
+network in Azure that doesn't allow outbound traffic, configure exceptions with
+Network Security Group rules. The service tag "GuestAndHybridManagement" can be
+used to reference the Guest Configuration service.
+
+### Communicate over private link
+
+Virtual machines can use [private link](https://docs.microsoft.com/en-us/azure/private-link/)
+for communication to the Guest Configuration service. Apply tag with the name
+`EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
+applied before or after Guest Configuration policies are applied to the machine.
 
 ### Azure virtual machines
 Traffic is routed using the Azure
