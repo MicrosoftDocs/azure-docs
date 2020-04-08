@@ -260,19 +260,41 @@ creating a batch of runs is more efficient than creating them one by one.
 
 ### Submit child runs
 
-Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs, each running on different 
-compute targets, connected by common parent run ID.
+Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. 
 
-Use the ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) 
-method to submit a child run from within a parent run. To do this in the parent run script, get the run context and submit the child run 
-using the ``submit_child`` method of the context instance.
+You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common desire is to pass each child different arguments and data. To customize a child run, pass a `RunConfiguration` object to the child's `ScriptRunConfig` constructor. This code example, which would be part of the parent `ScriptRunConfig` object's script:
+
+- Creates a `RunConfiguration` retrieving a named compute resource `"gpu-compute"`
+- Iterates over different argument values to be passed to the children `ScriptRunConfig` objects
+- Creates and submits a new child run, using the custom compute resource and argument
+- Blocks until all of the child runs complete
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+To create many child runs with identical configurations, arguments, and inputs efficiently, use the [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, creating a batch of runs is more efficient than creating them one by one.
 
 Within a child run, you can view the parent run ID:
 
