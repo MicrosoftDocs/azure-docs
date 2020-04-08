@@ -316,14 +316,12 @@ There's a new HTTP module, [Microsoft.AspNet.TelemetryCorrelation](https://www.n
 The Application Insights SDK, starting with version 2.4.0-beta1, uses `DiagnosticSource` and `Activity` to collect telemetry and associate it with the current activity.
 
 <a name="java-correlation"></a>
-## Telemetry correlation in the Java SDK
+## Telemetry correlation in the Java
 
-[Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
+[Application Insights Java agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) as well as [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
 
 > [!NOTE]
-> Only calls made via Apache HttpClient are supported for the correlation feature. Both Spring RestTemplate and Feign can be used with Apache HttpClient under the hood.
-
-Currently, automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported. It is possible to code such scenarios manually by using the `trackDependency` and `trackRequest` methods. In these methods, a dependency telemetry represents a message being enqueued by a producer. The request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+> Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK. 
 
 <a name="java-role-name"></a>
 ## Role name
