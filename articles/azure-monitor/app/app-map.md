@@ -155,6 +155,7 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 For [Java agent 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) the cloud role name is set as follows:
 
+```json
 {
   "instrumentationSettings": {
     "preview": {
@@ -162,6 +163,7 @@ For [Java agent 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-
     }
   }
 }
+```
 
 You can also set the cloud role name using the environment variable ```APPLICATIONINSIGHTS_ROLE_NAME```.
 
