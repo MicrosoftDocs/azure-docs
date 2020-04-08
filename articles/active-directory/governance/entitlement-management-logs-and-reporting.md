@@ -49,7 +49,7 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Log Analytics workspaces pane](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
 
-    Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
+1. Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
     
     1. Select **Azure Active Directory** then click **Workbooks**. 
     
