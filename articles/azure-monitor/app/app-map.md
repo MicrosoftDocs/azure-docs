@@ -151,7 +151,23 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 # [Java](#tab/java)
 
-Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+**Java agent**
+
+For Java agent 3.0 the cloud role name is set as follows:
+
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+
+You can also set the cloud role name using the environment variable ```APPLICATIONINSIGHTS_ROLE_NAME```.
+
+**Java SDK**
+
+If you are using the SDK, starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
 by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
 
 ```XML
