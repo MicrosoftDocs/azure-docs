@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/17/2020
+ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
 ---
@@ -558,7 +558,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period|SlotId|
 |Per Disk Read Operations/Sec|Data Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|SlotId|
 |Per Disk Write Operations/Sec|Data Disk Write Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Write IOPS from a single disk during monitoring period|SlotId|
-|Per Disk QD|[Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|Per Disk QD|Data Disk QD [(Deprecated)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
 |OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|None|
 |OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Bytes/Sec written to a single disk during monitoring period for OS disk|None|
 |OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec [(Deprecated)](portal-disk-metrics-deprecation.md)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|None|
@@ -1993,11 +1993,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
+|tempdb_data_size<sup>2</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
+|tempdb_log_used_percent<sup>2</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
@@ -2022,6 +2022,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |snapshot_backup_size_bytes|Snapshot backup storage size|Bytes|Maximum|Cumulative snapshot backup storage size. Applies to Hyperscale databases.|None|
 |base_blob_size_bytes|Base blob storage size|Bytes|Maximum|Base blob storage size. Applies to Hyperscale databases.|None|
 
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -2051,14 +2054,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_cpu_limit|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|None|
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
-|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|None|
-|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|None|
-|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|None|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|sqlserver_process_memory_percent<sup>1</sup>|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
+|tempdb_data_size<sup>2</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>2</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
+|tempdb_log_used_percent<sup>2</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
+
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
+
 
 ## Microsoft.Sql/servers
 
