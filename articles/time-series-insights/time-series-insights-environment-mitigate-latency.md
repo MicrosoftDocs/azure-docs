@@ -25,7 +25,7 @@ You are most likely to experience latency and throttling when you:
 - Add an event source that contains old data that may exceed your allotted ingress rate (Time Series Insights will need to catch up).
 - Add more event sources to an environment, resulting in a spike from additional events (which could exceed your environment’s capacity).
 - Push large amounts of historical events to an event source, resulting in a lag (Time Series Insights will need to catch up).
-- Join reference data with telemetry, resulting in larger event size. From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed packet size is 32 KB; data packets larger than 32 KB are truncated.
+- Join reference data with telemetry, resulting in larger event size. The maximum allowed packet size is 32 KB; data packets larger than 32 KB are truncated.
 
 ## Video
 
