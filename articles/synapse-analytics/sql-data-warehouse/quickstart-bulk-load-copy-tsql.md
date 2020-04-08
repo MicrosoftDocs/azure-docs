@@ -89,9 +89,9 @@ Check whether your load is making progress by periodically running the following
 SELECT  r.[request_id]                           
 ,       r.[status]                               
 ,       r.resource_class                         
-,             r.command
-,             sum(bytes_processed) AS bytes_processed
-,             sum(rows_processed) AS rows_processed
+,       r.command
+,       sum(bytes_processed) AS bytes_processed
+,       sum(rows_processed) AS rows_processed
 FROM    sys.dm_pdw_exec_requests r
               JOIN sys.dm_pdw_dms_workers w
                      ON r.[request_id] = w.request_id
@@ -99,8 +99,7 @@ WHERE [label] = 'COPY: dbo.trip' and session_id <> session_id() and type = 'WRIT
 GROUP BY r.[request_id]                           
 ,       r.[status]                               
 ,       r.resource_class                         
-,             r.command
-,             [type];
+,       r.command;
 
 ```
 
