@@ -76,7 +76,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* It's currently not supported to attach secondary NICs, that are refering to a IPv6 subnet, to a Backend Pool.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **currently not supported**.
 
 ## Next steps
 
