@@ -147,6 +147,7 @@ To complete the configuration modification, do the following steps:
     ```
 
 1. Here is the screenshot that shows Ambari configuration UI with these changes in **kafka-env template** property.
+ 
 
     For HDI version 3.6:
 
@@ -210,7 +211,7 @@ These steps are detailed in the following code snippets.
     ssl.truststore.password=MyClientPassword123
     ```
 
-1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to ## Verification section below for steps needed to verify the setup using console producer/consumer.
+1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section below for steps needed to verify the setup using console producer/consumer.
 
 ## Client setup (with authentication)
 
