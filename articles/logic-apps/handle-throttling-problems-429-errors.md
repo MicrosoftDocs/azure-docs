@@ -141,9 +141,9 @@ To handle throttling at this level, you have these options:
 
   * Continuing with the example SQL Server scenario in this section, you can create a logic app that puts array items into a queue, such as an [Azure Service Bus queue](../connectors/connectors-create-api-servicebus.md). You then create another logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
 
-  * Create a parent logic app that calls a child or nested logic app for each action. If the parent needs to call different child apps based on the parent's outcome, you can use a condition action or switch action that determines which child app to call.
+  * Create a parent logic app that calls a child or nested logic app for each action. If the parent needs to call different child apps based on the parent's outcome, you can use a condition action or switch action that determines which child app to call. This pattern can help you reduce the number of calls or operations.
 
-    This pattern can help you reduce the number of operations that run. For example, suppose that you have two logic apps, each with a polling trigger that checks your email account every minute for  specific subject, such as "Success" or "Failure", which results in 120 calls per hour. If you create a single parent logic app that calls only one child logic app based whether the subject is either "Success" or "Failure", you can reduce the number of those calls.
+    For example, suppose that you have two logic apps, each with a polling trigger that checks your email account every minute for  specific subject, such as "Success" or "Failure". This setup results in 120 calls per hour. Instead, if you create a single parent logic app that polls every minute but calls a child logic app that runs based whether the subject is "Success" or "Failure", you cut the number of polling checks to half, or 60 in this case.
 
 * Set up batch processing.
 
