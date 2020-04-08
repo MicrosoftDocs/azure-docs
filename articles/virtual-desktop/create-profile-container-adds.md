@@ -167,7 +167,7 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 
 ## Configure your profile container
 
-1. Sign in to the session host VM you configured in [Prepare Azure Files for an FSLogix profile containers](fslogix-azure-files-setup.md), then [download and install the FSLogix agent](/fslogix/install-ht/).
+1. Sign in to the session host VM you configured at the beginning of this article, then [download and install the FSLogix agent](/fslogix/install-ht/).
 
 2. Unzip the FSLogix agent file you downloaded and go to **x64** > **Releases**, then open **FSLogixAppsSetup.exe**.
 
