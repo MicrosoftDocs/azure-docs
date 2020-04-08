@@ -106,9 +106,9 @@ To complete these steps, you will need:
     To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md).
 
     ```azurecli
-    az role assignment list --include-inherited --output json > roleassignments.json
-    az role assignment list --include-inherited --output table > roleassignments.txt
-    az role assignment list --include-inherited --output tsv > roleassignments.tsv
+    az role assignment list --all --include-inherited --output json > roleassignments.json
+    az role assignment list --all --include-inherited --output table > roleassignments.txt
+    az role assignment list --all --include-inherited --output tsv > roleassignments.tsv
     ```
 
 1. Save the list of role assignments.
@@ -131,11 +131,29 @@ To complete these steps, you will need:
     az role definition list --name <custom_role_name> > customrolename.json
     ```
 
-### Determine user and group mappings
+1. Make copies of the custom role files.
 
-1. Based on your list of role assignments, determine the users and groups you will map to in the target directory.
+1. Adjust each copy to use the following format. You'll use these files later to re-create the custom roles in the target directory.
 
-1. If necessary, in the target directory, create any users and groups you will need. For more information, see [Enterprise user management documentation](../active-directory/users-groups-roles/index.yml).
+    ```json
+    {
+      "Name": "",
+      "Description": "",
+      "Actions": [],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": []
+    }
+    ```
+
+### Determine user, group, and service principal mappings
+
+1. Based on your list of role assignments, determine the users, groups, and service principals you will map to in the target directory.
+
+    You can identify the type of principal by looking at the `principalType` property in each role assignment.
+
+1. If necessary, in the target directory, create any users, groups, or service principals you will need.
 
 ### List managed identities in the source directory
 
@@ -154,12 +172,34 @@ Managed identities do not get updated when a subscription is transferred to anot
 > [!IMPORTANT]
 > There are other artifacts that have a dependency on a subscription or a particular directory. This article lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, this article cannot list all dependencies. 
 
-1. Determine if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
+
+    ```azurecli
+    az extension list
+    ```
+
+1. If not, install the *resource-graph* extension.
+
+    ```azurecli
+    az extension add --name resource-graph
+    ```
+
+1. Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+
+    ```azurecli
+    az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
+    ```
 
 1. If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
+    ```
+
+1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to other Azure resources with known Azure AD directory dependencies.
+
+    ```azurecli
+    az graph query -q 'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions 11111111-1111-1111-1111-111111111111 --output table
     ```
 
 ## Step 2: Transfer billing ownership
@@ -180,28 +220,8 @@ In this step, you transfer the billing ownership of the subscription from the so
 1. In the target directory, sign-in as the user that accepted the transfer request.
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
-
-1. Adjust the custom role files that you saved earlier to use the following format. For example, delete the `id`, `name`, `roleType`, and `type` properties.
-
-    ```json
-    [
-      {
-        "assignableScopes": [],
-        "description": "",
-        "permissions": [
-          {
-            "actions": [],
-            "dataActions": [],
-            "notActions": [],
-            "notDataActions": []
-          }
-        ],
-        "roleName": ""
-      }
-    ]
-    ```
-    
-1. Use [az role definition create](/cli/azure/role/definition#az-role-definition-create) create the custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+        
+1. Use [az role definition create](/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
