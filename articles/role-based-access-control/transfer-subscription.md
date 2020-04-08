@@ -58,20 +58,20 @@ Depending on your situation, the following table lists the impact of transferrin
 | Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
 | Custom roles | All custom role definitions and role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
 
-### What gets transferred?
+### What gets re-created?
 
-The following table lists the artifacts that will get transferred when you follow the steps in this article.
+The following table lists the artifacts that will get re-created when you follow the steps in this article.
 
-| Artifact | Transferred |
+| Artifact | Re-created |
 | --------- | :---------: |
 | Role assignments for users | :heavy_check_mark: |
 | Role assignments for groups | :heavy_check_mark: |
 | Role assignments for service principals | :heavy_check_mark: |
 | Custom role definitions | :heavy_check_mark: |
 | Role assignments that use custom roles | :heavy_check_mark: |
-| Managed identities | :o: |
-| Azure SQL Databases with Azure AD authentication | :o: |
-| Key Vault access policies | :o: |
+| Managed identities | :x: |
+| Azure SQL Databases with Azure AD authentication | :x: |
+| Key Vault access policies | :x: |
 
 ## Prerequisites
 
@@ -229,13 +229,19 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create role assignments in target directory
 
-1. In the target directory, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) create the role assignments. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) create the role assignments. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
     ```
 
-### Create other artifacts in the source directory
+### Update managed identities in target directory
+
+1. If you have system-assigned managed identities, disable and re-enable the managed identities. For more information, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
+
+1. If you have user-assigned managed identities, delete, re-create, and attach them to the appropriate resource such as virtual machines. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+
+### Create other artifacts in target directory
 
 
 ## Next steps
