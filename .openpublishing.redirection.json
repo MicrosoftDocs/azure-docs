@@ -27476,11 +27476,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
-      "redirect_url": "/azure/storage/common/storage-introduction",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
       "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
       "redirect_document_id": true
