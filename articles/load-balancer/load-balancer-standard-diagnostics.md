@@ -64,6 +64,20 @@ To view the metrics for your Standard Load Balancer resources:
 
 For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
 
+### Configure alerts for multi-dimensional metrics ###
+
+Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
+
+To configure alerts:
+1. Go to the alert sub-blade for the load balancer
+1. Create new alert rule
+    1.  Configure alert condition
+    1.  (Optional) Add action group for automated repair
+    1.  Assign alert severity, name and description that enables intuitive reaction
+
+  >[!NOTE]
+  >Alert condition configuration window will show time series for signal history. There is an option to filter this time series by dimensions such as Backend IP. This will filter the time series graph but **not** the alert itself. You cannot configure alerts for specific Backend IP addresses.
+
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
 #### Is the data path up and available for my load balancer VIP?

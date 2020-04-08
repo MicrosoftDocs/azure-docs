@@ -93,6 +93,8 @@ The schedule, which defines the start and end time of the assignment, is an obje
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> If the value of endDateTime is set to null, it indicates a permanent assignment.
 
 ## Activate a role assignment
 

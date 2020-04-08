@@ -30,10 +30,10 @@ Enable the settings described in the table below for the lab account. For more i
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
-| Marketplace image | Enable the [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image for use within your lab account. |
+| Marketplace image | Enable the [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) image for use within your lab account. |
 
 >[!TIP]
->This article will focus on configuring a template machine that uses the Windows Server operating system.  It's also possible to set up a data science class with Python and Jupyter Notebooks using [Data Science Virtual Machine for Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) or [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) images from the Azure Marketplace.
+>This article will focus on configuring a template machine that uses the Windows Server operating system.  It's also possible to set up a data science class with Python and Jupyter Notebooks using [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) images from the Azure Marketplace.
 
 ### Lab settings
 
@@ -46,7 +46,7 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 
 ## Template machine
 
-The [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image provides the necessary deep learning frameworks and tools required for this type of class.  The image includes Jupyter Notebooks and Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) is a web application that allows data scientists to take raw data, run computations, and see the results all in the same environment.  For our template machine, the web application will be running locally.  [Visual Studio Code](https://code.visualstudio.com/) is an IDE that provides a rich interactive experience when writing and testing a notebook.  For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+The [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) image provides the necessary deep learning frameworks and tools required for this type of class.  The image includes Jupyter Notebooks and Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) is a web application that allows data scientists to take raw data, run computations, and see the results all in the same environment.  For our template machine, the web application will be running locally.  [Visual Studio Code](https://code.visualstudio.com/) is an IDE that provides a rich interactive experience when writing and testing a notebook.  For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
 The remaining task to set up the class is to provide local notebooks.  For instructions how to use the Azure Machine Learning samples, see [how to configure an environment with Jupyter Notebooks](../../machine-learning/how-to-configure-environment.md#jupyter).  You can also provide your own notebooks on the template machine.  The notebooks will be copied to all student machines when the template is published.
 

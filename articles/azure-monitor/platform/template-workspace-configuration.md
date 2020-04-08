@@ -44,6 +44,9 @@ The following table lists the API version for the resources used in this example
 
 The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
 
+> [!WARNING]
+> The following template creates a Log Analytics workspace and configures data collection. This may change your billing settings. Review [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) to understand billing for data collected in a Log Analytics workspace before applying it in your Azure environment.
+
 For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
 
 - Once you set the reservation limit, you cannot change to a different SKU within 31 days.
