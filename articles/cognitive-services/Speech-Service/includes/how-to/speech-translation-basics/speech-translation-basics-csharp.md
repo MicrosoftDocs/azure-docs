@@ -217,7 +217,10 @@ After a successful speech recognition and translation, the result contains all t
 
 ### Event-based synthesis
 
-The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the result. If you're translating to multiple languages, only one 
+The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [manual synthesis](#manual-synthesis). Specify the synthesis voice by assigning a [`VoiceName`][voicename] and provide an event handler for the `Synthesizing` event, get the audio. The following example saves the translated audio as a *.wav* file.
+
+> [!IMPORTANT]
+> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the `VoiceName` should be the same language as the target translation language, for example; `de` could map to `de-DE-Hedda`.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -226,9 +229,12 @@ static async Task TranslateSpeechAsync()
         SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
     
     var fromLanguage = "en-US";
-    var toLanguages = new List<string> { "it", "fr", "de" };
+    var toLanguage = "de";
     translationConfig.SpeechRecognitionLanguage = fromLanguage;
-    toLanguages.ForEach(translationConfig.AddTargetLanguage);
+    translationConfig.AddTargetLanguage(toLanguage);
+
+    // See: https://aka.ms/speech/sdkregion#standard-and-neural-voices
+    translationConfig.VoiceName = "de-DE-Hedda";
 
     using var recognizer = new TranslationRecognizer(translationConfig);
 
@@ -244,16 +250,13 @@ static async Task TranslateSpeechAsync()
     };
 
     Console.Write($"Say something in '{fromLanguage}' and ");
-    Console.WriteLine($"we'll translate into '{string.Join("', '", toLanguages)}'.\n");
+    Console.WriteLine($"we'll translate into '{toLanguage}'.\n");
 
     var result = await recognizer.RecognizeOnceAsync();
     if (result.Reason == ResultReason.TranslatedSpeech)
     {
         Console.WriteLine($"Recognized: \"{result.Text}\":");
-        foreach (var (language, translation) in result.Translations)
-        {
-            Console.WriteLine($"Translated into '{language}': {translation}");
-        }
+        Console.WriteLine($"Translated into '{toLanguage}': {result.Translations[toLanguage]}");
     }
 }
 ```
@@ -317,3 +320,4 @@ static async Task TranslateSpeechAsync()
 [recognitionlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
 [addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
 [translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
+[voicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
