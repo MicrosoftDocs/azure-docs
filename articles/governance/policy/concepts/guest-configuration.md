@@ -106,12 +106,28 @@ Windows Server Nano Server isn't supported in any version.
 
 ## Guest Configuration Extension network requirements
 
-To communicate with the Guest Configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that
-doesn't allow outbound traffic, configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
-The [service tag](../../../virtual-network/service-tags-overview.md)
-"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+Virtual machines in Azure don't require outbound network access
+to Azure service endpoints to communicate
+with the Guest Configuration service.
+The service always uses private networking for communication.
+Azure Arc machines will need to communicate to Azure services
+to report compliance status.
+
+### Azure virtual machines
+Traffic is routed using the Azure
+[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16)
+to establish
+a secure, authenticated channel with Azure platform resources.
+
+Virtual networks in Azure containing virtual machines that will be audited
+by Guest Configuration don't require any special rules for outbound traffic.
+
+### Azure Arc connected machines
+
+Nodes located outside Azure that are connected by Azure Arc require connectivity
+to the Guest Configuration service.
+Details about network and proxy requirements provided in the
+[Azure Arc documentation](../../../azure-arc/servers/overview#networking-configuration).
 
 ## Guest Configuration definition requirements
 
@@ -148,8 +164,7 @@ data](../how-to/get-compliance-data.md).
 > resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
-for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings
-inside Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
+for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings inside Linux and Windows machines contain 18 policies. There are six **DeployIfNotExists** and
 **AuditIfNotExists** pairs for Windows and three pairs for Linux. The
 [policy definition](definition-structure.md#policy-rule) logic validates that only the target
 operating system is evaluated.
