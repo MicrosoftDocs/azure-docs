@@ -22,6 +22,8 @@ Azure Firewall can be used to restrict access to and from your Azure Machine Lea
 
 You must configure a network rule allowing traffic to and from the following addresses:
 
+__Azure specific hosts__
+
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | |
@@ -32,12 +34,15 @@ You must configure a network rule allowing traffic to and from the following add
 | **mlworkspace.azure.ai** | |
 | **\*.aether.ms** | |
 | **\*.instances.azureml.net** | |
-| **anaconda.com** | Used when installing conda packages |
-| **pypi.org** | Used when installing pip packages |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
 | **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+
+__Python-related hosts__
+
+| **anaconda.com** | Used when installing conda packages |
+| **pypi.org** | Used when installing pip packages |
 
 When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 
