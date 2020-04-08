@@ -35,7 +35,7 @@ After installing Python, you can install the client library with:
 #### [Version 3.0-preview](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics
+pip install azure-ai-textanalytics==1.0.0b3
 ```
 
 > [!TIP]

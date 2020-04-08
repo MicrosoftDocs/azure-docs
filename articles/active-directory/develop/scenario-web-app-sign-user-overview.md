@@ -2,15 +2,12 @@
 title: Sign in users from a Web app - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (overview)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
