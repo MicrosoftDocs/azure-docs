@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
+ms.date: 03/13/2020
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -57,11 +57,14 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
    ![Create an integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. On the **Integration runtime setup** window, select **Perform data movement and dispatch activities to external computes**, and select **Continue**.
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
+
+1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Enter a name for your IR, and select **Create**.
 
-1. Select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
+1. On the **Integration runtime setup** page, select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
 
    ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
