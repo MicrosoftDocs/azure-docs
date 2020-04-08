@@ -153,27 +153,27 @@ With the Azure automated ML, you choose either a local computer or a remote comp
 
 The following table shows a summary of features available on local and remote compute targets.  Some of these features are available only in an Enterprise workspace.
 
-|Feature  |Local  |Remote  |Requires Enterprise  |
+|Feature  |Local  |Remote  |Requires Enterprise <br/>workspace |
 |---------|---------|---------|---------|
 |Create and run experiments in notebooks     |✓|✓|         |
 |Register and visualize experiment's info and metrics in UI     |  ✓       |   ✓      |         |
-|Forecasting     |    ✓     |    ✓     |     ✓    |
-|ONNX models     |✓|     ✓    |         |
-|Ensemble iterations     |     ✓    |     ✓  |         |
+|Data streaming (Large data support, up to 100 GB)     |     |    ✓     |   ✓      |
 |Subsampling     |    ✓     |    ✓     |         |
 |Data guardrails     |     ✓    |    ✓  |         |
-|Model interpretability (in notebooks)     |    ✓     |     ✓    |     ✓    |
+|DNN-based text featurization      |     |    ✓     |    ✓     |
 |Feature Sweeping (or advanced transformers)     |    ?     |     ?    |         |
 |Custom featurizers support     |       ?     |     ?      |         |
 |Feature engineering customization SDK     |   ?     |     ?     |    ✓     |
-|Many models training SDK     |     ?     |     ?      |         |
+|Feature engineering customization UI     |     |    ✓     |         |
+|Forecasting     |    ✓     |    ✓     |     ✓    |
 |Prophet or ARIMA models for forecasting      |     |    ✓     |    ✓     |
+|ONNX models     |✓|     ✓    |         |
+|Many models training SDK     |     ?     |     ?      |         |
 |Multiple runs/iterations in parallel     |     |    ✓     |    ✓     |
 |Cancel an iteration      |     |    ✓     |         |
 |Continue a run      |     |    ✓     |         |
-|Data streaming (Large data support, up to 100 GB)     |     |    ✓     |   ✓      |
-|DNN-based text featurization      |     |    ✓     |    ✓     |
-|Feature engineering customization UI     |     |    ✓     |         |
+|Ensemble iterations     |     ✓    |     ✓  |         |
+|Model interpretability (in notebooks)     |    ✓     |     ✓    |     ✓    |
 |Create and run experiments in studio web experience  |   | ✓ | ✓ |
 
 
