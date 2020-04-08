@@ -80,9 +80,7 @@ Because ultra disks offer an additional throttle, their reservation flow can wor
 
 ## Ultra disk performance throttles
 
-Because ultra disks have the unique capability of allowing you to set your performance, it exposes modifiable attributes you can use to adjust performance.
-
-By default, there are only two modifiable attributes but, ultra disks that are being shared have two additional attributes.
+Because ultra disks have the unique capability of allowing you to set your performance, there are exposed modifiable attributes you can use to adjust performance. By default, there are only two modifiable attributes but, shared ultra disks have two additional attributes.
 
 
 |Attribute  |Description  |
@@ -92,7 +90,7 @@ By default, there are only two modifiable attributes but, ultra disks that are b
 |DiskIOPSReadOnly     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
 |DiskMBpsReadOnly     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
 
-Because these performance attributes are user modifiable, here are some formulas that explain them:
+The following formulas explain how the performance attributes can be set, since they are user modifiable:
 
 - DiskIOPSReadWrite/DiskIOPSReadOnly: 
     - IOPS limits of 300 IOPS/GiB, up to a maximum of 160K IOPS per disk
@@ -110,7 +108,7 @@ Because these performance attributes are user modifiable, here are some formulas
 
 :::image-end:::
 
-Two nodes WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​
+With a 2-node WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​.
 
 #### Two nodes, no cluster share volume
 
@@ -118,7 +116,7 @@ Two nodes WSFC using clustered shared volumes will result in full ReadWrite thro
 
 :::image-end:::
 
-Two nodes WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
+2-node WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
 
 #### Four node example
 
@@ -126,4 +124,4 @@ Two nodes WSFC not using clustered shared volumes will result in full ReadWrite 
 
 :::image-end:::
 
-Four nodes Linux cluster with a single Writer and three scale-out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.
+4-node Linux cluster with a single Writer and three scale-out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.
