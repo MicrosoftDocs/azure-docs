@@ -227,7 +227,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
+You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
 
 Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
 
@@ -262,7 +262,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 1. Choose the **Category** for your issue:
 
    - For usage association issues, select **Other**.
-   - For access issues with the Azure Marketplace CPP, select **Access Problem**.
+   - For access issues with the Azure Marketplace, select **Access Problem**.
 
      ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -311,7 +311,7 @@ Yes, a customer or implementation partner may customize the template and can cha
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
-Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the CPP to register GUIDs used for the deployment outside of the Azure Marketplace.
+Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the commercial marketplace enrollment in Partner Center to register GUIDs used for the deployment outside of the Azure Marketplace.
 
 **Does the customer receive reporting as well?**
 
