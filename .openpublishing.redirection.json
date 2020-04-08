@@ -27477,7 +27477,7 @@
     },
     {
       "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
-      "redirect_url": "/azure/storage/common/storage-decide-blobs-files-disks",
+      "redirect_url": "/azure/storage/common/storage-introduction",
       "redirect_document_id": true
     },
     {
@@ -39928,7 +39928,7 @@
     {
       "source_path": "articles/storage/common/storage-decide-blobs-files-disks.md",
       "redirect_url": "/azure/storage/common/storage-introduction",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
