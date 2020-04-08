@@ -32,10 +32,10 @@ S1 and S2 SKU ingress rates and capacities provide flexibility when configuring 
 
 S2 SKU environments support substantially more events per month and have a significantly higher ingress capacity.
 
-| SKU  | Event count per month  | Event size per month  | Event count per minute | Event size per minute  |
+| SKU  | Event count per month  | Event count per minute | Event size per minute  |
 |---------|---------|---------|---------|---------|
-| S1     |   30 million     |  30 GB     |  720    |  720 KB   |
- |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
+| S1     |   30 million   |  720    |  720 KB   |
+ |S2     |   300 million   | 7,200   | 7,200 KB  |
 
 ### Property limits
 
