@@ -49,10 +49,10 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Log Analytics workspaces pane](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
 
-Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
-
+    Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
+    
     1. Select **Azure Active Directory** then click **Workbooks**. 
-
+    
     1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
 
 
@@ -182,7 +182,7 @@ $aResponse.Results |ft
 You can also retrieve entitlement management events using a query like:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```
