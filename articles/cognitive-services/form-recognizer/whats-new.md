@@ -24,12 +24,15 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-* **Labeling value types** Value types are now available for use with the Form Recognizer sample labeling tool. These value types are currently supported: 
+* **Labeling value types** You can now specify the types of values you're labeling with the Form Recognizer sample labeling tool. These value types and variations are currently supported:
   * String
-  * Number 
-  * Integer
+    * default, no-whitespaces, alphanumeric
+  * Number
+    * default, currency
   * Date 
+    * default, DMY, MDY, YMD
   * Time
+  * Integer
   
   This image shows what value type selection looks like within the Form Recognizer sample labeling tool:
 
