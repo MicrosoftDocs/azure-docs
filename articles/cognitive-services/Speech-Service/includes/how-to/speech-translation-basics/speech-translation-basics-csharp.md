@@ -182,7 +182,7 @@ static async Task TranslateSpeechAsync()
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech must first be recognized before it can be translated. For more information about speech-to-text, see [the basics of speech recognition](../../../speech-to-text-basics.md). After all objects have been initialized, call the recognize-once function and get the result.
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -211,6 +211,8 @@ static async Task TranslateSpeechAsync()
     }
 }
 ```
+
+For more information about speech-to-text, see [the basics of speech recognition](../../../speech-to-text-basics.md).
 
 ## Synthesize translations
 
