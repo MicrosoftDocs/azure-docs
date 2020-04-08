@@ -70,7 +70,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ## Create credentials
 
-To query a file located in Azure Storage, your SQL on-demand end point needs a server-level CREDENTIAL that contains the authentication information. A credential is added by running [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+To query a file located in Azure Storage, your SQL on-demand end point needs a server-level CREDENTIAL that contains the authentication information. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
 
 > [!NOTE]
 > The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.

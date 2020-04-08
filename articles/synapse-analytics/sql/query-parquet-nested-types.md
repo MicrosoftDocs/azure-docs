@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query Parquet nested types using SQL on-demand (preview) in Azure Synapse Analytics 
+# Query Parquet nested types using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics.  This query will read Parquet nested types.
 
@@ -65,7 +65,7 @@ FROM
 
 ## Access elements from repeated columns
 
-The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
+The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
 
 ```sql
 SELECT
@@ -80,7 +80,7 @@ FROM
     ) AS [r];
 ```
 
-The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
+The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
 
 ```sql
 SELECT

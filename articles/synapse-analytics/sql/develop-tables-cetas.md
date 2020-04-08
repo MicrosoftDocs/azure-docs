@@ -17,13 +17,14 @@ In either SQL pool or SQL on-demand (preview), you can use CREATE EXTERNAL TABLE
 
 - Create an external table
 - Export, in parallel, the results of a Transact-SQL SELECT statement to
-   - Hadoop
-   - Azure Storage Blob
-   -  Azure Data Lake Storage Gen2
+
+  - Hadoop
+  - Azure Storage Blob
+  - Azure Data Lake Storage Gen2
 
 ## CETAS in SQL pool
 
-For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest) article. 
+For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) article. Additionally, for guidance on CTAS using SQL pool, see the [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) article.
 
 ## CETAS in SQL on-demand
 
@@ -31,15 +32,15 @@ When using the SQL on-demand resource, CETAS is used to create an external table
 
 ## Syntax
 
-```
-CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] table_name   
-    WITH (   
+```syntaxsql
+CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] table_name
+    WITH (
         LOCATION = 'path_to_folder',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name  
-) 
+)
     AS <select_statement>  
-[;] 
+[;]
 
 <select_statement> ::=  
     [ WITH <common_table_expression> [ ,...n ] ]  
@@ -66,19 +67,19 @@ Specifies the name of the external file format object that contains the format f
 
 WITH *<common_table_expression>*
 
-Specifies a temporary named result set, known as a common table expression (CTE). For more information, see [WITH common_table_expression (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=aps-pdw-2016-au7).
+Specifies a temporary named result set, known as a common table expression (CTE). For more information, see [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 SELECT <select_criteria>
 
-Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=aps-pdw-2016-au7).
+Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Permissions
 
-You need to have permissions to list folder content and write to LOCATION folder for CETAS to work. 
+You need to have permissions to list folder content and write to LOCATION folder for CETAS to work.
 
 ## Examples
 
-These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource. 
+These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource.
 
 This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](develop-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
 
@@ -88,14 +89,14 @@ This sample relies on the credential, data source, and external file format crea
 ```sql
 -- use CETAS to export select statement with OPENROWSET result to  storage
 CREATE EXTERNAL TABLE population_by_year_state
-WITH (   
+WITH (
     LOCATION = 'aggregated_data/',
     DATA_SOURCE = population_ds,  
     FILE_FORMAT = census_file_format
 )  
-AS 
+AS
 SELECT decennialTime, stateName, SUM(population) AS population
-FROM 
+FROM
     OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
     FORMAT='PARQUET') AS [r]
 GROUP BY decennialTime, stateName
@@ -105,19 +106,19 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document. 
+The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](develop-tables-external-tables.md) document.
 
 ```sql
 -- use CETAS with select from external table
 CREATE EXTERNAL TABLE population_by_year_state
-WITH (   
+WITH (
     LOCATION = 'aggregated_data/',
     DATA_SOURCE = population_ds,  
     FILE_FORMAT = census_file_format
 )  
-AS 
+AS
 SELECT decennialTime, stateName, SUM(population) AS population
-FROM census_external_table 
+FROM census_external_table
 GROUP BY decennialTime, stateName
 GO
 
@@ -126,6 +127,7 @@ SELECT * FROM population_by_year_state
 ```
 
 ## Supported data types
+
 CETAS can be used to store result sets with following SQL data types:
 
 - binary
@@ -144,7 +146,7 @@ CETAS can be used to store result sets with following SQL data types:
 - smallint
 - tinyint
 - bit
- 
+
 LOBs cannot be used with CETAS.
 
 Following data types cannot be used in SELECT part of CETAS:
