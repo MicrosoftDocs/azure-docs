@@ -109,6 +109,6 @@ When passed 'Collation' as the property parameter, the DatabasePropertyEx functi
 Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
 
 - [Best Practices for SQL pool](best-practices-sql-pool.md)
-- [Best practices for SQL on-demand](best-practices-sql-on-demand)
+- [Best practices for SQL on-demand](best-practices-sql-on-demand.md)
 
 
