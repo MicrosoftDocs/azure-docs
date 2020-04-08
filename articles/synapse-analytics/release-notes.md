@@ -34,3 +34,4 @@ This article describes limitations and issues with Azure Synapse Analytics (work
 * [Use Synapse Studio](quickstart-synapse-studio.md)
 * [Create a SQL pool](quickstart-create-sql-pool.md)
 * [Use SQL on-demand](quickstart-sql-on-demand.md)
+* [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
