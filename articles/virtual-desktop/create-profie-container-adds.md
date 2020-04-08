@@ -1,6 +1,6 @@
 ---
-title: Prepare Azure Files for an FSLogix profile container - Azure
-description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
+title: Create FSLogix profile container Active Directory Domain Services - Azure
+description: This article describes how to create an FSLogix profile container with Azure Active Directory Domain Services.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,21 +11,19 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Prepare Azure files for FSLogix profile containers
+# Create an FSLogix profile container with Azure AD DS
 
-This article will show you how to prepare Azure files to create an FSLogix profile container.
+This article will show you how to create an FSLogix profile container with Azure Active Directory Domain Services (AD DS).
 
-## Configure Azure Active Directory Domain Services
+## Configure Azure AD DS
 
-To configure your Azure Active Directory (AD) Domain Services account for FSLogix profile containers:
+To configure your Azure AD DS account to create FSLogix profile containers:
 
 1. Sign in to the Microsoft Azure portal with an account that has contributor or administrator permissions.
 
-2. Select **New**, then search for and select **Azure AD Domain Services**.
+2. Select **New**, then in the search bar, search for and select **Azure Active Directory Domain Services**.
 
-    ![A screenshot of the New page in Microsoft Azure. The user is searching for "Azure AD Domain Services."](media/azure-ad-ds-search.png)
-
-3. When the Azure AD Domain Services window opens, select **Create**.
+3. When the Azure AD DS window opens, select **Create**.
 
 4. In the **Basics** tab:
 
@@ -34,7 +32,7 @@ To configure your Azure Active Directory (AD) Domain Services account for FSLogi
    - Select an empty resource group or create a new one by selecting **Create new**.
    - Select a location.
 
-   ![A screenshot of the Basics tab in Azure AD Domain services.](media/basics-tab.png)
+   ![A screenshot of the Basics tab in Azure AD DS.](media/basics-tab.png)
 
 5. For the **Network** tab, configure a virtual network or select an existing one. We recommend you create a new one by selecting **Create new** and entering the following information:
 
@@ -45,19 +43,19 @@ To configure your Azure Active Directory (AD) Domain Services account for FSLogi
 
    ![A screenshot of the Network tab. The user has selected Create New and is in the process of creating a new network.](media/network-tab.png)
 
-6. For the **Administrator group** tab, select the Azure AD users that will manage the Azure AD Domain Services configuration.
+6. For the **Administrator group** tab, select the Azure AD users that will manage the Azure AD DS configuration.
 
 7. For most deployments, you won't need to change any information in the **Synchronization** tab. Keep the default values unless told otherwise.
 
 8. Finally, you'll see the **Summary** tab. Review the information to make sure you've selected the right settings. When you're done, select **OK** to start the deployment.
 
-   ![A screenshot of the Summary tab in Azure AD Domain Services.](media/summary-tab.png)
+   ![A screenshot of the Summary tab in Azure AD DS.](media/summary-tab.png)
 
    To check your deployment's progress, select the **Notifications** icon in the global controls bar.
 
-9. When the deployment is done, go to **Azure AD Domain Services** and confirm that Azure AD Domain Services is running.
+9. When the deployment is done, go to **Azure AD DS** and confirm that Azure AD DS is running.
 
-## Add Azure AD Domain Services admins
+## Add Azure AD DS admins
 
 To add additional admins, you create a new user and grant them permissions.
 
@@ -75,7 +73,7 @@ To add an admin:
 
 ## Create and configure an Azure Files storage account
 
-Now it's time to enable Azure AD Domain Services authentication over Server Message Block (SMB). For more information about this process, see our [Azure Storage Documentation](../storage/common/storage-introduction.md).
+Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). For more information about this process, see our [Azure Storage Documentation](../storage/common/storage-introduction.md).
 
 To enable authentication:
 
@@ -110,20 +108,20 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 1. Select **Access Control (IAM)**.
 2. Select **Add a role assignment**.
 3. In the **Add role assignment** tab, select the appropriate built-in role from the role list. You'll need to at least select **Storage File Data SMB Share Contributor** for the account to get proper permissions.
-4. For **Assign access to**, select **Azure AD user, group, or service principal**.
-5. Select a name or email address for the target Azure AD identity.
+4. For **Assign access to**, select **Azure Active Directory user, group, or service principal**.
+5. Select a name or email address for the target Azure Active Directory identity.
 6. Select **Save**.
 
 ## Obtain storage account access key
 
 1. From the Azure portal sidebar, select **Storage accounts**.
 
-2. From the list of storage accounts, select the account for which you enabled Azure AD Domain Services and created the custom roles in steps above.
+2. From the list of storage accounts, select the account for which you enabled Azure AD DS and created the custom roles in steps above.
 
 3. Under **Settings**, select **Access keys** and copy the key from **key1**.
 
    >[!NOTE]
-   >If the key contains the "/" symbol, hit the **Refresh** icon to generate a new key.
+   >If the key contains the "/" symbol, select the **Refresh** icon to generate a new key.
 
 4. Go to the **Virtual Machines** tab and locate any VM that is going to be part of your host pool.
 
@@ -255,7 +253,7 @@ To verify your profile:
 
 4. From the sidebar, select **Storage accounts**.
 
-5. Select the storage account you configured as the file share for your session host pool and enabled with Azure AD Domain Services.
+5. Select the storage account you configured as the file share for your session host pool and enabled with Azure AD DS.
 
 6. Select the **Files** icon, then expand your share.
 
@@ -263,6 +261,6 @@ To verify your profile:
 
 ## Next steps
 
-Now that you've prepared your profile container, you can use it to create host pools. To learn more, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+Now that you've created your FSLogix profile container, you can use it to create host pools. To learn more, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
 You can also find more detailed information about concepts related to FSlogix containers for Azure files in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
