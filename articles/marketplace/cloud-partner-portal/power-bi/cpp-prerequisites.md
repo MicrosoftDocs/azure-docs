@@ -12,7 +12,7 @@ ms.author: dsindona
 # Power BI App offer prerequisites
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzurePBIAppCreationOverview) to manage your migrated offers.
+>Starting April 13 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzurePBIAppCreationOverview) to manage your migrated offers.
 
 This article provides the technical and business requirements that you need to meet before you can publish a Power BI App offer to the AppSource marketplace.  If you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../../appsource-offer-publishing-guide.md).
 
