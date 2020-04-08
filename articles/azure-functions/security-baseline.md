@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Functions
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -91,15 +91,22 @@ How to deploy Azure WAF: https://docs.microsoft.com/azure/web-application-firewa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4087).
 
-**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your Azure Functions apps to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused public IP addresses.
+**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your functions apps to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused public IP addresses.
 
-In addition, deploy your Azure Function app to an Azure App Service Environment and configure a front-end gateway, such as Azure Web Application Firewall, to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your Azure Function apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks.
+In addition, configure a front-end gateway, such as Azure Web Application Firewall, to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your Azure Function apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks. Introduction of a WAF requires either an App Service Environment or use of Private Endpoints (Preview). Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
-How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Azure Functions networking options: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 
-How to deploy your function app to an Azure App Service Environment: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production 
+Azure Functions Premium Plan: https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan
 
-Understand Azure Web Application Firewall: https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall
+Introduction to the App Service Environments: https://docs.microsoft.com/azure/app-service/environment/intro
+
+Networking considerations for an App Service Environment: https://docs.microsoft.com/azure/app-service/environment/network-info 
+
+How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer Understand Azure Security Center Adaptive Network Hardening: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening Understand Azure Security Center Just In Time Network Access Control: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
+
+Using Private Endpoints for Azure Functions: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -128,13 +135,21 @@ How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4089).
 
-**Guidance**: Deploy your Azure Function app to an Azure App Service Environment and configure a front-end gateway such as Azure Web Application Firewall to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your Azure Function apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks.
+**Guidance**: Configure a front-end gateway such as Azure Web Application Firewall to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your function apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks. Introduction of a WAF requires either an App Service Environment or use of Private Endpoints (Preview). Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
 Alternatively, there are multiple marketplace options like the Barracuda WAF for Azure that are available on the Azure Marketplace which include IDS/IPS features.
 
-How to deploy your function app to an Azure App Service Environment: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production
+Azure Functions networking options: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+
+Azure Functions Premium Plan: https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan
+
+Introduction to the App Service Environments: https://docs.microsoft.com/azure/app-service/environment/intro
+
+Networking considerations for an App Service Environment: https://docs.microsoft.com/azure/app-service/environment/network-info 
 
 Understand Azure Web Application Firewall: https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall
+
+Using Private Endpoints for Azure Functions: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 
 Understand Barracuda WAF Cloud Service: https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service
 
@@ -147,13 +162,21 @@ Understand Barracuda WAF Cloud Service: https://docs.microsoft.com/azure/app-ser
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4090).
 
-**Guidance**: Deploy your Azure Function app to an Azure App Service Environment and configure a front-end gateway such as Azure Web Application Firewall with end-to-end TLS encryption.
+**Guidance**: Configure a front-end gateway for your network such as Azure Web Application Firewall with end-to-end TLS encryption. Introduction of a WAF requires either an App Service Environment or use of Private Endpoints (Preview). Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
-How to deploy your function app to an Azure App Service Environment: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production
+Azure Functions networking options: https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+Azure Functions Premium Plan: https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan
 
+Introduction to the App Service Environments: https://docs.microsoft.com/azure/app-service/environment/intro
+
+Networking considerations for an App Service Environment: https://docs.microsoft.com/azure/app-service/environment/network-info 
 Understand Azure Web Application Firewall: https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall
 
 How to configure end-to-end TLS by using Application Gateway with the portal: https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal
+
+Using Private Endpoints for Azure Functions: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -417,9 +440,17 @@ How to get members of a directory role in Azure AD with PowerShell: https://docs
 
 **Guidance**: Control plane access to Azure Functions is controlled through Azure Active Directory (AD). Azure AD does not have the concept of default passwords.
 
-Access to the HTTP endpoint can be controlled through authorization keys. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time.
+Data plane access can be controlled through several means, including authorization keys, network restrictions, and validating an AAD identity. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time. These keys are generated for new HTTP endpoints by default.
+
+Multiple deployment methods are available to function apps, some of which may leverage a set of generated credentials. Review the deployment methods that will be used for your application.
+
+Secure an HTTP endpoint: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production
 
 How to obtain and regenerate authorization keys: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys
+
+Deployment technologies in Azure Functions: https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies
+
+
 
 **Azure Security Center monitoring**: Not applicable
 

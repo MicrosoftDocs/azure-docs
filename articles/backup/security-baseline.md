@@ -4,7 +4,7 @@ description: Azure Security Baseline for Backup
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,10 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4525).
 
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machines, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel.
-
-How to configure your backups: https://docs.microsoft.com/azure/backup/backup-configure-vault
-
+**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machine, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -44,13 +41,11 @@ How to configure your backups: https://docs.microsoft.com/azure/backup/backup-co
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4526).
 
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machines, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel.
-How to configure your backups: https://docs.microsoft.com/azure/backup/backup-configure-vault
-
+**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machine, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.3: Protect critical web applications
 
@@ -61,7 +56,7 @@ How to configure your backups: https://docs.microsoft.com/azure/backup/backup-co
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -72,7 +67,6 @@ How to configure your backups: https://docs.microsoft.com/azure/backup/backup-co
 
 Understand networking and access support for the MARS agent: https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support
 
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
@@ -82,13 +76,11 @@ Understand networking and access support for the MARS agent: https://docs.micros
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4529).
 
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machines, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel.
-How to configure your backups: https://docs.microsoft.com/azure/backup/backup-configure-vault
-
+**Guidance**: Not applicable; you cannot associate a virtual network, subnet or Network Security group with a Recovery Services vault. When backing up an Azure virtual machine, data is transferred over the Azure backbone. When backing up from an on-premises machines, an encrypted tunnel is created with a specific endpoint in Azure and credentials are used to pre-encrypt the data before it is sent through the encrypted tunnel..
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -97,8 +89,7 @@ How to configure your backups: https://docs.microsoft.com/azure/backup/backup-co
 
 **Guidance**: The endpoints used by Azure Backup (including the Microsoft Azure Recovery Services agent) are all managed by Microsoft. You are responsible for any additional controls you wish to deploy to your on-premises systems.
 
-Understand networking and acess support for the MARS agent: https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support
-
+Understand networking and access support for the MARS agent: https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -113,17 +104,16 @@ Understand networking and acess support for the MARS agent: https://docs.microso
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4532).
 
-**Guidance**: If you use a Network Security group to restrict connectivity to your virtual machines using the Microsoft Azure Recovery Services (MARS) agent   then you should use the AzureBackup service tag to allow outbound access to Azure Backup.
+**Guidance**: If you are using the MARS agent on an Azure Virtual Machine, use the AzureBackup service tag on your NSG or Azure Firewall to allow outbound access to Azure Backup.
 
 Backup SQL Server databases in Azure VMs: https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms
-
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -138,14 +128,14 @@ Backup SQL Server databases in Azure VMs: https://docs.microsoft.com/azure/backu
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4534).
 
-**Guidance**: If you use a network security group to restrict connectivity to your virtual machine, then you should use the description field to specify the business need for the rule.
+**Guidance**: If you are using the MARS agent on an Azure Virtual Machine, associate that VM with a network security group use the description to specify the business need for the rule
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -156,12 +146,11 @@ Backup SQL Server databases in Azure VMs: https://docs.microsoft.com/azure/backu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4535).
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Backup instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
+**Guidance**: If you are using the MARS agent on an Azure Virtual Machine that is being protected by an NSG or Azure Firewall, use Azure Activity Log to monitor configuration of the NSG or Firewall. You may create alerts within Azure Monitor that will trigger when changes to these resources take place.
 
 View and retrieve Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
 Create, view, and manage activity log alerts by using Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -191,13 +180,11 @@ Create, view, and manage activity log alerts by using Azure Monitor: https://doc
 
 Also, ingest logs via Azure Monitor to aggregate security data generated by Azure Backup. Within the Azure Monitor, use Log Analytics workspace(s) to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you may enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM). 
 
-Supporting documentation:
+How to enable Diagnostic Settings for Azure Activity Log: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+Using diagnostic settings to for Recovery Services Vaults: https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events
 
-- [Using diagnostic settings to for Recovery Services Vaults](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
-
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -277,14 +264,11 @@ Alerts are primarily scenarios where users are notified so that they can take re
 
 You can also onboard a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor.
 
-Azure Backup Overview: https://docs.microsoft.com/azure/backup/backup-overview
-
 Monitoring Azure Backup workloads: https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor
 
 How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 Create, view, and manage log alerts using Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
-
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -400,12 +384,11 @@ Azure Recovery Services API information: https://docs.microsoft.com/rest/api/rec
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4550).
 
-**Guidance**: When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
+**Guidance**: When you perform critical operations in Azure Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
 
 Multi-Factor Authentication in Azure Backup: https://docs.microsoft.com/azure/backup/backup-azure-security-feature
 
 Planning a cloud-based Azure Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
 
 **Azure Security Center monitoring**: Yes
 
@@ -607,14 +590,13 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4562).
 
-**Guidance**: Azure Backup supports encryption for in-transit data. Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard (AES) 256 and sent over a secure HTTPS link.
+**Guidance**: Backup traffic from servers to the Recovery Services vault is transferred over a secure HTTPS link and encrypted using Advanced Encryption Standard (AES) 256 when stored in the vault.
 
-Support matrix for Azure Backup: https://docs.microsoft.com/azure/backup/backup-support-matrix
-
+Understand encryption at rest in Azure Backup: https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Shared
+**Responsibility**: Microsoft
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -630,7 +612,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Shared
+**Responsibility**: Currently not available
 
 ### 4.6: Use Azure RBAC to control access to resources
 
@@ -639,12 +621,11 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 **Guidance**: Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
-Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader.You can map Backup built-in roles to various backup management actions.
+Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader. You can map Backup built-in roles to various backup management actions.
 
 How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Use Role-Based Access Control to manage Azure Backup recovery points: https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault
-
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -662,25 +643,22 @@ Azure customer data protection: https://docs.microsoft.com/azure/security/fundam
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Shared
+**Responsibility**: Microsoft
 
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4566).
 
-**Guidance**: Azure Backup supports encryption for at-rest data. For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). Microsoft does not decrypt the backup data at any point.
+**Guidance**: Azure Backup supports encryption for at-rest data. For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For cloud workloads, data is encrypted-at-rest using Storage Service Encryption (SSE). Microsoft does not decrypt the backup data at any point.
 
-After setting up a Recovery Services vault, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
+When backing up with the MARS agent or using a Recovery Services vault encrypted with a customer-managed key, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
 
-Azure Backup FAQ: https://docs.microsoft.com/azure/backup/backup-azure-backup-faq
-
-Support Matrix for Azure Backup: https://docs.microsoft.com/azure/backup/backup-support-matrix
-
+Understand encryption at rest for Azure Backup: https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
@@ -754,10 +732,9 @@ Understanding security controls available for Azure Backup: https://docs.microso
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4572).
 
-**Guidance**: Currently not available; security configurations for Azure Backup itself are not yet supported in Azure Security Center.
+**Guidance**: Currently not available; security configurations for Azure Backup are not yet supported in Azure Security Center.
 
 List of Azure Security Center supported PaaS services: https://docs.microsoft.com/azure/security-center/features-paas
-
 
 **Azure Security Center monitoring**: Currently not available
 
