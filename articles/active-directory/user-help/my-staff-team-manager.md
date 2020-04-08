@@ -1,6 +1,6 @@
 ---
-title: Enabling delegated user management with My Staff (preview) - Azure AD | Microsoft Docs
-description: Manage passwords and phone numbers for your users
+title: Manage passwords and phone numbers with My Staff (preview) - Azure AD | Microsoft Docs
+description: Manage passwords and phone numbers for your users with My Staff
 services: active-directory
 documentationcenter: ''
 author: curtand
