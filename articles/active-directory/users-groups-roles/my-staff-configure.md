@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -70,9 +70,9 @@ The user is required to change their password the next time they sign in.
 
 From **My Staff**, open a user's profile.
 
-- Select the plus icon in the **Phone number** section to add a phone number for the user.
-- Select the pencil icon to change the phone number
-- Select the trashcan icon to remove the phone number from the user's profile
+- Select **Add phone number** section to add a phone number for the user
+- Select **Edit phone number** to change the phone number
+- Select **Remove phone number** to remove the phone number for the user
 
 Depending on your settings, the user can then use the phone number you set up to sign in with SMS, perform multi-factor authentication, and perform self-service password reset.
 
