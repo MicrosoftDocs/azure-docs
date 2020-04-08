@@ -131,7 +131,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Add new configuration properties to the server.properties file.
+1. Go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -146,7 +146,7 @@ To complete the configuration modification, do the following steps:
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
+1. Here is the screenshot that shows Ambari configuration UI with these changes in **kafka-env template** property.
 
     For HDI version 3.6:
 
@@ -157,7 +157,6 @@ To complete the configuration modification, do the following steps:
      ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
 
 1. Restart all Kafka brokers.
-1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
 
 ## Client setup (without authentication)
 
@@ -210,6 +209,8 @@ These steps are detailed in the following code snippets.
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
+
+1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to ## Verification section below for steps needed to verify the setup using console producer/consumer.
 
 ## Client setup (with authentication)
 
