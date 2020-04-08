@@ -49,4 +49,4 @@ In this how-to guide, you set up additional settings for the Azure API for FHIR.
 Next check out the series of tutorials to create a web application that reads FHIR data.
 
 >[!div class="nextstepaction"]
->[Deploy javascript application](tutorial-web-app-fhir-server.md)
+>[Deploy JavaScript application](tutorial-web-app-fhir-server.md)

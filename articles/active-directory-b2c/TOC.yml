@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Concepts
   items:
+  - name: Azure AD B2C best practices
+    href: best-practices.md
   - name: Application types
     href: application-types.md
   - name: Authentication protocols
@@ -72,6 +74,8 @@
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
+  - name: User profile attributes
+    href: user-profile-attributes.md
 - name: How-to guides
   items:
   - name: App integration
@@ -180,9 +184,13 @@
       - name: Customize the UI
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
+      - name: Customize language
+        href: custom-policy-localization.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
+      - name: Disable email verification
+        href: custom-policy-disable-email-verification.md
       - name: Enable JavaScript
         href: javascript-samples.md
       - name: Password complexity
@@ -225,18 +233,16 @@
         href: direct-signin.md
     - name: Add your own business logic
       items:
+      - name: Integrate REST API
+        href: custom-policy-rest-api-intro.md
       - name: Validate user input
         href: custom-policy-rest-api-claims-validation.md
         displayName: rest claims validation, validate
       - name: Obtain additional claims
         href: custom-policy-rest-api-claims-exchange.md
         displayName: rest claims exchange
-      - name: Add your own RESTful API
-        href: rest-api-claims-exchange-dotnet.md
-      - name: Secure RESTful APIs with basic auth
-        href: secure-rest-api-dotnet-basic-auth.md
-      - name: Secure RESTful APIs with certificate auth
-        href: secure-rest-api-dotnet-certificate-auth.md
+      - name: Secure REST API
+        href: secure-rest-api.md
     - name: Define custom attributes
       href: custom-policy-custom-attributes.md
     - name: Troubleshooting
@@ -303,13 +309,15 @@
           items:
           - name: About technical profiles
             href: technical-profiles-overview.md
+          - name: About validation technical profiles
+            href: validation-technical-profile.md
+          - name: Application Insights
+            href: application-insights-technical-profile.md
+          - name: Azure Active Directory
+            href: active-directory-technical-profile.md
           - name: Azure Multi-Factor Authentication
             href: multi-factor-auth-technical-profile.md
             displayName: mfa
-          - name: Claim resolvers
-            href: claim-resolver-overview.md
-          - name: Azure Active Directory
-            href: active-directory-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
           - name: JWT token issuer
@@ -323,21 +331,25 @@
             displayName: otp
           - name: OpenID Connect
             href: openid-connect-technical-profile.md
+          - name: Phone factor
+            href: phone-factor-technical-profile.md 
           - name: REST
             href: restful-technical-profile.md
           - name: SAML
             href: saml-technical-profile.md
+          - name: SAML token issuer
+            href: saml-issuer-technical-profile.md
           - name: Self-asserted
             href: self-asserted-technical-profile.md
           - name: SSO session
             href: custom-policy-reference-sso.md
             displayName: single sign-on
-          - name: Validation
-            href: validation-technical-profile.md
       - name: UserJourneys
         href: userjourneys.md
       - name: RelyingParty
         href: relyingparty.md
+      - name: Claim resolvers
+        href: claim-resolver-overview.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
@@ -350,10 +362,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events
-    - name: Export usage report
-      href: view-usage-reports.md
-    - name: Account management
+    - name: Manage users - Microsoft Graph
       href: manage-user-accounts-graph-api.md
+      displayName: account, accounts
     - name: Deploy with Azure Pipelines
       href: deploy-custom-policies-devops.md
       displayName: azure devops, ci/cd, cicd, custom policy, policies
@@ -382,28 +393,28 @@
       href: user-migration.md
 - name: Reference
   items:
-  - name: Identity Experience Framework release notes
-    href: custom-policy-developer-notes.md
+  - name: Billing model
+    href: billing.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-  - name: Page layout versions
-    href: page-layout.md
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite
   - name: Error codes
     href: error-codes.md
+  - name: Extensions app
+    href: extensions-app.md
+  - name: IEF release notes
+    href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
+  - name: Page layout versions
+    href: page-layout.md
   - name: Region availability & data residency
     href: data-residency.md
-  - name: Billing model
-    href: billing.md
   - name: Threat management
     href: threat-management.md
     displayName: security
-  - name: Extensions app
-    href: extensions-app.md
   - name: User flow versions
     href: user-flow-versions.md
 - name: Resources

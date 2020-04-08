@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
 description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
@@ -154,7 +154,7 @@ In order to connect to the IoT Hub, a device must be registered. To register a d
 
 3. Save the **Primary Connection String** of your device to use it in a later step, in which you need to change a placeholder with this connection string.
 
-    ![add-device](./media/tutorial-iot-hub-maps/connectionString.png)
+    ![add-device](./media/tutorial-iot-hub-maps/connection-string.png)
 
 ## Upload geofence
 

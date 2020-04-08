@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 04/03/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -21,7 +21,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per (logical) partition key | 10,000 |
-| Maximum storage across all items per (logical) partition key| 10 GB |
+| Maximum storage across all items per (logical) partition key| 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
@@ -65,7 +65,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 > [!NOTE]
 > Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
 
-Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
+Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## Per-account limits
 
@@ -143,15 +143,15 @@ Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The followin
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum length of SQL query| 256 KB <sup>*</sup>|
+| Maximum length of SQL query| 256 KB |
 | Maximum JOINs per query| 5 <sup>*</sup>|
-| Maximum ANDs per query| 2000 <sup>*</sup>|
-| Maximum ORs per query| 2000 <sup>*</sup>|
 | Maximum UDFs per query| 10 <sup>*</sup>|
-| Maximum arguments per IN expression| 6000 <sup>*</sup>|
-| Maximum points per polygon| 4096 <sup>*</sup>|
+| Maximum points per polygon| 4096 |
+| Maximum included paths per container| 500 |
+| Maximum excluded paths per container| 500 |
+| Maximum properties in a composite index| 8 |
 
-<sup>*</sup> You can increase any of these SQL query limits by contacting Azure Support.
+<sup>*</sup> You can increase these SQL query limits by contacting Azure Support.
 
 ## MongoDB API-specific limits
 
@@ -161,8 +161,11 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum MongoDB query memory size | 40 MB |
+| Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
+| Idle connection timeout for server side connection closure* | 30 minutes |
+
+\* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
 
 ## Try Cosmos DB Free limits
 
@@ -178,6 +181,20 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 | Maximum total storage per account | 10 GB |
 
 Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+## Free tier account limits
+The following table lists the limits for [Azure Cosmos DB free tier accounts.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Resource | Default limit |
+| --- | --- |
+| Number of free tier accounts per Azure subscription | 1 |
+| Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
+| Maximum RU/s for free | 400 RU/s |
+| Maximum storage for free | 5 GB |
+| Maximum number of shared throughput databases | 5 |
+| Maximum number of containers in a shared throughput database | 25 <br>In free tier accounts, the minimum RU/s for a shared throughput database with up to 25 containers is 400 RU/s. |
+
+  In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts.
 
 ## Next steps
 

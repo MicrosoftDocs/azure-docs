@@ -55,12 +55,23 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
+### Recommended built-in RBAC roles
+
+There are several built-in RBAC roles which can provide the permissions needed to use Storage Explorer. Some of those roles are:
+- [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources. **Note**: this role will give you key access.
+- [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources. **Note**: this role will give you key access.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
+- [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Full management of storage accounts. **Note**: this role will give you key access.
+- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
+
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
 Certificate errors typically occur in one of the following situations:
 
 - The app is connected through a _transparent proxy_, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
+- You're running an application that's injecting a self-signed TLS/SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 

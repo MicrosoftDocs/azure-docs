@@ -199,7 +199,10 @@ In this tutorial, you learned how to:
 * Add relationships.
 * Publish your device template.
 
+> [!NOTE]
+> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
+
 Next, you can:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-pnp-device.md)
+> [Connect a device](tutorial-connect-device.md)

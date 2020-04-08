@@ -3,14 +3,14 @@ title: Define a RESTful technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
-ms.author: marsma
+ms.date: 03/26/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -18,17 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. With RESTful service integration, you can:
-
-- **Validate user input data** - Prevents malformed data from persisting into Azure AD B2C. If the value from the user is not valid, your RESTful service returns an error message that instructs the user to provide an entry. For example, you can verify that the email address provided by the user exists in your customer's database.
-- **Overwrite input claims** - Enables you to reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized.
-- **Enrich user data** - Enables you to further integrate with corporate line-of-business applications. For example, your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. The return claims can be stored, evaluated in the next Orchestration Steps, or included in the access token.
-- **Run custom business logic** - Enables you to send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform other actions.
-
-Your policy may send input claims to your REST API. The REST API may also return output claims that you can use later in your policy, or it can throw an error message. You can design the integration with the RESTful services in the following ways:
-
-- **Validation technical profile** - A validation technical profile calls the RESTful service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page and returned in output claims.
-- **Claims exchange** - A call is made to the RESTful service through an orchestration step. In this scenario, there is no user-interface to render the error message. If your REST API returns an error, the user is redirected back to the relying party application with the error message.
+Azure Active Directory B2C (Azure AD B2C) provides support for integrating your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. For more information, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).  
 
 ## Protocol
 
@@ -122,11 +112,14 @@ The technical profile also returns claims, that aren't returned by the identity 
 | --------- | -------- | ----------- |
 | ServiceUrl | Yes | The URL of the REST API endpoint. |
 | AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, `Bearer`, or `ClientCertificate`. The `None` value indicates that the REST API is not anonymous. The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The `ClientCertificate` (recommended) value indicates that the REST API restricts access by using client certificate authentication. Only services that have the appropriate certificates, for example Azure AD B2C, can access your API. The `Bearer` value indicates that the REST API restricts access using client OAuth2 Bearer token. |
+| AllowInsecureAuthInProduction| No| Indicates whether the `AuthenticationType` can be set to `none` in production environment (`DeploymentMode` of the [TrustFrameworkPolicy](trustframeworkpolicy.md) is set to `Production`, or not specified). Possible values: true, or false (default). |
 | SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `QueryString` value is the input claim that is sent in the request query string. The HTTP verbs invoked by each are as follows:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
-| ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. |
+| ClaimsFormat | No | Not currently used, can be ignored. |
 | ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
 | DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+| UseClaimAsBearerToken| No| The name of the claim that contains the bearer token.|
 
 ## Cryptographic keys
 
@@ -213,19 +206,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 
 ## Returning error message
 
-Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
-
-| Attribute | Required | Description |
-| --------- | -------- | ----------- |
-| version | Yes | 1.0.0 |
-| status | Yes | 409 |
-| code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
-| requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
-| userMessage | Yes | An error message that is shown to the user. |
-| developerMessage | No | The verbose description of the problem and how to fix it, which is displayed when `DebugMode` is enabled. |
-| moreInfo | No | A URI that points to additional information, which is displayed when `DebugMode` is enabled. |
-
-The following example shows a REST API that returns an error message formatted in JSON:
+Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code. The response body contains error message formatted in JSON:
 
 ```JSON
 {
@@ -238,6 +219,17 @@ The following example shows a REST API that returns an error message formatted i
   "moreInfo": "https://restapi/error/API12345/moreinfo"
 }
 ```
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| version | Yes | Your REST API version. For example: 1.0.1 |
+| status | Yes | Must be 409 |
+| code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
+| requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
+| userMessage | Yes | An error message that is shown to the user. |
+| developerMessage | No | The verbose description of the problem and how to fix it, which is displayed when `DebugMode` is enabled. |
+| moreInfo | No | A URI that points to additional information, which is displayed when `DebugMode` is enabled. |
+
 
 The following example shows a C# class that returns an error message:
 
@@ -258,7 +250,8 @@ public class ResponseContent
 
 See the following articles for examples of using a RESTful technical profile:
 
-- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](rest-api-claims-exchange-dotnet.md)
-- [Secure your RESTful services by using HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md)
-- [Secure your RESTful service by using client certificates](secure-rest-api-dotnet-certificate-auth.md)
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](custom-policy-rest-api-claims-validation.md)
+- [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](custom-policy-rest-api-claims-validation.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Secure your REST API services](secure-rest-api.md)
+

@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # What is Custom Vision?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent _classes_) to images, according to their visual characteristics. Unlike the [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) service, Custom Vision allows you to determine the labels to apply.
 
 ## What it does

@@ -1,7 +1,7 @@
 ---
 title: Show search results on a map | Microsoft Azure Maps
 description: In this article, you'll learn how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -54,6 +54,9 @@ The search request, the data source, symbol layer, and the camera bounds are set
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
+
 Learn more about **Fuzzy Search**:
 
 > [!div class="nextstepaction"]
@@ -67,7 +70,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Get information from a coordinate](./map-get-information-from-coordinate.md)
+> [Get information from a coordinate](map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Show directions from A to B](./map-route.md)
+> [Show directions from A to B](map-route.md)

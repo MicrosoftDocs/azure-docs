@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -37,11 +37,11 @@ For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 This how-to guide describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md).
 
-The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault can result in **data loss**.
+The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database unavailability**.
 
-If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it’s best to delete the key.
+If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it's best to delete the key.
 
-Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
+Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
 
 The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database.
 The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
@@ -81,7 +81,7 @@ This how-to guide goes over two approaches depending on the desired result after
 
 1. Create a [new key in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
-2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
+2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server's new TDE protector.
 
    ```powershell
    # add the key from Key Vault to the server  
@@ -126,9 +126,9 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
-2. Add the new key to the server and update it as the server’s new TDE protector.
+2. Add the new key to the server and update it as the server's new TDE protector.
 
-   ```powershell
+   ```azurecli
    # add the key from Key Vault to the server  
    az sql server key create --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
 
@@ -141,26 +141,26 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
    > [!NOTE]
    > It may take a few minutes for the new TDE protector to propagate to all databases and secondary databases under the server.
 
-   ```powershell
+   ```azurecli
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
 4. Take a backup of the new key in Key Vault.
 
-   ```powershell
+   ```azurecli
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 5. Delete the compromised key from Key Vault.
 
-   ```powershell
+   ```azurecli
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 6. To restore a key to Key Vault in the future.
 
-   ```powershell
+   ```azurecli
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
    ```
 

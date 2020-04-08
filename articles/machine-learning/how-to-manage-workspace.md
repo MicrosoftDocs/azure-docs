@@ -47,7 +47,8 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
     ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
 
-1. After you are finished configuring the workspace, select **Create**. 
+1. When you're finished configuring the workspace, select **Review + Create**.
+2. Review the settings and make any additional changes or corrections. When you're satisified with the settings, select **Create**.
 
    > [!Warning] 
    > It can take several minutes to create your workspace in the cloud.
@@ -116,6 +117,12 @@ Use the Delete button at the top of the workspace you wish to delete.
 
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
+### Deleting the Azure Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

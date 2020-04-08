@@ -2,12 +2,9 @@
 title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2020
-ms.author: mlearned
+ms.date: 03/16/2020
+
 
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
@@ -319,7 +316,11 @@ az role assignment list --assignee $APPID --all -o table
 
 ### Deploy AKS
 
-Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`.
+Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
+
+```azurecli
+SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
+```
 
 We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
 
@@ -357,6 +358,12 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
+
+ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
 
 ### Setup the internal load balancer
 
@@ -533,3 +540,6 @@ You should see an image of the Azure voting app.
 See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

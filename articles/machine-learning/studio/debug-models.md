@@ -14,6 +14,8 @@ ms.date: 03/14/2017
 ---
 # Debug your model in Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 When running a model, you may run into the following errors:
 
 * the [Train Model][train-model] module produces an error 

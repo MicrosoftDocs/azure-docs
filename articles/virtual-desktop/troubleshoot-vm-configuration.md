@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
+manager: lizross
 ---
 # Session host virtual machine configuration
 
@@ -221,7 +222,7 @@ There are known circumstances that can cause the side-by-side stack to malfuncti
 - Running enablesxsstackrc.ps1 multiple times
 - Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
-The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to “Register the VM with the Windows Virtual Desktop host pool” in [Create a host pool with PowerShell](create-host-pools-powershell.md) to reinstall the side-by-side stack.
+The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Windows Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell.md) to reinstall the side-by-side stack.
 
 The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
@@ -264,7 +265,7 @@ Follow these instructions to run remediation from the same subnet and domain:
         wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
     ```
 
-11. Uninstall all products that start with “Remote Desktop.”
+11. Uninstall all products that start with "Remote Desktop."
 
 12. After all Windows Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
 
@@ -293,7 +294,7 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 ## Remote Desktop licensing mode isn't configured
 
-If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, "Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 

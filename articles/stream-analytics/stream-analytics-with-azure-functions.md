@@ -188,6 +188,9 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 If a failure occurs while sending events to Azure Functions, Stream Analytics retries most operations. All http exceptions are retried until success with the exception of http error 413 (entity too large). An entity too large error is treated as a data error that is subjected to the [retry or drop policy](stream-analytics-output-error-policy.md).
 
+> [!NOTE]
+> The timeout for HTTP requests from Stream Analytics to Azure Functions is set to 100 seconds. If your Azure Functions app takes more than 100 seconds to process a batch, Stream Analytics errors out.
+
 ## Known issues
 
 In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty (default), the value changes back to the previously entered value upon save. Manually enter the default values for these fields in this case.

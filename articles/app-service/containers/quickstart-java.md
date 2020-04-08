@@ -48,19 +48,19 @@ az login
 
 Then you can configure the deployment, run the maven command in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
 ```cmd
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
 ```
 A sample process looks like:
 
 ```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -132,6 +132,15 @@ az group delete --name <your resource group name; for example: helloworld-155840
 This command may take a minute to run.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Configure Java app](configure-custom-container.md)

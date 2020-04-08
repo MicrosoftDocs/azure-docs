@@ -3,14 +3,14 @@ title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/12/2020
-ms.author: marsma
+ms.date: 02/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -109,13 +109,14 @@ The following PowerShell script shows an example of how to query the Azure AD re
 You can try this script in the [Azure Cloud Shell](overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory:
-# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
+# This script requires an application registration that's granted Microsoft Graph API permission
+# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
+
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example

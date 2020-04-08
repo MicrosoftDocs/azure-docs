@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Nodes overview 
-description: Learn about AVS nodes and concepts. 
+title: Azure VMware Solution by CloudSimple - Nodes overview 
+description: Learn about CloudSimple nodes and concepts. 
 author: sharaths-cs
 ms.author: dikamath 
 ms.date: 08/20/2019
@@ -9,15 +9,15 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# AVS nodes overview
+# CloudSimple nodes overview
 
-Nodes are the building blocks of an AVS Private Cloud. A node is:
+Nodes are the building blocks of a Private Cloud. A node is:
 
 * A dedicated bare metal compute host where a VMware ESXi hypervisor is installed  
-* A unit of computing you can purchase or reserve to create AVS Private Clouds
-* Available to purchase or reserve in a region where the AVS service is available
+* A unit of computing you can provision or reserve to create Private Clouds
+* Available to provision or reserve in a region where the CloudSimple service is available
 
-You create an AVS Private Cloud from the purchased nodes. To create an AVS Private Cloud, you need a minimum of three nodes of the same SKU. To expand an AVS Private Cloud, add additional nodes. You can add nodes to an existing cluster or create a new cluster by purchasing nodes in the Azure portal and associating them with the AVS service. All purchased nodes are visible under the AVS service. 
+You create a Private Cloud from the provisioned nodes. To create a Private Cloud, you need a minimum of three nodes of the same SKU. To expand a Private Cloud, add additional nodes.  You can add nodes to an existing cluster or create a new cluster by provisioning nodes in the Azure portal and associating them with the CloudSimple service.  All provisioned nodes are visible under the CloudSimple service.  
 
 ## Provisioned nodes
 
@@ -26,7 +26,7 @@ Provisioned nodes provide pay-as-you-go capacity. Provisioning nodes helps you q
 * If you pay for your Azure subscription by credit card, the card is billed immediately.
 * If you're billed by invoice, the charges appear on your next invoice.
 
-## VMware Solution by AVS nodes SKU
+## VMware Solution by CloudSimple nodes SKU
 
 The following types of nodes are available for provisioning or reservation.
 
@@ -41,18 +41,16 @@ The following types of nodes are available for provisioning or reservation.
 
 ## Limits
 
-The following node limits apply to AVS Private Clouds.
+The following node limits apply to Private Clouds.
 
 | Resource | Limit |
 |----------|-------|
-| Minimum number of nodes to create an AVS Private Cloud | 3 |
-| Maximum number of nodes in a cluster on an AVS Private Cloud | 16 |
-| Maximum number of nodes in an AVS Private Cloud | 64 |
+| Minimum number of nodes to create a Private Cloud | 3 |
+| Maximum number of nodes in a cluster on a Private Cloud | 16 |
+| Maximum number of nodes in a Private Cloud | 64 |
 | Minimum number of nodes on a new cluster | 3 |
 
 ## Next steps
 
-* Learn how to [purchase nodes](create-nodes.md)
-* Learn about [AVS Private Clouds](cloudsimple-private-cloud.md)
 * Learn how to [provision nodes](create-nodes.md)
 * Learn about [Private Clouds](cloudsimple-private-cloud.md)

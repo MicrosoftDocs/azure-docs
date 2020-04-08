@@ -393,12 +393,11 @@
       href: media-services-deliver-asset-download.md
     - name: Failover streaming scenario
       href: media-services-implement-failover.md
+      displayName: HA, high availability
   - name: Consume
     items:
     - name: Playback media with existing players
       href: media-services-playback-content-with-existing-players.md
-    - name: Playback media with Media Player
-      href: media-services-develop-video-players.md
     - name: Other playback options
       items:
       - name: Smooth streaming Windows Store application

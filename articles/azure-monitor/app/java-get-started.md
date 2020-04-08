@@ -1,8 +1,6 @@
 ---
 title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -177,7 +175,7 @@ As you accumulate more data, you can run queries both to aggregate data and to f
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
-## 7. Install your app on the server
+## Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:

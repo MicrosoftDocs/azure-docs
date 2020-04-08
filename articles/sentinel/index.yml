@@ -11,8 +11,8 @@ metadata:
   ms.subservice: azure-sentinel
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: rkarlin #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rkarlin #Required; microsoft alias of author; optional team alias.
+  author: yelevin #Required; your GitHub user alias, with correct capitalization.
+  ms.author: yelevin #Required; microsoft alias of author; optional team alias.
   ms.date: 25/09/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

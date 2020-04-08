@@ -1,7 +1,6 @@
 ---
 title: Overview of Insights in Azure Monitor | Microsoft Docs
 description: Insights provide a customized monitoring experience in Azure Monitor for particular applications and services. This article provides a brief description of each of the insights that are currently available.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

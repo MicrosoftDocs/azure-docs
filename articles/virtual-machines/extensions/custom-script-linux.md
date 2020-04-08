@@ -3,7 +3,7 @@ title: Run custom scripts on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -126,7 +126,7 @@ These items should be treated as sensitive data and specified in the extensions 
 * `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
-  * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
+* `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
   this field instead if your command contains secrets such as passwords.
 * `script`: (**required** if commandToExecute not set, string)a base64 encoded (and optionally gzip'ed) script executed by /bin/sh.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
@@ -209,10 +209,12 @@ CustomScript uses the following algorithm to execute a script.
  1. execute the script using _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 ####  Property: managedIdentity
+> [!NOTE]
+> This property **must** be specified in protected settings only.
 
 CustomScript (version 2.1 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 
@@ -390,7 +392,8 @@ To troubleshoot, first check the Linux Agent Log, ensure the extension ran, chec
 ```
 
 You should look for the extension execution, it will look something like:
-```text
+
+```output
 2018/04/26 17:47:22.110231 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] [Enable] current handler state is: notinstalled
 2018/04/26 17:47:22.306407 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Download, message=Download succeeded, duration=167
 2018/04/26 17:47:22.339958 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Initialize extension directory
@@ -400,6 +403,7 @@ You should look for the extension execution, it will look something like:
 2018/04/26 17:47:23.476151 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Enable extension [bin/custom-script-shim enable]
 2018/04/26 17:47:24.516444 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Enable, message=Launch command succeeded: bin/custom-sc
 ```
+
 Some points to note:
 1. Enable is when the command starts running.
 2. Download relates to the downloading of the CustomScript extension package from Azure, not the script files specified in fileUris.
@@ -412,7 +416,8 @@ The Azure Script Extension produces a log, which you can find here:
 ```
 
 You should look for the individual execution, it will look something like:
-```text
+
+```output
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event="comparing seqnum" path=mrseq
@@ -436,6 +441,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=enabled
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=end
 ```
+
 Here you can see:
 * The Enable command starting is this log
 * The settings passed to the extension
@@ -450,7 +456,7 @@ az vm extension list -g myResourceGroup --vm-name myVM
 
 The output looks like the following text:
 
-```azurecli
+```output
 info:    Executing command vm extension get
 + Looking up the VM "scripttst001"
 data:    Publisher                   Name                                      Version  State
@@ -462,4 +468,3 @@ info:    vm extension get command OK
 
 ## Next steps
 To see the code, current issues and versions, see [custom-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux).
-

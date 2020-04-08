@@ -3,7 +3,7 @@ title: View Azure Activity log events in Azure Monitor
 description: View the Azure Activity log in Azure Monitor and retrieve with PowerShell, CLI, and REST API.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
@@ -163,35 +163,6 @@ Get Activity Logs without filter or select:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
-
-
-## Activity Logs Analytics monitoring solution
-The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace.
-
-### Prerequisites
-You must create a diagnostic setting to send the Activity log for your subscription to a Log Analytics workspace. See [Collect Azure platform logs in Log Analytics workspace in Azure Monitor](resource-logs-collect-workspace.md).
-
-### Install the solution
-Use the procedure in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution) to install the **Activity Log Analytics** solution. There is no additional configuration required.
-
-### Use the solution
-Click **Logs** at the top of the **Activity Log** page to open the [Activity Log Analytics monitoring solution](activity-log-collect.md) for the subscription. Or access all the monitoring solutions in your subscription **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
-
-![Azure Activity Logs tile](media/collect-activity-logs/azure-activity-logs-tile.png)
-
-
-Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the following table. Each part lists up to 10 items matching that parts's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
-
-![Azure Activity Logs dashboard](media/collect-activity-logs/activity-log-dash.png)
-
-| Visualization part | Description |
-| --- | --- |
-| Azure Activity Log Entries | Shows a bar chart of the top Azure Activity Log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. Click the bar chart to run a log search for `AzureActivity`. Click a caller item to run a log search returning all Activity Log entries for that item. |
-| Activity Logs by Status | Shows a doughnut chart for Azure Activity Log status for the selected date range and a list of the top ten status records. Click the chart to run a log query for `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Click a status item to run a log search returning all Activity Log entries for that status record. |
-| Activity Logs by Resource | Shows the total number of resources with Activity Logs and lists the top ten resources with record counts for each resource. Click the total area to run a log search for `AzureActivity | summarize AggregatedValue = count() by Resource`, which shows all Azure resources available to the solution. Click a resource to run a log query returning all activity records for that resource. |
-| Activity Logs by Resource Provider | Shows the total number of resource providers that produce Activity Logs and lists the top ten. Click the total area to run a log query for `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, which shows all Azure resource providers. Click a resource provider to run a log query returning all activity records for the provider. |
-
-
 
 
 ## Next steps

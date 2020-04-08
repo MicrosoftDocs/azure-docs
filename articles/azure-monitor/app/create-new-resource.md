@@ -1,11 +1,7 @@
 ---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
 
 ---
@@ -41,7 +37,7 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need copy to add the instrumentation key to your application's code.
+The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 ![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
 

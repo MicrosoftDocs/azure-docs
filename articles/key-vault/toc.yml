@@ -23,8 +23,8 @@
     href: quick-create-net.md
   - name: .NET (SDK v3)
     href: quick-create-net-v3.md
-  - name: Azure Resource Manager template
-    displayName: resource manager, resource manager template, arm
+  - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 - name: Tutorials
   items:
@@ -58,6 +58,7 @@
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
     href: ../azure-resource-manager/templates/key-vault-parameter.md
+    displayName: ARM
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
 - name: Samples
@@ -72,16 +73,18 @@
     items:
       - name: Security overview
         href: overview-security.md
+      - name: Security baseline
+        href: security-baseline.md
+      - name: Built-In Security
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
-      - name: Built-in security controls
-        href: key-vault-security-controls.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
   - name: Monitoring Key Vault events
-    href: event-grid-overview.md  
+    href: event-grid-overview.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
@@ -121,12 +124,14 @@
       - name: Import HSM-protected keys to Key Vault (legacy)
         href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
-    href: event-grid-tutorial.md      
+    href: event-grid-tutorial.md
   - name: Receive notifications via Event Grid and Logic Apps
-    href: event-grid-logicapps.md    
+    href: event-grid-logicapps.md
+  - name: Rotate secrets for single-user resources
+    href: tutorial-rotation.md
   - name: Integrate with Azure Policy
     href: azure-policy.md
-  - name: Integrate with Azure Private Link Service (Preview)
+  - name: Integrate with Azure Private Link Service
     href: private-link-service.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
@@ -170,6 +175,7 @@
     href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers

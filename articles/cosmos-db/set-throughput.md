@@ -55,11 +55,11 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. In a shared throughput database:
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. Each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s.
 
-* You can have up to four containers with a minimum of 400 RU/s on the database. Each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s.
-
-* You can have a maximum of 25 containers in the database. If you already have more than 25 containers in a shared throughput database, you will not be able to create additional containers until the container count is less than 25.
+> [!NOTE]
+> In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
+If your Azure Cosmos DB account already contains a shared throughput database with >=25 containers, the account and all other accounts in the same Azure subscription are exempt from this change. Please [contact product support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you have feedback or questions. 
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
@@ -82,11 +82,11 @@ You can combine the two models. Provisioning throughput on both the database and
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The minimum provisioned throughput depends on the following factors: 
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) depends on the following factors: 
 
 * The maximum data size that you ever store in the container
 * The maximum throughput that you ever provision on the container
-* The maximum number of Azure Cosmos containers that you ever create in a database with shared throughput. 
+* The current number of Azure Cosmos containers that you have in a database with shared throughput. 
 
 You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) method allows you to scale the provisioned throughput value. 
 
@@ -104,7 +104,7 @@ You can scale the provisioned throughput of a container or a database at any tim
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited.|
 |Maximum throughput per logical partition of a container|10K RUs|10K RUs|
-|Maximum storage (data + index) per logical partition of a container|10 GB|10 GB|
+|Maximum storage (data + index) per logical partition of a container|20 GB|20 GB|
 
 ## Next steps
 

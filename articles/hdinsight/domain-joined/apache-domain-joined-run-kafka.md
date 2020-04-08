@@ -198,4 +198,4 @@ If kafka-producer-consumer.jar does not work in a domain joined cluster, please 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bring your own key to Apache Kafka](../kafka/apache-kafka-byok.md)
+> [Customer-managed key disk encryption](../disk-encryption.md)

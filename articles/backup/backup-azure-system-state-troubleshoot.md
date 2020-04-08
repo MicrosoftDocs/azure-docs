@@ -15,11 +15,11 @@ This article describes solutions for issues that you might come across while usi
 We recommend you perform the below validation, before you start troubleshooting System State backup:
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
+- [Ensure there is network connectivity between MARS agent and Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
-- [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
-- [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
-- [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
+- [Ensure 5-10% free volume space is available on scratch folder location](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Check if another process or antivirus software is interfering with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [Scheduled backup fails, but manual backup works](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
 - Ensure your OS has the latest updates
 - [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Ensure **System Clock** on the protected system is configured to correct time zone <br>
@@ -28,7 +28,7 @@ We recommend you perform the below validation, before you start troubleshooting 
   - Ensure the agent is uninstalled on the server and it's deleted from the portal <br>
   - Use the same passphrase that was initially used for registering the server <br>
 - If this is an offline backup, ensure that Azure PowerShell version 3.7.0 is installed on both source and copy computer before you begin offline backup operation
-- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
+- [Consideration when Backup agent is running on an Azure virtual machine](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### Limitation
 
@@ -132,7 +132,7 @@ If the job fails, it indicates a WSB issue that would result in MARS agent Syste
 
 | Symptom | Resolution
 | -- | --
-| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: “There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted” | - Free up space in the highlighted volume in the event log so that there is sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### EFI partition locked
 

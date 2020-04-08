@@ -42,6 +42,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 
 ```json
 {
+ "extensions": {
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
@@ -79,7 +80,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useGracefulShutdown": false
   }
+  }
 }
+
 ```
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable-functions-task-hubs.md).

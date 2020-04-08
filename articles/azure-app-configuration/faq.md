@@ -1,27 +1,22 @@
 ---
-title: Azure App Configuration FAQ | Microsoft Docs
+title: Azure App Configuration FAQ
 description: Frequently asked questions about Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 
-ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
 ---
 
 # Azure App Configuration FAQ
 
-This article addresses frequently asked questions about Azure App Configuration.
+This article answers frequently asked questions about Azure App Configuration.
 
 ## How is App Configuration different from Azure Key Vault?
 
-App Configuration is designed for a distinct set of use cases: it helps developers manage application settings and control feature availability. It aims to simplify many of the tasks of working with complex configuration data.
+App Configuration helps developers manage application settings and control feature availability. It aims to simplify many of the tasks of working with complex configuration data.
 
 App Configuration supports:
 
@@ -32,11 +27,11 @@ App Configuration supports:
 - Specialized management operations
 - A feature-management user interface
 
-App Configuration is complementary to Key Vault, and the two should be used side by side in most application deployments.
+App Configuration complements Key Vault, and the two should be used side by side in most application deployments.
 
 ## Should I store secrets in App Configuration?
 
-Although App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. Key Vault provides hardware-level encryption, granular access policies, and management operations, such as certificate rotation.
+Although App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. Key Vault provides hardware-level encryption, granular access policies, and management operations such as certificate rotation.
 
 You can create App Configuration values that reference secrets stored in Key Vault. For more information, see [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
 
@@ -58,7 +53,9 @@ There's a limit of 10 KB for a single key-value item.
 
 ## How should I store configurations for multiple environments (test, staging, production, and so on)?
 
-Currently you control who can access App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
+You control who can access App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach provides the best security isolation.
+
+If you do not need security isolation between environments, you can use labels to differentiate between configuration values. [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
 
 ## What are the recommended ways to use App Configuration?
 
@@ -66,9 +63,14 @@ See [best practices](./howto-best-practices.md).
 
 ## How much does App Configuration cost?
 
-There are two pricing tiers: 1) a free tier, and 2) a standard tier.
+There are two pricing tiers:
 
-If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier, or remain on the Free tier if it meets your needs.
+- Free tier
+- Standard tier.
+
+If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
+
+You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then import configuration data into that store.
 
 ## Which App Configuration tier should I use?
 
@@ -92,6 +94,25 @@ The following are considerations for choosing a tier.
 You can upgrade from the Free tier to the Standard tier at any time.
 
 You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+
+## Are there any limits on the number of requests made to App Configuration?
+
+Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
+
+When a store reaches its limit, it will return HTTP status code 429 for all requests made until the time period expires. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
+
+If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
+
+## My application receives HTTP status code 429 responses. Why?
+
+You'll receive an HTTP status code 429 response under these circumstances:
+
+* Exceeding the daily request limit for a store in the Free tier.
+* Temporary throttling due to a high request rate for a store in the Standard tier.
+* Excessive bandwidth usage.
+* Attempting to create or modify a key when the storage quote is exceeded.
+
+Check the body of the 429 response for the specific reason why the request failed.
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 

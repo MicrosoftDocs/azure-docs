@@ -225,18 +225,6 @@ The password is changed on all nodes in the cluster.
 
 6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new password.
 
-## Grant/revoke access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-By default, these services are granted for access. You can revoke/grant the access using [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
-
 ## Find the subscription ID
 
 Each cluster is tied to an Azure subscription.  The Azure subscription ID is visible from the [cluster home page](#homePage).

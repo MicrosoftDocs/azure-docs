@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for PostgreSQL - Single server (Preview) CLI setup method
+title: Private Link - Azure CLI - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure CLI
 author: kummanish
 ms.author: manishku
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ---
 
-# Create and manage Private Link for Azure Database for PostgreSQL - Single server (Preview) using CLI
+# Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports General Purpose and Memory Optimized pricing tiers.
+> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
 
 ## Prerequisites
 
@@ -116,6 +116,9 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
 az network private-dns record-set a create --name myserver --zone-name privatelink.postgres.database.azure.com --resource-group myResourceGroup  
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
+
+> [!NOTE] 
+> The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
 
 ## Connect to a VM from the internet
 

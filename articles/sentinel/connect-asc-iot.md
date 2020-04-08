@@ -3,7 +3,7 @@ title: Connect Azure Security Center for IoT to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Azure Security Center for IoT data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 

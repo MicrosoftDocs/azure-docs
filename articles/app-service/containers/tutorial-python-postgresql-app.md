@@ -4,7 +4,7 @@ description: Learn how to get a Linux Python app working in Azure App Service, w
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 01/23/2020
-ms.custom: [mvc, seodec18, seo-python-october2019]
+ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate]
 ---
 # Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service
 

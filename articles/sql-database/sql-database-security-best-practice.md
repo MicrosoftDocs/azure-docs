@@ -1,18 +1,22 @@
 ---
-title: Security best practices playbook for Azure SQL Database | Microsoft Docs
-description: This article provides general guidance for security best practices in Azure SQL Database.
+title: Playbook for Addressing Common Security Requirements | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: This article provides common security requirements and best practices in Azure SQL Database.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ""
 ---
 
-# Azure SQL Database security best practices playbook
+# Playbook for Addressing Common Security Requirements with Azure SQL Database
 
-## Overview
+> [!NOTE]
+> This document provides best practices on how to solve common security requirements. Not all requirements are applicable to all environments, and you should consult your database and security team on which features to implement.
+
+## Solving common security requirements
 
 This document provides guidance on how to solve common security requirements for new or existing applications using Azure SQL Database. It's organized by high level security areas. For addressing specific threats, refer to the [Common security threats and potential mitigations](#common-security-threats-and-potential-mitigations) section. Although some of the presented recommendations are applicable when migrating applications from on-premises to Azure, migration scenarios are not the focus of this document.
 
@@ -61,6 +65,9 @@ Authentication is the process of proving the user is who they claim to be. Azure
 - SQL authentication
 - Azure Active Directory authentication
 
+> [!NOTE]
+> Azure Active Directory authentication may not be supported for all tools and 3rd party applications.
+
 ### Central management for identities
 
 Central identity management offers the following benefits:
@@ -77,7 +84,7 @@ Central identity management offers the following benefits:
 
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux. 
 
-- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. 
+- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put users in database roles with the appropriate permissions.
   - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > In a managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
@@ -199,11 +206,6 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 - As a server admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
   - See the article, [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
 
-- Follow password management best practices:
-  - Provide a complex password, composed of Latin upper and lowercase letters, digits (0-9), and non-alphanumeric characters (like $, !, #, or %).
-  - Use longer passphrases instead of shorter randomly selected characters.
-  - Enforce manual password change at least every 90 days.
-
 ## Access management
 
 Access management is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
@@ -245,9 +247,7 @@ The following best practices are optional but will result in better manageabilit
 
 - Refrain from assigning permissions to individual users. Use roles (database or server roles) consistently instead. Roles helps greatly with reporting and troubleshooting permissions. (Azure RBAC only supports permission assignment via roles.) 
 
-- Use built-in roles when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles. 
-
-- Create and use custom roles when built-in roles grant too many or insufficient permissions. Typical roles that are used in practice: 
+- Create and use custom roles with the exact permissions needed. Typical roles that are used in practice: 
   - Security deployment 
   - Administrator 
   - Developer 
@@ -255,14 +255,17 @@ The following best practices are optional but will result in better manageabilit
   - Auditor 
   - Automated processes 
   - End user 
+  
+- Use built-in roles only when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles. 
 
 - Remember that permissions in SQL Server Database Engine can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
   - Azure SQL Database server (special roles in master database) 
   - Database 
-  - Schema (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - Schema
+      - It is a best practice to use schemas to grant permissions inside a database. (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.) 
   > [!NOTE]
-  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
+  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. Also be aware that by default a table-level [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) does not override a column-level GRANT. This would require the [common criteria compliance Server Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) to be activated.
 
 - Perform regular checks using [Vulnerability Assessment (VA)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) to test for too many permissions.
 
@@ -315,7 +318,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Always make sure to have an Audit trail for security-related actions. 
 
-- You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via Powershell 
+- You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
 - Since any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 
@@ -404,6 +407,8 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users are prevented from viewing sensitive data in your database. High-privilege users, such as Microsoft operators or DBAs in your organization should be able to manage the database, but prevented from viewing and potentially exfiltrating sensitive data from the memory of the SQL Server process or by querying the database.
 
+The policies that determine which data is sensitive and whether the sensitive data must be encrypted in memory and not accessible to administrators in plaintext, are specific to your organization and compliance regulations you need to adhere to. Please see the related requirement: [Identify and tag sensitive data](#identify-and-tag-sensitive-data).
+
 **How to implement**:
 
 - Use [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) to ensure sensitive data isn't exposed in plaintext in Azure SQL Database, even in memory/in use. Always Encrypted protects the data from Database Administrators (DBAs) and cloud admins (or bad actors who can impersonate high-privileged but unauthorized users) and gives you more control over who can access your data.
@@ -411,6 +416,8 @@ Data in use is the data stored in memory of the database system during the execu
 **Best practices**:
 
 - Always Encrypted isn't a substitute to encrypt data at rest (TDE) or in transit (SSL/TLS). Always Encrypted shouldn't be used for non-sensitive data to minimize performance and functionality impact. Using Always Encrypted in conjunction with TDE and Transport Layer Security (TLS) is recommended for comprehensive protection of data at-rest, in-transit, and in-use. 
+
+- Assess the impact of encrypting the identified sensitive data columns before you deploy Always Encrypted in a production database. In general, Always Encrypted reduces the functionality of queries on encrypted columns and has other limitations, listed in [Always Encrypted - Feature Details](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details). Therefore, you may need to rearchitect your application to re-implement the functionality, a query does not support, on the client side or/and refactor your database schema, including the definitions of stored procedures, functions, views and triggers. Existing applications may not work with encrypted columns if they do not adhere to the restrictions and limitations of Always Encrypted. While the ecosystem of Microsoft tools, products and services supporting Always Encrypted is growing, a number of them do not work with encrypted columns. Encrypting a column may also impact query performance, depending on the characteristics of your workload. 
 
 - Manage Always Encrypted keys with role separation if you're using Always Encrypted to protect data from malicious DBAs. With role separation, a security admin creates the physical keys. The DBA creates the column master key and column encryption key metadata objects, describing the physical keys, in the database. During this process, the security admin doesn't need access to the database, and the DBA doesn't need access to the physical keys in plaintext. 
   - See the article, [Managing Keys with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) for details. 
@@ -645,7 +652,7 @@ Tracking of database events helps you understand database activity. You can gain
 **Best practices**:
 
 - By configuring [SQL Database Auditing](sql-database-auditing.md) on your database server to audit events, all existing and newly created databases on that server will be audited.
-- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It's recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](sql-database-auditing.md#subheading-7). Configuring this will help control the number of audited actions, and minimize the risk of event loss. Custom audit configuration allow customers to capture only the audit data that is needed.
+- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It's recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](sql-database-auditing.md#manage-auditing). Configuring this will help control the number of audited actions, and minimize the risk of event loss. Custom audit configuration allow customers to capture only the audit data that is needed.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured. 
 
 
@@ -700,7 +707,7 @@ Proactively improve your database security by discovering and remediating potent
 
 ### Identify and tag sensitive data 
 
-Discover columns that potentially contain sensitive data. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
+Discover columns that potentially contain sensitive data. What is considered sensitive data heavily depends on the customer, compliance regulation, etc., and needs to be evaluated by the users in charge of that data. Classify the columns to use advanced sensitivity-based auditing and protection scenarios. 
 
 **How to implement**:
 
@@ -723,7 +730,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination. 
-  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data. You can also view information such as the data that was accessed, as well as its sensitivity label. For more information, see [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) and [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#audit-sensitive-data). 
 
 **Best practices**:
 

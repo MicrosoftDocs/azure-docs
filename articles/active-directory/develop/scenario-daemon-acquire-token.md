@@ -2,16 +2,12 @@
 title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -124,24 +120,48 @@ else:
 This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
-ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
-        Collections.singleton(GRAPH_DEFAULT_SCOPE))
-        .build();
+private static IAuthenticationResult acquireToken() throws Exception {
 
-CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
+     // Load token cache from file and initialize token cache aspect. The token cache will have
+     // dummy data, so the acquireTokenSilently call will fail.
+     TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
 
-BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
-    if (ex != null) {
-        System.out.println("Oops! We have an exception - " + ex.getMessage());
-    }
-    System.out.println("Returned ok - " + res);
-    System.out.println("ID Token - " + res.idToken());
+     IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+     ConfidentialClientApplication cca =
+             ConfidentialClientApplication
+                     .builder(CLIENT_ID, credential)
+                     .authority(AUTHORITY)
+                     .setTokenCacheAccessAspect(tokenCacheAspect)
+                     .build();
 
-    /* Call a protected API with res.accessToken() */
-};
+     IAuthenticationResult result;
+     try {
+         SilentParameters silentParameters =
+                 SilentParameters
+                         .builder(SCOPE)
+                         .build();
 
-future.whenCompleteAsync(processAuthResult);
-future.join();
+         // try to acquire token silently. This call will fail since the token cache does not
+         // have a token for the application you are requesting an access token for
+         result = cca.acquireTokenSilently(silentParameters).join();
+     } catch (Exception ex) {
+         if (ex.getCause() instanceof MsalException) {
+
+             ClientCredentialParameters parameters =
+                     ClientCredentialParameters
+                             .builder(SCOPE)
+                             .build();
+
+             // Try to acquire a token. If successful, you should see
+             // the token information printed out to console
+             result = cca.acquireToken(parameters).join();
+         } else {
+             // Handle other exceptions accordingly
+             throw ex;
+         }
+     }
+     return result;
+ }
 ```
 
 ---

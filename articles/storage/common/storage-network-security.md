@@ -382,12 +382,14 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 
 The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
 
-| Service                        | Resource Provider Name          | Purpose            |
-| :----------------------------- | :------------------------------------- | :---------- |
+| Service                        | Resource Provider Name                 | Purpose            |
+| :----------------------------- | :------------------------------------- | :----------------- |
+| Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
-| Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). |
+| Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
+| Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Synapse Analytics. |

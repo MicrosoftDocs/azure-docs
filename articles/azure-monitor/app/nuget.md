@@ -1,11 +1,7 @@
 ---
 title: Azure Monitor Application Insights NuGet packages
 description: Azure Monitor Application Insights NuGet packages lists for ASP.NET, ASP.NET Core, Python
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/16/2018
 
 ---

@@ -1,7 +1,6 @@
 ---
-title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
+title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

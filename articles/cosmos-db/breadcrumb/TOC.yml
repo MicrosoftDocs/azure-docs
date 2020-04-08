@@ -63,6 +63,14 @@
     topicHref: /azure/cosmos-db/index
 
 - name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cosmos DB
+    tocHref: /azure/virtual-network/
+    topicHref: /azure/cosmos-db/index
+
+- name: Azure
   tocHref: /java/
   topicHref: /azure/index
   items:

@@ -4,7 +4,7 @@ description: As a solution manager, I want to export an application template to 
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea

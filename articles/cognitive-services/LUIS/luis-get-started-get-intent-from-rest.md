@@ -19,31 +19,22 @@ For this article, you need a free [LUIS](https://www.luis.ai) account.
 <a name="create-luis-subscription-key"></a>
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-intent-rest-csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Get intent with Java and REST](./includes/get-started-get-intent-rest-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-intent-rest-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-intent-rest-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Get intent with Go and REST](./includes/get-started-get-intent-rest-go.md)]
-
 ::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Get intent with Java and REST](./includes/get-started-get-intent-rest-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js and REST](./includes/get-started-get-intent-rest-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python and REST](./includes/get-started-get-intent-rest-python.md)]
+::: zone-end
+

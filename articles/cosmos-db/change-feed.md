@@ -36,11 +36,15 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 ## Change feed and different operations
 
-Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
+Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a "soft marker" on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn't log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
 
 ### Sort order of items in change feed
 
-Change feed items come in the order of their modification time. This sort order is guaranteed per   logical partition key.
+Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key.
+
+### Consistency level
+
+While consuming the change feed in an Eventual consistency level, there could be duplicate events in-between subsequent change feed read operations (the last event of one read operation appears as the first of the next).
 
 ### Change feed in multi-region Azure Cosmos accounts
 

@@ -1,5 +1,5 @@
 ---
-title: "What is Custom Voice? - Speech service"
+title: "Improve synthesis with Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience."
 services: cognitive-services

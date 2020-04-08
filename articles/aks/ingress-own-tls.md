@@ -1,13 +1,11 @@
 ---
-title: Use your own TLS certificates for ingress with Azure Kubernetes Service (AKS) cluster
+title: Use your TLS certificates for ingress
+titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses your own certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
+
 ---
 
 # Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)

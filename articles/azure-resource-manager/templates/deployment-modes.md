@@ -89,7 +89,7 @@ New-AzResourceGroupDeployment `
 To set the deployment mode when deploying with Azure CLI, use the `mode` parameter.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

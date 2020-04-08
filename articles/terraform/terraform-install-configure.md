@@ -1,22 +1,12 @@
 ---
-title: Install and configure Terraform to provision Azure resources 
-description: Learn how to install and configure Terraform to create Azure resources
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
+title: Quickstart - Install and configure Terraform to provision Azure resources 
+description: In this quicstart, you install and configure Terraform to create Azure resources
+keywords: azure devops terraform install configure
+ms.topic: quickstart
+ms.date: 03/09/2020
 ---
 
-# Install and configure Terraform to provision Azure resources
+# Quickstart: Install and configure Terraform to provision Azure resources
  
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure.
 
@@ -24,9 +14,9 @@ To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/
 > [!NOTE]
 > For Terraform specific support, please reach out to Terraform directly using one of their community channels:
 >
->	• The [Terraform section](https://discuss.hashicorp.com/c/terraform-core) of the community portal contains questions, use cases, and useful patterns.
+>    * The [Terraform section](https://discuss.hashicorp.com/c/terraform-core) of the community portal contains questions, use cases, and useful patterns.
 >
->	• For provider-related questions please visit the [Terraform Providers](https://discuss.hashicorp.com/c/terraform-providers) section of the community portal.
+>    * For provider-related questions please visit the [Terraform Providers](https://discuss.hashicorp.com/c/terraform-providers) section of the community portal.
 
 
 
@@ -99,6 +89,10 @@ Create a file `test.tf` in an empty directory and paste in the following script.
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"

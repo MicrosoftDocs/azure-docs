@@ -1,15 +1,12 @@
 ---
-title: Understand Azure Cost Management data | Microsoft Docs
+title: Understand Azure Cost Management data
 description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
-
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom:
 ---
 
 # Understand Cost Management data
@@ -17,6 +14,8 @@ ms.custom:
 This article helps you better understand Azure cost and usage data that's included in Azure Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
 Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits.
+
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Supported Microsoft Azure offers
 
@@ -90,9 +89,9 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 _<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
 
-_<sup>**6**</sup> Marketplace purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
+_<sup>**6**</sup> Marketplace purchases are not available for MSDN and Visual Studio offers at this time._
 
-_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
+_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 ## How tags are used in cost and usage data
 
@@ -106,7 +105,7 @@ Azure Cost Management receives tags as part of each usage record submitted by th
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated).
 - Managing tags requires contributor access to each resource.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
-	
+    
 If you do not see a specific tag in Cost Management, consider the following:
 
 - Was the tag applied directly to the resource?
@@ -123,7 +122,7 @@ If you do not see a specific tag in Cost Management, consider the following:
     - Service Bus
     - Time Series Insights
     - VPN gateway
-	
+    
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
@@ -131,9 +130,9 @@ Here are a few tips for working with tags:
 - Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
 
 
-**Free trial to pay-as-you-go upgrade**
+## Free trial to pay-as-you-go upgrade
 
-Customers with a Free Trial offer (044P) converting to the PAYG offer (003P) can see their usage during the Free trial period. However, they lose visibility to Free Trail usage after conversion. After conversion, only PAYG usage and costs are shown in Cost Management.
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Rated usage data refresh schedule
 
@@ -153,6 +152,17 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 ### Rerated data
 
 Whether you use the [Cost Management APIs](../index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
+
+## Cost rounding
+
+Costs shown in Cost Management are rounded. Costs returned by the Query API aren't rounded. For example:
+
+- Cost analysis in the Azure portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, cost analysis aggregates costs as follows:
+  -    Charge 1: $0.004
+  - Charge 2: $0.004
+  -    Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
+- Query API - Charges are shown at eight decimal places and rounding doesn't occur.
+
 
 ## Usage data update frequency varies
 

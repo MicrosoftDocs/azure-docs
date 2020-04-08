@@ -19,6 +19,8 @@ ms.date: 07/29/2019
 
 In part three of this three-part tutorial series, you'll deploy a clustering model, developed in R, into a SQL database using Azure SQL Database Machine Learning Services (preview).
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 You'll create a stored procedure with an embedded R script that performs clustering. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
 In this article, you'll learn how to:

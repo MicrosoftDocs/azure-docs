@@ -34,7 +34,7 @@ Metrics and insights are available through the [Azure Application Insights](http
 ## Prerequisites
 
 To create and work with dataset monitors, you need:
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 * Structured (tabular) data with a timestamp specified in the file path, file name, or column in the data.
@@ -74,7 +74,7 @@ The target dataset needs to have the `timeseries` trait set on it by specifying 
 
 #### Python SDK
 
-The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) class' [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-)  method defines the time stamp column for the dataset. 
+The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class' [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -101,7 +101,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
+For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 #### Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
@@ -323,6 +323,6 @@ Columns, or features, in the dataset are classified as categorical or numeric ba
 
 ## Next steps
 
-* Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
+* Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) to set up a dataset monitor.
 * See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
 * Set up dataset drift monitors with [event grid](how-to-use-event-grid.md). 
