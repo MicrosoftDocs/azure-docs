@@ -275,6 +275,13 @@ The details of each step are given below.
     scp ca-cert sshuser@HeadNode1_Name:~/ssl/ca-cert
     ```
 
+1. Sign in to the client machine (standby head node) and navigate to ssl directory.
+
+    ```bash
+    ssh sshuser@HeadNode1_Name
+    cd ssl
+    ```
+    
 1. Create client store with signed cert, and import ca cert into the keystore and truststore:
 
     ```bash
