@@ -39,7 +39,7 @@ The feature described in this article requires SQL Server Management Studio vers
 ## Migrate SSIS jobs to ADF
 
 1. In SSMS, in Object Explorer, select SQL Server Agent, select Jobs, then right-click and select **Migrate SSIS Jobs to ADF**.
-![menu](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-menu.png)
+![menu](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Sign In Azure, select Azure Subscription, Data Factory, and Integration Runtime. Azure Storage is optional, which is used in the package location mapping step if SSIS jobs to be migrated have SSIS File System packages.
 ![menu](media/how-to-migrate-ssis-job-ssms/step1.png)
