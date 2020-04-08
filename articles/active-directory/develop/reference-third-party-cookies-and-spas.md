@@ -51,7 +51,7 @@ Some applications may attempt sign-in without redirecting away by opening a logi
     1. Consider having a pre-load sequence in the app that checks for a login session and redirects to the login page before the app fully unpacks and executes the JavaScript payload.
 1. Popups
     1. If the UX of a full page redirect does not work for the application, consider using a popup to handle authentication.  
-    1. When the popup finished redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
+    1. When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
     1. Browsers are decreasing support for popups, so they may not be the most reliable option.  User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
 
 >[NOTE]
