@@ -3,16 +3,12 @@ title: Add sign-in to Microsoft identity platform ASP.NET web app
 titleSuffix: Microsoft identity platform
 description: Implementing Microsoft sign-in on an ASP.NET solution by using a traditional web browser-based application and OpenID Connect standard
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur

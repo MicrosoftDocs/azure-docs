@@ -33,7 +33,8 @@ landingContent:
           - text: Tips and best practices
             url: cheat-sheet.md
           - text: Reference Architecture
-            url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+
 
   # Card
   - title: Getting started
