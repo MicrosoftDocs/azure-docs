@@ -19,7 +19,7 @@ ms.reviewer: jroth
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
+> * [Resource Manager](../../../sql-database/virtual-machines/windows/sql-iaas-agent-extension.md)
 > * [Classic](../classic/sql-server-agent-extension.md)
 > 
 >
@@ -27,7 +27,7 @@ ms.reviewer: jroth
 The SQL Server IaaS Agent Extension (SQLIaaSAgent) runs on Azure virtual machines to automate administration tasks. This topic provides an overview of the services supported by the extension as well as instructions for installation, status, and removal.
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [SQL Server Agent Extension for SQL Server VMs Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [SQL Server Agent Extension for SQL Server VMs Resource Manager](../../../sql-database/virtual-machines/windows/sql-iaas-agent-extension.md).
 
 ## Supported services
 The SQL Server IaaS Agent Extension supports the following administration tasks:
@@ -77,7 +77,7 @@ If you update to the latest version of the SQL IaaS Agent Extension, you must re
 > Classic virtual machines do not have an option to install and configure the SQL IaaS Agent Extension through the portal.
 
 > [!NOTE]
-> The SQL Server IaaS Agent Extension is only supported on [SQL Server VM gallery images](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license). It is not supported if you manually install SQL Server on an OS-only Windows Server virtual machine or if you deploy a customized SQL Server VM VHD. In these cases, it might be possible to install and manage the extension manually by using PowerShell, but it is strongly recommended to instead install a SQL Server VM gallery image and then customize it.
+> The SQL Server IaaS Agent Extension is only supported on [SQL Server VM gallery images](../../../sql-database/virtual-machines/windows/overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license). It is not supported if you manually install SQL Server on an OS-only Windows Server virtual machine or if you deploy a customized SQL Server VM VHD. In these cases, it might be possible to install and manage the extension manually by using PowerShell, but it is strongly recommended to instead install a SQL Server VM gallery image and then customize it.
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select a virtual machine listed in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSAgent** extension listed.
@@ -100,5 +100,5 @@ You can also use the **Remove-AzureVMSqlServerExtension** Powershell cmdlet.
 ## Next Steps
 Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Supported services](#supported-services) section of this article.
 
-For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](../../../sql-database/virtual-machines/windows/overview.md).
 

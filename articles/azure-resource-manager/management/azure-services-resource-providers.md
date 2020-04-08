@@ -139,7 +139,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.SoftwarePlan | License |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
+| Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](../../sql-database/virtual-machines/windows/overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |

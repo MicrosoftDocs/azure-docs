@@ -31,7 +31,7 @@ ms.custom: "seo-lt-2019"
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/management/deployment-models.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
-To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../../../sql-database/virtual-machines/windows/portal-alwayson-int-listener.md).
 
 Your availability group can contain replicas that are on-premises only or Azure only, or that span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions that use multiple virtual networks. The procedures in this article assume that you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not yet configured a listener.
 

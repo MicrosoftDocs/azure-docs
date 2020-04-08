@@ -9399,7 +9399,7 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 
 ## Microsoft.SqlVirtualMachine
 
-Azure service: [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Azure service: [SQL Server on Azure Virtual Machines](../sql-database/virtual-machines/windows/overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
