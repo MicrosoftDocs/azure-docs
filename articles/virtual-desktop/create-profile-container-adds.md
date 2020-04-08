@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/09/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -112,7 +112,7 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 5. Select a name or email address for the target Azure Active Directory identity.
 6. Select **Save**.
 
-## Obtain storage account access key
+## Get the storage account access key
 
 1. From the Azure portal sidebar, select **Storage accounts**.
 
