@@ -20,7 +20,8 @@ Custom metrics can be sent to Azure Monitor via several methods:
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`. T
 
-> [!NOTE] Custom metrics are currently in public preview. Using them will occur additional charges once released for general availability (GA). For more information see [Azure Monitor Pricing](https://azure.microsoft.compricing/details/monitor/). 
+> [!NOTE] 
+> Custom metrics are currently in public preview. Using them will occur additional charges once released for general availability (GA). For more information see [Azure Monitor Pricing](https://azure.microsoft.compricing/details/monitor/). 
 
 When you send custom metrics to Azure Monitor, each data point, or value, reported must include the following information.
 
@@ -38,7 +39,6 @@ This property captures which Azure resource ID the custom metric is reported for
 
 > [!NOTE]  
 > You can't emit custom metrics against the resource ID of a resource group or subscription.
->
 >
 
 ### Region
