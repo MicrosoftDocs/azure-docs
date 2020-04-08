@@ -31,12 +31,13 @@ You must configure a network rule allowing traffic to and from the following add
 | **\*.modelmanagement.azureml.net** | |
 | **mlworkspace.azure.ai** | |
 | **\*.aether.ms** | |
+| **\*.instances.azureml.net** | |
 | **anaconda.com** | Used when installing conda packages |
 | **pypi.org** | Used when installing pip packages |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
 | **microsoft.com** | Base docker images |
-| **aurecr.io** | Azure Container Registry |
+| **azurecr.io** | Azure Container Registry |
 
 When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 
