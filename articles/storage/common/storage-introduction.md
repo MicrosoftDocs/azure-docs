@@ -75,7 +75,7 @@ File shares can be used for many common scenarios:
 
 - Diagnostic logs, metrics, and crash dumps are just three examples of data that can be written to a file share and processed or analyzed later.
 
-Azure Files currently supports [identity-based authentication](../files/storage-files-active-directory-overview.md) and authentication using storage account credentials. If you use storage account credentials, anybody with the share mounted will have full read/write access to the share. For more information about available options, see [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
+Azure Files currently supports [identity-based authentication](../files/storage-files-active-directory-overview.md) and authentication using storage account credentials. If you use storage account credentials to mount a file share, all users who use those credentials to access the share will have full read/write access to the share. For more information about available options, see [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 
 For more information about Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
