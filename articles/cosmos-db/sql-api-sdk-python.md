@@ -67,7 +67,7 @@ ms.author: sngun
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
 ### <a name="2.3.0"/>2.3.0
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="2.2.1"/>2.2.1
 * Bug fix for aggregate dictionary.
