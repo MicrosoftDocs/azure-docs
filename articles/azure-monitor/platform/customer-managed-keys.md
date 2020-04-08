@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 03/26/2020
+ms.date: 04/08/2020
 
 ---
 # Azure Monitor customer-managed key configuration 
@@ -135,6 +135,34 @@ You can acquire the token using one of these methods:
     1. Copy and add it to your API call per the examples below.
 3. Navigate to Azure REST documentation site. Press "Try it" on any API and copy the Bearer token.
 
+### Asynchronous operations and status check
+
+Some of the operations in this configuration procedure run asynchronously because they can't be completed quickly. The response for asynchronous operation initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+```json
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+```
+
+You can check the status of the asynchronous operation by sending a GET request to the *Azure-AsyncOperation* header value:
+```rst
+GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+Authorization: Bearer <token>
+```
+
+The body of the response from the operation contains information about the operation and the *Status* property indicates its state. The asynchronous operations in this configuration procedure and their statuses are:
+
+**Creating a *Cluster* resource**
+* ProvisioningAccount -- ADX cluster is in provisioning 
+* Succeeded -- ADX cluster provisioning is completed
+
+**Granting permissions to your Key Vault**
+* Updating -- Key identifier details update is in progress
+* Succeeded -- Update completed
+
+**Associating Log Analytics workspaces**
+* Linking -- Workspace association to cluster is in progress
+* Succeeded -- Association completed
+
+
 ### Subscription whitelisting
 
 CMK capability is an early access feature. The subscriptions where you plan to create *Cluster* resources must be whitelisted beforehand by the Azure product group. Use your contacts into Microsoft to provide your Subscriptions IDs.
@@ -160,6 +188,8 @@ You must specify the capacity reservation level (sku) when creating a *Cluster* 
 
 **Create**
 
+This Resource Manager request is asynchronous operation.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 Authorization: Bearer <token>
@@ -183,10 +213,11 @@ The identity is assigned to the *Cluster* resource at creation time.
 
 **Response**
 
-202 Accepted. This is a standard Resource Manager response for asynchronous operations.
-
+200 OK and header when accepted.
 >[!Important]
-> It takes the provisioning of the underly ADX cluster a while to complete. You can verify the provisioning state when performing GET REST API call on the *Cluster* resource and looking at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+> During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+> 1. Copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](#asynchronous-operations-and-status-check)
+> 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
@@ -201,6 +232,7 @@ Authorization: Bearer <token>
 > Copy and save the response since you will need its details in later steps
 
 **Response**
+
 ```json
 {
   "identity": {
@@ -240,7 +272,7 @@ The *Get* permission is required to verify that your Key Vault is configured as 
 
 ### Update Cluster resource with Key identifier details
 
-This step applies per initial and future key version updates in your Key Vault. It informs Azure Monitor Storage about the key version to be used for data encryption. When updated, your new key is being used to wrap and unwrap to Storage key (AEK).
+This step is performed during initial and in future key version updates in your Key Vault. It informs Azure Monitor Storage about the key version to be used for data encryption. When updated, your new key is being used to wrap and unwrap to Storage key (AEK).
 
 To update the *Cluster* resource with your Key Vault *Key identifier* details, select the current version of your key in Azure Key Vault to get the Key identifier details.
 
@@ -250,6 +282,8 @@ Update the *Cluster* resource KeyVaultProperties with Key Identifier
 details.
 
 **Update**
+
+This Resource Manager request is asynchronous operation.
 
 >[!Warning]
 > You must provide a full body in *Cluster* resource update that includes *identity*, *sku*, *KeyVaultProperties* and *location*. Missing the *KeyVaultProperties* details will remove the key identifier from the *Cluster* resource and cause [key revocation](#cmk-kek-revocation).
@@ -281,6 +315,14 @@ Content-type: application/json
 
 **Response**
 
+200 OK and header when accepted.
+>[!Important]
+> It takes the propagation of the Key identifier a few minutes to complete. You can check the provisioning state in two ways:
+> 1. Copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](#asynchronous-operations-and-status-check)
+> 2. Send a GET request on the *Cluster* resource and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
+
+A response to GET request on the *Cluster* resource should look like this when Key identifier update is complete:
+
 ```json
 {
   "identity": {
@@ -311,19 +353,22 @@ Content-type: application/json
 ```
 
 ### Workspace association to *Cluster* resource
-
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
-> [!IMPORTANT]
-> This step should be performed only after ADX cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
-> To verify that the ADX cluster is provisioned, execute *Cluster* resource Get REST API and check that the *provisioningState* value is *Succeeded*.
+This Resource Manager request is asynchronous operation.
 
 You need to have 'write' permissions to both your workspace and *Cluster* resource to perform this operation, which include these actions:
 
 - In workspace: Microsoft.OperationalInsights/workspaces/write
 - In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
+> [!IMPORTANT]
+> This step should be performed only after ADX cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
+
 **Associate a workspace**
+
+This Resource Manager request is asynchronous operation.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -338,21 +383,12 @@ Content-type: application/json
 
 **Response**
 
-```json
-{
-  "properties": {
-    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
-    },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
-  "name": "workspace-name/cluster",
-  "type": "microsoft.operationalInsights/workspaces/linkedServices",
-}
-```
+200 OK and header when accepted.
+>[!Important]
+> It can operation up to 90 minutes to complete. Data ingested to your workspaces is stored encrypted with your managed key only after a successful workspaces association.
+> To check the workspace association state, copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](# asynchronous-operations-and-status-check)
 
-The workspace association is performed via Resource Manager asynchronous operations, which can take up to 90 minutes to complete. The next step shows you how workspace association state can be checked. After the workspaces association, data ingested to your workspaces is stored encrypted with your managed key.
-
-### Workspace association verification
-You can verify if a workspace is associated to a *Cluster* resource by looking at the [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) response. Associated workspaces will have a 'clusterResourceId' property with a *Cluster* resource ID.
+You can check the *Cluster* resource associated to your workspace by sending a GET request to [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) and observing the response. The *clusterResourceId* indicates on the *Cluster* resource ID.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
