@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -43,9 +43,6 @@ Keep in mind these key points when designing your application for RA-GRS or RA-G
 * You can use the Storage Client Library to read and write data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
 * If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
-
-> [!NOTE]
-> Customer-managed account failover (preview) is not yet available in regions supporting GZRS/RA-GZRS, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS/RA-GZRS accounts.
 
 ### Using eventually consistent data
 
