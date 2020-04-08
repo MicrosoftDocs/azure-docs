@@ -2,16 +2,12 @@
 title: JavaScript single-page app tutorial - Microsoft identity platform | Azure
 description: How JavaScript SPA applications can call an API that requires access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma

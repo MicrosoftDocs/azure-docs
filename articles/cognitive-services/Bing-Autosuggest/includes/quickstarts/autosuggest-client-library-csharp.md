@@ -1,17 +1,14 @@
 ---
-title: "Quickstart: Bing Autosuggest client library for .NET | Microsoft Docs"
-description: Get started with the Bing Autosuggest client library for .NET, and get search suggestions based on partial query strings.
+title: Bing Autosuggest C# client library quickstart 
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-autosuggest
-ms.topic: quickstart
-ms.date: 12/20/2019
+ms.topic: include
+ms.date: 04/06/2020
 ms.author: aahi
 ---
-
-# Quickstart: Bing Autosuggest client library for .NET
 
 Get started with the Bing Autosuggest client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.
 
@@ -28,7 +25,7 @@ Use the Bing Autosuggest client library for .NET to get search suggestions based
 
 ### Create an Azure resource
 
-[!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ### Create an environment variable
 
@@ -208,15 +205,15 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
+> [Bing Autosuggest tutorial](../../tutorials/autosuggest.md)
 
 ## See also
 
-- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [What is Bing Autosuggest?](../../get-suggested-search-terms.md)
 - [Bing Autosuggest dotnet reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)
