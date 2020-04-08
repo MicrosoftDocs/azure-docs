@@ -30,11 +30,11 @@ You can look up the diagnostic log to see the size of data returned. If you see 
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
    
-   ![Choose a Cosmos DB account to view metrics](./media/monitor-server-side-latency/select-cosmosdb-account.png)
+   ![Choose a Cosmos DB account to view metrics](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
 1. Next select the **Server Side Latency**  metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Server Side Latency** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   ![Choose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Choose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## Filters for server-side latency
 
@@ -44,7 +44,7 @@ To filter the metrics, select **Add filter** and choose the required property su
 
 The **Server Side Latency** metrics for each operation are displayed as shown in the following image:
 
-![Filters for server-side latency metrics](./media/monitor-server-side-latency/serverside-latency-filters.png)
+![Filters for server-side latency metrics](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
 You can also group the metrics by using the **Apply splitting** option.  
 
