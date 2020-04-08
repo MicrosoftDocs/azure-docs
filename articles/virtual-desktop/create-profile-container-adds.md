@@ -263,6 +263,9 @@ To verify your profile:
 
 ## Next steps
 
-Now that you've created your FSLogix profile container, you can use it to create host pools. To learn more, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+If you're looking for alternate ways to create FSLogix profile containers, check out the following articles:
 
-You can also find more detailed information about concepts related to FSlogix containers for Azure files in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+- [Create an FSLogix profile container for a host pool using Azure NetApp Files](create-fslogix-profile-container.md)
+
+You can find more detailed information about concepts related to FSlogix containers for Azure files in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).

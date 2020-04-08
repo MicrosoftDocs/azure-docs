@@ -50,6 +50,8 @@
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
         href: create-fslogix-profile-container.md
+      - name: Use Azure AD DS
+        href: create-profile-container-adds.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -92,8 +94,6 @@
     href: set-up-mfa.md
   - name: Install language packs
     href: language-packs.md
-  - name: Create an FSLogix profile container with Azure AD DS
-    href: create-profile-container-adds.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
