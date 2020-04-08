@@ -17,7 +17,7 @@ ms.reviewer: ereilebr
 Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
 
 > [!NOTE]
-> The query acceleration feature is in public preview, and is available in the West Central US, Canada Central, and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
+> The query acceleration feature is in public preview, and is available in the Canada Central and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## SELECT Syntax
 
@@ -280,31 +280,17 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 
 ## Sys.Split
 
-This is a special form of the SELECT statement, which is only available for CSV-formatted data:
+This is a special form of the SELECT statement, which is only available for CSV-formatted data.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-In this form, the query returns a list of non-negative integers of sizes of record aligned regions.
+Use this statement to get batches of data records from a CSV file. That way you can process records in parallel instead of having to download them all at one time.
 
-### Example
+Use the *split_size* parameter to specify the number of bytes that you want the statement to return. For example, if you want to process only 10 MB of data, you're statement would look like this: `SELECT sys.split(10485760)FROM BlobStorage` because 10 MB is equal to 10,485,760 bytes. This statement returns as many records as can fit into those 10 MB. 
 
-ABCDEABCD<strong>\n</strong>ABCDEABCDEABCDE<strong>\n</strong>ABCDEAB<strong>\n</strong>ABCDE<strong>\n</strong>ABCD<strong>\n</strong>
-
-The following are examples for the above csv blob:
-
-|Command|Result|
-|---|---|
-|SELECT  SYS.SPLIT(1) FROM BlobStorage<br>SELECT  SYS.SPLIT(6) FROM BlobStorage|"10\n16\n8\n6\n5\n"|
-|SELECT  SYS.SPLIT(7) FROM BlobStorage<br>SELECT  SYS.SPLIT(8) FROM BlobStorage|"10\n16\n8\n11\n"|
-|SELECT  SYS.SPLIT(9) FROM BlobStorage|"10\n16\n14\n5\n"|
-|SELECT  SYS.SPLIT(10) FROM BlobStorage|"10\n16\n14\n5\n"|
-|SELECT  SYS.SPLIT(11) FROM BlobStorage<br>SELECT  SYS.SPLIT(14) FROM BlobStorage|"26\n14\n5\n"|
-|SELECT  SYS.SPLIT(15) FROM BlobStorage<br>SELECT  SYS.SPLIT(26) FROM BlobStorage|"26\n19\n"|
-|SELECT  SYS.SPLIT(27) FROM BlobStorage<br>SELECT  SYS.SPLIT(34) FROM BlobStorage|"34\n11\n"|
-|SELECT  SYS.SPLIT(28) FROM BlobStorage<br>SELECT  SYS.SPLIT(40) FROM BlobStorage|"40\n5\n"|
-|SELECT  SYS.SPLIT(41) FROM BlobStorage<br>SELECT  SYS.SPLIT(…) FROM BlobStorage|"45\n"|
+In most cases, the total bytes returned will be slightly higher than the number that you specify. That's because the **sys.split** function returns complete records only, and a record might start just before the threshold that you specify. 
 
 >[!NOTE]
 > The split_size must be at least 10 MB (10485760).
