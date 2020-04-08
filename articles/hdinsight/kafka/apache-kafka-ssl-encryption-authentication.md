@@ -17,8 +17,9 @@ This article shows you how to set up Transport Layer Security (TLS) encryption, 
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use TLS for both producing and consuming. The console producer client `console-producer.sh` does not work with TLS.
 
-> [!Note] 
+> [!Note]
 > HDInsight Kafka console producer with version 1.1 does not support SSL.
+
 ## Apache Kafka broker setup
 
 The Kafka TLS broker setup will use four HDInsight cluster VMs in the following way:
@@ -131,7 +132,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Add new configuration properties to the server.properties file.
+1. Go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -146,7 +147,7 @@ To complete the configuration modification, do the following steps:
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
+1. Here is the screenshot that shows Ambari configuration UI with these changes.
 
     For HDI version 3.6:
 
@@ -154,10 +155,9 @@ To complete the configuration modification, do the following steps:
 
     For HDI version 4.0:
 
-     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
+     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
 
 1. Restart all Kafka brokers.
-1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
 
 ## Client setup (without authentication)
 
@@ -210,6 +210,8 @@ These steps are detailed in the following code snippets.
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
+
+1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section below for steps needed to verify the setup using console producer/consumer.
 
 ## Client setup (with authentication)
 
@@ -271,6 +273,13 @@ The details of each step are given below.
 
     ```bash
     scp ca-cert sshuser@HeadNode1_Name:~/ssl/ca-cert
+    ```
+
+    1. Sign in to the client machine (standby head node) and navigate to ssl directory.
+
+    ```bash
+    ssh sshuser@HeadNode1_Name
+    cd ssl
     ```
 
 1. Create client store with signed cert, and import ca cert into the keystore and truststore:
