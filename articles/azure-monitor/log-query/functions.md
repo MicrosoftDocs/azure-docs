@@ -33,6 +33,9 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 
 
 ## Use a function
+
+![Use Function](media/functions//Use-Function.png)
+
 Use a function by including its alias in another query. It can be used like any other table.
 
 ## Example
