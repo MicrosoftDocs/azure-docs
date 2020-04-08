@@ -61,7 +61,7 @@ public class CreateTableInsertRows {
 		// check that the driver is installed
 		try
 		{
-			Class.forName("org.mariadb.jdbc");
+			Class.forName("org.mariadb.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -164,7 +164,7 @@ public class ReadTable {
 		// check that the driver is installed
 		try
 		{
-			Class.forName("org.mariadb.jdbc");
+			Class.forName("org.mariadb.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -251,7 +251,7 @@ public class UpdateTable {
 		// check that the driver is installed
 		try
 		{
-			Class.forName("org.mariadb.jdbc");
+			Class.forName("org.mariadb.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -334,7 +334,7 @@ public class DeleteTable {
 		// check that the driver is installed
 		try
 		{
-			Class.forName("org.mariadb.jdbc");
+			Class.forName("org.mariadb.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
