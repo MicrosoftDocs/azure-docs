@@ -18,12 +18,13 @@ This article contains information about how to troubleshoot most frequent proble
 ## SQL on-demand is grayed out in Synapse Studio
 
 If Synapse Studio can't establish connection to SQL on-demand, you'll notice that SQL on-demand is grayed out or shows status "Offline". Usually, this problem occurs when one of the following cases happens:
+
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the SQL on-demand to work unblock this port. Other problems could prevent SQL on-demand to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) You don't have permissions to log into SQL on-demand. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](access-control.md).
 
 ## Query fails because file cannot be opened
 
-If your query fails when with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL on-demand can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, SQL on-demand is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md).
+If your query fails when with the error saying 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means SQL on-demand can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file. By default, SQL on-demand is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## Next steps
 

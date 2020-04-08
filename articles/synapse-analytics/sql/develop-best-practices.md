@@ -13,15 +13,17 @@ ms.reviewer: igorstan
 ---
 
 # Development best practices for SQL Analytics
-This article describes guidance and best practices as you develop your data warehouse solution. 
+
+This article describes guidance and best practices as you develop your data warehouse solution.
 
 ## Development best practices for SQL Analytics
 
 ### Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Maintain statistics
+
 Ensure you update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, be more selective about which columns have statistics or which columns need frequent updating.  
 
 For example, you might want to update date columns, where new values may be added on a daily basis. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.**
@@ -29,15 +31,17 @@ For example, you might want to update date columns, where new values may be adde
 See also [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](develop-tables-statistics.md), [UPDATE STATISTICS][UPDATE STATISTICS].
 
 ### Hash distribute large tables
+
 By default, tables are Round Robin distributed.  This makes it easy for users to start creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads. But, in most cases, selecting a distribution column will perform much better.  
 
-The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. This means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.   
+The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. This means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.
 
 When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  See the links below for additional details on how selecting a distribution column can improve performance as well as how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
 See also [Table overview][Table overview], [Table distribution][Table distribution], [Selecting table distribution][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT].
 
 ### Do not over-partition
+
 While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL Analytics pool.  
 
 Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL Analytics pool partitions your data for you into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
@@ -47,7 +51,8 @@ One option to consider is using a granularity that is lower than what may have w
 See also [Table partitioning][Table partitioning].
 
 ### Minimize transaction sizes
-INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT that you expect to take 1 hour, you can break up the INSERT into four parts, thereby shortening each run to 15 minutes. 
+
+INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT that you expect to take 1 hour, you can break up the INSERT into four parts, thereby shortening each run to 15 minutes.
 
 Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
 
@@ -56,18 +61,20 @@ For unpartitioned tables consider using a CTAS to write the data you want to kee
 See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions], [Table partitioning][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)].
 
 ### Use the smallest possible column size
+
 When defining your DDL, using the smallest data type which will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
 
 See also [Table overview][Table overview], [Table data types](develop-tables-data-types.md), [CREATE TABLE][CREATE TABLE]
 
 ### Optimize clustered columnstore tables
+
 Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL Analytics pool.  By default, tables in SQL Analytics pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
 Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high-quality columnstore segments are important, it's a good idea to use users IDs which are in the medium or large resource class for loading data. Using lower [data warehouse units](azure -synapse-resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL Analytics pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For tables with less than 60 million rows, having a columstore index may not be the optimal solution.  
 
-Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  
+Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions *100 partitions* 1 million rows).  
 
 If your table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained by using a heap table with secondary indexes rather than a columnstore table.
 
@@ -111,23 +118,23 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [LABEL]:develop-label.md
 
 <!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
+[ALTER TABLE]: /sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[CREATE EXTERNAL FILE FORMAT]: /sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[CREATE STATISTICS]: /sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[CREATE TABLE]: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[CREATE TABLE AS SELECT]: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[DBCC PDW_SHOWEXECUTIONPLAN]: /sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[INSERT]: /sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[OPTION]: /sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[TRUNCATE TABLE]: /sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[UPDATE STATISTICS]: /sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_exec_sessions]: /sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_pdw_exec_requests]: /sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_pdw_request_steps]: /sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_pdw_sql_requests]: /sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_pdw_dms_workers]: /sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[sys.dm_pdw_waits]: /sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+[Columnstore indexes guide]: /sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
@@ -144,13 +151,13 @@ SQL Analytics on-demand allows you to query files in your Azure storage accounts
 
 ### Colocate Azure Storage account and SQL Analytics on-demand
 
-To minimize latency, colocate your Azure storage account and your SQL Analytics on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region. 
+To minimize latency, colocate your Azure storage account and your SQL Analytics on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
 For optimal performance, if you access other storage accounts with SQL Analytics on-demand, make sure they are in the same region. Otherwise, there will be increased latency for the data's network transfer from the remote region to the endpoint's region.
 
 ### Azure Storage throttling
 
-Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and SQL Analytics on-demand workload exceed the limits of the storage account,storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance. 
+Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and SQL Analytics on-demand workload exceed the limits of the storage account,storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance.
 
 Once throttling is detected, SQL Analytics on-demand has built-in handling of this scenario. SQL Analytics on-demand will make requests to storage at a slower pace until throttling is resolved. However, for optimal query execution, it is advised that you not stress the storage account with other workloads during query execution.
 
@@ -177,4 +184,3 @@ When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) 
 [CETAS](develop-tables-cetas.md) is one of the most important features available in SQL Analytics on-demand. CETAS is a parallel operation that creates external table metadata and exports the result of the SELECT query to a set of files in your storage account.
 
 You can use CETAS to store often used part of queries, like joined reference tables, to a  new set of files. Later on, you can join to this single external table instead of repeating common joins in multiple queries. As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table and you will gain improved performance.
-
