@@ -40,7 +40,7 @@ landingContent:
           - text: Create your first function (C#)
             url: functions-create-your-first-function-visual-studio.md
           - text: Create your first function (Java)
-            url: functions-create-first-java-maven.md
+            url: functions-create-first-azure-function-azure-cli?pivots=programming-language-java
           - text: Create your first function (JavaScript)
             url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
           - text: Create your first function (PowerShell)
