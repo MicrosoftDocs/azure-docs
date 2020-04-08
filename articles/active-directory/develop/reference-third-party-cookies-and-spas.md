@@ -31,9 +31,13 @@ In order to continue authenticating users in SPAs, app developers must use the [
 For Azure AD, native clients and SPAs follow the same protocol guidance:
 
 * Use of a [PKCE code challenge](https://tools.ietf.org/html/rfc7636)
+    * While this is only *recommended* for native and confidential clients, Microsoft identity platform *requires* PKCE for SPAs. 
 * No use of a client secret
 
-SPAs must make [one additional update](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) to their application manifest before they can use the authorization code flow: they must enable CORS on their redirect URI(s) by marking the redirect URI as type `spa`. 
+And have two additional restrictions: 
+
+* [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) to enable CORS on login endpoints.  
+* Refreshtokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather then a 90-day lifetime.
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
