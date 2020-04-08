@@ -153,7 +153,7 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 **Java agent**
 
-For Java agent 3.0 the cloud role name is set as follows:
+For [Java agent 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) the cloud role name is set as follows:
 
 {
   "instrumentationSettings": {
