@@ -7,7 +7,7 @@ manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 ---
 
 # Create a new Managed Service offer
