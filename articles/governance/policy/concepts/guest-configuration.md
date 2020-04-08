@@ -91,14 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3|
-
-> [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
-> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
-> modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
