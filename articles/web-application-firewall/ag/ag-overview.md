@@ -12,7 +12,7 @@ ms.topic: overview
 
 # Azure Web Application Firewall on Azure Application Gateway
 
-Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
+Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks which exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
 WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
 
@@ -35,7 +35,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
 
-* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 40 websites that are protected by a web application firewall.
+* Protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites which are protected by a web application firewall.
 
 * Create custom WAF policies for different sites behind the same WAF 
 
@@ -65,7 +65,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Protection against crawlers and scanners.
 - Detection of common application misconfigurations (for example, Apache and IIS).
 - Configurable request size limits with lower and upper bounds.
-- Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
+- Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens which are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
 - Geo-filter traffic to allow or block certain countries from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
