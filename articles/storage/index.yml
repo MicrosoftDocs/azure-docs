@@ -31,7 +31,7 @@ highlightedContent:
       itemType: how-to-guide
       url: /azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
     - title: Transfer data to Azure
-      itemType: how-to-guide
+      itemType: concept
       url: /azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
  
