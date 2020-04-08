@@ -2,17 +2,13 @@
 title: Azure portal registration fields for custom-developed apps
 description: Guidance for registering a custom developed application with Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
