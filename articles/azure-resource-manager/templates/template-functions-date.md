@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 04/06/2020
 ---
-# String functions for ARM templates
+# Date functions for ARM templates
 
-Resource Manager provides the following functions for working with strings in your Azure Resource Manager (ARM) templates:
+Resource Manager provides the following functions for working with dates in your Azure Resource Manager (ARM) templates:
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -21,8 +21,8 @@ Adds a time duration to a base datetime value.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base | Yes | string ([ISO 8601 timestamp format](https://en.wikipedia.org/wiki/ISO_8601)) | The starting datetime value for the addition. |
-| duration | Yes | string ([ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations)) | The time value to add to the base. It can be a negative value. |
+| base | Yes | string | The starting datetime value for the addition. Use [ISO 8601 timestamp format](https://en.wikipedia.org/wiki/ISO_8601). |
+| duration | Yes | string | The time value to add to the base. It can be a negative value. Use [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | format | No | string | The output format for the date time result. If not provided, the format of the base value is used. Use either [standard format strings](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### Return value
@@ -73,6 +73,60 @@ When the preceding template is deployed with a base time of `2020-04-07 14:53:14
 | add3Years | String | 4/7/2023 2:53:14 PM |
 | subtract9Days | String | 3/29/2020 2:53:14 PM |
 | add1Hour | String | 4/7/2020 3:53:14 PM |
+
+The next example template shows how to set the start time for an Automation schedule.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "omsAutomationAccountName": {
+            "type": "string",
+            "defaultValue": "demoAutomation",
+            "metadata": {
+                "description": "Use an existing Automation account."
+            }
+        },
+        "scheduleName": {
+            "type": "string",
+            "defaultValue": "demoSchedule1",
+            "metadata": {
+                "description": "Name of the new schedule."
+            }
+        },
+        "baseTime":{
+            "type":"string",
+            "defaultValue": "[utcNow('u')]",
+            "metadata": {
+                "description": "Schedule will start one hour from this time."
+            }
+        }
+    },
+    "variables": {
+        "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
+            "type": "microsoft.automation/automationAccounts/schedules",
+            "apiVersion": "2015-10-31",
+            "location": "eastus2",
+            "tags": {
+            },
+            "properties": {
+                "description": "Demo Scheduler",
+                "startTime": "[variables('startTime')]",
+                "isEnabled": "true",
+                "interval": 1,
+                "frequency": "hour"
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
+```
 
 ## utcNow
 

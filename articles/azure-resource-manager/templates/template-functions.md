@@ -76,7 +76,7 @@ Resource Manager provides several functions for making comparisons in your templ
 
 Resource Manager provides the following functions for working with dates.
 
-* [dateTimeAdd](template-functions.date.md#datetimeadd)
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
 * [utcNow](template-functions-date.md#utcnow)
 
 ## Deployment value functions
