@@ -242,8 +242,8 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/shared-images.md",
-      "redirect_url": "/azure//virtual-machines/shared-images-powershell.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",

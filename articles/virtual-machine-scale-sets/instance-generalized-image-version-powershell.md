@@ -12,7 +12,7 @@ ms.author: cynthn
 
 
 
-## Create a scale set from the shared image version
+# Create a scale set from the shared image version
 
 Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set from the new image version in the *South Central US* datacenter. When prompted, set your own administrative credentials for the VM instances in the scale set:
 

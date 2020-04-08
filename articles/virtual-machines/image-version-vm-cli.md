@@ -20,7 +20,7 @@ An **image version** is what you use to create a VM when using a Shared Image Ga
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery and an [image definition](./windows/shared-images.md#). 
+To complete this article, you must have an existing Shared Image Gallery. 
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition. If you want to use the VM without removing existing user accounts, create a specialized image definition.
 
