@@ -1,11 +1,11 @@
 ---
-title: Determine Your Publishing Option in Azure Marketplace | Azure Marketplace
-description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
-author: qianw211
+title: Determine your publishing option in the Microsoft commercial marketplace
+description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the commercial marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 04/07/2020
 ms.author: dsindona
 ---
 
@@ -35,11 +35,10 @@ Azure Marketplace offer types are listed in the table below.
 | [**IoT Microsoft Edge modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Consulting services**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Consulting Services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
 
-
 Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) by listing options and offer types for more information on single sign-on requirements.
 
 ## Next steps
 
-*    Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-*    Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+- Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
+- Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 

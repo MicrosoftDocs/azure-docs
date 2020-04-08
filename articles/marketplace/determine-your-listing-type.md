@@ -1,12 +1,11 @@
 ---
-title: Determine Your Publishing Option in Microsoft AppSource and Azure Marketplace 
-description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to Microsoft AppSource and Azure Marketplace.
-services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Determine your publishing option in the Microsoft commercial marketplace storefronts 
+description: This article describes the eligibility criteria and publishing requirements for partners trying to understand how to publish apps to Microsoft AppSource and Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/07/2020
 ms.author: dsindona
 ---
 
@@ -15,8 +14,6 @@ ms.author: dsindona
 The publishing option that you choose for your offer relates directly to both the eligibility requirements and commercial marketplace GTM benefits. More importantly, the selection of publishing option and offer type defines how users will interact with your commercial marketplace offer.
 
 To configure your offer, you'll need to understand the following key commercial marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the commercial marketplace storefronts.
-
-![Microsoft commercial marketplace storefronts and publishing options](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 In this article, you will learn:
 
