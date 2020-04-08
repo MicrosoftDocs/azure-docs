@@ -341,7 +341,7 @@ You might want to customize the way component names are displayed in the [Applic
       }
     }
     ```
-    You can also set the cloud role name using the environment variable APPLICATIONINSIGHTS_ROLE_NAME.
+    You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
 
 - With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
   by adding `<RoleName>` to your ApplicationInsights.xml file:
