@@ -33,7 +33,7 @@ The Azure Storage platform includes the following data services:
 
 Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
 
-## Scenarios
+## Example scenarios
 
 The following table compares Files, Blobs, Disks, Queues, and Tables, and shows example scenarios for each.
 
