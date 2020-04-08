@@ -4,7 +4,7 @@ description: Azure Security Baseline for Windows Virtual Machines
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -354,7 +354,9 @@ How to Enable guest-level monitoring for Virtual Machines: https://docs.microsof
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1835).
 
-**Guidance**: Covered in Generic Azure Guidelines
+**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Also,you can use third party dns logging solution if DNS Analytics is not available in your region.
+Gather insights about your DNS infrastructure with the DNS Analytics Preview solution: https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -986,9 +988,9 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: N/A
+**Responsibility**: Customer
 
 ### 6.11: Limit Users' Ability to interact with ARM via Scripts
 

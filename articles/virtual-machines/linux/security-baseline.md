@@ -4,7 +4,7 @@ description: Azure Security Baseline for Linux Virtual Machines
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -54,7 +54,7 @@ How to Enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/ne
 Understand Network Security provided by Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -69,7 +69,7 @@ Virtual networks and virtual machines in Azure: https://docs.microsoft.com/azure
 Information on Network Security Groups: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -92,7 +92,7 @@ Understand Azure Security Center Adaptive Network Hardening: https://docs.micros
 Understand Azure Security Center Just In Time Network Access Control: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -107,7 +107,7 @@ How to Enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/ne
 How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -124,7 +124,7 @@ How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial
 How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -141,7 +141,7 @@ How to configure Application Gateway to use HTTPS: https://docs.microsoft.com/az
 Understand layer 7 load balancing with Azure web application gateways: https://docs.microsoft.com/azure/application-gateway/overview
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -155,7 +155,7 @@ Understand and using Service Tags: https://docs.microsoft.com/azure/virtual-netw
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -173,7 +173,7 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -190,7 +190,7 @@ How to create a Virtual Network:  https://docs.microsoft.com/azure/virtual-netwo
 How to create an NSG with a Security Config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -205,7 +205,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 Azure Policy samples for networking:  https://docs.microsoft.com/azure/governance/policy/samples/#network
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -222,7 +222,7 @@ Azure Policy samples for networking:  https://docs.microsoft.com/azure/governanc
 How to configure time synchronization for Azure compute resources: https://docs.microsoft.com/azure/virtual-machines/linux/time-sync
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Shared
 
@@ -236,7 +236,7 @@ Data collection in Azure Security Center: https://docs.microsoft.com/azure/secur
 To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm#enable-the-log-analytics-vm-extension
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -251,7 +251,7 @@ View and retrieve Azure Activity log events: https://docs.microsoft.com/azure/az
 
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -265,7 +265,7 @@ Data collection in Azure Security Center: https://docs.microsoft.com/azure/secur
 To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm#enable-the-log-analytics-vm-extension
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -278,7 +278,7 @@ To capture the Syslog data for monitoring, you will need to enable the Log Analy
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -297,7 +297,7 @@ Understand Log Analytics Workspace: https://docs.microsoft.com/azure/azure-monit
 How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -316,7 +316,7 @@ How to manage alerts in Azure Security Center: https://docs.microsoft.com/azure/
 How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -332,7 +332,7 @@ Instructions for onboarding Linux servers to Azure Security center:  https://doc
 Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected : https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -345,7 +345,7 @@ Following link provides the Microsoft recommended security guidelines, which can
 Gather insights about your DNS infrastructure with the DNS Analytics Preview solution: https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -361,7 +361,7 @@ Syslog data sources in Azure Monitor:  https://docs.microsoft.com/azure/azure-mo
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -380,7 +380,7 @@ Information for Local Accounts is available at: https://docs.microsoft.com/azure
 Information on Privileged Identity Manager: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -393,7 +393,7 @@ Information on Privileged Identity Manager: https://docs.microsoft.com/azure/act
 
 Linux VMs created with the Azure Portal will not have default passwords, but it is important to verify any Linux package / installer that is installed outside of the Azure platform.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not available
 
 **Responsibility**: Customer
 
@@ -410,7 +410,7 @@ Understand Azure Security Center Identity and Access: https://docs.microsoft.com
 Information on Privileged Identity Manager: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -427,7 +427,7 @@ Understanding SSO with Azure AD: https://docs.microsoft.com/azure/active-directo
 How to monitor identity and access within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -442,7 +442,7 @@ The administrator accounts on Azure Virtual Machines can be configured with the 
 Information on Privileged Identity Manager: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -457,7 +457,7 @@ Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-s
 How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -478,7 +478,7 @@ How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.
 How to configure action groups for custom alerting and notification: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -491,7 +491,7 @@ How to configure action groups for custom alerting and notification: https://doc
 How to configure Named Locations in Azure:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -506,7 +506,7 @@ How to create and configure an Azure AD instance: https://docs.microsoft.com/azu
 What are managed identities for Azure resources?: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -519,7 +519,7 @@ What are managed identities for Azure resources?: https://docs.microsoft.com/azu
 How to use Azure Identity Access Reviews:  https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -540,7 +540,7 @@ How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure
 Syslog data sources in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -559,7 +559,7 @@ How to configure and enable Identity Protection risk policies: https://docs.micr
 How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -573,7 +573,7 @@ Customer Lockbox for Microsoft Azure
 : https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -590,7 +590,7 @@ Customer Lockbox for Microsoft Azure
 How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -605,7 +605,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux
 
 You will need to be mindful of the data stored within the Linux VM and remove or delete the VM when no longer needed.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -619,7 +619,7 @@ You will need to be mindful of the data stored within the Linux VM and remove or
 Implement third party solution on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -632,7 +632,7 @@ Implement third party solution on network perimeters that monitors for unauthori
 In-transit encryption in VMs: https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#in-transit-encryption-in-vms
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Shared
 
@@ -647,7 +647,7 @@ Use a third party active discovery tool to identify all sensitive information st
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -662,7 +662,7 @@ What is role-based access control (RBAC) for Azure resources?: https://docs.micr
 Built-in roles for Azure resources (e.g. Virtual Machine Contributor): https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/security-center-policy-definitions
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -673,7 +673,7 @@ Built-in roles for Azure resources (e.g. Virtual Machine Contributor): https://d
 
 **Guidance**: Implement a third party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to mitigate the risk of data breaches.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -688,7 +688,7 @@ Server side encryption of Azure managed disks: https://docs.microsoft.com/azure/
 Azure Disk Encryption for Windows VMs: https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Shared
 
@@ -705,7 +705,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 Azure Storage analytics logging: https://docs.microsoft.com/azure/storage/common/storage-analytics-logging
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -728,7 +728,7 @@ Below are some of the Microsoft recommended security guidelines, which can serve
 
 https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -743,7 +743,7 @@ Update Management solution in Azure:  https://docs.microsoft.com/azure/automatio
 Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/automation/automation-tutorial-update-management
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -758,7 +758,7 @@ Update Management solution in Azure: https://docs.microsoft.com/azure/automation
 Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/automation/automation-tutorial-update-management
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -769,7 +769,7 @@ Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/
 
 **Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Azure Security Center, customer may pivot into the selected solution's portal to view historical scan data.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -782,7 +782,7 @@ Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/
 Understand Azure Security Center Secure Score: https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -803,7 +803,7 @@ How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/modu
 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -816,7 +816,7 @@ Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 How to create and use Tags:  https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -827,7 +827,7 @@ How to create and use Tags:  https://docs.microsoft.com/azure/azure-resource-man
 
 **Guidance**: Covered in Generic Azure Guidelines
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -841,7 +841,7 @@ How to create and use Tags:  https://docs.microsoft.com/azure/azure-resource-man
 You should create an inventory of approved Azure resources and approved software for your compute resources.
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -861,7 +861,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -876,7 +876,7 @@ An introduction to Azure Automation:  https://docs.microsoft.com/azure/automatio
 How to enable Azure VM Inventory:  https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -891,7 +891,7 @@ An introduction to Azure Automation:  https://docs.microsoft.com/azure/automatio
 Understanding Change Tracking:  https://docs.microsoft.com/azure/automation/change-tracking
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -904,7 +904,7 @@ Understanding Change Tracking:  https://docs.microsoft.com/azure/automation/chan
 How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -922,7 +922,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -935,7 +935,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -946,7 +946,7 @@ How to use Azure Security Center Adaptive Application Controls:  https://docs.mi
 
 **Guidance**: Covered in Generic Azure Guidelines
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -961,7 +961,7 @@ How to use Azure Security Center Adaptive Application Controls: https://docs.mic
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -986,7 +986,7 @@ Organize your resources with Azure management groups: https://docs.microsoft.com
 
 Subscription decision guide: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1005,7 +1005,7 @@ How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/gove
 Information on how to download the VM template:  https://docs.microsoft.com/azure/virtual-machines/windows/download-template
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1020,7 +1020,7 @@ How to monitor Azure Security Center recommendations:  https://docs.microsoft.co
 How to remediate Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1037,7 +1037,7 @@ How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/gove
 Understanding Azure Policy Effects:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1059,7 +1059,7 @@ Information on creating ARM templates: https://docs.microsoft.com/azure/virtual-
 How to upload a custom VM VHD to Azure: https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1074,7 +1074,7 @@ How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repo
 About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1090,7 +1090,7 @@ How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-acc
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1103,7 +1103,7 @@ How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-acc
 How to configure and manage Azure policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1116,7 +1116,7 @@ How to configure and manage Azure policy:  https://docs.microsoft.com/azure/gove
 Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1131,7 +1131,7 @@ How to remediate recommendations in Azure Security Center: https://docs.microsof
 Getting started with Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-getting-started
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1144,7 +1144,7 @@ Getting started with Azure Automation State Configuration:  https://docs.microso
 Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1161,7 +1161,7 @@ How to create a Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-cre
 How to provide Key Vault authentication with a managed identity:  https://docs.microsoft.com/azure/key-vault/managed-identity
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1174,7 +1174,7 @@ How to provide Key Vault authentication with a managed identity:  https://docs.m
 How to configure Managed Identities:  https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1187,7 +1187,7 @@ How to configure Managed Identities:  https://docs.microsoft.com/azure/active-di
 How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcredscan.html
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1204,7 +1204,7 @@ How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcred
 Following link is some of the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected : https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1215,7 +1215,7 @@ Following link is some of the Microsoft recommended security guidelines, which c
 
 **Guidance**: Not applicable to Azure Virtual machines as its a compute resource.
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1229,7 +1229,7 @@ Following link is some of the Microsoft recommended security guidelines, which c
 Following link is some of the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected : https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1248,7 +1248,7 @@ An overview of Azure VM backup:  https://docs.microsoft.com/azure/backup/backup-
 Back up an Azure VM from the VM settings:  https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1263,7 +1263,7 @@ An overview of Azure VM backup:  https://docs.microsoft.com/azure/backup/backup-
 How to backup key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1278,7 +1278,7 @@ How to recover files from Azure Virtual Machine backup:  https://docs.microsoft.
 How to restore key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1293,7 +1293,7 @@ Soft delete for VMs :   https://docs.microsoft.com/azure/backup/backup-azure-sec
 Azure Key Vault soft-delete overview:  https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1315,7 +1315,7 @@ Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.m
 Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1333,7 +1333,7 @@ Security alerts in Azure Security Center: https://docs.microsoft.com/azure/secur
 Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1349,7 +1349,7 @@ Identify weak points and gaps and revise plan as needed.
 Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
 
@@ -1363,7 +1363,7 @@ Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for 
 How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 
-**Azure Security Center monitoring**: https://docs.microsoft.com/azure/security-center/recommendations-reference
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1379,7 +1379,7 @@ How to configure continuous export: https://docs.microsoft.com/azure/security-ce
 How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1393,7 +1393,7 @@ How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/senti
 How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Available
 
 **Responsibility**: Customer
 
@@ -1412,7 +1412,7 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Shared
 
