@@ -7,11 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 03/23/2020
-=======
 ms.date: 04/02/2020
->>>>>>> e1ed4dcd1d2a45c420a3d87d2b88c5a80d3e7b46
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
