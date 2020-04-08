@@ -109,7 +109,7 @@ For many scenarios in speech application development, you likely need the result
 
 It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
 
-> ![NOTE]
+> [!NOTE]
 > Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
 This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-java-stable) variable. The `SpeechSynthesisResult.getAudioData()` function returns a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) class to manage the in-memory stream. In this example you use the `AudioDataStream.fromResult()` static function to get a stream from the result.
