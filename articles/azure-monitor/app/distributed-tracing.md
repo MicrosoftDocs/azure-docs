@@ -23,15 +23,15 @@ Azure Monitor also offers an [application map](https://docs.microsoft.com/azure/
 
 ## How to Enable Distributed Tracing
 
-Enabling distributed tracing across the services in an application is as simple as adding the proper SDK or library to each service, based on the language the service was implemented in.
+Enabling distributed tracing across the services in an application is as simple as adding the proper agent, SDK, or library to each service, based on the language the service was implemented in.
 
-## Enabling via Application Insights SDKs
+## Enabling via Application Insights through auto-instrumentation or SDKs
 
-The Application Insights SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available below:
+The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available below:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-ipa)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
