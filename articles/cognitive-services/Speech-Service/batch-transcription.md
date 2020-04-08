@@ -124,7 +124,7 @@ Use these optional properties to configure transcription:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it.
+      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it. See [Sentiment Analysis](./batch-transcription#sentiment-analysis) for more detail.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -213,12 +213,41 @@ For mono input audio, one transcription result file is being created. For stereo
 
 The result contains these forms:
 
-| Form        | Content                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | The actual words recognized.                                                                                                                             |
-| `ITN`       | Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied. |
-| `MaskedITN` | The ITN form with profanity masking applied.                                                                                                             |
-| `Display`   | The display form of the recognized text. Added punctuation and capitalization are included.                                                             |
+:::row:::
+   :::column span="1":::
+      **Form**
+   :::column-end:::
+   :::column span="2":::
+      **Content**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      The actual words recognized.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      The ITN form with profanity masking applied.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      The display form of the recognized text. Added punctuation and capitalization are included.
+:::row-end:::
 
 ## Speaker separation (Diarization)
 
@@ -255,6 +284,10 @@ The sentiment feature estimates the sentiment expressed in the audio. The sentim
 - Identify what customers like and what they dislike about a product or a service
 
 Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription. Currently sentiment analysis is only available for the english language.
+
+> [!NOTE]
+> We recommend using the Microsoft Text Analytics API instead. It offers more advanced features beyond sentiment analysis like key phrase extraction, automatic language detection, and more. You can find information and samples in the [Text Analytics documentation](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+>
 
 A JSON output sample looks like below:
 
