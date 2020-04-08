@@ -112,17 +112,7 @@ It is important to recognize the distinction between AKS service availability wh
 ## Why can't I set maxPods below 30?
 
 In AKS, you can set the `maxPods` value when you create the cluster by using the Azure
-CLI and Azure Resource Manager templates. However, both Kubenet and Azure CNI require a *minimum value* (validated at creation time):
-
-| Networking | Minimum | Maximum |
-| -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
-
-Because AKS is a managed service, we deploy and manage add-ons and pods as part of the cluster. In the past, users could define a `maxPods` value lower than the value that the managed pods required to run (for example, 30). AKS now calculates the minimum number of
-pods by using this formula: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
-
-Users can't override the minimum `maxPods` validation.
+CLI and Azure Resource Manager templates. For more information about allowed maxPods value, see [Maximum pods per node][max-pods]
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -198,6 +188,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
+[max-pods]: ./configure-azure-cni.md#maximum-pods-per-node
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
