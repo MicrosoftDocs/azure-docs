@@ -44,11 +44,10 @@ az extension update --name aks-preview
 az extension list
 ```
 
-To install kubectl, use the following
+To install kubectl, use the following:
+
 ```azurecli
-curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0-beta.2/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo az aks install-cli
 kubectl version --client
 ```
 
