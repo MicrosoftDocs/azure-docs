@@ -173,7 +173,7 @@ The output that you created is now available for on-demand streaming as long as 
 ## Clean up resources
 
 > [!IMPORTANT]
-> Stop the services! After you've completed the steps in this quickstart, be sure to stop the live event and the streaming endpoint, or you'll be billed for the time they remain running. To stop the live event, see the [Stop the broadcast](stop-the-broadcast) procedure, steps 2 and 3.
+> Stop the services! After you've completed the steps in this quickstart, be sure to stop the live event and the streaming endpoint, or you'll be billed for the time they remain running. To stop the live event, see the [Stop the broadcast](#stop-the-broadcast) procedure, steps 2 and 3.
 
 To stop the streaming endpoint:
 
