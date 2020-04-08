@@ -48,7 +48,7 @@ One way to solve this issue is to develop one process that writes to a file, and
 SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  
 
 > [!NOTE]
-Polybase is the best choice when you are loading or exporting large volumes of data, or you need faster performance.
+> Polybase is the best choice when you are loading or exporting large volumes of data, or you need faster performance.
 
 PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Analytics pool and will load and export data more quickly than any other tool.  
 
