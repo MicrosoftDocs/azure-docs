@@ -32,32 +32,8 @@ both built-in and custom definitions.
 ## Register Guest Configuration resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. You can register
-through the portal or through PowerShell. The resource provider is registered automatically if
+through the (portal)[../../../azure-resource-manager/management/resource-providers-and-types#azure-portal], (Azure PowerShell)[../../../azure-resource-manager/management/resource-providers-and-types#azure-powershell], or (Azure CLI)[../../../azure-resource-manager/management/resource-providers-and-types#azure-cli]. The resource provider is registered automatically if
 assignment of a Guest Configuration policy is done through the portal.
-
-### Registration - Portal
-
-To register the resource provider for Guest Configuration through the Azure portal, follow these
-steps:
-
-1. Launch the Azure portal and click on **All services**. Search for and select **Subscriptions**.
-
-1. Find and click on the subscription that you want to enable Guest Configuration for.
-
-1. In the left menu of the **Subscription** page, click **Resource providers**.
-
-1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
-   on the same row.
-
-### Registration - PowerShell
-
-To register the resource provider for Guest Configuration through PowerShell, run the following
-command:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
 
 ## Validation tools
 
