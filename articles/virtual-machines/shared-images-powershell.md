@@ -27,6 +27,7 @@ The Shared Image Gallery feature has multiple resource types.
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../includes/virtual-machines-common-shared-images-powershell.md)]
 
 
+
 ## Next steps
 
 Create an image from a [VM](image-version-vm-powershell.md), a [managed image](image-version-managed-image-powershell.md), or an [image in another gallery](./windows/image-version-another-gallery-powershell.md).

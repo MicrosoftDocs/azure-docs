@@ -20,7 +20,7 @@ The gallery is a top-level resource that provides full role-based access control
 The Shared Image Gallery feature has multiple resource types. 
 
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Before you begin
