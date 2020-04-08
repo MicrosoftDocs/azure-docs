@@ -48,6 +48,8 @@ __Azure-specific hosts__
 
 __Python-related hosts__
 
+| **Host name** | **Purpose** |
+| ---- | ---- |
 | **anaconda.com** | Used when installing conda packages |
 | **pypi.org** | Used when installing pip packages |
 
