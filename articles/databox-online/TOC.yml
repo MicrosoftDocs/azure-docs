@@ -72,7 +72,7 @@
     - name: 3 - Connect, set up, activate
       href: data-box-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share
-      href: data-box-edge-deploy-add-shares.md
+      href: azure-stack-edge-deploy-add-shares.md
     - name: 5A - Configure compute (simple)
       href: data-box-edge-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
