@@ -67,7 +67,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-runtime**
     + Added additional telemetry around post-training operations.
     + added sparse automl e2e support
-  
+  + **azureml-opendatasets**
+    + Added additional telemetry for service monitor.
+    + Enable frontdoor for blob to increase stability 
 ## 2020-03-23
 
 ### Azure Machine Learning SDK for Python v1.2.0
