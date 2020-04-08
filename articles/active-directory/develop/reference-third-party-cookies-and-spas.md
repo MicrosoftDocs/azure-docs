@@ -26,31 +26,36 @@ Safari is not alone in blocking third-party cookies to enhance user privacy - Br
 
 ## Overview of the solution
 
-In order to continue authenticating users in SPAs, we must switch to the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA is able to redeem this code using XHR for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third-party cookies.  
+In order to continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md), which issues a code to the SPA. The SPA  redeems this code for an access token and a refresh token.  When the app requires additional tokens, it can use the refresh token to get new tokens for the user, without requiring the user of third-party cookies.  MSAL.js 2.0, the Microsoft identity platform library for SPAs, implements the authorization code flow for SPAs and is a drop-in replacement for MSAL.js 1.x with minor updates.
 
 For Azure AD, native clients and SPAs follow the same protocol guidance:
 
-* Use of a PKCE code challenge
+* Use of a [PKCE code challenge](https://tools.ietf.org/html/rfc7636)
 * No use of a client secret
+
+SPAs must make [one additional update](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) to their application manifest before they can use the authorization code flow: they must enable CORS on their redirect URI(s) by marking the redirect URI as type `spa`. 
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
 ## Performance and UX implications
 
-Some applications may attempt to get truly silent sign-in as a SPA by immediately opening a login iframe using `prompt=none` when the page is loaded. In most browsers, this request will hand your app tokens for the currently signed in user assuming consent has already been granted.  This pattern meant your app did not need to do a full page redirect to sign the user in, improving performance and user experience.  `prompt=none` and iframes are no longer an option when third-party cookies are blocked, so you must find a way of visiting the login page directly to have a code issued to your app.  There are two ways of accomplishing sign-in:
+Some applications may attempt sign-in without redirecting away by opening a login iframe using `prompt=none`. In most browsers, this request will respond with tokens for the currently signed in user assuming consent has already been granted.  This pattern meant applications did not need a full page redirect to sign the user in, improving performance and user experience.  `prompt=none` and iframes are no longer an option when third-party cookies are blocked, so applications must visit the login page in a top-level frame to have an authorization code issued.  There are two ways of accomplishing sign-in:
 
 1. Full page redirects
-    1. On the first load of your SPA, redirect the user to the sign-in page if you don't have a session already (or if the session is expired).  Their browser will visit the login page, present the cookies containing the user session, and then immediately redirect back to your application with the code and tokens in a fragment.
-    1. The redirect does result in your SPA being loaded twice.  Ensure you are following best practices for caching of SPAs so that app is not downloaded in full twice.
-    1. Consider having a pre-load sequence in your app that checks for a login session and redirects to the login page before your app fully unpacks and executes the JavaScript payload.
+    1. On the first load of the SPA, redirect the user to the sign-in page if no session exists already (or if the session is expired).  The user's browser will visit the login page, present the cookies containing the user session, and then redirect back to the application with the code and tokens in a fragment.
+    1. The redirect does result in the SPA being loaded twice.  Follow best practices for caching of SPAs so that the app is not downloaded in full twice.
+    1. Consider having a pre-load sequence in the app that checks for a login session and redirects to the login page before the app fully unpacks and executes the JavaScript payload.
 1. Popups
-    1. If the UX of a full page redirect does not work for your application, you can also consider using a popup to handle authentication.  
-    1. When the popup finished redirecting to your domain after authentication, it will store code and tokens in local storage for your application to use. MSAL.JS supports popups for authentication, as do most libraries.
-    1. Browsers are decreasing support for popups, so they may not be the most reliable option.  You should require user interaction with your SPA before creating the popup to satisfy browser requirements.
+    1. If the UX of a full page redirect does not work for the application, consider using a popup to handle authentication.  
+    1. When the popup finished redirecting to the application after authentication, code in the redirect handler will store the code and tokens in local storage for the application to use. MSAL.JS supports popups for authentication, as do most libraries.
+    1. Browsers are decreasing support for popups, so they may not be the most reliable option.  User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
+
+>[NOTE]
+> Apple [has indicated](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) that the popup method is only a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferral of permissions in the future, using the popup to acquire the initial code from the Microsoft identity platform will not be impacted.
 
 ### A note on iframed applications
 
-A common pattern in web apps is to use an iframe to embed one app inside another.  The top-level frame handles authenticating the user, and the iframed application can trust that the user is signed in, fetching tokens silently using the implicit flow. Silent token acquisition no longer works when third-party cookies are blocked - the iframed application must switch to using popups to access the user's session, as it cannot navigate to the login page.  Because popups are often not a desirable or reliable scenario, Microsoft Identity platform is working on a trust model to handle passing tokens between the top-level frame and the iframed application.
+A common pattern in web apps is to use an iframe to embed one app inside another.  The top-level frame handles authenticating the user, and the iframed application can trust that the user is signed in, fetching tokens silently using the implicit flow. Silent token acquisition no longer works when third-party cookies are blocked - the iframed application must switch to using popups to access the user's session, as it cannot navigate to the login page. 
 
 ## Security implication of refresh tokens in the browser
 
