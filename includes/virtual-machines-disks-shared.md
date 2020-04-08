@@ -5,20 +5,20 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/06/2020
+ ms.date: 04/08/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 
-Azure shared disks (preview) is a new feature for Azure managed disks that enables attaching an Azure managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
+Azure shared disks (preview) is a new feature for Azure managed disks that enable attaching a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
 
 ## How it works
 
-VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
+VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
-Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
+Sharing managed disks allows for shared block storage that can be accessed from multiple VMs, this is exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
-Managed disks with shared disks enabled do not natively offer a fully-managed file system that can be accessed using SMB/NFS. You will need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.
+Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.
 
 ## Limitations
 
@@ -104,21 +104,21 @@ Because these performance attributes are user modifiable, here are some formulas
 
 ### Examples
 
-#### Two node, cluster shared volume
+#### Two nodes, cluster shared volume
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
 :::image-end:::
 
-2 nodes WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​
+Two nodes WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​
 
-#### Two node, no cluster share volume
+#### Two nodes, no cluster share volume
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two node no csv ultra disk example":::
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
 
 :::image-end:::
 
-2 nodes WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
+Two nodes WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
 
 #### Four node example
 
@@ -126,4 +126,4 @@ Because these performance attributes are user modifiable, here are some formulas
 
 :::image-end:::
 
-4 nodes Linux cluster with a single Writer and 3 scale out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.
+Four nodes Linux cluster with a single Writer and three scale-out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.
