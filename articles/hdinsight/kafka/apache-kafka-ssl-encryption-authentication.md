@@ -146,9 +146,8 @@ To complete the configuration modification, do the following steps:
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Here is the screenshot that shows Ambari configuration UI with these changes in **kafka-env template** property.
+1. Here is the screenshot that shows Ambari configuration UI with these changes.
  
-
     For HDI version 3.6:
 
     ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
@@ -156,6 +155,7 @@ To complete the configuration modification, do the following steps:
     For HDI version 4.0:
 
      ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
+       
 
 1. Restart all Kafka brokers.
 
