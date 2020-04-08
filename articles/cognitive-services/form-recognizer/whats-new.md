@@ -39,7 +39,6 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   > [!div class="mx-imgBorder"]
   > ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
 
-  The extracted tables are available in the JSON output under `"pageResults"`.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
@@ -47,6 +46,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
   > [!div class="mx-imgBorder"]
   > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+
+    The extracted tables are available in the JSON output under `"pageResults"`.
 
   > [!IMPORTANT]
   > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, label each cell as a unique value.
