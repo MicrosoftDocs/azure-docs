@@ -1,5 +1,5 @@
 ---
-title: LUIS and QnAMaker - Bot Integration
+title: LUIS and QnAMaker - bot integration
 titleSuffix: Azure Cognitive Services
 description: As your QnA Maker knowledge base grows larger, it becomes difficult to maintain it as a single monolithic set. Split the knowledge base into smaller, logical chunks.
 services: cognitive-services
