@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
 ---
 
@@ -27,36 +27,23 @@ A new Azure API Management service initially contains only one [unit][unit] in a
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"> </a>Deploy an API Management service instance to a new region
+## <a name="add-region"> </a>Deploy API Management service to a new region
 
 > [!NOTE]
 > If you have not yet created an API Management service instance, see [Create an API Management service instance][create an api management service instance].
 
-In the Azure portal, navigate to the **Scale and pricing** page for your API Management service instance.
+1. In the Azure portal, navigate to your API Management service and click on the **Locations** entry in the menu.
+2. Click **+ Add** in the top bar.
+3. Select the location from the drop-down list and set the number of units with the slider.
+4. Click the **Add** button to confirm.
+5. Repeat this process until you configure all locations.
+6. Click **Save** in the top bar to start the deployment process.
 
-![Scale tab][api-management-scale-service]
+## <a name="remove-region"> </a>Delete an API Management service location
 
-To deploy to a new region, click on **+ Add region** from the toolbar.
-
-![Add region][api-management-add-region]
-
-Select the location from the drop-down list and set the number of units for with the slider.
-
-![Specify units][api-management-select-location-units]
-
-Click **Add** to place your selection in the Locations table.
-
-Repeat this process until you have all locations configured and click **Save** from the toolbar to start the deployment process.
-
-## <a name="remove-region"> </a>Delete an API Management service instance from a location
-
-In the Azure portal, navigate to the **Scale and pricing** page for your API Management service instance.
-
-![Scale tab][api-management-scale-service]
-
-For the location you would like to remove, open the context menu using the **...** button at the right end of the table. Select the **Delete** option.
-
-Confirm the deletion and click **Save** to apply the changes.
+1. In the Azure portal, navigate to your API Management service and click on the **Locations** entry in the menu.
+2. For the location you would like to remove, open the context menu using the **...** button at the right end of the table. Select the **Delete** option.
+3. Confirm the deletion and click **Save** to apply the changes.
 
 ## <a name="route-backend"> </a>Route API calls to regional backend services
 
@@ -116,10 +103,6 @@ API Management routes the requests to a regional _gateway_ based on [the lowest 
 1. Specify [the routing method](../traffic-manager/traffic-manager-routing-methods.md) of the Traffic Manager.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region
