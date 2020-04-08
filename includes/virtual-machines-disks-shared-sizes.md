@@ -17,7 +17,7 @@ For each disk, you can define a `maxShares` value that represents the maximum nu
 > [!NOTE]
 > The `maxShares` value can only be set or edited when the disk is detached from all nodes.
 
-### premium SSD ranges
+### Premium SSD ranges
 
 The following table illustrates the allowed maximum values for `maxShares` by premium disk sizes:
 
@@ -29,6 +29,6 @@ The following table illustrates the allowed maximum values for `maxShares` by pr
 
 The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk is 1100 whether maxShares = 1 or maxShares > 1.
 
-### ultra disk ranges
+### Ultra disk ranges
 
 The minimum `maxShares` value is 1, while the maximum `maxShares` value is 5. There are no size restrictions on ultra disks, any size ultra disk can use any value for `maxShares`, up to and including the maximum value.
