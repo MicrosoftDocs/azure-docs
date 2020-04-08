@@ -29,11 +29,11 @@ In this quickstart, you'll bulk load data into your SQL pool using the simple an
 
 ## Prerequisites
 
-This quickstart assumes you already have a SQL pool. If a SQL pool has not been created, use the [Create and Connect - portal](create-data-warehouse-portal.md) quickstart.
+This quickstart assumes you already have a SQL pool. If a SQL pool hasn't been created, use the [Create and Connect - portal](create-data-warehouse-portal.md) quickstart.
 
 ## Create the target table
 
-In this example, we will be loading data from the New York taxi dataset. We will be loading a table called Trip which represents taxi trips taken within a single year. Run the following to create the table:
+In this example, we'll be loading data from the New York taxi dataset. we'll load a table called Trip that represents taxi trips taken within a single year. Run the following to create the table:
 
 ```sql
 CREATE TABLE [dbo].[Trip]
@@ -71,7 +71,7 @@ WITH
 
 ## Run the COPY statement
 
-Run the following COPY statement which will load data from the Azure blob storage account into the Trip table.
+Run the following COPY statement that will load data from the Azure blob storage account into the Trip table.
 
 ```sql
 COPY INTO [dbo].[Trip] FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/'
