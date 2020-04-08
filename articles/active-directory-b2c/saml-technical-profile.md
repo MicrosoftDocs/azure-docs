@@ -1,15 +1,16 @@
 ---
-title: Define a SAML technical profile in a custom policy in Azure Active Directory B2C
+title: Define a SAML technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define a SAML technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2019
-ms.author: marsma
+ms.date: 03/30/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -17,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) and [Salesforce](active-directory-b2c-setup-sf-app-custom.md). This federation allows your users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce-custom.md). This federation allows your users to sign in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
@@ -85,11 +86,32 @@ The **Name** attribute of the Protocol element needs to be set to `SAML2`.
 
 The **OutputClaims** element contains a list of claims returned by the SAML identity provider under the `AttributeStatement` section. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute.
 
-To read the SAML assertion **NamedId** in **Subject** as a normalized claim, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
+### Subject name output claim
 
-The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+To read the SAML assertion **NameId** in the **Subject** as a normalized claim, set the claim **PartnerClaimType** to value of the `SPNameQualifier` attribute. If the `SPNameQualifier`attribute is not presented, set the claim **PartnerClaimType** to value of the `NameQualifier` attribute. 
 
-The following example shows the claims returned by the Facebook identity provider:
+
+SAML assertion: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+	<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+	  <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Output claim:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+If both `SPNameQualifier` or `NameQualifier` attributes are not presented in the SAML assertion, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
+
+The following example shows the claims returned by a SAML identity provider:
 
 - The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
@@ -114,6 +136,8 @@ The technical profile also returns claims that aren't returned by the identity p
 </OutputClaims>
 ```
 
+The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+
 ## Metadata
 
 | Attribute | Required | Description |
@@ -130,6 +154,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | AuthenticationRequestExtensions | No | Optional protocol message extension elements that are agreed on between Azure AD BC and the identity provider. The extension is presented in XML format. You add the XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported. |
 | IncludeAuthnContextClassReferences | No | Specifies one or more URI references identifying authentication context classes. For example, to allow a user to sign in with username and password only, set the value to `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. To allow sign-in through username and password over a protected session (SSL/TLS), specify `PasswordProtectedTransport`. Look at your identity provider’s documentation for guidance about the **AuthnContextClassRef** URIs that are supported. Specify multiple URIs as a comma-delimited list. |
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ## Cryptographic keys
 
@@ -145,5 +170,5 @@ The **CryptographicKeys** element contains the following attributes:
 
 See the following articles for examples of working with SAML identity providers in Azure AD B2C:
 
-- [Add ADFS as a SAML identity provider using custom policies](active-directory-b2c-custom-setup-adfs2016-idp.md)
-- [Sign in by using Salesforce accounts via SAML](active-directory-b2c-setup-sf-app-custom.md)
+- [Add ADFS as a SAML identity provider using custom policies](identity-provider-adfs2016-custom.md)
+- [Sign in by using Salesforce accounts via SAML](identity-provider-salesforce-custom.md)

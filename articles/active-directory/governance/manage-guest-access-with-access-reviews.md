@@ -1,5 +1,5 @@
 ---
-title: Manage guest access with access reviews - Azure Active Directory | Microsoft Docs
+title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
@@ -32,7 +32,7 @@ You also can easily ensure that guest users have appropriate access. You can ask
 
 - Azure AD Premium P2
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create and perform an access review for guests
 

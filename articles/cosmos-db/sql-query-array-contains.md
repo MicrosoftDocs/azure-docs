@@ -1,6 +1,6 @@
 ---
 title: ARRAY_CONTAINS in Azure Cosmos DB query language
-description: Learn about SQL system function ARRAY_CONTAINS in Azure Cosmos DB.
+description: Learn about how the Array Contains SQL system function in Azure Cosmos DB returns a Boolean indicating whether the array contains the specified value
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -64,9 +64,12 @@ SELECT
   "b1": true,
   "b2": false,
   "b3": false
-}] 
-```  
-  
+}]
+```
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

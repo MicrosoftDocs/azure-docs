@@ -1,23 +1,18 @@
 ---
-title: Create identity for Azure app in portal 
+title: Create an Azure AD app & service principal in the portal
 titleSuffix: Microsoft identity platform
-description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+description: Create a new Azure Active Directory app & service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/14/2019
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
@@ -41,9 +36,9 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
 You've created your Azure AD application and service principal.
 
-## Assign the application to a role
+## Assign a role to the application
 
-To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
@@ -63,7 +58,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![Select the role to assign to the application](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
+1. Select **Save** to finish assigning the role. You see your application in the list of users with a role for that scope.
 
 Your service principal is set up. You can start using it to run your scripts or apps. The next section shows how to get values that are needed when signing in programmatically.
 
@@ -86,7 +81,7 @@ Daemon applications can use two forms of credentials to authenticate with Azure 
 
 ### Upload a certificate
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -94,8 +89,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Export this certificate to a file using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
+1. Select **Run** from the **Start** menu, and then enter **certmgr.msc**.
+
+   The Certificate Manager tool for the current user appears.
+
+1. To view your certificates, under **Certificates - Current User** in the left pane, expand the **Personal** directory.
+1. Right-click on the cert you created, select **All tasks->Export**.
+1. Follow the Certificate Export wizard.  Do not export the private key, and export to a .CER file.
+
 To upload the certificate:
 
+1. Select **Azure Active Directory**.
+1. From **App registrations** in Azure AD, select your application.
 1. Select **Certificates & secrets**.
 1. Select **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
 
@@ -113,7 +118,7 @@ If you choose not to use a certificate, you can create a new application secret.
 1. Select **Client secrets -> New client secret**.
 1. Provide a description of the secret, and a duration. When done, select **Add**.
 
-   After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+   After saving the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. You will provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -127,7 +132,7 @@ Keep in mind, you might need to configure addition permissions on resources that
 
 ## Required permissions
 
-You must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
+You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription.
 
 ### Check Azure AD permissions
 
@@ -139,25 +144,31 @@ You must have sufficient permissions to register an application with your Azure 
 1. In the left pane, select **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
 
-If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) and [role permissions](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned to the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you to one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
+If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) and [role permissions](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
 
 ### Check Azure subscription permissions
 
-In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign an AD app to a role. This action is granted through the [Owner](../../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you don't have adequate permission. You receive an error when attempting to assign the service principal to a role.
+In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign a role to an AD app. This action is granted through the [Owner](../../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If your account is assigned the **Contributor** role, you don't have adequate permission. You will receive an error when attempting to assign the service principal a role.
 
 To check your subscription permissions:
 
-1. Select your account in the upper right corner, and select **... -> My permissions**.
+1. Search for and select **Subscriptions**, or select **Subscriptions** on the **Home** page.
 
-   ![Select your account and your user permissions](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. From the drop-down list, select the subscription you want to create the service principal in. Then, select **Click here to view complete access details for this subscription**.
+1. Select the subscription you want to create the service principal in.
+
+   ![Select subscription for assignment](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the portal.
+
+1. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
 
    ![Select the subscription you want to create the service principal in](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role, which means that user has adequate permissions.
+1. Select **View** in **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
 
-   ![This example shows the user is assigned to the Owner role](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![This example shows the user is assigned the Owner role](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## Next steps
 

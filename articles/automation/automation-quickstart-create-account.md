@@ -2,11 +2,8 @@
 title: Azure Quickstart - Create an Azure Automation account | Microsoft Docs
 description: Learn how to create an Azure Automation account and run a runbook
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 04/04/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ---
@@ -19,7 +16,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+[Sign in to Azure](https://portal.azure.com)
 
 ## Create Automation account
 

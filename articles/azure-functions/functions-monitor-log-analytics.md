@@ -1,12 +1,10 @@
 ---
 title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
-author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: aelnably
+ms.author: cshoe
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -23,51 +21,54 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the Monitoring section, select **Diagnostic settings** and then click **Add**.
+From the **Monitoring** section, select **Diagnostic settings** and then click **Add diagnostic setting**.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-In the setting page, choose **Send to Log Analytics**, and under **LOG** choose **FunctionAppLogs**, this table contains the desired logs.
+In the **Diagnostics settings** page, choose **Send to Log Analytics**, and then select your Log Analytics workspace. Under **log** choose **FunctionAppLogs**, this table contains the desired logs.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
-## User generated logs
+## User-generated logs
 
 To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
-**JavaScript**
 
-```javascript
-    context.log('My app logs here.');
-```
-
-**Python**
-
-```python
-    logging.info('My app logs here.')
-```
-
-**.NET**
+# [C#](#tab/csharp)
 
 ```csharp
-    log.LogInformation("My app logs here.");
+log.LogInformation("My app logs here.");
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```java
-    context.getLogger().info("My app logs here.");
+context.getLogger().info("My app logs here.");
 ```
 
-**PowerShell**
+# [JavaScript](#tab/javascript)
+
+```javascript
+context.log('My app logs here.');
+```
+
+# [PowerShell](#tab/powershell)
 
 ```powershell
-    Write-Host "My app logs here."
+Write-Host "My app logs here."
 ```
+
+# [Python](#tab/python)
+
+```python
+logging.info('My app logs here.')
+```
+
+---
 
 ## Querying the logs
 
-To query the generated logs, go to the log analytics workspace and click **Logs**.
+To query the generated logs, go to the Log Analytics workspace that you configured to send the function logs to and click **Logs**.
 
 ![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
 

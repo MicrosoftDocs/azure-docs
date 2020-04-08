@@ -11,22 +11,18 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 03/01/2019
+ms.date: 11/20/2019
 ---
 # Azure SQL Database Machine Learning Services with R (preview)
 
 Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
-> [!IMPORTANT]
-> Azure SQL Database Machine Learning Services (with R) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> The public preview is available for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time.
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
+> [!NOTE]
+> The preview is available for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time.
 >
 > The preview is currently available in the following regions: West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast.
->
-> [Sign up for the preview](#signup) below.
 
 ## What you can do with R
 
@@ -48,17 +44,10 @@ In addition to the pre-installed packages, you can [install additional packages]
 
 <a name="signup"></a>
 
-## Sign up for the preview
+## Sign up for the preview (closed)
 
-To sign up for the public preview, follow these steps:
-
-1. If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
-
-2. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview. The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default.
-
-Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable R for your existing or new database.
-
-Machine Learning Services with R is not recommended for production workload during the public preview.
+> [!IMPORTANT]
+> Sign up for Azure SQL Database Machine Learning Services (preview) is currently **closed**.
 
 ## Next steps
 

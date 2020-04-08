@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Live Event states and billing
 
-In Azure Media Services, a Live Event begins billing as soon as its state transitions to **Running**. To stop the Live Event from billing, you have to stop the Live Event.
+In Azure Media Services, a Live Event begins billing as soon as its state transitions to **Running**. You will be billed even if there is no video flowing through the service. To stop the Live Event from billing, you have to stop the Live Event. Live Transcription is billed the same way as the Live Event.
 
 When **LiveEventEncodingType** on your [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard or Premium1080p, Media Services auto shuts off any Live Event that is still in the **Running** state 12 hours after the input feed is lost, and there are no **Live Output**s running. However, you will still be billed for the time the Live Event was in the **Running** state.
 
@@ -37,6 +37,8 @@ The Live Event can be in one of the following states.
 |**Running**| The Live Event resources have been allocated, ingest and preview URLs have been generated, and it is capable of receiving live streams. At this point, billing is active. You must explicitly call Stop on the Live Event resource to halt further billing.|
 |**Stopping**| The Live Event is being stopped and resources are being de-provisioned. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
 |**Deleting**| The Live Event is being deleted. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
+
+You can choose to enable Live Transcriptions when you create the Live Event. If you do so, you will be billed for Live Transcriptions whenever the Live Event is in the **Running** state. Note that you will be billed even if there is no audio flowing through the Live Event.
 
 ## Next steps
 

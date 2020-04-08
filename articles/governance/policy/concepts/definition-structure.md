@@ -1,13 +1,18 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 11/04/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
-Resource policy definitions are used by Azure Policy to establish conventions for resources. Each
-definition describes resource compliance and what effect to take when a resource is non-compliant.
+Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
+[conditions](#conditions) and the effect to take if a condition is met. A condition compares a
+resource property [field](#fields) to a required value. Resource property fields are accessed by
+using [aliases](#aliases). A resource property field is either a single-valued field or an
+[array](#understanding-the--alias) of multiple values. Condition evaluation is different on arrays.
+Learn more about [conditions](#conditions).
+
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
@@ -63,8 +68,8 @@ All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 ## Mode
 
-**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
-Resource Provider property.
+**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or
+a Resource Provider property.
 
 ### Resource Manager modes
 
@@ -73,6 +78,10 @@ are:
 
 - `all`: evaluate resource groups and all resource types
 - `indexed`: only evaluate resource types that support tags and location
+
+For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
+in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -85,7 +94,8 @@ it prevents resources that don't support tags and locations from showing up as n
 compliance results. The exception is **resource groups**. Policies that enforce location or tags on
 a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
-tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
+tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
+[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
@@ -123,12 +133,23 @@ A parameter has the following properties that are used in the policy definition:
 
 - **name**: The name of your parameter. Used by the `parameters` deployment function within the
   policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**,
+  **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
+  - `version`: (Optional) Tracks details about the version of the contents of a policy definition.
+
+    > [!NOTE]
+    > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey
+    > level of change to a built-in policy definition or initiative and state. The format of
+    > `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_,
+    > are appended to the `version` property or in another property as a **boolean**.
+
+  - `category`: (Optional) Determines under which category in Azure portal the policy definition is
+    displayed.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
@@ -181,20 +202,22 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of
-options within the Azure portal. Allowed values for **strongType** currently include:
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
+value. To determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+The non _resource type_ allowed values for **strongType** are:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## Definition location
 
@@ -215,6 +238,12 @@ If the definition location is a:
 You use **displayName** and **description** to identify the policy definition and provide context
 for when it's used. **displayName** has a maximum length of _128_ characters and **description**
 a maximum length of _512_ characters.
+
+> [!NOTE]
+> During the creation or updating of a policy definition, **id**, **type**, and **name** are defined
+> by properties external to the JSON and aren't necessary in the JSON file. Fetching the policy
+> definition via SDK returns the **id**, **type**, and **name** properties as part of the JSON, but
+> each are read-only information related to the policy definition.
 
 ## Policy rule
 
@@ -295,9 +324,14 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match any character, and any other character to match that actual character.
-**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
-**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match any character, and any other character to match that actual character. While,
+**match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
+are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
+**notMatchInsensitively**.
+
+In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
+logical **and** between elements. For more information, see [Evaluating the \[\*\]
+alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### Fields
 
@@ -313,7 +347,7 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
-  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
+  - Use **global** for resources that are location agnostic.
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.
@@ -373,7 +407,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
@@ -409,7 +447,7 @@ This policy rule example uses **value** to check if the result of multiple neste
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -438,12 +476,12 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)
+The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
 to compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
-Instead, use the [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)
+Instead, use the [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if)
 function to check if the first three characters of **name** equal **abc** without allowing a
 **name** shorter than three characters to cause an error:
 
@@ -466,6 +504,160 @@ With the revised policy rule, `if()` checks the length of **name** before trying
 starting with abc" is returned instead and compared to **abc**. A resource with a short name that
 doesn't begin with **abc** still fails the policy rule, but no longer causes an error during
 evaluation.
+
+### Count
+
+Conditions that count how many members of an array in the resource payload satisfy a condition
+expression can be formed using **count** expression. Common scenarios are checking whether 'at least
+one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
+evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
+sums the _true_ results, which is then compared to the expression operator.
+
+The structure of the **count** expression is:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+The following properties are used with **count**:
+
+- **count.field** (required): Contains the path to the array and must be an array alias. If the
+  array is missing, the expression is evaluated to _false_ without considering the condition
+  expression.
+- **count.where** (optional): The condition expression to individually evaluate each [\[\*\]
+  alias](#understanding-the--alias) array member of **count.field**. If this property is not
+  provided, all array members with the path of 'field' are evaluated to _true_. Any
+  [condition](../concepts/definition-structure.md#conditions) can be used inside this property.
+  [Logical operators](#logical-operators) can be used inside this property to create complex
+  evaluation requirements.
+- **\<condition\>** (required): The value is compared to the number of items that met the
+  **count.where** condition expression. A numeric
+  [condition](../concepts/definition-structure.md#conditions) should be used.
+
+#### Count examples
+
+Example 1: Check if an array is empty
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Example 2: Check for only one array member to meet the condition expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Example 3: Check for at least one array member to meet the condition expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Example 4: Check that all object array members meet the condition expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
+}
+```
+
+Example 5: Check that all string array members meet the condition expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Example 6: Use **field** inside **value** to check that all array members meet the condition
+expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Example 7: Check that at least one array member matches multiple properties in the condition
+expression
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
 
 ### Effect
 
@@ -490,7 +682,7 @@ For complete details on each effect, order of evaluation, properties, and exampl
 ### Policy functions
 
 All [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+functions](../../../azure-resource-manager/templates/template-functions.md) are available to
 use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
@@ -503,22 +695,35 @@ use within a policy rule, except the following functions and user-defined functi
 - resourceId()
 - variables()
 
-The following functions are available to use in a policy rule, but differ from use in an Azure
+> [!NOTE]
+> These functions are still available within the `details.deployment.properties.template` portion of
+> the template deployment in a **deployIfNotExists** policy definition.
+
+The following function is available to use in a policy rule, but differs from use in an Azure
 Resource Manager template:
 
-- addDays(dateTime, numberOfDaysToAdd)
-  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+- `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Additionally, the `field` function is available to policy rules. `field` is primarily used with
-**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
-evaluated. An example of this use can be seen in the [DeployIfNotExists
-example](effects.md#deployifnotexists-example).
+The following functions are only available in policy rules:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+- `field(fieldName)`
+  - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
+  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
+    fields on the resource that are being evaluated. An example of this use can be seen in the
+    [DeployIfNotExists example](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+    This will be the API version that was used in the PUT/PATCH request for evaluations on resource
+    creation/update. The latest API version is always used during compliance evaluation on existing
+    resources.
+  
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
@@ -548,6 +753,32 @@ engine gets the property path for that API version.
 
 The list of aliases is always growing. To find what aliases are currently supported by Azure
 Policy, use one of the following methods:
+
+- Azure Policy extension for Visual Studio Code (recommended)
+
+  Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
+  and discover aliases for resource properties.
+
+  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Azure Resource Graph
+
+  Use the `project` operator to display the **alias** of a resource.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 
@@ -581,8 +812,8 @@ Policy, use one of the following methods:
 
 ### Understanding the [*] alias
 
-Several of the aliases that are available have a version that appears as a 'normal' name and
-another that has **[\*]** attached to it. For example:
+Several of the aliases that are available have a version that appears as a 'normal' name and another
+that has **\[\*\]** attached to it. For example:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -590,12 +821,13 @@ another that has **[\*]** attached to it. For example:
 The 'normal' alias represents the field as a single value. This field is for exact match comparison
 scenarios when the entire set of values must be exactly as defined, no more and no less.
 
-The **[\*]** alias makes it possible to compare against the value of each element in the array and
+The **\[\*\]** alias makes it possible to compare against the value of each element in the array and
 specific properties of each element. This approach makes it possible to compare element properties
-for 'if none of', 'if any of', or 'if all of' scenarios. Using **ipRules[\*]**, an example would be
-validating that every _action_ is _Deny_, but not worrying about how many rules exist or what the
-IP _value_ is. This sample rule checks for any matches of **ipRules[\*].value** to **10.0.4.1** and
-applies the **effectType** only if it doesn't find at least one match:
+for 'if none of', 'if any of', or 'if all of' scenarios. For more complex scenarios, use the
+[count](#count) condition expression. Using **ipRules\[\*\]**, an example would be validating that
+every _action_ is _Deny_, but not worrying about how many rules exist or what the IP _value_ is.
+This sample rule checks for any matches of **ipRules\[\*\].value** to **10.0.4.1** and applies the
+**effectType** only if it doesn't find at least one match:
 
 ```json
 "policyRule": {
@@ -617,14 +849,19 @@ applies the **effectType** only if it doesn't find at least one match:
 }
 ```
 
-For more information, see [evaluating the [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+For more information, see [evaluating the [\*]
+alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## Initiatives
 
 Initiatives enable you to group several related policy definitions to simplify assignments and
 management because you work with a group as a single item. For example, you can group related
-tagging policy definitions into a single initiative. Rather than assigning each policy
-individually, you apply the initiative.
+tagging policy definitions into a single initiative. Rather than assigning each policy individually,
+you apply the initiative.
+
+> [!NOTE]
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
+> recommendation is to set a **defaultValue** when defining the parameter.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
@@ -640,13 +877,15 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{
@@ -694,10 +933,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 
@@ -706,6 +942,6 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

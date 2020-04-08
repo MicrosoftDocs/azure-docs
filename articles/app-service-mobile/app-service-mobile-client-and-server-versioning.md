@@ -1,27 +1,14 @@
 ---
-title: Client and server SDK versioning in Mobile Apps and Mobile Services | Microsoft Docs
-description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: crdun
-editor: ''
+title: Client and server SDK versioning
+description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps.
 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-
 ---
 # Client and server versioning in Mobile Apps and Mobile Services
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 The latest version of Azure Mobile Services is the **Mobile Apps** feature of Azure App Service.
 
@@ -36,11 +23,11 @@ The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the que
 
 For example:
 
-GET https://service.azurewebsites.net/tables/TodoItem
+`GET https://service.azurewebsites.net/tables/TodoItem`
 
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
-POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+`POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0`
 
 ## Opting out of version checking
 You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.

@@ -1,5 +1,5 @@
 - name: Bing Spell Check API Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   items:
   - name: What is the Bing Spell Check API?

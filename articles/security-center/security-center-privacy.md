@@ -1,6 +1,6 @@
 ---
 title: Manage user data in Azure Security Center | Microsoft Docs
-description: " Learn how to manage user data in Azure Security Center. "
+description: Learn how to manage the user data in Azure Security Center. Managing user data includes the ability to access, delete, or export data.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -21,7 +21,7 @@ This article provides information about how you can manage the user data in Azur
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md).
+A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## Searching for and identifying personal data
 A Security Center user can view their personal data through the Azure portal. Security Center only stores security contact details such as email addresses and phone numbers. For more information, see [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md).
@@ -93,7 +93,4 @@ A Security Center user can choose to opt out by deleting their [security contact
 [Alert data](security-center-managing-and-responding-alerts.md) is considered security data and is retained for a period of two years.
 
 ## Auditing and reporting
-Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
-
-## Next steps
-For more information about managing user data, see [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md).
+Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).

@@ -1,16 +1,10 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Go - QnA Maker"
-titleSuffix: Azure Cognitive Services 
 description: This Go REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 10/02/2019
-ms.author: diberry
+ms.date: 02/08/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Go
@@ -25,13 +19,13 @@ This quickstart calls QnA Maker APIs:
 * [Go 1.10.1](https://golang.org/dl/)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
-* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* QnA Maker knowledge base (KB) ID found in the URL in the `kbid` query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
-> [!NOTE] 
+> [!NOTE]
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-go** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Go file
@@ -89,11 +83,11 @@ Enter the following command at a command-line to run the program. It will send t
 ./publish-kb
 ```
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer). 
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-go.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

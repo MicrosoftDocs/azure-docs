@@ -32,8 +32,6 @@ The ability to delete user data is only provided through the IoT Central adminis
 
 After a user is deleted, no further alerts are emailed to them. However, their email address must be individually removed from each configured alert.
 
-For more information, see [Configure rules and actions for your device](tutorial-configure-rules.md).
-
 ## Exporting customer data
 
 The ability to export data is only provided through the IoT Central administration page. Customer data, including assigned roles, can be selected, copied, and pasted by an application administrator.

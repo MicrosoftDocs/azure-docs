@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Send device data via transparent gateway - Machine Learning on Azure IoT Edge'
-description: 'Tutorial: Use your development machine as a simulated IoT Edge device to send data to the IoT Hub by going through a device configured as a transparent gateway.'
+description: 'This tutorial shows how you can use your development machine as a simulated IoT Edge device to send data to the IoT Hub by going through a device configured as a transparent gateway.'
 author: kgremban
 manager: philmea
 ms.author: kgremban

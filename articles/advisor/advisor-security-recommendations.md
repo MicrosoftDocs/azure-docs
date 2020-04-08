@@ -1,17 +1,8 @@
 ---
-title: Make resources more secure with Azure Advisor | Microsoft Docs
+title: Make resources more secure with Azure Advisor
 description: Use Azure Advisor to help improve the security of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-manager: 
-ms.assetid: 
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
-ms.author: sagupt
 ---
 # Make resources more secure with Azure Advisor
 

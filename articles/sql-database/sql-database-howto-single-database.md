@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
+ms.date: 01/14/2020
 ---
 # How to use a single database in Azure SQL Database
 
@@ -36,7 +36,7 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Enable e-mail notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md) to get information about tuning recommendations.
 - [Apply performance recommendations](sql-database-advisor-portal.md) and optimize your database.
 - [Create alerts](sql-database-insights-alerts-portal.md) to get notifications from Azure SQL Database.
-- [Troubleshoot connectivity](sql-database-troubleshoot-common-connection-issues.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](sql-database-resource-health.md).
+- [Troubleshoot connectivity](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) if you notice some connectivity issues between the applications and the database. You can also use [Resource Health for connectivity issues](sql-database-resource-health.md).
 - [Manage file space](sql-database-file-space-management.md) to monitor storage usage in your database.
 
 ## Query distributed data

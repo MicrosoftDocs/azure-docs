@@ -38,9 +38,9 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Specify the notebook path in the Databricks activity.
 
-<br/>    
-              
-- **Message**: `Cluster   ... does not exist.`
+<br/>  
+
+- **Message**: `Cluster... does not exist.`
 
 - **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -48,7 +48,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 <br/>  
 
-- **Message**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **Message**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **Cause**: `Bad authoring.`
 
@@ -329,56 +329,56 @@ The following table applies to U-SQL.
 
 ### Error code:  4121
 
-- **Message**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: Credential used to access Azure ML Service has expired.
+- **Cause**: Credential used to access Azure Machine Learning has expired.
 
 - **Recommendation**:  Please verify credential is valid and retry
 
 
 ### Error code:  4122
 
-- **Message**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: Credential provided in Azure ML Service Linked Service is invalid or does not have permission for the operation.
+- **Cause**: Credential provided in Azure Machine Learning Linked Service is invalid or does not have permission for the operation.
 
-- **Recommendation**:  Please verify credential in Linked Service is valid and has permission to access Azure ML Service.
+- **Recommendation**:  Please verify credential in Linked Service is valid and has permission to access Azure Machine Learning.
 
 
 ### Error code:  4123
 
-- **Message**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **Cause**: Properties of the activity such as pipelineParameters are invalid for the Azure ML pipeline.
 
 - **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure ML pipeline specified in Linked Service.
 
 
 ### Error code:  4124
 
-- **Message**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Cause**: The published Azure ML pipeline endpoint does not exist.
 
-- **Recommendation**:  Please verify the published Azure ML pipeline endpoint specified in Linked Service exists in Azure ML Service.
+- **Recommendation**:  Please verify the published Azure Machine Learning pipeline endpoint specified in Linked Service exists in Azure Machine Learning.
 
 
 ### Error code:  4125
 
-- **Message**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: Server error on Azure ML Service.
+- **Cause**: Server error on Azure Machine Learning.
 
-- **Recommendation**:  Please retry later. Contact Azure ML Service team for help if issue remains.
+- **Recommendation**:  Please retry later. Contact Azure Machine Learning team for help if issue remains.
 
 
 ### Error code:  4126
 
-- **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Cause**: Azure ML pipeline run failed.
 
-- **Recommendation**:  Please check in Azure ML Service for more error logs and fix the ML pipeline
+- **Recommendation**:  Please check in Azure Machine Learning for more error logs and fix the ML pipeline.
 
 
 
@@ -417,7 +417,7 @@ The following table applies to U-SQL.
 
 - **Cause**: The connection string for the storage is invalid or has incorrect format.
 
-- **Recommendation**:  Please go to Azure Portal, find your storage, copy the connection string and paste in your linked service and try again.
+- **Recommendation**:  Please go to the Azure portal, find your storage, copy the connection string and paste in your linked service and try again.
 
 
 ### Error code:  2108
@@ -517,7 +517,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2507
 
-- **Message**: `The folder path does not exist or is empty: ....`
+- **Message**: `The folder path does not exist or is empty: ...`
 
 - **Cause**: No files are in the storage account at the specified path.
 
@@ -980,7 +980,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The cluster creation failed, and ADF did not get an error back from HDInsight service.
 
-- **Recommendation**:  Open the Azure Portal, and try to find the HDI resource with provided name, and check the provisioning status. Contact HDInsight support team for further assistance.
+- **Recommendation**:  Open the Azure portal, and try to find the HDI resource with provided name, and check the provisioning status. Contact HDInsight support team for further assistance.
 
 
 ### Error code:  2362
@@ -1021,9 +1021,9 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
 1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**. Select **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
 
-![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
 
 1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
 
@@ -1031,17 +1031,17 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
 1. Create a request:
 
-a. Select the **Composer** tab.
+   1. Select the **Composer** tab.
 
-b. Set the HTTP method and URL.
+   1. Set the HTTP method and URL.
+   
+   1. Add headers and a request body if you need to.
 
-c. Add headers and a request body if you need to.
+   1. Select **Execute**.
 
-d. Select **Execute**.
+1. Turn on traffic capturing again, and complete the problematic transaction on your page.
 
-9. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-10. Go to **File** > **Save** > **All Sessions**.
+1. Go to **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 

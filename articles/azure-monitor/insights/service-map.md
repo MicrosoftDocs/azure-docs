@@ -1,11 +1,10 @@
 ---
 title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
 
 ---
@@ -23,7 +22,7 @@ This article describes the details of onboarding and using Service Map. For info
 * The Dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## Sign in to Azure
 
@@ -52,7 +51,7 @@ By using Service Map, you can effectively plan, accelerate, and validate Azure m
 
 ### Business continuity
 
-If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers’ back-end dependencies, you can identify which systems to recover before your focus systems are restored.
+If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers' back-end dependencies, you can identify which systems to recover before your focus systems are restored.
 
 ### Patch management
 
@@ -60,7 +59,7 @@ Service Map enhances your use of the System Update Assessment by showing you whi
 
 ## Mapping overview
 
-Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process.
+Service Map agents gather information about all TCP-connected processes on the server where they're installed and details about the inbound and outbound connections for each process.
 
 From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
 
@@ -105,7 +104,7 @@ There, you can choose **Create new** and give the group a name.
 
 ### Viewing a Group
 
-Once you’ve created some groups, you can view them by choosing the Groups tab.
+Once you've created some groups, you can view them by choosing the Groups tab.
 
 ![Groups tab](media/service-map/machine-groups-tab.png)
 
@@ -217,7 +216,7 @@ You can gather process details from operating-system metadata about running proc
 
 ![Process Properties pane](media/service-map/process-properties.png)
 
-The **Process Summary** pane provides additional information about the process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections.
+The **Process Summary** pane provides additional information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
 ![Process Summary pane](media/service-map/process-summary.png)
 
@@ -318,7 +317,7 @@ Because multiple records can exist for a specified process and computer in a spe
 
 ### Connections
 
-Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from "*accept*-ing on a listening socket are inbound, while those created by *connect*-ing to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
+Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from accepting on a listening socket are inbound, while those created by connecting to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
 Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
 

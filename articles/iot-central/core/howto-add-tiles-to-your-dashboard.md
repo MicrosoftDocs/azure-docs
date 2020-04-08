@@ -4,7 +4,7 @@ description: As a builder, learn how to configure the default Azure IoT Central 
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
@@ -12,7 +12,7 @@ manager: philmea
 
 # Configure the application dashboard
 
-The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Custom Application** application template, your dashboard will be blank to start.
+The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Legacy application** application template, your dashboard will be blank to start.
 
 > [!NOTE]
 > Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application. 
@@ -43,8 +43,7 @@ Now when an operator views the default application dashboard, they see the new t
 > [!div class="mx-imgBorder"]
 > !["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
-
-## Edit Tiles
+## Edit tiles
 
 To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. 
 
@@ -61,7 +60,7 @@ You can also change the chart visualization by clicking the **Ruler** icon on th
 > [!div class="mx-imgBorder"]
 > ![Dropdown for tile visualization settings](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
 
-## Tile Types
+## Tile types
 
 The following table summarizes the usage of tiles in Azure IoT Central:
  
@@ -82,4 +81,4 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to prepare and upload images](howto-prepare-images.md).
+Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to create a personal dashboard](howto-create-personal-dashboards.md).

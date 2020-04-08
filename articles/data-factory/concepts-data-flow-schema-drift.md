@@ -1,11 +1,12 @@
 ---
-title: Schema drift in mapping data flow | Azure Data Factory
+title: Schema drift in mapping data flow
 description: Build resilient Data Flows in Azure Data Factory with Schema Drift
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2019
 ---
 

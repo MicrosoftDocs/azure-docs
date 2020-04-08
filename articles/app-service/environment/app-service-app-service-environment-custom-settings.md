@@ -1,22 +1,15 @@
 ---
-title: Custom settings for App Service Environments - Azure
-description: Custom configuration settings for App Service Environments
-services: app-service
-documentationcenter: ''
+title: Configure custom settings
+description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
 author: stefsch
-manager: nirma
-editor: ''
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Custom configuration settings for App Service Environments
 ## Overview
 Because App Service Environments (ASEs) are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
@@ -59,6 +52,19 @@ Alternatively, you can update the App Service Environment by using [Azure Resour
 
 However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
 For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
+
+## Enable Internal Encryption
+
+The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is completely inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable this with a clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable this on an ASE while it is in use. If you need to enable this on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes. 
 
 ## Disable TLS 1.0 and TLS 1.1
 

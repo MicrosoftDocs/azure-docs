@@ -15,7 +15,7 @@ ms.subservice: blobs
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Blob storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
 
 ## Checklist
 
@@ -54,7 +54,7 @@ This article organizes proven practices for performance into a checklist you can
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### Maximum number of storage accounts
 
@@ -242,7 +242,7 @@ The AzCopy command-line utility is a simple and efficient option for bulk transf
 
 ### Use Azure Data Box
 
-For importing large volumes of data into Blob storage, consider using the Azure Data Box family for offline transfers. Microsoft-supplied Data Box devices are a good choice for moving large amounts of data to Azure when you’re limited by time, network availability, or costs. For more information, see the [Azure DataBox Documentation](/azure/databox/).
+For importing large volumes of data into Blob storage, consider using the Azure Data Box family for offline transfers. Microsoft-supplied Data Box devices are a good choice for moving large amounts of data to Azure when you're limited by time, network availability, or costs. For more information, see the [Azure DataBox Documentation](/azure/databox/).
 
 ## Content distribution
 
@@ -263,7 +263,7 @@ To upload blobs quickly, first determine whether you will be uploading one blob 
 To upload a single large blob quickly, a client application can upload its blocks or pages in parallel, being mindful of the scalability targets for individual blobs and the storage account as a whole. The Azure Storage client libraries support uploading in parallel. For example, you can use the following properties to specify the number of concurrent requests permitted in .NET or Java. Client libraries for other supported languages provide similar options.
 
 - For .NET, set the [BlobRequestOptions.ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) property.
-- For Java/Android, call the [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount) method.
+- For Java/Android, call the [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount) method.
 
 ### Upload many blobs quickly
 
@@ -281,5 +281,6 @@ Page blobs are appropriate if the application needs to perform random writes on 
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

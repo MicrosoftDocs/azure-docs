@@ -2,12 +2,9 @@
 title: View Azure Kubernetes Service (AKS) controller logs
 description: Learn how to enable and view the logs for the Kubernetes master node in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
+
 ---
 
 # Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)

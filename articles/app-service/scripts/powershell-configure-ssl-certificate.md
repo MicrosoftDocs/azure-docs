@@ -1,21 +1,13 @@
 ﻿---
-title: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app | Microsoft Docs
-description: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'PowerShell: Upload and bind SSL'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to bind a custom SSL certificate to an app.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Bind a custom SSL certificate to a web app using PowerShell

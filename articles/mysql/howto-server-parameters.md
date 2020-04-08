@@ -1,11 +1,11 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL
+title: Configure server parameters - Azure portal - Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/1/2020
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -30,30 +30,23 @@ The list of supported server parameters is constantly growing. Use the server pa
 
 ## Non-configurable server parameters
 
-InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
-|---|---|---|---|--|
-|Basic| Gen 4| 1| 960| 50|
-|Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 960| 50|
-|Basic| Gen 5| 2| 2560| 100|
-|General Purpose| Gen 4| 2| 3584| 300|
-|General Purpose| Gen 4| 4| 7680| 625|
-|General Purpose| Gen 4| 8| 15360| 1250|
-|General Purpose| Gen 4| 16| 31232| 2500|
-|General Purpose| Gen 4| 32| 62976| 5000|
-|General Purpose| Gen 5| 2| 3584| 300|
-|General Purpose| Gen 5| 4| 7680| 625|
-|General Purpose| Gen 5| 8| 15360| 1250|
-|General Purpose| Gen 5| 16| 31232| 2500|
-|General Purpose| Gen 5| 32| 62976| 5000|
-|General Purpose| Gen 5| 64| 125952| 10000|
-|Memory Optimized| Gen 5| 2| 7168| 600|
-|Memory Optimized| Gen 5| 4| 15360| 1250|
-|Memory Optimized| Gen 5| 8| 30720| 2500|
-|Memory Optimized| Gen 5| 16| 62464| 5000|
-|Memory Optimized| Gen 5| 32| 125952| 10000|
+|**Pricing Tier**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|Basic| 1| 832| |
+|Basic| 2| 2560| |
+|General Purpose| 2| 3584| 7168|
+|General Purpose| 4| 7680| 15360|
+|General Purpose| 8| 15360| 30720|
+|General Purpose| 16| 31232| 62464|
+|General Purpose| 32| 62976| 125952|
+|General Purpose| 64| 125952| 251904|
+|Memory Optimized| 2| 7168| 14336|
+|Memory Optimized| 4| 15360| 30720|
+|Memory Optimized| 8| 30720| 61440|
+|Memory Optimized| 16| 62464| 124928|
+|Memory Optimized| 32| 125952| 251904|
 
 These additional server parameters are not configurable in the system:
 
@@ -70,14 +63,17 @@ Other server parameters that are not listed here are set to their MySQL out-of-b
 
 ### Populating the time zone tables
 
-The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
+The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
 
 > [!NOTE]
-> If you are running the `az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
+> If you are running the `mysql.az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
 ```
+
+> [!IMPORTANT]
+> You should restart the server to ensure the time zone tables are properly populated. To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md).
 
 To view available time zone values, run the following command:
 

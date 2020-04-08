@@ -22,7 +22,7 @@ The following table lists the properties for Azure Cosmos DB resource logs when 
 | --- | --- | --- |
 | **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
 | **resourceId** | **Resource** | The Azure Cosmos DB account for which logs are enabled.|
-| **category** | **Category** | For Azure Cosmos DB logs, **DataPlaneRequests** is the only available value. |
+| **category** | **Category** | For Azure Cosmos DB logs, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** are the available log types. |
 | **operationName** | **OperationName** | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
 | **properties** | n/a | The contents of this field are described in the rows that follow. |
 | **activityId** | **activityId_g** | The unique GUID for the logged operation. |
@@ -76,6 +76,8 @@ For a list of all Azure Monitor support metrics (including CosmosDB), see [Azure
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+| Server Side Latency| MilliSeconds (Average) | Time taken by the server to process the request. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region |	All	| Used to monitor the request latency on the Azure Cosmos DB server. |
+
 
 
 #### Availability metrics

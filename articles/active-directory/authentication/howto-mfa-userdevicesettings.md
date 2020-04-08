@@ -1,15 +1,15 @@
 ---
-title: Admins manage users and devices - Azure MFA - Azure Active Directory
+title: Manage users and devices Azure MFA - Azure Active Directory
 description: How can administrators change user settings such as forcing the users to do the proof-up process again.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 10/28/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -27,7 +27,7 @@ As an administrator, you can manage the following user and device settings:
 
 As an administrator assigned the Authentication Administrator role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object.
 
-![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.

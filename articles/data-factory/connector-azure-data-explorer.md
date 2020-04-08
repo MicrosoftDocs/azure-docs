@@ -1,23 +1,25 @@
 ---
-title: Copy data to or from Azure Data Explorer using Azure Data Factory 
+title: Copy data to or from Azure Data Explorer
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: orspodek
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: orspodek
+ms.custom: seo-lt-2019
+ms.date: 02/18/2020
 ---
 
 # Copy data to or from Azure Data Explorer by using Azure Data Factory
 
 This article describes how to use the copy activity in Azure Data Factory to copy data to or from [Azure Data Explorer](../data-explorer/data-explorer-overview.md). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
+
+>[!TIP]
+>For Azure Data Factory and Azure Data Explorer integration in general, learn more from [Integrate Azure Data Explorer with Azure Data Factory](../data-explorer/data-factory-integration.md).
 
 ## Supported capabilities
 
@@ -40,7 +42,7 @@ With the Azure Data Explorer connector, you can do the following:
 ## Getting started
 
 >[!TIP]
->For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](../data-explorer/data-factory-load-data.md).
+>For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](../data-explorer/data-factory-load-data.md) and [Bulk copy from a database to Azure Data Explorer](../data-explorer/data-factory-template.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -187,6 +189,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink**. | Yes |
 | ingestionMappingName | Name of a pre-created [mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explorer (which applies to [all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats), including CSV/JSON/Avro formats), you can use the copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
+| additionalProperties | A property bag which can be used for specifying any of the ingestion properties which aren’t being set already by the Azure Data Explorer Sink. Specifically, it can be useful for specifying ingestion tags. Learn more from [Azure Data Explore data ingestion doc](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | No |
 
 **Example:**
 
@@ -201,7 +204,8 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>",
+                "additionalProperties": {<additional settings for data ingestion>}
             }
         },
         "inputs": [

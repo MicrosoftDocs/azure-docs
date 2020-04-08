@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 
 ---
 # Azure Cosmos DB Table API SDK for Python: Release notes and resources

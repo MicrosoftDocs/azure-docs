@@ -1,20 +1,9 @@
 ---
-title: Integrate API Management with Service Fabric in Azure | Microsoft Docs
+title: Integrate API Management with Service Fabric in Azure 
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
 ---
 # Integrate API Management with Service Fabric in Azure
@@ -203,7 +192,7 @@ Fill in the following empty parameters in the *apim.parameters.json* for your de
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
 |serviceFabricCertificate|&lt;base-64 encoded string&gt;|
 |url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
+|clusterHttpManagementEndpoint|`https://mysfcluster.southcentralus.cloudapp.azure.com:19080`|
 |inbound_policy|&lt;XML string&gt;|
 
 *certificatePassword* and *serviceFabricCertificateThumbprint* must match the cluster certificate used to set up the cluster.

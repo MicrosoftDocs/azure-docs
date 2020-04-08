@@ -3,7 +3,7 @@ title: Create a function in Azure triggered by Blob storage
 description: Use Azure Functions to create a serverless function that is invoked by items added to Azure Blob storage.
 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -40,7 +40,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `blob` and then choose the **Blob trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension and any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -72,7 +72,7 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
     ![Enter the storage credentials and connect.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expand the attached storage account, right-click **Blob containers**, click **Create blob container**, type `samples-workitems`, and then press enter.
+1. Expand the attached storage account, right-click **Blob Containers**, click **Create Blob Container**, type `samples-workitems`, and then press enter.
 
     ![Create a storage queue.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -82,7 +82,7 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
 
-1. In Storage Explorer, expand your storage account, **Blob containers**, and **samples-workitems**. Click **Upload** and then **Upload files...**.
+1. In Storage Explorer, expand your storage account, **Blob Containers**, and **samples-workitems**. Click **Upload** and then **Upload files...**.
 
     ![Upload a file to the blob container.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

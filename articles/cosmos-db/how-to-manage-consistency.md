@@ -1,10 +1,10 @@
 ---
-title: Learn how to manage consistency in Azure Cosmos DB
-description: Learn how to manage consistency in Azure Cosmos DB
+title: Manage consistency in Azure Cosmos DB
+description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .Net SDK, Java SDK and various other SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
@@ -20,7 +20,7 @@ The [default consistency level](consistency-levels.md) is the consistency level 
 
 ### CLI
 
-```bash
+```azurecli
 # create with a default consistency
 az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 

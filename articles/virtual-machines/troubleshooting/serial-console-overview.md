@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
 ---
 
@@ -24,7 +24,7 @@ The Serial Console in the Azure portal provides access to a text-based console f
 Serial Console works in the same manner for VMs and virtual machine scale set instances. In this doc, all mentions to VMs will implicitly include virtual machine scale set instances unless otherwise stated.
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
+> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
 
 ## Prerequisites to access the Azure Serial Console
 To access the Serial Console on your VM or virtual machine scale set instance, you will need the following:
@@ -34,7 +34,7 @@ To access the Serial Console on your VM or virtual machine scale set instance, y
 - The Azure account accessing Serial Console must have [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for both the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
 > [!NOTE]
-> - Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
+> Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
 
 ## Get started with the Serial Console
 The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:

@@ -1,25 +1,20 @@
 ---
-title: Custom token cache serialization in MSAL for Python | Azure
+title: Custom token cache serialization (MSAL Python) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to serializing the token cache for MSAL for Python
 services: active-directory
-documentationcenter: dev-center-name
 author: rayluo
-manager: henrikm
-editor: ''
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
-ms.reviewer: navyasri.canumalla
+ms.reviewer: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer using the Microsoft Authentication Library (MSAL) for Python, I want to learn how to persist the token cache so that it is available to a new instance of my application.
-ms.collection: M365-identity-device-management
 ---
 
 # Custom token cache serialization in MSAL for Python

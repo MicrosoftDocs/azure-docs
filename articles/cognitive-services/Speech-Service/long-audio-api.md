@@ -1,15 +1,15 @@
 ---
-title: Long Audio API (Preview) - Speech Service
+title: Long Audio API (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
-description:
+description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.author: erhopf
+ms.date: 01/30/2020
+ms.author: dapine
 ---
 
 # Long Audio API (Preview)
@@ -37,15 +37,24 @@ This diagram provides a high-level overview of the workflow.
 When preparing your text file, make sure it:
 
 * Is either plain text (.txt) or SSML text (.txt)
-  * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt). For language code, see [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
 * Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Contains more than 10,000 characters or more than 50 paragraphs
 * Is a single file, not a zip
+* Contains more than 400 characters for plain text or 400 [billable characters](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) for SSML text, and less than 10,000 paragraphs
+  * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+> [!NOTE]
+> For Chinese (Mainland), Chinese (Hong Kong), Chinese (Taiwan), Japanese, and Korean, one word will be counted as two characters. 
+
+## Submit synthesis requests
+
+After preparing the input content, follow the [long-form audio synthesis quickstart](https://aka.ms/long-audio-python) to submit the request. If you have more than one input file, you will need to submit multiple requests. There are some limitations to be aware of: 
+* Client is allowed to submit up to 5 requests to server per second for each Azure subscription account. If it exceeds the limitation, client will get a 429 error code (too many requests). Please reduce the request amount per second
+* Server is allowed to run and queue up to 120 requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code (too many requests). Please wait and avoid submitting new request until some requests are completed
+* Server will keep up to 20,000 requests for each Azure subscription account. If it exceeds the limitation, please delete some requests before submitting new ones
 
 ## Audio output formats
 
-The following audio output formats are supported by the Long Audio API:
+We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audios into one output by setting the 'concatenateResult' parameter. The following audio output formats are supported by the Long Audio API:
 
 > [!NOTE]
 > The default audio format is riff-16khz-16bit-mono-pcm.

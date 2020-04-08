@@ -1,15 +1,9 @@
 ---
-title: Integrate ILB App Service Environment with Application Gateway - Azure
-description: Walkthrough on how to integrate an app in your ILB App Service Environment with an Application Gateway
-services: app-service
-documentationcenter: na
+title: Integrate with Application Gateway
+description: Learn on how to integrate an app in your ILB App Service Environment with an Application Gateway in this end-to-end walk-through.
 author: ccompy
-manager: stefsch
 
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
@@ -21,7 +15,7 @@ The [App Service Environment](./intro.md) is a deployment of Azure App Service i
 
 Web application firewalls help secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). You can get a WAF device from the Azure marketplace or you can use the [Azure Application Gateway][appgw].
 
-The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and web application firewall (WAF) protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF-configured application gateway with an app in an ILB App Service Environment.  
+The Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, TLS/SSL offloading, and web application firewall (WAF) protection. It can listen on a public IP address and route traffic to your application endpoint. The following information describes how to integrate a WAF-configured application gateway with an app in an ILB App Service Environment.  
 
 The integration of the application gateway with the ILB App Service Environment is at an app level. When you configure the application gateway with your ILB App Service Environment, you're doing it for specific apps in your ILB App Service Environment. This technique enables hosting secure multitenant applications in a single ILB App Service Environment.  
 

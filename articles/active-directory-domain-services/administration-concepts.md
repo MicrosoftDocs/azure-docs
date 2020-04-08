@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
 
 ---
@@ -31,7 +31,7 @@ User accounts can be created in Azure AD DS in multiple ways. Most user accounts
 * The user account can be synchronized in from Azure AD. This includes cloud-only user accounts created directly in Azure AD, and hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
     * The majority of user accounts in Azure AD DS are created through the synchronization process from Azure AD.
 * The user account can be manually created in an Azure AD DS managed domain, and doesn't exist in Azure AD.
-    * If you need to create service accounts for applications that only run in Azure AD DS, you can manually create them in the managed domain. As synchronization is one-way from Azure AD, user accounts created in Azure AD DS aren't synchronized back to Azure AD.
+    * If you need to create service accounts for applications that only run in Azure AD DS, you can manually create them in the managed domain. As synchronization is one way from Azure AD, user accounts created in Azure AD DS aren't synchronized back to Azure AD.
 
 ## Password policy
 
@@ -56,6 +56,9 @@ For users synchronized from an on-premises AD DS environment using Azure AD Conn
 
 Once appropriately configured, the usable password hashes are stored in the Azure AD DS managed domain. If you delete the Azure AD DS managed domain, any password hashes stored at that point are also deleted. Synchronized credential information in Azure AD can't be reused if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new Azure AD DS managed domain. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][azure-ad-password-sync].
 
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
 ## Forests and trusts
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
@@ -67,6 +70,36 @@ By default, an Azure AD DS managed domain is created as a *user* forest. This ty
 In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
 
 For more information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+
+## Azure AD DS SKUs
+
+In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business requirements change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
+
+| SKU name   | Maximum object count | Backup frequency | Maximum number of outbound forest trusts |
+|------------|----------------------|------------------|----|
+| Standard   | Unlimited            | Every 7 days     | 0  |
+| Enterprise | Unlimited            | Every 3 days     | 5  |
+| Premium    | Unlimited            | Daily            | 10 |
+
+Before these Azure AD DS SKUs, a billing model based on the number of objects (user and computer accounts) in the Azure AD DS managed domain was used. There is no longer variable pricing based on the number of objects in the managed domain.
+
+For more information, see the [Azure AD DS pricing page][pricing].
+
+### Managed domain performance
+
+Domain performance varies based on how authentication is implemented for an application. Additional compute resources may help improve query response time and reduce time spent in sync operations. As the SKU level increases, the compute resources available to the managed domain is increased. Monitor the performance of your applications and plan for the required resources.
+
+If your business or application demands change and you need additional compute power for your Azure AD DS managed domain, you can switch to a different SKU.
+
+### Backup frequency
+
+The backup frequency determines how often a snapshot of the managed domain is taken. Backups are an automated process managed by the Azure platform. In the event of an issue with your managed domain, Azure support can assist you in restoring from backup. As synchronization only occurs one way *from* Azure AD, any issues in an Azure AD DS managed domain won't impact Azure AD or on-premises AD DS environments and functionality.
+
+As the SKU level increases, the frequency of those backup snapshots increases. Review your business requirements and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application requirements change and you need more frequent backups, you can switch to a different SKU.
+
+### Outbound forests
+
+The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment (currently in preview). The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 
@@ -81,3 +114,6 @@ To get started, [create an Azure AD DS managed domain][create-instance].
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

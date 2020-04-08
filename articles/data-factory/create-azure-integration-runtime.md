@@ -5,12 +5,12 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # How to create and configure Azure Integration Runtime
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
@@ -25,7 +25,11 @@ This document introduces how you can create and configure Azure Integration Runt
 By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is auto-resolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
 
 ## Create Azure IR
-Integration Runtime can be created using the **Set-AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet. To create an Azure IR, you specify the name, location and type to the command. Here is a sample command to create an Azure IR with location set to "West Europe":
+
+To create and set up an Azure IR, you can use the following procedures.
+
+### Create an Azure IR via Azure PowerShell
+Integration Runtime can be created using the **Set-AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet. To create an Azure IR, you specify the name, location, and type to the command. Here is a sample command to create an Azure IR with location set to "West Europe":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
@@ -34,9 +38,30 @@ For Azure IR, the type must be set to **Managed**. You do not need to specify co
 
 You can configure an existing Azure IR to change its location using the Set-AzDataFactoryV2IntegrationRuntime PowerShell cmdlet. For more information about the location of an Azure IR, see [Introduction to integration runtime](concepts-integration-runtime.md).
 
+### Create an Azure IR via Azure Data Factory UI
+Use the following steps to create an Azure IR using Azure Data Factory UI.
+
+1. On the **Let's get started** page of Azure Data Factory UI, select the **Author** tab on the left pane.
+
+   ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
+
+1. Select **Connections** at the bottom of the left pane, and select **Integration runtimes** in the **Connections** window. Select **+New**.
+
+   ![Create an integration runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
+
+1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
+   ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Enter a name for your Azure IR, and select **Create**.
+   ![Create an Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
+
 ## Use Azure IR
 
-Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can reference the Azure Integration Runtime created above from an Azure Storage Linked Service:  
+Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can reference the Azure Integration Runtime created above from an Azure Storage Linked Service:
 
 ```json
 {
@@ -44,10 +69,7 @@ Once an Azure IR is created, you can reference it in your Linked Service definit
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=..."
       },
       "connectVia": {
         "referenceName": "MySampleAzureIR",

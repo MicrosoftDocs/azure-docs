@@ -25,9 +25,9 @@ The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Exte
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
-This binding is not available in Functions 2.x.
+This binding is not available in Functions 2.x and higher.
 
 ## Example - template
 

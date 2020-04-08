@@ -1,11 +1,12 @@
 ---
-title: Azure Data Factory mapping data flow Visual Monitoring
+title: Mapping data flow Visual Monitoring
 description: How to visually monitor Azure Data Factory Data Flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ---
 
@@ -46,7 +47,7 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
   * Number of transforms: How many transformation steps are being executed in your flow
   
-![Acit Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
+![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
   
 ## Monitor Icons
 

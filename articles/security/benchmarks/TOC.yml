@@ -1,0 +1,56 @@
+- name: Azure Security Benchmarks
+  href: index.yml
+- name: Introduction
+  href: introduction.md
+- name: Security Controls
+  items:
+  - name: Overview of Azure Security Controls
+    href: overview.md
+  - name: Network Security
+    href: security-control-network-security.md
+  - name: Logging and Monitoring
+    href: security-control-logging-monitoring.md
+  - name: Identity and Access Control
+    href: security-control-identity-access-control.md
+  - name: Data Protection
+    href: security-control-data-protection.md
+  - name: Vulnerability Management
+    href: security-control-vulnerability-management.md
+  - name: Inventory and Asset Management
+    href: security-control-inventory-asset-management.md
+  - name: Secure Configuration
+    href: security-control-secure-configuration.md
+  - name: Malware Defense
+    href: security-control-malware-defense.md
+  - name: Data Recovery
+    href: security-control-data-recovery.md
+  - name: Incident Response
+    href: security-control-incident-response.md
+  - name: Penetration Tests and Red Team Exercises
+    href: security-control-penetration-tests-red-team-exercises.md
+- name: Security Baselines
+  items:
+  - name: Overview of Azure security baselines
+    href: security-baselines-overview.md
+  - name: Azure Cache for Redis security baseline
+    href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Batch security baseline
+    href: ../../batch/security-baseline.md
+  - name: Container Registry security baseline
+    href: ../../container-registry/security-baseline.md
+  - name: Cosmos DB security baseline
+    href: ../../cosmos-db/security-baseline.md
+  - name: Event Hubs security baseline
+    href: ../../event-hubs/security-baseline.md
+  - name: HDInsight security baseline
+    href: ../../hdinsight/security-baseline.md
+  - name: Key Vault security baseline
+    href: ../../key-vault/security-baseline.md
+  - name: MariaDB security baseline
+    href: ../../mariadb/security-baseline.md
+  - name: MySQL security baseline
+    href: ../../mysql/security-baseline.md
+  - name: PostgreSQL security baseline
+    href: ../../postgresql/security-baseline.md
+  - name: SQL Database security baseline
+    href: ../../sql-database/security-baseline.md

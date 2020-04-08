@@ -1,6 +1,6 @@
 ---
-title: High availability concepts in Azure Database for PostgreSQL - Single Server
-description: This article provides information of high availability when using Azure Database for PostgreSQL - Single Server.
+title: High availability - Azure Database for PostgreSQL - Single Server
+description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

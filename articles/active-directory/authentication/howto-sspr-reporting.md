@@ -5,11 +5,11 @@ description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/01/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -50,7 +50,7 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 ### Converged registration (preview)
 
-If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the service **Authentication Methods**.
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 

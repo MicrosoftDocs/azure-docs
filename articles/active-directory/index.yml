@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 07/27/2019
+  ms.date: 03/17/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -24,12 +24,12 @@ highlightedContent:
     - title: What's new in Azure AD? 
       itemType: whats-new 
       url: ./fundamentals/whats-new.md
+    - title: Secure your remote workforce
+      itemType: get-started
+      url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
     - title: Assign roles to users 
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
-    - title: Create a group and add members 
-      itemType: how-to-guide
-      url: ./fundamentals/add-users-azure-active-directory.md
     - title: Azure AD deployment checklist 
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
@@ -55,17 +55,32 @@ conceptualContent:
         url: ./manage-apps/index.yml
         text: See more
 
+    - title: Application and HR provisioning 
+      links: 
+        - url: ./app-provisioning/user-provisioning.md
+          itemType: overview
+          text: What is application provisioning? 
+        - url: ./app-provisioning/how-provisioning-works.md
+          itemType: concept
+          text: How application provisioning works 
+        - url: ./app-provisioning/plan-cloud-hr-provision.md
+          itemType: how-to-guide
+          text: Plan a cloud HR provisioning deployment
+      footerLink: 
+        url: ./app-provisioning/index.yml
+        text: See more
+
     - title: Authentication
       links: 
-        - url: ./authentication/concept-mfa-howitworks.md
+        - url: ./authentication/overview-authentication.md
           itemType: concept
-          text: "How it works: Azure MFA"
-        - url: ./authentication/concept-sspr-howitworks.md
-          itemType: concept 
-          text: Azure AD self-service password reset 
-        - url: ./authentication/concept-password-ban-bad.md
-          itemType: concept
-          text: Azure AD password protection 
+          text: What is Azure AD Authentication?
+        - url: ./authentication/tutorial-enable-sspr.md
+          itemType: tutorial 
+          text: Enable self-service password reset 
+        - url: ./authentication/tutorial-enable-azure-mfa.md
+          itemType: tutorial
+          text: Enable Azure Multi-Factor Authentication
       footerLink: 
         url: ./authentication/index.yml
         text: See more
@@ -99,7 +114,22 @@ conceptualContent:
       footerLink: 
         url: ../active-directory-b2c/index.yml
         text: See more
-
+    
+    - title: Cloud provisioning 
+      links: 
+        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+          itemType: overview
+          text:  What is cloud provisioning?
+        - url: ./cloud-provisioning/tutorial-single-forest.md
+          itemType: tutorial
+          text:  Integrate a single forest with a single Azure AD tenant
+        - url: ./cloud-provisioning/how-to-install.md
+          itemType: how-to-guide
+          text:  Install Azure AD Connect cloud provisioning agent
+      footerLink: 
+        url: ./cloud-provisioning/index.yml
+        text: See more
+    
     - title: Conditional Access 
       links: 
         - url: ./conditional-access/overview.md
@@ -207,13 +237,13 @@ conceptualContent:
 
     - title: Identity protection
       links: 
-        - url: ./identity-protection/overview.md
+        - url: ./identity-protection/overview-identity-protection.md
           itemType: overview
           text:  What is identity protection?
-        - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-          itemType: quickstart
-          text:  Block access when session risk is detected
-        - url: ./identity-protection/howto-unblock-user.md
+        - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+          itemType: how-to-guide
+          text:  Configure risk policies
+        - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
           itemType: how-to-guide
           text:  How to unblock users
       footerLink: 

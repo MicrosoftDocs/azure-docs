@@ -1,16 +1,12 @@
 ---
-title: Connect to SMTP from Azure Logic Apps | Microsoft Docs
+title: Connect to SMTP from Azure Logic Apps
 description: Automate tasks and workflows that send email through your SMTP (Simple Mail Transfer Protocol) account by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
 
 # Send email from your SMTP account with Azure Logic Apps
@@ -74,7 +70,7 @@ Under the actions list, select the action you want.
    | **User Name** | Yes | Your username for your SMTP account | 
    | **Password** | Yes | Your password for your SMTP account | 
    | **SMTP Server Port** | No | A specific port on your SMTP server you want to use | 
-   | **Enable SSL?** | No | Turn on or turn off SSL encryption. | 
+   | **Enable SSL?** | No | Turn on or turn off TLS/SSL encryption. | 
    |||| 
 
 1. Provide the necessary details for your selected action. 
@@ -83,14 +79,11 @@ Under the actions list, select the action you want.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are 
-described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/smtpconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/smtpconnector/).
 
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

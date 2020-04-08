@@ -5,20 +5,19 @@ services: active-directory-ds
 author: iainfoulds
 manager: daveba
 
-ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 03/30/2020
 ms.author: iainfou
 
 ---
 # Virtual network design considerations and configuration options for Azure AD Domain Services
 
-As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without appropriately configured virtual network resources, applications and workloads can't communicate with and use the features provides by Azure AD DS. If you plan your virtual network correctly, you make sure that Azure AD DS can serve your applications and workloads as needed.
+As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without correctly configured virtual network resources, applications and workloads can't communicate with and use the features provided by Azure AD DS. Plan your virtual network requirements to make sure that Azure AD DS can serve your applications and workloads as needed.
 
-This article outlines design considerations and requirements for an Azure virtual network that supports Azure AD DS.
+This article outlines design considerations and requirements for an Azure virtual network to support Azure AD DS.
 
 ## Azure virtual network design
 
@@ -29,7 +28,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
 * Azure AD DS must be deployed into the same Azure region as your virtual network.
     * At this time, you can only deploy one Azure AD DS managed domain per Azure AD tenant. The Azure AD DS managed domain is deployed to single region. Make sure that you create or select a virtual network in a [region that supports Azure AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Consider the proximity of other Azure regions and the virtual networks that host your application workloads.
-    * To minimize latency, keep your core applications close to, or in the same region as, the virtual network subnet for your Azure AD DS managed domain. You can use virtual network peering or virtual private network (VPN) connections between Azure virtual networks.
+    * To minimize latency, keep your core applications close to, or in the same region as, the virtual network subnet for your Azure AD DS managed domain. You can use virtual network peering or virtual private network (VPN) connections between Azure virtual networks. These connection options are discussed in a following section.
 * The virtual network can't rely on DNS services other than those provided by Azure AD DS.
     * Azure AD DS provides its own DNS service. The virtual network must be configured to use these DNS service addresses. Name resolution for additional namespaces can be accomplished using conditional forwarders.
     * You can't use custom DNS server settings to direct queries from other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
@@ -58,7 +57,7 @@ You can connect application workloads hosted in other Azure virtual networks usi
 * Virtual network peering
 * Virtual private networking (VPN)
 
-### Virtual Network Peering
+### Virtual network peering
 
 Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Global virtual network peering can connect virtual network across Azure regions. Once peered, the two virtual networks let resources, such as VMs, communicate with each other directly using private IP addresses. Using virtual network peering lets you deploy an Azure AD DS managed domain with your application workloads deployed in other virtual networks.
 
@@ -66,15 +65,15 @@ Virtual network peering is a mechanism that connects two virtual networks in the
 
 For more information, see [Azure virtual network peering overview](../virtual-network/virtual-network-peering-overview.md).
 
-### Virtual Private Networking
+### Virtual Private Networking (VPN)
 
 You can connect a virtual network to another virtual network (VNet-to-VNet) in the same way that you can configure a virtual network to an on-premises site location. Both connections use a VPN gateway to create a secure tunnel using IPsec/IKE. This connection model lets you deploy Azure AD DS into an Azure virtual network and then connect on-premises locations or other clouds.
 
 ![Virtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
-## Name Resolution when connecting virtual networks
+## Name resolution when connecting virtual networks
 
 Virtual networks connected to the Azure AD Domain Services virtual network typically have their own DNS settings. When you connect virtual networks, it doesn't automatically configure name resolution for the connecting virtual network to resolve services provided by the Azure AD DS managed domain. Name resolution on the connecting virtual networks must be configured to enable application workloads to locate Azure AD Domain Services.
 
@@ -87,17 +86,17 @@ An Azure AD DS managed domain creates some networking resources during deploymen
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address         | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure standard load balancer               | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure standard load balancer            | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
 | Load balancer rules                     | When an Azure AD DS managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 
 > [!WARNING]
-> Don't delete any of the network resource created by Azure AD DS. If you delete any of the network resources, an Azure AD DS service outage occurs.
+> Don't delete or modify any of the network resource created by Azure AD DS, such as manually configuring the load balancer or rules. If you delete or modify any of the network resources, an Azure AD DS service outage may occur.
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy Azure AD DS that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your Azure AD DS managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy Azure AD DS that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your Azure AD DS managed domain is deployed into.
 
 The following network security group rules are required for Azure AD DS to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your Azure AD DS managed domain is deployed into.
 
@@ -140,9 +139,14 @@ The following network security group rules are required for Azure AD DS to provi
 * For Azure AD DS managed domains that use a Resource Manager-based virtual network, you can restrict inbound access to this port to the *AzureActiveDirectoryDomainServices* service tag.
     * For legacy Azure AD DS managed domains using a Classic-based virtual network, you can restrict inbound access to this port to the following source IP addresses: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, and *104.40.87.209*.
 
+    > [!NOTE]
+    > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
+    >
+    > For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+
 ## User-defined routes
 
-User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the *0.0.0.0* route. Changes to this route can disrupt Azure AD Domain Services.
+User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the *0.0.0.0* route. Changes to this route disrupt Azure AD Domain Services and puts the managed domain in an unsupported state.
 
 You must also route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. For more information on service tags and their associated IP address from, see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
@@ -156,7 +160,3 @@ For more information about some of the network resources and connection options 
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN gateways](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Azure network security groups](../virtual-network/security-overview.md)
-
-<!-- INTERNAL LINKS -->
-
-<!-- EXTERNAL LINKS -->

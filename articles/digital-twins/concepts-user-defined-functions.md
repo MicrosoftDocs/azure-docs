@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 01/03/2020
 ---
 
 # Data processing and user-defined functions
@@ -99,7 +99,7 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 - Create a notification when certain conditions are met for an incoming sensor reading.
 - Attach graph metadata to the sensor reading before sending out a notification.
 
-For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
+For more information, read [How to use user-defined functions](./how-to-user-defined-functions.md).
 
 #### Examples
 
@@ -109,7 +109,7 @@ The [GitHub repo for the Digital Twins C# sample](https://github.com/Azure-Sampl
 
 ### Role assignment
 
-A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, see [Role-based access control](./security-create-manage-role-assignments.md).
+A user-defined function's actions are subject to Azure Digital Twins [role-based access control](./security-role-based-access-control.md) to secure data within the service. Role assignments define which user-defined functions have the proper permissions to interact with the spatial graph and its entities. For example, a user-defined function might have the ability and permission to *CREATE*, *READ*, *UPDATE*, or *DELETE* graph data under a given space. A user-defined function's level of access is checked when the user-defined function asks the graph for data or attempts an action. For more information, read [Role-based access control](./security-create-manage-role-assignments.md).
 
 It's possible for a matcher to trigger a user-defined function that has no role assignments. In this case, the user-defined function fails to read any data from the graph.
 

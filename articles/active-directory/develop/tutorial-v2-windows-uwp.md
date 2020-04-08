@@ -2,21 +2,16 @@
 title: Microsoft identity platform UWP getting started | Azure
 description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -29,6 +24,9 @@ At the end of this guide, your application calls a protected API by using person
 
 >[!NOTE]
 > This guide requires Visual Studio with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
+
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [Call the Microsoft Graph API from a Universal Windows Platform (UWP) application quickstart](quickstart-v2-uwp.md).
 
 ## How this guide works
 
@@ -349,7 +347,7 @@ Now you need to register your application:
 Configure authentication for your application:
 
 1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `urn:ietf:wg:oauth:2.0:oob` for **REDIRECT URI**.
+1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 1. Select **Save**.
 
 Configure API permissions for your application:

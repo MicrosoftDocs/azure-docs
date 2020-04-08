@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 02/24/2020
 ms.author: damaerte
 ---
 
@@ -22,6 +22,9 @@ Cloud Shell utilizes Azure File storage to persist files across sessions. On ini
 
 > [!NOTE]
 > Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
+
+> [!NOTE]
+> Azure storage firewall is not supported for cloud shell storage accounts.
 
 ## Create new storage
 
@@ -34,14 +37,11 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 
 The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
 
-> [!NOTE]
-> For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
-
 The file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. This applies for both Bash and PowerShell.
 
 ## Use existing resources
 
-By using the advanced option, you can associate existing resources. When selecting a Cloud Shell region you must select a backing storage account co-located in the same region. For example, if your assigned region is West US than you must associate a file share that resides within West US as well.
+By using the advanced option, you can associate existing resources. When selecting a Cloud Shell region you must select a backing storage account co-located in the same region. For example, if your assigned region is West US then you must associate a file share that resides within West US as well.
 
 When the storage setup prompt appears, select **Show advanced settings** to view additional options. The populated storage options filter for locally redundant storage (LRS),  geo-redundant storage (GRS), and zone-redundant storage (ZRS) accounts. 
 
@@ -50,8 +50,15 @@ When the storage setup prompt appears, select **Show advanced settings** to view
 
 ![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
-### Supported storage regions
-Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to. To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
+## Securing storage access
+For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
+
+Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
+
+Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
+
+## Supported storage regions
+To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`, or from PowerShell run `$env:ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
 Cloud Shell machines exist in the following regions:
 
@@ -61,10 +68,18 @@ Cloud Shell machines exist in the following regions:
 |Europe|North Europe, West Europe|
 |Asia Pacific|India Central, Southeast Asia|
 
+Customers should choose a primary region, unless they have a requirement that their data at rest be stored in a particular region. If they have such a requirement, a secondary storage region should be used.
+
+### Secondary storage regions
+If a secondary storage region is used, the associated Azure storage account resides in a different region as the Cloud Shell machine that you're mounting them to. For example, Jane can set her storage account to be located in Canada East, a secondary region, but the machine she is mounted to is still located in a primary region. Her data at rest is located in Canada, but it is processed in the United States.
+
+> [!NOTE]
+> If a secondary region is used, file access and startup time for Cloud Shell may be slower.
+
+A user can run `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell to see the location of their File Share.
+
 ## Restrict resource creation with an Azure resource policy
 Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../azure-policy/json-samples.md) that are triggered by this specific tag.
-
-
 
 ## How Cloud Shell storage works 
 Cloud Shell persists files through both of the following methods: 
@@ -78,6 +93,7 @@ Cloud Shell persists files through both of the following methods:
 
 ### Use the `clouddrive` command
 In Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
+
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
 ### List `clouddrive`

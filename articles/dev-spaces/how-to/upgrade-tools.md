@@ -1,13 +1,9 @@
 ---
 title: "How to upgrade Azure Dev Spaces tools"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: "07/03/2018"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studio Code extension, and Visual Studio extension"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 # How to upgrade Azure Dev Spaces tools
@@ -25,7 +21,7 @@ You don't need to uninstall the previous version, just find the appropriate down
 
 Run the following command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 

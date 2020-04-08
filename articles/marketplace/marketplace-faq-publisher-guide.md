@@ -1,13 +1,12 @@
 ---
 title: Microsoft Commercial Marketplace FAQ 
 description: Answers to common questions about the Azure Marketplace and Microsoft AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/4/2019
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Microsoft Commercial Marketplace FAQs
@@ -160,7 +159,7 @@ Enterprise Agreement (EA) indirect customers must contact their Licensing Soluti
 
 **Can I control my employees' access to Azure Marketplace and purchasing privileges?**
 
-Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase. Additionally, all customers can use Azure Policy to restrict deployment options for their Azure subscriptions, including management of Azure Marketplace resources.
+Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase.
 
 **What payment methods are supported for commercial marketplace purchases?**
 

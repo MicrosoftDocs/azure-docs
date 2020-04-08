@@ -19,14 +19,14 @@ ms.date: 04/11/2019
 
 This article discusses some of the common issues you may encounter when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 Common issues that you may encounter include:
 
 - Data types sometimes don't match
 - Implicit conversions might take place
 - Cast and convert operations are sometimes required
 - R and SQL use different data objects
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ Now, review the text in **Messages** to see why the output is different.
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':	3 obs. of  1 variable:
+'data.frame':    3 obs. of  1 variable:
 $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 ```
 
@@ -105,7 +105,7 @@ $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':	1 obs. of  3 variables:
+'data.frame':    1 obs. of  3 variables:
 $ c..hello..: Factor w/ 1 level "hello": 1
 $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
@@ -120,7 +120,7 @@ For now, just be aware that you need to check the expected results when coercing
 
 ## Implicit conversion of data objects
 
-Each R data object has its own rules for how values are handled when combined with other data objects if the two data objects have the same number of dimensions, or if any data object contains heterogenous data types.
+Each R data object has its own rules for how values are handled when combined with other data objects if the two data objects have the same number of dimensions, or if any data object contains heterogeneous data types.
 
 For example, assume you want to perform matrix multiplication using R. You want to multiply a single-column matrix with the three values by an array with four values, and expect a 4x3 matrix as a result.
 

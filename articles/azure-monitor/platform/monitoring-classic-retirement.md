@@ -1,9 +1,9 @@
 ---
-title: Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
-description: Overview of retirement of classic monitoring services and functionality, earlier shown in Azure portal under Alerts (classic). Classic alerting & monitoring includes classic metric alerts for Azure resources, classic metric alerts for Application Insights, classic webtest alerts for Application Insights, classic custom metric based alerts for Application Insights and classic alerts for Application Insights SmartDetection v1
+title: Update of classic alerting & monitoring in Azure Monitor
+description: Description of the retirement of classic monitoring services and functionality, earlier shown in Azure portal under Alerts (classic). 
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi

@@ -147,8 +147,60 @@
       "branch": "master"
     },
     {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-pytorch",
+      "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-templates",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "dev"
+    },
+    {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-csharp",
+      "url": "https://github.com/Azure-Samples/functions-docs-csharp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-javascript",
+      "url": "https://github.com/Azure-Samples/functions-docs-javascript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-typescript",
+      "url": "https://github.com/Azure-Samples/functions-docs-typescript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-python",
+      "url": "https://github.com/Azure-Samples/functions-docs-python",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-powershell",
+      "url": "https://github.com/Azure-Samples/functions-docs-powershell",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-data-files",
+      "url": "https://github.com/Azure-Samples/cognitive-services-sample-data-files",
       "branch": "master"
     },
     {
@@ -194,7 +246,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "rhurey/quickstart.refactor"
+      "branch": "release-ignite-cogserv-speech-service"
     },
     {
       "path_to_root": "media-services-v3-dotnet-quickstarts",
@@ -229,6 +281,11 @@
     {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "MachineLearningNotebooks",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "master"
     },
     {
@@ -304,6 +361,26 @@
     {
       "path_to_root": "azure-sdk-for-go-samples",
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-script-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-js/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-python-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
     {
@@ -414,6 +491,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-graph-dotnet",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
       "branch": "master"
@@ -427,14 +509,6 @@
     "master": [
       "Publish",
       "PDF"
-    ],
-    "release-event-grid": [
-      "Publish",
-      "PDF"
-    ],
-    "hd-insight-pdf": [
-      "Publish",
-      "PDF"
     ]
   },
   "need_generate_pdf_url_template": true,
@@ -442,5 +516,8 @@
     "Pdf": {
       "template_folder": "_themes.pdf"
     }
+  },
+  "docs_build_engine": {
+    "name": "docfx_v3"
   }
 }

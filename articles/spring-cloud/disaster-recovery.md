@@ -1,11 +1,11 @@
 ---
 title: Azure Spring Cloud geo-disaster recovery | Microsoft Docs
 description: Learn how to protect your Spring Cloud application from regional outages
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Azure Spring Cloud disaster recovery

@@ -1,14 +1,14 @@
 ---
-title: Configure and access server logs in Azure Database for MariaDB from the Azure portal
-description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure portal.
+title: Access slow query logs - Azure portal - Azure Database for MariaDB
+description: This article describes how to configure and access the slow query logs in Azure Database for MariaDB from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 3/18/2020
 ---
 
-# Configure and access server logs from the Azure portal
+# Configure and access slow query logs from the Azure portal
 
 You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 

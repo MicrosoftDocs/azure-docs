@@ -1,5 +1,6 @@
 ---
-title: Application and service availability issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Application and service availability issues FAQ
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about application and service availability for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''

@@ -15,14 +15,16 @@
     href: quick-create-portal.md
   - name: Python
     href: quick-create-python.md
+  - name: Java
+    href: quick-create-java.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: .NET (SDK v4)
     href: quick-create-net.md
   - name: .NET (SDK v3)
     href: quick-create-net-v3.md
-  - name: Node.js
-    href: quick-create-node.md
-  - name: Azure Resource Manager template
-    displayName: resource manager, resource manager template, arm
+  - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 - name: Tutorials
   items:
@@ -55,7 +57,8 @@
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
-    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+    href: ../azure-resource-manager/templates/key-vault-parameter.md
+    displayName: ARM
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
 - name: Samples
@@ -70,16 +73,18 @@
     items:
       - name: Security overview
         href: overview-security.md
+      - name: Security baseline
+        href: security-baseline.md
+      - name: Built-In Security
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
-      - name: Built-in security controls
-        href: key-vault-security-controls.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
   - name: Monitoring Key Vault events
-    href: event-grid-overview.md  
+    href: event-grid-overview.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
@@ -104,18 +109,30 @@
     items:
     - name: Recommendations
       href: security-recommendations.md
-  - name: Authentication
+  - name: Authenticate
     items:
     - name: Use an App Service managed identity
       href: managed-identity.md
     - name: Use an access control policy
       href: key-vault-group-permissions-for-apps.md
+    - name: Import HSM-protected keys
+      items:
+      - name: Overview
+        href: key-vault-hsm-protected-keys.md
+      - name: Import HSM-protected keys to Key Vault (preview)
+        href: hsm-protected-keys-vendor-agnostic-byok.md
+      - name: Import HSM-protected keys to Key Vault (legacy)
+        href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
-    href: event-grid-tutorial.md      
+    href: event-grid-tutorial.md
   - name: Receive notifications via Event Grid and Logic Apps
-    href: event-grid-logicapps.md    
+    href: event-grid-logicapps.md
+  - name: Rotate secrets for single-user resources
+    href: tutorial-rotation.md
   - name: Integrate with Azure Policy
     href: azure-policy.md
+  - name: Integrate with Azure Private Link Service
+    href: private-link-service.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls
@@ -138,6 +155,8 @@
       href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
+  - name: Key Vault REST error codes
+    href: rest-error-codes.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
@@ -156,6 +175,7 @@
     href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
@@ -164,8 +184,6 @@
     items:
     - name: Developer's guide
       href: key-vault-developers-guide.md
-    - name: HSM-protected keys
-      href: key-vault-hsm-protected-keys.md
     - name: Migrate to .NET 2.0
       href: key-vault-dotnet2api-release-notes.md
     - name: Save Web App secrets
@@ -200,4 +218,3 @@
     href: https://blogs.technet.com/b/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-

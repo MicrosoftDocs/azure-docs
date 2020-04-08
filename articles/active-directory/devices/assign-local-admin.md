@@ -1,5 +1,5 @@
 ---
-title: How to manage the local administrators group on Azure AD joined devices | Microsoft Docs
+title: How to manage local administrators on Azure AD joined devices
 description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 
 services: active-directory
@@ -46,8 +46,8 @@ To view and update the membership of the global administrator role, see:
 
 In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
-1. On the left navbar, click **Azure Active Directory**. 
+1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator.
+1. Search for and select *Azure Active Directory*.
 1. In the **Manage** section, click **Devices**.
 1. On the **Devices** page, click **Device settings**.
 
@@ -67,9 +67,9 @@ Device administrators are assigned to all Azure AD joined devices. You cannot sc
 
 By default, Azure AD adds the user performing the Azure AD join to the administrator group on the device. If you want to prevent regular users from becoming local administrators, you have the following options:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -
-Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator. You can accomplish this by [creating an Autopilot profile](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Bulk enrollment](https://docs.microsoft.com/intune/windows-bulk-enroll) - An Azure AD join that is performed in the context of a bulk enrollment happens in the context of an auto-created user. Users signing in after a device has been joined are not added to the administrators group.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) -
+Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator. You can accomplish this by [creating an Autopilot profile](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Bulk enrollment](/intune/windows-bulk-enroll) - An Azure AD join that is performed in the context of a bulk enrollment happens in the context of an auto-created user. Users signing in after a device has been joined are not added to the administrators group.   
 
 ## Manually elevate a user on a device 
 

@@ -15,7 +15,7 @@ ms.subservice: queues
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Queue storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) and [Scalability and performance targets for Queue storage](scalability-targets.md).
 
 ## Checklist
 
@@ -47,7 +47,7 @@ This article organizes proven practices for performance into a checklist you can
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets).
+For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### Maximum number of storage accounts
 
@@ -190,5 +190,6 @@ Use queues to make your application architecture scalable. The following lists s
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Scalability and performance targets for Queue storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

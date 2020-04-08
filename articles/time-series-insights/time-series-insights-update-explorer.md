@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
 ---
 
@@ -43,7 +43,7 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 ## 1. Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply click the Time Series Insights environment you want to use to immediately be taken there.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply select the Time Series Insights environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -53,7 +53,7 @@ The environment panel displays all the Time Series Insights environments you hav
 
 ## 2. Navigation bar
 
-  [![The navigation bar](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [![The navigation bar](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 Use the navigation bar to select between two views:
 
@@ -70,13 +70,13 @@ The Azure Time Series Insights Preview supports full create, read, update, and d
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
-To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the Time Series Model, read [Times Series Models](./time-series-insights-update-tsm.md).
 
 ## 3. Hierarchy tree and search panel
 
-The hierarchy tree and search panel allows you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
 
-[![Hierarchy tree and search panel](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[![Hierarchy tree and search panel](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 The search results pane also lets you view your results in a hierarchy view or a list view making it easy to find the instances you want to display.
  
@@ -84,7 +84,7 @@ The search results pane also lets you view your results in a hierarchy view or a
 
 The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. 
 
-  [![The Preview well](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [![The Preview well](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner. 
 
@@ -93,21 +93,21 @@ Additionally, The explorations control lets you create time shifts and scatter p
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> If you see the following message, the instance doesn't have any data during the time span selected. To resolve the issue, increase the time span or confirm that the instance is pushing data.
+> If the following message appears, the instance doesn't have any data during the time span selected. To resolve the issue, increase the time span or confirm that the instance is pushing data.
 >
-> ![No data notification](media/v2-update-explorer/no-data-warning.png)
+> ![No data notification](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## 5. Chart panel
 
 The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger. 
 
-  [![Preview chart overview](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [![Preview chart overview](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **Chart type**: Controls which data elements are available for visualization.
 
-1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
-1. **Zoom and pan**: Click this control to zoom and pan the chart.
+1. **Zoom and pan**: Select this control to zoom and pan the chart.
 
 1. **Y-axis control**: Cycles through the available y-axis view options:
 
@@ -117,29 +117,29 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Marker element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the greyed, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
+You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and then select **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
   [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-After you perform the **Zoom** action, you see your selected data set. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
+After you perform the **Zoom** action, your selected data set will be displayed. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
 
-  [![Preview chart y-axis](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![Preview chart y-axis](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-Here, you can see an example of an **overlapping chart**:
+Here, an example of an **overlapping chart** is provided:
 
-  [![Overlapping chart option](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [![Overlapping chart option](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-The **More Actions** button expands to display the **Download as CSV** and **Export to Power BI** options.
+The **More actions** button expands to display the **Download as CSV**, **Connect to Power BI**, **Show chart data as a table**, and **Explore raw events** options.
 
-  [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
+  [![More actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Read about the [Time Series Insights native Power BI connector](concepts-power-bi.md).
+Learn more about the **Connect to Power BI** option in [Time Series Insights native Power BI connector](concepts-power-bi.md).
 
 ## 6. Time editor panel
 
 When working with Time Series Insights you first will select a time span. The selected time span will control the data set that is available for manipulation with the Time Series Insights update widgets.
 
-  [![Time selection panel](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [![Time selection panel](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > A portion of the timeline is highlighted in an amber or orange color to indicate the span of data that is available in warm store.
@@ -166,15 +166,15 @@ The Time Series Insights Preview navigation panel appears at the top of your Tim
 
 ### Current session share link control
 
-  [![Share icon](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [![Share icon](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Select the new **Share** icon to share a URL link with your team.
 
-  [![Share your instance URL](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![Share your instance URL](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### Tenant section
 
-  [![Tenant selection](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [![Tenant selection](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * Displays your current Time Series Insights sign-in account information.
 * Use it to switch between the available Time Series Insights themes.
@@ -184,7 +184,7 @@ Select the new **Share** icon to share a URL link with your team.
 
 To select a new theme, select your profile icon located in the upper-right corner. Then, select **Change Theme**.
 
-  [![Theme selection](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![Theme selection](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > Language selection is also available by selecting your profile icon.
@@ -194,7 +194,7 @@ Azure Time Series Insights Preview supports two themes:
 * **Light theme**: The default theme shown throughout this document.
 * **Dark theme**: Renders the explorer as shown here:
 
-  [![Selected dark theme](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [![Selected dark theme](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## S1/S2 environment controls
 
@@ -202,7 +202,7 @@ Azure Time Series Insights Preview supports two themes:
 
 This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the generally available product and Preview in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer. 
 
-Instead of the hierarchy, you see the Time Series Insights terms panel, where you define queries in your environment. Use it to filter your data based on a predicate.
+Instead of the hierarchy, the Time Series Insights terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 
   [![Where query panel](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -217,11 +217,11 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, see [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### Examples of where clauses
 
-  [![Where clause examples](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![Where clause examples](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **Measure**: A drop-down list that displays all the numeric columns (**Doubles**) you can use as elements for your current chart.
 

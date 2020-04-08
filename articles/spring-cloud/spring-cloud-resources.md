@@ -1,11 +1,11 @@
 ---
 title: Resources for Azure Spring Cloud | Microsoft Docs
 description: Azure Spring Cloud resource list
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Azure Spring Cloud developer resources

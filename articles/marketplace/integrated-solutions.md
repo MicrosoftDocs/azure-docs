@@ -1,26 +1,27 @@
 ---
-title: Integrated Solutions | Azure
+title: Integrated Solutions - Azure Marketplace
 description: Integrated Solutions in Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 11/12/2019
-ms.author: v-chjen
+ms.topic: conceptual
+ms.date: 12/16/2019
+ms.author: dsindona
 ---
 
-# Integrated Solutions in Azure Marketplace and AppSource
+# Integrated Solutions in Microsoft AppSource and Azure Marketplace
 
-An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert Systems Integrators (SI).
+An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert services partners.
 
-These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are integrated by an SI to create a unified and repeatable deployment experience for customers, which helps get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.  The outcome is an integrated solution, including technology and services.
+Two or more Microsoft partners integrate their technology and services to create a unified, seamless, and repeatable deployment experience, in order to get customers up and running rapidly.  The lead partner in the solution (usually the services partner) provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.
+
+In other scenarios, partners co-sell or co-market their solution together, whereas an integrated solution is a jointly built new solution that integrates the technology and services across partners.
 
 ## Advantages
 
 Advantages of an integrated approach are:
 
-* *Industry expertise*: Systems Integrators providing industry-specific solutions and knowledge
+* *Industry expertise*: Service partners providing industry-specific solutions and knowledge
 * *Time to value*: Integrated deployment approach to help you realize immediate benefits
 * *Best-of-breed solutions*: Discover the ease of an integrated buying and implementation experience
 

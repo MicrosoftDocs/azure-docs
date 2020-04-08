@@ -47,7 +47,7 @@ Users sign in once with their organizational account. This account is the same o
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, some password SSO applications give you the option of using Azure AD to periodically rollover (update) passwords. The system uses large, complex passwords, which increases account security. The administrator can easily grant or revoke access to an application, knows who has access to the account, and who has accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 Azure AD features that enable account sharing include:
 

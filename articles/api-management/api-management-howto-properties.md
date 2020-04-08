@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
 ---
 
@@ -19,13 +19,13 @@ ms.author: apimpm
 
 API Management policies are a powerful capability of the system that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-Each API Management service instance has a properties collection of key/value pairs, which is called named values, that are global to the service instance. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values across all API configuration and policies. Each named value may have the following attributes:
+Each API Management service instance has a collection of key/value pairs, which is called named values, that are global to the service instance. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values across all API configuration and policies. Each named value may have the following attributes:
 
-| Attribute      | Type            | Description                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Attribute      | Type            | Description                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | string          | Used for referencing the named value in policies. A string of one to 256 characters. Only letters, numbers, dot, and dash are allowed. |
-| `Value`        | string          | Actual value. Must not be empty or consist only of whitespace. Maximum of 4096 characters long.                                     |
-| `Secret`       | boolean         | Determines whether the value is a secret and should be encrypted or not.                                                            |
+| `Value`        | string          | Actual value. Must not be empty or consist only of whitespace. Maximum of 4096 characters long.                                        |
+| `Secret`       | boolean         | Determines whether the value is a secret and should be encrypted or not.                                                               |
 | `Tags`         | array of string | Used to filter the named value list. Up to 32 tags.                                                                                    |
 
 ![Named values](./media/api-management-howto-properties/named-values.png)
@@ -38,6 +38,9 @@ Named values can contain literal strings and [policy expressions](/azure/api-man
 | Credential | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateTime.Now.ToString()) | False  |               |
 
+> [!NOTE]
+> Instead of named values stored within an API Management service, you can use values stored in the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) service as demonstrated by this [example](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
+
 ## To add and edit a named value
 
 ![Add a named value](./media/api-management-howto-properties/add-property.png)
@@ -46,7 +49,7 @@ Named values can contain literal strings and [policy expressions](/azure/api-man
 2. Select **Named values**.
 3. Press **+Add**.
 
-    Name and Value are required values. If value is a secret, check the *This is a secret* checkbox. Enter one or more optional tags to help with organizing your named values, and click Save.
+    Name and Value are required values. If value is a secret, check the _This is a secret_ checkbox. Enter one or more optional tags to help with organizing your named values, and click Save.
 
 4. Click **Create**.
 

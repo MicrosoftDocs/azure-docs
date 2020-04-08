@@ -3,12 +3,12 @@ title: Container support
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure container instance resource.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 8/21/2019
-ms.author: dapine
+ms.topic: include
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Azure Container Instance resource
@@ -42,6 +42,6 @@ ms.author: dapine
     |`billing`|Copied from the **Overview** page of the resource.|
     |`eula`|`accept`|
 
-1. Click **Review and Create**
-1. After validation passes, click **Create** to finish the creation process
-1. When the resource is successfully deployed, it's ready
+5. Click **Review and Create**
+6. After validation passes, click **Create** to finish the creation process
+7. When the resource is successfully deployed, it's ready

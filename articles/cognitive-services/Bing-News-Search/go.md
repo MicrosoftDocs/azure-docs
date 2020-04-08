@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -20,15 +20,15 @@ This quickstart uses the Go language to call the Bing News Search API. The resul
 ## Prerequisites
 * Install the [Go binaries](https://golang.org/dl/)
 * Install the go-spew library for it pretty printer to display results
-    * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
+    * Install this library: `$ go get -u https://github.com/davecgh/go-spew`
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create a project and import libraries
 
 Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The go-spew library is needed to parse JSON. 
 
-```
+```go
 package main
 
 import (
@@ -45,7 +45,7 @@ import (
 
 The `NewsAnswer` struct formats the data provided in the response. The response JSON is multilevel and quite complex.  The following implementation covers the essentials.
 
-```
+```go
 // This struct formats the answer provided by the Bing News Search API.
 type NewsAnswer struct {
     ReadLink       string `json: "readLink"` 
@@ -69,13 +69,13 @@ type NewsAnswer struct {
 				Width   int  `json: "width"`
 				Height  int   `json: "height"`
 			} `json: "thumbnail"` 
+		    } `json: "image"` 
 			Description  string  `json: "description"`
 			Provider  []struct   {
 			    Type   string    `json: "_type"`
 				Name  string     `json: "name"`
 			} `json: "provider"` 
 			DatePublished   string   `json: "datePublished"`
- 		} `json: "image"` 
 	} `json: "value"` 
 }
 
@@ -83,9 +83,9 @@ type NewsAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-```
+```go
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.  
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
@@ -106,7 +106,7 @@ func main() {
 
 Add the query string and access key header
 
-```
+```go
 // Add the query to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
@@ -121,7 +121,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 Create the client and send the Get request. 
 
-```
+```go
 // Instantiate a client.  
 client := new(http.Client)
 
@@ -137,7 +137,7 @@ if err != nil {
 
 Send the request and read results using `ioutil`.
 
-```
+```go
 resp, err := client.Do(req)
     if err != nil {
 	    panic(err)
@@ -158,7 +158,7 @@ if err != nil {
 
 The `Unmarshall` function extracts information from the JSON text returned by the News Search API.  Then you can display nodes from the results using the `go-spew` pretty printer.
 
-```
+```go
 // Create a new answer object 
 ans := new(NewsAnswer)
 err = json.Unmarshal(body, &ans)

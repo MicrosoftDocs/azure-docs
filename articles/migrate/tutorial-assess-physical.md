@@ -1,12 +1,8 @@
 ---
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
 ---
 
 # Assess physical servers with Azure Migrate: Server Assessment
@@ -97,14 +93,14 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
+3.  For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 5b98cf68dad495696c789bdad8f0d91b
-  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
+  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### Run the Azure Migrate installer script
 
@@ -136,7 +132,7 @@ In case of any issues, you can access the script logs at C:\ProgramData\Microsof
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Make sure that the appliance can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ### Configure the appliance

@@ -2,13 +2,9 @@
 title: Configure pre and post-scripts on your Update Management deployment in Azure
 description: This article describes how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage pre and post-scripts
 
@@ -16,7 +12,7 @@ Pre-scripts and post-scripts let you run PowerShell runbooks in your Azure Autom
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post-script, the runbook must be imported into your Automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publish-a-runbook).
+For a runbook to be used as a pre or post-script, the runbook must be imported into your Automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publishing-a-runbook).
 
 ## Using a pre-script or post-script
 

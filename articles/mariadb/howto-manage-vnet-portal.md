@@ -1,11 +1,11 @@
 ---
-title: Create and manage Azure Database for MariaDB VNet service endpoints and rules using the Azure portal | Microsoft Docs
+title: Manage VNet endpoints - Azure portal - Azure Database for MariaDB
 description: Create and manage Azure Database for MariaDB VNet service endpoints and rules using the Azure portal
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 3/18/2020
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints and VNet rules by using the Azure portal
 
@@ -54,4 +54,4 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 - Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MariaDB using Azure CLI](howto-manage-vnet-cli.md).
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodc18
 ms.date: 03/04/2019
 ---
 # Downloadable Infographic: Machine learning basics with algorithm examples
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Download this easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions. Algorithm examples help the machine learning beginner understand which algorithms to use and what they're used for.
 
@@ -30,8 +32,8 @@ Download this easy-to-understand infographic overview of machine learning basics
 ## More help with algorithms for beginners and advanced users
 
 * For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to choose the right one for your solution, see [How to choose algorithms for Microsoft Azure Machine Learning Studio (classic)](algorithm-choice.md).
-* For a list by category of all the machine learning algorithms available in the classic version of Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio (classic) Algorithm and Module Help.
-* For a complete alphabetical list of algorithms and modules in classic version of Machine Learning Studio, see [A-Z list of Machine Learning Studio (classic) modules][a-z-list] in Machine Learning Studio (classic) Algorithm and Module Help.
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio (classic), see [Initialize Model][initialize-model] in the Machine Learning Studio (classic) Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in Machine Learning Studio (classic), see [A-Z list of Machine Learning Studio (classic) modules][a-z-list] in Machine Learning Studio (classic) Algorithm and Module Help.
 * For an overview of the Azure AI Gallery and the many community-generated resources available there, see [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 

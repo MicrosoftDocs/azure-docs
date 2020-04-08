@@ -1,11 +1,6 @@
 ---
 title: How to run Durable Functions as WebJobs - Azure
 description: Learn how to code and configure Durable Functions to run in WebJobs by using the WebJobs SDK.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf

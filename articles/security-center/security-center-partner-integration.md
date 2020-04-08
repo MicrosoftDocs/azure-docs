@@ -31,7 +31,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
-> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
+> Security Center does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 >
 >
 
@@ -90,8 +90,6 @@ Security Center automatically discovers security solutions running in Azure but 
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
-![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
 ### Add data sources
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
@@ -99,6 +97,10 @@ The **Add data sources** section includes other available data sources that can 
 ![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 ## Exporting data to a SIEM
+
+> [!NOTE]
+> For details of a simpler method (currently in preview) for exporting data to a SIEM, see [Export security alerts and recommendations (Preview)](continuous-export.md). The new method does not use Activity Log as an intermediator and allows direct export from Security Center to Event Hubs (and then on to your SIEM), it also supports the export of Security Recommendations.
+
 
 You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
 
@@ -122,13 +124,13 @@ Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-crea
 
 #### Stream the Azure Activity Log to Event Hubs
 
-See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### Install a partner SIEM connector 
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-See the following article for the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ### Example for Querying data 
 
@@ -143,8 +145,6 @@ Here are some Splunk queries you can use to pull alert data:
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
+In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following article:
 
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

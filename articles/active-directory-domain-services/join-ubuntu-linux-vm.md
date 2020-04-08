@@ -9,8 +9,8 @@ ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/15/2019
+ms.topic: how-to
+ms.date: 01/22/2020
 ms.author: iainfou
 
 ---
@@ -25,12 +25,12 @@ This article shows you how to join an Ubuntu Linux VM to an Azure AD DS managed 
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a part of the Azure AD DS managed domain.
 
 ## Create and connect to an Ubuntu Linux VM
 
@@ -59,13 +59,13 @@ sudo vi /etc/hosts
 
 In the *hosts* file, update the *localhost* address. In the following example:
 
-* *contoso.com* is the DNS domain name of your Azure AD DS managed domain.
+* *aaddscontoso.com* is the DNS domain name of your Azure AD DS managed domain.
 * *ubuntu* is the hostname of your Ubuntu VM that you're joining to the managed domain.
 
 Update these names with your own values:
 
 ```console
-127.0.0.1 ubuntu.contoso.com ubuntu
+127.0.0.1 ubuntu.aaddscontoso.com ubuntu
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
@@ -74,7 +74,7 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
 The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `apt-get`
 
-During the Kerberos installation, the *krb5-user* package prompts for the realm name in ALL UPPERCASE. For example, if the name of your Azure AD DS managed domain is *contoso.com*, enter *CONTOSO.COM* as the realm. The installation writes the `[realm]` and `[domain_realm]` sections in */etc/krb5.conf* configuration file. Make sure that you specify the realm an ALL UPPERCASE:
+During the Kerberos installation, the *krb5-user* package prompts for the realm name in ALL UPPERCASE. For example, if the name of your Azure AD DS managed domain is *aaddscontoso.com*, enter *AADDSCONTOSO.COM* as the realm. The installation writes the `[realm]` and `[domain_realm]` sections in */etc/krb5.conf* configuration file. Make sure that you specify the realm an ALL UPPERCASE:
 
 ```console
 sudo apt-get update
@@ -91,10 +91,10 @@ For domain communication to work correctly, the date and time of your Ubuntu VM 
     sudo vi /etc/ntp.conf
     ```
 
-1. In the *ntp.conf* file, create a line to add your Azure AD DS managed domain's DNS name. In the following example, an entry for *contoso.com* is added. Use your own DNS name:
+1. In the *ntp.conf* file, create a line to add your Azure AD DS managed domain's DNS name. In the following example, an entry for *aaddscontoso.com* is added. Use your own DNS name:
 
     ```console
-    server contoso.com
+    server aaddscontoso.com
     ```
 
     When done, save and exit the *ntp.conf* file using the `:wq` command of the editor.
@@ -109,7 +109,7 @@ For domain communication to work correctly, the date and time of your Ubuntu VM 
 
     ```console
     sudo systemctl stop ntp
-    sudo ntpdate contoso.com
+    sudo ntpdate aaddscontoso.com
     sudo systemctl start ntp
     ```
 
@@ -117,30 +117,30 @@ For domain communication to work correctly, the date and time of your Ubuntu VM 
 
 Now that the required packages are installed on the VM and NTP is configured, join the VM to the Azure AD DS managed domain.
 
-1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *AADDSCONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo realm discover CONTOSO.COM
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
    If the `realm discover` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
-    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Now initialize Kerberos using the `kinit` command. Specify a user that's a part of the Azure AD DS managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the Azure AD DS managed domain:
 
     ```console
-    kinit contosoadmin@CONTOSO.COM
+    kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
+1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a part of the Azure AD DS managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
     ```
 
 It takes a few moments to join the VM to the Azure AD DS managed domain. The following example output shows the VM has successfully joined to the Azure AD DS managed domain:
@@ -244,10 +244,10 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
 
-1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *ubuntu.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *ubuntu.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com ubuntu.aaddscontoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:

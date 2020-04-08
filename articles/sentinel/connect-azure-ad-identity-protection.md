@@ -1,28 +1,20 @@
 ---
-title: Connecting Azure AD Identity Protection data to Azure Sentinel | Microsoft Docs
+title: Connect Azure AD Identity Protection data to Azure Sentinel
 description: Learn how to connect Azure AD Identity Protection data to Azure Sentinel.
-services: sentinel
-documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
-editor: ''
-
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2019
-ms.author: rkarlin
-
+ms.author: yelevin
 ---
 # Connect data from Azure AD Identity Protection
 
 
 
-You can stream logs from [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel to stream alerts into Azure Sentinel to view dashboards, create custom alerts, and improve investigation. Azure Active Directory Identity Protection provides a consolidated view at risk users, risk detections and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion log-ins a day. 
+You can stream logs from [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) into Azure Sentinel to stream alerts into Azure Sentinel to view dashboards, create custom alerts, and improve investigation. Azure Active Directory Identity Protection provides a consolidated view at risk users, risk detections and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion log-ins a day. 
 
 
 ## Prerequisites

@@ -47,7 +47,7 @@ This command returns a JSON document describing the service, and then [jq](https
 
 ## Remote access to services
 
-* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)** - `https://CLUSTERNAME.azurehdinsight.net`
 
     Authenticate by using the cluster administrator user and password, and then sign in to Ambari.
 
@@ -58,14 +58,14 @@ This command returns a JSON document describing the service, and then [jq](https
     >
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Apache Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)** - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Authenticate by using the cluster administrator user and password.
     >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > Authenticate by using the cluster administrator user and password.
@@ -249,11 +249,7 @@ HDInsight is a managed service. If Azure detects a problem with the cluster, it 
 * Install and configure a service or web site.
 * Install and configure a component that requires configuration changes on multiple nodes in the cluster.
 
-Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. Example scripts are provided for installing the following components:
-
-* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-
-For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### Jar files
 

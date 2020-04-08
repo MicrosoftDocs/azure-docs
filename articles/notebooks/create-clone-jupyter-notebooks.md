@@ -1,22 +1,15 @@
 ---
-title: Create and clone Jupyter notebooks on Azure
-description: Azure Notebooks projects manage a collection of notebooks and related files, which you can create new or clone from another source.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+title: Create and clone Jupyter notebooks - Azure Notebooks Preview
+description: Azure Notebooks Preview projects manage a collection of notebooks and related files, which you can create new or clone from another source.
+ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: kraigb
 ---
 
-# Create and clone projects
+# Create and clone projects in Azure Notebooks Preview
 
 Azure Notebooks organizes your Jupyter notebooks and related files into logical groups called *projects*. You create a project first as a container, then create or clone one or more notebooks within a folder alongside other project files. (This process is demonstrated in the [tutorial](tutorial-create-run-jupyter-notebook.md).)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 A project also maintains metadata and other configuration settings that affect the server on which notebooks run, including custom setup steps and package installation. For more information, see [Manage and configure projects](configure-manage-azure-notebooks-projects.md).
 

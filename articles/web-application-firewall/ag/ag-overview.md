@@ -35,7 +35,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
 
-* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 40 websites that are protected by a web application firewall.
+* Protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites that are protected by a web application firewall.
 
 * Create custom WAF policies for different sites behind the same WAF 
 
@@ -84,7 +84,12 @@ For more information, see [Web application firewall CRS rule groups and rules](a
 
 Application Gateway also supports custom rules. With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a set of conditions is met, an action is taken to allow or block. 
 
-For more information, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
+The geomatch operator is now available in public preview for custom rules. Please see [geomatch custom rules](custom-waf-rules-overview.md#geomatch-custom-rules-preview) for more information.
+
+> [!NOTE]
+> The geomatch operator for custom rules is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
+For more information on custom rules, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
 ### Bot Mitigation (preview)
 

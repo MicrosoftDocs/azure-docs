@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Share Azure Spatial Anchors across sessions and devices | Microsoft Docs
+title: 'Tutorial: Share anchors across sessions and devices'
 description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between Android/iOS devices in Unity with a back-end service.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -85,6 +85,12 @@ Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSamp
 ## Deploy the sample app
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+
+## Troubleshooting
+
+### Unity 2019.3
+
+Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

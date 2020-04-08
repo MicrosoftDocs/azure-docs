@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes web UI in Azure Container Service
-services: container-service
 author: bburns
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
@@ -27,8 +25,8 @@ It also assumes that you have the Azure CLI and `kubectl` tools installed.
 
 You can test if you have the `az` tool installed by running:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).
@@ -36,13 +34,13 @@ If you don't have the `az` tool installed, there are instructions [here](https:/
 You can test if you have the `kubectl` tool installed by running:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 If you don't have `kubectl` installed, you can run:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## Overview
@@ -50,8 +48,8 @@ $ az acs kubernetes install-cli
 ### Connect to the web UI
 You can launch the Kubernetes web UI by running:
 
-```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+```azurecli
+az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 This should open a web browser configured to talk to a secure proxy connecting your

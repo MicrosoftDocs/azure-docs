@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
 ---
 
@@ -65,17 +65,11 @@ The cache supports Azure Blob containers or NFS hardware storage exports. Add st
 
 Each storage type has specific prerequisites.
 
-### NFS storage requirements
-
-If using on-premises hardware storage, the cache needs to have high-bandwidth network access to the datacenter from its subnet. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or similar access is recommended.
-
-NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
-
 ### Blob storage requirements
 
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
-Create the account and container before attempting to add it as a storage target.
+Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
 To create a compatible storage account, use these settings:
 
@@ -88,6 +82,62 @@ It's a good practice to use a storage account in the same location as your cache
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
+
+### NFS storage requirements
+
+If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
+
+> [!NOTE]
+> Storage target creation will fail if the cache has insufficient access to the NFS storage system.
+
+More information is included in [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md).
+
+* **Network connectivity:** The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for additional help troubleshooting VPN settings.
+
+* **Port access:** The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
+
+  To check your storage system's settings, follow this procedure.
+
+  * Issue an `rpcinfo` command to your storage system to check the needed ports. The command below lists the ports and formats the relevant results in a table. (Use your system's IP address in place of the *<storage_IP>* term.)
+
+    You can issue this command from any Linux client that has NFS infrastructure installed. If you use a client inside the cluster subnet, it also can help verify connectivity between the subnet and the storage system.
+
+    ```bash
+    rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
+    ```
+
+  Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
+
+  * If you can't use the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
+
+    | Protocol | Port  | Service  |
+    |----------|-------|----------|
+    | TCP/UDP  | 111   | rpcbind  |
+    | TCP/UDP  | 2049  | NFS      |
+    | TCP/UDP  | 4045  | nlockmgr |
+    | TCP/UDP  | 4046  | mountd   |
+    | TCP/UDP  | 4047  | status   |
+
+    Some systems use different port numbers for these services - consult your storage system's documentation to be sure.
+
+  * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
+
+* **Directory access:** Enable the `showmount` command on the storage system. Azure HPC Cache uses this command to check that your storage target configuration points to a valid export, and also to make sure that multiple mounts don't access the same subdirectories (a risk for file collision).
+
+  > [!NOTE]
+  > If your NFS storage system uses NetApp's ONTAP 9.2 operating system, **do not enable `showmount`**. [Contact Microsoft Service and Support](hpc-cache-support-ticket.md) for help.
+
+  Learn more about directory listing access in the NFS storage target [troubleshooting article](troubleshoot-nas.md#enable-export-listing).
+
+* **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
+  
+  * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
+
+  * Check export policies to make sure they do not include restrictions on root access from the cache's subnet.
+
+  * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
+
+* NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
 
 ## Next steps
 

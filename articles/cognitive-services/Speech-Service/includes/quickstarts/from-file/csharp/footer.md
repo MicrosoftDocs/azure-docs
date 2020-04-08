@@ -1,15 +1,14 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# - Speech Service"
+title: "Quickstart: Recognize speech from an audio file, C# - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
+ms.topic: include
+ms.date: 01/14/2020
+ms.author: dapine
 ---
 
 > [!div class="nextstepaction"]

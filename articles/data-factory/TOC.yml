@@ -29,82 +29,98 @@
     href: data-flow-create.md
 - name: Tutorials
   items:
-  - name: Copy data in cloud
+  - name: Copy and ingest data
     items:
-    - name: Copy Data tool
-      href: tutorial-copy-data-tool.md
-    - name: User interface (UI)
-      href: tutorial-copy-data-portal.md
-    - name: .NET
-      href: tutorial-copy-data-dot-net.md
-  - name: Copy on-premises data to cloud
-    items:
-    - name: Copy Data tool
-      href: tutorial-hybrid-copy-data-tool.md
-    - name: User interface (UI)
-      href: tutorial-hybrid-copy-portal.md
-    - name: Azure PowerShell
-      href: tutorial-hybrid-copy-powershell.md
-  - name: Copy data in bulk
-    items:
-    - name: User interface (UI)
-      href: tutorial-bulk-copy-portal.md
-    - name: Azure PowerShell
-      href: tutorial-bulk-copy.md
-  - name: Copy data incrementally
-    href: tutorial-incremental-copy-overview.md
-    items:
-    - name: 1 - Copy from one table
-      items:
-      - name: User interface (UI)
-        href: tutorial-incremental-copy-portal.md
-      - name: Azure PowerShell
-        href: tutorial-incremental-copy-powershell.md
-    - name: 2 - Copy from multiple tables
-      items:
-      - name: User interface (UI)
-        href: tutorial-incremental-copy-multiple-tables-portal.md
-      - name: Azure PowerShell
-        href: tutorial-incremental-copy-multiple-tables-powershell.md
-    - name: 3 - Use change tracking feature
-      items:
-      - name: User interface (UI)
-        href: tutorial-incremental-copy-change-tracking-feature-portal.md
-      - name: Azure PowerShell
-        href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-    - name: 4 - Copy new files by lastmodifieddate
+    - name: From Azure Blob Storage to Azure SQL Database
       items:
       - name: Copy Data tool
+        href: tutorial-copy-data-tool.md
+      - name: User interface (UI)
+        href: tutorial-copy-data-portal.md
+      - name: .NET
+        href: tutorial-copy-data-dot-net.md
+    - name: From an on-premises SQL Server database to Azure Blob Storage
+      items:
+      - name: Copy Data tool
+        href: tutorial-hybrid-copy-data-tool.md
+      - name: User interface (UI)
+        href: tutorial-hybrid-copy-portal.md
+      - name: Azure PowerShell
+        href: tutorial-hybrid-copy-powershell.md
+    - name: From Amazon Web Services S3 to Azure Data Lake Storage
+      items:
+      - name: Azure Data Lake Storage Gen2
+        href: load-azure-data-lake-storage-gen2.md
+      - name: Azure Data Lake Storage Gen1
+        href: load-azure-data-lake-store.md
+    - name: From Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2-from-gen1.md
+    - name: From Azure SQL Database to Azure Synapse Analytics
+      href: load-azure-sql-data-warehouse.md
+    - name: From SAP BW to Azure Data Lake Storage Gen2
+      href: load-sap-bw-data.md
+    - name: From Office 365 to Azure Blob storage
+      href: load-office-365-data.md
+    - name: Multiple tables in bulk
+      items:
+      - name: User interface (UI)
+        href: tutorial-bulk-copy-portal.md
+      - name: Azure PowerShell
+        href: tutorial-bulk-copy.md
+    - name: Incrementally load data
+      href: tutorial-incremental-copy-overview.md
+      items:
+      - name: From one Azure SQL Database table
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-portal.md
+        - name: Azure PowerShell
+          href: tutorial-incremental-copy-powershell.md
+      - name: From multiple on-premises SQL Server tables
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-multiple-tables-portal.md
+        - name: Azure PowerShell
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+      - name: Using change tracking information in SQL Server
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-change-tracking-feature-portal.md
+        - name: Azure PowerShell
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      - name: New files by last modified data
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
-    - name: 5 - Copy new files by time partitioned file name
-      items:
-      - name: Copy Data tool
+      - name: New files by time partitioned file name
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform and prepare data with data flows
+  - name: Transform data
     items:
-    - name: Transform data with a mapping data flow
-      href: tutorial-data-flow.md
-    - name: Prepare data with a wrangling data flow
+    - name: Transform data with mapping data flows
+      items:
+      - name: Transform data with mapping data flows
+        href: tutorial-data-flow.md
+      - name: Mapping data flow video tutorials
+        href: data-flow-tutorials.md
+    - name: Prepare data with wrangling data flows
       href: wrangling-data-flow-tutorial.md
-  - name: External transformations
-    items:
-    - name: HDInsight Spark
+    - name: Using external services
       items:
-      - name: User interface (UI)
-        href: tutorial-transform-data-spark-portal.md
-      - name: Azure PowerShell
-        href: tutorial-transform-data-spark-powershell.md
-    - name: Databricks Notebook
-      items:
-      - name: User interface (UI)
-        href: transform-data-using-databricks-notebook.md
-  - name: Hive transformation in virtual network
-    items:
-    - name: User interface (UI)
-      href: tutorial-transform-data-hive-virtual-network-portal.md
-    - name: Azure PowerShell
-      href: tutorial-transform-data-hive-virtual-network.md
-  - name: Add branching and chaining
+      - name: HDInsight Spark
+        items:
+        - name: User interface (UI)
+          href: tutorial-transform-data-spark-portal.md
+        - name: Azure PowerShell
+          href: tutorial-transform-data-spark-powershell.md
+      - name: Databricks Notebook
+        items:
+        - name: User interface (UI)
+          href: transform-data-using-databricks-notebook.md
+      - name: Hive transformation in virtual network
+        items:
+        - name: User interface (UI)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: Azure PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
+  - name: Control Flow
     items:
     - name: User interface (UI)
       href: tutorial-control-flow-portal.md
@@ -116,19 +132,12 @@
       href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
-  - name: Load Data Lake Storage Gen2
-    href: load-azure-data-lake-storage-gen2.md
+    - name: Join virtual network
+      href: tutorial-deploy-ssis-virtual-network.md  
+  - name: End-to-end labs
     items:
-    - name: Copy from Data Lake Storage Gen1
-      href: load-azure-data-lake-storage-gen2-from-gen1.md
-  - name: Load SQL Data Warehouse
-    href: load-azure-sql-data-warehouse.md
-  - name: Load Data Lake Storage Gen1
-    href: load-azure-data-lake-store.md
-  - name: Load SAP BW data
-    href: load-sap-bw-data.md
-  - name: Load Office 365 data
-    href: load-office-365-data.md
+    - name: Data integration using data factory and data share
+      href: lab-data-flow-data-share.md
 - name: Samples
   items:
   - name: Code samples
@@ -155,8 +164,6 @@
         href: concepts-data-flow-overview.md
       - name: Debug mode
         href: concepts-data-flow-debug-mode.md
-      - name: JSON handling
-        href: concepts-data-flow-json.md
       - name: Schema drift
         href: concepts-data-flow-schema-drift.md
       - name: Column patterns
@@ -233,7 +240,7 @@
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
       href: connector-azure-sql-database-managed-instance.md
-    - name: Azure SQL Data Warehouse
+    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -385,18 +392,30 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Monitor copy activity
+      href: copy-activity-monitoring.md
     - name: Delete files using Delete Activity
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
+    - name: Copy activity performance
+      items:
+      - name: Performance and scalability guide
+        href: copy-activity-performance.md
+      - name: Troubleshoot performance
+        href: copy-activity-performance-troubleshooting.md
+      - name: Performance features
+        href: copy-activity-performance-features.md
+    - name: Preserve metadata and ACLs
+      href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Format and compression support (legacy)
+      href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
     href: transform-data.md
     items:
@@ -412,6 +431,8 @@
       href: transform-data-databricks-notebook.md
     - name: Databricks Python Activity
       href: transform-data-databricks-python.md
+    - name: Data Explorer Command Activity
+      href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
     - name: HDInsight Hive Activity
@@ -448,12 +469,12 @@
       href: control-flow-get-metadata-activity.md
     - name: If Condition Activity
       href: control-flow-if-condition-activity.md
-    - name: Switch Activity
-      href: control-flow-switch-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
     - name: Set Variable Activity
       href: control-flow-set-variable-activity.md
+    - name: Switch Activity
+      href: control-flow-switch-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
     - name: Validation Activity
@@ -466,6 +487,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Transformation overview
+      href: data-flow-transformation-overview.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -478,6 +501,8 @@
       href: data-flow-exists.md
     - name: Filter
       href: data-flow-filter.md
+    - name: Flatten
+      href: data-flow-flatten.md
     - name: Join
       href: data-flow-join.md
     - name: Lookup
@@ -504,18 +529,20 @@
       href: data-flow-window.md
   - name: Parameterize
     items:
-    - name: Parameterize linked services
+    - name: Parameterizing linked services
       href: parameterize-linked-services.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
       href: control-flow-system-variables.md
-    - name: Data flow parameters
+    - name: Parameterizing mapping data flows
       href: parameters-data-flow.md
   - name: Security
     items:
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
+    - name: Azure Integration Runtime IP addresses
+      href: azure-integration-runtime-ip-addresses.md
     - name: Store credentials in Azure Key Vault
       href: store-credentials-in-key-vault.md
     - name: Use Azure Key Vault secrets in pipeline activities
@@ -600,28 +627,30 @@
       href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
+    - name: Bulk copy from files to database
+      href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
     - name: Migrate data from Amazon S3 to Azure Storage
       href: solution-template-migration-s3-azure.md
     - name: Move files
       href: solution-template-move-files.md
-    - name: Transform data with Databricks
+    - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
-  - name: Troubleshooting guide
+  - name: Troubleshooting guides
     items:
-    - name: Activity troubleshooting
+    - name: Activities
       href: data-factory-troubleshoot-guide.md
-    - name: Connector troubleshooting
+    - name: Connectors
       href: connector-troubleshoot-guide.md
-    - name: Troubleshooting Azure-SSIS IR Management
-      href: ssis-integration-runtime-management-troubleshoot.md
-    - name: Troubleshooting Self-hosted IR
-      href: self-hosted-integration-runtime-troubleshoot-guide.md
-    - name: Troubleshooting Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.md
-    - name: Troubleshooting Data Flows
+    - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Self-hosted Integration Runtimes
+      href: self-hosted-integration-runtime-troubleshoot-guide.md
+    - name: Azure-SSIS Integration Runtime
+      href: ssis-integration-runtime-management-troubleshoot.md
+    - name: Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Scenarios
   items:
   - name: Data migration for data lake & EDW
@@ -646,6 +675,8 @@
       href: scenario-ssis-migration-overview.md
     - name: SSISDB migration to Azure SQL Database managed instance
       href: scenario-ssis-migration-ssisdb-mi.md
+    - name: SSIS jobs migration to Azure Data Factory
+      href: how-to-migrate-ssis-job-ssms.md
 - name: Reference
   items:
   - name: Data flow script
@@ -662,18 +693,20 @@
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
+  - name: Whitepapers
+    href: whitepapers.md
+  - name: FAQ
+    href: frequently-asked-questions.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-factory
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
     href: https://feedback.azure.com/forums/270578-azure-data-factory
-  - name: FAQ
-    href: frequently-asked-questions.md
-  - name: Whitepapers
-    href: whitepapers.md
-  - name: Roadmap
-    href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

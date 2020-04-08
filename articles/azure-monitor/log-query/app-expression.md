@@ -1,7 +1,6 @@
 ---
 title: app() expression in Azure Monitor log queries | Microsoft Docs
 description: The app expression is used in an Azure Monitor log query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -1,17 +1,15 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using Java and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Create a Kubernetes dev space: Visual Studio Code & Java"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Java application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Get started on Azure Dev Spaces with Java
+# Create a Kubernetes dev space: Visual Studio Code and Java with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -28,7 +26,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -38,13 +36,14 @@ az login
 #### If you have multiple Azure subscriptions...
 You can view your subscriptions by running: 
 
-```cmd
-az account list
+```azurecli
+az account list --output table
 ```
-Locate the  subscription which has `isDefault: true` in the JSON output.
+
+Locate the  subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -52,14 +51,14 @@ az account set --subscription <subscription ID>
 
 At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 Create a Kubernetes cluster with the following command:
 
-```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -68,7 +67,7 @@ It takes a few minutes to create the cluster.
 
 Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 
@@ -88,7 +87,7 @@ In order to debug Java applications with Azure Dev Spaces, download and install 
 In this section, you'll create a Java web application and get it running in a container in Kubernetes.
 
 ### Create a Java web app
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/java/getting-started/webfrontend`.
+Download code from GitHub by navigating to [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/java/getting-started/webfrontend`.
 
 ## Preparing code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 
@@ -98,12 +97,15 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
 * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  
@@ -226,4 +228,4 @@ Refresh the web app in the browser. You should see your custom message appear in
 > [Learn about multi-service development](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

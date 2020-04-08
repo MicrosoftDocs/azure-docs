@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2019
+ms.date: 01/16/2020
 ms.author: ramkris
 
 ---
@@ -35,6 +35,9 @@ ms.author: ramkris
 |**API documentation**|[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Get started**|[Get started with the bulk executor library .NET SDK](bulk-executor-dot-net.md)|
 | **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
+
+> [!NOTE]
+> If you are using bulk executor, please see the latest version 3.x of the [.NET SDK](tutorial-sql-api-dotnet-bulk-import.md), which has bulk executor built into the SDK. 
 
 ## Release notes
 
@@ -65,6 +68,18 @@ ms.author: ramkris
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
+
+### <a name="1.8.8"/>1.8.8
+
+* Fixed an issue on MongoBulkExecutor that was increasing the document size unexpectedly by adding padding and in some cases, going over the maximum document size limit.
+
+### <a name="1.8.7"/>1.8.7
+
+* Fixed an issue with BulkDeleteAsync when the Collection has nested partition key paths.
+
+### <a name="1.8.6"/>1.8.6
+
+* MongoBulkExecutor now implements IDisposable and it's expected to be disposed after used.
 
 ### <a name="1.8.5"/>1.8.5
 

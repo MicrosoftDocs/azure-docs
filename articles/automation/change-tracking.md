@@ -2,18 +2,24 @@
 title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-manager: carmonm
-ms.custom: H1Hack27Feb2017
 ---
 # Track changes in your environment with the Change Tracking solution
 
-This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
+This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks the following configuration changes to help you pinpoint operational issues:
+
+- Windows software
+- Linux software (packages)
+
+    >[!NOTE]
+    >Change Tracking only tracks software that is managed with the distribution’s package manager.
+
+- Windows and Linux files
+- Windows registry keys
+- Windows services
+- Linux daemons
 
 Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Azure Monitor service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
@@ -66,7 +72,7 @@ For tracking changes in files on both Windows and Linux, MD5 hashes of the files
 
 ### File Integrity Monitoring in Azure Security Center
 
-Azure Security Center has added File Integrity Monitoring (FIM) built on Azure Change Tracking. While FIM monitors Files and Registries only, the full Change Tracking solution also includes:
+Azure Security Center has added File Integrity Monitoring (FIM) built on Azure Change Tracking. While FIM monitors files and registries only, the full Change Tracking solution also includes:
 
 - Software changes
 - Windows Services
@@ -158,6 +164,8 @@ The Change Tracking solution doesn't currently support the following items:
 
 * Recursion for Windows registry tracking
 * Network file systems
+* Different installation methods aren't tracked
+* *.exe files aren't tracked for Windows
 
 Other limitations:
 

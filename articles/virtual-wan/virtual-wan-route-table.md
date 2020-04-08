@@ -112,7 +112,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Commit the changes into the virtual hub.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## Next steps

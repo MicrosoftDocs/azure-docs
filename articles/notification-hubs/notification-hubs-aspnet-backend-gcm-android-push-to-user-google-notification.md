@@ -1,5 +1,5 @@
 ---
-title: Send notifications to specific Android applications using Azure Notification Hubs | Microsoft Docs
+title: Send notifications to specific Android applications using Azure Notification Hubs
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
@@ -20,7 +20,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
+# Tutorial: Send push notification to specific Android users using Azure Notification Hubs and Google Cloud Messaging (deprecated)
 
 > [!WARNING]
 > As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).

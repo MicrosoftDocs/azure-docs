@@ -2,15 +2,14 @@
 title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/02/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
 ---
+
 # Create Apache Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -219,7 +218,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -227,7 +226,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 2. Use the following command to create an application in Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -240,7 +239,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 3. Use the following command to create a service principal using the **App ID**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -248,7 +247,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 4. Assign the **Owner** role to the service principal using the **Object ID** value. Use the **subscription ID** you obtained earlier.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
@@ -339,16 +338,15 @@ This command returns a JSON document containing information about the deployment
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
+If you run into issues with creating HDInsight clusters, see [access control requirements](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## Next steps
 
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
+Now that you've successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
 
 ### Apache Hadoop clusters
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters

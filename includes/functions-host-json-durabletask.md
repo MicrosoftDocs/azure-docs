@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
@@ -44,17 +42,19 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 
 ```json
 {
+ "extensions": {
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -77,9 +77,12 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
+  }
   }
 }
+
 ```
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable-functions-task-hubs.md).
@@ -88,6 +91,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
+|controlQueueBufferThreshold|256|The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages.|
 |partitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
 |controlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
 |workItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
@@ -104,5 +108,6 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |eventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
 |eventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
+|useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable-functions-perf-and-scale.md).

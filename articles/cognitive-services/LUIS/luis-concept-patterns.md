@@ -39,9 +39,9 @@ Patterns use a mix of prediction technologies. Setting an intent for a template 
 
 ## Patterns do not improve machine-learned entity detection
 
-A pattern is primarily meant to help the prediction of intents and roles. The pattern.any entity is used to extract free-form entities. While patterns use entities, a pattern does not help detect a machine-learned entity.  
+A pattern is primarily meant to help the prediction of intents and roles. The _pattern.any_ entity is used to extract free-form entities. While patterns use entities, a pattern does not help detect a machine-learned entity.  
 
-Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
+Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
 
 ## Patterns use entity roles
 If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities.  
@@ -67,7 +67,7 @@ Learn pattern syntax from the [pattern syntax reference](reference-pattern-synta
 Learn more about patterns:
 
 * [How to add patterns](luis-how-to-model-intent-pattern.md)
-* [How to add pattern.any entity](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [How to add pattern.any entity](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Patterns Syntax](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

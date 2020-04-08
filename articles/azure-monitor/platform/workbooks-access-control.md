@@ -1,10 +1,10 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks with role-based access control | Microsoft docs
+title: Azure Monitor Workbooks access control
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks with role based access control
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
+
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual

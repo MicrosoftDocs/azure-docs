@@ -55,7 +55,7 @@ When the extension is called for the first time, it installs a version of WMF by
 - If the **wmfVersion** property is specified, that version of WMF is installed, unless that version is incompatible with the VM's OS.
 - If no **wmfVersion** property is specified, the latest applicable version of WMF is installed.
 
-Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
+Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
 
 ### Default configuration script
 
@@ -71,7 +71,7 @@ three values will need to be provided.
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
 This information can be seen in the
-[Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) or you can use PowerShell.
+[Azure portal](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal) or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -114,7 +114,7 @@ Important information about Resource Manager DSC extension cmdlets:
 
 The Azure DSC extension can use DSC configuration documents to directly configure Azure VMs during deployment. This step doesn't register the node to Automation. The node is *not* centrally managed.
 
-The following example shows a simple example of a configuration. Save the configuration locally as IisInstall.ps1.
+The following example shows a simple example of a configuration. Save the configuration locally as iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -130,7 +130,7 @@ configuration IISInstall
 }
 ```
 
-The following commands place the IisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
+The following commands place the iisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'

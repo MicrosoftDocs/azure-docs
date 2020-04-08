@@ -26,15 +26,15 @@ az login
 
 ## Obtain a token
 
-The Azure API for FHIR uses a `resource`  or `Audience` with URI `https://azurehealthcareapis.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
+The Azure API for FHIR uses a `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:
 
 ```azurecli-interactive
-token=$(az account get-access-token --resource=https://azurehealthcareapis.com | jq -r .accessToken)
+token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com | jq -r .accessToken)
 ```
 
 ## Use with Azure API for FHIR
 
-```azurecli-interactive
+```console
 curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com/Patient
 ```
 

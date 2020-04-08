@@ -1,16 +1,17 @@
 ---
-title: "Tutorial: Use the Azure Database Migration Service for an online migration of RDS SQL Server to Azure SQL Database or to an Azure SQL Database managed instance | Microsoft Docs"
-description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database or to an Azure SQL Database managed instance by using the Azure Database Migration Service.
+title: "Tutorial: Migrate RDS SQL Server online to SQL Database"
+titleSuffix: Azure Database Migration Service
+description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database single database or managed instance by using the Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 01/08/2020
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
@@ -46,10 +47,10 @@ To complete this tutorial, you need to:
     > If you are migrating to an Azure SQL Database managed instance, follow the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), and then create an empty database named **AdventureWorks2012**. 
  
 * Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 or later.
-* Create an Azure Virtual Network (VNet) for the Azure Database Migration Service by using the Azure Resource Manager deployment model. If you're migrating to an Azure SQL Database managed instance, make sure to create the DMS instance in the same VNet used for the Azure SQL Database managed instance, but in a different subnet.  Alternately, if you use a different VNet for DMS, you need to create a VNet peering between the two VNets. For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. If you're migrating to an Azure SQL Database managed instance, make sure to create the DMS instance in the same virtual network used for the Azure SQL Database managed instance, but in a different subnet.  Alternately, if you use a different virtual network for DMS, you need to create a virtual network peering between the two virtual networks. For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
-    > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     >
     > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
     > * Storage endpoint
@@ -57,10 +58,10 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity. 
 
-* Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the VNET used for the Azure Database Migration Service.
+* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
 * Ensure that the credentials used to connect to the source RDS SQL Server instance are associated with an account that is a member of “Processadmin” server role and a member of the “db_owner” database roles on all databases that are to be migrated.
 * Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases and a member of the sysadmin role if migrating to an Azure SQL Database managed instance.
 * The source RDS SQL Server version must be SQL Server 2012 and above. To determine the version that you SQL Server instance is running, see the article [How to determine the version, edition, and update level of SQL Server and its components](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -158,11 +159,11 @@ To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the 
 
 4. Select the location in which you want to create the instance of the Azure Database Migration Service. 
 
-5. Select an existing VNet or create a new one.
+5. Select an existing virtual network or create a new one.
 
-    The VNet provides the Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance.
+    The virtual network provides Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance.
 
-    For more information about how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
 6. Select a pricing tier; for this online migration, be sure to select the Premium pricing tier.
 
@@ -217,7 +218,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 

@@ -3,7 +3,7 @@ title: Linux distributions endorsed on Azure
 description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, CentOS, Oracle, and SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: szark
+ms.author: guybo
 
 ---
 # Endorsed Linux distributions on Azure

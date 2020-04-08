@@ -1,18 +1,8 @@
 ---
 title: Python developer reference for Azure Functions 
 description: Understand how to develop functions with Python
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: cfowler
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture, python
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/16/2018
-ms.author: glenga
+ms.date: 12/13/2019
 ---
 
 # Azure Functions Python developer guide
@@ -27,25 +17,9 @@ Azure Functions expects a function to be a stateless method in your Python scrip
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-The `__init__.py` file contains the following function code:
+Based on this definition, the `__init__.py` file that contains the function code might look like the following example:
 
 ```python
 def main(req):
@@ -53,7 +27,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
+You can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -86,16 +60,16 @@ The recommended folder structure for a Python Functions project looks like the f
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -105,24 +79,52 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-* *funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+* *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
+* *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
+When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+
+## Import behavior
+
+You can import modules in your function code using both explicit relative and absolute references. Based on the folder structure shown above, the following imports work from within the function file *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
-from __app__.SharedCode import myFirstHelperFunction
+from . import example #(explicit relative)
 ```
-
-To reference modules local to a function, you can use the relative import syntax as follows:
 
 ```python
-from . import example
+from ..shared_code import my_first_helper_function #(explicit relative)
 ```
 
-When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+The following imports *don't work* from within the same file:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Shared code should be kept in a separate folder in *\_\_app\_\_*. To reference modules in the *shared\_code* folder, you can use the following syntax:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## Triggers and Inputs
 
@@ -176,7 +178,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the storage account specified is the connection string found in the AzureWebJobsStorage app setting, which is the same storage account used by the function app.
 
 
 ## Outputs
@@ -286,28 +288,30 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-## Concurrency
+## Scaling and concurrency
 
-By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient under one or more of the following conditions:
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ You're trying to handle a number of invocations being made at the same time.
-+ You're processing a large number of I/O events.
-+ Your application is I/O bound.
+This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
 
-In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
+- The application needs to handle many concurrent invocations.
+- The application processes a large number of I/O events.
+- The application is I/O bound.
+
+In such cases, you can improve performance further by employing async patterns and by using multiple language worker processes.
 
 ### Async
 
-We recommend that you use the `async def` statement to make your function run as an asynchronous coroutine.
+Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance by running functions asynchronously.
+
+To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-When the `main()` function is synchronous (without the `async` qualifier), the function is automatically run in an `asyncio` thread-pool.
+A function without the `async` keyword is run automatically in an asyncio thread-pool:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -318,7 +322,9 @@ def main():
 
 ### Use multiple language worker processes
 
-By default, every Functions host instance has a single language worker process. However there's support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
+By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. 
+
+The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand. 
 
 ## Context
 
@@ -384,7 +390,18 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version 
 
-Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
+Azure Functions supports the following Python versions:
+
+| Functions version | Python<sup>*</sup> versions |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup>Official CPython distributions
+
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.  
+
+When running locally, the runtime uses the available Python version. 
 
 ## Package management
 
@@ -643,7 +660,7 @@ Make sure that you also update your function.json to support the OPTIONS HTTP me
     ...
 ```
 
-This method is used by the Chrome browser to negotiate the allowed origins list. 
+This HTTP method is used by web browsers to negotiate the allowed origins list. 
 
 ## Next steps
 

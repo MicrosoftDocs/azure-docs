@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 09/24/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -26,9 +26,9 @@ The following Azure services support managed identities for Azure resources:
 ### Azure Virtual Machines
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Preview | Preview | Preview | 
-| User assigned | Available | Preview | Preview | Preview |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Preview | Preview | 
+| User assigned | ![Available][check] | ![Available][check] | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
@@ -41,9 +41,9 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 ### Azure Virtual Machine Scale Sets
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Preview | Preview | Preview |
-| User assigned | Available | Preview | Preview | Preview |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Preview | Preview | Preview |
+| User assigned | ![Available][check] | Preview | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machine Scale Sets (in regions where available):
 
@@ -56,9 +56,9 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 ### Azure App Service
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Available | Available |
-| User assigned | Available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check]  | ![Available][check]  | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure App Service (in regions where available):
 
@@ -70,9 +70,9 @@ Refer to the following list to configure managed identity for Azure App Service 
 ### Azure Blueprints
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Not available | Not available |
-| User assigned | Available | Available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
+| User assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 
 Refer to the following list to use a managed identity with [Azure Blueprints](../../governance/blueprints/overview.md):
 
@@ -82,9 +82,9 @@ Refer to the following list to use a managed identity with [Azure Blueprints](..
 ### Azure Functions
 
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Available | Available |
-| User assigned | Available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check]  | ![Available][check]  | ![Available][check]  |
 
 Refer to the following list to configure managed identity for Azure Functions (in regions where available):
 
@@ -96,20 +96,21 @@ Refer to the following list to configure managed identity for Azure Functions (i
 ### Azure Logic Apps
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Not available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
-- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal-system-logic-app)
+- [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity)
 
 ### Azure Data Factory V2
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
@@ -122,9 +123,9 @@ Refer to the following list to configure managed identity for Azure Data Factory
 ### Azure API Management
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Not available | Not available |
-| User assigned | Not available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | Preview | Preview | Not available | Preview |
 
 Refer to the following list to configure managed identity for Azure API Management (in regions where available):
 
@@ -133,7 +134,7 @@ Refer to the following list to configure managed identity for Azure API Manageme
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
+| --- | :-: | :-: | :-: | :-: |
 | System assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available |
 | User assigned | Linux: Preview<br>Windows: Not available | Not available | Not available | Not available |
 
@@ -146,13 +147,24 @@ Refer to the following list to configure managed identity for Azure Container In
 ### Azure Container Registry Tasks
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Not available | Not available | Not available |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
 | User assigned | Preview | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
+### Azure Service Fabric
+[Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not Available | Not Available | not Available |
+| User assigned | ![Available][check] | Not Available | Not Available |Not Available |
+
+Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+- [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## Azure services that support Azure AD authentication
 
@@ -163,31 +175,31 @@ The following services support Azure AD authentication, and have been tested wit
 Refer to the following list to configure access to Azure Resource Manager:
 
 - [Assign access via Azure portal](howto-assign-access-portal.md)
-- [Assign access via Powershell](howto-assign-access-powershell.md)
+- [Assign access via PowerShell](howto-assign-access-powershell.md)
 - [Assign access via Azure CLI](howto-assign-access-CLI.md)
 - [Assign access via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://management.azure.com/`| Available |
-| Azure Government | `https://management.usgovcloudapi.net/` | Available |
-| Azure Germany | `https://management.microsoftazure.de/` | Available |
-| Azure China 21Vianet | `https://management.chinacloudapi.cn` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://management.azure.com/`| ![Available][check] |
+| Azure Government | `https://management.usgovcloudapi.net/` | ![Available][check] |
+| Azure Germany | `https://management.microsoftazure.de/` | ![Available][check] |
+| Azure China 21Vianet | `https://management.chinacloudapi.cn` | ![Available][check] |
 
 ### Azure Key Vault
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://vault.azure.net`| Available |
-| Azure Government | `https://vault.usgovcloudapi.net` | Available |
-| Azure Germany |  `https://vault.microsoftazure.de` | Available |
-| Azure China 21Vianet | `https://vault.azure.cn` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://vault.azure.net`| ![Available][check] |
+| Azure Government | `https://vault.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany |  `https://vault.microsoftazure.de` | ![Available][check] |
+| Azure China 21Vianet | `https://vault.azure.cn` | ![Available][check] |
 
 ### Azure Data Lake 
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://datalake.azure.net/` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://datalake.azure.net/` | ![Available][check] |
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
@@ -195,17 +207,17 @@ Refer to the following list to configure access to Azure Resource Manager:
 ### Azure SQL 
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://database.windows.net/` | Available |
-| Azure Government | `https://database.usgovcloudapi.net/` | Available |
-| Azure Germany | `https://database.cloudapi.de/` | Available |
-| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://database.windows.net/` | ![Available][check] |
+| Azure Government | `https://database.usgovcloudapi.net/` | ![Available][check] |
+| Azure Germany | `https://database.cloudapi.de/` | ![Available][check] |
+| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Available][check] |
 
 ### Azure Event Hubs
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://eventhubs.azure.net` | ![Available][check] |
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
@@ -213,9 +225,9 @@ Refer to the following list to configure access to Azure Resource Manager:
 ### Azure Service Bus
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Available |
-| Azure Government |  | Available |
+|--------|------------|:-:|
+| Azure Global | `https://servicebus.azure.net`  | ![Available][check] |
+| Azure Government |  | ![Available][check] |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
@@ -230,11 +242,11 @@ Refer to the following list to configure access to Azure Resource Manager:
 ### Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Available |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Available |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Available][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
 
 
 
@@ -248,8 +260,11 @@ Refer to the following list to configure access to Azure Resource Manager:
 ### Azure Analysis Services
 
 | Cloud | Resource ID | Status |
-|--------|------------|--------|
-| Azure Global | `https://*.asazure.windows.net` | Available |
-| Azure Government | `https://*.asazure.usgovcloudapi.net` | Available |
-| Azure Germany | `https://*.asazure.cloudapi.de` | Available |
-| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Available |
+|--------|------------|:-:|
+| Azure Global | `https://*.asazure.windows.net` | ![Available][check] |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany | `https://*.asazure.cloudapi.de` | ![Available][check] |
+| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
+
+
+[check]: media/services-support-managed-identities/check.png "Available"

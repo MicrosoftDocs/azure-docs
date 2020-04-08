@@ -1,12 +1,8 @@
 ---
-title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft Docs
-description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
+title: Application Insights for Worker Service apps (non-HTTP apps)
+description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
-ms.date: 09/15/2019
+ms.date: 12/16/2019
 
 ---
 
@@ -31,7 +27,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.13.1" />
     </ItemGroup>
 ```
 
@@ -133,6 +129,7 @@ Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key fo
 > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
 ## ASP.NET Core background tasks with hosted services
+
 [This](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) document describes how to create backgrounds tasks in ASP.NET Core 2.1/2.2 application.
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
@@ -247,7 +244,8 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.

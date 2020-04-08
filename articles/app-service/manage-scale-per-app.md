@@ -1,16 +1,9 @@
 ---
-title: High-density hosting using per-app scaling - Azure App Service | Microsoft Docs
-description: High-density hosting on Azure App Service
+title: Per-app scaling for high-density hosting
+description: Scale apps independently from the App Service plans and optimize the scaled-out instances in your plan.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal

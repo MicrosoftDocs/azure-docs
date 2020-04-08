@@ -1,17 +1,9 @@
 ---
-title: Azure CLI Script Sample - Create a Function App in an App Service plan | Microsoft Docs
+title: Create a Function App in an App Service plan - Azure CLI
 description: Azure CLI Script Sample - Create a Function App in an App Service plan
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
-ms.author: glenga
 ms.custom: mvc
 ---
 # Create a Function App in an App Service plan
@@ -38,13 +30,13 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the App Service plan. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Creates a Premium plan. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the App Service plan. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

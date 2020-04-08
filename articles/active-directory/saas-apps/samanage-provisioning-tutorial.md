@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 This tutorial demonstrates the steps to perform in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Samanage.
 
 > [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
@@ -95,51 +95,45 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Samanage Provisioning Mode](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, enter the admin username and admin password of your Samanage account. Examples of these values are:
+5. Under the **Admin Credentials** section, input your Samanage **Tenant URL** and **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Samanage. If the connection fails, ensure your Samanage account has Admin permissions and try again.
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Samanage tenant. An example is admin@contoso.com.
+	![Samanage Test Connection](./media/samanage-provisioning-tutorial/provisioning.png)
 
-   * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
-
-6. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Azure AD can connect to Samanage. If the connection fails, make sure that your Samanage account has admin permissions and try again.
-
-	![Samanage Test Connection](./media/samanage-provisioning-tutorial/TestConnection.png)
-
-7. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+6. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
 	![Samanage Notification Email](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
-8. Select **Save**.
+7. Select **Save**.
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Samanage**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Samanage**.
 
 	![Samanage user synchronization](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
+9. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
 
 	![Samanage matching user attributes](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
-11. To enable group mappings, under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Samanage**.
+10. To enable group mappings, under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Samanage**.
 
 	![Samanage group synchronization](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
+11. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. To save any changes, select **Save**.
 
 	![Samanage matching group attributes](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. To enable the Azure AD provisioning service for Samanage, in the **Settings** section, change **Provisioning Status** to **On**.
+13. To enable the Azure AD provisioning service for Samanage, in the **Settings** section, change **Provisioning Status** to **On**.
 
 	![Samanage Provisioning Status](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Define the users or groups that you want to provision to Samanage. In the **Settings** section, select the values you want in **Scope**. When you select the **Sync all users and groups** option, consider the limitations as described in the following section "Connector limitations."
+14. Define the users or groups that you want to provision to Samanage. In the **Settings** section, select the values you want in **Scope**. When you select the **Sync all users and groups** option, consider the limitations as described in the following section "Connector limitations."
 
 	![Samanage Scope](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
-16. When you're ready to provision, select **Save**.
+15. When you're ready to provision, select **Save**.
 
 	![Samanage Save](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
 
@@ -148,7 +142,7 @@ This operation starts the initial synchronization of all users or groups defined
 
 You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Samanage.
 
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -158,13 +152,13 @@ If you select the **Sync all users and groups** option and configure a value for
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

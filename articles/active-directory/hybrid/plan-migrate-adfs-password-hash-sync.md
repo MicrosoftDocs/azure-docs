@@ -18,7 +18,8 @@ ms.collection: M365-identity-device-management
 
 This article describes how to move your organization domains from Active Directory Federation Services (AD FS) to password hash synchronization.
 
-You can [download this article](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](how-to-connect-staged-rollout.md) provides an alternative way to test and gradually migrate from federation to cloud authentication using password hash synchronization.
 
 ## Prerequisites for migrating to password hash synchronization
 

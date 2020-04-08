@@ -1,17 +1,13 @@
 ---
-title: "Team development with Azure Dev Spaces with Node.js and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Team development using Node.js and Visual Studio Code"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to do team development on a Node.js application in Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 
-# Team development with Azure Dev Spaces using Node.js and VS Code
+# Team development using Node.js and Visual Studio Code with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
@@ -161,6 +157,9 @@ To completely delete an Azure Dev Spaces instance on a cluster, including all th
 The following example lists the Azure Dev Spaces controllers in your active subscription, and then deletes the Azure Dev Spaces controller that is associated with AKS cluster 'myaks' in resource group 'myaks-rg'.
 
 ```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+azds controller list
+```
+
+```azurecli
+az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```

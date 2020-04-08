@@ -5,20 +5,20 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
 ---
 
 # Use MapReduce in Apache Hadoop on HDInsight
 
 Learn how to run MapReduce jobs on HDInsight clusters.
 
-## <a id="data"></a>Example data
+## Example data
 
 HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo da Vinci.
 
-## <a id="job"></a>Example MapReduce
+## Example MapReduce
 
 An example MapReduce word count application is included with your HDInsight cluster. This example is located at `/example/jars/hadoop-mapreduce-examples.jar` on the default storage for your cluster.
 
@@ -96,35 +96,22 @@ public class WordCount {
 }
 ```
 
-For instructions to write your own MapReduce applications, see the following document:
+For instructions to write your own MapReduce applications, see [Develop Java MapReduce applications for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
 
-* [Develop Java MapReduce applications for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-## <a id="run"></a>Run the MapReduce
+## Run the MapReduce
 
 HDInsight can run HiveQL jobs by using various methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
-| **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
+| **Use this**... | **...to do this** |  ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, Mac OS X, or Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, Mac OS X, or Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell**  |Windows |
 
-## <a id="nextsteps"></a>Next steps
+## Next steps
 
 To learn more about working with data in HDInsight, see the following documents:
 
 * [Develop Java MapReduce programs for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Use Apache Hive with HDInsight][hdinsight-use-hive]
-
-* [Use Apache Pig with HDInsight][hdinsight-use-pig]
-
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
-[hdinsight-use-hive]:../hdinsight-use-hive.md
-[hdinsight-use-pig]:hdinsight-use-pig.md
-
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+* [Use Apache Hive with HDInsight](./hdinsight-use-hive.md)

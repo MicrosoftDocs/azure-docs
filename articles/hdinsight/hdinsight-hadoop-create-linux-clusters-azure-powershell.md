@@ -2,33 +2,27 @@
 title: Create Apache Hadoop clusters using PowerShell - Azure HDInsight
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight by using Azure PowerShell.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: hrasheed
-
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
 ---
+
 # Create Linux-based clusters in HDInsight using Azure PowerShell
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Microsoft Azure. This document provides information about how to create a Linux-based HDInsight cluster by using Azure PowerShell. It also includes an example script.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You must have the following before starting this procedure:
-
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Azure PowerShell](/powershell/azure/install-Az-ps)
-
-    > [!IMPORTANT]  
-    > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    >
-    > Please follow the steps in [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+[Azure PowerShell](/powershell/azure/install-Az-ps) Az module.
 
 ## Create cluster
 
@@ -40,6 +34,9 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 * Create an Azure Storage account
 * Create an Azure Blob container
 * Create an HDInsight cluster
+
+> [!NOTE]
+> Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 is not currently supported.
 
 The following script demonstrates how to create a new cluster:
 
@@ -58,7 +55,7 @@ It can take up to 20 minutes to create a cluster.
 
 ## Create cluster: Configuration object
 
-You can also create an HDInsight configuration object using `New-AzHDInsightClusterConfig` cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the `New-AzHDInsightCluster` cmdlet to use the configuration.
+You can also create an HDInsight configuration object using [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet to use the configuration.
 
 The following script creates a configuration object to configure an R Server on HDInsight cluster type. The configuration enables an edge node, RStudio, and an additional storage account.
 
@@ -82,12 +79,11 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-Now that you have successfully created an HDInsight cluster, use the following resources to learn how to work with your cluster.
+Now that you've successfully created an HDInsight cluster, use the following resources to learn how to work with your cluster.
 
 ### Apache Hadoop clusters
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters
@@ -107,4 +103,3 @@ Now that you have successfully created an HDInsight cluster, use the following r
 * [Run jobs remotely on an Apache Spark cluster using Apache Livy](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-

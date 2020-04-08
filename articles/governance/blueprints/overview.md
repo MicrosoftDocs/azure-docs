@@ -1,10 +1,10 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
 ---
-# Overview of the Azure Blueprints service
+# What is Azure Blueprints?
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
@@ -24,7 +24,7 @@ other artifacts such as:
 The Azure Blueprints service is backed by the globally distributed [Azure Cosmos DB](../../cosmos-db/introduction.md).
 Blueprint objects are replicated to multiple Azure regions. This replication provides low latency,
 high availability, and consistent access to your blueprint objects, regardless of which region
-Blueprints deploys your resources to.
+Azure Blueprints deploys your resources to.
 
 ## How it's different from Resource Manager templates
 
@@ -34,20 +34,21 @@ is a package to bring each of these _artifact_ types together and allow you to c
 that package -- including through a CI/CD pipeline. Ultimately, each is assigned to a subscription
 in a single operation that can be audited and tracked.
 
-Nearly everything that you want to include for deployment in Blueprints can be accomplished with a
-Resource Manager template. However, a Resource Manager template is a document that doesn't exist
-natively in Azure – each is stored either locally or in source control. The template gets used for
-deployments of one or more Azure resources, but once those resources deploy there's no active
+Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
+with a Resource Manager template. However, a Resource Manager template is a document that doesn't
+exist natively in Azure – each is stored either locally or in source control. The template gets used
+for deployments of one or more Azure resources, but once those resources deploy there's no active
 connection or relationship to the template.
 
-With Blueprints, the relationship between the blueprint definition (what _should be_ deployed) and
-the blueprint assignment (what _was_ deployed) is preserved. This connection supports improved
-tracking and auditing of deployments. Blueprints can also upgrade several subscriptions at once
-that are governed by the same blueprint.
+With Azure Blueprints, the relationship between the blueprint definition (what _should be_ deployed)
+and the blueprint assignment (what _was_ deployed) is preserved. This connection supports improved
+tracking and auditing of deployments. Azure Blueprints can also upgrade several subscriptions at
+once that are governed by the same blueprint.
 
 There's no need to choose between a Resource Manager template and a blueprint. Each blueprint can
 consist of zero or more Resource Manager template _artifacts_. This support means that previous
-efforts to develop and maintain a library of Resource Manager templates are reusable in Blueprints.
+efforts to develop and maintain a library of Resource Manager templates are reusable in Azure
+Blueprints.
 
 ## How it's different from Azure Policy
 
@@ -68,7 +69,7 @@ support using parameters with policies and initiatives.
 
 ## Blueprint definition
 
-A blueprint is made up of _artifacts_. Blueprints currently support the following resources
+A blueprint is made up of _artifacts_. Azure Blueprints currently supports the following resources
 as artifacts:
 
 |Resource  | Hierarchy options| Description  |
@@ -88,10 +89,10 @@ assign to any child subscription of that management group.
 ### Blueprint parameters
 
 Blueprints can pass parameters to either a policy/initiative or an Azure Resource Manager template.
-When adding either _artifact_ to a blueprint, the author decides to provide a defined value for
-each blueprint assignment or to allow each blueprint assignment to provide a value at assignment
-time. This flexibility provides the option to define a pre-determined value for all uses of the
-blueprint or to enable that decision to be made at the time of assignment.
+When adding either _artifact_ to a blueprint, the author decides to provide a defined value for each
+blueprint assignment or to allow each blueprint assignment to provide a value at assignment time.
+This flexibility provides the option to define a pre-determined value for all uses of the blueprint
+or to enable that decision to be made at the time of assignment.
 
 > [!NOTE]
 > A blueprint can have its own parameters, but these can currently only be created if a blueprint
@@ -105,11 +106,10 @@ When a blueprint is first created, it's considered to be in **Draft** mode. When
 assigned, it needs to be **Published**. Publishing requires defining a **Version** string (letters,
 numbers, and hyphens with a max length of 20 characters) along with optional **Change notes**. The
 **Version** differentiates it from future changes to the same blueprint and allows each version to
-be assigned. This versioning also means different **Versions** of the same blueprint can be
-assigned to the same subscription. When additional changes are made to the blueprint, the
-**Published** **Version** still exists, as do the **Unpublished changes**. Once the changes are
-complete, the updated blueprint is **Published** with a new and unique **Version** and can now also
-be assigned.
+be assigned. This versioning also means different **Versions** of the same blueprint can be assigned
+to the same subscription. When additional changes are made to the blueprint, the **Published**
+**Version** still exists, as do the **Unpublished changes**. Once the changes are complete, the
+updated blueprint is **Published** with a new and unique **Version** and can now also be assigned.
 
 ## Blueprint assignment
 
@@ -181,12 +181,14 @@ The following limitations exist for certain fields:
 
 ## Video overview
 
-The following overview of Azure Blueprints is from Azure Fridays. For video download,
-visit [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) on Channel 9.
+The following overview of Azure Blueprints is from Azure Fridays. For video download, visit
+[Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
+on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## Next steps
 
-- [Create a blueprint - Portal](create-blueprint-portal.md)
-- [Create a blueprint - REST API](create-blueprint-rest-api.md)
+- [Create a blueprint - Portal](./create-blueprint-portal.md).
+- [Create a blueprint - PowerShell](./create-blueprint-powershell.md).
+- [Create a blueprint - REST API](./create-blueprint-rest-api.md).

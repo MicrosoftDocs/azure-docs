@@ -1,6 +1,6 @@
 ---
-title: Add a Bubble layer to Azure Maps | Microsoft Docs
-description: How to add a Bubble layer to the Azure Maps Web SDK.
+title: Add a Bubble layer to a map | Microsoft Azure Maps
+description: In this article, you'll learn about how to add a Bubble layer to a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -13,14 +13,14 @@ ms.custom: codepen
 
 # Add a bubble layer to a map
 
-This article shows you how you can render point data from a data source as a bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
+This article shows you how to render point data from a data source as a bubble layer on a map. Bubble layers render points as circles on the map with a fixed pixel radius. 
 
 > [!TIP]
 > Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a bubble layer
 
-The following code loads an array of points into a data source and connects it to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer is given options to render the radius of each bubble at five pixels, a fill color of white, a stroke color of blue, and stroke width of six pixels. 
+The following code loads an array of points into a data source. Then, it connects the data points are to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer renders the radius of each bubble with five pixels and a fill color of white. And, a stroke color of blue, and a stroke width of six pixels. 
 
 ```javascript
 //Add point locations.
@@ -57,7 +57,7 @@ Below is the complete running code sample of the above functionality.
 
 ## Show labels with a bubble layer
 
-The following code shows you how to use a bubble layer to render a point on the map and a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `'none'`.
+This code shows you how to use a bubble layer to render a point on the map. And, how to use a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `'none'`.
 
 <br/>
 

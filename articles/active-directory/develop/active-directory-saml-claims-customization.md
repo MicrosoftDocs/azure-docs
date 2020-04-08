@@ -1,23 +1,18 @@
 ---
-title: Customize SAML token claims for enterprise apps in Azure AD 
+title: Customize Azure AD app SAML token claims
 titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: customize claims issued in the SAML token for enterprise applications
@@ -179,4 +174,4 @@ First, Azure AD verifies if Brita's user type is `All guests`. Since, this is tr
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

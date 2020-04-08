@@ -134,4 +134,4 @@ If necessary, repeat the steps above to set the cluster parameters for the WSFC 
    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
 >[!WARNING]
->The availability group listener health probe port has to be different from the cluster core IP address health probe port. In these examples, the listener port is 59999 and the cluster core IP address is 58888. Both ports require an allow inbound firewall rule.
+>The availability group listener health probe port has to be different from the cluster core IP address health probe port. In these examples, the listener port is 59999 and the cluster core IP address health probe port is 58888. Both ports require an allow inbound firewall rule.

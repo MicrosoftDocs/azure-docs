@@ -1,5 +1,5 @@
 ---
-title: Query Store in Azure Database for PostgreSQL - Single Server
+title: Query Store - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema

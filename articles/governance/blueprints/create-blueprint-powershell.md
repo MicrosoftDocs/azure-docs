@@ -1,7 +1,7 @@
 ---
-title: Create a blueprint with PowerShell
-description: Use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 08/21/2019
+title: "Quickstart: Create a blueprint with PowerShell"
+description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
+ms.date: 11/21/2019
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
@@ -11,20 +11,16 @@ reusable and rapidly deployable configurations based on Resource Manager templat
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
 tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
 
-> [!div class="checklist"]
-> - Create a new blueprint and add various supported artifacts
-> - Make changes to an existing blueprint still in **Draft**
-> - Mark a blueprint as ready to assign with **Published**
-> - Assign a blueprint to an existing subscription
-> - Check the status and progress of an assigned blueprint
-> - Remove a blueprint that has been assigned to a subscription
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
 ## Prerequisites
 
-If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)
-to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+before you begin.
+
+If it isn't already installed, follow the instructions in
+[Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
+install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a blueprint
 
@@ -113,7 +109,8 @@ a role assignment on the resource group.
 
      > [!NOTE]
      > Use the filename _blueprint.json_ when creating your blueprint definitions programmatically.
-     > This file name is used when calling [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
+     > This file name is used when calling
+     > [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **ManagementGroupId**. To specify the subscription, use
@@ -428,10 +425,12 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
      assigning the blueprint has permissions to.
 
      > [!IMPORTANT]
-     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning
-     > sufficient roles and permissions or the blueprint assignment will fail.
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
+     > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 You can remove a blueprint from a subscription. Removal is often done when the artifact resources
 are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint
@@ -445,9 +444,8 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).
+In this quickstart, you've created, assigned, and removed a blueprint with PowerShell. To learn more
+about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)

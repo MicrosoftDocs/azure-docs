@@ -1,12 +1,11 @@
 ---
-title: Connect to SAP systems - Azure Logic Apps
+title: Connect to SAP systems
 description: Access and manage SAP resources by automating workflows with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
@@ -15,7 +14,7 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 > [!IMPORTANT]
-> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation on November 30, 2019. 
+> The earlier SAP Application Server and SAP Message Server connectors are deprecated on February 29, 2020. 
 > The current SAP connector consolidates these previous SAP connectors so that you don't have to change 
 > the connection type, is fully compatible with previous connectors, provides many additional capabilities, 
 > and continues to use the SAP .Net connector library (SAP NCo).
@@ -220,7 +219,7 @@ Include your message content with your request. To the send the request, you can
    > [request timeout limit](./logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. 
    > To help you diagnose problems, learn how you can 
-   > [check and monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   > [check and monitor your logic apps](../logic-apps/monitor-logic-apps.md).
 
 You've now created a logic app that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app, you can explore other available SAP actions, such as BAPI and RFC.
 
@@ -567,7 +566,11 @@ Here are the currently known issues and limitations for the SAP connector:
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/sap/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/sap/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

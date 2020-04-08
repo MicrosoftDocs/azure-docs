@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
 ::: zone target="chromeless"
@@ -152,8 +153,24 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
    If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
 
-3. Hand over to the courier. 
+3. Hand over to the courier.
 
+### [In Self-Managed](#tab/in-selfmanaged)
+
+If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+
+1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
+
+2. Send an email to the Azure Data Box Operations team using the following template when you are ready to return the device.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
 

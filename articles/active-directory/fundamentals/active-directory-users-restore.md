@@ -1,5 +1,5 @@
 ---
-title: Restore or permanently remove a recently deleted user - Azure Active Directory | Microsoft Docs
+title: Restore or permanently remove recently deleted user - Azure AD
 description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
 author: msaburnley

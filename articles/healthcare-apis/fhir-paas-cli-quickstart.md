@@ -59,7 +59,7 @@ where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the identity object ID for a use
 
 Obtain a capability statement from the FHIR API with:
 
-```azurecli-interactive
+```console
 curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
 ```
 
@@ -73,7 +73,7 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

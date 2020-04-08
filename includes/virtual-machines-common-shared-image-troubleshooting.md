@@ -92,7 +92,7 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Azure limits and quotas 
 
-[Azure limits and quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
+[Azure limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
 
 
 

@@ -4,7 +4,7 @@ description: Create an Azure data factory to copy data from one location in Azur
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -43,7 +43,7 @@ From the sections in *How to: Use the portal to create an Azure AD application a
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
 3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), get the **authentication key**, and note down this value that you use later in this tutorial.
-4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
+4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
 

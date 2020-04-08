@@ -18,15 +18,15 @@ ms.author: allensu
 
 Azure Standard Load Balancer exposes the following diagnostic capabilities:
 
-* **Multi-dimensional metrics and alerts**: Provides new multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
+* **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
 
 * **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer. 
 
-This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
+This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer. 
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
-Azure Load Balancer provides new multi-dimensional metrics via the new Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. 
+Azure Load Balancer provides multi-dimensional metrics via the Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. 
 
 The various Standard Load Balancer configurations provide the following metrics:
 
@@ -36,7 +36,9 @@ The various Standard Load Balancer configurations provide the following metrics:
 | Health probe status(DIP availability) | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. |  Average |
 | SYN (synchronize) packets | Public and internal load balancer | Standard Load Balancer does not terminate Transmission Control Protocol (TCP) connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Average |
 | SNAT connections | Public load balancer |Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.| Average |
-| Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end.| Average |
+| Allocated SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports allocated per backend instance | Average. |
+| Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. | Average | 
+| Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows | Average |
 | Packet counters |  Public and internal load balancer | Standard Load Balancer reports the packets processed per front end.| Average |
 
 ### View your load balancer metrics in the Azure portal
@@ -47,16 +49,34 @@ To view the metrics for your Standard Load Balancer resources:
 1. Go to the Metrics page and do either of the following:
    * On the load balancer resource page, select the metric type in the drop-down list.
    * On the Azure Monitor page, select the load balancer resource.
-2. Set the appropriate aggregation type.
+2. Set the appropriate metric aggregation type.
 3. Optionally, configure the required filtering and grouping.
+4. Optionally, configure the time range and aggregation. By default time is displayed in UTC.
 
-    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+  >[!NOTE] 
+  >Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT Allocation, your graph will display five times the total  allocated SNAT ports. 
 
-    *Figure: Data Path Availability metric for Standard Load Balancer*
+![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+
+*Figure: Data Path Availability metric for Standard Load Balancer*
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api).
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
+
+### Configure alerts for multi-dimensional metrics ###
+
+Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
+
+To configure alerts:
+1. Go to the alert sub-blade for the load balancer
+1. Create new alert rule
+    1.  Configure alert condition
+    1.  (Optional) Add action group for automated repair
+    1.  Assign alert severity, name and description that enables intuitive reaction
+
+  >[!NOTE]
+  >Alert condition configuration window will show time series for signal history. There is an option to filter this time series by dimensions such as Backend IP. This will filter the time series graph but **not** the alert itself. You cannot configure alerts for specific Backend IP addresses.
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
@@ -117,6 +137,30 @@ To get SNAT connection statistics:
 
 *Figure: Load Balancer SNAT connection count*
 
+
+#### How do I check my SNAT port usage and allocation?
+
+The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing this with the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+
+If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
+
+To view SNAT port usage and allocation:
+1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
+1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
+    * By default this is the average number of SNAT ports allocated to or used by each backend VMs or VMSSes, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
+1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
+1. To monitor health per backend or frontend instance, apply splitting. 
+    * Note splitting only allows for a single metric to be displayed at a time. 
+1. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. 
+
+![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
+
+*Figure: Average TCP SNAT port allocation and usage for a set of backend VMs*
+
+![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
+
+*Figure: TCP SNAT port usage per backend instance*
 
 #### How do I check inbound/outbound connection attempts for my service?
 

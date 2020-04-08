@@ -1,21 +1,9 @@
 ---
-title: Plan an Azure Service Fabric cluster deployment | Microsoft Docs
+title: Plan an Azure Service Fabric cluster deployment 
 description: Learn about planning and preparing for a production Service Fabric cluster deployment to Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
 
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-
 ---
 # Plan and prepare for a cluster deployment
 
@@ -44,9 +32,68 @@ The minimum size of VMs for each node type is determined by the [durability tier
 
 The minimum number of VMs for the primary node type is determined by the [reliability tier][reliability] you choose.
 
-See the minimum recommendations for [primary node types](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [stateful workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads), and [stateless workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+See the minimum recommendations for [primary node types](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [stateful workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads), and [stateless workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
 Any more than the minimum number of nodes should be based on the number of replicas of the application/services that you want to run in this node type.  [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md) helps you estimate the resources you need to run your applications. You can always scale the cluster up or down later to adjust for changing application workload. 
+
+#### Use ephemeral OS disks for virtual machine scale sets
+
+*Ephemeral OS disks* are storage created on the local virtual machine (VM), and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
+
+* Reduce read/write latency to OS disk
+* Enable faster reset/reimage node management operations
+* Reduce overall costs (the disks are free and incur no additional storage cost)
+
+Ephemeral OS disks is not a specific Service Fabric feature, but rather a feature of the Azure *virtual machine scale sets* that are mapped to Service Fabric node types. Using them with Service Fabric requires the following in your cluster Azure Resource Manager template:
+
+1. Ensure your node types specify [supported Azure VM sizes](../virtual-machines/windows/ephemeral-os-disks.md) for  Ephemeral OS disks, and that the VM size has sufficient cache size to support its OS disk size (see *Note* below.) For example:
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > Be sure to select a VM size with a cache size equal or greater than the OS disk size of the VM itself, otherwise your Azure deployment might result in error (even if it's initially accepted).
+
+2. Specify a virtual machine scale set version (`vmssApiVersion`) of `2018-06-01` or later:
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. In the virtual machine scale set section of your deployment template, specify `Local` option for `diffDiskSettings`:
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+> [!NOTE]
+> User applications should not have any dependency/file/artifact on the OS disk, as the OS disk would be lost in the case of an OS upgrade.
+> Hence, it is not recommended to use [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) with ephemeral disks.
+>
+
+> [!NOTE]
+> Existing non-ephemeral VMSS can't be upgraded in-place to use ephemeral disks.
+> To migrate, users will have to [add](./virtual-machine-scale-set-scale-node-type-scale-out.md) a new nodeType with ephemeral disks, move the workloads to the new nodeType & [remove](./service-fabric-how-to-remove-node-type.md) the existing nodeType.
+>
+
+For more info and further configuration options, see [Ephemeral OS disks for Azure VMs](../virtual-machines/windows/ephemeral-os-disks.md) 
+
 
 ### Select the durability and reliability levels for the cluster
 The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure requests (such as VM reboot, VM reimage, and VM migration) that impact the quorum requirements for your stateful services.  For advantages of the different levels and recommendations on which level to use and when, see [The durability characteristics of the cluster][durability].

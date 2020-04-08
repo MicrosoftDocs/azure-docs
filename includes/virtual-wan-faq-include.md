@@ -5,10 +5,45 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/17/2019
+ ms.date: 03/24/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
+### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
+
+Virtual WAN provides many functionalities built into a single pane of glass such as Site/Site-to-site VPN connectivity, User/P2S connectivity, ExpressRoute connectivity, Virtual Network connectivity, VPN ExpressRoute Interconnectivity, VNET to VNET transitive connectivity, Centralized Routing, Azure firewall and firewall manager security, Monitoring, ExpressRoute Encryption and many other capabilities. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case. The Virtual WAN architecture is a hub and spoke architecture with scale and performance built-in where branches (VPN/SD-WAN devices), users (Azure VPN Clients, openVPN or IKEv2 Clients), ExpressRoute circuits, Virtual Networks serve as spokes to Virtual Hub(s). All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For hub and spoke with SD-WAN/VPN devices, users can either manually set it up in the Azure Virtual WAN portal or use the Virtual WAN Partner CPE (SD-WAN/VPN) to set up connectivity to Azure. Virtual WAN partners provide automation for connectivity which is the ability to export the device info into Azure, download the Azure configuration and establish connectivity to the Azure Virtual WAN hub. For Point-to-site/User VPN connectivity, we support [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN or IKEv2 client. 
+
+### What client does the Azure Virtual WAN User VPN (Point-to-site) support?
+
+Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Azure AD authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required.  OpenVPN client(s) can support certificate based authentication. Once cert-based auth is selected on the gateway, you will see the .ovpn file to download to your device. Both certificate and RADIUS auth is supported with IKEv2. 
+
+### For User VPN (Point-to-site)- Why is the P2S client pool split into two routes?
+
+Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
+
+### How do I add DNS servers for P2S clients?
+
+There are two options to add DNS servers for the P2S clients.
+
+1. Open a support ticket with Microsoft and have them add your DNS servers to the hub
+2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### For User VPN (Point-to-site)- how many clients are supported?
+
+Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-10 supports 5000 connections and Scale unit 11+ supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -17,6 +52,9 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 ### How is Virtual WAN different from an Azure virtual network gateway?
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
+
+### What is a Virtual WAN Gateway Scale Unit
+A scale unit is an unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps . 1 scale unit of ExpressRoute = 2 Gbps. Example : 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
 
 ### Which device providers (Virtual WAN partners) are supported?
 
@@ -32,13 +70,8 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
-Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information, see Virtual WAN partner automation.
-
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
-### Am I required to use a preferred partner device?
-
-No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -108,9 +141,15 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 You can connect a VNet in a different region than your virtual WAN.
 
-### Can spoke VNets connected to a virtual hub communicate with each other?
+### Can spoke VNets connected to a virtual hub communicate with each other (V2V Transit)?
 
-Yes. Spoke VNets can communicate directly via Virtual Network Peering. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md). We also support VNets communicating transitively through the hub.
+Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.
+
+NOTE:
+Currently V2V transit preview requires a VPN GW to be deployed in a Virtual Hub to trigger the routing elements to be launched. This VPN GW is not used for the V2V transit path. This is a known limitation and will be removed at the time of V2V GA. 
+You can delete the VPN Gateway in the hub(s) after it is fully launched as it is not needed for V2V transit functionality. 
+
+For some scenarios, spoke Vnets can also be directly peered with each other using [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, Vnet Peering takes precedence over the transitive connection via the Virtual WAN hub. 
 
 ### What is a branch connection to Azure Virtual WAN?
 

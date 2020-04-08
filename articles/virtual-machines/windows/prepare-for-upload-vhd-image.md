@@ -16,11 +16,10 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
 
-Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in VHD file format and that have a fixed-size disk. The maximum size allowed for the VHD is 1,023 GB. 
+Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in VHD file format and that have a fixed-size disk. The maximum size allowed for the VHD is 2 TB.
 
 In a generation 1 VM, you can convert a VHDX file system to VHD. You can also convert a dynamically expanding disk to a fixed-size disk. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) and [Azure support for generation 2 VMs (preview)](generation-2.md).
 
@@ -30,6 +29,22 @@ For information about the support policy for Azure VMs, see [Microsoft server so
 > The instructions in this article apply to:
 >1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
+
+## System File Checker (SFC) command
+
+### Run Windows System File Checker utility (run sfc /scannow) on OS prior to generalization step of creating customer OS image
+
+The System File Checker (SFC) command is used to verify and replace Windows system files.
+
+To run the SFC command:
+
+1. Open an elevated CMD prompt as Administrator.
+1. Type `sfc /scannow` and select **Enter**.
+
+    ![System File Checker](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+After the SFC scan is completed, try to install Windows Updates and restart the computer.
 
 ## Convert the virtual disk to a fixed size and to VHD
 
@@ -75,6 +90,10 @@ In this command, replace the value for `-Path` with the path to the virtual hard
 If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), use the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) to convert it to VHD format. For more information, see [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
+
+> [!NOTE]
+> Azure platform mounts an ISO file to the DVD-ROM when a Windows VM is created from a generalized image.
+> For this reason, the DVD-ROM must be enabled in the OS in the generalized image. If it is disabled, the Windows VM will be stuck at OOBE.
 
 On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
@@ -145,7 +164,6 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## Update remote-desktop registry settings
 Make sure the following settings are configured correctly for remote access:
 
@@ -245,7 +263,13 @@ Make sure the following settings are configured correctly for remote access:
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. If the VM  will be part of a domain, check the following Azure AD policies to make sure the former settings aren't reverted. 
+5. Create a rule for the Azure platform network:
+
+   ```PowerShell
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
+   ``` 
+6. If the VM  will be part of a domain, check the following Azure AD policies to make sure the former settings aren't reverted. 
 
     | Goal                                 | Policy                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -353,7 +377,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
 ### Install Windows updates
-Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed:
+Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed. To get the latest updates, see the Windows update history pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Component               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
@@ -402,7 +426,7 @@ System Preparation Tool (Sysprep) is a process you can run to reset a Windows in
 
 You typically run Sysprep to create a template from which you can deploy several other VMs that have a specific configuration. The template is called a *generalized image*.
 
-If you want to create only one VM from one disk, you don’t have to use Sysprep. Instead, you can create the VM from a *specialized image*. For information about how to create a VM from a specialized disk, see:
+If you want to create only one VM from one disk, you don't have to use Sysprep. Instead, you can create the VM from a *specialized image*. For information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)

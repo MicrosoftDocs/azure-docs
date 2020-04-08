@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -25,6 +25,9 @@ translation.priority.mt:
 # Lucene query syntax in Azure Cognitive Search
 
 You can write queries against Azure Cognitive Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
+
+> [!NOTE]
+> The full Lucene syntax is used for query expressions passed in the **search** parameter of the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
 
 ## How to invoke full parsing
 
@@ -97,7 +100,7 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ### OR operator `OR` or `||`
 
-The OR operator is a vertical bar or pipe character. For example: `wifi || luxury` will search for documents containing either "wifi" or "luxury" or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi || luxuery`.
+The OR operator is a vertical bar or pipe character. For example: `wifi || luxury` will search for documents containing either "wifi" or "luxury" or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi || luxury`.
 
 ### AND operator `AND`, `&&` or `+`
 
@@ -154,16 +157,19 @@ The following example helps illustrate the differences. Suppose that there's a s
 ##  <a name="bkmk_regex"></a> Regular expression search  
  A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`.  Regular expression searches are matched against single words.   
+ For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`. Regular expression searches are matched against single words.
+
+Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search  
- You can use generally recognized syntax for multiple (*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.  
+ You can use generally recognized syntax for multiple (*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
- For example, to find documents containing the words with the prefix "note", such as "notebook" or "notepad", specify "note*".  
+Prefix search also uses the asterisk (`*`) character. For example, a query expression of `search=note*` returns "notebook" or "notepad". Full Lucene syntax is not required for prefix search. The simple syntax supports this scenario.
+
+Suffix search, where `*` or `?` precedes the string, requires full Lucene syntax and a regular expression (you cannot use a * or ? symbol as the first character of a search). Given the term "alphanumeric", a query expression of (`search=/.*numeric.*/`) will find the match.
 
 > [!NOTE]  
->  You cannot use a * or ? symbol as the first character of a search.  
->  No text analysis is performed on wildcard search queries. At query time, wildcard query terms are compared against analyzed terms in the search index and expanded.
+> During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you will need an alternative analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
 
 ## See also  
 

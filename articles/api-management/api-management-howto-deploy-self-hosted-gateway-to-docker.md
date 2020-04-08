@@ -30,7 +30,7 @@ This article provides the steps for deploying self-hosted Azure API Management g
 - [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> Self-hosted gateway is packaged as a Linux-based Docker container.
+> Self-hosted gateway is packaged as a x86-64 Linux-based Docker container.
 
 ## Deploy the self-hosted gateway to Docker
 

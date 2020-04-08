@@ -25,17 +25,16 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 
 ## <a name="authoring-key"></a>Authoring Key
 
-Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).   
+Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).
 
-## <a name="batch-test-json-file"></a>Batch text JSON file
+## <a name="batch-test-json-file"></a>Batch test JSON file
 
 Batch testing is the ability to validate a current LUIS app's model with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
 
-See also: 
+See also:
 * [Concepts](luis-concept-batch-test.md)
 * [How-to](luis-how-to-batch-test.md)
 * [Tutorial](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>Collaborator
 

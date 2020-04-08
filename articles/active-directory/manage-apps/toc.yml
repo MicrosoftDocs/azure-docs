@@ -5,10 +5,12 @@
     items:
      - name: What is cloud app management and single sign-on?
        href: what-is-application-management.md
-     - name: What is application provisioning?
-       href: user-provisioning.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
+     - name: Common app management scenarios
+       href: common-scenarios.md
+     - name: What is application provisioning?
+       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Quickstarts
     items:
     - name: Add a cloud app from the gallery
@@ -21,6 +23,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+  - name: Samples
+    items: 
+    - name: Azure PowerShell samples for Application Proxy
+      href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
     items: 
@@ -64,16 +70,12 @@
           href: manage-certificates-for-federated-single-sign-on.md
         - name: Tenant restrictions
           href: tenant-restrictions.md
-        - name: Configure SAML token encryption (Preview)
+        - name: Configure SAML token encryption
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
-    - name: Application provisioning (SCIM)
-      items:
-       - name: Plan an automatic user provisioning deployment
-         href: plan-auto-user-provisioning.md
-       - name: Manual vs. automatic provisioning 
-         href: application-provisioning-config-how-to.md
+    - name: Cloud app visibility and control
+      href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
@@ -133,14 +135,16 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
           href: configure-admin-consent-workflow.md
-        - name: Methods for assigning users and groups to an app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Assign a user to an app
+        - name: Assign a user or group to an app
           href: assign-user-or-group-access-portal.md
-        - name: Create workspaces on My Apps (preview)
-          href: access-panel-workspaces.md
+        - name: Create collections on My Apps
+          href: access-panel-collections.md
         - name: Use self-service app access
           href: access-panel-manage-self-service-access.md
         - name: Methods for removing a user's access to an app
@@ -225,56 +229,6 @@
             href: access-panel-extension-problem-installing.md
           - name: Error using self-service app access
             href: access-panel-troubleshoot-self-service-access.md
-    - name: Application provisioning (SCIM)
-      items:
-      - name: Configure app provisioning
-        items:
-        - name: Configure automatic user provisioning
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Use SCIM for automatic provisioning
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Customize attribute mappings
-          href: Customize-application-attributes.md
-        - name: Write expressions for attribute mappings
-          href: functions-for-customizing-application-data.md
-        - name: Scoping users or groups to be provisioned 
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Skip deletion for out-of-scope users
-          href: skip-out-of-scope-deletions.md
-        - name: Monitor provisioning status and performance
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Report on app provisioning
-          href: check-status-user-account-provisioning.md
-        - name: Exporting and importing your configuration
-          href: export-import-provisioning-configuration.md  
-        - name: Automate configuration using MS Graph
-          href: application-provisioning-configure-api.md
-      - name: Troubleshoot user provisioning
-        items:
-        - name: Troubleshoot app provisioning
-          href: application-provisioning-config-problem.md
-        - name: Quarantine status
-          href: application-provisioning-quarantine-status.md
-        - name: Provisioning logs
-          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-        - name: Sync an attribute for mapping - gallery app
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Taking hours - gallery app
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Authorization issue (unable to save admin credentials)
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Users are not provisioned 
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Wrong users provisioned
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-        - name: Provisioning job in quarantine
-          href: application-provisioning-quarantine-status.md
-        - name: Missing source attribute
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Provisioning job is slow
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Provisioning logs
-          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Application Proxy for on-premises apps
       items:
       - name: Configure connectors
@@ -315,6 +269,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Application Proxy on an NDES server
+            href: active-directory-app-proxy-protect-ndes.md
           - name: Integrate with Azure AD Domain Services
             href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
           - name: Integrate with Power BI
@@ -373,23 +329,10 @@
           href: secure-hybrid-access.md
   - name: Reference
     items:
-    - name: Application provisioning (SCIM)
-      items:
-        - name: Write expressions for attribute mappings
-          href: functions-for-customizing-application-data.md
-        - name: Choosing a provisioning method
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-
-    - name: Azure AD Connect Provisioning Agent
-      items:
-       - name: Provisioning Agent version history
-         href: provisioning-agent-release-version-history.md
-    - name: Application Proxy for on-premises apps
-      items:
-       - name: Application Proxy FAQ
-         href: application-proxy-faq.md
-       - name: Application Proxy version history
-         href: application-proxy-release-version-history.md
+    - name: Application Proxy FAQ
+      href: application-proxy-faq.md
+    - name: Application Proxy version history
+      href: application-proxy-release-version-history.md
   - name: Resources
     items:
         - name: Support and help options for developers

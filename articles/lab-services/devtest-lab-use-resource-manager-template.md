@@ -1,5 +1,5 @@
 ---
-title: View and use a virtual machine's Azure Resource Manager template | Microsoft Docs
+title: View and use a virtual machine's Azure Resource Manager template
 description: Learn how to use the Azure Resource Manager template from a virtual machine to create other VMs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---

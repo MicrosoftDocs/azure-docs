@@ -1,36 +1,33 @@
 ---
-title: How and why applications are added to Azure Active Directory 
+title: How and why apps are added to Azure AD
 titleSuffix: Microsoft identity platform
 description: What does it mean for an application to be added to Azure AD and how do they get there?
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
-ms.collection: M365-identity-device-management
+ms.reviewer: lenalepa, sureshja
 ---
 
 # How and why applications are added to Azure AD
 
-There are two representations of applications in Azure AD: 
+There are two representations of applications in Azure AD:
+
 * [Application objects](app-objects-and-service-principals.md#application-object) - Although there are [exceptions](#notes-and-exceptions), application objects can be considered the definition of an application.
 * [Service principals](app-objects-and-service-principals.md#service-principal-object) - Can be considered an instance of an application. 
 Service principals generally reference an application object, and one application object can be referenced by multiple service principals across directories.
 
 ## What are application objects and where do they come from?
+
 You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Azure portal through the [App Registrations](https://aka.ms/appregistrations) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include any of the following (as well as additional information not mentioned here):
+
 * Name, logo, and publisher
 * Redirect URIs
 * Secrets (symmetric and/or asymmetric keys used to authenticate the application)
@@ -42,13 +39,15 @@ You can manage [application objects](app-objects-and-service-principals.md#appli
 * Proxy metadata and configuration
 
 Application objects can be created through multiple pathways, including:
+
 * Application registrations in the Azure portal
 * Creating a new application using Visual Studio and configuring it to use Azure AD authentication
 * When an admin adds an application from the app gallery (which will also create a service principal)
-* Using the Microsoft Graph API, Azure AD Graph API, or PowerShell to create a new application
+* Using the Microsoft Graph API or PowerShell to create a new application
 * Many others including various developer experiences in Azure and in API explorer experiences across developer centers
 
 ## What are service principals and where do they come from?
+
 You can manage [service principals](app-objects-and-service-principals.md#service-principal-object) in the Azure portal through the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experience. Service principals are what govern an application connecting to Azure AD and can be considered the instance of the application in your directory. For any given application, it can have at most one application object (which is registered in a "home" directory) and one or more service principal objects representing instances of the application in every directory in which it acts. 
 
 The service principal can include:
@@ -74,7 +73,7 @@ Like application objects, service principals can also be created through multipl
 * When an admin adds an application from the app gallery (this will also create an underlying app object)
 * Add an application to use the [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 * Connect an application for single sign on using SAML or password single sign-on (SSO)
-* Programmatically via the Azure AD Graph API or PowerShell
+* Programmatically via the Microsoft Graph API or PowerShell
 
 ## How are application objects and service principals related to each other?
 
@@ -97,13 +96,13 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
 
 ### Notes and exceptions
 
-* Not all service principals point back to an application object. When Azure AD was originally built the services provided to applications were more limited and the service principal was sufficient for establishing an application identity. The original service principal was closer in shape to the Windows Server Active Directory service account. For this reason, it's still possible to create service principals through different pathways, such as using Azure AD PowerShell, without first creating an application object. The Azure AD Graph API requires an application object before creating a service principal.
+* Not all service principals point back to an application object. When Azure AD was originally built the services provided to applications were more limited and the service principal was sufficient for establishing an application identity. The original service principal was closer in shape to the Windows Server Active Directory service account. For this reason, it's still possible to create service principals through different pathways, such as using Azure AD PowerShell, without first creating an application object. The Microsoft Graph API requires an application object before creating a service principal.
 * Not all of the information described above is currently exposed programmatically. The following are only available in the UI:
   * Claims transformation rules
   * Attribute mappings (User provisioning)
-* For more detailed information on the service principal and application objects, see the Azure AD Graph REST API reference documentation:
-  * [Application](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
+  * [Application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Service Principal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## Why do applications integrate with Azure AD?
 

@@ -1,6 +1,6 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
+description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ---
@@ -67,7 +67,7 @@ The following table shows a list of the local tools used on each supported opera
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
 
 ### Validation frequency
@@ -92,7 +92,7 @@ The following table shows a list of supported operating system on Azure images:
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
@@ -109,23 +109,9 @@ Windows Server Nano Server isn't supported in any version.
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
 access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that
 doesn't allow outbound traffic, configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. A
-service tag doesn't currently exist for Azure Policy Guest Configuration.
-
-For IP address lists, you can download [Microsoft Azure Datacenter IP
-Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and
-has the currently deployed ranges and any upcoming changes to the IP ranges. You only need to allow
-outbound access to the IPs in the regions where your VMs are deployed.
-
-> [!NOTE]
-> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the
-> Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges. An updated file
-> is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the
-> IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one
-> week. It's a good idea to download the new XML file every week. Then, update your site to
-> correctly identify services running in Azure. Azure ExpressRoute users should note that this file
-> is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week
-> of each month.
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
+The [service tag](../../../virtual-network/service-tags-overview.md)
+"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
 
 ## Guest Configuration definition requirements
 
@@ -154,7 +140,7 @@ Configuration resource provider.
 
 Azure Policy uses the Guest Configuration resource providers **complianceStatus** property to report
 compliance in the **Compliance** node. For more information, see [getting compliance
-data](../how-to/getting-compliance-data.md).
+data](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return
@@ -176,8 +162,8 @@ _\[Preview\]: Audit Windows VMs that do not match Azure security baseline settin
 complete set of audit rules based on settings from Active Directory Group Policy.
 
 Most of the settings are available as parameters. This functionality allows you to customize what is
-audited to align the policy with your organizational requirements or to map the policy to third
-party information such as industry regulatory standards.
+audited to align the policy with your organizational requirements or to map the policy to
+third-party information such as industry regulatory standards.
 
 Some parameters support an integer value range. For example, the Maximum Password Age parameter can
 be set using a range operator to give flexibility to machine owners. You could audit that the
@@ -223,17 +209,17 @@ file format can be renamed to '.zip' to uncompress and review.
 
 The Guest Configuration extension writes log files to the following locations:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Where `<version>` refers to the current version number.
 
 ### Collecting logs remotely
 
 The first step in troubleshooting Guest Configuration configurations or modules should be to use the
-`Test-GuestConfigurationPackage` cmdlet following the steps in
-[Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+`Test-GuestConfigurationPackage` cmdlet following the steps how to
+[create a custom Guest Configuration audit policy for Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
@@ -245,8 +231,8 @@ machines, the following example PowerShell script can be helpful. For more infor
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### Linux
@@ -258,16 +244,18 @@ the following example Bash script can be helpful. For more information, see
 ```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
 ## Guest Configuration samples
 
-Samples for Policy Guest Configuration are available in the following locations:
+Source for the Policy Guest Configuration built-in initiatives are available in the following
+locations:
 
-- [Samples index - Guest Configuration](../samples/index.md#guest-configuration)
-- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
+- [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
+- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## Next steps
 
@@ -275,6 +263,6 @@ Samples for Policy Guest Configuration are available in the following locations:
 - Review the [Azure Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

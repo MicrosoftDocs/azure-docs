@@ -29,7 +29,7 @@ Outbound rules allow you to control:
 - how [outbound SNAT ports](load-balancer-outbound-connections.md#snat) should be allocated.
 - which protocols to provide outbound translation for.
 - what duration to use for outbound connection idle timeout (4-120 minutes).
-- whether to send a TCP Reset on idle timeout (in Public Preview). 
+- whether to send a TCP Reset on idle timeout
 
 Outbound rules expand [scenario 2](load-balancer-outbound-connections.md#lb) in described in the [outbound connections](load-balancer-outbound-connections.md) article and the scenario precedence remains as-is.
 
@@ -90,7 +90,7 @@ Use the following parameter to set the outbound idle timeout to 1 hour:
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Enable TCP Reset on idle timeout (Preview)
+### <a name="tcprst"></a> <a name="tcpreset"></a> Enable TCP Reset on idle timeout
 
 The default behavior of Load Balancer is to drop the flow silently when the outbound idle timeout has been reached.  With the enableTCPReset parameter, you can enable a more predictable application behavior and control whether to send bidirectional TCP Reset (TCP RST) at the time out of outbound idle timeout. 
 
@@ -98,7 +98,7 @@ Use the following parameter to enable TCP Reset on an outbound rule:
 
            "enableTcpReset": true
 
-Review [TCP Reset on idle timeout (Preview)](https://aka.ms/lbtcpreset) for details including region availability.
+Review [TCP Reset on idle timeout](https://aka.ms/lbtcpreset) for details including region availability.
 
 ### <a name="proto"></a> Support both TCP and UDP transport protocols with a single rule
 
@@ -201,7 +201,6 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
-- Portal cannot be used to configure or view outbound rules.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  Multiple NICs are supported.
 
 ## Next steps

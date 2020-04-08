@@ -1,12 +1,12 @@
 ---
 title: Azure Private DNS FAQ
-description: Frequently asked questions about Azure Private DNS
+description: In this article, learn frequently asked questions about Azure Private DNS
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: victorh
+ms.author: rohink
 ---
 # Azure Private DNS FAQ
 
@@ -28,7 +28,7 @@ No. Private zones work along with virtual networks. You use them to manage domai
 
 ## Can the same private zone be used for several virtual networks for resolution?
 
-Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
+Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
@@ -65,7 +65,7 @@ For guidance on how to change this suffix refer to [Use dynamic DNS to register 
 
 ## What are the usage limits for Azure DNS Private zones?
 
-Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 

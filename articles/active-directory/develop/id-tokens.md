@@ -1,28 +1,24 @@
 ---
-title: Microsoft identity platform ID token reference | Microsoft Docs
+title: Microsoft identity platform ID token reference
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 01/16/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 
@@ -81,9 +77,15 @@ This list shows the claims that are in most id_tokens by default (except where n
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
 |`tid` | String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required to receive this claim. |
-|`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value isn't guaranteed to be unique within a tenant and should be used only for display purposes. Only issued in v1.0 `id_tokens`. |
+|`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value is unique at any given point in time, but as emails and other identifiers can be reused, this value can reappear on other accounts, and should therefore be used only for display purposes. Only issued in v1.0 `id_tokens`. |
 |`uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
+
+
+> [!NOTE]
+> The v1 and v2 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD Oauth implementation](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) have evolved through the years. Currently we have two different oAuth endpoints for AzureAD applications. You can use any of the new endpoints which are categorized as v2 or the old one which is said to be v1. The Oauth endpoints for both of them are different. The V2 endpoint is the newer one where we are trying to migrate all the features of v1 endpoint and recommend new developers to use the v2 endpoint. 
+> - V1: Azure Active Directory Endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: Microsoft Identity Platform Endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## Validating an id_token
 

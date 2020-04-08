@@ -1,13 +1,9 @@
 ---
 title: Understand the webhook schema used in activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
-ms.service:  azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/31/2017
-
+ms.subservice: alerts
 ---
 
 # Webhooks for Azure activity log alerts
@@ -283,10 +279,10 @@ For specific schema details on service health notification activity log alerts, 
 | status |String. Status of the operation. Common values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
 
-For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/activity-logs-overview.md).
+For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## Next steps
-* [Learn more about the activity log](../../azure-monitor/platform/activity-logs-overview.md).
+* [Learn more about the activity log](../../azure-monitor/platform/platform-logs-overview.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.

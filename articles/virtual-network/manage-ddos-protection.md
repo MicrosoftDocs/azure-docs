@@ -70,11 +70,20 @@ You cannot move a virtual network to another resource group or subscription when
 4. Select **DDoS protection**, under **SETTINGS**.
 5. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
 
+**Commands** 
+- Azure CLI: [az network ddos-protection create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
+- Powershell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
+ 
+
 ## Disable DDoS for a virtual network
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
 2. Select **DDoS protection**, under **SETTINGS**.
 3. Select **Basic** under **DDoS protection plan** and then select **Save**.
+
+**Commands** 
+- Azure CLI: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
+- Powershell: [Remove-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
 ## Work with DDoS protection plans
 
@@ -190,7 +199,7 @@ Flow logs will have the following fields:
 - Protocol type 
 - Action taken during mitigation
 
-
+Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
 ## Validate DDoS detection
 

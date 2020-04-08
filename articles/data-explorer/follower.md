@@ -33,33 +33,37 @@ There are various methods you can use to attach a database. In this article, we 
 
 ### Attach a database using C#
 
-**Needed NuGets**
+#### Needed NuGets
 
 * Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
+#### Code Example
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = followerSubscriptionId
+};
 
-var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
+var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationName = "adc";
-var databaseName = "db" // Can be specific database name or * for all databases
+var attachedDatabaseConfigurationName = "uniqueNameForAttachedDatabaseConfiguration";
+var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "North Central US";
 
 AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new AttachedDatabaseConfiguration()
 {
-	ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}",
+	ClusterResourceId = $"/subscriptions/{leaderSubscriptionId}/resourceGroups/{leaderResourceGroup}/providers/Microsoft.Kusto/Clusters/{leaderClusterName}",
 	DatabaseName = databaseName,
 	DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind,
 	Location = location
@@ -68,9 +72,57 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
+### Attach a database using Python
+
+#### Needed Modules
+
+```
+pip install azure-common
+pip install azure-mgmt-kusto
+```
+
+#### Code Example
+
+```python
+from azure.mgmt.kusto import KustoManagementClient
+from azure.mgmt.kusto.models import AttachedDatabaseConfiguration
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+leader_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResouceGroup"
+leader_resouce_group_name = "leaderResouceGroup"
+follower_cluster_name = "follower"
+leader_cluster_name = "leader"
+attached_database_Configuration_name = "uniqueNameForAttachedDatabaseConfiguration"
+database_name  = "db" # Can be specific database name or * for all databases
+default_principals_modification_kind  = "Union"
+location = "North Central US"
+cluster_resource_id = "/subscriptions/" + leader_subscription_id + "/resourceGroups/" + leader_resouce_group_name + "/providers/Microsoft.Kusto/Clusters/" + leader_cluster_name
+
+attached_database_configuration_properties = AttachedDatabaseConfiguration(cluster_resource_id = cluster_resource_id, database_name = database_name, default_principals_modification_kind = default_principals_modification_kind, location = location)
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
+```
+
 ### Attach a database using an Azure Resource Manager template
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+In this section, you learn to attach a database to an existing cluser by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -81,7 +133,7 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the follower cluster."
+				"description": "Name of the cluster to which the database will be attached."
 			}
 		},
 		"attachedDatabaseConfigurationsName": {
@@ -102,12 +154,12 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the leader cluster to create."
+				"description": "The resource ID of the leader cluster."
 			}
 		},
 		"defaultPrincipalsModificationKind": {
 			"type": "string",
-			"defaultValue": "",
+			"defaultValue": "Union",
 			"metadata": {
 				"description": "The default principal modification kind."
 			}
@@ -123,24 +175,10 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 	"variables": {},
 	"resources": [
 		{
-			"name": "[parameters('followerClusterName')]",
-			"type": "Microsoft.Kusto/clusters",
-			"sku": {
-				"name": "Standard_D13_v2",
-				"tier": "Standard",
-				"capacity": 2
-			},
-			"apiVersion": "2019-09-07",
-			"location": "[parameters('location')]"
-		},
-		{
 			"name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
 			"type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
 			"apiVersion": "2019-09-07",
 			"location": "[parameters('location')]",
-			"dependsOn": [
-				"[resourceId('Microsoft.Kusto/clusters', parameters('followerClusterName'))]"
-			],
 			"properties": {
 				"databaseName": "[parameters('databaseName')]",
 				"clusterResourceId": "[parameters('leaderClusterResourceId')]",
@@ -160,8 +198,8 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](h
 
 |**Setting**  |**Description**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster       |
-|Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
+|Follower Cluster Name     |  The name of the follower cluster; where the template will be deployed.  |
+|Attached Database Configurations Name    |    The name of the attached database configurations object. The name can be any string that is unique at the cluster level.     |
 |Database Name     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
 |Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
 |Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
@@ -187,21 +225,24 @@ Alternatively:
 
 ### Detach the attached follower database from the follower cluster
 
-Follower cluster can detach any attached database as follows:
+The follower cluster can detach any attached database as follows:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = followerSubscriptionId
+};
 
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
 var followerClusterName = "follower";
-var attachedDatabaseConfigurationsName = "adc";
+var attachedDatabaseConfigurationsName = "uniqueName";
 
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
@@ -214,10 +255,13 @@ The leader cluster can detach any attached database as follows:
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = leaderSubscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
@@ -226,23 +270,95 @@ var followerClusterName = "follower";
 //The cluster and database that are created as part of the Prerequisites
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
-        AttachedDatabaseConfigurationName = "adc",
-        ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
+        AttachedDatabaseConfigurationName = "uniqueName",
+        ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
+```
+
+## Detach the follower database using Python
+
+### Detach the attached follower database from the follower cluster
+
+The follower cluster can detach any attached database as follows:
+
+```python
+from azure.mgmt.kusto import KustoManagementClient
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResouceGroup"
+follower_cluster_name = "follower"
+attached_database_configurationName = "uniqueName"
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
+```
+
+### Detach the attached follower database from the leader cluster
+
+The leader cluster can detach any attached database as follows:
+
+```python
+
+from azure.mgmt.kusto import KustoManagementClient
+from azure.mgmt.kusto.models import FollowerDatabaseDefinition
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+leader_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResourceGroup"
+leader_resource_group_name = "leaderResourceGroup"
+follower_cluster_name = "follower"
+leader_cluster_name = "leader"
+attached_database_configuration_name = "uniqueName"
+location = "North Central US"
+cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
+
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
 ## Manage principals, permissions, and caching policy
 
 ### Manage principals
 
-When attaching a database, specify the **default principals modification kind"**. The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
+When attaching a database, specify the **"default principals modification kind"**. The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
 
 |**Kind** |**Description**  |
 |---------|---------|
 |**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
-|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
+|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
 |**None**   |   The attached database principals include only the principals of the original database with no additional principals.      |
 
 For more information about using control commands to configure the authorized principals, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
@@ -259,6 +375,7 @@ The follower database administrator can modify the [caching policy](/azure/kusto
 
 * The follower and the leader clusters must be in the same region.
 * [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
+* Data encryption using [customer managed keys](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) is not supported on both leader and follower clusters. 
 * You can't delete a database that is attached to a different cluster before detaching it.
 * You can't delete a cluster that has a database attached to a different cluster before detaching it.
 * You can't stop a cluster that has attached follower or leader database(s). 

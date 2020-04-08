@@ -1,5 +1,5 @@
 - name: Azure Cache for Redis Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Cache for Redis
@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
@@ -44,7 +48,7 @@
   - name: Plan
     items:
     - name: Choose a cache tier
-      href: cache-faq.md#what-redis-cache-offering-and-size-should-i-use
+      href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
     - name: Persist your cache with Redis data persistence
@@ -53,6 +57,8 @@
       href: cache-how-to-premium-vnet.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
+    - name: Save with reserved capacity
+      href: cache-reserved-pricing.md
     - name: Migrate from Managed Cache Service
       href: cache-migrate-to-redis.md
   - name: Automate

@@ -1,14 +1,10 @@
 ---
-title: Set up the Azure Service Fabric Mesh CLI | Microsoft Docs
+title: Set up the Azure Service Fabric Mesh CLI 
 description: Service Fabric Mesh Command Line Interface (CLI) is required to deploy and manage resources locally and in Azure Service Fabric Mesh. Here's how to set it up.
-services: service-fabric-mesh
-keywords:  
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
 ---
 

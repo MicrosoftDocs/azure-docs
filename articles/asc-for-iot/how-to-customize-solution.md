@@ -29,7 +29,7 @@ In this guide, learn how to customize different settings in Azure Security Cente
 
 ## Change settings
 
-"Manage your Azure Security Center for IoT setting:
+Manage your Azure Security Center for IoT setting:
 
 On your IoT Hub, go to the security overview blade 
  on the top left corner, see "settings" 

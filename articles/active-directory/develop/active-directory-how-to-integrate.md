@@ -1,24 +1,18 @@
 ---
-title: How to integrate with Azure Active Directory | Microsoft Docs
+title: How to integrate with Azure Active Directory
 description: Learn the benefits of integrating your application with Azure Active Directory, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
 ms.author: ryanwi
-ms.reviewer: bryanla
+ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
 ---
 
 # Integrating with Azure Active Directory
@@ -33,19 +27,19 @@ There are several ways for your application to integrate with Azure AD. Take adv
 
 ### Support Azure AD as a way to sign in to your application
 
-**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember. As a developer, you'll have one less password to store and protect. Not having to handle forgotten password resets may be a significant savings alone. Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure. With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD. Learn more about [adding support for Azure AD sign in](v1-authentication-scenarios.md).
+**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember. As a developer, you'll have one less password to store and protect. Not having to handle forgotten password resets may be a significant savings alone. Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure. With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD. Learn more about [adding support for Azure AD sign in](authentication-scenarios.md).
 
 **Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely. Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications. Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement. Learn more about [signing-up your application for Azure AD Account login](../../app-service/configure-authentication-provider-aad.md).
 
 ### Browse for users, manage user provisioning, and control access to your application
 
-**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses. Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy. Learn more about the [Graph API](active-directory-graph-api.md).
+**Browse for users in the directory.**  Use the Microsoft Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses. Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy. Learn more about the [Microsoft Graph API](https://docs.microsoft.com/graph/overview).
 
-**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access. Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application. Group information can also be sent to your application in sign in tokens. Learn more about the [Graph API](active-directory-graph-api.md).
+**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access. Using the Microsoft Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application. Group information can also be sent to your application in sign in tokens. Learn more about the [Microsoft Graph API](https://docs.microsoft.com/graph/overview).
 
-**Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups. Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.
+**Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups. Using the Microsoft Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.
 
-**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD. Role information is sent to your application in sign in tokens and can also be read using the Graph API. Learn more about [using Azure AD for authorization](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD. Role information is sent to your application in sign in tokens and can also be read using the Microsoft Graph API. Learn more about [using Azure AD for authorization](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### Get access to user's profile, calendar, email, contacts, files, and more
 
@@ -93,5 +87,5 @@ Integration with Azure AD comes with benefits that do not require you to write a
 
 [Get started writing code](v2-overview.md#getting-started).
 
-[Sign users in using Microsoft identity platform](v1-authentication-scenarios.md)
+[Sign users in using Microsoft identity platform](authentication-scenarios.md)
 

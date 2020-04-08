@@ -1,10 +1,8 @@
 ---
 title: Develop on Azure Kubernetes Service (AKS) with Draft
-description: Use Draft with AKS and Azure Container Registry
+description: Use Draft with AKS and Azure Container Registry to package and run application containers in a cluster.
 services: container-service
 author: zr-msft
-
-ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
@@ -14,7 +12,7 @@ ms.author: zarhoads
 
 Draft is an open-source tool that helps package and run application containers in a Kubernetes cluster. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur without having to commit your changes to version control. For more information on Draft, see the [Draft documentation on GitHub][draft-documentation].
 
-This article shows you how to use Draft package and run an application on AKS.
+This article shows you how to use Draft to package and run an application on AKS.
 
 
 ## Prerequisites
@@ -22,7 +20,7 @@ This article shows you how to use Draft package and run an application on AKS.
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installed and configured. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
-* [Helm installed](https://github.com/helm/helm/blob/master/docs/install.md).
+* [Helm v2 installed][helm-install].
 * [Draft installed][draft-documentation].
 
 ## Create an Azure Kubernetes Service cluster
@@ -168,7 +166,7 @@ You've configured Draft to use your ACR, and Draft can push container images to 
 
 ## Download the sample application
 
-This quickstart uses [an example java application from the Draft GitHub repository][example-java]. Clone the application from GitHub and navigate to the `draft/examples/example-java/` directory.
+This quickstart uses [an example Java application from the Draft GitHub repository][example-java]. Clone the application from GitHub and navigate to the `draft/examples/example-java/` directory.
 
 ```console
 git clone https://github.com/Azure/draft
@@ -231,7 +229,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Navigate to the application in a browser using the `localhost` url to see the sample application. In the above example, the url is `http://localhost:49804`. Stop the connection using `Ctrl+c`.
+Navigate to the application in a browser using the `localhost` URL to see the sample application. In the above example, the URL is `http://localhost:49804`. Stop the connection using `Ctrl+c`.
 
 ## Access the application on the internet
 
@@ -328,6 +326,7 @@ For more information about using Draft, see the Draft documentation on GitHub.
 [example-java-hello-l7]: https://github.com/Azure/draft/blob/master/examples/example-java/src/main/java/helloworld/Hello.java#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
-[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac

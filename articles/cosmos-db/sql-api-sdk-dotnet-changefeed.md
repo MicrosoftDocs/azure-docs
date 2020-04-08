@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
+title: Azure Cosmos DB .NET change feed Processor API, SDK release notes 
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 author: ealsur
 ms.service: cosmos-db
@@ -34,9 +34,16 @@ ms.author: maquaran
 |**Get started**|[Get started with the Change Feed Processor .NET SDK](change-feed.md)|
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
+> [!NOTE]
+> If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](change-feed-processor.md), which has change feed built into the SDK. 
+
 ## Release notes
 
 ### v2 builds
+
+### <a name="2.3.0"/>2.3.0
+* Added a new method `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` and corresponding public interface `ICheckpointPartitionProcessorFactory`. This allows an implementation of the `IPartitionProcessor` interface to use built-in checkpointing mechanism. The new factory is similar to the existing `IPartitionProcessorFactory`, except that its `Create` method also takes the `ILeaseCheckpointer` parameter.
+* Only one of the two methods, either `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` or `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, can be used for the same `ChangeFeedProcessorBuilder` instance.
 
 ### <a name="2.2.8"/>2.2.8
 * Stability and diagnosability improvements:
@@ -174,6 +181,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |April 2, 2020 |--- |
 | [2.2.8](#2.2.8) |October 28, 2019 |--- |
 | [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |

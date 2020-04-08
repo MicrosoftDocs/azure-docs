@@ -11,14 +11,13 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-
 ---
 
 # Create a shared pool of Data Science Virtual Machines
 
 In this article, you'll learn how to create a shared pool of Data Science Virtual Machines (DSVMs) for a team. The benefits of using a shared pool include better resource utilization, easier sharing and collaboration, and more effective management of DSVM resources.
 
-You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive virtual machines (VMs). An alternative managed compute infrastructure is Azure Machine Learning Compute. For more information, see [Set up compute targets](../service/how-to-set-up-training-targets.md#amlcompute).
+You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive virtual machines (VMs). An alternative managed compute infrastructure is Azure Machine Learning Compute. For more information, see [Set up compute targets](../how-to-set-up-training-targets.md#amlcompute).
 
 ## Interactive VM pool
 
@@ -32,11 +31,13 @@ You can find a sample Azure Resource Manager template that creates a scale set w
 
 You can create the scale set from the Azure Resource Manager template by specifying values for the parameter file in the Azure CLI:
 
-```
+```azurecli-interactive
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
+
 The preceding commands assume you have:
+
 * A copy of the parameter file with the values specified for your instance of the scale set.
 * The number of VM instances.
 * Pointers to the Azure Files share.
@@ -54,18 +55,3 @@ Virtual machine scale sets support autoscaling. You can set rules about when to 
 
 * [Set up a common Identity](dsvm-common-identity.md)
 * [Securely store credentials to access cloud resources](dsvm-secure-access-keys.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,10 +8,11 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop PowerShell
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
 
 ## Provide feedback
 
@@ -27,7 +28,7 @@ This section lists PowerShell commands that are typically used while setting up 
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Cause:** The username used has been already assigned to an app group of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The username used has been already assigned to an app group of a different type. Users can't be assigned to both a remote desktop and remote app group under the same session host pool.
 
 **Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
@@ -71,7 +72,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 1:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
 
-**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant’s Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
@@ -83,8 +84,9 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

@@ -29,7 +29,7 @@ ms.custom: "seo-lt-2019"
 ## Overview
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/management/deployment-models.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
 To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Enable remote access to Power BI with Azure AD Application Proxy | Microsoft Docs
+title: Enable remote access to Power BI with Azure AD Application Proxy
 description: Covers the basics about how to integrate an on-premises Power BI with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -134,9 +134,6 @@ Before the Power BI mobile app can connect and access Report Services, you must 
 3. Enter valid credentials for your user and select **Sign in**. You'll see the elements from your Reporting Services server.
 
 ## Step 5: Configure Intune policy for managed devices (optional)
-
-> [!NOTE]
-> This functionality is currently only available on iOS.
 
 You can use Microsoft Intune to manage the client apps that your company's workforce uses. Intune allows you to use capabilities such as data encryption and additional access requirements. To learn more about app management through Intune, see Intune App Management. To enable the Power BI mobile application to work with the Intune policy, use the following steps.
 

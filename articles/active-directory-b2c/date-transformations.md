@@ -1,15 +1,15 @@
 ---
-title: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Date claims transformation examples for custom policies
+description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 02/16/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -31,7 +31,7 @@ Checks that one date and time claim (string data type) is later than a second da
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
-The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
+The **AssertDateTimeIsGreaterThan** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **DateTimeGreaterThan** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
@@ -77,8 +77,8 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 ### Example
 
 - Input claims:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - Result: Error thrown
 
 ## ConvertDateToDateTimeClaim
@@ -106,9 +106,38 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 ### Example
 
 - Input claims:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Output claims:
-    - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
+
+## ConvertDateTimeToDateClaim
+
+Converts a **DateTime** ClaimType to a **Date** ClaimType. The claims transformation removes the time format from the date.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | The ClaimType to be converted. |
+| OutputClaim | outputClaim | date | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+The following example demonstrates the conversion of the claim `systemDateTime` (dateTime data type) to another claim `systemDate` (date data type).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
+- Output claims:
+  - **outputClaim**: 2020-15-03
 
 ## GetCurrentDateTime
 
@@ -129,7 +158,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 ### Example
 
 * Output claims:
-    * **currentDateTime**: 1534418820 (August 16, 2018 11:27:00 AM)
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
 
 ## DateTimeComparison
 
@@ -165,8 +194,8 @@ To run the claim transformation, you first need to get the current dateTime and 
 ### Example
 
 - Input claims:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
 - Input parameters:
     - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)

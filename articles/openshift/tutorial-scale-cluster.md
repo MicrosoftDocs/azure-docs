@@ -1,10 +1,8 @@
 ---
-title: Tutorial - Scale an Azure Red Hat OpenShift cluster | Microsoft Docs
+title: Tutorial - Scale an Azure Red Hat OpenShift cluster
 description: Learn how to scale a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
@@ -36,7 +34,7 @@ Before you begin this tutorial:
 
 If you're running the Azure CLI locally, run `az login` to sign in to Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -52,7 +50,7 @@ CLUSTER_NAME=yourclustername
 
 Now let's scale the cluster to five nodes using the Azure CLI:
 
-```bash
+```azurecli
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 

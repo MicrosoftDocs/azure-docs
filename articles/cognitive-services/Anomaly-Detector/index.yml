@@ -10,7 +10,6 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page

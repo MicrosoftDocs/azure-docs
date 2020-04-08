@@ -1,13 +1,13 @@
 ---
 title: Example Apache Storm topologies in Azure HDInsight 
 description: A list of example Storm topologies created and tested with Apache Storm on HDInsight including basic C# and Java topologies, and working with Event Hubs.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
 ---
 
 # Example Apache Storm topologies and components for Apache Storm on HDInsight
@@ -42,7 +42,6 @@ See [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topo
 * [Create and monitor an Apache Storm topology in Azure HDInsight](./apache-storm-quickstart.md)
 * [Learn how to deploy and manage Apache Storm topologies with Apache Storm on HDInsight][6eb0d3b8]
 
-
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Learn how to deploy and manage topologies using the web-based Apache Storm Dashboard and Storm UI or the HDInsight Tools for Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Learn how to create C# Storm topologies by using the HDInsight Tools for Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Learn how to create Storm topologies in Java, using Maven, by creating a basic wordcount topology."
@@ -51,4 +50,3 @@ See [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topo
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Several topologies to demonstrate throughput when reading from Azure Event Hubs and storing to SQL Database using Apache Storm on HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Learn how to read data from Azure Event Hubs, aggregate & transform the data, then store it to HBase on HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "This project contains templates for spouts, bolts and topologies to interact with various Azure services like Event Hubs, Cosmos DB, and SQL Database."
-

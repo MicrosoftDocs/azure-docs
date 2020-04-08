@@ -1,6 +1,6 @@
 ---
 title: Configure DHCPv6 for Linux VMs
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
 documentationcenter: na

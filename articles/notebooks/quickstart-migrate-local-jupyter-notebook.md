@@ -1,28 +1,27 @@
 ---
-title: Migrate a local Jupyter notebook to Azure Notebooks
-description: Quickly transfer a Jupyter notebook to Azure Notebooks from your local computer or a web URL, then share it for collaboration.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Migrate a local Jupyter notebook to Azure Notebooks Preview
+description: Quickly transfer a Jupyter notebook to Azure Notebooks Preview from your local computer or a web URL, then share it for collaboration.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
-# Quickstart: Migrate a local Jupyter notebook
+# Quickstart: Migrate a local Jupyter notebook in Azure Notebooks Preview
 
-Jupyter notebooks that you create locally on your own computer are accessible only to you. You can share your files through a variety of means, but then recipients have their own local copy of the notebook and it's difficult for you to incorporate any changes they might make. You can also store notebooks in a shared online repository such as GitHub, but doing so still requires that each collaborator has their own local Jupyter installation with the same configuration as yours.
+In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. 
 
-By migrating your local or repository-based notebooks to Azure Notebooks, you store them in the cloud from which you can instantly share them with your collaborators. Those collaborators need only a browser to view and run your notebook, and if they [sign in](quickstart-sign-in-azure-notebooks.md) to Azure Notebooks they can also make changes.
+Jupyter notebooks on your own computer are accessible only to you. You can share your files, but recipients then have their own local copies of the notebook, and it's difficult to incorporate their changes. Even if you store notebooks in a shared online repository such as GitHub, each collaborator must have a local Jupyter installation configured like yours.
 
-This Quickstart demonstrates the process of migrating a notebook from your local computer or another accessible file URL. To migrate notebooks from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
+By migrating your local or repository-based notebooks to Azure Notebooks, you can instantly share them with your collaborators, who need only a browser to view and run your notebooks. If they sign in to Azure Notebooks, they can also make changes.
+
+## Prerequisites
+
+- A [Jupyter notebook](https://jupyter-notebook.readthedocs.io) on your local computer or at another accessible file URL. 
 
 ## Create a project on Azure Notebooks
+
+This quickstart demonstrates migrating a notebook from your local computer or another accessible file URL. To migrate notebooks from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
@@ -30,7 +29,7 @@ This Quickstart demonstrates the process of migrating a notebook from your local
 
     ![My Projects link on the top of the browser window](media/quickstarts/my-projects-link.png)
 
-1. On the **My Projects** page, select **+ New Project** (keyboard shortcut: n); the button may appear only as **+** if the browser window is narrow:
+1. On the **My Projects** page, select **New Project** (keyboard shortcut: n). The button may appear only as **+** if the browser window is narrow:
 
     ![New Project command on My Projects page](media/quickstarts/new-project-command.png)
 
@@ -42,13 +41,13 @@ This Quickstart demonstrates the process of migrating a notebook from your local
 
     ![Command to upload a notebook from a URL or the local computer](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Again, if your notebook is in a GitHub repository, follow the steps on [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md) instead.)
+   Again, if your notebook is in a GitHub repository, follow the steps on [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md) instead.
 
-   - If using **From Computer**, drag and drop your *.ipynb* files into the popup, or select **Choose Files**, then browse to and select the files you want to import. Then select **Upload**. The uploaded files are given the same name as the local files. (You don't need to upload the contents of any *.ipynb_checkpoints* folders.)
+   - If using **From Computer**, drag and drop your *.ipynb* files into the popup, or select **Choose Files**, then browse to and select the files you want to import. Then select **Upload**. The uploaded files are given the same name as the local files. You don't need to upload the contents of any *.ipynb_checkpoints* folders.
 
      ![Upload from computer popup](media/quickstarts/upload-from-computer-popup.png)
 
-   - If using **From URL**, enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **Upload**. If you have multiple files with separate URLs, use the **+ Add File** command to check the first URL you entered, after which the popup provides new fields for another file.
+   - If using **From URL**, enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **Upload**. If you have multiple files with separate URLs, use the **Add File** command to check the first URL you entered, after which the popup provides new fields for another file.
 
      ![Upload from URL popup](media/quickstarts/upload-from-url-popup.png)
 
@@ -61,4 +60,4 @@ This Quickstart demonstrates the process of migrating a notebook from your local
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

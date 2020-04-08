@@ -1,19 +1,19 @@
 ---
 title: Create views to analyze log data in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/22/2018
+ms.date: 02/10/2019
 
 ---
 
 # Create custom views by using View Designer in Azure Monitor
 By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!IMPORTANT]
+> Views in Azure Monitor are being phased out and replaced with [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks.
 
 For more information about View Designer, see:
 
@@ -96,7 +96,7 @@ The options for working with views in edit mode are described in the following t
 | Save        | Saves your changes and closes the view. |
 | Cancel      | Discards your changes and closes the view. |
 | Delete View | Deletes the view. |
-| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
+| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
 | Import      | Imports the *omsview* file that you exported from another workspace. This action overwrites the configuration of the existing view. |
 | Clone       | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 

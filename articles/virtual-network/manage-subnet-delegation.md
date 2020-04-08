@@ -111,18 +111,18 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
 ```azurecli-interactive
   az network vnet subnet update \
   --resource-group myResourceGroup \
-  --name mySubnet
-  --vnet-name myVnet
+  --name mySubnet \
+  --vnet-name myVnet \
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
 To verify the delegation was applied, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is delegated to the subnet under the property **serviceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
-  --vnet-name myVnet
+  --vnet-name myVnet \
   --query delegations
 ```
 
@@ -149,18 +149,18 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
 
 ```azurecli-interactive
   az network vnet subnet update \
-  --resource-group myResourceGroup
-  --name mySubnet
-  --vnet-name myVnet
+  --resource-group myResourceGroup \
+  --name mySubnet \
+  --vnet-name myVnet \
   --remove delegations
 ```
 To verify the delegation was removed, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verify the service is removed from the subnet under the property **serviceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
-  --vnet-name myVnet
+  --vnet-name myVnet \
   --query delegations
 ```
 Output from command is a null bracket:

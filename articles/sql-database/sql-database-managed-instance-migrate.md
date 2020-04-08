@@ -66,7 +66,7 @@ Some of the parameters that you would need to measure on your SQL Server instanc
 - Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the Managed Instance.
 
 > [!Note]
-> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parametrization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
+> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parameterization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
 
 As an outcome of this activity you should have documented average and peak values for CPU, memory, and IO usage on your source system, as well as average and max duration and CPU usage of the dominant and the most critical queries in your workload. You should use these values later to compare performance of your workload on Managed Instance with the baseline performance of the workload on the source SQL Server.
 

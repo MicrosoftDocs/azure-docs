@@ -1,5 +1,5 @@
 ---
-title: Failure to create or delete a database or table in Azure Data Explorer
+title: Failure to create or delete DB or table in Azure Data Explorer
 description: This article describes troubleshooting steps for creating and deleting databases and tables in Azure Data Explorer.
 author: orspod
 ms.author: orspodek

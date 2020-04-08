@@ -1,15 +1,15 @@
 ---
-title: Get started with combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
+title: Get started with combined registration - Azure Active Directory
 description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 
@@ -36,10 +36,10 @@ Before enabling the new experience, review the article [Combined security inform
 Complete these steps to enable combined registration:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
-3. Under **Users can use preview features for registering and managing security info - refresh**, choose to enable for a **Selected** group of users or for **All** users.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature preview settings**.
+3. Under **Users can use preview features for registering and managing security info**, choose to enable for a **Selected** group of users or for **All** users.
 
-   ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
@@ -61,9 +61,9 @@ Securing when and how users register for Azure Multi-Factor Authentication and s
 
 The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**
 1. Select **New policy**
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to

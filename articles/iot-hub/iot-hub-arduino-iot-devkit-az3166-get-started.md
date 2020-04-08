@@ -77,7 +77,13 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
    > [!NOTE]
-   > If you get an error running `device-identity`, install the [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) for more details.
+   > If you get an error running `device-identity`, install the [Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds commands that are specific to IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) to Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
@@ -139,7 +145,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
 1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
 
-    ```bash
+    ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
@@ -169,7 +175,7 @@ Follow these steps to prepare the development environment for the DevKit:
     > [Install Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
+    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
 
 5. Configure VS Code with Arduino settings.
 

@@ -4,8 +4,8 @@ description: Automation schedules are used to schedule runbooks in Azure Automat
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
@@ -138,7 +138,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 The most frequent interval a schedule in Azure Automation can be configured for is one hour. If you require schedules to execute more frequently than that, there are two options:
 
-* Create a [webhook](../automation-webhooks.md) for the runbook and use [Azure Scheduler](../../scheduler/scheduler-get-started-portal.md) to call the webhook. Azure Scheduler provides more fine-grained granularity when defining a schedule.
+* Create a [webhook](../automation-webhooks.md) for the runbook and use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to call the webhook. Azure Logic Apps provides more fine-grained granularity when defining a schedule.
 
 * Create four schedules all starting within 15 minutes of each other running once every hour. This scenario allows the runbook to run every 15 minutes with the different schedules.
 

@@ -1,21 +1,10 @@
 ---
-title: Planning the Service Fabric cluster capacity | Microsoft Docs
+title: Planning the Service Fabric cluster capacity 
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Operations, Durability and Reliability tiers
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
 
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-
 ---
 # Service Fabric cluster capacity planning considerations
 For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.

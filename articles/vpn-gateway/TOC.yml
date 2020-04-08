@@ -16,6 +16,12 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Work remotely support
+    items:
+    - name: Work remotely
+      href: work-remotely-support.md
+    - name: NVA configurations and remote work
+      href: nva-work-remotely-support.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
@@ -124,8 +130,6 @@
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
         href: point-to-site-vpn-client-configuration-azure-cert.md
-      - name: About the client VPN profile download file
-        href: about-vpn-profile-download.md
     - name: RADIUS authentication
       items:
       - name: Configure a P2S VPN
@@ -138,16 +142,22 @@
       items:
       - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
+      - name: Configure a tenant with multiple client apps
+        href: openvpn-azure-ad-tenant-multi-app.md
       - name: Configure Multi-Factor Authentication (MFA)
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
+      - name: About the client VPN profile download file
+        href: about-vpn-profile-download.md        
     - name: OpenVPN
       items:
       - name: Configure OpenVPN for Point-to-Site connections
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
+    - name: Move to OpenVPN protocol or IKEv2 from SSTP
+      href: ikev2-openvpn-from-sstp.md      
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
@@ -156,7 +166,7 @@
       href: vpn-gateway-howto-always-on-user-tunnel.md
     - name: Advertise custom routes to P2S clients
       href: vpn-gateway-p2s-advertise-custom-routes.md
-  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+  - name: Create a zone-redundant gateway
     href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections
     href: vpn-gateway-ipsecikepolicy-rm-powershell.md
@@ -215,7 +225,7 @@
       items:
       - name: Point-to-Site connection problems
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-      - name: Point-to-Site connection problems - Mac OS X VPN client
+      - name: Point-to-Site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
       - name: Point-to-Site - Azure AD authentication
         href: troubleshoot-ad-vpn-client.md
@@ -225,7 +235,7 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-Site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
+  - name: Classic deployment model articles 
     items:
     - name: Configure a Site-to-Site connection
       href: vpn-gateway-howto-site-to-site-classic-portal.md
@@ -266,7 +276,7 @@
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Subscription and service limits
-    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/vpn-gateway
   - name: Pricing calculator

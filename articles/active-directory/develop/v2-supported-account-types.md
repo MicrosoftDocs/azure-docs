@@ -1,28 +1,23 @@
 ---
-title: Supported accounts in apps (Audience) - Microsoft identity platform
+title: Supported accounts types - Microsoft identity platform | Azure
 description: Conceptual documentation about audiences and supported account types in applications
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Supported account types
 
-This article explains what accounts types (sometimes named audiences) are supported in applications
+This article explains what accounts types (sometimes named audiences) are supported in applications.
 
 <!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
 

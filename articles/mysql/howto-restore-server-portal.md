@@ -1,11 +1,11 @@
 ---
-title: How To Restore a Server in Azure Database for MySQL
+title: Backup and restore - Azure portal - Azure Database for MySQL
 description: This article describes how to restore a server in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 3/27/2020
 ---
 
 # How to backup and restore a server in Azure Database for MySQL using the Azure portal
@@ -68,7 +68,7 @@ The following steps restore the sample server to a point-in-time:
 
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
-The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Geo restore
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MySQL is available.  
@@ -88,9 +88,7 @@ If you configured your server for geographically redundant backups, a new server
 
 The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
-The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
-
-
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Next steps
 - Learn more about the service's [backups](concepts-backup.md)

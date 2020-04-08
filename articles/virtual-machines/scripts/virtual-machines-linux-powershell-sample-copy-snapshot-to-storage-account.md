@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in different region 
+title: PowerShell Sample - Export/Copy snapshot as VHD to a storage account in different region 
 description: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in same different region
 services: virtual-machines-windows
 documentationcenter: storage

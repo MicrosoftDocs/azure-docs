@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
@@ -54,15 +56,15 @@ To download a resource from within the AI Gallery:
 
 ![Open an item from the AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-To download a resource from within the classic version of Studio:
+To download a resource from within Studio (classic):
 
-1. In the classic version of Studio, select **NEW**.
+1. In Studio (classic), select **NEW**.
 1. Select **Module**, **Experiment**, or **Notebook**.
 1. Browse or search to find a Gallery resource.
 1. Point your mouse at the resource, and then select **Open in Studio**.
     ![Open Gallery experiment from inside Machine Learning Studio (classic)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Once the resource is in your workspace, you can customize and use it as you would anything that you create in the classic version of Studio.
+Once the resource is in your workspace, you can customize and use it as you would anything that you create in Studio (classic).
 
 To use an imported custom module:
 
@@ -72,16 +74,16 @@ To use an imported custom module:
 
 ## Contribute experiments
 
-To demonstrate analytics techniques, or to give others a jump-start on their solutions, you can contribute **experiments** you've developed in the classic version of Studio.
+To demonstrate analytics techniques, or to give others a jump-start on their solutions, you can contribute **experiments** you've developed in Studio (classic).
 As others come across your contribution in the Gallery, you can follow the number of views and downloads of your contribution.
 Users can also add comments and share your contributions with other members of the data science community.
 And you can log in with a discussion tool such as Disqus to receive notifications for comments on your contributions.
 
-1. Open your experiment in the classic version of Studio.
+1. Open your experiment in Studio (classic).
 
 1. In the list of actions below the experiment canvas, select **Publish to Gallery**.
 
-1. In the Gallery, enter a **Name** and **Tags** that are descriptive. Highlight the techniques you used or the real-world problem you're solving. An example of a descriptive experiment title is “Binary Classification: Twitter Sentiment Analysis.”
+1. In the Gallery, enter a **Name** and **Tags** that are descriptive. Highlight the techniques you used or the real-world problem you're solving. An example of a descriptive experiment title is "Binary Classification: Twitter Sentiment Analysis."
 
 1. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 

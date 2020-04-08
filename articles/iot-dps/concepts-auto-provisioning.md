@@ -1,6 +1,6 @@
 ---
 title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
-description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service, IoT Hub, and client SDKs.
+description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service (DPS), IoT Hub, and client SDKs.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019

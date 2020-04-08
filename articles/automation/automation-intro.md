@@ -2,10 +2,7 @@
 title: Azure Automation Overview
 description: Learn how to use Azure Automation to automate the lifecycle of infrastructure and applications.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
 ms.date: 10/18/2018
 ms.custom: mvc
@@ -72,6 +69,8 @@ Azure Automation manages across the lifecycle of your infrastructure and applica
 * **Monitor** - Identify changes on machines that are causing issues and remediate or escalate to management systems.
 * **Protect** - Quarantine VM if security alert is raised. Set in-guest requirements.
 * **Govern** - Set up role-based access control for teams. Recover unused resources.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Pricing for Automation
 

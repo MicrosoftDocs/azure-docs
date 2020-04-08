@@ -1,14 +1,12 @@
 ---
 title: Go-To-Market Services - Offer listing best practices | Azure
 description: Go-To-Market Services - this section describes the listing best practices for an offer
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: ellacroi
+ms.author: dsindona
 
 ---
 
@@ -17,12 +15,16 @@ ms.author: ellacroi
 The tables in this section provide suggestions for creating and engaging marketplace offers. To write and configure your marketing materials, go to the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
 
 ## Storefront offer details
+
 | Storefront setting | Best practice |
 |:--- |:--- |  
 | Offer Name | Provide a strong title:<br> <ul> <li> Your app name should communicate the core value for your customers. </li> <li> Include search keywords in your app title to receive higher ranking in search engine results. </li> </ul> Follow a set title format for consulting service listings:<br>[Offer Name: [Duration] [Offer Type] (for example, *Contoso: 2-Week Implementation*) <br><br> Adhere to brand guidelines:<br>Follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when you refer to Microsoft trademarks and the names of Microsoft software, products, and services. |
 | Offer Description | Provide a clear offer description:<br> <ul> <li> Clearly describe your offer's value proposition in the first few sentences of your description. </li> <li> Keep in mind that the first few sentences might be displayed in search engine results. </li> <li> Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. </li> <li> Use industry-specific vocabulary or benefit-based wording as much as possible.</li> <li> Additionally, Consulting Service listings must  clearly state the professional service you provide. </li></ul> Core components of your value proposition should include the following information:<ul><li>Description of the product.</li><li>Type of user that benefits from the product.</li><li>Customer need or pain that the product addresses.</li></ul> |
 
+The tables in this section provide suggestions for creating and engaging marketplace offers. To write and configure your marketing materials, go to the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
+
 ## Storefront listing details
+
 | Storefront setting | Best practice |
 |:--- |:--- |  
 | Industries: AppSource apps and consulting services only | Select industries if your offer addresses industry-specific needs: <ul><li> Call out industry-specific capabilities in your offer description.</li> </ul> **Note**: The maximum number of options varies by offer type and is indicated in the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
@@ -53,6 +55,18 @@ You may select up to two categories and two subcategories for an offer. The cate
 | *Hospitality & Travel  | *Hotels & Leisure <br> *Travel & Transportation <br> *Restaurants & Food Services |
 | *Other Public Sector Industries  | *Forestry & Fishing <br> *Nonprofits |
 | *Real Estate  | *Other - Unsegmented |
+
+### Industries
+
+Industry selection applies only for offers published to AppSource and Consulting Services published in Azure Marketplace. Select industries and/or verticals if your offer addresses industry-specific needs, calling out industry-specific capabilities in your offer description. You can select up to two (2) industries and two (2) verticals per industry selected.
+
+### Applicable products
+
+Select the applicable products your app works with for the offer to show up under selected products in AppSource.
+
+### Search keywords
+
+Keywords can help customers find your offer when they search. Identify the top search keywords for your offer, incorporate them in your offer summary and description as well as in the keyword section of the offer listing details section.
 
 ## Storefront marketing details
 | Storefront setting | Best practice |

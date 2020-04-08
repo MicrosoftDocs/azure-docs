@@ -28,7 +28,7 @@ This guide explains the tasks to set up Active Directory domain and domain contr
 Before [adding an identity source](#add-an-identity-source-on-vcenter), temporarily [escalate your vCenter privileges](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group.	
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.	
 
 
 ## Identity source options
@@ -50,7 +50,7 @@ Use the information in the following table when setting up your Active Directory
 |------------|-----------------|
 | **Name** | Name of the identity source. |
 | **Base DN for users** | Base distinguished name for users. |
-| **Domain name** | FDQN of the domain, for example, example.com. Do not provide an IP address in this text box. |
+| **Domain name** | FQDN of the domain, for example, example.com. Do not provide an IP address in this text box. |
 | **Domain alias** | The domain NetBIOS name. Add the NetBIOS name of the Active Directory domain as an alias of the identity source if you are using SSPI authentications. |
 | **Base DN for groups** | The base distinguished name for groups. |
 | **Primary Server URL** | Primary domain controller LDAP server for the domain.<br><br>Use the format `ldap://hostname:port` or `ldaps://hostname:port`. The port is typically 389 for LDAP connections and 636 for LDAPS connections. For Active Directory multi-domain controller deployments, the port is typically 3268 for LDAP and 3269 for LDAPS.<br><br>A certificate that establishes trust for the LDAPS endpoint of the Active Directory server is required when you use `ldaps://` in the primary or secondary LDAP URL. |

@@ -1,24 +1,14 @@
 ---
-title: PHP (Laravel) with MySQL - Azure App Service | Microsoft Docs 
+title: 'Tutorial: PHP app with MySQL' 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
-services: app-service\web
-documentationcenter: php
-author: cephalin
-manager: erikre
-editor: ''
 
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/15/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.date: 11/25/2019
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build a PHP and MySQL app in Azure
 
 > [!NOTE]
@@ -189,7 +179,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...	+  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
@@ -217,7 +207,8 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 In the local terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_. When prompted for a password, use the password you specified when you created the database in Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p<PASSWORD> --ssl-mode=REQUIRED --ssl-ca=<PATH_TO_PEM>
+
 ```
 
 ### Create a production database
@@ -272,9 +263,9 @@ Save the changes.
 > To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL. With environment variables, you don't need the *.env* file in App Service.
 >
 
-### Configure SSL certificate
+### Configure TLS/SSL certificate
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../mysql/howto-configure-ssl.md).
+By default, Azure Database for MySQL enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
 Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 

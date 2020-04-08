@@ -1,12 +1,8 @@
 ---
 title: Troubleshooting Azure autoscale
 description: Tracking down problems with Azure autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
 ---
 
@@ -97,7 +93,7 @@ In the autoscale setting screen, go to the **Run history** tab to see the most r
 
 ## Autoscale Resource Logs
 
-Same as any other Azure resource, the autoscale service provides [resource logs](resource-logs-overview.md). There are two categories of logs.
+Same as any other Azure resource, the autoscale service provides [resource logs](platform-logs-overview.md). There are two categories of logs.
 
 - **Autoscale Evaluations** - The autoscale engine records log entries for every single condition evaluation every time it does a check.  The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
 
@@ -111,7 +107,7 @@ As with any Azure Monitor supported service, you can use [Diagnostic Settings](d
 
 ![Autoscale Diagnostic Settings](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
+The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic/Resource Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
 
 ## Troubleshooting using autoscale logs 
 

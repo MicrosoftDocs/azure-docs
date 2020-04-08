@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Capture events from an Azure Digital Twins space'
+title: 'Tutorial: Capture device events from an IoT space - Azure Digital Twins| Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,7 +8,7 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to capture events from a Azure Digital Twins space. 
 ---
 
@@ -61,7 +61,7 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
 
 1. Select **Access keys**, and copy **Key 1** and **Key 2** to a temporary file. You'll need these values to create the endpoint in the next section.
 
-    [![Event Grid keys](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![Event Grid keys](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### Create an endpoint for the event grid topic
 
@@ -110,13 +110,13 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
 1. Enter a **Name** for your Logic App resource, and then select your **Subscription**, **Resource group**, and **Location**. Select **Create**.
 
-    [![Create a Logic Apps resource](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![Create a Logic Apps resource](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
-1. Open your Logic Apps resource when it's deployed, and then open the **Logic App Designer** pane. 
+1. Open your Logic Apps resource when it's deployed, and then open the **Logic app designer** pane. 
 
-1. Select the **When an Event Grid resource event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
+1. Select the **When an Event Grid resource event occurs** trigger. Expand the **Azure Event Grid** option, and sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
 
-1. In the **When a resource event occurs (Preview)** window: 
+1. In the **When a resource event occurs** window: 
    
    a. Select the **Subscription** that you used to create the event grid topic.
 
@@ -124,7 +124,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. Select your Event Grid resource from the drop-down box for **Resource Name**.
 
-   [![Logic App Designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
+   [![Logic app designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Select the **New step** button.
 
@@ -168,7 +168,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. In the second **Choose a value** text box, enter `UdfCustom`.
 
-   [![Selected conditions](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![Selected conditions](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. In the **If true** window:
 
@@ -178,11 +178,11 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 
-   d. Under **Body** in the same window, enter text similar to this: **Poor air quality detected in a room, and temperature needs to be adjusted**. Feel free to elaborate by using elements from the **Dynamic content** list.
+   d. Under **Body** in the same window, enter text similar to the following: **Poor air quality detected in a room, and temperature needs to be adjusted**. Feel free to elaborate by using elements from the **Dynamic content** list.
 
-   [![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
-1. Select the **Save** button at the top of the **Logic App Designer** pane.
+1. Select the **Save** button at the top of the **Logic app designer** pane.
 
 1. Make sure to simulate sensor data by browsing to the **device-connectivity** folder of the Digital Twins sample in a command window, and running `dotnet run`.
 

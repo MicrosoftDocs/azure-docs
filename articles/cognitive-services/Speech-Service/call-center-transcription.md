@@ -1,5 +1,5 @@
 ---
-title: Call Center Transcription - Speech Service
+title: Call Center Transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: A common scenario for speech-to-text is transcribing large volumes of telephony data that come from various systems, such as Interactive Voice Response (IVR). Using Speech service and the Unified speech model, a business can get high-quality transcriptions with audio capture systems.
 services: cognitive-services
@@ -92,7 +92,6 @@ A typical solution uses these services:
 - The Speech service is used to transcribe speech-to-text. A standard subscription (S0) for the Speech service is required to use the Batch Transcription API. Free subscriptions (F0) will not work.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store telephony data, and the transcripts returned by the Batch Transcription API. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
-- [WebHooks](webhooks.md) are used to get notifications when transcriptions are completed.
 
 Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
 ![Batch Architecture](media/scenarios/call-center-batch-pipeline.png)

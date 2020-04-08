@@ -1,6 +1,7 @@
 ---
-title: Article about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server | Microsoft Docs
-description: Learn about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL.
+title: "Known issues: Online migrations from PostgreSQL to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
+description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,36 +9,34 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: [seo-lt-2019, seo-dt-2019]
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 02/20/2020
 ---
 
-# Known issues/migration limitations with online migrations from PostgreSQL to Azure DB for PostgreSQL-Single server
+# Known issues/migration limitations with online migrations from PostgreSQL to Azure DB for PostgreSQL
 
-Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server are described in the following sections.
+Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL are described in the following sections.
 
 ## Online migration configuration
 
-- The source PostgreSQL server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
-- Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
-
-    > [!NOTE]
-    > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL. We are planning  to support newer versions of PostgreSQL very soon.
-
+- The source PostgreSQL server must be running version 9.4, 9.5, 9.6, 10, or 11. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
+- Only migrations to the same or a higher version are supported. For example, migrating PostgreSQL 9.5 to Azure Database for PostgreSQL 9.6 or 10 is supported, but migrating from PostgreSQL 11 to PostgreSQL 9.6 isn't supported.
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
   - **wal_level** = logical
-  - **max_replication_slots** = [max number of databases for migration]; if you want to migrate four databases, set the value to 4
+  - **max_replication_slots** = [at least max number of databases for migration]; if you want to migrate four databases, set the value to at least 4.
   - **max_wal_senders** = [number of databases running concurrently]; the recommended value is 10
 - Add DMS agent IP to the source PostgreSQL pg_hba.conf
-  1. Make a note of the DMS IP address after you finish provisioning an instance of DMS.
+  1. Make a note of the DMS IP address after you finish provisioning an instance of Azure Database Migration Service.
   2. Add the IP address to the pg_hba.conf file as shown:
 
-        host	all		172.16.136.18/10	md5
-        host	replication	postgres	172.16.136.18/10	md5
+      ```
+          host	all		172.16.136.18/10	md5
+          host	replication	postgres	172.16.136.18/10	md5
+      ```
 
-- The user must have the super user permission on the server hosting the source database
-- Aside from having ENUM in the source database schema, the source and target database schemas must match.
+- The user must have the REPLICATION role on the server hosting the source database.
+- The source and target database schemas must match.
 - The schema in the target Azure Database for PostgreSQL-Single server must not have foreign keys. Use the following query to drop foreign keys:
 
     ```
@@ -77,80 +76,9 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 ## Datatype limitations
 
-- **Limitation**: If there's an ENUM datatype in the source PostgreSQL database, the migration will fail during continuous sync.
+  **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.
 
-    **Workaround**: Modify ENUM datatype to character varying in Azure Database for PostgreSQL.
-
-- **Limitation**: If there's no primary key on tables, continuous sync will fail.
-
-    **Workaround**: Temporarily set a primary key for the table for migration to continue. You can remove the primary key after data migration is complete.
-
-- **Limitation**: JSONB datatype not supported for migration.
-
-## LOB limitations
-
-Large Object (LOB) columns are columns that can grow large. For PostgreSQL, examples of LOB data types include XML, JSON, IMAGE, TEXT, etc.
-
-- **Limitation**: If LOB data types are used as primary keys, migration will fail.
-
-    **Workaround**: Replace primary key with other datatypes or columns that aren't LOB.
-
-- **Limitation**: If the length of Large Object (LOB) column is bigger than 32 KB, data might be truncated at the target. You can check the length of LOB column using this query:
-
-    ```
-    SELECT max(length(cast(body as text))) as body FROM customer_mail
-    ```
-
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
-
-- **Limitation**: If there are LOB columns in the table, and there's no primary key set for the table, data might not be migrated for this table.
-
-    **Workaround**: Temporarily set a primary key for the table for migration to proceed. You can remove the primary key after data migration is complete.
-
-## PostgreSQL10 workaround
-
-PostgreSQL 10.x makes various changes to pg_xlog folder names and hence causing migration not running as expected. If you're migrating from PostgreSQL 10.x to Azure Database for PostgreSQL 10.3, execute the following script on the source PostgreSQL database to create wrapper function around pg_xlog functions.
-
-```
-BEGIN;
-CREATE SCHEMA IF NOT EXISTS fnRenames;
-CREATE OR REPLACE FUNCTION fnRenames.pg_switch_xlog() RETURNS pg_lsn AS $$ 
-   SELECT pg_switch_wal(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_pause() RETURNS VOID AS $$ 
-   SELECT pg_wal_replay_pause(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_resume() RETURNS VOID AS $$ 
-   SELECT pg_wal_replay_resume(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_is_xlog_replay_paused() RETURNS boolean AS $$ 
-   SELECT pg_is_wal_replay_paused(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name(lsn pg_lsn) RETURNS TEXT AS $$ 
-   SELECT pg_walfile_name(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_replay_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_last_wal_replay_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_receive_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_last_wal_receive_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_flush_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_flush_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_insert_location() RETURNS pg_lsn AS $$ 
-   SELECT pg_current_wal_insert_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_location_diff(lsn1 pg_lsn, lsn2 pg_lsn) RETURNS NUMERIC AS $$ 
-   SELECT pg_wal_lsn_diff(lsn1, lsn2); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name_offset(lsn pg_lsn, OUT TEXT, OUT INTEGER) AS $$ 
-   SELECT pg_walfile_name_offset(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_create_logical_replication_slot(slot_name name, plugin name, 
-   temporary BOOLEAN DEFAULT FALSE, OUT slot_name name, OUT xlog_position pg_lsn) RETURNS RECORD AS $$ 
-   SELECT slot_name::NAME, lsn::pg_lsn FROM pg_catalog.pg_create_logical_replication_slot(slot_name, plugin, 
-   temporary); $$ LANGUAGE SQL;
-ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
-
--- DROP SCHEMA fnRenames CASCADE;
--- ALTER USER PG_User SET search_path TO DEFAULT;
-COMMIT;
-```
-
-  > [!NOTE]
-  > In the preceding script, "PG_User" refers to the username being used to connect to the migration source.
+  **Workaround**: Temporarily set a primary key for the table for migration to continue. You can remove the primary key after data migration is complete.
 
 ## Limitations when migrating online from AWS RDS PostgreSQL
 
@@ -164,42 +92,25 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - **Error**: Target database '{database}' has '{number of tables}' tables where as source database '{database}' has '{number of tables}' tables. The number of tables on source and target databases should match.
 
   **Limitation**: This error occurs when the number of tables is different between the source and target databases.
+
   **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Error:** The source database {database} is empty.
 
-  **Limitation**: This error occurs when the source database is empty. This is most likely because you have selected the wrong database as source.
+  **Limitation**: This error occurs when the source database is empty. It is most likely because you have selected the wrong database as source.
+
   **Workaround**: Double-check the source database you selected for migration, and then try again.
 
 - **Error:** The target database {database} is empty. Please migrate the schema.
 
-  **Limitation**: This error occurs when there is no schema on the target database. Make sure schema on the target matches schema on the source.
+  **Limitation**: This error occurs when there's no schema on the target database. Make sure schema on the target matches schema on the source.
   **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## Other limitations
 
 - The database name can't include a semi-colon (;).
-- Password string that has opening and closing curly brackets {  } isn't supported. This limitation applies to both connecting to source PostgreSQL and target Azure Database for PostgreSQL.
 - A captured table must have a Primary Key. If a table doesn't have a primary key, the result of DELETE and UPDATE record operations will be unpredictable.
 - Updating a Primary Key segment is ignored. In such cases, applying such an update will be identified by the target as an update that didn't update any rows and will result in a record written to the exceptions table.
 - Migration of multiple tables with the same name but a different case (e.g. table1, TABLE1, and Table1) may cause unpredictable behavior and is therefore not supported.
-- Change processing of [CREATE | ALTER | DROP] table DDLs are supported unless they are held in an inner function/procedure body block or in other nested constructs. For example, the following change will not be captured:
-
-    ```
-    CREATE OR REPLACE FUNCTION pg.create_distributors1() RETURNS void
-    LANGUAGE plpgsql
-    AS $$
-    BEGIN
-    create table pg.distributors1(did serial PRIMARY KEY,name varchar(40)
-    NOT NULL);
-    END;
-    $$;
-    ```
-
-- Change processing (continuous sync) of TRUNCATE operations isn't supported. Migration of partitioned tables is not supported. When a partitioned table is detected, the following things occur:
-
-  - The database will report a list of parent and child tables.
-  - The table will be created on the target as a regular table with the same properties as the selected tables.
-  - If the parent table in the source database has the same Primary Key value as its child tables, a “duplicate key” error will be generated.
-
-- In DMS, the limit of databases to migrate in one single migration activity is four.
+- Change processing of [CREATE | ALTER | DROP | TRUNCATE] table DDLs isn't supported.
+- In Azure Database Migration Service, a single migration activity can only accommodate up to four databases.

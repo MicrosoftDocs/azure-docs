@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
 ---
 # How to consume an Azure Machine Learning Studio (classic) web service
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
@@ -27,7 +29,7 @@ You can find more information about how to create and deploy a Machine Learning 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-The classic version of Azure Machine Learning Studio has two types of services:
+Azure Machine Learning Studio (classic) has two types of services:
 
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
@@ -200,7 +202,7 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 
 **Here is what a complete request will look like.**
 ```python
-import urllib2 # urllib.request for Python 3.X
+import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
 
 data = {
@@ -224,7 +226,7 @@ url = '<your-api-uri>'
 api_key = '<your-api-key>'
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-# "urllib.request.Request(uri, body, headers)" for Python 3.X
+# "urllib.request.Request(url, body, headers)" for Python 3.X
 req = urllib2.Request(url, body, headers)
 
 try:
@@ -251,7 +253,7 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 library("RCurl")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
+# Accept TLS/SSL certificates issued by public Certificate Authorities
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()

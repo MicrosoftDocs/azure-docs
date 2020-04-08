@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
-In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) 
+In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md).
 
 > [!IMPORTANT]
 > CDN-managed certificates are not available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the Bring your own certificate feature. 
@@ -65,27 +65,29 @@ When you use a CDN-managed certificate, the HTTPS feature can be turned on with 
 
 To enable HTTPS on a custom domain, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
+1. Go to the [Azure portal](https://portal.azure.com) to find a certificate managed by your Azure CDN. Search for and select **CDN profiles**. 
 
-2. In the list of CDN endpoints, select the endpoint containing your custom domain.
+2. Choose your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, or **Azure CDN Premium from Verizon** profile.
+
+3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
     ![Endpoints list](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
     The **Endpoint** page appears.
 
-3. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
+4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
     ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     The **Custom domain** page appears.
 
-4. Under Certificate management type, select **CDN managed**.
+5. Under Certificate management type, select **CDN managed**.
 
-5. Select **On** to enable HTTPS.
+6. Select **On** to enable HTTPS.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
-6. Proceed to [Validate the domain](#validate-the-domain).
+7. Proceed to [Validate the domain](#validate-the-domain).
 
 
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
@@ -201,7 +203,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add verification@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add verification@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -257,15 +259,17 @@ In the preceding steps, you enabled the HTTPS protocol on your custom domain. If
 
 ### Disable the HTTPS feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
+1. In the [Azure portal](https://portal.azure.com), search for and select **CDN profiles**. 
 
-2. In the list of endpoints, click the endpoint containing your custom domain.
+2. Choose your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Premium from Verizon** profile.
 
-3. Click the custom domain for which you want to disable HTTPS.
+3. In the list of endpoints, pick the endpoint containing your custom domain.
+
+4. Choose the custom domain for which you want to disable HTTPS.
 
     ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. Click **Off** to disable HTTPS, then click **Apply**.
+5. Choose **Off** to disable HTTPS, then select **Apply**.
 
     ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -313,7 +317,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
-    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propogate your new updated cert. 
+    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propagate your new updated cert. 
 
 ## Next steps
 

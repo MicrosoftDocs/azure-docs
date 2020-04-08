@@ -1,0 +1,97 @@
+### YamlMime:Landing
+
+title: Managed Applications documentation
+summary: Offer cloud solutions that are easy for consumers to deploy and operate.
+
+metadata:
+  title: Azure Managed Applications documentation
+  description: Azure managed applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
+  ms.service: managed-applications
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Managed Applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Managed Applications?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: View definition artifact
+            url: concepts-view-definition.md
+          - text: Azure Policy for associations
+            url: concepts-built-in-policy.md
+          - text: Role definition artifact
+            url: concepts-custom-role-definition.md
+
+  # Card
+  - title: Create Managed Applications
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Publish application definition
+            url: publish-managed-app-definition-quickstart.md
+          - text: Deploy service catalog app
+            url: deploy-service-catalog-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: Create definition files
+            url: publish-service-catalog-app.md
+          - text: Publish marketplace application 
+            url: publish-marketplace-app.md 
+          - text: Create managed application with custom provider
+            url: tutorial-create-managed-app-with-custom-provider.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use secret from Key Vault
+            url: key-vault-access.md
+          - text: Publish through portal
+            url: publish-portal.md
+
+  # Card
+  - title: Access control
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Request just-in-time access
+            url: request-just-in-time-access.md
+          - text: Approve just-in-time access
+            url: approve-just-in-time-access.md
+          - text: Deploy with Managed Identity
+            url: publish-managed-identity.md
+
+  # Card
+  - title: Create portal UI
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create portal interface
+            url: create-uidefinition-overview.md
+          - text: Test portal interface
+            url: test-createuidefinition.md
+          - text: User interface elements artifact
+            url: reference-createuidefinition-artifact.md
+          - text: Interface elements
+            url: create-uidefinition-elements.md
+          - text: Interface functions
+            url: create-uidefinition-functions.md
+
+  # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor deployed instance
+            url: monitor-managed-application-portal.md
+          - text: Deploy with notifications
+            url: publish-notifications.md
+          - text: Update managed resources
+            url: update-managed-resources.md

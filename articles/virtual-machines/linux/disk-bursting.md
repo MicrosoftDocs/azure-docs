@@ -3,9 +3,9 @@ title: Managed disk bursting
 description: Learn about disk bursting and how it works for Azure premium SSDs.
 author: roygara
 ms.author: rogarana
-ms.date: 10/22/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 

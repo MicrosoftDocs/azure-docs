@@ -3,7 +3,7 @@ title: Troubleshoot Azure Load Balancer
 description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
-ms.author: genli
+ms.date: 01/28/2020
+ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+This page provides troubleshooting information for Basic and Standard common Azure Load Balancer questions. For more information about Standard Load Balancer, see [Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
-This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
+When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
+
 - VMs behind the Load Balancer are not responding to health probes 
 - VMs behind the Load Balancer are not responding to the traffic on the configured port
 
@@ -120,10 +121,15 @@ You can resolve this issue via one of the following methods:
 
 ### Cause 4: Accessing the internal Load Balancer frontend from the participating Load Balancer backend pool VM
 
-If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](load-balancer-overview.md#limitations) for a detailed discussion.
+If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](concepts-limitations.md#limitations) for a detailed discussion.
 
 **Resolution**
 There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
+
+## Symptom: Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool. 
+### Cause : The backend port cannot be modified for a load balancing rule that’s used by a health probe for load balancer referenced by VM Scale Set.
+**Resolution** 
+In order to change the port, you can remove the health probe by updating the VM Scale Set, update the port and then configure the health probe again.
 
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:

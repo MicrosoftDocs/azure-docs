@@ -1,14 +1,8 @@
 ---
-title: Use a starting command line in Azure Container Instances
-description: Override the entrypoint configured in a container image when you deploy an Azure container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Override entrypoint in container instance
+description: Set a command line to override the entrypoint in a container image when you deploy an Azure container instance
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ---
 
 # Set the command line in a container instance to override the default command line operation

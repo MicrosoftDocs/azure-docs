@@ -1,22 +1,17 @@
 ---
 title: Azure Monitor for containers health monitors configuration | Microsoft Docs
 description: This article provides content describing the detailed configuration of the health monitors in Azure Monitor for containers. 
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
+ms.date: 12/01/2019
 ---
 
 # Azure Monitor for containers health monitor configuration guide
 
-Monitors are the primary element for measuring health and detecting errors in Azure Monitor for containers. This article helps you understand the concepts of how health is measured and the elements that comprise the health model to monitor and report on the health of your Kubernetes cluster with the [Health feature](container-insights-health.md).
+Monitors are the primary element for measuring health and detecting errors in Azure Monitor for containers. This article helps you understand the concepts of how health is measured and the elements that comprise the health model to monitor and report on the health of your Kubernetes cluster with the [Health (preview)](container-insights-health.md) feature.
+
+>[!NOTE]
+>The Health feature is in public preview at this time.
+>
 
 ## Monitors
 
@@ -62,7 +57,7 @@ Azure Monitor for containers includes a number of key monitoring scenarios that 
 |Container memory utilization |Unit monitor |This monitor reports combined health status of the Memory utilization(RSS) of the instances of the container.<br> It performs a simple comparison that compares each sample to a single threshold, and specified by the configuration parameter **ConsecutiveSamplesForStateTransition**.<br> Its state is calculated as the worst state of 90% of the container (StateThresholdPercentage) instances, sorted in descending order of severity of container health state (that is, Critical, Warning, Healthy).<br> If no record is received from a container instance, then the health state of the container instance is reported as **Unknown**, and has higher precedence in the sorting order over the **Critical** state.<br> Each individual container instance's state is calculated using the thresholds specified in the configuration. If the usage is over critical threshold (90%), then the instance is in a **Critical** state, if it is less than critical threshold (90%) but greater than warning threshold (80%), then the instance is in a **Warning** state. Otherwise, it is in **Healthy** state. |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||
 |Container CPU utilization |Unit monitor |This monitor reports combined health status of the CPU utilization of the instances of the container.<br> It performs a simple comparison that compares each sample to a single threshold, and specified by the configuration parameter **ConsecutiveSamplesForStateTransition**.<br> Its state is calculated as the worst state of 90% of the container (StateThresholdPercentage) instances, sorted in descending order of severity of container health state (that is, Critical, Warning, Healthy).<br> If no record is received from a container instance, then the health state of the container instance is reported as **Unknown**, and has higher precedence in the sorting order over the **Critical** state.<br> Each individual container instance's state is calculated using the thresholds specified in the configuration. If the usage is over critical threshold (90%), then the instance is in a **Critical** state, if it is less than critical threshold (90%) but greater than warning threshold (80%), then the instance is in a **Warning** state. Otherwise, it is in **Healthy** state. |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||
 |System workload pods ready |Unit monitor |This monitor reports status based on percentage of pods in ready state in a given workload. Its state is set to **Critical** if less than 100% of the pods are in a **Healthy** state |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage |2<br> 100 ||
-|Kube API status |Unit monitor |This monitor reports status of Kube Api service. Monitor is in critical state in case Kube Api endpoint is unavailable. For this particular monitor, the state is determined by making a query to the 'nodes' endpoint for the kube-api server. Anything other than an OK response code changes the monitor to a **Critical** state. | No configuration properties |||
+|Kube API status |Unit monitor |This monitor reports status of Kube API service. Monitor is in critical state in case Kube API endpoint is unavailable. For this particular monitor, the state is determined by making a query to the 'nodes' endpoint for the kube-api server. Anything other than an OK response code changes the monitor to a **Critical** state. | No configuration properties |||
 
 ### Aggregate monitors
 
@@ -73,7 +68,7 @@ Azure Monitor for containers includes a number of key monitoring scenarios that 
 |Nodes (parent of Node pool) |This is an aggregate monitor of all the node pools. Its state is based on the worst state of its child monitors (that is, the node pools present in the cluster). |Worst of |
 |Cluster (parent of nodes/<br> Kubernetes infrastructure) |This is the parent monitor that matches the state of the child monitor with the worst health state, that is kubernetes infrastructure and nodes. |Worst of |
 |Kubernetes infrastructure |This monitor reports combined health status of the managed infrastructure components of the cluster. its status is calculated as the 'worst of' its child monitor states i.e. kube-system workloads and API Server status. |Worst of|
-|System workload |This monitor reports health status of a kube-system workload. This monitor matches the state of the child monitor with the worst health state, that is the **Pods in ready state** monitor and the containers in the workload). |Worst of |
+|System workload |This monitor reports health status of a kube-system workload. This monitor matches the state of the child monitor with the worst health state, that is the **Pods in ready state** (monitor and the containers in the workload). |Worst of |
 |Container |This monitor reports overall health status of a container in a given workload. This monitor matches the state of the child monitor with the worst health state, that is the **CPU utilization** and **Memory utilization** monitors. |Worst of |
 
 ## Next steps

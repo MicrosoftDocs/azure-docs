@@ -1,23 +1,18 @@
 ---
-title: Support and help options for Azure AD app developers | Microsoft Docs
+title: Support and help options for Azure AD app developers
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Support and help options for developers
@@ -79,8 +74,8 @@ If you find a bug or problem related to our libraries, raise an issue in our Git
 
 For a list of libraries and their GitHub repositories, see the following:
 
-* [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
+* [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) libraries and GitHub repositories
+* [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) libraries and GitHub repositories
 
 ## Open a support request
 

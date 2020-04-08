@@ -19,7 +19,9 @@ We strongly recommend that you read [Azure Files networking overview](storage-fi
 The article details the steps to configure a Site-to-Site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a Site-to-Site VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
 
 ## Prerequisites
-- An Azure file share you would like to mount on-premises. You may use either a [standard](storage-how-to-create-file-share.md) or a [premium Azure file share](storage-how-to-create-premium-fileshare.md) with your Site-to-Site VPN.
+- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+
+- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - A network appliance or server in your on-premises datacenter that is compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
 
@@ -71,23 +73,6 @@ Select **Create** to create the local network gateway resource.
 ## Configure on-premises network appliance
 The specific steps to configure your on-premises network appliance depend based on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) may have a link out to your device vendor's instructions for configuring with Azure VPN Gateway.
 
-## Create private endpoint (preview)
-Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
-
-In the storage account blade, select **Private endpoint connections** in the left-hand table of contents and **+ Private endpoint** to create a new private endpoint. The resulting wizard has multiple pages to complete:
-
-![A screenshot of the Basics section of the create private endpoint section](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
-
-On the **Basics** tab, select the desired resource group, name, and region for your private endpoint. These can be whatever you want, they don't have to match the storage account in anyway, although you must create the private endpoint in the same region as the virtual network you wish to create the private endpoint in.
-
-On the **Resource** tab, select the radio button for **Connect to an Azure resource in my directory**. Under **Resource type**, select **Microsoft.Storage/storageAccounts** for the resource type. The **Resource** field is the storage account with the Azure file share you wish to connect to. Target sub-resource is **file**, since this is for Azure Files.
-
-The **Configuration** tab allows you to select the specific virtual network and subnet you would like to add your private endpoint to. Select the virtual network you created above. You must select a distinct subnet from the subnet you added your service endpoint to above.
-
-The **Configuration** tab also allows you to set up a private DNS zone. This is not required, but allows you to use a friendly UNC path (such as `\\mystorageaccount.privatelink.file.core.windows.net\myshare`) instead of a UNC path with an IP address to mount the Azure file share. This may also be done with your own DNS servers within your virtual network.
-
-Click **Review + create** to create the private endpoint. Once the private endpoint has been created, you will see two new resources: a private endpoint resource and a paired virtual network interface. The virtual network interface resource will have the dedicated private IP of the storage account. 
-
 ## Create the Site-to-Site connection
 To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the VPN Gateway. To do this, navigate to the VPN Gateway you created above. In the table of contents for the VPN Gateway, select **Connections**, and click **Add**. The resulting **Add connection** pane requires the following fields:
 
@@ -108,5 +93,5 @@ The final step in configuring a S2S VPN is verifying that it works for Azure Fil
 
 ## See also
 - [Azure Files networking overview](storage-files-networking-overview.md)
-- [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
+- [Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)

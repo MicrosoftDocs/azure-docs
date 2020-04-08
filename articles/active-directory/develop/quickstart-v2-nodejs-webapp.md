@@ -1,29 +1,21 @@
 ---
-title: Microsoft identity platform OIDC Node.js web app quickstart | Azure
+title: Add OIDC sign in to a Node.js Web app - Microsoft identity platform | Azure
 description: Learn how to implement authentication in a Node.js web application using OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
-ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Add sign-in using OIDC to a Node.js Web App
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+# Quickstart: Add sign in using OpenID Connect to a Node.js Web App
 
 In this quickstart, you'll learn how to set up OpenID Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
 

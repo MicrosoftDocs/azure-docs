@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech to multiple languages, C++ (Windows) - Speech Service'
+title: 'Quickstart: Translate speech to multiple languages, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/24/2019
+ms.topic: include
+ms.date: 04/04/2020
 ms.author: erhopf
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## Add sample code
 
@@ -39,7 +38,7 @@ Before you get started, make sure to:
    void TranslateSpeechToText()
    {
        // Creates an instance of a speech translation config with specified subscription key and service region.
-       // Replace with your own subscription key and service region (e.g., "westus").
+       // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
        auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
        // Sets source and target languages.
@@ -111,7 +110,7 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to French and German). The Speech service then sends the text back to the application for display.
 
 ````
 Say something...

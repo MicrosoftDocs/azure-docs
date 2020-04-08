@@ -77,7 +77,7 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 | Option | Description |
 | --- | --- |
 | Create new account | Select this option if you want Azure AD Connect wizard to create the AD DS account required by Azure AD Connect for connecting to the AD forest during directory synchronization. When this option is selected, enter the username and password for an enterprise admin account. The enterprise admin account provided will be used by Azure AD Connect wizard to create the required AD DS account. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\administrator or fabrikam.com\administrator. |
-| Use existing account | Select this option if you want to provide an existing AD DS account to be used Azure AD Connect for connecting to the AD forest during directory synchronization. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md##create-the-ad-ds-connector-account). |
+| Use existing account | Select this option if you want to provide an existing AD DS account to be used Azure AD Connect for connecting to the AD forest during directory synchronization. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account). |
 
 ![Connect Directory](./media/how-to-connect-install-custom/connectdir02.png)
 
@@ -92,7 +92,7 @@ This page allows you to review the UPN domains present in on-premises AD DS and 
 ![Unverified domains](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with password hash sync, pass-through authentication, and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value. For more information on the Alternate ID, [please click here.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with password hash sync, pass-through authentication, and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value. For more information on the Alternate ID, see the [Frequently asked questions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) topic.
 
 >[!NOTE]
 > When you enable Pass-through Authentication you must have at least one verified domain in order to continue through the wizard.
@@ -158,9 +158,9 @@ This screen allows you to select the optional features for your specific scenari
 >[!WARNING]
 >Azure AD Connect versions **1.0.8641.0** and older rely on the Azure Access Control service for password writeback.  This service will be retired on **November 7th 2018**.  If you are using any of these versions of Azure AD Connect and have enabled password writeback, users may lose the ability to change or reset their passwords once the service is retired. Password writeback with these versions of Azure AD Connect will not be supported.
 >
->For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../develop/active-directory-acs-migration.md)
+>For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../azuread-dev/active-directory-acs-migration.md)
 >
->To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+>To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Optional features](./media/how-to-connect-install-custom/optional2.png)
 
@@ -241,16 +241,16 @@ Configuring AD FS with Azure AD Connect is simple and only requires a few clicks
 
 * A Windows Server 2012 R2 or later server for the federation server with remote management enabled
 * A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
-* An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+* A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 >[!NOTE]
->You can update SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
+>You can update a TLS/SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
 
 ### AD FS configuration pre-requisites
 To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. Make sure you have completed the other tasks in [federation prerequisites](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### Create a new AD FS farm or use an existing AD FS farm
-You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the SSL certificate. If the SSL certificate is protected by a password, you are prompted for the password.
+You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the TLS/SSL certificate. If the TLS/SSL certificate is protected by a password, you are prompted for the password.
 
 ![AD FS Farm](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -316,7 +316,7 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 ## Configuring federation with PingFederate
 Configuring PingFederate with Azure AD Connect is simple and only requires a few clicks. However, the following prerequisites are required.
 - PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+- A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### Verify the domain
 After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.

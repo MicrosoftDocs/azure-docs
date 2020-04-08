@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
-description: Answers some frequently asked questions about Azure Service Bus.
+description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -8,11 +8,11 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
-# Service Bus FAQ
+# Azure Service Bus - Frequently asked questions (FAQ)
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
 
@@ -146,7 +146,7 @@ You can move a namespace from one Azure subscription to another, using either th
 
 #### Portal
 
-To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### PowerShell
 

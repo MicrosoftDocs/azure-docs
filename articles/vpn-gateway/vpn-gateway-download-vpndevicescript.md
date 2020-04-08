@@ -1,6 +1,7 @@
 ---
-title: 'Download VPN device configuration scripts for S2S VPN connections: Azure Resource Manager | Microsoft Docs'
+title: 'Download VPN device configuration scripts for S2S VPN connections'
 description: This article walks you through downloading VPN device configuration scripts for S2S VPN connections with Azure VPN Gateways using Azure Resource Manager.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -73,7 +74,7 @@ Once the connection resource is created, follow the instructions below to downlo
 
 ## Download the configuration script using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 You can also download the configuration script using Azure PowerShell, as shown in the following example:
 

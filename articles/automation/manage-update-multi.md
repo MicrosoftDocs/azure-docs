@@ -1,14 +1,10 @@
 ---
 title: Manage updates for multiple Azure virtual machines
-description: This article describes how to manage updates for Azure virtual machines.
+description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/02/2019
+ms.date: 03/26/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage updates for multiple machines
 
@@ -25,25 +21,9 @@ To use Update Management, you need:
 
 - A virtual machine or computer with one of the supported operating systems installed.
 
-## Supported operating systems
+- Access to an update repository for Linux VMs onboarded to the solution.
 
-Update Management is supported on the following operating systems:
-
-|Operating system  |Notes  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository.        |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS, 16.04 LTS and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
-
-> [!NOTE]
-> To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-Linux agents must have access to an update repository.
-
-This solution doesn't support a Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
 
 ## Enable Update Management for Azure virtual machines
 
@@ -63,9 +43,7 @@ When onboarding is finished, Update Management is enabled for your virtual machi
 
 ## Enable Update Management for non-Azure virtual machines and computers
 
-To learn how to enable Update Management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Azure Monitor service in Azure](../log-analytics/log-analytics-windows-agent.md).
-
-To learn how to enable Update Management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Azure Monitor logs](../log-analytics/log-analytics-agent-linux.md).
+The Log Analytics agent for Windows and Linux needs to be installed on the VMs that are running on your corporate network or other cloud environment in order to enable them with Update Management. To learn the system requirements and supported methods to deploy the agent to machines hosted outside of Azure, see [Overview of the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md).
 
 ## View computers attached to your Automation account
 
@@ -81,7 +59,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
 
-To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
+To view the status of the agent, select the link in the **Update agent readiness** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
@@ -118,14 +96,23 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 To install updates, schedule a deployment that aligns with your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
+>[!NOTE]
+>When you schedule an update deployment, it creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, it breaks the scheduled update deployment and presents an error when you attempt to reconfigure it from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.
+>
+
 To schedule a new update deployment for one or more virtual machines, under **Update management**, select **Schedule update deployment**.
 
 In the **New update deployment** pane, specify the following information:
 
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
-- **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
-- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
+- **Groups to update**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. For non-Azure VMs, saved searches are used to create a dynamic group to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md).
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update.
+
+   >[!NOTE]
+   >Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name across multiple resource groups, they are returned in the results. Using the **Groups to update** option is recommended to ensure you include unique VMs matching your criteria.
+
+   If you choose **Machines**, the readiness of the machine is shown in the **Update agent readiness** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
@@ -140,6 +127,13 @@ In the **New update deployment** pane, specify the following information:
   - Updates
 
 - **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
+
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 
@@ -190,5 +184,4 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-- To learn more about Update Management, including logs, output, and errors, see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
-
+To learn more about Update Management logs, output, and errors, see [Query update records for Update Management](automation-update-management-query-logs.md).

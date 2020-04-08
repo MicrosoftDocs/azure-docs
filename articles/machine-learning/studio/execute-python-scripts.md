@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python is a valuable tool in the tool chest of many data scientists. It's used in every stage of typical machine learning workflows including data exploration, feature extraction, model training and validation, and deployment.
 
@@ -48,7 +50,7 @@ The `azureml_main` function must return a single Pandas DataFrame packaged in a 
 
 ## Translation of input and output data types
 
-Studio datasets are not the same as Panda DataFrames. As a result, input datasets in the classic version of Studio are converted to Pandas DataFrame, and output DataFrames are converted back to Studio (classic) datasets. During this conversion process, the following translations are also performed:
+Studio datasets are not the same as Panda DataFrames. As a result, input datasets in Studio (classic) are converted to Pandas DataFrame, and output DataFrames are converted back to Studio (classic) datasets. During this conversion process, the following translations are also performed:
 
  **Python data type** | **Studio translation procedure** |
 | --- | --- |
@@ -62,11 +64,11 @@ Studio datasets are not the same as Panda DataFrames. As a result, input dataset
 
 ## <a id="import-modules"></a>Importing existing Python script modules
 
-The backend used to execute Python is based on [Anaconda](https://www.anaconda.com/distribution/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. The classic version of Studio does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
+The backend used to execute Python is based on [Anaconda](https://www.anaconda.com/distribution/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio (classic) does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
 
-A common use-case is to incorporate existing Python scripts into the classic version of Studio experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
+A common use-case is to incorporate existing Python scripts into Studio (classic) experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
 
-As an example, consider the file Hello.py containing a simple “Hello, World” function.
+As an example, consider the file Hello.py containing a simple "Hello, World" function.
 
 ![User-defined function in Hello.py file](./media/execute-python-scripts/figure4.png)
 
@@ -74,7 +76,7 @@ Next, we create a file Hello.zip that contains Hello.py:
 
 ![Zip file containing user-defined Python code](./media/execute-python-scripts/figure5.png)
 
-Upload the zip file as a dataset into the classic version of Studio. Then create and run an experiment that uses the Python code in the Hello.zip file by attaching it to the third input port of the **Execute Python Script** module as shown in the following image.
+Upload the zip file as a dataset into Studio (classic). Then create and run an experiment that uses the Python code in the Hello.zip file by attaching it to the third input port of the **Execute Python Script** module as shown in the following image.
 
 ![Sample experiment with Hello.zip as an input to an Execute Python Script module](./media/execute-python-scripts/figure6a.png)
 
@@ -123,7 +125,7 @@ Plots created using MatplotLib can be returned by the [Execute Python Script][ex
 
 To generate images from MatplotLib, you must take the following steps:
 
-1. Switch the backend to “AGG” from the default Qt-based renderer.
+1. Switch the backend to "AGG" from the default Qt-based renderer.
 1. Create a new figure object.
 1. Get the axis and generate all plots into it.
 1. Save the figure to a PNG file.
@@ -136,11 +138,11 @@ This process is illustrated in the following images that create a scatter plot m
 
 ![Visualizing plots for a sample experiment using Python code](./media/execute-python-scripts/figure-v2-9b.png)
 
-It's possible to return multiple figures by saving them into different images. The classic version of Studio runtime picks up all images and concatenates them for visualization.
+It's possible to return multiple figures by saving them into different images. Studio (classic) runtime picks up all images and concatenates them for visualization.
 
 ## Advanced examples
 
-The Anaconda environment installed in the classic version of Studio contains common packages such as NumPy, SciPy, and Scikits-Learn. These packages can be effectively used for data processing in a machine learning pipeline.
+The Anaconda environment installed in Studio (classic) contains common packages such as NumPy, SciPy, and Scikits-Learn. These packages can be effectively used for data processing in a machine learning pipeline.
 
 For example, the following experiment and script illustrate the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset. The scores can be used to perform supervised feature selection before being fed into another model.
 
@@ -148,7 +150,7 @@ Here is the Python function used to compute the importance scores and order the 
 
 ![Function to rank features by scores](./media/execute-python-scripts/figure8.png)
 
-The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in the classic version of Azure Machine Learning Studio:
+The following experiment then computes and returns the importance scores of features in the "Pima Indian Diabetes" dataset in Azure Machine Learning Studio (classic):
 
 ![Experiment to rank features in the Pima Indian Diabetes dataset using Python](./media/execute-python-scripts/figure9a.png)
 

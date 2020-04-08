@@ -2,15 +2,12 @@
 title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
 description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
 services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-
-author: yijenj
-manager: nuno costa
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: pabutler
+ms.author: dsindona
 
 ---
 # Commercial marketplace transaction capabilities and considerations
@@ -63,7 +60,7 @@ Depending on the transaction option used, the publisher's software license fees 
 
 * Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications.
 
-* •	Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
+* Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
 
 * Free software trial: No charge for software licenses for 30-days or 90-days.
 
@@ -127,7 +124,7 @@ This option allows higher or lower pricing than the publicly available offering.
 **SaaS App subscription**
 
 This option must be configured to sell through Microsoft and can be priced at a flat rate or per user on a monthly or annual basis.
-•	If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
+*    If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
 
 |Your license cost       | $100.00 per month  |
 |--------------|---------|
@@ -220,7 +217,7 @@ The transact requirements for different offer types are covered in this section.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
 
 ### Requirements for specific offer types

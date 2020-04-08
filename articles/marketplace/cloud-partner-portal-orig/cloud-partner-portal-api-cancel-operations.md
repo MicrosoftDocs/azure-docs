@@ -1,13 +1,12 @@
 ---
 title: Cancel operation API | Azure Marketplace
 description: Cancel operations .
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Cancel operation 

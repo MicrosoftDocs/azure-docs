@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
-ms.date: 11/04/2019
+ms.date: 03/18/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Azure Kubernetes Service
@@ -37,7 +37,7 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
 
   1. Register the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource
      providers. For steps, see
-     [Resource providers and types](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+     [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then
      searching for and selecting **Policy**.
@@ -73,7 +73,7 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
   az provider register -n Microsoft.ContainerService
   
   # Feature register: enables the add-on to call the Azure Policy resource provider
-  az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
+  az feature register --namespace Microsoft.PolicyInsights --name AKS-DataPlaneAutoApprove
   
   # Use the following to confirm the feature has registered
   az feature list -o table --query "[?contains(name, 'Microsoft.PolicyInsights/AKS-DataPlaneAutoApprove')].{Name:name,State:properties.state}"
@@ -298,6 +298,6 @@ collected:
 - Review the [Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

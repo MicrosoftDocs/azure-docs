@@ -1,7 +1,7 @@
 ---
-title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Recommendation mapping
+title: CIS Microsoft Azure Foundations Benchmark blueprint sample controls
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
@@ -54,6 +54,13 @@ for guest accounts that may need removed.
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
+
+## 1.23 Ensure that no custom subscription owner roles are created
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you monitor
+for custom subscription owner roles that may need removed.
+
+- Custom subscription owner roles should not exist
 
 ## 2.1 Ensure that standard pricing tier is selected
 
@@ -295,16 +302,44 @@ your own key.
 ## 4.11 Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure MySQL database servers enforce SSL connections.
+ensure MySQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for MySQL database servers
+
+## 4.12 Ensure server parameter 'log_checkpoints' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log checkpoints.
+
+- Log checkpoints should be enabled for PostgreSQL database servers
 
 ## 4.13 Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure PostgreSQL database servers enforce SSL connections.
+ensure PostgreSQL database servers enforce TLS/SSL connections.
 
 - Enforce SSL connection should be enabled for PostgreSQL database servers
+
+## 4.14 Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log connections.
+
+- Log connections should be enabled for PostgreSQL database servers
+
+## 4.15 Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log disconnections.
+
+- Disconnections should be logged for PostgreSQL database servers.
+
+## 4.16 Ensure server parameter 'log_duration' is set to 'ON' for PostgreSQL Database Server
+
+This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
+ensure PostgreSQL database servers log the duration of completed statements.
+
+- Log duration should be enabled for PostgreSQL database servers
 
 ## 4.17 Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server
 
@@ -430,6 +465,79 @@ This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 ensure web applications are accessible only over secure connections.
 
 - Web Application should only be accessible over HTTPS
+
+## 9.3 Ensure web app is using the latest version of TLS encryption
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+web apps are using the latest TLS version.
+
+- Latest TLS version should be used in your API App
+- Latest TLS version should be used in your Function App
+- Latest TLS version should be used in your Web App
+
+## 9.4 Ensure the web app has 'Client Certificates (Incoming client certificates)' set to 'On'
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+only clients with valid certificates are able to reach a web app.
+
+- Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'
+- Ensure Function app has 'Client Certificates (Incoming client certificates)' set to 'On'
+- Ensure WEB app has 'Client Certificates (Incoming client certificates)' set to 'On'
+
+## 9.5 Ensure that Register with Azure Active Directory is enabled on App Service
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using a managed identity.
+
+- Ensure that Register with Azure Active Directory is enabled on API app
+- Ensure that Register with Azure Active Directory is enabled on Function App
+- Ensure that Register with Azure Active Directory is enabled on WEB App
+
+## 9.6 Ensure that '.Net Framework' version is the latest, if used as a part of the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of the .Net Framework.
+
+- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
+
+## 9.7 Ensure that 'PHP version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of PHP.
+
+- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the Function app
+- Ensure that 'PHP version' is the latest, if used as a part of the WEB app
+
+## 9.8 Ensure that 'Python version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of Python.
+
+- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the Function app
+- Ensure that 'Python version' is the latest, if used as a part of the Web app
+
+## 9.9 Ensure that 'Java version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of Java.
+
+- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the Funtion app
+- Ensure that 'Java version' is the latest, if used as a part of the Web app
+
+## 9.10 Ensure that 'HTTP Version' is the latest, if used to run the web app
+
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using the latest version of HTTP.
+
+- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the Function app
+- Ensure that 'HTTP Version' is the latest, if used to run the Web app
+
 
 ## Next steps
 

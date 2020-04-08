@@ -1,22 +1,10 @@
 ---
-title: Deploy a Service Fabric app with continuous integration and Azure Pipelines in Azure | Microsoft Docs
+title: Deploy an app with CI and Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 

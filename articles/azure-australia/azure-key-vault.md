@@ -28,7 +28,7 @@ This article will focus on management of keys using Key Vault.
 
 ### Deployment options
 
-There are two options for creating Azure Key Vaults. Both options use the Thales nShield family of Hardware Security Modules (HSM), are Federal Information Processing Standards (FIPS) validated, and are approved to store keys in PROTECTED environments. The options are:
+There are two options for creating Azure Key Vaults. Both options use the nCipher nShield family of Hardware Security Modules (HSM), are Federal Information Processing Standards (FIPS) validated, and are approved to store keys in PROTECTED environments. The options are:
 
 - **Software-protected vaults:** FIPS 140-2 level 1 validated. Keys stored on an HSM. Encryption and decryption operations are performed in compute resources on Azure.
 - **HSM-protected vaults:** FIPS 140-2 level 2 validated. Keys stored on an HSM. Encryption and decryption operations are performed on the HSM.
@@ -65,7 +65,14 @@ Access to Key Vaults should be explicitly restricted to the minimum set of netwo
 
 ### Bring Your Own Key (BYOK)
 
-Key Vault supports BYOK.  BYOK enables users to import keys from their existing key infrastructures.  Thales provides an [Australian toolset](https://www.microsoft.com/download/details.aspx?id=45345) to support the secure transfer and import of keys from an external HSM (for example, keys generated with an offline workstation) into Key Vault.
+Key Vault supports BYOK.  BYOK enables users to import keys from their existing key infrastructures. The BYOK toolset supports the secure transfer and import of keys from an external HSM (for example, keys generated with an offline workstation) into Key Vault.
+
+Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for Australia. The package name to download and its corresponding SHA-256 package hash are:
+
+|Package Name|SHA-256 Hash|
+|---|---|
+|KeyVault-BYOK-Tools-Australia.zip|CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A|
+|
 
 ### Key Vault auditing and logging
 

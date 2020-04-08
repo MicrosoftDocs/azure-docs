@@ -1,13 +1,12 @@
 ---
 title: Power BI dashboard integration with Azure Stream Analytics
 description: This article describes how to use a real-time Power BI dashboard to visualize data out of an Azure Stream Analytics job.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 03/05/2019
 ---
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
@@ -23,7 +22,7 @@ You can watch [a video](https://www.youtube.com/watch?v=SGUpT-a99MA)  that illus
 Before you start, make sure you have the following:
 
 * An Azure account.
-* An account for Power BI. You can use a work account or a school account.
+* An account for Power BI Pro. You can use a work account or a school account.
 * A completed version of the [real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial. The tutorial includes an app that generates fictitious telephone-call metadata. In the tutorial, you create an event hub and send the streaming phone call data to the event hub. You write a query that detects fraudulent calls (calls from the same number at the same time in different locations). 
 
 

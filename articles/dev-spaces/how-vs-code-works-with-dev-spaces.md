@@ -1,13 +1,9 @@
 ---
 title: "How Visual Studio Code works with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: "conceptual"
-description: "How Visual Studio Code works with Azure Dev Spaces"
+description: "Learn how Visual Studio Code and Azure Dev Spaces help you debug and rapidly iterate your Kubernetes applications"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 
@@ -52,8 +48,8 @@ You can see Visual Studio Code and the Azure Dev Spaces extension working with A
 * [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
-[azds-yaml]: how-dev-spaces-works.md#prepare-your-code
-[csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+[azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
+[csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
 [quickstart-java]: quickstart-java.md

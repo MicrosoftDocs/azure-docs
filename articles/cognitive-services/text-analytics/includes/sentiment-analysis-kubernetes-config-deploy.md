@@ -3,12 +3,12 @@ title: Sentiment Analysis Kubernetes config and deploy steps
 titleSuffix: Azure Cognitive Services
 description: Sentiment Analysis Kubernetes config and deploy steps
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ### Deploy the Sentiment Analysis container to an AKS cluster
@@ -39,7 +39,7 @@ ms.author: dapine
 
 1. Open the text editor of choice. This example uses Visual Studio Code.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -61,6 +61,13 @@ ms.author: dapine
             image: mcr.microsoft.com/azure-cognitive-services/sentiment
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -86,12 +93,12 @@ ms.author: dapine
 1. Run the Kubernetes `apply` command with the *sentiment.yaml* file as its target:
 
     ```console
-    kuberctl apply -f sentiment.yaml
+    kubectl apply -f sentiment.yaml
     ```
 
     After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
-    ```console
+    ```output
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
@@ -103,7 +110,7 @@ ms.author: dapine
 
     The output for the running status of the pod:
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -116,7 +123,7 @@ ms.author: dapine
 
     The output for the running status of the *sentiment* service in the pod:
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

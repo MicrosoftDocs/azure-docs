@@ -31,11 +31,12 @@ Free disk space (retention disk) | 600 GB
 **Component** | **Requirement** 
 --- | ---
 Operating system | Windows Server 2012 R2 <br> Windows Server 2016
-Operating system locale | English (en-us)
+Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - No preexisting default website. <br> - No preexisting website or application listening on port 443. <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx). <br> - Enable the [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting.
-| 
+IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
+FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
+|
 
 ## Network requirements
 
@@ -62,8 +63,9 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 **Component** | **Requirement** 
 --- | ---
-VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the configuration server is running on a VMware VM.
-MySQL | MySQL should be installed. You can install manually, or Azure Site Recovery can install it. (For more information, see [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).)
+VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+|
 
 ## Sizing and capacity requirements
 
@@ -72,7 +74,8 @@ The following table summarizes capacity requirements for the configuration serve
 
 **CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | <100 machines
-12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB to 1 TB | 100 to 150 machines
-16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1 to 2 TB | 150 to 200 machines
+8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | < 100 machines
+12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
+16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
+|
 

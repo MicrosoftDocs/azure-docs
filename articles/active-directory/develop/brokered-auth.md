@@ -1,27 +1,21 @@
 ---
-title: Brokered auth in Android | Azure
+title: Brokered authentication in Android | Azure
+titlesuffix: Microsoft identity platform
 description: An overview of brokered authentication & authorization for Android in the Microsoft identity platform
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
+ms.reviewer: shoatman, hahamil, brianmel
 ---
 
-# Brokered auth in Android
-
-## Introduction
+# Brokered authentication in Android
 
 You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign-On (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
@@ -34,7 +28,7 @@ You must use one of Microsoft's authentication brokers to participate in device-
   -  via Android AccountManager & Account Settings
   - "Work Account" - custom account type
 
-On Android, the Microsoft Authentication Broker is a component that's included with [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal ](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
+On Android, the Microsoft Authentication Broker is a component that's included with [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
 
 > [!TIP]
 > Only one application that hosts the broker will be active as the broker at a time. Which application is active as a broker is determined by installation order on the device. The first to be installed, or the last present on the device, becomes the active broker.
@@ -47,9 +41,9 @@ The following diagram illustrates the relationship between your app, the Microso
 
 Broker-hosting apps can be installed by the device owner from their app store (typically Google Play Store) at any time. However, some APIs (resources) are protected by Conditional Access Policies that require devices to be:
 
-- registered (workplace joined) and/or
-- enrolled in Device Management or
-- enrolled in Intune App Protection
+- Registered (workplace joined) and/or
+- Enrolled in Device Management or
+- Enrolled in Intune App Protection
 
 If a device does not already have a broker app installed, MSAL instructs the user to install one as soon as the app attempts to get a token interactively. The app will then need to lead the user through the steps to make the device compliant with the required policy.
 

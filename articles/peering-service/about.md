@@ -2,14 +2,14 @@
 title: Azure Peering Service Preview overview
 description: Learn about Azure Peering Service overview
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: derekol
 ---
 
 # Azure Peering Service Preview Overview
@@ -96,7 +96,7 @@ The following routing technique is preferred:
 
    The software-defined cold-potato routing technique offers control over network traffic that originates from the Microsoft cloud. It ensures that traffic stays on the high-capacity, low-latency, and highly reliable Microsoft global network until it's as close to the destination as possible.
    
-   Routing that doesn't use the cold-potato technique is referred to as hot-potato routing. Traffic that originates from the Microsoft cloud then goes over the internet.
+   Routing that doesn't use the cold-potato technique is referred to as hot-potato routing. With hot-potato routing, traffic that originates from the Microsoft cloud then goes over the internet.
 
    ![Cold-potato routing](./media/peering-service-about/peering-service-cold-potato.png)
 

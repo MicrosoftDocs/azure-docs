@@ -1,10 +1,10 @@
 ---
 title: Interact with an IoT Plug and Play Preview device from an Azure IoT solution | Microsoft Docs
 description: As a solution developer, learn about how to use the service SDK to interact with IoT Plug and Play devices.
-author: YasinMSFT
-ms.author: yahajiza
-ms.date: 07/24/2019
-ms.topic: tutorial
+author: Philmea
+ms.author: philmea
+ms.date: 12/26/2019
+ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
@@ -17,7 +17,7 @@ manager: philmea
 
 This how-to guide shows you how to use the samples in the Node service SDK that show you how your IoT Solution can interact with IoT Plug and Play Preview devices.
 
-If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
+If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution-node.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 
 Before you run the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **digitaltwins/quickstarts/service** folder, and then  run the following command to install the dependencies:
 
@@ -79,7 +79,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 ### Creating digital twin routes
 
-Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as as blob storage, Event Hubs, or a Service Bus queue.
+Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as blob storage, Event Hubs, or a Service Bus queue.
 
 To create a digital twin route:
 

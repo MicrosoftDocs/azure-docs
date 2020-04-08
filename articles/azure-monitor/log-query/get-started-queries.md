@@ -1,7 +1,6 @@
 ---
 title: Get started with log queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for getting started writing log queries in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
@@ -236,4 +235,7 @@ To make the output clearer, you select to display it as a time-chart, showing th
 
 ## Next steps
 
-- Learn about [writing search queries](search-queries.md)
+- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](string-operations.md).
+- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md).
+- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](joins.md).
+- Get documentation on the entire Kusto query language in the [KQL language reference](/azure/kusto/query/).

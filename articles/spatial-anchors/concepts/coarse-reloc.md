@@ -1,6 +1,6 @@
 ---
-title: Coarse Relocalization | Microsoft Docs
-description: Coarse relocalization quickstart guide.
+title: Coarse Relocalization
+description: Learn about using Coarse relocalization to find anchors near you.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -12,11 +12,11 @@ ms.service: azure-spatial-anchors
 ---
 # Coarse relocalization
 
-Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors, try locating one of them*.
+Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors; try locating one of them*.
 
-Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device.
+Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index this is used by the Azure Spatial Anchors to quickly determine the anchors that are within approximately 100 meters of your device.
 
-The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by the service!
+The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
 
 ## Collected sensor data
 
@@ -102,13 +102,8 @@ cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 
 # [C++ WinRT](#tab/cppwinrt)
 ```cpp
-// Create the ASA factory
-SpatialAnchorsFactory m_asaFactory { nullptr };
-// . . .
-
 // Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
+PlatformLocationProvider sensorProvider = PlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = CloudSpatialAnchorSession();
@@ -118,7 +113,7 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is, in general, specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
+Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
 
 
 |             | Indoors | Outdoors |
@@ -182,8 +177,9 @@ When using GPS in your application, keep in mind that the readings provided by t
 
 In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation on the raw GPS signal in an attempt to mitigate these issues. This extra-processing requires additional time for convergence, so for best results you should try to:
 
-* create the sensor fingerprint provider as early as possible in your application
-* keep the sensor fingerprint provider alive and share between multiple sessions
+* create one sensor fingerprint provider as early as possible in your application
+* keep the sensor fingerprint provider alive between multiple sessions
+* share the sensor fingerprint provider between multiple sessions
 
 If you plan to use the sensor fingerprint provider outside an anchor session, make sure you start it before requesting sensor estimates. For instance, the following code will take care of updating your device's position on the map in real time:
 
@@ -418,7 +414,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors that considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most-likely translate into spatial wormholes. For best results you should:
+Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors as it considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause spatial wormholes. For best results you should:
 
 * assign unique UUIDs to your beacons.
 * deploy them - typically in a regular pattern, such as a grid.
@@ -490,13 +486,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Malicious beacons programmed to have white-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
+Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
 ## Querying with sensor data
 
-Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You're no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. The Spatial Anchors service will then figure-out the set of anchors close to your device and attempt to visually match them.
+Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You're no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. Azure Spatial Anchors will then figure out the set of anchors close to your device and attempt to visually match them.
 
-To have queries use the sensor data, start by creating a locate criteria:
+To have queries use the sensor data, start by creating "near device" criteria:
 
 # [C#](#tab/csharp)
 
@@ -576,7 +572,7 @@ anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-NearDeviceCriteria nearDeviceCriteria = m_asaFactory.CreateNearDeviceCriteria();
+NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
 
 // Choose a maximum exploration distance between your device and the returned anchors
 nearDeviceCriteria.DistanceInMeters(5.0f);
@@ -585,7 +581,7 @@ nearDeviceCriteria.DistanceInMeters(5.0f);
 nearDeviceCriteria.MaxResultCount(25);
 
 // Set the session's locate criteria
-anchorLocateCriteria = m_asaFactory.CreateAnchorLocateCriteria();
+anchorLocateCriteria = AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 ```
 
@@ -593,9 +589,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully located it. You're most likely interested in retrieving all the anchors you've placed nearby rather than the single anchor you're currently observing. Assuming the anchors you've placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you'll be given all the anchors connected to the one you've located, that are closer than `DistanceInMeters`.
 
-Keep in mind that large values for `MaxResultCount` may negatively affect performance. Try to set it to a sensible value that makes sense for your application.
+Keep in mind that large values for `MaxResultCount` may negatively affect performance. Set it to a sensible value for your application.
 
-Finally, you'll need to tell the session to use the sensor-based look-up:
+Finally, you'll need to tell the session to use the sensor-based look up:
 
 # [C#](#tab/csharp)
 

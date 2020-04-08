@@ -46,6 +46,8 @@
     href: hpc-cache-support-ticket.md
   - name: Work around Blob storage account firewall settings
     href: hpc-cache-blob-firewall-fix.md
+  - name: Troubleshoot NFS storage target creation
+    href: troubleshoot-nas.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
   - name: Use Azure NetApp Files with Azure HPC Cache

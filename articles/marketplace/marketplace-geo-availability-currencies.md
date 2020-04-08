@@ -1,16 +1,12 @@
 ---
 title: Geographic availability and Currency Support | Azure
 description: Geographic availability in Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-
 author: qianw211
-
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 02/28/2019
-ms.author: ellacroi
+ms.topic: conceptual
+ms.date: 01/29/2020
+ms.author: dsindona
 
 ---
 # Geographic availability and currency support
@@ -47,6 +43,7 @@ Azure Marketplace and AppSource offerings can be purchased in 141 geographies as
 | Cabo Verde                          | CV        | USD          |
 | Cayman Islands                      | KY        | USD          |
 | Chile                               | CL        | USD          |
+| China\**                            | CN        | N/A          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -163,3 +160,5 @@ Azure Marketplace and AppSource offerings can be purchased in 141 geographies as
 |   |   |   |
 
 \* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
+
+\** Free and BYOL VM images only.

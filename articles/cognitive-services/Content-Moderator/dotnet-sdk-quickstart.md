@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Content Moderator client library for .NET | Microsoft Docs"
+title: "Quickstart: Content Moderator client library for .NET"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Content Moderator client library for .NET.
+description: Get started with the Content Moderator client library for .NET with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
@@ -123,8 +123,8 @@ The following code uses a Content Moderator client to analyze a body of text and
 Then at the root of your project and add a *TextFile.txt* file. Add your own text to this file, or use the following sample text:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
 Add the following method call to your `Main` method:
@@ -269,7 +269,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
-
 
 In this quickstart, you learned how to use the Content Moderator .NET library to do moderation tasks. Next, learn more about the moderation of images or other media by reading a conceptual guide.
 

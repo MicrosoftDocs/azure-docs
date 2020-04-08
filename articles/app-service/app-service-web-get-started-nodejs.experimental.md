@@ -1,25 +1,14 @@
 ---
-title: Create Node.js web app - Azure App Service | Microsoft Docs
-description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
+title: 'Quickstart: Create a Node.js web app'
+description: Deploy your first Node.js Hello World to Azure App Service in minutes. You deploy using a ZIP package, which is one of many ways to deploy to App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.custom: seodec18
-
+ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
 ---
+
 # Create a Node.js web app in Azure
 
 > [!NOTE]
@@ -40,7 +29,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. It takes a
 
 In the Cloud Shell, create a quickstart directory and then change to it.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -48,13 +37,13 @@ cd $HOME/quickstart
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 While running, it displays information similar to the following example:
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -108,7 +97,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -119,7 +108,7 @@ Here is what your new web app should look like:
 
 In the Cloud Shell, navigate to your application's root directory, create a new ZIP file for your sample project.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*
@@ -137,7 +126,7 @@ This command deploys the files and directories from the ZIP file to your default
 
 Browse to the deployed application using your web browser.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

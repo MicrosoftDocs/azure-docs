@@ -116,7 +116,7 @@ Configure infrastructure services in the Private Cloud to make it easy to manage
 
 * You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
 
-  * You want to identify users from your on-premise Active Directory (AD) in your Private Cloud.
+  * You want to identify users from your on-premises Active Directory (AD) in your Private Cloud.
   * You want to set up an AD in your Private Cloud for all users.
   * You want to use Azure AD.
 * To provide IP address lookup, IP address management, and name resolution services for your workloads in the Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).

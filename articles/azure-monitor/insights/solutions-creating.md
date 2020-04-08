@@ -1,7 +1,6 @@
 ---
 title: Build a management solution in Azure | Microsoft Docs
 description: Management solutions include packaged management scenarios in Azure that customers can add to their Log Analytics workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -19,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 ## What is a management solution?
 
-Management solutions contain Azure resources that work together to achieve a particular management scenario.  They are implemented as [Resource Management templates](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) that contain details of how to install and configure their contained resources when the solution is installed.
+Management solutions contain Azure resources that work together to achieve a particular management scenario.  They are implemented as [Resource Management templates](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) that contain details of how to install and configure their contained resources when the solution is installed.
 
 The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file]( solutions-solution-file.md). 
 
@@ -56,11 +55,11 @@ You [create custom views using the View Designer](../../azure-monitor/platform/v
 
 
 ## Create solution file
-Once you've configured and tested the components that will be part of your solution, you can [create your solution file]( solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) that includes a [solution resource]( solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
+Once you've configured and tested the components that will be part of your solution, you can [create your solution file]( solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) that includes a [solution resource]( solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
 
 
 ## Test your solution
-While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../../azure-resource-manager/resource-group-template-deploy.md).
+While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Publish your solution
 Once you have completed and tested your solution, you can make it available to customers through either the following sources.
@@ -72,5 +71,5 @@ Once you have completed and tested your solution, you can make it available to c
 
 ## Next steps
 * Learn how to [create a solution file]( solutions-solution-file.md) for your management solution.
-* Learn the details of [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Learn the details of [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.

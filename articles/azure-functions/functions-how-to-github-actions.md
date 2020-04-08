@@ -1,12 +1,10 @@
 ---
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
-author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: aelnably
+ms.author: cshoe
 ---
 
 # Continuous delivery by using GitHub Action
@@ -43,7 +41,7 @@ In this example, replace the placeholders in the resource with your subscription
 
 ## Download the publishing profile
 
-You can download the publishing profile of your functionapp, by going to the **Overview** page of your app and clicking **Get publish profile**.
+You can download the publishing profile of your function app, by going to the **Overview** page of your app and clicking **Get publish profile**.
 
    ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
 
@@ -51,32 +49,28 @@ Copy the content of the file.
 
 ## Configure the GitHub secret
 
-1. In [GitHub](https://github.com), browse your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
    ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` for the **Name** and the copied command output for **Value**, if you then select **Add secret**. If you are using publishing profile, use `SCM_CREDENTIALS` for the **Name** and the file content for **Value**.
+1. Add a new secret.
+
+   * If you're using the service principal that you created by using the Azure CLI, use `AZURE_CREDENTIALS` for the **Name**. Then paste the copied JSON object output for **Value**, and select **Add secret**.
+   * If you're using a publishing profile, use `SCM_CREDENTIALS` for the **Name**. Then use the publishing profile's file content for **Value**, and select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 
 ## Set up the environment 
 
-Setting up the environment can be done using one of the publish setup actions.
+Setting up the environment is done using a language-specific publish setup action.
 
-|Language | Setup Action |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# [JavaScript](#tab/javascript)
 
-The following examples show the part of the workflow that sets up the environment for the various supported languages:
-
-**JavaScript**
+The following example shows the part of the workflow that uses the `actions/setup-node` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Node 10.x
@@ -85,11 +79,13 @@ The following examples show the part of the workflow that sets up the environmen
         node-version: '10.x'
 ```
 
-**Python**
+# [Python](#tab/python)
+
+The following example shows the part of the workflow that uses the `actions/setup-python` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Python 3.6
@@ -98,11 +94,13 @@ The following examples show the part of the workflow that sets up the environmen
         python-version: 3.6
 ```
 
-**.NET**
+# [C#](#tab/csharp)
+
+The following example shows the part of the workflow that uses the `actions/setup-dotnet` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Dotnet 2.2.300
@@ -111,11 +109,13 @@ The following examples show the part of the workflow that sets up the environmen
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# [Java](#tab/java)
+
+The following example shows the part of the workflow that uses the  `actions/setup-java` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Java 1.8.x
@@ -125,14 +125,15 @@ The following examples show the part of the workflow that sets up the environmen
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## Build the function app
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-The following examples show the part of the workflow that builds the function app, in the various supported languages.:
+The following example shows the part of the workflow that builds the function app, which is language specific:
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -147,7 +148,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Python**
+# [Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -161,7 +162,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -174,7 +175,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -187,6 +188,7 @@ The following examples show the part of the workflow that builds the function ap
         mvn azure-functions:package
         popd
 ```
+---
 
 ## Deploy the function app
 

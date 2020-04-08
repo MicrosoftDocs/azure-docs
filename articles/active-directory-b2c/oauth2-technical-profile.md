@@ -1,15 +1,16 @@
 ---
-title: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define an OAuth2 technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 02/24/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -91,6 +92,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | ResponseErrorCodeParamName | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 | ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
 
 ## Cryptographic keys
 
@@ -108,7 +111,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](active-directory-b2c-custom-setup-goog-idp.md)
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
 
 
 

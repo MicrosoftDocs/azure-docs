@@ -1,6 +1,7 @@
 ---
-title: Enable secure TLS for Azure Storage client | Microsoft Docs
-description: Learn how to enable TLS 1.2 in the client of Azure Storage.
+title: Enable secure TLS with .NET
+titleSuffix: Azure Storage
+description: Learn how to enable TLS 1.2 by using the .NET client library for Azure Storage.
 services: storage
 author: tamram
 

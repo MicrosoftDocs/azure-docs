@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: This tutorial demonstrates paging of search results. It builds on an existing hotels project, with paging by first, next, previous, last, and numbered buttons. A second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # C# tutorial: Search results pagination - Azure Cognitive Search

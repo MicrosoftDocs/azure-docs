@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Net# is a language developed by Microsoft that is used to define complex neural network architectures such as deep neural networks or convolutions of arbitrary dimensions. You can use complex structures to improve learning on data such as image, video, or audio.
 
@@ -51,7 +53,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 ## Supported customizations
 
-The architecture of neural network models that you create in the classic version of Azure Machine Learning Studio can be extensively customized by using Net#. You can:
+The architecture of neural network models that you create in Azure Machine Learning Studio (classic) can be extensively customized by using Net#. You can:
 
 + Create hidden layers and control the number of nodes in each layer.
 + Specify how layers are to be connected to each other.

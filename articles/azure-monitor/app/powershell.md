@@ -1,11 +1,7 @@
 ---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/17/2019
 
 ---
@@ -16,7 +12,7 @@ ms.date: 10/17/2019
 
 This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/app/alerts.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
-The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
+The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
 ## One-time setup
 If you haven't used PowerShell with your Azure subscription before:
@@ -128,7 +124,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -160,7 +156,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -174,7 +171,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -320,16 +316,30 @@ To get the daily cap properties, use the [Set-AzApplicationInsightsPricingPlan](
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-To set the daily cap properties, use same cmdlet. For instance, to set the cap to 300 GB/day, 
+To set the daily cap properties, use same cmdlet. For instance, to set the cap to 300 GB/day,
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+You can also use [ARMClient](https://github.com/projectkudu/ARMClient) to get and set daily cap parameters.  To get the current values, use:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## Set the daily cap reset time
+
+To set the daily cap reset time, you can use [ARMClient](https://github.com/projectkudu/ARMClient). Here's an example using `ARMClient`, to set the reset time to a new hour (in this example 12:00 UTC):
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## Set the pricing plan 
 
-To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet:
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -350,188 +360,36 @@ You can also set the pricing plan on an existing Application Insights resource u
                -appName myApp
 ```
 
+The `priceCode` is defined as:
+
 |priceCode|plan|
 |---|---|
 |1|Per GB (formerly named the Basic plan)|
 |2|Per Node (formerly name the Enterprise plan)|
 
-## Add a metric alert
+Finally, you can use [ARMClient](https://github.com/projectkudu/ARMClient) to get and set pricing plans and daily cap parameters.  To get the current values, use:
 
-To set up a metric alert at the same time as your app resource, merge code like this into the template file:
-
-```JSON
-{
-    parameters: { ... // existing parameters ...
-            "responseTime": {
-              "type": "int",
-              "defaultValue": 3,
-              "minValue": 1,
-              "metadata": {
-                "description": "Enter response time threshold in seconds."
-              }
-    },
-    variables: { ... // existing variables ...
-      // Alert names must be unique within resource group.
-      "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
-    }, 
-    resources: { ... // existing resources ...
-     {
-      //
-      // Metric alert on response time
-      //
-      "name": "[variables('responseAlertName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]",
-      // Ensure this resource is created after the app resource:
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('responseAlertName')]",
-        "description": "response time alert",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
-            "metricName": "request.duration"
-          },
-          "threshold": "[parameters('responseTime')]", //seconds
-          "windowSize": "PT15M" // Take action if changed state for 15 minutes
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-    }
-}
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-When you invoke the template, you can optionally add this parameter:
+And you can set all of these parameters using:
 
-    `-responseTime 2`
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
 
-You can of course parameterize other fields. 
+This will set the daily cap to 200 GB/day, configure the daily cap reset time to 12:00 UTC, send emails both when the cap is hit and the warning level is met, and set the warning threshold to 90% of the cap.  
 
-To find out the type names and configuration details of other alert rules, create a rule manually and then inspect it in [Azure Resource Manager](https://resources.azure.com/). 
+## Add a metric alert
+
+To automate the creation of metric alerts, consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
 
-This example is for a ping test (to test a single page).  
-
-**There are two parts** in an availability test: the test itself, and the alert that notifies you of failures.
-
-Merge the following code into the template file that creates the app.
-
-```JSON
-{
-    parameters: { ... // existing parameters here ...
-      "pingURL": { "type": "string" },
-      "pingText": { "type": "string" , defaultValue: ""}
-    },
-    variables: { ... // existing variables here ...
-      "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
-      "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
-    },
-    resources: { ... // existing resources here ...
-    { //
-      // Availability test: part 1 configures the test
-      //
-      "name": "[variables('pingTestName')]",
-      "type": "Microsoft.Insights/webtests",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]",
-      // Ensure this is created after the app resource:
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "Name": "[variables('pingTestName')]",
-        "Description": "Basic ping test",
-        "Enabled": true,
-        "Frequency": 900, // 15 minutes
-        "Timeout": 120, // 2 minutes
-        "Kind": "ping", // single URL test
-        "RetryEnabled": true,
-        "Locations": [
-          {
-            "Id": "us-va-ash-azr"
-          },
-          {
-            "Id": "emea-nl-ams-azr"
-          },
-          {
-            "Id": "apac-jp-kaw-edge"
-          }
-        ],
-        "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExecutionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
-        },
-        "SyntheticMonitorId": "[variables('pingTestName')]"
-      }
-    },
-
-    {
-      //
-      // Availability test: part 2, the alert rule
-      //
-      "name": "[variables('pingAlertRuleName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]", 
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('pingAlertRuleName')]",
-        "description": "alert for web test",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/webtests', variables('pingTestName'))]",
-            "metricName": "GSMT_AvRaW"
-          },
-          "windowSize": "PT15M", // Take action if changed state for 15 minutes
-          "failedLocationCount": 2
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-    }
-}
-```
-
-To discover the codes for other test locations, or to automate the creation of more complex web tests, create an example manually and then parameterize the code from [Azure Resource Manager](https://resources.azure.com/).
+To automate availability tests, consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 
@@ -559,7 +417,7 @@ To automate the creation of any other resource of any kind, create an example ma
     `"apiVersion": "2015-05-01",`
 
 ### Parameterize the template
-Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../../azure-resource-manager/resource-group-template-functions.md). 
+Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/templates/template-syntax.md), you write expressions using a [set of helper functions](../../azure-resource-manager/templates/template-functions.md). 
 
 You can't parameterize just part of a string, so use `concat()` to build strings.
 

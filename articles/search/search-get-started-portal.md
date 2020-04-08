@@ -1,14 +1,14 @@
 ---
 title: Create a search index in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
+description: In this Azure portal quickstart, use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
 
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
@@ -22,14 +22,7 @@ ms.date: 11/04/2019
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use the portal to quickly ramp up on concepts, and write interesting queries against an index within minutes.
-
-> [!div class="checklist"]
-> * Start with a free public sample data set hosted on Azure
-> * Run the **Import data** wizard in Azure Cognitive Search to load data and generate an index
-> * Monitor indexing progress in the portal
-> * View an existing index and options for modifying it
-> * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**
+Use the portal's **Import data** wizard and **Search explorer** tools to quickly ramp up on concepts, and write interesting queries against an index within minutes.
 
 If the tools are too limiting, you can consider a [code-based introduction to programming Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). 
 
@@ -263,7 +256,7 @@ Using the **Search explorer** in the Azure portal, you learned some basic query 
 
 You also learned how to find indexes, indexers, and data sources in the portal. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -273,8 +266,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-You can explore more of Azure Cognitive Search using the programmatic tools:
+Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
-* [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Create an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Create an index using Postman or Fiddler and the Azure Cognitive Search REST APIs](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Create a search app in the portal](search-create-app-portal.md)

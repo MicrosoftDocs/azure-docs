@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services input metadata schema | Microsoft Docs
-description: The topic gives an overview of Azure Media Services input metadata schema.
+description: This article gives an overview of Azure Media Services input metadata schema.
 author: Juliako
 manager: femila
 editor: ''
