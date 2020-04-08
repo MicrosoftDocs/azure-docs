@@ -21,34 +21,11 @@ To complete this article, you must have an existing source gallery, image defini
 
 When working through this article, replace the resource names where needed.
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
-
-List all galleries by name.
-
-```azurepowershell-interactive
-$galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
-$galleries.Name
-```
-
-List all image definitions by name.
-
-```azurepowershell-interactive
-$imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
-$imageDefinitions.Name
-```
-
-List all image versions by name.
-
-```azurepowershell-interactive
-$imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images/versions
-$imageVersions.Name
-```
-
 
 
 ## Get the source image version
 
-You will need information from the source image definition so you can create a copy of it in your new gallery.
+You will need information from the source image definition so you can create a copy of it in your destination gallery.
 
 List information about the existing galleries, image definitions, and image versions using the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet.
 
@@ -72,7 +49,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## Create the image definition 
 
-You need to create a new image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
+You need to create a new image definition that matches the image definition of your source. You can see all of the information you need to recreate the image definition using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -112,14 +89,14 @@ The output will look something like this:
 }
 ```
 
-Create a new image definition, in your new gallery, using the information from the output above.
+Create a new image definition, in your destination gallery, using the [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) cmdlet and the information from the output above.
 
 
-Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) and the information from the output. In this example, the image definition is named *myDestinationImgDef* in the gallery named *myDestinationGallery*.
+In this example, the image definition is named *myDestinationImgDef* in the gallery named *myDestinationGallery*.
 
 
 ```azurepowershell-interactive
-$sourceImgVer  = New-AzGalleryImageDefinition `
+$destinationImgDef  = New-AzGalleryImageDefinition `
    -GalleryName myDestinationGallery `
    -ResourceGroupName myDestinationRG `
    -Location WestUS `
@@ -135,28 +112,40 @@ $sourceImgVer  = New-AzGalleryImageDefinition `
 
 ## Create the image version
 
-Create an image version using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion), and the information from the output. You will need to pass in the ID source image version in the `--managed-image` parameter to use as a baseline for creating the image version in your destination gallery. 
+Create an image version using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `--managed-image` parameter for creating the image version in your destination gallery. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. 
+In this example, the destination gallery is named *myDestinationGallery*, in the *myDestinationRG* resource group, in the *West US* location. The version of our image is *1.0.0* and we are going to create 1 replica in the *South Central US* region, and 2 replicas in the *West US* region. 
 
 
-```azurecli-interactive 
-az sig image-version create \
-   --resource-group myDestinationRG \
-   --gallery-name myDestinationGallery \
-   --gallery-image-definition 'myDestinationImgDef' \
-   --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
-   --replica-count 2 \
-   --managed-image $sourceImgVer.Id
+```azurepowershell-interactive
+   $region1 = @{Name='South Central US';ReplicaCount=1}
+   $region2 = @{Name='West US';ReplicaCount=2}
+   $targetRegions = @($region1,$region2)
+
+$job = $imageVersion = New-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $destinationImgDef.Name`
+   -GalleryImageVersionName '1.0.0' `
+   -GalleryName myDestinationGallery `
+   -ResourceGroupName myDestinationRG `
+   -Location WestUS `
+   -TargetRegion $targetRegions  `
+   -Source $sourceImgVer.Id.ToString() `
+   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -asJob 
+```
+
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
+
+```azurepowershell-interactive
+$job.State
 ```
 
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store all of your image version replicas in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
+> You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
 ## Next steps

@@ -1,15 +1,15 @@
 ---
-title: Create a VM from a specialized image version
-description: Create a VM using a specialized image version in a Shared Image Gallery.
+title: Create a VM from a specialized image 
+description: Create a VM using a specialized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: cynthn
 ---
 
-# Create a VM using a specialized image version
+# Create a VM using a specialized image 
 
 Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a specialized image version](vm-generalized-image-version-powershell.md).
 
@@ -26,9 +26,12 @@ $resourceGroup = "mySIGSpecializedRG"
 $location = "South Central US"
 $vmName = "mySpecializedVM"
 
-# Get the image version. Replace the name of your resource group, gallery, image definition, and image version.
+# Get the image. Replace the name of your resource group, gallery, and image definition. This will create the VM from the latest image version available.
 
-$imageVersion = Get-AzGalleryImageVersion -GalleryImageDefinitionName "myImageDefinition" -GalleryName "myGallery" -ResourceGroupName "myResourceGroup" -Name "myImageVersion"
+$imageDefiniton = Get-AzGalleryImageDefinition `
+   -GalleryName myGallery `
+   -ResourceGroupName myResourceGroup `
+   -Name myImageDefinition
 
 
 # Create a resource group
@@ -36,27 +39,56 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create the network resources.
 
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-$nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -Location $location `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+   -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name myNetworkSecurityGroup `
+   -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name $vmName `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration using $imageVersion.Id to specify the image version.
+# Create a virtual machine configuration using Set-AzVMSourceImage -Id $imageDefinition.Id to use the latest available image version.
 
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
-Set-AzVMSourceImage -Id $imageVersion.Id | `
-Add-AzVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzVMConfig `
+   -VMName $vmName `
+   -VMSize Standard_D1_v2 | `
+   Set-AzVMSourceImage -Id $imageDefinition.Id | `
+   Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine
-New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+New-AzVM `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -VM $vmConfig
 
 ```
 
