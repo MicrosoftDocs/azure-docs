@@ -11,7 +11,7 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/14/2018
+ms.date: 04/09/2020
 ---
 
 # Configure the Azure-SSIS Integration Runtime with Azure SQL Database geo-replication and failover
@@ -107,7 +107,9 @@ When an ADF or Azure-SSIS IR disaster occurs in current region, you can make you
 
 ### Steps
 
-Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, and start it again.
+Follow these steps to move your Azure-SSIS IR to a new region.
+> [!NOTE]
+> Step 3 (creation of IR) needs to be done via PowerShell. Azure portal will report an error stating that SSISDB already exists.
 
 1. Execute stored procedure to make SSISDB attached to **\<new_data_factory_name\>** or **\<new_integration_runtime_name\>**.
    
