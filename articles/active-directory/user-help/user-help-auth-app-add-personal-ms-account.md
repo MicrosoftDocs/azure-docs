@@ -25,14 +25,9 @@ Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE acco
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
-## Add your personal Microsoft account
+You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app. You don't have to turn on two-factor verification to only use passwordless phone sign-in for your account, but we strongly recommend that you turn on two-factor verification for additional account security.
 
-You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
-
->[!Note]
->if you plan to only use passwordless phone sign-in for your personal Microsoft account, you don't have to turn on two-factor verification. However, for additional account security, we recommend that you turn on two-factor verification.
-
-### Turn on two-factor verification
+## Turn on two-factor verification
 
 1. On your computer, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
@@ -42,7 +37,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
 
-### Add your Microsoft account to the app
+## Add your Microsoft account to the app
 
 1. Open the Microsoft Authenticator app on your mobile device.
 
