@@ -120,6 +120,7 @@ For the Red Hat distribution family, you only need the following command:
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
+On Ubuntu 18.04 with the Azure-tuned kernel uses multi-queue I/O schedulers, so "none" is the appropriate selection instead of "noop". See [Ubuntu I/O Schedulers](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers) for more information.
 
 ## Using Software RAID to achieve higher I/Ops
 If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
