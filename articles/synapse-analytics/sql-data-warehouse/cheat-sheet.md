@@ -121,6 +121,7 @@ Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#syna
 Learn more how to work with [resource classes and concurrency](resource-classes-for-workload-management.md).
 
 ## Lower your cost
+
 A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](pause-and-resume-compute-portal.md) or [PowerShell](pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
