@@ -225,6 +225,8 @@ From the Azure portal, navigate to the **Files share** created in the previous s
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
+    Like the earlier cmdlets, make sure to replace `<your-wvd-tenant>`, `<wvd-pool>`, and `<user-principal>` with the relevant values.
+
     For example:
 
      ```powershell
