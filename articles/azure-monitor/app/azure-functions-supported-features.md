@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights - Azure Functions supported features
+title: Azure Application Insights - Azure Functions Supported Features
 description: Application Insights Supported Features for Azure Functions
 ms.topic: reference
 author: TimothyMothra

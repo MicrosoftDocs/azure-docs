@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Agent Enable-InstrumentationEngine
+title: Azure Application Insights Agent API reference
 description: Application Insights Agent API reference. Enable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
 author: TimothyMothra
