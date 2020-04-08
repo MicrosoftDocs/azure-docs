@@ -1,5 +1,5 @@
 ---
-title: Migrate on-premises SSIS jobs to Azure Data Factory  
+title: Migrate on-premises SQL Server Integration Services (SSIS) jobs to Azure Data Factory  
 description: This article describes how to migrate SQL Server Integration Services (SSIS) jobs to Azure Data Factory pipelines/activities/triggers by using SQL Server Management Studio.
 services: data-factory
 documentationcenter: ''
@@ -41,37 +41,37 @@ The feature described in this article requires SQL Server Management Studio vers
 1. In SSMS, in Object Explorer, select SQL Server Agent, select Jobs, then right-click and select **Migrate SSIS Jobs to ADF**.
 ![menu](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-menu.png)
 
-1. *Sign In Azure, select Azure Subscription, Data Factory, and Integration Runtime. Azure Storage is optional, which is used in the package location mapping step if SSIS jobs to be migrated have SSIS File System packages.
-![menu](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step1.png)
+1. Sign In Azure, select Azure Subscription, Data Factory, and Integration Runtime. Azure Storage is optional, which is used in the package location mapping step if SSIS jobs to be migrated have SSIS File System packages.
+![menu](media/how-to-migrate-ssis-job-ssms/step1.png)
 
 1. Map the paths of SSIS packages and configuration files in SSIS jobs to destination paths where migrated pipelines can access. In this mapping step, you can:
 
-    - Select a source folder, then **Add Mapping**.
-    - Update source folder path. Valid paths are folder paths or parent folder paths of packages.
-    - Update destination folder path. Default is relative path to the default Storage account, which is selected in step 1.
-    - Delete a selected mapping via **Delete Mapping**.
-![step2](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step2.png)
-![step2-1](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step2-1.png)
+    1. Select a source folder, then **Add Mapping**.
+    1. Update source folder path. Valid paths are folder paths or parent folder paths of packages.
+    1. Update destination folder path. Default is relative path to the default Storage account, which is selected in step 1.
+    1. Delete a selected mapping via **Delete Mapping**.
+![step2](media/how-to-migrate-ssis-job-ssms/step2.png)
+![step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Select applicable jobs to migrate, and configure the settings of corresponding *Executed SSIS Package activity*.
 
     - *Default Setting*, applies to all selected steps by default. For more information of each property, see *Settings tab* for the [Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md) when package location is *File System (Package)*.
-    ![step3-1](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step3-1.png)
+    ![step3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
     - *Step Setting*, configure setting for a selected step.
         
         **Apply Default Setting**: default is selected. Unselect to configure setting for selected step only.  
         For more information of other properties, see *Settings tab* for the [Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md) when package location is *File System (Package)*.
-    ![step3-2](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step3-2.png)
+    ![step3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Generate and deploy ARM template.
-    - Select or input the output path for the ARM templates of the migrated ADF pipelines. Folder will be created automatically if not exists.
-    - Select the option of **Deploy ARM templates to your data factory**:
+    1. Select or input the output path for the ARM templates of the migrated ADF pipelines. Folder will be created automatically if not exists.
+    2. Select the option of **Deploy ARM templates to your data factory**:
         - Default is unselected. You can deploy generated ARM templates later manually.
         - Select to deploy generated ARM templates to data factory directly.
-    ![step4](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step4.png)
+    ![step4](media/how-to-migrate-ssis-job-ssms/step4.png)
 
 1. Migrate, then check results.
-![step5](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step5.png)
+![step5](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## Next steps
 
