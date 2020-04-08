@@ -448,27 +448,26 @@ Here you can see:
 * The extension downloading file and the result of that.
 * The command being run and the result.
 
-You can also retrieve the execution state of the Custom Script Extension **including the actual arguments passed as the `commandToExecute`** by using Azure CLI:
+You can also retrieve the execution state of the Custom Script Extension including the actual arguments passed as the `commandToExecute` by using Azure CLI:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
 ```
 
-The output looks like the following text, abbreviated for clarity:
+The output looks like the following text:
 
 ```output
 [
   {
     "autoUpgradeMinorVersion": true,
     "forceUpdateTag": null,
-    "id": "/subscriptions/<REDACTED>/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/adminVM/extensions/newuserscript",
-    "publisher": "Microsoft.Azure.Extensions",
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/customscript",
     "resourceGroup": "rgname",
     "settings": {
-      "commandToExecute": "sh setupClusterDomain.sh Y <REDACTED> <REDACTED> <REDACTED> <REDACTED> ",
+      "commandToExecute": "sh script.sh > ",
       "fileUris": [
-        "https://catalogartifact.azureedge.net/publicartifacts/<REDACTED>/scripts/setupClusterDomain.sh",
-        "https://catalogartifact.azureedge.net/publicartifacts/<REDACTED>/scripts/oradown.sh"
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh",
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh"
       ]
     },
     "tags": null,
@@ -479,7 +478,7 @@ The output looks like the following text, abbreviated for clarity:
   {
     "autoUpgradeMinorVersion": true,
     "forceUpdateTag": null,
-    "id": "/subscriptions/<REDACTED>/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/adminVM/extensions/OmsAgentForLinux",
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/OmsAgentForLinux",
     "instanceView": null,
     "location": "eastus",
     "name": "OmsAgentForLinux",
@@ -488,7 +487,7 @@ The output looks like the following text, abbreviated for clarity:
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "resourceGroup": "rgname",
     "settings": {
-      "workspaceId": "1fec5f21-1150-4c68-8bbe-b433a2525449"
+      "workspaceId": "workspaceid"
     },
     "tags": null,
     "type": "Microsoft.Compute/virtualMachines/extensions",
