@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics 
+# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files.
 
@@ -44,7 +44,7 @@ The section below contains sample scripts to read JSON files. Files are stored i
 
 ## Read JSON files
 
-To process JSON files using JSON_VALUE and [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
+To process JSON files using JSON_VALUE and [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
 
 ```sql
 SELECT
@@ -67,7 +67,7 @@ FROM
 
 ## Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT
@@ -91,7 +91,7 @@ WHERE
 
 ## Query JSON files using JSON_QUERY
 
-The following query shows you how to use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+The following query shows you how to use [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
@@ -114,7 +114,7 @@ WHERE
 
 ## Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT
