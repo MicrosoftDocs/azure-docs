@@ -27,3 +27,10 @@ This article describes limitations and issues with Azure Synapse Analytics (work
   1.    Create workspace by running `az synapse workspace create`2.    Extract managed identity id by running `$identity=$(az synapse workspace show --name {workspace name}  --resource-group {resource group name} --query "identity.principalId")`
   3.    Add workspace as role to storage account by running ` az role assignment create --role "Storage Blob Data Contributor" --assignee-object-id {identity } --scope {storage account resource id}`
   4.    Add firewall rule by running ` az synapse firewall-rule create --name allowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255 `
+
+## Next steps
+
+* [Create a workspace](quickstart-create-workspace.md)
+* [Use Synapse Studio](quickstart-synapse-studio.md)
+* [Create a SQL pool](quickstart-create-sql-pool.md)
+* [Use SQL on-demand](quickstart-sql-on-demand.md)
