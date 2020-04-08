@@ -27776,11 +27776,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/storage/storage-introduction.md",
-      "redirect_url": "/azure/storage/common/storage-introduction",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/storage/storage-ios-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
       "redirect_document_id": true
