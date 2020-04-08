@@ -263,7 +263,8 @@ static async Task TranslateSpeechAsync()
 
 ### Manual synthesis
 
-The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation. For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
+The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation.
+SpeechSynthesisVoiceName
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -313,6 +314,8 @@ static async Task TranslateSpeechAsync()
     }
 }
 ```
+
+For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
 
 [config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
 [audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
