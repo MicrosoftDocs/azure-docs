@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -35,7 +35,7 @@ To complete this article, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need *global administrator*, *authentication admin*, or *privileged authentication admin* privileges in your Azure AD tenant to enable SMS-based authentication.
+* You need *global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
 * Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
     * [Azure AD Premium P1 or P2][azuread-licensing]
     * [Microsoft 365 F1 or F3][m365-firstline-workers-licensing]
@@ -56,11 +56,11 @@ There are three main steps to enable and use SMS-based authentication in your or
 * Enable the authentication method policy.
 * Select users or groups that can use the SMS-based authentication method.
 * Assign a phone number for each user account.
-    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Profile*
+    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Profile*.
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
-1. Sign in to the [Azure portal][azure-portal] as a *global administrator*, *authentication admin*, or *privileged authentication admin*.
+1. Sign in to the [Azure portal][azure-portal] as a *global administrator*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Security > Authentication methods > Authentication method policy (preview)**.
 
@@ -88,7 +88,7 @@ Each user that's enabled in the text message authentication method policy must b
 
 ## Set a phone number for user accounts
 
-Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign in. The user can set this phone number themselves in *My Profile*, or you can assign the phone number using the Azure portal.
+Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign in. The user can set this phone number themselves in *My Profile*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
 
 When a phone number is set for SMS-sign, it's also then available for use with [Azure Multi-Factor Authentication][tutorial-azure-mfa] and [self-service password reset][tutorial-sspr].
 
