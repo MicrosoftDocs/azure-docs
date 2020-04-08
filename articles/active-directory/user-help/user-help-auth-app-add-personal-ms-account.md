@@ -58,7 +58,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 1. Select **Sign in with Microsoft** to add your account. A QR code can be used when available, but you can always add your account by signing in with your username and password.
 
-    ![Select either a Microsoft account or scan q QR code when available](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
+    ![Select either a Microsoft account or scan a QR code when available](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
 
 1. Sign in to your personal account, using the appropriate email address (such as alain@outlook.com), and then select **Next**.
 
