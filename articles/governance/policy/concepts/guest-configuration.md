@@ -68,13 +68,13 @@ The following table shows a list of the local tools used on each supported opera
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
 
 ### Validation frequency
 
 The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
-received, the settings are checked on a 15-minute interval. Results are sent to the Guest
-Configuration resource provider as soon as the audit completes. When a policy [evaluation
+received, the settings for that configuration are re-checked on a 15-minute interval.
+Results are sent to the Guest Configuration resource provider when the audit completes. When a policy [evaluation
 trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
 written to the Guest Configuration resource provider. This update causes Azure Policy to evaluate
 the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest
@@ -91,14 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3|
-
-> [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
-> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
-> modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -196,14 +191,6 @@ assignment are automatically included.
 
 Guest Configuration policies currently only support assigning the same Guest Assignment once per
 machine, even if the Policy assignment uses different parameters.
-
-## Built-in resource modules
-
-When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is
-included with the latest version of DSC resource modules. This module can be downloaded from the
-PowerShell Gallery by using the 'Manual Download' link from the module page
-[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). The '.nupkg'
-file format can be renamed to '.zip' to uncompress and review.
 
 ## Client log files
 
