@@ -271,7 +271,7 @@ Treat the cross-subscription node as though it lives in a separate cloud, or on-
 
 Follow the steps below to register the node.
 
-* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
 * Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
