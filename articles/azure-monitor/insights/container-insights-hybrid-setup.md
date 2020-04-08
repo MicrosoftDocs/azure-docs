@@ -34,7 +34,7 @@ Before you start, make sure that you have the following:
     |*.blob.core.windows.net |Port 443 |  
     |*.dc.services.visualstudio.com |Port 443 |
 
-* The containerized agent requires Kubelet’s `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet’s cAdvisor if it’s not configured already.
+* The containerized agent requires Kubelet's `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet's cAdvisor if it's not configured already.
 
 * The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
@@ -102,7 +102,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
