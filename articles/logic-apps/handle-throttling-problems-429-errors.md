@@ -137,15 +137,13 @@ This table describes the timeline for what happens in the loop when the action's
 
 To handle throttling at this level, you have these options:
 
-* Create logic apps that handle single operations.
+* Create logic apps so that each handles a single operation.
 
-  Continuing with the example SQL Server scenario in this section, here are options for this solution:
+  * Continuing with the example SQL Server scenario in this section, you can create a logic app that puts array items into a queue, such as an [Azure Service Bus queue](../connectors/connectors-create-api-servicebus.md). You then create another logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
 
-  * Have a logic app that puts the array items into a queue, such as an [Azure Service Bus queue](../connectors/connectors-create-api-servicebus.md), and have another a logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
+  * Create a parent logic app that calls a child or nested logic app for each action. If the parent needs to call different child apps based on the parent's outcome, you can use a condition action or switch action that determines which child app to call.
 
-  * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
-
-    If the parent app has to call different child apps based on the parent's outcome, you can use a condition action or switch action to determine which child app to call.
+    This pattern can help you reduce the number of operations that run. For example, suppose that you have two logic apps, each with a polling trigger that checks your email account every minute for  specific subject, such as "Success" or "Failure", which results in 120 calls per hour. If you create a single parent logic app that calls only one child logic app based whether the subject is either "Success" or "Failure", you can reduce the number of those calls.
 
 * Set up batch processing.
 
@@ -153,7 +151,7 @@ To handle throttling at this level, you have these options:
 
 * Use the webhook versions for triggers and actions, rather than the polling versions.
 
-  Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as the [HTTP Webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
+  Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as [HTTP Webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
   
   So, if the destination service or system supports webhooks or provides a connector that has a webhook version, this option is better than using the polling version. To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
