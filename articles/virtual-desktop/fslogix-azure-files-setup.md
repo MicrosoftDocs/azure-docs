@@ -19,7 +19,7 @@ This article will show you how to prepare Azure Files to create an FSLogix profi
 
 To configure your Azure Active Directory (AD) Domain Services account for FSLogix profile containers:
 
-1. Sign in to the Microsoft Azure Portal with an account that has contributor or administrator permissions.
+1. Sign in to the Microsoft Azure portal with an account that has contributor or administrator permissions.
 
 2. Select **New**, then search for and select **Azure AD Domain Services**.
 
@@ -75,13 +75,11 @@ To add an admin:
 
 ## Create and configure an Azure Files storage account
 
-Now it's time to enable Azure AD Domain Services authentication over Server Message Block (SMB). For more details on this process, see the Azure Storage Documentation.
-
-<!-->This needs a link<-->
+Now it's time to enable Azure AD Domain Services authentication over Server Message Block (SMB). For more information about this process, see our [Azure Storage Documentation](../storage/common/storage-introduction.md).
 
 To enable authentication:
 
-1. Go to the Microsoft Azure Portal, then select **All services**, and then select **Storage accounts**.
+1. Go to the Azure portal, then select **All services**, and then select **Storage accounts**.
 
 2. Select **Add** to create a storage account.
 3. In the window that appears:
@@ -107,7 +105,7 @@ To enable authentication:
 
 ## Assign access permissions to an identity
 
-From Microsoft Azure portal navigate to the **Files share** created in the previous section.
+From the Azure portal, navigate to the **Files share** created in the previous section.
 
 1. Select **Access Control (IAM)**.
 2. Select **Add a role assignment**.
@@ -118,7 +116,7 @@ From Microsoft Azure portal navigate to the **Files share** created in the previ
 
 ## Obtain storage account access key
 
-1. From the Microsoft Azure Portal sidebar, select **Storage accounts**.
+1. From the Azure portal sidebar, select **Storage accounts**.
 
 2. From the list of storage accounts, select the account for which you enabled Azure AD Domain Services and created the custom roles in steps above.
 
@@ -171,9 +169,7 @@ From Microsoft Azure portal navigate to the **Files share** created in the previ
 
 ## Configure your profile container
 
-1. Sign in to the session host VM you configured in [Prepare Azure Files for an FSLogix profile containers](fslogix-azure-files-setup.md), then download and install the FSLogix agent.
-
-<!-->This needs a download link<-->
+1. Sign in to the session host VM you configured in [Prepare Azure Files for an FSLogix profile containers](fslogix-azure-files-setup.md), then [download and install the FSLogix agent](/fslogix/install-ht/).
 
 2. Unzip the FSLogix agent file you downloaded and go to **x64** > **Releases**, then open **FSLogixAppsSetup.exe**.
 
@@ -251,11 +247,11 @@ Now all you have to do is verify the profile you created exists.
 
 To verify your profile:
 
-1. Open a browser and go to [https://aka.ms/wvdweb](https://aka.ms/wvdweb).
+1. Open a browser and go to [the Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
 2. Sign in with the user account assigned to the Remote Desktop group.
 
-3. Once the user session has been established, open the Microsoft Azure Portal and sign in with an administrative account.
+3. Once the user session has been established, open the Azure portal and sign in with an administrative account.
 
 4. From the sidebar, select **Storage accounts**.
 
@@ -263,5 +259,5 @@ To verify your profile:
 
 6. Select the **Files** icon, then expand your share.
 
-    If everything's set up correctly, you should see a **Directory** named `<user SID>-<username>`.
+    If everything's set up correctly, you should see a **Directory** with a name that's formatted like this: `<user SID>-<username>`.
 
