@@ -211,7 +211,7 @@ The following steps show you how to create a Python client application that conn
 1. Add the following functions inside the `main` function to handle property updates sent from your IoT Central application:
 
     ```python
-        sync def name_setting(value, version):
+        async def name_setting(value, version):
           await asyncio.sleep(1)
           print(f'Setting name value {value} - {version}')
           await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})

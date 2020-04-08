@@ -39,6 +39,8 @@
     href: streaming-technologies.md
   - name: Choose a job development tool
     href: feature-comparison.md
+  - name: Develop locally
+    href: develop-locally.md
   - name: Input types for a job
     items:
     - name: Inputs overview
