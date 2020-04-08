@@ -182,7 +182,7 @@ The following articles provide detailed steps that explain how to review your bi
 - [Microsoft Customer Agreement review process](../understand/review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Microsoft Partner Agreement review process](../understand/review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
 
-Your Azure bill aggregates charges for the month on a per-_meter_ basis. Meters are used to track a resource's usage over time and are used to calculate your bill. When you create a single Azure resource, like a virtual machine, it has one or more-meter instances are created.
+Your Azure bill aggregates charges for the month on a per-_meter_ basis. Meters are used to track a resource's usage over time and are used to calculate your bill. When you create a single Azure resource, like a virtual machine, one or more-meter instances are created for the resource.
 
 Filter the usage CSV file based on the _MeterName_ as shown on the bill that you want to analyze to see all line items that apply to the meter. The _InstanceID_ for the line item corresponds to the actual Azure resource that generated the charge.
 
