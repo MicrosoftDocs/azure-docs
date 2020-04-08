@@ -18,7 +18,7 @@ Tips for implementing transactions in SQL pool (data warehouse) for developing s
 
 ## What to expect
 
-As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL pool is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
+As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL pool is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others.
 
 ## Transaction isolation levels
 
@@ -33,7 +33,7 @@ To approximate the maximum number of rows in the transaction divide the distribu
 
 In the table below the following assumptions have been made:
 
-* An even distribution of data has occurred 
+* An even distribution of data has occurred
 * The average row length is 250 bytes
 
 ## Gen2
@@ -74,23 +74,20 @@ In the table below the following assumptions have been made:
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
+The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log.
 
 To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
 > <!--REPLICATED_TABLE-->
-> 
-> 
 
 ## Transaction state
+
 SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
 > The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
-> 
-> 
 
 For example, in SQL Server you might see a transaction that looks like the following:
 
@@ -191,6 +188,7 @@ THROW is the more modern implementation for raising exceptions in SQL pool but R
 * Use of sys.messages is not supported
 
 ## Limitations
+
 SQL pool does have a few other restrictions that relate to transactions.
 
 They are as follows:
@@ -203,5 +201,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [SQL on-demand (preview)](on-demand.md).
 
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [SQL on-demand (preview)](on-demand.md).

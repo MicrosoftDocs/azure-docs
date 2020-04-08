@@ -18,10 +18,11 @@ This article discusses the differences between the various authentication option
 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
+**Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 For all the features discussed in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image:
- 
-  ![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Completes the User name box.")  
+
+![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Completes the User name box.")  
 
 ## The five authentication options  
 
@@ -29,22 +30,22 @@ Active Directory Universal Authentication supports the two non-interactive authe
     - `Active Directory - Password` authentication
     - `Active Directory - Integrated` authentication
 
-There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes: 
-- `Active Directory - Password` 
-- `Active Directory - Integrated` 
+There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes:
 
-The interactive method is that also supports Azure multi-factor authentication (MFA) is: 
-- `Active Directory - Universal with MFA` 
+- `Active Directory - Password`
+- `Active Directory - Integrated`
 
+The interactive method is that also supports Azure multi-factor authentication (MFA) is:
+
+- `Active Directory - Universal with MFA`
 
 Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### Azure AD domain name or tenant ID parameter   
+### Azure AD domain name or tenant ID parameter
 
-
-Beginning with [SSMS version 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), users that are imported into the current Active Directory from other Azure Active Directories as guest users, can provide the Azure AD domain name, or tenant ID when they connect. 
+Beginning with [SSMS version 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), users that are imported into the current Active Directory from other Azure Active Directories as guest users, can provide the Azure AD domain name, or tenant ID when they connect. 
 
 Guest users include users invited from other Azure ADs, Microsoft accounts such as outlook.com, hotmail.com, live.com, or other accounts like gmail.com. This information, allows **Active Directory Universal with MFA Authentication** to identify the correct authenticating authority. This option is also required to support Microsoft accounts (MSA) such as outlook.com, hotmail.com, live.com, or non-MSA accounts. 
 
@@ -57,6 +58,7 @@ When the user is a native user of the Azure AD linked to Azure Server, and is no
 To enter the parameter (beginning with SSMS version 17.2), in the **Connect to Database** dialog box, complete the dialog box, selecting **Active Directory - Universal with MFA** authentication, click **Options**, complete the **User name** box, and then click the **Connection Properties** tab. 
 
 Check the **AD domain name or tenant ID** box, and provide authenticating authority, such as the domain name (**contosotest.onmicrosoft.com**) or the GUID of the tenant ID.  
+
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 If you are running SSMS 18.x or later then the AD domain name or tenant ID is no longer needed for guest users because 18.x or later automatically recognizes it.
@@ -75,6 +77,7 @@ The usergroup, by default, has only the connect permission and any further data 
 Note that user `steve@gmail.com` as a guest user must check the box and add the AD domain name `contosotest.onmicrosoft.com` in the SSMS **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the Universal with MFA connection options, otherwise it is greyed out.
 
 ## Universal Authentication limitations for SQL Analytics
+
 - SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
 - SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a login for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
 - SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.
@@ -85,3 +88,4 @@ Note that user `steve@gmail.com` as a guest user must check the box and add the 
 
 ## Next steps
 For more information, see the [Connect to SQL Analytics with SQL Server Management Studio](get-started-ssms.md) article. 
+

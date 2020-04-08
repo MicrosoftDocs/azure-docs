@@ -45,10 +45,6 @@ No, this scenario isn't supported. The default settings are:
 
 For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md).
 
-### Can I place a forward proxy device between the connector server(s) and the back-end Application server?
-
-No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
-
 ### Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
 The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
