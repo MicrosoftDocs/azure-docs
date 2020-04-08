@@ -22,48 +22,45 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## March 2020 
 
+### New features
+
+* **Labeling value types** Value types are now available for use with the Form Recognizer sample labeling tool. These value types are currently supported: 
+  * String
+  * Number 
+  * Integer
+  * Date 
+  * Time
+  
+  This image shows what value type selection looks like within the Form Recognizer sample labeling tool:
+
+  > [!div class="mx-imgBorder"]
+  > ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
+
+  The extracted tables are available in the JSON output under `"pageResults"`.
+
+* **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
+
+  This is an example of how tables are recognized and extracted:
+
+  > [!div class="mx-imgBorder"]
+  > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+
+  > [!IMPORTANT]
+  > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, label each cell as a unique value.
+
 ### Extraction enhancements
 
 This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
  
-### Form Recognizer Sample Labeling Tool is now open-source
+### Sample labeling tool is now open-source
 
-The Form Recognizer Sample Labeling Tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+The Form Recognizer sample labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
 
-For more information about the Form Recognizer Sample Labeling Tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
-
-### Labeling value types
-
-Value types are now available for use with the Form Recognizer Sample Labeling Tool. These value types are currently supported: 
-
-* String
-* Number 
-* Integer
-* Date 
-* Time
-
-This image shows what value type selection looks like within the Form Recognizer Sample Labeling Tool:
-
-> [!div class="mx-imgBorder"]
-> ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
-
-The extracted table are available in the JSON output in `pageResults`.
-
-### Table visualization 
-
-The Form Recognizer Labeling Tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing with the Form Recognizer Sample Labeling Tool. This feature can be toggled on/off using the layers option. 
-
-This is an example of how tables are recognized and extracted:
-
-> [!div class="mx-imgBorder"]
-> ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
+For more information about the Form Recognizer sample labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### TLS 1.2 enforcement
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
 ## January 2020
 
