@@ -11,6 +11,9 @@ ms.author: v-umha
 
 This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) or email us at farmbeatssupport@microsoft.com.
 
+> [!NOTE]
+  > If you have installed FarmBeats during April and your jobs are failing with an empty error message, your installation may not have been allocated any batch quota due to all resources being directed towards emergency, healthcare and other critical needs. You will need to request VMs to be allocated to the Batch account.
+
 ## Install issues
 
   > [!NOTE]
