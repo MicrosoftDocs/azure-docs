@@ -157,7 +157,7 @@ ___
 
 ## Migrate from v1.0 to v2.0
 
-Learn about migrating to the the latest version of the Microsoft identity platform, including moving from the Active Directory Authentication Library (ADAL) to MSAL.
+Learn about migrating to the latest version of the Microsoft identity platform, including moving from the Active Directory Authentication Library (ADAL) to MSAL.
 ___
 
 :::row:::
