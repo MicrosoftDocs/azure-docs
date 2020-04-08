@@ -32,7 +32,7 @@ Your Azure Stack Edge device can deploy and run IoT Edge modules. Edge modules a
 2. The file event generator creates a file event for each file written to the local share. The file events are also generated when a file is modified. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
 3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
-![How Azure IoT Edge module works on Azure Stack Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
+![How Azure IoT Edge module works on Azure Stack Edge](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Once the file is in the cloud share, it automatically gets uploaded to your Azure Storage account.
 
@@ -69,12 +69,12 @@ An Azure container registry is a private Docker registry in Azure where you can 
    5. Toggle **Admin user** to **Enable**.
    6. Set the SKU to **Basic**.
 
-      ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Create container registry](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Select **Create**.
 5. After your container registry is created, browse to it, and select **Access keys**.
 
-    ![Get Access keys](./media/data-box-edge-create-iot-edge-module/get-access-keys-1.png)
+    ![Get Access keys](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
  
 6. Copy the values for **Login server**, **Username**, and **Password**. You use these values later to publish the Docker image to your registry and to add the registry credentials to the Azure IoT Edge runtime.
 
@@ -94,28 +94,28 @@ Create a C# solution template that you can customize with your own code.
     1. Select the folder where you want to create the solution.
     2. Provide a name for your solution or accept the default **EdgeSolution**.
     
-        ![Create new solution 1](./media/data-box-edge-create-iot-edge-module/create-new-solution-1.png)
+        ![Create new solution 1](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-1.png)
 
     3. Choose **C# Module** as the module template.
     4. Replace the default module name with the name you want to assign, in this case, it is **FileCopyModule**.
     
-        ![Create new solution 2](./media/data-box-edge-create-iot-edge-module/create-new-solution-2.png)
+        ![Create new solution 2](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-2.png)
 
     5. Specify the container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied.
 
         The final string looks like `<Login server name>/<Module name>`. In this example, the string is: `mycontreg2.azurecr.io/filecopymodule`.
 
-        ![Create new solution 3](./media/data-box-edge-create-iot-edge-module/create-new-solution-3.png)
+        ![Create new solution 3](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-3.png)
 
 4. Go to **File > Open Folder**.
 
-    ![Create new solution 4](./media/data-box-edge-create-iot-edge-module/create-new-solution-4.png)
+    ![Create new solution 4](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-4.png)
 
 5. Browse and point to the **EdgeSolution** folder that you created earlier. The VS Code window loads your IoT Edge solution workspace with its five top-level components. You won't edit the **.vscode** folder, **.gitignore** file, **.env** file, and the **deployment.template.json** in this article.
     
     The only component that you modify is the modules folder. This folder has the C# code for your module and Docker files to build your module as a container image.
 
-    ![Create new solution 5](./media/data-box-edge-create-iot-edge-module/create-new-solution-5.png)
+    ![Create new solution 5](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-5.png)
 
 ### Update the module with custom code
 
@@ -247,19 +247,19 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
     Use the login server and username that you copied from your container registry.
 
-    ![Build and push IoT Edge solution](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
+    ![Build and push IoT Edge solution](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 
 2. When prompted for password, supply the password. You can also retrieve the values for login server, username, and password from the **Access Keys** in your container registry in the Azure portal.
  
 3. Once the credentials are supplied, you can push your module image to your Azure container registry. In the VS Code Explorer, right-click the **module.json** file and select **Build and Push IoT Edge solution**.
 
-    ![Build and push IoT Edge solution](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Build and push IoT Edge solution](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     When you tell Visual Studio Code to build your solution, it runs two commands in the integrated terminal: docker build and docker push. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution.
 
     You will be prompted to choose the module platform. Select *amd64* corresponding to Linux.
 
-    ![Select platform](./media/data-box-edge-create-iot-edge-module/select-platform.png)
+    ![Select platform](./media/azure-stack-edge-create-iot-edge-module/select-platform.png)
 
     > [!IMPORTANT] 
     > Only the Linux modules are supported.

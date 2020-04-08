@@ -48,7 +48,7 @@
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
     - name: Contact Microsoft Support
-      href: data-box-edge-contact-microsoft-support.md
+      href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
       - name: 1906 - Current
@@ -90,7 +90,7 @@
   - name: How to
     items:
     - name: Develop C# module
-      href: data-box-edge-create-iot-edge-module.md
+      href: azure-stack-edge-create-iot-edge-module.md
     - name: Manage 
       items:
       - name: Edge compute
@@ -106,11 +106,11 @@
       - name: Power, access, connectivity
         href: data-box-edge-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
-        href: data-box-edge-connect-powershell-interface.md
+        href: azure-stack-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
     - name: Contact Microsoft Support
-      href: data-box-edge-contact-microsoft-support.md
+      href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
       href: data-box-edge-monitor.md
     - name: Return or replace device
