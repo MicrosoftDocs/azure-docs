@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
+apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
@@ -68,7 +68,7 @@ The following table shows a list of the local tools used on each supported opera
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
 
 ### Validation frequency
 
