@@ -149,8 +149,6 @@ public class ReadTable {
 		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
-		System.out.println("MariaDB JDBC driver detected in library path.");
-
 		Connection connection = null;
 
 		// Initialize connection object
