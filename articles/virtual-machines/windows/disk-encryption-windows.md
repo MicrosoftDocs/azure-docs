@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 # Azure Disk Encryption scenarios on Windows VMs
 
-Azure Disk Encryption uses the BitLocker external key protector to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
+Azure Disk Encryption for Windows virtual machines (VMs) uses the Bitlocker feature of Windows to provide full disk encryption of the WindOS disk and data disk. Additionally, it provides encryption of the ephemeral resource disk when the VolumeType parameter is All.
 
-There are many disk encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Windows VMs.
+Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
 You can only apply disk encryption to virtual machines of [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems). You must also meet the following prerequisites:
 
@@ -36,9 +36,6 @@ You can only apply disk encryption to virtual machines of [supported VM sizes an
 
 ## Enable encryption on an existing or running Windows VM
 In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Windows extension](../extensions/azure-disk-enc-windows.md) article.
-
-## Enable encryption on existing or running IaaS Windows VMs
-You can enable encryption by using a template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Windows extension](../extensions/azure-disk-enc-windows.md) article.
 
 ### Enable encryption on existing or running VMs with Azure PowerShell 
 Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. 
