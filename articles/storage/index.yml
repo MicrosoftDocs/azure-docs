@@ -90,7 +90,7 @@ additionalContent:
           links:
           - url: /azure/storage/tables/table-storage-overview
             text: Store structured NoSQL data in the cloud (Table storage and Cosmos DB)
-          - url: /azure/cosmos-db/table-support?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json  
+          - url: /azure/cosmos-db/table-support?toc=https%3A%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fstorage%2Ftables%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fbread%2Ftoc.json  
             text: Compare Table storage and Cosmos DB Table API
           - url: /azure/storage/tables/
             text: See more >

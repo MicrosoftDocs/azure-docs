@@ -1,5 +1,5 @@
 ---
-title: Create a function app from the Azure Portal 
+title: Create a function app from the Azure portal 
 description: Create a new function app in Azure from the portal. 
 ms.topic: how-to
 ms.date: 08/29/2019
