@@ -27,7 +27,7 @@ This release corresponds to the software versions:
 
 ## What's new
 
-- **Bug fix in the recovery key management workflow** -  In the earlier release, there was a bug owing to which the recovery key was not getting applied. This bug is fixed in this release. We strongly recommend that you apply this update as the recovery key allows you to recover the data on the device, in the event the device doesn't boot up. For more information, see how to [save the recovery key when deploying Data Box Edge or Data Box Gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Bug fix in the recovery key management workflow** -  In the earlier release, there was a bug owing to which the recovery key was not getting applied. This bug is fixed in this release. We strongly recommend that you apply this update as the recovery key allows you to recover the data on the device, in the event the device doesn't boot up. For more information, see how to [save the recovery key when deploying Data Box Edge or Data Box Gateway](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
 - **Field Programmable Gate Array (FPGA) logging improvements** -  Starting 1905 release, logging and alert enhancements related to FPGA were made. This continues to be a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## Known issues in GA release
