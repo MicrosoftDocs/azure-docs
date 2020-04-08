@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -61,7 +59,7 @@ Application Insights is transitioning to [W3C Trace-Context](https://w3c.github.
 
 The latest version of the Application Insights SDK supports the Trace-Context protocol, but you might need to opt in to it. (Backward compatibility with the previous correlation protocol supported by the Application Insights SDK will be maintained.)
 
-The [correlation HTTP protocol, also called Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), is being deprecated. This protocol defines two headers:
+The [correlation HTTP protocol, also called Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), is being deprecated. This protocol defines two headers:
 
 - `Request-Id`: Carries the globally unique ID of the call.
 - `Correlation-Context`: Carries the name-value pairs collection of the distributed trace properties.

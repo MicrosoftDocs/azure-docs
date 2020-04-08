@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 04/07/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,10 @@ This article gives answers to Azure Media Services (AMS) v3 frequently asked que
 
 See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
 
+### How do you stream to Apple iOS devices?
+
+Make sure you have "(format=m3u8-aapl)" at the end of your path (after the "/manifest" portion of the URL) to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [delivering content](dynamic-packaging-overview.md)).
+
 ### How do I configure Media Reserved Units?
 
 For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
@@ -35,19 +39,38 @@ For details, see [Scale media processing with CLI](media-reserved-units-cli-how-
 
 Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
+### I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
+
+One of the most common reasons is you do not have the streaming endpoint from which you are trying to play back in the Running state.
+
 ### How does pagination work?
 
 When using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
 For details, see [Moving a Media Services account between subscriptions](media-services-account-concept.md).
 
 ## Live streaming 
+
+### How to stop the live stream after the broadcast is done?
+
+You can approach it from a client side or a server side.
+
+#### Client side
+
+Your web application should prompt the user if they want to end the broadcast if they are closing the browser. This is a browser event that your web application can handle.
+
+#### Server side
+
+You can monitor live events by subscribing to Event Grid events. For more information, see the [eventgrid event schema](media-services-event-schemas.md#live-event-types).
+
+* You can either [subscribe](reacting-to-media-services-events.md) to the stream level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) and monitor that no reconnections come in for a while to stop and delete your live event.
+* Or, you can [subscribe](reacting-to-media-services-events.md) to the track level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have incoming bitrate dropping to 0; or the last timestamp is no longer increasing, then you can also safely shut down the live event. The heartbeat events come in at every 20 seconds for every track so it could be a little bit verbose.
 
 ###  How to insert breaks/videos and image slates during live stream?
 
@@ -123,17 +146,131 @@ Often, customers invested in a license server farm either in their own data cent
 
 ### Can I use the Azure portal to manage v3 resources?
 
-Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+Currently, you can use the [Azure portal](https://portal.azure.com/) to:
+
+* manage Media Services v3 [Live Events](live-events-outputs-concept.md), 
+* view (not manage) v3 [Assets](assets-concept.md), 
+* [get info about accessing APIs](access-api-portal.md). 
+
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
 The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
-For more information, see [Migrate to Media Services v3](migrate-from-v2-to-v3.md).
+For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
 
 ### Where did client-side storage encryption go?
 
 It is now recommended to use the server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+
+## Offline streaming
+
+### FairPlay Streaming for iOS
+
+The following frequently asked questions provide assistance with troubleshooting offline FairPlay streaming for iOS:
+
+#### Why does only audio play but not video during offline mode?
+
+This behavior seems to be by design of the sample app. When an alternate audio track is present (which is the case for HLS) during offline mode, both iOS 10 and iOS 11 default to the alternate audio track. To compensate this behavior for FPS offline mode, remove the alternate audio track from the stream. To do this on Media Services, add the dynamic manifest filter "audio-only=false." In other words, an HLS URL ends with .ism/manifest(format=m3u8-aapl,audio-only=false). 
+
+#### Why does it still play audio only without video during offline mode after I add audio-only=false?
+
+Depending on the content delivery network (CDN) cache key design, the content might be cached. Purge the cache.
+
+#### Is FPS offline mode also supported on iOS 11 in addition to iOS 10?
+
+Yes. FPS offline mode is supported for iOS 10 and iOS 11.
+
+#### Why can't I find the document "Offline Playback with FairPlay Streaming and HTTP Live Streaming" in the FPS Server SDK?
+
+Since FPS Server SDK version 4, this document was merged into the "FairPlay Streaming Programming Guide."
+
+#### What is the downloaded/offline file structure on iOS devices?
+
+The downloaded file structure on an iOS device looks like the following screenshot. The `_keys` folder stores downloaded FPS licenses, with one store file for each license service host. The `.movpkg` folder stores audio and video content. The first folder with a name that ends with a dash followed by a numeric contains video content. The numeric value is the PeakBandwidth of the video renditions. The second folder with a name that ends with a dash followed by 0 contains audio content. The third folder named "Data" contains the master playlist of the FPS content. Finally, boot.xml provides a complete description of the `.movpkg` folder content. 
+
+![Offline FairPlay iOS sample app file structure](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+
+A sample boot.xml file:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+  <Version>1.0</Version>
+  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
+  <Streams>
+    <Stream ID="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" Path="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+    <Stream ID="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" Path="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+  </Streams>
+  <MasterPlaylist>
+    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>
+  </MasterPlaylist>
+  <DataItems Directory="Data">
+    <DataItem>
+      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>
+      <Category>Playlist</Category>
+      <Name>master.m3u8</Name>
+      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>
+      <Role>Master</Role>
+    </DataItem>
+  </DataItems>
+</HLSMoviePackage>
+```
+
+### Widevine streaming for Android
+
+#### How can I deliver persistent licenses (offline-enabled) for some clients/users and non-persistent licenses (offline-disabled) for others? Do I have to duplicate the content and use separate content key?
+
+Since Media Services v3 allows an Asset to have multiple StreamingLocators. You can have
+
+* One ContentKeyPolicy with license_type = "persistent", ContentKeyPolicyRestriction with claim on "persistent", and its StreamingLocator;
+* Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
+* The two StreamingLocators have different ContentKey.
+
+Depending on business logic of custom STS, different claims are issued in the JWT token. With the token, only the corresponding license can be obtained and only the corresponding URL can be played.
+
+#### What is the mapping between the Widevine and Media Services DRM security levels?
+
+Google's "Widevine DRM Architecture Overview" defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md),
+five different security levels are outlined. This section explains how the security levels map.
+
+The Google's "Widevine DRM Architecture Review" doc defines the following three security levels:
+
+* Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
+* Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
+* Security Level 3 Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security.
+
+At the same time, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
+
+* Software-based white-box crypto is required.
+* Software crypto and an obfuscated decoder is required.
+* The key material and crypto operations must be performed within a hardware backed TEE.
+* The crypto and decoding of content must be performed within a hardware backed TEE.
+* The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.
+
+Both security levels are defined by Google Widevine. The difference is in its usage level: architecture level or API level. The five security levels are used in the Widevine API. The content_key_specs object, which
+contains security_level is deserialized and passed to the Widevine global delivery service by Azure Media Services Widevine license service. The table below shows the mapping between the two sets of security levels.
+
+| **Security Levels Defined in Widevine Architecture** |**Security Levels Used in Widevine API**|
+|---|---| 
+| **Security Level 1**: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.|**security_level=5**: The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.<br/><br/>**security_level=4**: The crypto and decoding of content must be performed within a hardware backed TEE.|
+**Security Level 2**: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.| **security_level=3**: The key material and crypto operations must be performed within a hardware backed TEE. |
+| **Security Level 3**: Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security. | **security_level=2**: Software crypto and an obfuscated decoder are required.<br/><br/>**security_level=1**: Software-based white-box crypto is required.|
+
+#### Why does content download take so long?
+
+There are two ways to improve download speed:
+
+* Enable CDN so that end users are more likely to hit CDN instead of origin/streaming endpoint for content download. If user hits streaming endpoint, each HLS segment or DASH fragment is dynamically packaged and encrypted. Even though this latency is in millisecond scale for each segment/fragment, when you have an hour long video, the accumulated latency can be large causing longer download.
+* Provide end users the option to selectively download video quality layers and audio tracks instead of all contents. For offline mode, there is no point to download all of the quality layers. There are two ways to achieve this:
+
+   * Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
+   * Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
 
 ## Next steps
 

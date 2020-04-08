@@ -1,11 +1,7 @@
 ---
 title: Explore .NET trace logs with ILogger - Azure Application Insights
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 
 ms.reviewer: mbullwin
@@ -18,9 +14,9 @@ To learn more, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/c
 
 ## ASP.NET Core applications
 
-ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 (and later) when you turn on regular Application Insights monitoring through either of the standard methods:
+ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 (and later) when you turn on regular Application Insights monitoring through either of the methods:
 
-- By calling the **UseApplicationInsights** extension method on IWebHostBuilder
+- By calling the **UseApplicationInsights** extension method on IWebHostBuilder (Now obsolete)
 - By calling the **AddApplicationInsightsTelemetry** extension method on IServiceCollection
 
 ILogger logs that ApplicationInsightsLoggerProvider captures are subject to the same configuration as any other telemetry that's collected. They have the same set of TelemetryInitializers and TelemetryProcessors, use the same TelemetryChannel, and are correlated and sampled in the same way as other telemetry. If you use version 2.7.1 or later, no action is required to capture ILogger logs.
@@ -78,7 +74,7 @@ The code in step 2 configures `ApplicationInsightsLoggerProvider`. The following
 ```csharp
 public class ValuesController : ControllerBase
 {
-    private readonly `ILogger` _logger;
+    private readonly ILogger _logger;
 
     public ValuesController(ILogger<ValuesController> logger)
     {
@@ -159,7 +155,7 @@ public class Program
 ```csharp
 public class Startup
 {
-    private readonly `ILogger` _logger;
+    private readonly ILogger _logger;
 
     public Startup(IConfiguration configuration, ILogger<Startup> logger)
     {
@@ -326,22 +322,20 @@ The following examples apply filter rules to ApplicationInsightsLoggerProvider.
 
 ### Create filter rules in configuration with appsettings.json
 
-For ApplicationInsightsLoggerProvider, the provider alias is `ApplicationInsights`. The following section of *appsettings.json* configures logs for *Warning* and above from all categories and *Error* and above from categories that start with "Microsoft" to be sent to `ApplicationInsightsLoggerProvider`.
+For ApplicationInsightsLoggerProvider, the provider alias is `ApplicationInsights`. The following section of *appsettings.json* instructs logging providers generally to log at level *Warning* and above. It then overrides the `ApplicationInsightsLoggerProvider` to log categories that start with "Microsoft" at level *Error* and above.
 
 ```json
 {
   "Logging": {
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Warning",
-        "Microsoft": "Error"
-      }
-    },
     "LogLevel": {
       "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Microsoft": "Error"
+      }
     }
-  },
-  "AllowedHosts": "*"
+  }
 }
 ```
 
@@ -428,7 +422,7 @@ When you use the standalone package, `TelemetryClient` is not injected to the DI
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 

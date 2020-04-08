@@ -16,7 +16,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.
 >
-> If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+> If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy" />
 
@@ -69,7 +69,7 @@ Use this table as a guide:
 By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
 > [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you’ll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
@@ -283,7 +283,7 @@ The URL appears in the output of this command. Your script can then download AzC
 
 ### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an additional `%` character next to existing `%` characters in the SAS token string.
 
 ### Run scripts by using Jenkins
 
@@ -303,11 +303,11 @@ Storage Explorer uses your account key to perform operations, so after you sign 
 
 ## Use the previous version of AzCopy
 
-If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy on Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Configure, optimize, and troubleshoot AzCopy
 

@@ -76,11 +76,14 @@ This article answers common questions about Azure Files features and functionali
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
     The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
 
+  **Does Azure Files support file locking?**  
+    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## Azure File Sync
 
 * <a id="afs-region-availability"></a>
   **What regions are supported for Azure File Sync?**  
-    The list of available regions can be found on the [Region availability](storage-sync-files-planning.md#region-availability) section of the Azure File Sync planning guide. We will continuously add support for additional regions, including non-Public regions.
+    The list of available regions can be found on the [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) section of the Azure File Sync planning guide. We will continuously add support for additional regions, including non-Public regions.
 
 * <a id="cross-domain-sync"></a>
   **Can I have domain-joined and non-domain-joined servers in the same sync group?**  
@@ -174,12 +177,12 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support-rest-apis"></a>
 **Are there REST APIs to support Get/Set/Copy directory/file NTFS ACLs?**
 
-    Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (or later) REST API.
+    Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure Files with Azure AD credentials from a VM under a different subscription?**
 
-    If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deployment to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
+    If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deployment to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.
     
 * <a id="ad-support-subscription"></a>
 **Can I enable either Azure Files Azure AD DS or AD authentication with an Azure AD tenant that is different from the primary tenant which the file share is associated with?**
@@ -199,13 +202,18 @@ This article answers common questions about Azure Files features and functionali
 * <a id=""></a>
 **What regions are available for Azure Files AD authentication (preview)?**
 
-    Refer to [AD regional availability](storage-files-active-directory-domain-services-enable.md#regional-availability) for details.
+    Refer to [AD regional availability](storage-files-identity-auth-active-directory-enable.md#regional-availability) for details.
 
 * <a id="ad-aad-smb-afs"></a>
 **Can I leverage Azure Files Azure AD DS authentication or Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
 
     Yes, you can enable Azure AD DS or AD authentication on a file share managed by Azure file sync. Changes to the directory/file NTFS ACLs on local file servers will be tiered to Azure Files and vice-versa.
 
+* <a id="ad-aad-smb-files"></a>
+**How can I check if I have enabled AD authentication on my storage account and the AD domain information?**
+
+    You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
+    
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
 
@@ -340,7 +348,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="need-larger-share"></a>
 **What sizes are available for Azure file shares?**  
-    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
 
 * <a id="lfs-performance-impact"></a>
 **Does expanding my file share quota impact my workloads or Azure File Sync?**

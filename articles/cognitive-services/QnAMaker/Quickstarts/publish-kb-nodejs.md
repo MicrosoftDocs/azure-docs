@@ -1,15 +1,10 @@
 ---
 title: "Quickstart: QnA Maker with REST APIs for Node.js"
-titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to get started with the QnA Maker REST APIs for Node.js. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
 ms.date: 02/08/2020
-ms.author: diberry
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 ---
 
 # Quickstart: QnA Maker REST APIs for Node.js
@@ -88,7 +83,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 Set the following environment values:
 
-* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the **Quick start** page. This is not the same as the prediction endpoint key.
 * `QNAMAKER_AUTHORING_ENDPOINT` - Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]

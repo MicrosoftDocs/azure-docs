@@ -1,16 +1,18 @@
 ---
 title: Power BI App offer prerequisites | Azure Marketplace 
 description: Provides the prerequisites for publishing a Power BI app to AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Power BI App offer prerequisites
+
+>[!Important]
+>Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzurePBIAppCreationOverview) to manage your migrated offers.
 
 This article provides the technical and business requirements that you need to meet before you can publish a Power BI App offer to the AppSource marketplace.  If you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../../appsource-offer-publishing-guide.md).
 

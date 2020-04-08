@@ -1,13 +1,12 @@
 ---
 title: Update an existing Azure Containers offer | Azure Marketplace
 description: How to update an existing container offer on Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Update an existing container offer

@@ -25,7 +25,7 @@ Get started with the QnA Maker client library. Follow these steps to install the
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Tutorial: Create and answer a KB](../tutorials/create-publish-query-in-portal.md)
+>[Tutorial: Test your knowledge base with a batch file](./batch-testing.md)
 
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)

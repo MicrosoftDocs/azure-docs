@@ -73,37 +73,42 @@ To run this sample, you need:
 
 #### Step 2: Download your Python project
 
-[Download the Python daemon project](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
+> [!div renderon="docs"]
+> [Download the Python daemon project](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-#### Step 3: Configure your Python project
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-1. Navigate to the sub folder **1-Call-MsGraph-WithSecret"**.
-1. Edit **parameters.json** and replace the values of the fields `authority`, `client_id`, and `secret` with the following snippet:
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
 
-    ```json
-    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    "client_id": "Enter_the_Application_Id_Here",
-    "secret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Generate a new client secret]()
+
+> [!div renderon="docs"]
+> #### Step 3: Configure your Python project
+> 
+> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
+> 1. Navigate to the sub folder **1-Call-MsGraph-WithSecret"**.
+> 1. Edit **parameters.json** and replace the values of the fields `authority`, `client_id`, and `secret` with the following snippet:
+>
+>    ```json
+>    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
+>    "client_id": "Enter_the_Application_Id_Here",
+>    "secret": "Enter_the_Client_Secret_Here"
+>    ```
+>    Where:
+>    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+>    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
+>
+> > [!TIP]
+> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
     
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > This quickstart supports Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Where:
-    >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
-    >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 3: Admin consent
 
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
-    
-#### Step 4: Admin consent
+> [!div renderon="docs"]
+> #### Step 4: Admin consent
 
 If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires Admin consent: a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
@@ -130,7 +135,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
-#### Step 5: Run the application
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 4: Run the application
+
+> [!div renderon="docs"]
+> #### Step 5: Run the application
 
 You'll need to install the dependencies of this sample once
 

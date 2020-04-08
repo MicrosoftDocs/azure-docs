@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/20/2020
+ms.date: 04/06/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -112,11 +112,13 @@ part of a **table** in Resource Graph.
 - microsoft.compute/sharedvmimages
 - microsoft.compute/sharedvmimages/versions
 - microsoft.compute/snapshots
+- microsoft.compute/sshpublickeys
 - microsoft.compute/virtualmachines
 - microsoft.compute/virtualmachines/extensions
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registries
+- microsoft.containerregistry/registries/agentpools
 - microsoft.containerregistry/registries/buildtasks
 - microsoft.containerregistry/registries/replications
 - microsoft.containerregistry/registries/taskruns
@@ -147,6 +149,7 @@ part of a **table** in Resource Graph.
 - microsoft.dbforpostgresql/servergroups
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
+- microsoft.dbforpostgresql/singleservers
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -181,6 +184,7 @@ part of a **table** in Resource Graph.
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
+- microsoft.falcon/namespaces
 - microsoft.gaming/titles
 - microsoft.genomics/accounts
 - microsoft.guestconfiguration/automanagedaccounts
@@ -205,6 +209,7 @@ part of a **table** in Resource Graph.
 - microsoft.insights/metricalerts
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
+- microsoft.insights/privatelinkscopes
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/workbooks
@@ -236,6 +241,7 @@ part of a **table** in Resource Graph.
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
 - microsoft.media/mediaservices/liveevents
@@ -273,6 +279,7 @@ part of a **table** in Resource Graph.
 - microsoft.network/firewallpolicies
 - microsoft.network/frontdoors
 - microsoft.network/frontdoorwebapplicationfirewallpolicies
+- microsoft.network/ipallocations
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways
@@ -280,8 +287,10 @@ part of a **table** in Resource Graph.
 - microsoft.network/networkexperimentprofiles
 - microsoft.network/networkintentpolicies
 - microsoft.network/networkinterfaces
+- microsoft.network/networkmanagers
 - microsoft.network/networkprofiles
 - microsoft.network/networksecuritygroups
+- microsoft.network/networkvirtualappliances
 - microsoft.network/networkwatchers
 - microsoft.network/networkwatchers/connectionmonitors
 - microsoft.network/networkwatchers/flowlogs
@@ -298,6 +307,7 @@ part of a **table** in Resource Graph.
 - microsoft.network/routefilters
 - microsoft.network/routetables
 - microsoft.network/sampleresources
+- microsoft.network/securitypartnerproviders
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
@@ -330,6 +340,7 @@ part of a **table** in Resource Graph.
 - microsoft.projectarcadia/workspaces/sparkcomputes
 - microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
+- microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
@@ -341,6 +352,7 @@ part of a **table** in Resource Graph.
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.securitydetonation/chambers
 - microsoft.servicebus/namespaces
 - microsoft.servicefabric/clusters
 - microsoft.servicefabric/containergroupsets
@@ -405,6 +417,7 @@ part of a **table** in Resource Graph.
 - microsoft.web/connections
 - microsoft.web/customapis
 - microsoft.web/hostingenvironments
+- microsoft.web/kubeenvironments
 - microsoft.web/serverfarms
 - microsoft.web/sites
 - microsoft.web/sites/premieraddons
@@ -430,6 +443,9 @@ part of a **table** in Resource Graph.
 - u2uconsult.theidentityhub/services
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
+- wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/hivereplicationrules
+- wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 

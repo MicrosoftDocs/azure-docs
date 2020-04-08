@@ -19,7 +19,7 @@ This quickstart shows how to send events to and receive events from an event hub
 > This quickstart uses the latest azure-eventhub version 5 package. For a quick start that uses the old azure-eventhub version 1 package, see [Send and receive events using azure-eventhub version 1](event-hubs-python-get-started-send.md). 
 
 ## Prerequisites
-If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
+If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
 
@@ -76,9 +76,14 @@ In this section, you create a Python script to send events to the event hub that
 
     > [!NOTE]
     > For the complete source code, including informational comments, go to the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
+    
 
 ## Receive events
 This quickstart uses Azure Blob storage as a checkpoint store. The checkpoint store is used to persist checkpoints (that is, the last read positions).  
+
+> [!NOTE]
+> If you are running on Azure Stack Hub, that platform may support a different version of Storage Blob SDK than those typically available on Azure. For example, if you are running [on Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see the [synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) samples on GitHub. For more information on the Azure Storage service versions supported on Azure Stack Hub, please refer to [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 
 ### Create an Azure storage account and a blob container
 Create an Azure storage account and a blob container in it by doing the following steps:

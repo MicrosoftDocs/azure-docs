@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
 
 ---

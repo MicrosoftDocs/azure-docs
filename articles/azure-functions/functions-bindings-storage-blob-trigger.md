@@ -392,7 +392,7 @@ To force reprocessing of a blob, delete the blob receipt for that blob from the 
 
 When a blob trigger function fails for a given blob, Azure Functions retries that function a total of 5 times by default.
 
-If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The queue message for poison blobs is a JSON object that contains the following properties:
+If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The maximum number of retries is configurable. The same MaxDequeueCount setting is used for poison blob handling and poison queue message handling. The queue message for poison blobs is a JSON object that contains the following properties:
 
 * FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
 * BlobType ("BlockBlob" or "PageBlob")

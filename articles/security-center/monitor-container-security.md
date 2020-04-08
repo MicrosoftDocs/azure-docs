@@ -25,7 +25,7 @@ Azure Security Center covers the following three aspects of container security:
 
 - **Hardening your Azure Kubernetes Service clusters** - Security Center provides recommendations when it finds vulnerabilities in the configuration of your Azure Kubernetes Service clusters. For details of the specific recommendations that may appear, see the [Kubernetes Service recommendations](recommendations-reference.md#recs-containers).
 
-- **Runtime protection** - If you're on Security Center's standard pricing tier, you'll get real-time threat detection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level. For details of the relevant security alerts that might appear, see the [Alerts for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster) and [Alerts for containers - host level](alerts-reference.md#alerts-containerhost) sections of the alerts reference table.
+- **Runtime protection** - If you're on Security Center's standard pricing tier, you'll get real-time threat protection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level. For details of the relevant security alerts that might appear, see the [Alerts for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster) and [Alerts for containers - host level](alerts-reference.md#alerts-containerhost) sections of the alerts reference table.
 
 ## Scanning your ARM-based container registries for vulnerabilities 
 

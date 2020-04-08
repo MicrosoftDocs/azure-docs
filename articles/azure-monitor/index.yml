@@ -6,8 +6,6 @@ summary: Monitoring Azure and on-premises services. Aggregate and analyze metric
 metadata:
   title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
-  services: azure-monitor
-  ms.service: azure-monitor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb

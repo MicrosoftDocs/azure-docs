@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
 ---
 
@@ -33,7 +33,7 @@ You can also specify the start and end time on your Streaming Locator, which wil
 
 * **Streaming Locators** are not updatable. 
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
-* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
 
 ## Create Streaming Locators  
 
@@ -95,12 +95,13 @@ To get Streaming Locators based on the associated Asset name, use the following 
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## Also see
+## See also
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
 * [Content Key Policies](content-key-policy-concept.md)
+* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## Next steps
 
-[Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+[How to create a streaming locator and build URLs](create-streaming-locator-build-url.md)

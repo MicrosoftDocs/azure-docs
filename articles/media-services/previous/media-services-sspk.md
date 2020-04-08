@@ -87,10 +87,10 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Shikun Electronics., Ltd.
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
-* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
@@ -101,7 +101,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -148,7 +147,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
 * Top Victory Investments, Ltd.

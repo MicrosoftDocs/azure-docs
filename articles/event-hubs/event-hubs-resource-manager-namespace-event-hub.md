@@ -14,28 +14,42 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
+ms.custom: subject-armqs
 
 ---
 
 # Quickstart: Create an event hub by using an Azure Resource Manager template
 
-Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md). In this quickstart, you create an event hub by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). You deploy an Azure Resource Manager template to create a namespace of type [Event Hubs](event-hubs-what-is-event-hubs.md), with one event hub.
 
-In this quickstart, you create an event hub by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). You deploy an Azure Resource Manager template to create a namespace of type [Event Hubs](event-hubs-what-is-event-hubs.md), with one event hub. The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates]. For the JSON syntax and properties to use in a template, see [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+## Prerequisites
+
+None.
+
 ## Create an event hub
 
-In this quickstart, you use an [existing quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
+### Review the template
 
-[!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+
+The resources defined in the template include:
+
+- [**Microsoft.EventHub/namespaces**](/azure/templates/microsoft.eventhub/namespaces)
+- [**Microsoft.EventHub/namespaces/eventhubs**](/azure/templates/microsoft.eventhub/namespaces/eventhubs)
 
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
+### Deploy the template
+
 To deploy the template:
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -56,7 +70,7 @@ To deploy the template:
 
 ## Verify the deployment
 
-To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -70,7 +84,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

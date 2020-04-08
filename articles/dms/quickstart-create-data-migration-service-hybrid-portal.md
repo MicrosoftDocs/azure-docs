@@ -3,15 +3,15 @@ title: "Quickstart: Create a hybrid mode instance with Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/21/2019
+ms.date: 03/13/2020
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -141,7 +141,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 7. Install the Azure Database Migration Service hybrid worker on your on-premises server by running the following command:
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]

@@ -71,7 +71,7 @@ If you use SQL Server authentication, you must:
 - (Potentially) protect the credentials passed over the network from the web server to the database. For more information, see [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### *Azure Active Directory (AD) authentication*
-Azure AD authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.
+Azure AD authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.
 
 > [!NOTE]
 > We recommend the use of Azure AD authentication over the use of SQL Server authentication.
@@ -162,10 +162,6 @@ Enabling these capabilities helps you:
 - Detect and respond to potential threats.
 
 In addition, Threat Detection integrates alerts with Azure Security Center for a central view of the security state of all of your Azure resources.
-
-## Enable Feature restrictions
-
-The data contained in your databases can be exposed to attackers using attack vectors that leverage database errors and query execution times. Azure SQL Database provides a number of feature restriction mechanisms to protect your database. To learn more, see [SQL Database Feature Restrictions](/azure/sql-database/sql-database-feature-restrictions).
 
 ## Next steps
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

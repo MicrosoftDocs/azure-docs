@@ -379,7 +379,7 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
                     string instrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
                     if (!string.IsNullOrEmpty(instrumentationKey))
                     {
-                        b.AddApplicationInsights(o => o.InstrumentationKey = instrumentationKey);
+                        b.AddApplicationInsightsWebJobs(o => o.InstrumentationKey = instrumentationKey);
                     }
                 });
         var host = builder.Build();

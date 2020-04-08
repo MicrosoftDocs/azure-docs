@@ -141,8 +141,6 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -163,6 +161,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
 | maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
 | movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
+| excludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| includedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `excludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 
 ### applicationInsights.httpAutoCollectionOptions
 
@@ -203,7 +203,7 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## durableTask
 
@@ -281,7 +281,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly"
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"

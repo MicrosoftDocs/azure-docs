@@ -39,7 +39,7 @@ Before you configure and set up your Data Box Gateway, make sure that:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
-   Use the connection URL noted in the previous tutorial. You see an error or a warning indicating that there is a problem with the website’s security certificate.
+   Use the connection URL noted in the previous tutorial. You see an error or a warning indicating that there is a problem with the website's security certificate.
 
 2. Select **Continue to this webpage**. These steps might vary depending on the browser you're using.
    
@@ -88,6 +88,11 @@ Your dashboard displays the various settings that are required to configure and 
    2. Under **Authentication**, select **None** or **NTLM**.
    3. If you're using authentication, enter a **Username** and **Password**.
    4. To validate and apply the configured web proxy settings, select **Apply**.
+
+   > [!NOTE]
+   > Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL.
+   > Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's cert is not trusted.
+   > Typically transparent proxies work well with Azure Data Box Gateway.
 
 4. (Optional) In the left pane, select **Time settings**, and then configure the time zone and the primary and secondary NTP servers for your device. 
 

@@ -2,12 +2,13 @@
 title: Security recommendations for Azure Key Vault
 description: Security recommendations for Azure Key Vault. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model
 services: key-vault
-author: barclayn
+author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: article
 ms.date: 09/30/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---

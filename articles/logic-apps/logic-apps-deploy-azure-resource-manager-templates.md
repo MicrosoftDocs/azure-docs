@@ -17,7 +17,7 @@ After you create an Azure Resource Manager template for your logic app, you can 
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
 * [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure DevOps Azure Pipelines](#azure-pipelines)
+* [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -91,6 +91,7 @@ For more information about continuous integration and continuous deployment (CI/
 * [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Sample: Set up a function app action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Sample: Orchestrate Azure Pipelines by using Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Here are the general high-level steps for using Azure Pipelines:
 

@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -131,6 +131,22 @@ indicators can help you ensure remote access methods comply with your security p
 - Remote debugging should be turned off for Function App
 - Remote debugging should be turned off for Web Application
 
+## AC-23 Data Mining
+
+This blueprint provides policy definitions that help you ensure data security notifications are
+properly enabled. In addition, this blueprint ensures that auditing and advanced data security are
+configured on SQL Servers.
+
+- Advanced data security should be enabled on your SQL servers
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Auditing should be enabled on advanced data security settings on SQL Server
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+
 ## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace enabling centralized
@@ -183,8 +199,6 @@ For detailed vulnerability scanning and monitoring, we recommend you leverage Az
 Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
-- \[Preview\]: Enable Azure Monitor for VMs
-- \[Preview\]: Enable Azure Monitor for VM Scale Sets (VMSS)
 - Vulnerability assessment should be enabled on your SQL servers
 - Audit diagnostic setting
 - Vulnerability assessment should be enabled on your SQL managed instances
@@ -193,6 +207,8 @@ Azure Security Center as well.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
 
 ## AU-12 Audit Generation
 
@@ -340,6 +356,19 @@ with your organization's password policy.
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
+## IR-6 (2) Incident Reporting | Vulnerabilities Related to Incidents
+
+This blueprint provides policy definitions that audit records with analysis of vulnerability
+assessment on virtual machines, virtual machine scale sets, and SQL servers. These insights provide
+real-time information about the security state of your deployed resources and can help you prioritize
+remediation actions.
+
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities in container security configurations should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+
 ## RA-5 Vulnerability Scanning
 
 This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md)
@@ -458,6 +487,32 @@ of the operating system for virtual machine scale sets.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
+## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
+
+This blueprint assigns policy definitions that help you ensure applications are using the latest
+version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
+
+- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
+- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the Function app
+- Ensure that 'HTTP Version' is the latest, if used to run the Web app
+- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the Function app
+- Ensure that 'Java version' is the latest, if used as a part of the Web app
+- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the Function app
+- Ensure that 'PHP version' is the latest, if used as a part of the WEB app
+- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the Function app
+- Ensure that 'Python version' is the latest, if used as a part of the Web app
+- Latest TLS version should be used in your API App
+- Latest TLS version should be used in your Function App
+- Latest TLS version should be used in your Web App
+- \[Preview\]: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
+
 ## SI-3 Malicious Code Protection
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
@@ -504,6 +559,22 @@ you can take appropriate action.
 - Deploy Threat Detection on SQL servers
 - Allowed locations
 - Allowed locations for resource groups
+
+## SI-4 (12) Information System Monitoring | Automated Alerts
+
+This blueprint provides policy definitions that help you ensure data security notifications are
+properly enabled. In addition, this blueprint ensures that the standard pricing tier is enabled
+for Azure Security Center. Note that the standard pricing tier enables threat detection for networks
+and virtual machines, providing threat intelligence, anomaly detection, and behavior analytics in
+Azure Security Center.
+
+- Email notification to subscription owner for high severity alerts should be enabled
+- A security contact email address should be provided for your subscription 
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings 
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings 
+- A security contact phone number should be provided for your subscription
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Security Center standard pricing tier should be selected
 
 ## SI-4 (18) Information System Monitoring | Analyze Traffic / Covert Exfiltration
 

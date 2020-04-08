@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -106,9 +106,9 @@ The following example template demonstrates how to create a workspace with three
         "description": "Specifies the location for all resources."
       }
     },
-	"sku":{
-	  "type": "string",
-	  "defaultValue": "basic",
+    "sku":{
+      "type": "string",
+      "defaultValue": "basic",
       "allowedValues": [
         "basic",
         "enterprise"
@@ -116,10 +116,10 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
-	},
-	"hbi_workspace":{
-	  "type": "string",
-	  "defaultValue": "false",
+    },
+    "hbi_workspace":{
+      "type": "string",
+      "defaultValue": "false",
       "allowedValues": [
         "false",
         "true"
@@ -127,10 +127,10 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
       }
-	},
-	"encryption_status":{
-	  "type": "string",
-	  "defaultValue": "Disabled",
+    },
+    "encryption_status":{
+      "type": "string",
+      "defaultValue": "Disabled",
       "allowedValues": [
         "Enabled",
         "Disabled"
@@ -138,19 +138,19 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
       }
-	},
-	"cmk_keyvault":{
-	  "type": "string",
-	  "metadata": {
+    },
+    "cmk_keyvault":{
+      "type": "string",
+      "metadata": {
         "description": "Specifies the customer managed keyvault Resource Manager ID."
       }
-	},
-	"resource_cmk_uri":{
-	  "type": "string",
-	  "metadata": {
+    },
+    "resource_cmk_uri":{
+      "type": "string",
+      "metadata": {
         "description": "Specifies the customer managed keyvault key uri."
       }
-	}
+    }
   },
   "variables": {
     "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
@@ -235,24 +235,24 @@ The following example template demonstrates how to create a workspace with three
       "identity": {
         "type": "systemAssigned"
       },
-	  "sku": {
+      "sku": {
             "tier": "[parameters('sku')]",
             "name": "[parameters('sku')]"
       },
-	  "properties": {
+      "properties": {
         "friendlyName": "[parameters('workspaceName')]",
         "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
         "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
         "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
         "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
-		 "encryption": {
+         "encryption": {
                 "status": "[parameters('encryption_status')]",
                 "keyVaultProperties": {
                     "keyVaultArmId": "[parameters('cmk_keyvault')]",
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-		"hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbi_workspace": "[parameters('hbi_workspace')]"
       }
     }
   ]

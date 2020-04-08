@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -65,6 +65,14 @@ No, cloud provisioning does not support writeback of ms-ds-consistencyGUID for a
 **Q: I am provisioning users using cloud provisioning. I deleted the configuration. Why do I still see the old synced objects in Azure AD?** 
 
 When you delete the configuration, cloud provisioning does not cleanup the synced objects in Azure AD. To ensure you do not have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
+
+**Q:  What does it mean that Exchange hybrid is not supported?**
+
+The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
+
+**Q:  Can I install the cloud provisioning agent on Windows Server Core?**
+
+No, installing the agent on server core is not supported.
 
 ## Next steps 
 

@@ -77,7 +77,6 @@ Use security groups to group your devices into logical categories. After creatin
 ## Alerts available for customization
 
 Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received. 
-|
 
 
 ## Next steps

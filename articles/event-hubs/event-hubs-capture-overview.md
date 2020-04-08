@@ -91,10 +91,11 @@ A full end-to-end sample is available in the Streaming at Scale repository:
 
 ### Use Apache Spark
 
-[Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are two options to run Apache Spark in Azure, and both provide easy access to Azure Blob storage:
+[Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are a few options to run Apache Spark in Azure, and each provides easy access to Azure Blob storage:
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### Use Avro Tools
 

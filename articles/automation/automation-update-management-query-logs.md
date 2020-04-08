@@ -3,7 +3,7 @@ title: Query Azure Update Management logs
 description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ---
 # Query update records for Update Management in Azure Monitor Logs
@@ -106,7 +106,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | CorrelationId | Unique identifier of the runbook job run for the update. |
 | EndTime | The time when the synchronization process ended. | 
 | ErrorResult | Windows Update error code generated if an update fails to install. | 
-| InstallationStatus | The possible installation states of an update on the client computer, *In progress*, *Succeeded*, *Partially failed*. |
+| InstallationStatus | The possible installation states of an update on the client computer,<br> *NotStarted* - job not triggered yet.<br> *FailedToStart* - unable to start the job on machine.<br> *Failed* - job started but failed with an exception.<br> *InProgress* - job in progress.<br> *MaintenanceWindowExceeded* - if execution was remaining but maintenance window interval reached.<br> *Succeeded* - job succeeded.<br> *InstallFailed* - update failed to install successfully.<br> *NotIncluded*<br> *Excluded* |
 | KBID | Knowledge base article ID for the Windows update. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSType | Specifies the type of operating system, *Windows* or *Linux*. | 
@@ -138,8 +138,8 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 | CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | Values are:<br> *Recent* if value is less than 30 days<br> *30 days ago*<br> *60 days ago*<br> *90 days ago*<br> *120 days ago*<br> *150 days ago*<br> *180 days ago*<br> *Older* when value is greater than 180 days | 
+| OldestMissingSecurityUpdateInDays | Total number of days for the oldest update detected as applicable that has not been installed. |
 | OsVersion | The version of the operating system. |
 | OtherUpdatesMissing | Count of detected updates missing. |
 | Resource |  Name of the resource. | 

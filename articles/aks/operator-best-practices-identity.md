@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Identity in Azure Kubernetes Services (AKS)
+title: Best practices for managing identity
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: mlearned
+
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)

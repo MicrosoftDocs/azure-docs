@@ -43,7 +43,7 @@ To complete this quickstart:
 
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -109,7 +109,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Open an [Azure Cloud Shell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
 
-    ```azurecli
+    ```console
     mkdir source-code
     cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
@@ -117,10 +117,11 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 2. Build the cloned package.
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
+
 3. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
     ```azurecli

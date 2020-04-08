@@ -16,7 +16,7 @@ ms.author: shvija
 This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 > [!WARNING]
-> This guide is for the old **Microsoft.Azure.EventHubs** package. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) your code to use the latest [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md) package.  
+> This guide is for the old **Microsoft.Azure.EventHubs** package. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) your code to use the latest [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md) package.  
 
 
 ## Event publishers

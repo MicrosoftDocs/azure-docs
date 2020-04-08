@@ -2,7 +2,7 @@
 title: Configure and manage Azure Notebooks Preview
 description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
 ms.topic: how-to
-ms.date: 05/13/2019
+ms.date: 02/28/2020
 ---
 
 # <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
@@ -126,6 +126,9 @@ The information you then project depends on the type of operation you chose:
 - **Shell script**: In the second drop-down list, select a bash shell script in the project (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment.
 
 - **Environment.yml**: In the second drop-down list, select an *environments.yml* file for Python projects using a conda environment.
+
+   > [!WARNING]
+   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter notebooks within do not load the specified environment file at present.
 
 When you're done adding steps, select **Save**.
 

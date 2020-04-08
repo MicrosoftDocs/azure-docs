@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -19,7 +19,7 @@ Each time you access data in your storage account, your client makes a request o
 
 The following table describes the options that Azure Storage offers for authorizing access to resources:
 
-|  |Shared Key (storage account key)  |Shared access signature (SAS)  |Azure Active Directory (Azure AD)  |Active Directory (preview)|Anonymous public read access  |
+|  |Shared Key (storage account key)  |Shared access signature (SAS)  |Azure Active Directory (Azure AD)  |Active Directory (preview) |Anonymous public read access  |
 |---------|---------|---------|---------|---------|---------|
 |Azure Blobs     |[Supported](/rest/api/storageservices/authorize-with-shared-key/)         |[Supported](storage-sas-overview.md)         |[Supported](storage-auth-aad.md)         |Not supported|[Supported](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Supported](/rest/api/storageservices/authorize-with-shared-key/)         |Not supported         |[Supported, only with AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md)|Not supported         |
@@ -29,11 +29,11 @@ The following table describes the options that Azure Storage offers for authoriz
 
 Each authorization option is briefly described below:
 
-- **Azure Active Directory (Azure AD) integration** for blobs, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. For more information regarding Azure AD integration for blobs and queues, see [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD) integration** for blobs, and queues. Azure AD provides role-based access control (RBAC) for control over a client's access to resources in a storage account. For more information regarding Azure AD integration for blobs and queues, see [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-- **Azure Active Directory Domain Services (Azure AD DS) authentication** for files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
+- **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
 
-- **Active Directory (AD) authentication (preview)** for files. Azure Files supports identity-based authorization over SMB through AD. Your AD domain service can be hosted on on-premises machines or in Azure VMs. SMB access to Files is supported using AD credentials from domain joined machines, either on-premises or in Azure. You can use RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
+- **Active Directory (AD) authentication (preview)** for Azure Files. Azure Files supports identity-based authorization over SMB through AD. Your AD domain service can be hosted on on-premises machines or in Azure VMs. SMB access to Files is supported using AD credentials from domain joined machines, either on-premises or in Azure. You can use RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
 
 - **Shared Key authorization** for blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/).
 - **Shared access signatures** for blobs, files, queues, and tables. Shared access signatures (SAS) provide limited delegated access to resources in a storage account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access. For more information, see [Using shared access signatures (SAS)](storage-sas-overview.md).

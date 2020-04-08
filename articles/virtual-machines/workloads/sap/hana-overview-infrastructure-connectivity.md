@@ -3,8 +3,8 @@ title: Infrastructure and connectivity to SAP HANA on Azure (large instances) | 
 description: Configure required connectivity infrastructure to use SAP HANA on Azure (large instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor:
 
 ms.service: virtual-machines-linux

@@ -51,7 +51,7 @@ If you do not want to run the base server in Azure, you can run the server on a 
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
 
-You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) work together when deployed in Hyper-V VMs.
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You cannot install Azure Backup Server on:
@@ -355,7 +355,7 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-You can get detailed information here about [preparing your environment for DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
+You can get detailed information here about [preparing your environment for DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 

@@ -31,14 +31,14 @@ For answers to common questions about using a custom domain name with your Azure
 To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](manage-custom-dns-buy-domain.md).
 
 
-## How do I upload and configure an existing SSL certificate for my web app?
+## How do I upload and configure an existing TLS/SSL certificate for my web app?
 
-To learn how to upload and set up an existing custom SSL certificate, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to upload and set up an existing custom TLS/SSL certificate, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
-## How do I purchase and configure a new SSL certificate in Azure for my web app?
+## How do I purchase and configure a new TLS/SSL certificate in Azure for my web app?
 
-To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to purchase and set up a TLS/SSL certificate for your App Service web app, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I move Application Insights resources?
@@ -80,7 +80,7 @@ To learn how to get the outbound IP address if your website is hosted in an App 
 
 ## How do I get a reserved or dedicated inbound IP address for my web app?
 
-To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based SSL certificate.
+To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based TLS/SSL certificate.
 
 Note that to use a dedicated or reserved IP address for inbound calls, your App Service plan must be in a Basic or higher service plan.
 
@@ -101,7 +101,7 @@ A common cause of backup failure is that some files are in use by the applicatio
 
 ## How do I remove a header from the HTTP response?
 
-To remove the headers from the HTTP response, update your site’s web.config file. For more information, see [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+To remove the headers from the HTTP response, update your site's web.config file. For more information, see [Remove standard server headers on your Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## Is App Service compliant with PCI Standard 3.0 and 3.1?
 
@@ -179,7 +179,7 @@ You have two options for capturing an F12 trace:
 ### F12 console output
 
 1. Select the **Console** tab.
-2. For each tab that contains more than zero items, select the tab (**Error**, **Warning**, or **Information**). If the tab isn’t selected, the tab icon is gray or black when you move the cursor away from it.
+2. For each tab that contains more than zero items, select the tab (**Error**, **Warning**, or **Information**). If the tab isn't selected, the tab icon is gray or black when you move the cursor away from it.
 3. Right-click in the message area of the pane, and then select **Copy all**.
 4. Paste the copied text in a file, and then save the file.
 
@@ -195,7 +195,7 @@ Currently, you cannot have point-to-site VPN connections to a virtual network th
 
 Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
 
-For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
+For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
 ## In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
 
@@ -208,7 +208,7 @@ For more information, see [How to create an App Service Environment](environment
 Sometimes, creating an App Service Environment fails. In that case, you see the following error in the Activity logs:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 To resolve this, make sure that none of the following conditions are true:
@@ -244,7 +244,7 @@ To perform penetration testing, [submit a request](https://portal.msrc.microsoft
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 
-To learn how to use a custom domain name with an App Service app that uses Azure Traffic Manager for load balancing, see [Configure a custom domain name for an Azure web app with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md).
+To learn how to use a custom domain name with an App Service app that uses Azure Traffic Manager for load balancing, see [Configure a custom domain name for an Azure web app with Traffic Manager](configure-domain-traffic-manager.md).
 
 ## My App Service certificate is flagged for fraud. How do I resolve this?
 
@@ -252,7 +252,7 @@ To learn how to use a custom domain name with an App Service app that uses Azure
 
 During the domain verification of an App Service certificate purchase, you might see the following message:
 
-“Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support.”
+"Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support."
 
 As the message indicates, this fraud verification process might take up to 24 hours to complete. During this time, you'll continue to see the message.
 
@@ -278,7 +278,7 @@ For detailed documentation for authentication and authorization in App Service, 
 
 ## How do I redirect the default *.azurewebsites.net domain to my Azure web app's custom domain?
 
-When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don't want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## How do I determine which version of .NET version is installed in App Service?
 

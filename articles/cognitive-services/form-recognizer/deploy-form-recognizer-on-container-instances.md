@@ -3,13 +3,13 @@ title: Run Form Recognizer container in Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the Form Recognizer container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Deploy the Form Recognizer container to Azure Container Instances
@@ -23,7 +23,7 @@ Learn how to deploy the Cognitive Services [Form Recognizer](form-recognizer-con
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Form Recognizer Containers access request form](https://aka.ms/FormRecognizerRequestAccess) to request access to the container. Doing so also signs you up for Computer Vision. You don't need to sign up for the Computer Vision request form separately. 
+You must first complete and submit the [Cognitive Services Form Recognizer Containers access request form](https://aka.ms/FormRecognizerContainerRequestAccess) to request access to the container. Doing so also signs you up for Computer Vision. You don't need to sign up for the Computer Vision request form separately. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

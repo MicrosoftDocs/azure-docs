@@ -18,7 +18,7 @@ The network controls align with the Australian Cyber Security Centre (ACSC) Cons
 
 ## Requirements
 
-The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.acsc.gov.au/publications/protect/Cloud_Computing_Security_for_Tenants.pdf).
+The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.cyber.gov.au/publications/cloud-computing-security-for-tenants).
 
 These guides outline the context for implementing network security and controlling traffic and include practical recommendations for network design and configuration.
 

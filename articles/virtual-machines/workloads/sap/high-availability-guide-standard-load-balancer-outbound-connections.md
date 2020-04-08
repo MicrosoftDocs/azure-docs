@@ -1,5 +1,5 @@
 ---
-title: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
+title: Public endpoint connectivity for Azure VMs&Standard ILB in SAP HA scenarios
 description: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
 services: virtual-machines-windows,virtual-network,storage, 
 documentationcenter: saponazure
@@ -99,7 +99,7 @@ The configuration would look like:
    1. Select the VMs and their IP addresses and add them to the backend pool  
 3. [Create outbound rules](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
-   ```
+   ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
@@ -174,7 +174,7 @@ You could use proxy to allow Pacemaker calls to the Azure management API public 
 ### Important considerations
 
   - If there is already corporate proxy in place, you could route outbound calls to public end points through it. Outbound calls to public end points will go through the corporate control point.  
-  - Make sure the proxy configuration allows outbound connectivity to Azure management API: https://management.azure.com  
+  - Make sure the proxy configuration allows outbound connectivity to Azure management API: `https://management.azure.com`  
   - Make sure there is a route from the VMs to the Proxy  
   - Proxy will handle only HTTP/HTTPS calls. If there is additional need to make outbound calls to public end point over different protocols (like RFC), alternative solution will be needed  
   - The Proxy solution must be highly available, to avoid instability in the Pacemaker cluster  
@@ -186,8 +186,9 @@ You could use proxy to allow Pacemaker calls to the Azure management API public 
 There are many different Proxy options available in the industry. Step-by-step instructions for the proxy deployment are outside of the scope of this document. In the example below, we assume that your proxy is responding to **MyProxyService** and listening to port **MyProxyPort**.  
 To allow pacemaker to communicate with the Azure management API, perform the following steps on all cluster nodes:  
 
-1. Edit the pacemaker configuration file /etc/sysconfig/pacemaker and add the following lines (all cluster nodes):  
-   ```
+1. Edit the pacemaker configuration file /etc/sysconfig/pacemaker and add the following lines (all cluster nodes):
+
+   ```console
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
    http_proxy=http://MyProxyService:MyProxyPort
@@ -195,8 +196,9 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
    ```
 
 2. Restart the pacemaker service on **all** cluster nodes.  
-  - SUSE  
-     ```
+  - SUSE
+ 
+     ```console
      # Place the cluster in maintenance mode
      sudo crm configure property maintenance-mode=true
      #Restart on all nodes
@@ -206,7 +208,8 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
      ```
 
   - Red Hat  
-     ```
+
+     ```console
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes

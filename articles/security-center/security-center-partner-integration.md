@@ -31,7 +31,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
-> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
+> Security Center does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 >
 >
 
@@ -145,8 +145,6 @@ Here are some Splunk queries you can use to pull alert data:
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
+In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following article:
 
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

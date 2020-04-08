@@ -39,7 +39,9 @@ Now that you've completed the steps required to enable ACR Tasks to read commit 
 
 First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -64,7 +66,7 @@ This task specifies that any time code is committed to the *master* branch in th
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
-```console
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -131,9 +133,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 By default, the `az acr task run` command streams the log output to your console when you execute the command.
 
-```console
-$ az acr task run --registry $ACR_NAME --name taskhelloworld
-
+```output
 2018/09/17 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
 2018/09/17 22:51:00 Setting up Docker configuration...
 2018/09/17 22:51:02 Successfully set up Docker configuration
@@ -205,13 +205,13 @@ Now that you've tested the task by manually running it, trigger it automatically
 
 First, ensure you're in the directory containing your local clone of the [repository][sample-repo]:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Next, execute the following commands to create, commit, and push a new file to your fork of the repo on GitHub:
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
@@ -220,8 +220,7 @@ git push origin master
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.
 
-```console
-$ git push origin master
+```azurecli-interactive
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
@@ -234,8 +233,7 @@ az acr task logs --registry $ACR_NAME
 
 Output is similar to the following, showing the currently executing (or last-executed) task:
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: da4
 
@@ -254,9 +252,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output from the command should appear similar to the following. The runs that ACR Tasks has executed are displayed, and "Git Commit" appears in the TRIGGER column for the most recent task:
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44

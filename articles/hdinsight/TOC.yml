@@ -19,6 +19,8 @@
         href: ./hdinsight-administer-use-powershell.md
       - name: Create clusters with Runbooks
         href: ./manage-clusters-runbooks.md
+      - name: Apache Ambari email notifications
+        href: ./apache-ambari-email.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
@@ -69,7 +71,7 @@
         href: ./hdinsight-hadoop-create-linux-clusters-portal.md
       - name: Create clusters using templates
         href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-      - name: Create clusters using command line
+      - name: Create clusters using Azure CLI
         href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
       - name: Create clusters using PowerShell
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
@@ -272,7 +274,8 @@
       href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Create Apache Spark cluster - Azure CLI
       href: ./spark/apache-spark-create-cluster-cli.md
-    - name: Create Apache Spark cluster - Template
+    - name: Create Apache Spark cluster - ARM Template
+      displayName: Resource Manager
       href: ./spark/apache-spark-jupyter-spark-sql.md
   - name: Tutorials
     items:
@@ -416,8 +419,8 @@
     items:
     - name: Create Apache Hadoop cluster - Portal
       href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Create Apache Hadoop cluster - Template
-      displayName: resource manager template, arm template, resource manager group
+    - name: Create Apache Hadoop cluster - ARM Template
+      displayName: Resource Manager
       href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md      
   - name: Tutorials
     items:
@@ -480,9 +483,9 @@
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
       - name: Manage
-      items:
-      - name: Use empty edge nodes
-        href: ./hdinsight-apps-use-edge-node.md
+        items:
+        - name: Use empty edge nodes
+          href: ./hdinsight-apps-use-edge-node.md
     - name: Troubleshoot
       items:
       - name: Common issues
@@ -545,11 +548,13 @@
       href: ./kafka/apache-kafka-get-started.md
     - name: Create Apache Kafka cluster - PowerShell
       href: ./kafka/apache-kafka-quickstart-powershell.md
-    - name: Create Apache Kafka cluster - Template
-      displayName: resource manager template, arm template, resource manager group
+    - name: Create Apache Kafka cluster - ARM Template
+      displayName: Resource Manager
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
   - name: Tutorials
     items:
+    - name: Create Apache Kafka cluster - Azure CLI
+      href: ./kafka/tutorial-cli-rest-proxy.md
     - name: Use Apache Kafka Producer and Consumer API
       href: ./kafka/apache-kafka-producer-consumer-api.md
     - name: Develop app with Apache Kafka Streams API
@@ -594,8 +599,6 @@
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: Bring your own key
-        href: ./kafka/apache-kafka-byok.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
     - name: Troubleshoot
@@ -610,6 +613,9 @@
       href: ./hbase/apache-hbase-overview.md
   - name: Quickstarts
     items:
+    - name: Create Apache HBase cluster - ARM Template
+      displayName: Resource Manager
+      href: ./hbase/quickstart-resource-manager-template.md
     - name: Query Apache HBase - Apache Phoenix
       href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
@@ -682,12 +688,19 @@
       href: ./interactive-query/apache-interactive-query-get-started.md
   - name: Quickstarts
     items:
+    - name: Create Interactive Query cluster - ARM Template
+      displayName: Resource Manager
+      href: ./interactive-query/quickstart-resource-manager-template.md
     - name: Execute Apache Hive queries - Apache Zeppelin
       href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
   - name: Tutorials
     items:
     - name: Analyze data with Interactive Query
       href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+  - name: Concepts
+    items: 
+    - name: Gateway best practices
+      href: ./interactive-query/gateway-best-practices.md
   - name: How to
     items:
     - name: Develop
@@ -754,6 +767,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
       - name: Apache HIVE troubleshooting
         href: ./hdinsight-troubleshoot-hive.md
+      - name: Apache Hive logs taking up entire disk space on Head node
+        href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
   - name: Overview
@@ -762,6 +777,9 @@
       href: ./r-server/r-server-overview.md
   - name: Quickstarts
     items:
+    - name: Create ML Services cluster - ARM Template
+      displayName: Resource Manager
+      href: ./r-server/quickstart-resource-manager-template.md
     - name: Sample job - RStudio Server
       href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
     - name: Sample job - R console
@@ -802,6 +820,8 @@
     items:
     - name: Use Apache Storm to write to storage
       href: ./storm/apache-storm-write-data-lake-store.md
+    - name: Apache Kafka and Apache Storm (Java)
+      href: ./hdinsight-apache-storm-with-kafka.md
   - name: How to
     items:
     - name: Migrate Storm to Spark
@@ -822,10 +842,6 @@
           href: ./storm/apache-storm-example-topology.md
       - name: Streaming pipelines
         items:
-        - name: Apache Kafka and Apache Storm (Java)
-          href: ./hdinsight-apache-storm-with-kafka.md
-        - name: Event Hub, Storage, and Data Lake Storage (Java)
-          href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
         - name: Event Hub and Apache Storm (C# & Java)
           href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
     - name: Manage
@@ -844,8 +860,6 @@
       href: ./domain-joined/hdinsight-security-overview.md
   - name: Tutorials
     items:
-    - name: Use firewall to restrict outbound traffic
-      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Apache HBase RBAC with Apache Ranger
       href: ./domain-joined/apache-domain-joined-run-hbase.md
     - name: Apache Hive RBAC with Apache Ranger
@@ -894,6 +908,8 @@
       href: ./domain-joined/ssh-domain-accounts.md
     - name: Securing data
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Use firewall to restrict outbound traffic
+      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues

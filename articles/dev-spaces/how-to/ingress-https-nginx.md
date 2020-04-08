@@ -18,20 +18,20 @@ This article shows you how to configure Azure Dev Spaces to use a custom NGINX i
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
 * [kubectl][kubectl] installed.
 * [Helm 3 installed][helm-installed].
-* [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
+* [A custom domain][custom-domain] with a [DNS Zone][dns-zone].  This article assumes the custom domain and DNS Zone are in the same resource group as your AKS cluster, but it is possible to use a custom domain and DNS Zone in a different resource group.
 
 ## Configure a custom NGINX ingress controller
 
 Connect to your cluster using [kubectl][kubectl], the Kubernetes command-line client. To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
@@ -74,7 +74,7 @@ nginx-nginx-ingress-controller        LoadBalancer   10.0.19.39     MY_EXTERNAL_
 
 Add an *A* record to your DNS zone with the external IP address of the NGINX service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
@@ -91,7 +91,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Open [values.yaml][values-yaml] and replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. Also replace *kubernetes.io/ingress.class: nginx-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. Below is an example of an updated `values.yaml` file:
+Open [values.yaml][values-yaml] and make the following updates:
+* Replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *nginx.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. 
+* Replace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: nginx  # Custom Ingress*. 
+
+Below is an example of an updated `values.yaml` file:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -144,6 +148,9 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
 Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+
+> [!NOTE]
+> If you see an error page instead of the *bikesharingweb* service, verify you updated **both** the *kubernetes.io/ingress.class* annotation and the host in the *values.yaml* file.
 
 Use the `azds space select` command to create a child space under *dev* and list the URLs to access the child dev space.
 
@@ -237,7 +244,7 @@ gateway:
 Upgrade the sample application using `helm`:
 
 ```console
-helm upgrade bikesharing . --namespace dev --atomic
+helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
 Navigate to the sample application in the *dev/azureuser1* child space and notice you are redirected to use HTTPS. Also notice that the page loads, but the browser shows some errors. Opening the browser console shows the error relates to an HTTPS page trying to load HTTP resources. For example:
@@ -276,7 +283,7 @@ Update [BikeSharingWeb/package.json][package-json] with a dependency for the *ur
 ...
 ```
 
-Update the *getApiHostAsync* method in [BikeSharingWeb/pages/helpers.js][helpers-js] to use HTTPS:
+Update the *getApiHostAsync* method in [BikeSharingWeb/lib/helpers.js][helpers-js] to use HTTPS:
 
 ```javascript
 ...
@@ -323,7 +330,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [cert-manager]: https://cert-manager.io/
 [helm-installed]: https://helm.sh/docs/intro/install/
 [helm-stable-repo]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
-[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
+[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/lib/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [letsencrypt-staging-issuer]: https://cert-manager.io/docs/configuration/acme/#creating-a-basic-acme-issuer

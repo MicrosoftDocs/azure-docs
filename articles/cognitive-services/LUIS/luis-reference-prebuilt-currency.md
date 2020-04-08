@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ---
 
 # Currency prebuilt entity for a LUIS app
-The prebuilt currency entity detects currency in many denominations and countries/regions, regardless of LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing currency to the application intents. Currency entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
+The prebuilt currency entity detects currency in many denominations and countries/regions, regardless of LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing currency to the application intents. Currency entity is supported in [many cultures](luis-reference-prebuilt-entities.md).
 
 ## Types of currency
 Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub repository
@@ -79,10 +79,10 @@ The following example shows the resolution of the **builtin.currency** entity.
     }
 ]
 ```
-* * * 
+* * *
 
 ## Next steps
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), and [email](luis-reference-prebuilt-email.md) entities. 
+Learn about the [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), and [email](luis-reference-prebuilt-email.md) entities.

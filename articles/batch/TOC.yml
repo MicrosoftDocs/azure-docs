@@ -29,6 +29,8 @@
     href: tutorial-r-doazureparallel.md
   - name: OCR with Batch and Functions
     href: tutorial-batch-functions.md
+  - name: Python scripts with Data Factory
+    href: tutorial-run-python-batch-azure-data-factory.md
 - name: Samples
   items:
   - name: Code samples
@@ -49,6 +51,8 @@
     href: batch-api-basics.md
   - name: APIs and tools
     href: batch-apis-tools.md
+  - name: Detecting and handling Batch service errors
+    href: batch-retry-after-errors.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
@@ -59,10 +63,14 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
+  - name: Batch integration with Azure Policies
+    href: batch-integration-policies.md  
 - name: How-to guides
   items:
   - name: Manage Batch accounts
     items:
+    - name: Manage your account
+      href: batch-manage-account-basics.md
     - name: Manage Batch accounts with the portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
@@ -77,8 +85,18 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
+
   - name: Using application packages
     href: batch-application-packages.md
+  - name: Copy files and applications to pool nodes
+    items: 
+    - name: Copying applications and data to pool nodes
+      href: batch-applications-to-pool-nodes.md 
+    - name: Using application packages
+      href: batch-application-packages.md
+    - name: Create resource files
+      href: resource-files.md
+
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
@@ -108,7 +126,8 @@
   - name: Create a CI/CD pipeline for Batch
     href: batch-ci-cd.md
   - name: Manage jobs and tasks
-    items:
+    items: 
+    
     - name: Job preparation and completion tasks
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
@@ -119,10 +138,10 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+    - name: Schedule jobs for efficiency
+      href: batch-job-schedule.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
-  - name: Create resource files
-    href: resource-files.md
   - name: Persist job and task output
     href: batch-task-output.md
     items:

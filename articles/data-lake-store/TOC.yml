@@ -1,5 +1,5 @@
-- name: Data Lake Storage Gen1 Documentation
-  href: index.md
+- name: Data Lake Storage Gen1 documentation
+  href: index.yml
 - name: Switch to Data Lake Storage Gen2 documentation
   href: https://docs.microsoft.com/azure/storage/data-lake-storage/introduction
 - name: Overview

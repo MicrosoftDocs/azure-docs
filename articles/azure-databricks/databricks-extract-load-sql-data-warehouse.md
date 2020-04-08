@@ -41,7 +41,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Complete these tasks before you begin this tutorial:
 
-* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Create a master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
@@ -53,7 +53,7 @@ Complete these tasks before you begin this tutorial:
 
    There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-   * When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal in the scope of the Data Lake Storage Gen2 account. If you assign the role to the parent resource group or subscription, you'll receive permissions-related errors until those role assignments propagate to the storage account.
+   * When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal in the scope of the Data Lake Storage Gen2 account. If you assign the role to the parent resource group or subscription, you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
       If you'd prefer to use an access control list (ACL) to associate the service principal with a specific file or directory, reference [Access control in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
@@ -149,13 +149,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ```scala
    val appID = "<appID>"
-   val password = "<password>"
+   val secret = "<secret>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<secret>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    ```
@@ -221,7 +221,7 @@ In the cell, press **SHIFT + ENTER** to run the code.
     ```
    You see an output similar to the following snippet:
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -247,7 +247,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet:
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -283,7 +283,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

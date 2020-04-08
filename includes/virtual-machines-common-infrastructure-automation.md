@@ -9,9 +9,9 @@ ms.author: cynthn
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
-    - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet).
+    - Tools include [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet), and [Azure Resource Manager template](#azure-resource-manager-template).
     - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
- 
+
 - Automate infrastructure management
     - Tools include [Packer](#packer) to automate custom VM image builds, and [Terraform](#terraform) to automate the infrastructure build process.
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-premises infrastructure.
@@ -51,7 +51,7 @@ Learn how to:
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. 
+We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 Learn more details about cloud-init on Azure:
 
 - [Cloud-init support for Linux virtual machines in Azure](../articles/virtual-machines/linux/using-cloud-init.md)
@@ -71,7 +71,7 @@ Learn how to:
 
 
 ## Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use. 
+The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
 
 Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
 
@@ -124,8 +124,19 @@ Learn more about:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
+
+## Azure Resource Manager template
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+Learn how to:
+
+- [Deploy Spot VMs using a Resource Manager template](../articles/virtual-machines/linux/spot-template.md).
+- [Deploy an Azure Virtual Machine using C# and a Resource Manager template](../articles/virtual-machines/windows/csharp-template.md).
+- [Create a Windows virtual machine from a Resource Manager template](../articles/virtual-machines/windows/ps-template.md).
+- [Download the template for a VM](../articles/virtual-machines/windows/download-template.md).
+- [Create an Azure Image Builder template](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## Next steps
 There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) or [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.

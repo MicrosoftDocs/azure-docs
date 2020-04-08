@@ -13,6 +13,8 @@
     href: tutorial-enable-azure-mfa.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -108,22 +110,18 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
-    - name: On-premises integration
-      items:
-      - name: Deploy Azure AD password protection
-        href: howto-password-ban-bad-on-premises-deploy.md
-      - name: Configure Azure AD password protection
-        href: howto-password-ban-bad-on-premises-operations.md
-      - name: Monitor Azure AD password protection
-        href: howto-password-ban-bad-on-premises-monitor.md
-      - name: Troubleshoot Azure AD password protection
-        href: howto-password-ban-bad-on-premises-troubleshoot.md
-      - name: Frequently asked questions
-        href: howto-password-ban-bad-on-premises-faq.md
-      - name: On-premises agent version history
-        href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Plan and deploy on-premises
+      href: howto-password-ban-bad-on-premises-deploy.md
+    - name: Enable and configure on-premises
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Monitor on-premises deployments
+      href: howto-password-ban-bad-on-premises-monitor.md
+    - name: Troubleshoot on-premises deployments
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+    - name: On-premises FAQs
+      href: howto-password-ban-bad-on-premises-faq.md
+    - name: On-premises agent version history
+      href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Passwordless

@@ -1,8 +1,6 @@
 ---
 title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
 description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
@@ -35,7 +33,7 @@ See the *Viewing changes for all resources in Azure* section to access Change An
 Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. Tracked settings such as managed identities, Platform OS upgrade, and hostnames can be detected.
 
 ### Azure Resource Manager proxied setting changes
-Settings such as IP Configuration rule, SSL settings, and extension versions are not yet available in ARG, so Change Analysis queries and computes these changes securely to provide more details in what changed in the app. These information is not available yet in Azure Resource Graph but will be available soon.
+Settings such as IP Configuration rule, TLS settings, and extension versions are not yet available in ARG, so Change Analysis queries and computes these changes securely to provide more details in what changed in the app. This information is not available yet in Azure Resource Graph but will be available soon.
 
 ### Changes in web app deployment and configuration (in-guest changes)
 

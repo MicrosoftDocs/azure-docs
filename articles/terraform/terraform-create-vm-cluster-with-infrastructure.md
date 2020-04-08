@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Create an Azure VM cluster with Terraform and HCL
-description: Use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
+description: In this tutorial, you use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure
+keywords: azure devops terraform vm virtual machine cluster
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Create an Azure VM cluster with Terraform and HCL
@@ -44,6 +45,8 @@ In this section, you generate an Azure service principal, and two Terraform conf
    variable client_secret {}
   
    provider "azurerm" {
+      version = "~>1.40"
+     
       subscription_id = var.subscription_id
       tenant_id = var.tenant_id
       client_id = var.client_id
@@ -124,7 +127,6 @@ In this section, you create a file that contains resource definitions for your i
       name                          = "testConfiguration"
       subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 

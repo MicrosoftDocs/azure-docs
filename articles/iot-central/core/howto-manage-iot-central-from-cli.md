@@ -5,8 +5,8 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -26,6 +26,14 @@ If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI
 
 > [!TIP]
 > If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+
+## Install the extension
+
+The commands in this article are part of the **azure-iot** CLI extension. Run the following command to install the extension:
+
+```azurecli-interactive
+az extension add --name azure-iot
+```
 
 ## Create an application
 
@@ -51,9 +59,9 @@ These commands first create a resource group in the east US region for the appli
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, or **United States** geographies. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
 | name              | The name of the application in the Azure portal. |
-| subdomain         | The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
+| subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 | sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | The application template to use. For more information, see the following table. |
 | display-name      | The name of the application as displayed in the UI. |

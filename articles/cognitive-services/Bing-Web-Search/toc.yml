@@ -27,14 +27,8 @@
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: C#
-      href: web-search-sdk-quickstart.md
-    - name: Java
-      href: web-sdk-java-quickstart.md
-    - name: Node.js
-      href: web-search-sdk-node-quickstart.md
-    - name: Python
-      href: web-sdk-python-quickstart.md
+    - name: Bing Web Search client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
