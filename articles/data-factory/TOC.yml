@@ -675,6 +675,8 @@
       href: scenario-ssis-migration-overview.md
     - name: SSISDB migration to Azure SQL Database managed instance
       href: scenario-ssis-migration-ssisdb-mi.md
+    - name: SSIS jobs migration to Azure Data Factory
+      href: how-to-migrate-ssis-job-ssms.md
 - name: Reference
   items:
   - name: Data flow script

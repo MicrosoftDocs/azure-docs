@@ -21,7 +21,7 @@ ms.author: juliako
 | --- | --- | 
 | Assets per Media Services account | 1,000,000|
 
-### Storage limits
+### Storage (media) limits
 
 | Resource | Default Limit | 
 | --- | --- | 

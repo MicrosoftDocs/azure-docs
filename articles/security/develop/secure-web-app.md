@@ -102,7 +102,7 @@ This application used:
 
 ### Network
 
-The sample app uses end-to-end SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
+The sample app uses end-to-end TLS/SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
 > [!IMPORTANT]
 > A self-signed certificate is used in this demonstration. In a production environment, you should obtain certificates from a verified Certificate Authority (CA).
 
@@ -357,7 +357,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+For more information on how to setup TLS and Certificate Authority (CA) verification for PostgreSQL, see [Configure TLS connectivity in Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 A root certificate is included in the container. The steps taken to obtain the certificate are:
 
@@ -369,7 +369,7 @@ A root certificate is included in the container. The steps taken to obtain the c
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](/azure/postgresql/concepts-ssl-connection-security).
+Read more on how to configure TLS security for PostgreSQL here [Configure TLS Connection Security](/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
 

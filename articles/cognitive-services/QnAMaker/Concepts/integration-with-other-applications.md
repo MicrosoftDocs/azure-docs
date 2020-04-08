@@ -19,7 +19,7 @@ After you publish your knowledge base, create a bot from the **Publish** page, b
 
 ## Providing multi-turn conversations
 
-A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA set. Learn [how to](../how-to/multiturn-conversation.md) add multi-turn conversation question and answer sets to your knowledge base.
+A bot client provides the best selected answer from your knowledge base, and can provide follow-up prompts if the answer is part of a multi-turn QnA pair. Learn [how to](../how-to/multiturn-conversation.md) add multi-turn conversation question and answer sets to your knowledge base.
 
 ## Natural language processing
 
