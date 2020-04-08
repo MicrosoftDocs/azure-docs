@@ -267,7 +267,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
 
 > [!Note]
-> Microsoft Power BI also [supports managed identities](https://docs.microsoft.com/en-us/azure/stream-analytics/powerbi-output-managed-identity).
+> Microsoft Power BI also [supports managed identities](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Available"
