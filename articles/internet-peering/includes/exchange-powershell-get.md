@@ -10,7 +10,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-To get the list of peerings, run the `Get-AzPeering` command.
+To get the list of peerings, run the **Get-AzPeering** command.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"

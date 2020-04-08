@@ -11,7 +11,7 @@ ms.author: prmitiki
 ---
 
 
-To get the list of peerings, run the `Get-AzPeering` command.
+To get the list of peerings, run the **Get-AzPeering** command.
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"

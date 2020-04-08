@@ -27,7 +27,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> The value for <index>$peeringLocation[]<index> in the previous example should correspond to the peering location of your choice.
+> The value for <index>**$peeringLocation[]**<index> in the previous example should correspond to the peering location of your choice.
 
 Create another connection in case you need redundancy at a given peering location.
 
@@ -73,4 +73,4 @@ This example shows the response when the request was processed successfully.
     Tags                 : {}
 
 ```
-Note that in place of *{subscriptionId}* in this output, the actual subscription ID will be displayed.
+Note that in place of **{subscriptionId}** in this output, the actual subscription ID will be displayed.
