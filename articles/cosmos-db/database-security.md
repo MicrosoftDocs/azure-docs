@@ -18,7 +18,7 @@ Encryption at rest is now available for documents and backups stored in Azure Co
 
 ## How do I secure my database
 
-Data security is a shared responsibility between you, the customer, and your database provider. Depending on the database provider you choose, the amount of responsibility you carry can vary. If you choose an on-premises solution, you need to provide everything from end-point protection to physical security of your hardware - which is no easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, your area of concern shrinks considerably. The following image, borrowed from Microsoft's [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility) white paper, shows how your responsibility decreases with a PaaS provider like Azure Cosmos DB.
+Data security is a shared responsibility between you, the customer, and your database provider. Depending on the database provider you choose, the amount of responsibility you carry can vary. If you choose an on-premises solution, you need to provide everything from end-point protection to physical security of your hardware - which is no easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, your area of concern shrinks considerably. The following image, borrowed from Microsoft's [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) white paper, shows how your responsibility decreases with a PaaS provider like Azure Cosmos DB.
 
 ![Customer and database provider responsibilities](./media/database-security/nosql-database-security-responsibilities.png)
 
@@ -43,7 +43,7 @@ We recommend the following checklist of requirements on which to compare databas
 And although it may seem obvious, recent [large-scale database breaches](https://thehackernews.com/2017/01/mongodb-database-security.html) remind us of the simple but critical importance of the following requirements:
 
 - Patched servers that are kept up-to-date
-- HTTPS by default/SSL encryption
+- HTTPS by default/TLS encryption
 - Administrative accounts with strong passwords
 
 ## How does Azure Cosmos DB secure my database
@@ -65,13 +65,13 @@ Let's dig into each one in detail.
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
 |Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific container and read-write, or read-only access can be limited to specific users.|
 |Monitor for attacks|By using [audit logging and activity logs](logging.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
-|Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper).|
+|Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, please contact [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).|
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](./database-encryption-at-rest.md)|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
-|Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via SSL and HMAC secret based authentication is baked in by default.|
+|Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS and HMAC secret based authentication is baked in by default.|
 |Security and data protection certifications| For the most up-to-date list of certifications see the overall [Azure Compliance site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) as well as the latest [Azure Compliance Document](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) with all certifications (search for Cosmos). For a more focused read check out the April 25, 2018 post [Azure #CosmosDB: Secure, private, compliant that includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High, and many others.
 
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 

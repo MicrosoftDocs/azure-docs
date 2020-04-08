@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
+ms.date: 03/30/2020
 ---
 # Automatic tuning in Azure SQL Database
 
@@ -87,3 +87,4 @@ Automatic tuning for instance databases in a managed instance deployment only su
 ## Next steps
 
 - To learn about built-in intelligence used in automatic tuning, see [Artificial Intelligence tunes Azure SQL databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- To learn how automatic tuning works under the hood, see [Automatically indexing millions of databases in Microsoft Azure SQL Database](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).

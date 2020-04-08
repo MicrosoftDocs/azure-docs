@@ -135,7 +135,7 @@ The following table lists property names and their descriptions to configure you
 For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) tutorial.
 
 > [!NOTE]
-> Don't explicitly create the dataset and table in the Power BI dashboard. The dataset and table are automatically populated when the job is started and the job starts pumping output into Power BI. If the job query doesn’t generate any results, the dataset and table aren't created. If Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
+> Don't explicitly create the dataset and table in the Power BI dashboard. The dataset and table are automatically populated when the job is started and the job starts pumping output into Power BI. If the job query doesn't generate any results, the dataset and table aren't created. If Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
 >
 
 ### Create a schema
@@ -171,7 +171,7 @@ Datetime | String | String |  Datetime | String
 
 ## Table storage
 
-[Azure Table storage](../storage/common/storage-introduction.md) offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store, which you can use for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+[Azure Table storage](../storage/common/storage-introduction.md) offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store, which you can use for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The following table lists the property names and their descriptions for creating a table output.
 
@@ -182,8 +182,8 @@ The following table lists the property names and their descriptions for creating
 | Storage account key |The access key associated with the storage account. |
 | Table name |The name of the table. The table gets created if it doesn't exist. |
 | Partition key |The name of the output column that contains the partition key. The partition key is a unique identifier for the partition within a table that forms the first part of an entity's primary key. It's a string value that can be up to 1 KB in size. |
-| Row key |The name of the output column that contains the row key. The row key is a unique identifier for an entity within a partition. It forms the second part of an entity’s primary key. The row key is a string value that can be up to 1 KB in size. |
-| Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) for more details on modifying this setting. |
+| Row key |The name of the output column that contains the row key. The row key is a unique identifier for an entity within a partition. It forms the second part of an entity's primary key. The row key is a string value that can be up to 1 KB in size. |
+| Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) for more details on modifying this setting. |
 
 ## Service Bus queues
 
@@ -268,7 +268,7 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Func
 
 Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully.
 
-When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
+When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn't send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
 > [!NOTE]
 > During test connection, Stream Analytics sends an empty batch to Azure Functions to test if the connection between the two works. Make sure that your Functions app handles empty batch requests to make sure test connection passes.
@@ -339,18 +339,18 @@ Azure Stream Analytics uses variable-size batches to process events and write to
 
 The following table explains some of the considerations for output batching:
 
-| Output type |	Max message size | Batch size optimization |
+| Output type |    Max message size | Batch size optimization |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | See [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Use up to 4 MB per write operation. |
 | Azure SQL Database | Configurable using Max batch count. 10,000 maximum and 100 minimum rows per single bulk insert by default.<br />See [Azure SQL limits](../sql-database/sql-database-resource-limits.md). |  Every batch is initially bulk inserted with maximum batch count. Batch is split in half (until minimum batch count) based on retryable errors from SQL. |
 | Azure Blob storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The maximum blob block size is 4 MB.<br />The maximum blob bock count is 50,000. |
-| Azure Event Hubs	| 256 KB or 1 MB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |	When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.	|
+| Azure Event Hubs    | 256 KB or 1 MB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |    When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.    |
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |
-| Azure Service Bus queue	| 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
+| Azure Service Bus queue    | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
 | Azure Service Bus topic | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
-| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
-| Azure Functions	| | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
+| Azure Cosmos DB    | See [Azure Cosmos DB limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
+| Azure Functions    | | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
 
 ## Next steps
 > [!div class="nextstepaction"]

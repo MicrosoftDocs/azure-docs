@@ -26,9 +26,9 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 The *Microsoft.ContainerInstance* provider should report as *Registered*, as shown in the following example output:
 
 ```output
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:

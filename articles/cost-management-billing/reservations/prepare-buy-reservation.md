@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
 ---
 
@@ -38,8 +38,6 @@ While applying reservation discounts on your usage, Azure processes the reservat
 1. Reservations that are scoped to a resource group
 2. Single scope reservations
 3. Shared scope reservations
-
-A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
