@@ -172,7 +172,7 @@
         items:
         - name: Create an Apache Spark machine learning pipeline
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-  - name: SQL Analytics
+  - name: Synapse SQL
     items:
     - name: Overview
       items:
@@ -312,7 +312,9 @@
         href: security/how-to-connect-to-workspace-with-private-links.md
       - name: Provision and secure a linked service with Managed Vnet
         href: ./data-integration/linked-service.md
-    - name: SQL Analytics
+  - name: Manage and monitor
+    items:
+    - name: Synapse SQL
       items:
       - name: Monitor Gen2 cache
         href: ../sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -332,7 +334,7 @@
           href: ../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Upgrade to Gen2
         href: ../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-   - name: Load data
+  - name: Load data
     items:
     - name: Into the data warehouse
       items:
@@ -368,12 +370,8 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
-    - name: SQL Analytics
+    - name: Synapse SQL
       items:
-      - name: Connect
-        items:
-      - name: Power BI
-        items:
       - name: Query data in storage
         items:
         - name: Overview
@@ -396,9 +394,7 @@
           href: sql/create-use-external-tables.md
         - name: Store query results to storage
           href: sql/create-external-table-as-select.md
-    - name: Spark
-      items:
-     - name: Data Flow and Data Ingest
+    - name: Data Flow and Data Ingest
       items:
       - name: Aggregate
         href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -824,9 +820,9 @@
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference/
-    - name: SQL Analytics language elements
+    - name: Synapse SQL T-SQL language elements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: SQL Analytics statements
+    - name: Synapse SQL T-SQL statements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Resources
   items: 
