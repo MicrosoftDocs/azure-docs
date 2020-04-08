@@ -5,13 +5,16 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
 ---
 
 
 Cloud Partner Portal API Reference
 ==================================
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are shimmed and will continue to work after your offers are migrated to Partner Center. The shims introduce small changes. Review the changes listed in this document to ensure your code continues to work after the migration to Partner Center.
 
 The Cloud Partner Portal REST APIs allow the programmatic retrieval and
 manipulation of workloads, offers, and publisher profiles. The APIs use

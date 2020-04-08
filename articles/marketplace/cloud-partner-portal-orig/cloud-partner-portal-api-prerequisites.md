@@ -5,13 +5,16 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
 ---
 
 
 API Prerequisites
 ================
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are shimmed and will continue to work after your offers are migrated to Partner Center. The shims introduce small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 There are two required programmatic assets that you need to use the Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 

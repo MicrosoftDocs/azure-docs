@@ -5,11 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
 ---
 
 # Troubleshooting common authentication errors
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are shimmed and will continue to work after your offers are migrated to Partner Center. The shims introduce small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 This article provides assistance with common authentication errors when using the Cloud Partner Portal APIs.
 
