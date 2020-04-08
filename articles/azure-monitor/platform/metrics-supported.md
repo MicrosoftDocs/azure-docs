@@ -15,7 +15,7 @@ ms.subservice: metrics
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. 
 
-This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list is current as of the date listed at the beginning of this article. To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list was last updated March 27th, 2020. Metrics changed or added after this date may not appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 Other metrics may be available in the portal or using legacy APIs. Metrics for the guest operating system (guest os) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Those must be collected through one or more agents which run on or as part of the operating system. You can send the agent metrics into the platform metrics database using the [custom metrics](metrics-custom-overview.md) API, which are currently in public preview. Then you can chart, alert and otherwise use guest os metrics like platform metrics. For more information, see [Monitoring Agents Overview](agents-overview.md).    
 
