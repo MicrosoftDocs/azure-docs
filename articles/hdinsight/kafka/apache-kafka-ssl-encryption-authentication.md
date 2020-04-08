@@ -1,24 +1,27 @@
 ---
-title: Apache Kafka SSL encryption & authentication  - Azure HDInsight
-description: Set up SSL encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Set up SSL authentication of clients.
+title: Apache Kafka TLS encryption & authentication  - Azure HDInsight
+description: Set up TLS encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Set up SSL authentication of clients.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.author: hrasheed
 ---
-# Set up Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight
 
-This article shows you how to set up SSL encryption between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way SSL).
+# Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
+
+This article shows you how to set up Transport Layer Security (TLS) encryption, previously known as Secure Sockets Layer (SSL) encryption, between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way TLS).
 
 > [!Important]
-> There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use SSL for both producing and consuming. The console producer client `console-producer.sh` does not work with SSL.
+> There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use TLS for both producing and consuming. The console producer client `console-producer.sh` does not work with TLS.
 
+> [!Note] 
+> HDInsight Kafka console producer with version 1.1 does not support SSL.
 ## Apache Kafka broker setup
 
-The Kafka SSL broker setup will use four HDInsight cluster VMs in the following way:
+The Kafka TLS broker setup will use four HDInsight cluster VMs in the following way:
 
 * headnode 0 - Certificate Authority (CA)
 * worker node 0, 1, and 2 - brokers
@@ -111,7 +114,7 @@ Use the following detailed instructions to complete the broker setup:
 
     ```
 
-## Update Kafka configuration to use SSL and restart brokers
+## Update Kafka configuration to use TLS and restart brokers
 
 You have now set up each Kafka broker with a keystore and truststore, and imported the correct certificates. Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers.
 
@@ -128,7 +131,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
+1. Add new configuration properties to the server.properties file.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -142,16 +145,23 @@ To complete the configuration modification, do the following steps:
     echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
-    Here is the screenshot that shows Ambari configuration UI with these changes in **kafka-env template** property.
-    
+
+1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
+
+    For HDI version 3.6:
+
     ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
 
+    For HDI version 4.0:
+
+     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
+
 1. Restart all Kafka brokers.
-1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Please refer to ## Verification section below for steps needed to verify the setup using console producer/consumer.
+1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
 
 ## Client setup (without authentication)
 
-If you don't need authentication, the summary of the steps to set up only SSL encryption are:
+If you don't need authentication, the summary of the steps to set up only TLS encryption are:
 
 1. Sign in to the CA (active head node).
 1. Copy the CA cert to client machine from the CA machine (wn0).
@@ -204,7 +214,7 @@ These steps are detailed in the following code snippets.
 ## Client setup (with authentication)
 
 > [!Note]
-> The following steps are required only if you are setting up both SSL encryption **and** authentication. If you are only setting up encryption, then see [Client setup without authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication).
+> The following steps are required only if you are setting up both TLS encryption **and** authentication. If you are only setting up encryption, then see [Client setup without authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication).
 
 The following four steps summarize the tasks needed to complete the client setup:
 
@@ -287,7 +297,7 @@ The details of each step are given below.
 ## Verification
 
 > [!Note]
-> If HDInsight 4.0 and Kafka 2.1 is installed, you can use the console producer/consumers to verify your setup. If not, run the Kafka producer on port 9092 and send messages to the topic, and then use the Kafka consumer on port 9093 which uses SSL.
+> If HDInsight 4.0 and Kafka 2.1 is installed, you can use the console producer/consumers to verify your setup. If not, run the Kafka producer on port 9092 and send messages to the topic, and then use the Kafka consumer on port 9093 which uses TLS.
 
 ### Kafka 2.1 or above
 
@@ -297,13 +307,13 @@ The details of each step are given below.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.	Start console producer and provide the path to `client-ssl-auth.properties` as a configuration file for the producer.
+1. Start console producer and provide the path to `client-ssl-auth.properties` as a configuration file for the producer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1.	Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
+1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -317,13 +327,13 @@ The details of each step are given below.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.	Start console producer and provide the path to client-ssl-auth.properties as a configuration file for the producer.
+1. Start console producer and provide the path to client-ssl-auth.properties as a configuration file for the producer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.	Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
+1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
