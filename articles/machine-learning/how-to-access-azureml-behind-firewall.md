@@ -18,18 +18,18 @@ This article contains information on configuring Azure Firewall for use with Azu
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace.
 
-## Hosts
+## Network rules
 
-Your development environment, and the Azure Machine Learning workspace, need to access the hosts listed in this section. 
-
-On your firewall, create a network rule allowing traffic to and from the following addresses:
+On your firewall, create a network rule allowing traffic to and from the addresses in this article.
 
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 >
 > For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
-__Azure-specific hosts__
+## Microsoft hosts
+
+The hosts in this section are owned by Microsoft, and provide services required for the proper functioning of your workspace.
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
@@ -46,7 +46,9 @@ __Azure-specific hosts__
 | **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
 
-__Python-related hosts__
+## Python hosts
+
+The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
