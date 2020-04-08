@@ -75,7 +75,7 @@ The best way to register VMs from other Azure subscriptions is to use the DSC ex
 
 To find the registration key and registration URL to use as parameters in the template, see the [Onboard securely by using registration](#onboard-securely-by-using-registration) section in this article.
 
-## Onboard physical or virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
+## Onboard physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
 
 You can onboard Windows servers that are running on-premises or in other cloud environments to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 
@@ -93,7 +93,7 @@ You can onboard Windows servers that are running on-premises or in other cloud e
    b. Add code to call `Set-DscLocalConfigurationManager` locally on the machines.
 1. By using the Azure portal or cmdlets, verify that the machines to onboard appear as State Configuration nodes registered in your Azure Automation account.
 
-## Onboard physical or virtual Linux machines on-premises, or in a cloud other than Azure
+## Onboard physical/virtual Linux machines on-premises, or in a cloud other than Azure
 
 You can onboard Linux servers running on-premises or in other cloud environments to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 

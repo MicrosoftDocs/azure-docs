@@ -78,7 +78,7 @@ such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) that's used to register nodes.
+Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) that's used to register nodes.
 
 >[!NOTE]
 >Azure Automation State Configuration does not provide DSC proxy support for earlier versions of Windows.
