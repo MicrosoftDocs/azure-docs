@@ -1,8 +1,8 @@
 ---
-title: Clusters and Nodes
+title: Clusters and Node Concepts
 description: Learn about Azure CycleCloud clusters, nodes, and node arrays.
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 04/01/2018
 ms.author: adjohnso, jechia
 ---
 
@@ -10,9 +10,13 @@ ms.author: adjohnso, jechia
 
 In CycleCloud, the term *cluster* is used to describe a group of connected computers (*nodes*) working together as a single system. Clusters can be nested; for example a compute cluster consisting of a Grid Engine scheduler headnode and compute nodes may mount a BeeGFS cluster consisting of several metadata and storage servers, with both compute and storage clusters coalescing under a single parent HPC cluster or system.
 
+:::image type="content" source="~/images/concept_overview_diagram.png" alt-text="Overview Diagram":::
+
 ## Nodes and Node Arrays
 
-Clusters fundamentally comprise of nodes, each of which perform a specific role in the HPC system. The terms *node* and *VM* are used interchangeably occasionally but are semantically separate in CycleCloud. *Nodes* that make up a cluster are in essence virtual machines on Azure that have completed the preparation and configuration process. In other words, *VMs* are provisioned from the Azure infrastructure service layers, and their end states are *nodes* of an HPC cluster after going through software installation and configuration steps. 
+Clusters fundamentally comprise of nodes, each of which perform a specific role in the HPC system. The terms *node* and *VM* are used interchangeably occasionally but are semantically separate in CycleCloud. *Nodes* that make up a cluster are in essence virtual machines on Azure that have completed the preparation and configuration process. In other words, *VMs* are provisioned from the Azure infrastructure service layers, and their end states are *nodes* of an HPC cluster after going through software installation and configuration steps.
+
+:::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Architecture Diagram":::
 
 There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine ScaleSets (VMSSs). 
 
@@ -28,6 +32,8 @@ Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/I
 
 CycleCloud provisions VM using base VM images defined in the cluster template, and there usually are a series of steps that are needed to be executed during VM boot-up to convert the VM into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
 
+:::image type="content" source="~/images/concept_node-prep_diagram.png" alt-text="Node Preparation Diagram":::
+
 Defined in the configuration section of each node are *cluster-init specs* -- specifications provided to each booting VM that are used to prepare it for a specific role in the cluster. CycleCloud utilizes [Chef](https://www.chef.io) as the infrastructure automation platform for preparing and configuring each node. In essence, each *cluster-init spec* map to one of more [Chef roles](https://docs.chef.io/roles.html) and/or [Cookbook Recipes](https://docs.chef.io/recipes.html) that need to be executed on the booting VM. 
 
 CycleCloud utilizes Chef in a stand-alone mode that does not rely on a centralized Chef server. Instead, the entire set of Chef Cookbooks needed to prepare each VM are downloaded from an Azure Storage Account belonging to the user during the VM bootup phase. This set of Cookbooks are cached from the CycleCloud application server into the Storage Account during the cluster creation phase. 
@@ -36,7 +42,9 @@ After these Cookbooks are downloaded, the Chef process proceeds to process the l
 
 ## Node Orchestration
 
-Depending on the scheduler and services used in a cluster, CycleCloud at times need to orchestrate the preparation phase of nodes in a cluster through the coordination of different nodes. For example, some schedulers require that each compute node register themselves against the scheduler master daemon, which not only necessitate the compute nodes be aware of the address of the headnode, but are also able to recognize that the headnode is fully prepared and wait if it's not. 
+Depending on the scheduler and services used in a cluster, CycleCloud at times need to orchestrate the preparation phase of nodes in a cluster through the coordination of different nodes. For example, some schedulers require that each compute node register themselves against the scheduler master daemon, which not only necessitate the compute nodes be aware of the address of the headnode, but are also able to recognize that the headnode is fully prepared and wait if it's not.
+
+:::image type="content" source="~/images/concept_orchestration_diagram.png" alt-text="Orchestration Diagram":::
 
 This element of [Service Discovery](https://en.wikipedia.org/wiki/Service_discovery) is also used for File System server-client relationships and is a feature in CycleCloud.
 

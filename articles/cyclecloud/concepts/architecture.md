@@ -16,7 +16,7 @@ Building individual HPC systems on Azure from basic infrastructure units such as
 
 Azure CycleCloud is a tool that helps construct HPC systems on Azure. It orchestrates these systems so that they size elastically according to the HPC tasks at hand, without the hassle of managing basic Azure building blocks. CycleCloud is designed by a team of experienced HPC professionals for HPC administrators and users, particularly users who are looking build HPC systems in Azure that resemble internal HPC infrastructure that they are familiar with.
 
-![CycleCloud Architecture](~/images/architecture.png)
+:::image type="content" source="~/images/architecture.png" alt-text="CycleCloud Architecture":::
 
 Operationally, CycleCloud is an application server that is installed in a Linux VM on Azure, or in an internal server that has access to Azure APIs and resources. This application server provides three main functions:
 
@@ -66,7 +66,7 @@ CycleCloud does not dictate cluster topology; the installation comes with templa
 
 ### What a CycleCloud deployed environment looks like
 
-![CycleCloud Deployment](~/images/architecture-deployment.png)
+:::image type="content" source="~/images/architecture-deployment.png" alt-text="CycleCloud Deployment":::
 
 An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCloud itself is installed as an application server on a VM in Azure that requires outbound access to Azure Resource Provider APIs. CycleCloud then starts and manages VMs that form the HPC systems — these typically consist of the HPC scheduler head node(s) and compute nodes, but may also include VM based Network Attached Storage such as an NFS server or BeeGFS cluster, login nodes, bastion hosts, and other components needed to support an HPC infrastructure. The makeup of the HPC system is defined entirely through CycleCloud templates. Additionally, CycleCloud HPC environments can utilize other PaaS services such as Azure NetApp Files, Azure HPC Cache, and Azure Active Directory Domain Service.
 
