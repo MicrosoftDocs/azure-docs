@@ -111,7 +111,7 @@ Follow these steps to move your Azure-SSIS IR to a new region.
 > [!NOTE]
 > Step 3 (creation of IR) needs to be done via PowerShell. Azure portal will report an error stating that SSISDB already exists.
 
-1. Execute stored procedure to make SSISDB attached to **\<new_data_factory_name\>** or **\<new_integration_runtime_name\>**.
+1. Execute stored procedure to update metadata in SSISDB to accept connections from **\<new_data_factory_name\>** and **\<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
