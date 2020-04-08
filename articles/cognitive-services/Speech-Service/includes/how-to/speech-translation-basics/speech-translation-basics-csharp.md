@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 ms.author: dapine
 ---
 
@@ -22,6 +22,7 @@ To run the examples in this article, include the following `using` statements at
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
@@ -220,7 +221,7 @@ After a successful speech recognition and translation, the result contains all t
 The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [manual synthesis](#manual-synthesis). Specify the synthesis voice by assigning a [`VoiceName`][voicename] and provide an event handler for the `Synthesizing` event, get the audio. The following example saves the translated audio as a *.wav* file.
 
 > [!IMPORTANT]
-> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the `VoiceName` should be the same language as the target translation language, for example; `de` could map to `de-DE-Hedda`.
+> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the [`VoiceName`][voicename] should be the same language as the target translation language, for example; `"de"` could map to `"de-DE-Hedda"`.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -255,7 +256,7 @@ static async Task TranslateSpeechAsync()
     var result = await recognizer.RecognizeOnceAsync();
     if (result.Reason == ResultReason.TranslatedSpeech)
     {
-        Console.WriteLine($"Recognized: \"{result.Text}\":");
+        Console.WriteLine($"Recognized: \"{result.Text}\"");
         Console.WriteLine($"Translated into '{toLanguage}': {result.Translations[toLanguage]}");
     }
 }
@@ -263,8 +264,7 @@ static async Task TranslateSpeechAsync()
 
 ### Manual synthesis
 
-The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation.
-SpeechSynthesisVoiceName
+The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation. When creating a `SpeechSynthesizer` instance, the `SpeechConfig` object needs to have its [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] property set to the desired voice. The following example translates to five languages, and each translation is then synthesized to an audio file in the corresponding neural language.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -324,3 +324,4 @@ For more information about speech synthesis, see [synthesize speech to a speaker
 [addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
 [translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
 [voicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
+[speechsynthesisvoicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename?view=azure-dotnet
