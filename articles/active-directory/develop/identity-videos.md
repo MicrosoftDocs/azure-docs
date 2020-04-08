@@ -22,16 +22,17 @@ Learn the basics of modern authentication, the Microsoft identity platform, and 
 ## Authentication fundamentals
 
 If you're new to concepts like identity providers, security tokens, claims, and audience, this video series is a good place to start.
+___
 
 :::row:::
     :::column:::
-        Basics: The concepts of modern authentication (4:33)
+        1 - Basics: The concepts of modern authentication (4:33)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
      :::column:::
-        Modern authentication for web applications (6:02)
+        2 - Modern authentication for web applications (6:02)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
@@ -39,13 +40,13 @@ If you're new to concepts like identity providers, security tokens, claims, and 
 :::row-end:::
 :::row:::
     :::column:::
-        Web single sign-on (4:13)
+        3 - Web single sign-on (4:13)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
-        Federated web authentication (6:19)
+        4 - Federated web authentication (6:19)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
@@ -53,13 +54,13 @@ If you're new to concepts like identity providers, security tokens, claims, and 
 :::row-end:::
 :::row:::
     :::column:::
-        Native client applications - Part 1 (8:12)
+        5 - Native client applications - Part 1 (8:12)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
-        Native client applications - Part 2 (5:33)
+        6 - Native client applications - Part 2 (5:33)
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
@@ -68,7 +69,8 @@ If you're new to concepts like identity providers, security tokens, claims, and 
 
 ## Microsoft identity platform basics
 
-**Learn basic Microsoft identity platform concepts**
+Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Azure Active Directory. The One Dev Question videos are 1-2 minutes in length.
+___
 
 :::row:::
     :::column:::
