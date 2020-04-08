@@ -44,7 +44,7 @@ First, create a virtual network and a subnet to place your web servers in.
 4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet. For public inbound ports, select **HTTP** > **HTTPS** > **RDP (3389)**, and then select **OK**.
 5. On the **Summary** page, select **Create**.
 
-This procedure takes a few minutes to finish. The virtual machine will have an attached NIC, that will have a basic dynamic public IP called Web-01-ip. The public IP will change every time the virtual machine is restarted.
+This procedure takes a few minutes to finish. The virtual machine will have an attached NIC, which will have a basic dynamic public IP called Web-01-ip. The public IP will change every time the virtual machine is restarted.
 
 ### Install IIS
 
