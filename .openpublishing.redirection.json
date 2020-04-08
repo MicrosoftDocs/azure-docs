@@ -1867,6 +1867,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/quickstarts/client-libraries?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
