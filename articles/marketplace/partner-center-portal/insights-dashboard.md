@@ -1,5 +1,5 @@
 ---
-title: Marketplace Insights dashboard in Commercial Marketplace analytics on Partner Center
+title: Marketplace Insights dashboard in commercial marketplace analytics on Partner Center
 description: Access a summary of marketplace web analytics, which enables publishers to measure customer engagement in AppSource and Azure Marketplace storefronts.
 author: dsindona
 ms.author: dsindona
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ---
 
-# Marketplace Insights dashboard in Commercial Marketplace analytics
+# Marketplace Insights dashboard in commercial marketplace analytics
 
 This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics, which enables publishers to measure customer engagement for their respective product detail pages listed on the marketplace storefronts: AppSource and Azure Marketplace.
 
 ## Marketplace Insights dashboard
 
-To access the **Marketplace Insights dashboard** in Partner Center, open the **[Analyze tab](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
+To access the **Marketplace Insights dashboard** in Partner Center, open the **[Analyze tab](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under commercial marketplace.
 
 You can view graphical representations of the following items:  
 
@@ -29,7 +29,7 @@ You can view graphical representations of the following items:
 - [Marketplace Insights details table](#marketplace-insights-details-table)
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ### Insights dashboard layout
 
@@ -48,8 +48,8 @@ You can view the Marketplace metrics in a variety of ways:
 ![Partner Center Insights dashboard page filters](./media/insights-page-filter.png)
 
 - Offer Names are listed only for the offers that have page visits in the selected date range.  
-- The default selection is ‘All’ for each of the filter options
-- Applied filters show the count of selection(s) for the choices made. Applied filters will not be displayed for the default ‘All’ selection.
+- The default selection is 'All' for each of the filter options
+- Applied filters show the count of selection(s) for the choices made. Applied filters will not be displayed for the default 'All' selection.
 
 ![Partner Center Insights filters applied](./media/insights-page-filter-two.png)
 
@@ -129,11 +129,11 @@ This table provides a list view of the page visits and the calls to action of yo
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
-- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
