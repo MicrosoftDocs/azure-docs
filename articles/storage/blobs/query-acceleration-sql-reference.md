@@ -17,7 +17,7 @@ ms.reviewer: ereilebr
 Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
 
 > [!NOTE]
-> The query acceleration feature is in public preview, and is available in the West Central US and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup).
+> The query acceleration feature is in public preview, and is available in the West Central US, Canada Central, and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## SELECT Syntax
 
