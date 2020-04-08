@@ -13,10 +13,6 @@
         href: quickstart-connect-pnp-device-c-linux.md
       - name: C Windows
         href: quickstart-connect-pnp-device-c-windows.md
-      - name: C#
-        href: quickstart-connect-pnp-device-csharp.md
-      - name: Java
-        href: quickstart-connect-pnp-device-java.md
       - name: Node.js
         href: quickstart-connect-pnp-device-node.md
 - name: Tutorials
