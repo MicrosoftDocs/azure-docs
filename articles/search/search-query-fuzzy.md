@@ -8,32 +8,40 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ---
 # Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search supports fuzzy search, a type of query that scans for highly similar terms in addition to the exact term. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
+Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input value. It does this by scanning for terms having a similar composition to the input term. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on similar terms, in addition to the exact term. Internally, the engine builds a graph of up to 50 variants per term, and then refers to the graph to find, score, and select results. 
+It's an expansion exercise that produces a match on terms that have a similar composition. In contrast with language analyzers that can handle irregularities between singular and plural forms (mice and mouse), the differentials handled by fuzzy search are strictly limited to characters at face value. 
 
-A match must start with the same first character, with other discrepancies limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
+Internally, the engine builds a graph of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for each term (`search=university~ of~ washington~`). The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the most relevant ones. For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results, with the most relevant ones at the top.
+
+A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
 In Azure Cognitive Search:
 
 + Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
 
-+ The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), and `~1` signifies one degree of difference, or one edit.
++ The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), but you could specify `~1` for one degree of difference, or one edit. 
 
-+ A fuzzy query can expand a term up to 50 additional permutations. 
++ A fuzzy query can expand a term up to 50 additional permutations. This limit is not configurable, but you can effectively reduce the number of expansions by decreasing the edits to 1. The response will consist of documents containing a relevant match (up to 50).
+
+Collectively, the graphs are submitted as match criteria against tokens in the index. As you can imagine, fuzzy search is inherently slower than other query forms. The size and complexity of your index can determine whether the benefits are enough to offset the latency of the response.
 
 ## Indexing for fuzzy search
 
-If you are targeting specific fields for fuzzy search, think about which analyzer would produce optimum results for the graph. In contrast with other queries that bypass lexical analysis (namely, wildcard and regex), you might actually want lexical analyzers in your analysis chain so that you have a large pool of tokens, which gives the engine more to work with when constructing the graph. [Lexical analyzers](index-add-language-analyzers.md) are specified on the analyzer property of a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) operation. Some languages, particularly those with vowel mutations, benefit from the inflection and irregular word forms that Microsoft natural language processors can handle.
+For fuzzy search, analyzers are not used during query processing to build the term graph, but they are used during indexing. Recall that for fuzzy search, the query tree is a graph of terms. The inverted index will be searched using permutations from the graph, rather than just the input term itself. As such, analyzers become relevant in that terms in the graph need to match tokens in the index.
+
+Generally, when assigning analyzers on a per-field basis, the decision to fine-tune the analysis chain is based on the primary use case (a filter or full text search) rather than specialized query forms like fuzzy search. For this reason, there is not a specific analyzer recommendation for fuzzy search. However, if test queries are not producing the matches you expect, you could try varying the indexing analyzer, setting it to a [language analyzer](index-add-language-analyzers.md), to see if you get better results. Some languages, particularly those with vowel mutations, can benefit from the inflection and irregular word forms generated by the Microsoft natural language processors.
 
 > [!NOTE]
-> Ngram indexing, with a progression of short character sequences (two-character pairs for bigram, three for trigram, and so forth), is an alternative approach for spell corrections. If you are using fuzzy queries (`~`) in Azure Cognitive Search, avoid using ngram analyzer. It would not be a good fit in terms of constructing the graph.
+> Because fuzzy search tends to be slow, it can be worthwhile to investigate alternatives such as n-gram indexing, with its progression of short character sequences (two and three character sequences for bigram and trigram tokens). Depending on your language and query surface, n-gram might give you better performance.
+>
+> Another alternative, which you could consider if you want to handle just the most egregious cases, would be a synonym map. For example, mapping "search" to "serach, serch, sarch", or "retrieve" to "retreive".
 
 ## How to use fuzzy search
 
@@ -50,7 +58,7 @@ Fuzzy queries are constructed using the full Lucene query syntax, invoking the [
 In Azure Cognitive Search, besides the term and distance (maximum of 2), there are no additional parameters to set on the query.
 
 > [!NOTE]
-> During query processing, fuzzy queries do not undergo the same level of [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) as full text search. The query input is added directly to the query tree. The only transformation performed is lower casing. The graph used to find and score matches will be based on the input term and the number of edits (2 by default).
+> During query processing, fuzzy queries do not undergo [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). The query input is added directly to the query tree and expanded to create a graph of terms. The only transformation performed is lower casing.
 
 ## How to test fuzzy search
 
@@ -58,8 +66,8 @@ For simple testing, we recommend [Search explorer](search-explorer.md) or [Postm
 
 When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
 
-> [!Important]
-> The use of hit highlighting to identify the match has limitations and works best for focused testing on fuzzy search itself. If your index has scoring profiles, or if you layer the query with additional syntax, hit highlighting might fail to identify the match. 
+> [!Note]
+> The use of hit highlighting to identify fuzzy matches has limitations and only works for basic fuzzy search. If your index has scoring profiles, or if you layer the query with additional syntax, hit highlighting might fail to identify the match. 
 
 ### Example 1: fuzzy search with the exact term
 
@@ -87,9 +95,9 @@ So far, no change to the response. Using the default of 2 degrees distance, remo
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Trying one more request, further modify the search term by taking out one last character for a total of three characters:
+Trying one more request, further modify the search term by taking out one last character for a total of three deletions (from "special" to "scal"):
 
-    search=scial~&highlight=Description
+    search=scal~&highlight=Description
 
 Notice that the same response is returned, but now instead of matching on "special", the fuzzy match is on "SQL".
 
@@ -99,7 +107,7 @@ Notice that the same response is returned, but now instead of matching on "speci
                     "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
                 ]
 
-The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. Had you relied on a document ID to check the match, you might have missed the shift from "special" to "SQL".
+The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. In all cases, the same document is returned. Had you relied on document IDs to verify a match, you might have missed the shift from "special" to "SQL".
 
 ## See also
 
