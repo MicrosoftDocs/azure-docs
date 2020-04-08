@@ -32,7 +32,6 @@
     - name: PowerShell
       href: create-data-warehouse-powershell.md
   - name: Load data
-    items: 
     - name: COPY statement
       href: quickstart-bulk-load-copy-tsql.md
   - name: Scale
