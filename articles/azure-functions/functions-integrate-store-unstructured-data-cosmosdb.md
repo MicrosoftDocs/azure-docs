@@ -15,8 +15,6 @@ ms.custom: mvc
 
 In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this article, learn how to update an existing function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
 
-![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -31,30 +29,32 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 ## Add an output binding
 
-1. In the portal, navigate to the function app you created previously and expand both your function app and your function.
+1. In the portal, navigate to and select the function app you created previously.
 
-1. Select **Integrate** and **+ New Output**, which is at the top right of the page. Choose **Azure Cosmos DB**, and click **Select**.
+   :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-app-select.png" alt-text="Select your function app in the Azure portal." border="true":::
 
-    ![Add an Azure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+1. Select **Functions**, and then select the Http function.
 
-1. If you get an **Extensions not installed** message, choose **Install** to install the Azure Cosmos DB bindings extension in the function app. Installation may take a minute or two.
+   :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Select your Http function in the Azure portal." border="true":::
 
-    ![Install the Azure Cosmos DB binding extension](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-install-binding-extension.png)
+1. Select **Integration** and **+ Add Output**.
 
-1. Use the **Azure Cosmos DB output** settings as specified in the table:
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Add an Azure Cosmos DB output binding." border="true":::
 
-    ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+1. Use the **Create Output** settings as specified in the table:
+
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configure Azure Cosmos DB output binding." border="true":::
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Document parameter name** | taskDocument | Name that refers to the Cosmos DB object in code. |
-    | **Database name** | taskDatabase | Name of database to save documents. |
-    | **Collection name** | TaskCollection | Name of the database collection. |
-    | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
-    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
-    | **Collection throughput** |400 RU| If you want to reduce latency, you can scale up the throughput later. |
+    | **Binding Type** | Azure Cosmos DB | Name of the binding type to select to create the output binding to Azure Cosmos DB. |
+    | **Document parameter name** | outputDocument | Name that refers to the Cosmos DB object in code. |
+    | **Database name** | outDatabase | Name of database to save documents. |
+    | **Collection name** | MyCollection | Name of the database collection. |
+    | **If true, creates the Cosmos DB database and collection** | Yes | The collection doesn't already exist, so create it. |
+    | **Cosmos DB account connection** | New setting | Select **New**, then choose **Azure Cosmos DB Account** and the **Database account** you created earlier, and then select **OK**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
 
-1. Select **Save** to create the binding.
+1. Select **OK** to create the binding.
 
 ## Update the function code
 
