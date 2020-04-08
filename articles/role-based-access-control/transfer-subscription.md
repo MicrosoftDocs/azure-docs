@@ -62,17 +62,16 @@ Depending on your situation, the following table lists the impact of transferrin
 
 The following table lists the artifacts that will get transferred when you follow the steps in this article.
 
-| Artifact | Transfer |
+| Artifact | Transferred |
 | --------- | :---------: |
-| Role assignments for built-in roles | Yes |
-| Role assignments for users | Yes |
-| Role assignments for groups | Yes |
-| Role assignments for service principals | Yes |
-| Role assignments for Azure SQL Databases with Azure AD authentication | No |
-| Role assignments for Key Vault | No |
-| Role assignments for managed identities | No |
-| Custom role definitions | Yes |
-| Role assignments for custom roles | Yes |
+| Role assignments for users | :heavy_check_mark: |
+| Role assignments for groups | :heavy_check_mark: |
+| Role assignments for service principals | :heavy_check_mark: |
+| Custom role definitions | :heavy_check_mark: |
+| Role assignments that use custom roles | :heavy_check_mark: |
+| Managed identities | :o: |
+| Azure SQL Databases with Azure AD authentication | :o: |
+| Key Vault access policies | :o: |
 
 ## Prerequisites
 
@@ -171,7 +170,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 ### Inventory other artifacts in the source directory
 
 > [!IMPORTANT]
-> There are other artifacts that have a dependency on a subscription or a particular directory. This section lists the other known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be more dependencies. 
+> There are other artifacts that have a dependency on a subscription or a particular directory. This section lists the other known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here. 
 
 1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
 
