@@ -8,7 +8,7 @@ ms.date: 04/08/2020
 ms.author: ancav
 ms.subservice: metrics
 ---
-# Custom metrics in Azure Monitor
+# Custom metrics in Azure Monitor (preview)
 
 As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called standard or platform. However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
 These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
