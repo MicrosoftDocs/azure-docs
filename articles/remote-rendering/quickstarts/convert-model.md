@@ -67,10 +67,10 @@ Fill out the form in the following manner:
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
 * For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is ready given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
-* **Performance** set to â€˜Standardâ€™
-* **Account kind** set to â€˜StorageV2 (general purpose v2)â€™
-* **Replication** set to â€˜Read-access geo-redundant storage (RA-GRS)â€™
-* **Access tier** set to â€˜Hotâ€™
+* **Performance** set to ‘Standard’
+* **Account kind** set to ‘StorageV2 (general purpose v2)’
+* **Replication** set to ‘Read-access geo-redundant storage (RA-GRS)’
+* **Access tier** set to ‘Hot’
 
 None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
@@ -154,11 +154,14 @@ Once the model was converted it will be written back to the storage container gi
 
 The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise. 
 
-Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription:
+Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription with the following command and follow the on-screen directions:
 
 ```PowerShell
-Connect-AzAccount -Subscription "<your Azure subscription id>"
+Connect-AzAccount
 ```
+
+> [!NOTE]
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 Change to the `azure-remote-rendering\Scripts` directory and run the conversion script:
 
