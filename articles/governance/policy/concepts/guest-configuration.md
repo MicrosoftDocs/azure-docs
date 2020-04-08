@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
+apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
@@ -68,13 +68,13 @@ The following table shows a list of the local tools used on each supported opera
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
 
 ### Validation frequency
 
 The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
-received, the settings are checked on a 15-minute interval. Results are sent to the Guest
-Configuration resource provider as soon as the audit completes. When a policy [evaluation
+received, the settings for that configuration are re-checked on a 15-minute interval.
+Results are sent to the Guest Configuration resource provider when the audit completes. When a policy [evaluation
 trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
 written to the Guest Configuration resource provider. This update causes Azure Policy to evaluate
 the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest
