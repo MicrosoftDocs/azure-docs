@@ -124,7 +124,7 @@ Use these optional properties to configure transcription:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it. See [Sentiment Analysis](./batch-transcription#sentiment-analysis) for more detail.
+      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it. See [Sentiment Analysis](#sentiment-analysis) for more detail.
 :::row-end:::
 :::row:::
    :::column span="1":::
