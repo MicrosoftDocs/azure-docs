@@ -66,7 +66,7 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 
 ## Example for CREATE EXTERNAL DATA SOURCE
 
-The following example creates an external data source for Azure Data Lake Gen2 pointing to the new york data set:
+The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
