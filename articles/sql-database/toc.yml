@@ -1051,8 +1051,9 @@
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
   - name: Linux 
+    items: 
     - name: Overview
-      items:href: /virtual-machines/linux/sql-server
+      items:
       - name: About Linux SQL Server VMs
         href: /virtual-machines/linux/sql-server-linux-virtual-machines-overview.md
     - name: Quickstarts
