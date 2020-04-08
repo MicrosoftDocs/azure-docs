@@ -59,7 +59,7 @@ Write-Output "_applicationSecret:" $secret
 
 # [Azure CLI](#tab/azure-cli)
 
-```azure-cli
+```azurecli
 # sign in to Azure
 az login
 

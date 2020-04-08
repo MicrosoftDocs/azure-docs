@@ -21,3 +21,5 @@ To view and copy your storage account access keys or connection string from the 
     ![Screenshot showing how to view access keys in the Azure portal](media/storage-view-keys-include/portal-connection-string.png)
 
 You can use either key to access Azure Storage, but in general it's a good practice to use the first key, and reserve the use of the second key for when you are rotating keys.
+
+To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an RBAC role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some built-in RBAC roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../articles/role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage).

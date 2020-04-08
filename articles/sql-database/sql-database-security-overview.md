@@ -50,7 +50,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 - **Azure Active Directory authentication**:
 
-    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
+    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
@@ -146,6 +146,6 @@ In addition to the above features and functionality that can help your applicati
 
 ## Next steps
 
-- For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database, see [Manage logins and user accounts](sql-database-manage-logins.md).
 - For a discussion of database auditing, see [SQL Database auditing](sql-database-auditing.md).
 - For a discussion of threat detection, see [SQL Database threat detection](sql-database-threat-detection.md).

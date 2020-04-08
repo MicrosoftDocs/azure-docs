@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 03/18/2020
 ---
 # Consistency levels in Azure Cosmos DB
 
@@ -35,7 +35,7 @@ The semantics of the five consistency levels are described here:
 
 - **Strong**: Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
-  The following graphic illustrates the strong consistency with musical notes. After the data is written to the "East US" region, when you read the data from other regions, you get the most recent value:
+  The following graphic illustrates the strong consistency with musical notes. After the data is written to the "West US 2" region, when you read the data from other regions, you get the most recent value:
 
   ![video](media/consistency-levels/strong-consistency.gif)
 
@@ -46,13 +46,13 @@ The semantics of the five consistency levels are described here:
 
   Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the one offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency.
 
-  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "East US" region, the "West US" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
+  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
 
   ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
 - **Session**:  Within a single client session reads are guaranteed to honor the consistent-prefix (assuming a single "writer" session), monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Clients outside of the session performing writes will see eventual consistency.
 
-  Session consistency is the widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US" region and the "East US" regions are using the same session (Session A) so they both read the data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data a later but in the same order as the writes.
+  Session consistency is the widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2" region and the "East US 2" regions are using the same session (Session A) so they both read the data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
   ![video](media/consistency-levels/session-consistency.gif)
 

@@ -121,10 +121,7 @@ Azure service tags overview: https://docs.microsoft.com/azure/virtual-network/se
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. You may also make use of built-in policy definitions related to Azure Key Vault, such as:
-
-
-Key Vault should use a virtual network service endpoint
+**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. You may also make use of built-in policy definitions related to Azure Key Vault, such as: [Key Vault should use a virtual network service endpoint](key-vault-overview-vnet-service-endpoints.md)
 
 
 Tutorial: Create and manage policies to enforce compliance:
@@ -568,10 +565,10 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
-**Guidance**: Microsoft manages the underlying infrastructure for Azure Key Vault and has implemented strict controls to prevent the loss or exposure of customer data.
+**Guidance**: Microsoft manages the underlying infrastructure for Azure Key Vault and has implemented strict controls to prevent the loss or exposure of customer daUse Azure Security Center to perform baseline scans for your Azure Key Vault-protected resourcesta.
 
 
-What is Azure Key Vault?
+What is Azure Key Vault?:
 https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
 Azure customer data protection:
@@ -933,7 +930,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
-**Guidance**: Use Azure Security Center to perform baseline scans for your Azure Key Vault-protected resources 
+**Guidance**: Use Azure Security Center to perform baseline scans for your Azure Key Vault-protected resources. 
 
   
 

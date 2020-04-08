@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform Windows desktop quickstart | Microsoft Docs
+title: Microsoft identity platform Windows desktop quickstart
 description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
@@ -72,7 +72,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project

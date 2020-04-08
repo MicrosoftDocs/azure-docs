@@ -6,6 +6,7 @@ services: storage
 author: msmbaldwin
 
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin

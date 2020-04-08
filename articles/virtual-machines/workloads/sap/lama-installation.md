@@ -126,7 +126,7 @@ Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Manage
 * Label: Choose a name for the connector instance
 * User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Identity] for more information
 * Password: Service Principal key/password. You can leave this field empty if you use a system or user assigned identity.
-* URL: Keep default https://management.azure.com/
+* URL: Keep default `https://management.azure.com/`
 * Monitoring Interval (Seconds): Should be at least 300
 * Use Managed Identity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
 * Subscription ID: Azure subscription ID

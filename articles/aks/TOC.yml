@@ -14,7 +14,8 @@
       href: kubernetes-walkthrough.md
     - name: Use the Azure portal
       href: kubernetes-walkthrough-portal.md
-    - name: Use a Resource Manager template
+    - name: Use ARM template
+      displayName: Resource Manager
       href: kubernetes-walkthrough-rm-template.md
   - name: Develop applications
     expanded: true
@@ -24,8 +25,8 @@
     - name: Azure Dev Spaces
       expanded: true
       items:
-      - name: Use Azure Dev Spaces for team development 
-        href: ../dev-spaces/quickstart-team-development.md 
+      - name: Use Azure Dev Spaces for team development
+        href: ../dev-spaces/quickstart-team-development.md
         maintainContext: true
       - name: Use Visual Studio Code
         href: ../dev-spaces/quickstart-netcore.md
@@ -37,10 +38,10 @@
         href: ../dev-spaces/quickstart-cli.md
         maintainContext: true
       - name: Use Azure Dev Spaces with Java
-        href: ../dev-spaces/quickstart-java.md 
+        href: ../dev-spaces/quickstart-java.md
         maintainContext: true
       - name: Use Azure Dev Spaces Node.js
-        href: ../dev-spaces/quickstart-nodejs.md 
+        href: ../dev-spaces/quickstart-nodejs.md
         maintainContext: true
 - name: Tutorials
   items:
@@ -73,6 +74,8 @@
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Node auto-repair
+    href: node-auto-repair.md
   - name: Best practices
     items:
     - name: Overview
@@ -117,18 +120,14 @@
   items:
   - name: Cluster operations
     items:
-    - name: Create an AKS cluster
-      href: /cli/azure/aks#az-aks-create
-      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Process node OS updates
       href: node-updates-kured.md
-    - name: Delete an AKS cluster
-      href: /cli/azure/aks#az-aks-delete
-      maintainContext: true
+    - name: Configure an AKS cluster
+      href: cluster-configuration.md
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
@@ -163,7 +162,7 @@
     - name: NFS Server - Static
       href: azure-nfs-volume.md
     - name: Azure NetApp Files
-      href: azure-netapp-files.md      
+      href: azure-netapp-files.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -204,7 +203,7 @@
     items:
     - name: Create service principal
       href: kubernetes-service-principal.md
-    - name: Use managed identities (preview)
+    - name: Use managed identities
       href: use-managed-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
@@ -222,6 +221,8 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
+        - name: Integrate Azure AD (preview)
+          href: azure-ad-v2.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
         - name: Use the Azure portal
@@ -313,10 +314,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Use Open Service Broker for Azure
-      href: integrate-azure.md
-    - name: Use Cosmos DB API for MongoDB with OSBA
-      href: use-cosmosdb-osba-mongo-app.md
     - name: Use OpenFaaS
       href: openfaas.md
     - name: Run Spark jobs
@@ -330,11 +327,11 @@
       href: ../api-management/api-management-kubernetes.md
       maintainContext: true
   - name: Select and deploy a service mesh
-    items: 
+    items:
     - name: About Service Meshes
       href: servicemesh-about.md
     - name: Use Istio
-      items: 
+      items:
       - name: About Istio
         href: servicemesh-istio-about.md
       - name: Install and configure
@@ -342,13 +339,13 @@
       - name: Scenario - Intelligent routing and canary releases
         href: servicemesh-istio-scenario-routing.md
     - name: Use Linkerd
-      items: 
+      items:
       - name: About Linkerd
         href: servicemesh-linkerd-about.md
       - name: Install and configure
         href: servicemesh-linkerd-install.md
     - name: Use Consul
-      items: 
+      items:
       - name: About Consul
         href: servicemesh-consul-about.md
       - name: Install and configure
@@ -364,7 +361,7 @@
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
     - name: Deployment Center Launcher
-      href: deployment-center-launcher.md 
+      href: deployment-center-launcher.md
     - name: GitHub Actions for Kubernetes
       href: ../aks/kubernetes-action.md
   - name: Troubleshoot

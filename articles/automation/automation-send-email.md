@@ -152,7 +152,7 @@ it for different scenarios.
 
 7. Select **Publish** to save and publish the runbook.
 
-To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#test-a-runbook) or [Start a runbook](start-runbooks.md).
+To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#testing-a-runbook) or [Start a runbook](start-runbooks.md).
 If you do not initially see your test email, check your **Junk** and **Spam** folders.
 
 ## Clean Up

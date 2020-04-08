@@ -1,8 +1,8 @@
 ---
 title: KQL quick reference
 description: A list of useful KQL functions and their definitions with syntax examples.
-author: yossi-karp
-ms.author: v-yokarp
+author: orspod
+ms.author: orspodek
 ms.reviewer: 
 ms.service: data-explorer
 ms.topic: conceptual
@@ -23,7 +23,7 @@ This article shows you a list of functions and their descriptions to help get yo
 | [case](/azure/kusto/query/casefunction)                        | Adds a condition statement, similar to if/then/elseif in other systems. | `case(predicate_1, then_1, predicate_2, then_2, predicate_3, then_3, else)` |
 | [distinct](/azure/kusto/query/distinctoperator)                | Produces a table with the distinct combination of the provided columns of the input table | `distinct [ColumnName], [ColumnName]` |
 | **Date/Time**                                   |**_Operations that use date and time functions_**               |                          |
-|[ago](/azure/kusto/query/agofunction)                           | Returns the time offset relative to the time the query executes. For example, `ago(1h)` is one hour before the current clock’s reading. | `ago(a_timespan)` |
+|[ago](/azure/kusto/query/agofunction)                           | Returns the time offset relative to the time the query executes. For example, `ago(1h)` is one hour before the current clock's reading. | `ago(a_timespan)` |
 | [format_datetime](/azure/kusto/query/format-datetimefunction)  | Returns data in [various date formats](/azure/kusto/query/format-datetimefunction#supported-formats). | `format_datetime(datetime , format)` |
 | [bin](/azure/kusto/query/binfunction)                          | Rounds all values in a timeframe and groups them | `bin(value,roundTo)` |
 | **Create/Remove Columns**                   |**_Add or remove columns in a table_** |                                                    |

@@ -116,7 +116,7 @@ This example shows just the template parameters for the values used to create an
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location for the logic app"
@@ -1051,7 +1051,7 @@ Here is the parameterized sample template that's used by this topic's examples:
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location to use for the logic app"

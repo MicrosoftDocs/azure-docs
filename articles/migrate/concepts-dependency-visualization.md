@@ -1,61 +1,79 @@
 ---
-title: Dependency visualization in Azure Migrate
-description: Provides an overview of assessment calculations in the Server Assessment service in Azure Migrate
+title: Dependency analysis in Azure Migrate Server Assessment
+description: Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ---
 
-# Dependency visualization
+# Dependency analysis
 
-This article describes dependency visualization in Azure Migrate:Server Assessment.
+This article describes dependency analysis in Azure Migrate:Server Assessment.
 
-## What is dependency visualization?
+## Overview
 
-Dependency visualization helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. 
+Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. 
 
-- In Azure Migrate:Server Assessment, you gather machines into a group, and then assess the group. Dependency visualization helps you to group machines more accurately, with high confidence for assessment.
-- Dependency visualization enables you to identify machines that must be migrated together. You can identify whether machines are in use, or if they can be decommissioned instead of migrated.
-- Visualizing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
-- Visualization is especially useful if you're not sure whether machines are part of an app deployment that you want to migrate to Azure.
+- In Azure Migrate:Server Assessment, you gather machines into a group, and then assess the group. Dependency analysis helps you to group machines more accurately, with high confidence for assessment.
+- Dependency analysis enables you to identify machines that must be migrated together. You can identify whether machines are in use, or if they can be decommissioned instead of migrated.
+- Analyzing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
+- Analysis is especially useful if you're not sure whether machines are part of an app deployment that you want to migrate to Azure.
+- [Review](common-questions-discovery-assessment.md#what-is-dependency-visualization) common questions about dependency analysis.
 
+There are two options for deploying dependency analysis
+
+- **Agent-based**: Agent-based dependency analysis requires agents to be installed on each on-premises machine that you want to analyze.
+- **Agentless**: With agentless analysis, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 > [!NOTE]
-> Dependency visualization isn't available in Azure Government.
+> Dependency analysis isn't available in Azure Government.
 
-## Agent-based/agentless visualization
+## Agentless analysis
 
-There are two options for deploying dependency visualization:
+Agentless dependency analysis works by capturing TCP connection data from machines for which it's enabled. No agents are installed on machines you want to analyze.
 
-- **Agent-based**: Agent-based dependency visualization requires agents to be installed on each on-premises machine that you want to analyze.
-- **Agentless**: With this option, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
+### Collected data
+
+After dependency discovery starts, the appliance polls data from machines every five minutes to gather data. This data is collected from guest VMs via vCenter Server, using vSphere APIs. The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hours.
+
+Polling gathers this data from machines: 
+- Name of processes that have active connections.
+- Name of application that run processes that have active connections.
+- Destination port on the active connections.
+
+## Agent-based analysis
+
+For agent-based analysis, Server Assessment uses the [Service Map solution](../azure-monitor/insights/service-map.md) in Azure Monitor to enable dependency visualization and analysis. The [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) and the [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent), must be installed on each machine you want to analyze.
+
+### Collected data
+
+For agent-based visualization, the following data is collected:
+
+- Source machine server name, process, application name.
+- Destination machine server name, process, application name, and port.
+- Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
 
 
-## Agent-based visualization
+## Compare agentless and agent-based
 
-**Requirement** | **Details** | **Learn more**
+The differences between agentless visualization and agent-based visualization are summarized in the table.
+
+**Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
-**Before deployment** | You should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines. | [Learn how](create-manage-projects.md) to create a project for the first time.<br/><br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/><br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
-**Required agents** | On each machine you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/><br/> The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> If on-premises machines aren't connected to the internet, you need to download and install Log Analytics gateway on them. | Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Log Analytics** | Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with an Azure Migrate project. The workspace for an Azure Migrate project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
-**Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
-**Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
+Support | This option is currently in preview, and is only available for VMware VMs. [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) supported operating systems. | In general availability (GA).
+Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows), and the [Dependency agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+Log Analytics | Not required. | Azure Migrate uses the [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) solution in [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) for dependency analysis. 
+How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
+Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
+Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
+Data export | Can't currently be downloaded in tabular format. | Data can be queried with Log Analytics.
 
-## Agentless visualization
-
-
-**Requirement** | **Details** | **Learn more**
---- | --- | ---
-**Before deployment** | You should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMWare machines. | [Learn how](create-manage-projects.md) to create a project for the first time.<br/><br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/><br/> Learn how to set up the Azure Migrate appliance for assessment of [VMware](how-to-set-up-appliance-vmware.md) VMs.
-**Required agents** | No agent required on machines you want to analyze.
-**Supported operating systems** | Review the [operating systems](migrate-support-matrix-vmware.md#agentless-dependency-visualization) supported for agentless visualization.
-**VMs** | **VMware tools**: VMware Tools must be installed and running on VMs you want to analyze.<br/><br/> **Account**: On the Azure Migrate appliance, you need to add a user account that can be used to access VMs for analysis.<br/><br/> **Windows VMs**: The user account needs to be a local or a domain administrator on the machine.<br/><br/> **Linux VMs**: The root privilege is required on the account. Alternately, the user account requires these two capabilities on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE. | [Learn about](migrate-appliance.md) the Azure Migrate appliance.
-**VMware** | **vCenter**: The appliance needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.<br/><br/> **ESXi hosts**: On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
-**Collected data** |  Agentless dependency analysis works by capturing TCP connection data from machines on which it's enabled. After dependency discovery is enabled, the appliance collects TCP connection data every 5 minutes from guest VMs. This data is gathered from guest VMs via vCenter Server using vSphere APIs. The gathered data is processed on the appliance to deduce dependency information and sent to Azure Migrate every 6 hours. The following data is gathered from each machine: <br/> - Names of processes that have active connections.<br/> - Names of applications that run the process with active connections.<br/> - Destination port on the active connections.
 
 
 ## Next steps
-- [Set up dependency visualization](how-to-create-group-machine-dependencies.md)
-- [Try out agentless dependency visualization](how-to-create-group-machine-dependencies-agentless.md) for VMware VMs.
+- Review the requirements for setting up agent-based analysis for [VMware VMs](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) the requirements for agentless analysis of VMware VMs.
+- [Set up](how-to-create-group-machine-dependencies.md) agent-based dependency visualization
+- [Try out](how-to-create-group-machine-dependencies-agentless.md) agentless dependency visualization for VMware VMs.
 - Review [common questions](common-questions-discovery-assessment.md#what-is-dependency-visualization) about dependency visualization.
 
 

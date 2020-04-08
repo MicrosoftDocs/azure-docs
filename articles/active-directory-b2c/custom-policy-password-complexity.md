@@ -149,4 +149,4 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 ## Next steps
 
 - Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
-- - Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.
+- Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.

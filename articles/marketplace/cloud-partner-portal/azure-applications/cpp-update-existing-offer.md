@@ -1,13 +1,12 @@
 ---
 title: Update an existing Azure application offer | Azure Marketplace
 description: How to update an existing Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Update an existing Azure application offer

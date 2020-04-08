@@ -24,7 +24,7 @@ To leverage ultra disks, you need to determine which availability zone you are i
 
 CLI:
 
-```bash
+```azurecli
 $subscription = "<yourSubID>"
 # example value is southeastasia
 $region = "<yourLocation>"
@@ -177,7 +177,7 @@ az disk create `
 
 Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
 
-```bash
+```azurecli
 $rgName = "<yourResourceGroupName>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"

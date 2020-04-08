@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
-ms.date: 02/21/2020
+ms.date: 03/17/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ In this article, learn about how to use Azure Machine Learning to manage the lif
 
 ## What is MLOps?
 
-Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principals to the machine learning process, with the goal of:
+Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principles to the machine learning process, with the goal of:
 
 * Faster experimentation and development of models
 * Faster deployment of models into production
@@ -65,6 +65,11 @@ Registered models are identified by name and version. Each time you register a m
 
 You can't delete a registered model that is being used in an active deployment.
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
+
+### Profile models
+
+Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
 
 ### Package and debug models
 
@@ -167,7 +172,11 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables workspace selection when defining a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+For more information on using Azure Pipelines with Azure Machine Learning, see the following links:
+
+* [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) 
+* [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+* [Azure Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository.
 
 You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
 

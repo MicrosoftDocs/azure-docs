@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 ---
 
 # Create resources at the tenant level
@@ -60,10 +60,20 @@ The principal now has the required permissions to deploy the template.
 
 The commands for tenant deployments are different than the commands for resource group deployments.
 
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+
+```azurecli-interactive
+az deployment tenant create \
+  --name demoTenantDeployment \
+  --location WestUS \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+```
+
 For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
+  -Name demoTenantDeployment `
   -Location "West US" `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```

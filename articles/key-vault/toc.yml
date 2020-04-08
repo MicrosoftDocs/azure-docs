@@ -75,6 +75,8 @@
         href: overview-security.md
       - name: Security baseline
         href: security-baseline.md
+      - name: Built-In Security
+        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
@@ -125,9 +127,11 @@
     href: event-grid-tutorial.md
   - name: Receive notifications via Event Grid and Logic Apps
     href: event-grid-logicapps.md
+  - name: Rotate secrets for single-user resources
+    href: tutorial-rotation.md
   - name: Integrate with Azure Policy
     href: azure-policy.md
-  - name: Integrate with Azure Private Link Service (Preview)
+  - name: Integrate with Azure Private Link Service
     href: private-link-service.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md

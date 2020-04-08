@@ -88,12 +88,20 @@ For details on creating a new Azure AD application, see [Register an app with th
 
 ## Add API permissions
 
-1. In the **Manage** section click **API permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**.
-4. Search for **User** and enable the **User.Read** permission. Search for **Directory** and enable **Directory.Read.All**.
-5. Click **Add permissions** to accept the changes.
-6. The API permissions panel should now show both *User.Read* and *Directory.Read.All*. Please note the warning in **Admin consent required** column next to *Directory.Read.All*.
-7. If you are the *Azure Subscription Administrator*, click **Grant admin consent for *Subscription Name***. If you are not the *Azure Subscription Administrator*, request the consent from your administrator.
+[//]: # (Do not change to Microsoft Graph. It does not work with Microsoft Graph.)
+1. In the **Manage** section click **API permissions**
+2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**.
+> [!NOTE]
+> Make sure you selected the "Azure Active Directory Graph" and not the "Microsoft Graph" tile.
+
+3. Expand **User** on the list below and enable the **User.Read** permission. If **User.Read** is enabled by default, ensure that it is the **Azure Active Directory Graph** permission **User.Read**.
+4. Scroll up and select **Application permissions**.
+5. Expand **Directory** on the list below and enable **Directory.ReadAll**.
+6. Click **Add permissions** to accept the changes.
+7. The API permissions panel should now show both *User.Read* and *Directory.ReadAll*. Please note the warning in **Admin consent required** column next to *Directory.ReadAll*.
+8. If you are the *Azure Subscription Administrator*, click **Grant admin consent for *Subscription Name*** below. If you are not the *Azure Subscription Administrator*, request the consent from your administrator.
+
+![Screenshot of the API permissions panel. User.Read and Directory.ReadAll permissions added, admin consent required for Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > Synchronization of the cluster administrators group will work only after consent has been granted. You will see a green circle with a checkmark and a message "Granted for *Subscription Name*" in the *Admin consent required* column.

@@ -39,7 +39,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 2. If you are a NVv4 preview customer then please stop the VM and wait for it to move to Stopped(Deallocated) state.
 
-3. Please start the VM and then uninstall the preview driver by running "amdcleanuputility-x64.exe" located at the folder "...\AMDCleanUninstallUtility". The exact path will vary based on where the previous driver installation files are.  
+3. Please start the VM and download the latest [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Uninstall the existing driver by running "amdcleanuputility-x64.exe". Please DO NOT use any exisitng cleanup utility that was installed with the previous driver.  
 
 4. Download and install the latest driver.
 

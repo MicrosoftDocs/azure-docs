@@ -15,6 +15,9 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -47,6 +50,8 @@
       href: application-gateway-components.md
     - name: Configuration overview
       href: configuration-overview.md
+  - name: High traffic support
+    href: high-traffic-support.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing

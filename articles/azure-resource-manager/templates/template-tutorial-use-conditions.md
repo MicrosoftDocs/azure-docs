@@ -7,9 +7,9 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Use condition in Azure Resource Manager templates
+# Tutorial: Use condition in ARM templates
 
-Learn how to deploy Azure resources based on conditions.
+Learn how to deploy Azure resources based on conditions in an Azure Resource Manager (ARM) template.
 
 In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created. Otherwise, an existing storage account with the name provided is used.
 
@@ -26,9 +26,9 @@ This tutorial covers the following tasks:
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
 * [Template file structure: Condition](conditional-resource-deployment.md).
-* [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Conditionally deploy a resource in an ARM template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Template function: If](./template-functions-logical.md#if).
-* [Comparison functions for Azure Resource Manager templates](./template-functions-comparison.md)
+* [Comparison functions for ARM templates](./template-functions-comparison.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -36,18 +36,18 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure QuickStart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:

@@ -1,13 +1,12 @@
 ---
 title: Common SAS URL issues and fixes for the Azure Marketplace 
 description: List common problems around using shared access signature URIs and possible solutions.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Common SAS URL issues and fixes

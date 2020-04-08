@@ -1,8 +1,8 @@
 ﻿---
 title:  Supported data format details | Microsoft Azure Maps
 description: Learn how delimited spatial data is parsed in the spatial IO module.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,7 +11,7 @@ manager: philmea
 ---
 # Supported data format details
 
-This article provides specifics on the read and write support for all XML tags and Well Known Text geometry types. It also details the way delimited spatial data is parsed in the spatial IO module.
+This article provides specifics on the read and write support for all XML tags and Well-Known Text geometry types. It also details how the delimited spatial data is parsed in the spatial IO module.
 
 ## Supported XML namespaces
 
@@ -164,7 +164,7 @@ The spatial IO module supports the following GeoRSS elements.
 | `georss:where`           | yes     | yes   |                                                                                                |
 | `geourl:latitude`        | yes     | no    | Written as a `georss:point`.                                                                   |
 | `geourl:longitude`       | yes     | no    | Written as a `georss:point`.                                                                   |
-| `position`               | yes     | no    | Some XML feeds will wrap GML with a position tag instead of wrapping it with a georss:where tag. Will read this tag, but will write using a georss:where tag. |
+| `position`               | yes     | no    | Some XML feeds will wrap GML with a position tag instead of wrapping it with a `georss:where` tag. Will read this tag, but will write using a `georss:where` tag. |
 | `rss`                    | yes     | no    | GeoRSS written in ATOM format.                                                                 |
 | `rss:author`             | yes     | partial | Written as an `atom:author`.                                                                 |
 | `rss:category`           | yes     | partial | Written as an `atom:category`.                                                               |
@@ -298,7 +298,7 @@ When writing;
 - MultiPoints will be broken up into individual waypoints.
 - Polygons and MultiPolygons will be written as tracks. 
   
-## Supported Well Known Text geometry types
+## Supported Well-Known Text geometry types
 
 | Geometry type | Read | Write |
 |--------------|:----:|:-----:|
@@ -337,7 +337,7 @@ When writing;
 
 ## Delimited spatial data support
 
-Delimited spatial data, such as comma-separated value files (CSV), often have columns that contain spatial data. For example, there could be columns that contain latitude and longitude information. In Well Known Text format, there could be a column that contains spatial geometry data.
+Delimited spatial data, such as comma-separated value files (CSV), often have columns that contain spatial data. For example, there could be columns that contain latitude and longitude information. In Well-Known Text format, there could be a column that contains spatial geometry data.
 
 ### Spatial data column detection
 
@@ -379,7 +379,7 @@ When reading a delimited file that contains spatial data, the header will be ana
 
 #### Geography
 
-The first row of data will be scanned for strings that are in Well Known Text format. 
+The first row of data will be scanned for strings that are in Well-Known Text format. 
 
 ### Delimited data column types
 
@@ -417,7 +417,7 @@ When scanning the header row, any type information that is in the column name wi
 - edm.string
 - varchar
 - text
-- case 'string
+- string
 
 If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be cast as.
 

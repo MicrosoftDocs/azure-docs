@@ -790,10 +790,10 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, etc.) within your subscription(s). Ensure that you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
+Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
 
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph Explorer:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -842,7 +842,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-How to create and user Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -872,7 +872,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph Explorer: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Currently not available
 

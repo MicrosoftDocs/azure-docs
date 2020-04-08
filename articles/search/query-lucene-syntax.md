@@ -100,7 +100,7 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ### OR operator `OR` or `||`
 
-The OR operator is a vertical bar or pipe character. For example: `wifi || luxury` will search for documents containing either "wifi" or "luxury" or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi || luxuery`.
+The OR operator is a vertical bar or pipe character. For example: `wifi || luxury` will search for documents containing either "wifi" or "luxury" or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi || luxury`.
 
 ### AND operator `AND`, `&&` or `+`
 
@@ -157,16 +157,19 @@ The following example helps illustrate the differences. Suppose that there's a s
 ##  <a name="bkmk_regex"></a> Regular expression search  
  A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`.  Regular expression searches are matched against single words.   
+ For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`. Regular expression searches are matched against single words.
+
+Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search  
- You can use generally recognized syntax for multiple (*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.  
+ You can use generally recognized syntax for multiple (*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
- For example, to find documents containing the words with the prefix "note", such as "notebook" or "notepad", specify "note*".  
+Prefix search also uses the asterisk (`*`) character. For example, a query expression of `search=note*` returns "notebook" or "notepad". Full Lucene syntax is not required for prefix search. The simple syntax supports this scenario.
+
+Suffix search, where `*` or `?` precedes the string, requires full Lucene syntax and a regular expression (you cannot use a * or ? symbol as the first character of a search). Given the term "alphanumeric", a query expression of (`search=/.*numeric.*/`) will find the match.
 
 > [!NOTE]  
->  You cannot use a * or ? symbol as the first character of a search.  
->  No text analysis is performed on wildcard search queries. At query time, wildcard query terms are compared against analyzed terms in the search index and expanded.
+> During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you will need an alternative analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
 
 ## See also  
 

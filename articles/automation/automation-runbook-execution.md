@@ -117,7 +117,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### Working with multiple subscriptions
 
-To deal with multiple subscriptions, your runbook must use the [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet to ensure that the authentication context is not retrieved from another runbook running in the same sandbox. The runbook also uses the *AzContext* parameter on the Az module cmdlets and passes it the proper context.
+To deal with multiple subscriptions, your runbook must use the [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet to ensure that the authentication context is not retrieved from another runbook running in the same sandbox. The runbook also uses the`AzContext` parameter on the Az module cmdlets and passes it the proper context.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -150,7 +150,7 @@ This section describes some ways to handle exceptions or intermittent issues in 
 
 The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by *ErrorActionPreference*.
 
-When the runbook uses *ErrorActionPreference*, a normally non-terminating error such as **PathNotFound** from the **Get-ChildItem** cmdlet stops the runbook from completing. The following example shows the use of *ErrorActionPreference*. The final **Write-Output** command never executes, as the script stops.
+When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as **PathNotFound** from the `Get-ChildItem` cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final `Write-Output` command never executes, as the script stops.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -160,7 +160,7 @@ Write-Output "This message will not show"
 
 #### Try Catch Finally
 
-[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) is used in PowerShell scripts to handle terminating errors. The script can use this mechanism to catch specific exceptions or general exceptions. The **catch** statement should be used to track or try to handle errors. The following example tries to download a file that does not exist. It catches the System.Net.WebException exception and returns the last value for any other exception.
+[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) is used in PowerShell scripts to handle terminating errors. The script can use this mechanism to catch specific exceptions or general exceptions. The `catch` statement should be used to track or try to handle errors. The following example tries to download a file that does not exist. It catches the `System.Net.WebException` exception and returns the last value for any other exception.
 
 ```powershell-interactive
 try
@@ -180,7 +180,7 @@ catch
 
 #### Throw
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) can be used to generate a terminating error. This mechanism can be useful when defining your own logic in a runbook. If the script meets a criterion that should stop it, it can use the **throw** statement to stop. The following example uses this statement to show a required function parameter.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) can be used to generate a terminating error. This mechanism can be useful when defining your own logic in a runbook. If the script meets a criterion that should stop it, it can use the `throw` statement to stop. The following example uses this statement to show a required function parameter.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -200,15 +200,15 @@ Runbook jobs that run in Azure sandboxes don't have access to any device or appl
 
 ## Handling errors
 
-Your runbooks must be capable of handling errors. PowerShell has two types of errors, terminating and non-terminating. Terminating errors stop runbook execution when they occur. The runbook stops with a job status of **Failed**.
+Your runbooks must be capable of handling errors. PowerShell has two types of errors, terminating and non-terminating. Terminating errors stop runbook execution when they occur. The runbook stops with a job status of Failed.
 
-Non-terminating errors allow a script to continue even after they occur. An example of a non-terminating error is one that occurs when a runbook uses the **Get-ChildItem** cmdlet with a path that doesn't exist. PowerShell sees that the path doesn't exist, throws an error, and continues to the next folder. The error in this case doesn't set runbook job status status to **Failed**, and the job might even be completed. To force a runbook to stop on a non-terminating error, you can use `-ErrorAction Stop` on the cmdlet.
+Non-terminating errors allow a script to continue even after they occur. An example of a non-terminating error is one that occurs when a runbook uses the `Get-ChildItem` cmdlet with a path that doesn't exist. PowerShell sees that the path doesn't exist, throws an error, and continues to the next folder. The error in this case doesn't set runbook job status status to Failed, and the job might even be completed. To force a runbook to stop on a non-terminating error, you can use `-ErrorAction Stop` on the cmdlet.
 
 ## Handling jobs
 
 You can reuse the execution environment for jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox.
 
-Jobs running in the same sandbox process can affect each other. One example is running the **Disconnect-AzAccount** cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process.
+Jobs running in the same sandbox process can affect each other. One example is running the `Disconnect-AzAccount` cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process.
 
 PowerShell jobs started from a runbook that runs in an Azure sandbox might not run in the full language mode. To learn more about PowerShell language modes, see [PowerShell language modes](/powershell/module/microsoft.powershell.core/about/about_language_modes). For additional details on interacting with jobs in Azure Automation, see [Retrieving job status with PowerShell](#retrieving-job-status-using-powershell).
 
@@ -228,7 +228,7 @@ The following table describes the statuses that are possible for a job.
 | Running, waiting for resources |The job has been unloaded because it reached the fair share limit. It will resume shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is stopping the job. |
-| Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the *ErrorActionPreference* variable is set to **Continue**, indicating that the job keeps running on an error. If the preference variable is set to **Stop**, the job suspends on an error.  |
+| Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the `ErrorActionPreference` variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
 
 ### Viewing job status from the Azure portal
@@ -241,7 +241,7 @@ On the right of your selected Automation account, you can see a summary of all t
 
 This tile displays a count and graphical representation of the job status for each job executed.
 
-Clicking the tile presents the **Jobs** page, which includes a summarized list of all jobs executed. This page shows the status, runbook name, start time, and completion time for each job.
+Clicking the tile presents the Jobs page, which includes a summarized list of all jobs executed. This page shows the status, runbook name, start time, and completion time for each job.
 
 ![Automation account Jobs page](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
@@ -249,7 +249,7 @@ You can filter the list of jobs by selecting **Filter jobs**. Filter on a specif
 
 ![Filter job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** page in your Automation account, and then selecting the **Jobs** tile. This action presents the **Jobs** page. From here, you can click the job record to view its details and output.
+Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the Runbooks page in your Automation account, and then selecting the **Jobs** tile. This action presents the Jobs page. From here, you can click the job record to view its details and output.
 
 ![Automation account Jobs page](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
@@ -261,13 +261,13 @@ You can use the following steps to view the jobs for a runbook.
 
 1. In the Azure portal, select **Automation** and then select the name of an Automation account.
 2. From the hub, select **Runbooks** under **Process Automation**.
-3. On the **Runbooks** page, select a runbook from the list.
+3. On the Runbooks page, select a runbook from the list.
 3. On the page for the selected runbook, click the **Jobs** tile.
 4. Click one of the jobs in the list and view its details and output on the runbook job details page.
 
 ### Retrieving job status using PowerShell
 
-Use the **Get-AzAutomationJob** cmdlet to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using **Start-AzAutomationRunbook**, it returns the resulting job. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) to retrieve job output.
+Use the `Get-AzAutomationJob` cmdlet to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using `Start-AzAutomationRunbook`, it returns the resulting job. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) to retrieve job output.
 
 The following example gets the last job for a sample runbook and displays its status, the values provided for the runbook parameters, and the job output.
 
@@ -332,13 +332,13 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="fair-share"></a>Sharing resources among runbooks
 
-To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes **Stopped**.
+To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
 For long-running tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
-Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, such as a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using **Start-AzAutomationRunbook**. Child runbooks execute in parallel in separate processes.
+Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, such as a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using `Start-AzAutomationRunbook`. Child runbooks execute in parallel in separate processes.
 
-Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the **Get-AzAutomationJob** cmdlet to check the job status for a child runbook if it still has operations to perform after the child completes.
+Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the `Get-AzAutomationJob` cmdlet to check the job status for a child runbook if it still has operations to perform after the child completes.
 
 ## Next steps
 
