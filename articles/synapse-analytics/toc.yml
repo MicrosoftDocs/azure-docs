@@ -143,7 +143,7 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ./sql/active-directory-authentication.mdon
+        href: ./sql/active-directory-authentication.md
       - name: Multi-Factor Auth
         href: ./sql/mfa-authentication.md
       - name: SQL authorization
