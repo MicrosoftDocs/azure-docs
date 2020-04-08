@@ -90,7 +90,7 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 The input requirements for the receipt model are slightly different.
 
-* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
+* Format must be JPEG, PNG, PDF (text or scanned) or TIFF.
 * File size must be less than 20 MB.
 * Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
 * PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
