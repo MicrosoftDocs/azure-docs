@@ -19,8 +19,8 @@ Currently, HTTP/2 support is active for all Front Door configurations. No furthe
 
 HTTP/2 is a major revision to HTTP/1.1. It provides faster web performance, reduced response time, and improved user experience, while maintaining the familiar HTTP methods, status codes, and semantics. Though HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
 
->[!NOTE]
->HTTP/2 protocol support is available to clients connecting to Azure Front Door Service only. The communication to backends in the backend pool is over HTTP/1.1. 
+> [!NOTE]
+> HTTP/2 protocol support is available only for requests from clients to Front Door. The communication from Front Door to back ends in the back-end pool happens over HTTP/1.1. 
 
 ### HTTP/2 benefits
 
