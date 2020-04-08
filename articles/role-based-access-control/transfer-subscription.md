@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 ms.author: rolyon
 ---
 
@@ -67,11 +67,10 @@ The following table lists the artifacts that will get transferred when you follo
 | Role assignments for built-in roles | Yes |
 | Role assignments for users | Yes |
 | Role assignments for groups | Yes |
-| Role assignments for service principals | No |
+| Role assignments for service principals | Yes |
 | Role assignments for Azure SQL Databases with Azure AD authentication | No |
 | Role assignments for Key Vault | No |
-| Role assignments for managed identities | Yes |
-| Role assignments for applications | Yes |
+| Role assignments for managed identities | No |
 | Custom role definitions | Yes |
 | Role assignments for custom roles | Yes |
 
@@ -107,8 +106,8 @@ To complete these steps, you will need:
 
     ```azurecli
     az role assignment list --all --include-inherited --output json > roleassignments.json
-    az role assignment list --all --include-inherited --output table > roleassignments.txt
     az role assignment list --all --include-inherited --output tsv > roleassignments.tsv
+    az role assignment list --all --include-inherited --output table > roleassignments.txt
     ```
 
 1. Save the list of role assignments.
@@ -133,7 +132,9 @@ To complete these steps, you will need:
 
 1. Make copies of the custom role files.
 
-1. Adjust each copy to use the following format. You'll use these files later to re-create the custom roles in the target directory.
+1. Adjust each copy to use the following format.
+
+    You'll use these files later to re-create the custom roles in the target directory.
 
     ```json
     {
@@ -170,7 +171,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 ### Inventory other artifacts in the source directory
 
 > [!IMPORTANT]
-> There are other artifacts that have a dependency on a subscription or a particular directory. This article lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, this article cannot list all dependencies. 
+> There are other artifacts that have a dependency on a subscription or a particular directory. This section lists the other known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be more dependencies. 
 
 1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
 
@@ -211,7 +212,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
-1. Once you finish transferring ownership, return back to this article to restore the role assignments in the target directory.
+1. Once you finish transferring ownership, return back to this article to re-create the artifacts in the target directory.
 
 ## Step 3: Re-create artifacts
 
