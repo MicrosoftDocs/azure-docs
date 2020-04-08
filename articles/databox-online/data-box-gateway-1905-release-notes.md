@@ -29,7 +29,7 @@ This release corresponds to the software versions:
 
 ## What's new
 
-- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, we have made logging and alert enhancements related to FPGA. This is a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, we have made logging and alert enhancements related to FPGA. This is a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## Known issues in GA release
 
