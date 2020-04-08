@@ -104,20 +104,26 @@ Because these performance attributes are user modifiable, here are some formulas
 
 ### Examples
 
-#### Two node, CSV
+#### Two node, cluster shared volume
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
 :::image-end:::
 
-#### Two node, no CSV
+2 nodes WSFC using clustered shared volumes will result in full ReadWrite throttle split across the VMs​
+
+#### Two node, no cluster share volume
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two node no csv ultra disk example":::
 
 :::image-end:::
+
+2 nodes WSFC not using clustered shared volumes will result in full ReadWrite throttle assigned to the primary VM​.
 
 #### Four node example
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
 
 :::image-end:::
+
+4 nodes Linux cluster with a single Writer and 3 scale out Readers. ReadWrite throttle will be used for the primary VM while the ReadOnly throttle will be split across the secondary VMs​.
