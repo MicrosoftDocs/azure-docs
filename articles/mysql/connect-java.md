@@ -58,18 +58,6 @@ public class CreateTableInsertRows {
 		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
-		System.out.println("MariaDB JDBC driver detected in library path.");
-
 		Connection connection = null;
 
 		// Initialize connection object
@@ -161,16 +149,6 @@ public class ReadTable {
 		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
 		System.out.println("MariaDB JDBC driver detected in library path.");
 
 		Connection connection = null;
@@ -248,18 +226,6 @@ public class UpdateTable {
 		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
-		System.out.println("MariaDB JDBC driver detected in library path.");
-
 		Connection connection = null;
 
 		// Initialize connection object
@@ -330,18 +296,6 @@ public class DeleteTable {
 		String database = "quickstartdb";
 		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
-		
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc.Driver");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
-		System.out.println("MariaDB JDBC driver detected in library path.");
 
 		Connection connection = null;
 
