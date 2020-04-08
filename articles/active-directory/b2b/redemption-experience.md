@@ -51,6 +51,37 @@ There are some cases where the invitation email is recommended over a direct lin
  - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
  - The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
 
+## Invitation redemption flow
+
+When a user clicks **Get Started** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
+
+![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation_redemption_flow.png)
+
+1. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
+
+2. If an admin has enabled [direct federation](direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+
+3. If an admin has enabled [Google federation](google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
+
+4. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal).
+
+5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
+
+6. If steps 1 to 4 fail to find a home directory for the invited user, Azure AD determines whether the inviting tenant has enabled [email One-Time Passcode (OTP)](one-time-passcode.md) for guests.
+
+7. If email [OTP for guests is enabled](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), an OTP is sent to the user through the invited email. The user will retrieve and enter this code to Azure AD sign-in page.
+
+8. If email OTP for guests is disabled, Azure AD checks the domain suffix against a consumer domain list maintained by Microsoft. If the domain matches any domain on the consumer domain list, the user is prompted to create a personal Microsoft account. If not, the user is prompted to create an [Azure AD self-service account](../users-groups-roles/directory-self-service-signup.md) (viral account).
+
+9. Azure AD attempts to create an Azure AD self-service account (viral account) by verifying access to the email. This is done by sending a code to the email, and having the user retrieve and submit it to Azure AD. However, if the invited user’s tenant is federated or if AllowEmailVerifiedUsers field is set to false in the invited user’s tenant, the user is unable to complete the redemption and the flow results in an error. Refer to [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption) for more details regarding the errors.
+
+10. The user is prompted to create a personal Microsoft account (MSA).
+
+11. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](redemption-experience.md#consent-experience-for-the-guest).  
+
+>[!NOTE]
+>For JIT redemptions, where redemption is by tenanted application link, steps 8 through 10 is not available. If a user reaches step 6 and an email OTP is not enabled, user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable email OTP](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
+
 ## Consent experience for the guest
 
 When a guest signs in to access resources in a partner organization for the first time, they're guided through the following pages. 
@@ -66,7 +97,7 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing new terms of use](media/redemption-experience/terms-of-use-accept.png) 
 
-   > [!NOTE]
+   > NOTE:
    > You can configure see [terms of use](../governance/active-directory-tou.md) in **Manage** > **Organizational relationships** > **Terms of use**.
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
