@@ -648,167 +648,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-migrate.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-overview.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-service-deploy.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-tools.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/reference-logging-api.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/roaming-and-collaboration.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-aerial-image-classification.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-big-data.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-churn-prediction.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-document-collection-analysis.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-image-classification-using-cntk.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-qna-matching.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-sentiment-analysis-deep-learning.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-classifying-us-incomes.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/scenario-time-series-forecasting.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/tutorial-bikeshare-dataprep.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/tutorial-iris-azure-cli.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/frequently-asked-questions.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models.md",
-      "redirect_url": "/azure/machine-learning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models.md",
-      "redirect_url": "/azure/machine-learning",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
@@ -2027,6 +1867,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/quickstarts/client-libraries?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -2893,7 +2743,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
@@ -2948,12 +2798,12 @@
     },
     {
       "source_path": "articles/machine-learning/preview/quickstart-installation.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/tutorial-bikeshare-dataprep.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
@@ -3048,17 +2898,17 @@
     },
     {
       "source_path": "articles/machine-learning/preview/tutorial-classifying-iris-part-1.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/tutorial-classifying-iris-part-2.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/preview/tutorial-classifying-iris-part-3.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
       "redirect_document_id": false
     },
     {
@@ -15204,11 +15054,6 @@
       "source_path": "articles/machine-learning/service/how-to-create-labeling-projects.md",
       "redirect_url": "/azure/machine-learning/how-to-create-labeling-projects",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
-      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-create-register-datasets.md",
@@ -39836,11 +39681,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/service/quickstart-installation.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
       "redirect_url": "/azure/machine-learning/service/concept-onnx",
       "redirect_document_id": false
@@ -42798,6 +42638,11 @@
     {
       "source_path": "articles/machine-learning/service/concept-data-drift.md",
       "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
+      "redirect_url": "/azure/machine-learning/how-to-use-automated-ml-for-ml-models",
       "redirect_document_id": false
     },
     {
@@ -47037,7 +46882,7 @@
     },
     {
       "source_path": "articles/iot-central/core/tutorial-connect-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs/",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs",
       "redirect_document_id": true
     },
     {
@@ -50593,6 +50438,161 @@
     {
       "source_path": "articles/cognitive-services/speech-service/ship-application.md",
       "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk"
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-aks.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-cni-networking.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-kubenet-networking.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-kubenet-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-aks-configure-rbac.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-rbac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-application-gateway.md",
+      "redirect_url": "/azure/developer/ansible/application-gateway-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-azure-web-apps.md",
+      "redirect_url": "/azure/developer/ansible/azure-web-apps-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-scale-azure-web-apps.md",
+      "redirect_url": "/azure/developer/ansible/azure-web-apps-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-data-cache-for-redis-configure.md",
+      "redirect_url": "/azure/developer/ansible/cache-for-redis-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-run-playbook-in-cloudshell.md",
+      "redirect_url": "/azure/developer/ansible/cloudshell-run-playbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-data-cosmos-configure.md",
+      "redirect_url": "/azure/developer/ansible/cosmos-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-devtest-labs-configure.md",
+      "redirect_url": "/azure/developer/ansible/devtest-labs-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-manage-azure-dynamic-inventories.md",
+      "redirect_url": "/azure/developer/ansible/dynamic-inventory-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-azure-hdinsight-configure.md",
+      "redirect_url": "/azure/developer/ansible/hdinsight-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-install-configure.md",
+      "redirect_url": "/azure/developer/ansible/install-on-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-matrix.md",
+      "redirect_url": "/azure/developer/ansible/module-version-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-mysql.md",
+      "redirect_url": "/azure/developer/ansible/mysql-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-overview.md",
+      "redirect_url": "/azure/developer/ansible/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-route-table.md",
+      "redirect_url": "/azure/developer/ansible/route-table-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-service-bus-queue-configure.md",
+      "redirect_url": "/azure/developer/ansible/service-bus-queue-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-service-bus-topic-configure.md",
+      "redirect_url": "/azure/developer/ansible/service-bus-topic-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-deploy-solution-template.md",
+      "redirect_url": "/azure/developer/ansible/solution-template-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vnet-peering-configure.md",
+      "redirect_url": "/azure/developer/ansible/virtual-network-peering-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-vm.md",
+      "redirect_url": "/azure/developer/ansible/vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vm-create-from-shared-generalized-image.md",
+      "redirect_url": "/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-manage-linux-vm.md",
+      "redirect_url": "/azure/developer/ansible/vm-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-auto-scale-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-auto-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-create-configure-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-deploy-app-vmss.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-deploy-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/ansible-vmss-update-image.md",
+      "redirect_url": "/azure/developer/ansible/vm-scale-set-update-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/",
+      "redirect_url": "/azure/developer/ansible/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ansible/index.yml",
+      "redirect_url": "/azure/developer/ansible/",
+      "redirect_document_id": false
     }
   ]
 }

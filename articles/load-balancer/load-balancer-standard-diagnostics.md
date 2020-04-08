@@ -64,8 +64,6 @@ To view the metrics for your Standard Load Balancer resources:
 
 For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
 
-### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
-
 ### Configure alerts for multi-dimensional metrics ###
 
 Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
@@ -77,10 +75,11 @@ To configure alerts:
     1.  (Optional) Add action group for automated repair
     1.  Assign alert severity, name and description that enables intuitive reaction
 
-
   >[!NOTE]
   >Alert condition configuration window will show time series for signal history. There is an option to filter this time series by dimensions such as Backend IP. This will filter the time series graph but **not** the alert itself. You cannot configure alerts for specific Backend IP addresses.
-  
+
+### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
+
 #### Is the data path up and available for my load balancer VIP?
 
 The VIP availability metric describes the health of the data path within the region to the compute host where your VMs are located. The metric is a reflection of the health of the Azure infrastructure. You can use the metric to:

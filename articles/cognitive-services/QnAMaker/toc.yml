@@ -87,9 +87,9 @@
       displayName: metadata, pair
     - name: Test
       href: How-To/test-knowledge-base.md
-  - name: Manage QnA sets
+  - name: Manage QnA pairs
     items:
-    - name: Edit QnA set
+    - name: Edit QnA pair
       href: How-To/edit-knowledge-base.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
