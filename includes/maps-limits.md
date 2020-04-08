@@ -17,10 +17,11 @@ The following table shows the usage limit for the Azure Maps S0 pricing tier. Us
 | Maximum request rate per subscription |   50 requests per second  |
 
 
-The following table shows the data size limit for Azure Maps. The Azure Maps data service is available only at the S1 pricing tier.
+The following table shows the cumulative data size limit for Azure Maps accounts in the same Azure subscription. The Azure Maps Data service is available only at the S1 pricing tier.
 
-| Resource                              | Limit |
-|---------------------------------------|:---------------------:|
-| Maximum size of data |   1 GB  |
+| Resource                               | Limit  |
+|----------------------------------------|:---------------------:|
+| Maximum storage per Azure subscription |   1 GB |
+| Maximum size per file upload           | 100 MB |
 
 For more information on the Azure Maps pricing tiers, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
