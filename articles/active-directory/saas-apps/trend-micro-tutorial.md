@@ -54,7 +54,6 @@ To configure the integration of Trend Micro Web Security(TMWS) into Azure AD, yo
 1. In the **Add from the gallery** section, type **Trend Micro Web Security(TMWS)** in the search box.
 1. Select **Trend Micro Web Security(TMWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Trend Micro Web Security(TMWS)
 
 Configure and test Azure AD SSO with Trend Micro Web Security(TMWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Trend Micro Web Security(TMWS).
@@ -62,10 +61,10 @@ Configure and test Azure AD SSO with Trend Micro Web Security(TMWS) using a test
 To configure and test Azure AD SSO with Trend Micro Web Security(TMWS), complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
     1. **[Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad)** - Configure user and group synchronization settings in Azure AD
 1. **[Configure Trend Micro Web Security(TMWS) SSO](#configure-trend-micro-web-security-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Trend Micro Web Security(TMWS) test user](#create-trend-micro-web-security-test-user)** - to have a counterpart of B.Simon in Trend Micro Web Security(TMWS) that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -107,6 +106,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Trend Micro Web Security(TMWS)** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -162,10 +173,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Configure Trend Micro Web Security SSO
 
 To configure single sign-on on **Trend Micro Web Security(TMWS)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create Trend Micro Web Security test user
-
-In this section, you create a user called Britta Simon in Trend Micro Web Security(TMWS). Work with [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america) to add the users in the Trend Micro Web Security(TMWS) platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
