@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/06/2020
 ---
 # ARM template functions
 
@@ -71,6 +71,13 @@ Resource Manager provides several functions for making comparisons in your templ
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## Date functions
+
+Resource Manager provides the following functions for working with dates.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## Deployment value functions
 
@@ -218,7 +225,6 @@ Resource Manager provides the following functions for working with strings:
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## Next steps
 
