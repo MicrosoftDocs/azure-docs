@@ -346,6 +346,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
+
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
 ## Conclusion

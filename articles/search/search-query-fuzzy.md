@@ -16,11 +16,11 @@ Azure Cognitive Search supports fuzzy search, a type of query that compensates f
 
 ## What is fuzzy search?
 
-It's an expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the engine builds a graph of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for each term (`search=university~ of~ washington~`). 
+It's an expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the engine builds a graph (based on [deterministic finite automaton theory](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for every term  in the query `search=university~ of~ washington~` (there is no stop-word removal in fuzzy search, so "of" gets a graph).
 
 The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the topmost relevant matches in the response. 
 
-For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results. In contrast with language analyzers that can handle irregularities between singular and plural forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value with no attempt at reconciling the semantic differences. "Universe" and "inverse" will match because the character discrepancies are small.
+For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results. In contrast with other queries that analyze the text to handle different forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value without any linguistic analysis on the text. "Universe" and "inverse", which are semantically different, will match because the syntactic discrepancies are small.
 
 A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
@@ -37,7 +37,7 @@ In Azure Cognitive Search:
 Collectively, the graphs are submitted as match criteria against tokens in the index. As you can imagine, fuzzy search is inherently slower than other query forms. The size and complexity of your index can determine whether the benefits are enough to offset the latency of the response.
 
 > [!NOTE]
-> Because fuzzy search tends to be slow, it might be worthwhile to investigate alternatives such as n-gram indexing, with its progression of short character sequences (two and three character sequences for bigram and trigram tokens). Depending on your language and query surface, n-gram might give you better performance.
+> Because fuzzy search tends to be slow, it might be worthwhile to investigate alternatives such as n-gram indexing, with its progression of short character sequences (two and three character sequences for bigram and trigram tokens). Depending on your language and query surface, n-gram might give you better performance. The trade off is that n-gram indexing is very storage intensive and generates much bigger indexes.
 >
 > Another alternative, which you could consider if you want to handle just the most egregious cases, would be a [synonym map](search-synonyms.md). For example, mapping "search" to "serach, serch, sarch", or "retrieve" to "retreive".
 
@@ -90,7 +90,7 @@ In the response, because you added hit highlighting, formatting is applied to "s
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Try the request again, misspelling "special" by taking out letters several letters ("pe"):
+Try the request again, misspelling "special" by taking out several letters ("pe"):
 
     search=scial~&highlight=Description
 
