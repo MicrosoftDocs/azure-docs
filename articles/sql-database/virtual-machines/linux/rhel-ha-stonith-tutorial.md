@@ -40,7 +40,8 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 If you have more than one subscription, [set the subscription](/cli/azure/manage-azure-subscriptions-azure-cli) that you want deploy these resources to.
 
-Use the following command to create a Resource Group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../quick-create-cli.md).
+Use the following command to create a Resource Group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../../../virtual-machines/linux/quick-create-cli.md).
+
 
 ```azurecli-interactive
 az group create --name <resourceGroupName> --location eastus2
@@ -176,7 +177,8 @@ You should get results similar to the following once the command completes for e
 
 ### Test connection to the created VMs
 
-Connect to VM1 or the other VMs using the following command in Azure Cloud Shell. If you are unable to find your VM IPs, follow this [Quickstart on Azure Cloud Shell](../../../active-directory/develop/quickstart.md#ssh-into-your-linux-vm).
+Connect to VM1 or the other VMs using the following command in Azure Cloud Shell. If you are unable to find your VM IPs, follow this [Quickstart on Azure Cloud Shell](/azure/cloud-shell/quickstart#ssh-into-your-linux-vm).
+
 
 ```azurecli-interactive
 ssh <username>@publicipaddress

@@ -22,7 +22,7 @@ ms.reviewer: jroth
 
 SQL Server on Azure virtual machines enables you to use full versions of SQL Server in the Cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
 
-Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for a many different SQL Server workloads.
+Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/linux/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for a many different SQL Server workloads.
 
 ## <a id="create"></a> Get started with SQL VMs
 
@@ -54,11 +54,12 @@ When you configure SQL Server on Linux, you install the database engine package 
 
 ### Linux Virtual Machines
 
-* [Virtual Machines overview](../overview.md)
+* [Virtual Machines overview](../../../virtual-machines/linux/overview.md)
 
 ### Storage
 
-* [Introduction to Microsoft Azure Storage](../../../storage/blobs/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
+
 
 ### Networking
 

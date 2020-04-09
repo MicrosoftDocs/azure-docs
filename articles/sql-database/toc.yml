@@ -914,9 +914,9 @@
     - name: Quickstarts
       items:
       - name: Create SQL VM (Portal)
-        href: quickstart-sql-vm-create-portal.md
+        href: /virtual-machines/windows/quickstart-sql-vm-create-portal.md
       - name: Create SQL VM (PowerShell)
-        href: quickstart-sql-vm-create-powershell.md
+        href: /virtual-machines/windows/quickstart-sql-vm-create-powershell.md
     - name: Concepts
       items:
       - name: Best practices
@@ -1055,16 +1055,16 @@
     - name: Overview
       items:
       - name: About Linux SQL Server VMs
-        href: /virtual-machines/linux/sql-server-linux-virtual-machines-overview.md
+        href: /virtual-machines/linux/overview.md
     - name: Quickstarts
       items:
       - name: Create SQL VM - Portal
-        href: provision-sql-server-linux-virtual-machine.md
+        href: /virtual-machines/linux/provision-virtual-machine.md
     - name: Tutorials
       items:
-      - name: Setting up Azure RHEL VM availability group with STONITH
+      - name: Availability group with STONITH (RHEL)
         href: /virtual-machines/linux/sql-server-linux-rhel-ha-stonith-tutorial.md
-      - name: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
+      - name: Configure availability group listener (RHEL)
         href: /virtual-machines/linux/sql-server-linux-rhel-ha-listener-tutorial.md
     - name: Reference
       items:
@@ -1084,10 +1084,6 @@
         href: /virtual-machines/linux/sql-server-linux-faq.md
       - name: SQL Server on Linux Documentation
         href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
-      - name: Pricing
-        href: ../../windows/sql/sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
-      - name: PaaS or IaaS?
-        href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
       - name: SQL Server Data Tools (SSDT)
         href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Tools
