@@ -100,6 +100,37 @@
     href: concepts.md
   - name: System topics
     href: system-topics.md
+    items: 
+    - name: Event sources
+      displayName: Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning
+      href: event-sources.md
+      items:
+      - name: Azure App Configuration
+        href: event-schema-app-configuration.md
+      - name: Azure Blob Storage
+        href: event-schema-blob-storage.md
+      - name: Azure Container Registry
+        href: event-schema-container-registry.md
+      - name: Azure Event Hubs
+        href: event-schema-event-hubs.md
+      - name: Azure IoT Hub
+        href: event-schema-iot-hub.md
+      - name: Azure Key Vault
+        href: event-schema-key-vault.md
+      - name: Azure Machine Learning
+        href: event-schema-machine-learning.md
+      - name: Azure Maps
+        href: event-schema-azure-maps.md
+      - name: Azure Media Services
+        href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
+      - name: Azure resource groups
+        href: event-schema-resource-groups.md        
+      - name: Azure Service Bus
+        href: event-schema-service-bus.md        
+      - name: Azure SignalR
+        href: event-schema-azure-signalr.md
+      - name: Azure subscriptions
+        href: event-schema-subscriptions.md
   - name: Security 
     items: 
     - name: Authentication
@@ -114,9 +145,6 @@
     href: event-filtering.md
   - name: Event Domains
     href: event-domains.md
-  - name: Event sources
-    displayName: Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning
-    href: event-sources.md
   - name: Event handlers
     displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
     href: event-handlers.md
@@ -176,35 +204,6 @@
     href: /javascript/api/overview/azure/eventgrid
   - name: Subscription schema
     href: subscription-creation-schema.md
-  - name: Event schema
-    href: event-schema.md
-    items:
-    - name: Azure subscriptions
-      href: event-schema-subscriptions.md
-    - name: Blob storage
-      href: event-schema-blob-storage.md
-    - name: Container Registry
-      href: event-schema-container-registry.md
-    - name: Event Hubs
-      href: event-schema-event-hubs.md
-    - name: IoT Hub
-      href: event-schema-iot-hub.md
-    - name: Key Vault
-      href: event-schema-key-vault.md
-    - name: Media Services
-      href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Resource groups
-      href: event-schema-resource-groups.md
-    - name: Service Bus
-      href: event-schema-service-bus.md
-    - name: Azure Maps
-      href: event-schema-azure-maps.md
-    - name: App Configuration
-      href: event-schema-app-configuration.md
-    - name: Azure SignalR
-      href: event-schema-azure-signalr.md
-    - name: Azure Machine Learning
-      href: event-schema-machine-learning.md
   - name: Template resources
     items:
     - name: Event subscriptions
