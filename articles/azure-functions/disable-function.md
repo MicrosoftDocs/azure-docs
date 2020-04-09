@@ -2,7 +2,7 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 04/08/2020
 ---
 
 # How to disable functions in Azure Functions
