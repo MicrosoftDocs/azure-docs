@@ -30,6 +30,8 @@ In order to complete these steps, you should first have:
 
 Install the Azure CLI extensions for Azure Digital Twins. During public preview, this is done by running `az extension add --name azure-iot`.
 
+[!INCLUDE [iot-hub-cli-version-info.md](../../includes/iot-hub-cli-version-info.md)]
+
 ## Create an Azure Digital Twins instance
 
 To create an Azure Digital Twins instance, open a command prompt or PowerShell window.

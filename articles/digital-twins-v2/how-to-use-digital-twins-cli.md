@@ -31,9 +31,8 @@ First, either open an instance of [Azure Cloud Shell](../cloud-shell/overview.md
 
 Next, in your chosen shell window, get the **Azure IoT CLI Extension** by following these steps:
 
-1. Install the Azure Digital Twins-enabled IoT extension with this command:
-    
-  `az extension add --name azure-iot`
+1. Install the Azure Digital Twins-enabled IoT extension with this command: `az extension add --name azure-iot`
+    [!INCLUDE [iot-hub-cli-version-info.md](../../includes/iot-hub-cli-version-info.md)]
 
 2. Verify your installation of **azure-iot** is version **0.0.1.dev6** with this command:
 
