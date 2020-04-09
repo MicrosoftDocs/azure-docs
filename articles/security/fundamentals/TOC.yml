@@ -94,9 +94,9 @@
   - name: Database security
     items:
     - name: Overview
-      href: database-security-overview.md
+      href: ../../sql-database/sql-database-security-overview.md
     - name: Best practices
-      href: database-best-practices.md
+      href: ../../sql-database/sql-database-security-best-practice.md
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide

@@ -232,13 +232,13 @@ conceptualContent:
 
     - title: Database security
       links:
-        - url: ./fundamentals/database-security-overview.md
+        - url: ./fundamentals/encryption-overview.md
           itemType: overview
-          text:  Security overview
+          text:  Data security
         - url: ./fundamentals/database-best-practices.md
           itemType: concept
-          text:  Security best practices
-        - url: ./fundamentals/database-security-checklist.md
+          text:  Best practices for PaaS
+        - url: ./fundamentals/paas-applications-using-sql.md
           itemType: concept
           text:  Security checklist
 
