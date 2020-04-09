@@ -192,17 +192,17 @@ void translateSpeech() {
     }
 
     auto recognizer = TranslationRecognizer::FromConfig(translationConfig);
-    cout << "Say something in '" + fromLanguage + "' and we'll translate...\n";
+    cout << "Say something in '" << fromLanguage << "' and we'll translate...\n";
 
     auto result = recognizer->RecognizeOnceAsync().get();
     if (result->Reason == ResultReason::TranslatedSpeech)
     {
-        cout << "Recognized: \"" + result->Text + "\"\n";
+        cout << "Recognized: \"" << result->Text << "\"" << std::endl;
         for (auto pair : result->Translations)
         {
             auto language = pair.first;
             auto translation = pair.second;
-            cout << "Translated into '" + language + "': " + translation + "\n";
+            cout << "Translated into '" << language << "': " << translation << std::endl;
         }
     }
 }
