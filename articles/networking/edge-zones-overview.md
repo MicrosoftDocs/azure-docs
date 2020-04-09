@@ -1,6 +1,6 @@
 ---
-title: About Azure Edge Zones - Preview
-description: Learn about edge computing offerings from Microsoft.
+title: About Azure Edge Zones offerings - Preview
+description: 'Learn about edge computing offerings from Microsoft: Azure Edge Zones.'
 services: vnf-manager
 author: ganesr
 
@@ -13,19 +13,19 @@ ms.author: ganesr
 
 # About Azure Edge Zones - Preview
 
-Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other select Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
+Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other Azure services into edge zones to address the low latency and high throughput requirements of applications.
 
 Typical use case scenarios for Edge Zones include:
 
-- Real-time command and control in robotics
-- Real-time analytics and inferencing with Artificial Intelligence and Machine Learning
-- Machine Vision
-- Remote rendering for mixed reality and VDI scenarios
-- Immersive multi-player gaming
-- Media streaming and content delivery
-- Surveillance and security
+- Real-time command and control in robotics.
+- Real-time analytics and inferencing with artificial intelligence and machine learning.
+- Machine vision.
+- Remote rendering for mixed reality and VDI scenarios.
+- Immersive multiplayer gaming.
+- Media streaming and content delivery.
+- Surveillance and security.
 
-Azure Edge Zones come in three discrete offerings:
+There are three types of Azure edge zones:
 
 - Azure Edge Zones
 - Azure Edge Zones with Carrier
@@ -33,18 +33,20 @@ Azure Edge Zones come in three discrete offerings:
 
 ## <a name="edge-zones"></a>Azure Edge Zones
 
-![Edge Zones](./media/edge-zones-overview/edge-zones.png "Edge zones")
+![Azure Edge Zones](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
-Azure Edge Zones are small footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure Edge Zones support VMs, containers, and a select set of Azure services that let you run latency sensitive and throughput intensive applications close to end users. Azure Edge Zones are part of the Microsoft global network and offer secure, reliable, and high-bandwidth connectivity between applications running at the Edge Zone close to the user, and the full set of Azure services running within Azure regions. Azure Edge Zones are owned and operated by Microsoft and let you use the same set of Azure tools and portal to manage and deploy services into the Edge Zones.
+Azure edge zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure edge zones support VMs, containers, and a set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users.
+
+Azure edge zones are part of the Microsoft global network. They offer secure, reliable, high-bandwidth connectivity between applications running at the edge zone close to the user. They also offer the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
 
 Typical use cases include:
 
-- Gaming and game streaming
-- Media streaming and content delivery
-- Real-time analytics and inferencing using artificial intelligence and machine learning
-- Rendering for mixed reality
+- Gaming and game streaming.
+- Media streaming and content delivery.
+- Real-time analytics and inferencing using artificial intelligence and machine learning.
+- Rendering for mixed reality.
 
-Azure Edge Zones will be available in the following metros:
+Azure Edge Zones will be available in the following metro areas:
 
 - New York, NY
 - Los Angeles, CA
