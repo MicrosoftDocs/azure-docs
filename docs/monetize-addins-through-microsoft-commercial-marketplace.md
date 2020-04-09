@@ -106,7 +106,7 @@ For information about authenticating with Azure AD, see [Authorize to Microsoft 
 
 > [!VIDEO https://www.youtube.com/embed/lnn-X4QfdXU]
 
-The [Office Add-in SaaS monetization code sample](https://github.com/OfficeDev/office-add-in-saas-monetization-sample) demonstrates how you can create a simple license management system to manage add-ins sold in Microsoft AppSource. This code sample package includes a Microsoft AppSource mock web app, a SaaS sample, a SharePoint add-in, an Outlook add-in, and a licensing management tool.
+The [Office Add-in SaaS monetization code sample](https://github.com/OfficeDev/office-add-in-saas-monetization-sample) demonstrates how you can create a simple license management system to manage add-ins sold in Microsoft AppSource. This code sample package includes a Microsoft AppSource mock web app, a SaaS sample, an Outlook add-in, and a licensing management tool.
 
 ## Submission process for SaaS offer + add-in
 Submit your SaaS offer to Partner Center. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
