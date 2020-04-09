@@ -2,7 +2,7 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/08/2020
 ---
 # String functions for ARM templates
 
@@ -1090,6 +1090,8 @@ You can only use this function within an expression for the default value of a p
 
 The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameter, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
 
+The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
+
 If you use the [option to redeploy an earlier successful deployment](rollback-on-error.md), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
 In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use newGuid with [uniqueString](#uniquestring) to create unique names.
@@ -1919,7 +1921,7 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
    * If **baseUri** has no slashes at all (aside from the "//" near
      the front) the result is simply **baseUri** followed by **relativeUri**.
 
-   * If **baseUri** has some slashes, but does not end with a slash,
+   * If **baseUri** has some slashes, but doesn't end with a slash,
      everything from the last slash onward is removed from **baseUri**
      and the result is **baseUri** followed by **relativeUri**.
      
