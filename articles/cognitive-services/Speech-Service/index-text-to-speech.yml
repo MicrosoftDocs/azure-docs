@@ -21,7 +21,7 @@ landingContent:
       - text: What is text-to-speech?
         url: text-to-speech.md
       - text: Speech synthesis basics
-        url: text-to-speech.md
+        url: text-to-speech-basics.md
     - linkListType: quickstart
       links:
         - text: Synthesize speech to a speaker
