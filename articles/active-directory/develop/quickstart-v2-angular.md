@@ -63,7 +63,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 
 #### Step 2: Download the code sample
 >[!div renderon="docs"]
->To run the project with a web server by using Node.js, [clone](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) or [download](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip) the core project files. Open the files by using an editor such as Visual Studio Code.
+>To run the project with a web server by using Node.js, clone the [sample repository](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) or [download](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip) the core project files. Open the files by using an editor such as Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
