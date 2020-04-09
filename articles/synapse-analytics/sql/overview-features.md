@@ -61,7 +61,7 @@ Query languages used in Synapse SQL can have different supported features depend
 
 Synapse SQL enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between Synapse SQL consumption models.
 
-|   | Provisioned | Serverles |
+|   | Provisioned | Serverless |
 | --- | --- | --- |
 | Logins | N/A (only contained users are supported in databases) | Yes |
 | Users |  N/A (only contained users are supported in databases) | Yes |
