@@ -1,13 +1,13 @@
 ---
 title: Deploy an application to an Azure virtual machine scale set
 description: Learn how to deploy applications to Linux and Windows virtual machine instances in a scale set
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # Deploy your application on virtual machine scale sets
