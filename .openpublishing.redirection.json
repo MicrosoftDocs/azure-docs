@@ -50590,27 +50590,27 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/chef-automation.md.md",
+      "source_path": "articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/chef-extension-portal.md.md",
+      "source_path": "articles/chef/chef-extension-portal.md",
       "redirect_url": "/azure/developer/chef/client-install-from-azure-portal",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/chef-habitat-overview.md.md",
+      "source_path": "articles/chef/chef-habitat-overview.md",
       "redirect_url": "/azure/developer/chef/habitat-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/chef-inspec-overview.md.md",
+      "source_path": "articles/chef/chef-inspec-overview.md",
       "redirect_url": "/azure/developer/chef/inspec-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/chef-overview.md.md",
+      "source_path": "articles/chef/chef-overview.md",
       "redirect_url": "/azure/developer/chef/overview",
       "redirect_document_id": false
     },
