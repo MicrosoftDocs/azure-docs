@@ -21,7 +21,7 @@ Custom metrics can be sent to Azure Monitor via several methods:
 - Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`. T
 
 > [!NOTE] 
-> Custom metrics are currently in public preview. Using them will occur additional charges once released for general availability (GA). For more information see [Azure Monitor Pricing](https://azure.microsoft.compricing/details/monitor/). 
+> Custom metrics are currently in public preview. After they are released for general availability (GA), using them will result in additional charges. For more information, see [Azure Monitor Pricing](https://azure.microsoft.compricing/details/monitor/). 
 
 When you send custom metrics to Azure Monitor, each data point, or value, reported must include the following information.
 
@@ -59,7 +59,7 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
+A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
