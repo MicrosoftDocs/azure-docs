@@ -162,7 +162,7 @@ The preceding graphic shows that QnA Maker first gets the intent of the incoming
         static string LUIS_hostRegion = "westus.api.cognitive.microsoft.com";
 
         // QnA Maker global settings
-        // assumes all KBs are created with same Azure service
+        // assumes all knowledge bases are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
 
@@ -235,4 +235,4 @@ In the Azure portal, select **Test in Web Chat** to test the bot. Type messages 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Integrate your knowledge base with a Power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)
+> [Integrate your knowledge base with an agent in Power Virtual Agents](integrate-with-power-virtual-assistant-fallback-topic.md)

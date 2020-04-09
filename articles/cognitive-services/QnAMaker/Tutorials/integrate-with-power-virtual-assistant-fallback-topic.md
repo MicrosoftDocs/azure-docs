@@ -62,7 +62,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
         * Output - knowledge base answer
     * Create a solution and add the flow.
 * Return to Power Virtual Agents:
-    * Select the solution's output as a message for a topic
+    * Select the solution's output as a message for a topic.
 
 ## Create and publish a knowledge base
 
@@ -259,7 +259,7 @@ Here's what the final agent canvas looks like.
     |3|Yes|In reply to `Did that answer your question?`|
     |4|Excellent|In reply to `Please rate your experience.`|
     |5|Yes|In reply to `Can I help with anything else?`|
-    |6|What is a knowledge base?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is displayed. |
+    |6|What is a knowledge base?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. |
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png)
