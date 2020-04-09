@@ -37,7 +37,7 @@ If you notice certain queries are taking more request units, you can take action
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
 
-   ![Choose the Azure Cosmos DB account to view metrics](./media/monitor-request-unit-usage/select-cosmosdb-account.png)
+   ![Choose the Azure Cosmos DB account to view metrics](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
 
 1. Next select the **Total Request Units** metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Total Request Units** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
