@@ -22,27 +22,27 @@ In this tutorial, you send emails with Gmail from your App Service app by using 
 
 Deploy an app with the language framework of your choice to App Service. To follow a tutorial to deploy a sample app, see below:
 
-# [ASP.NET](#tab/dotnet)
+### [ASP.NET](#tab/dotnet)
 
 [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-# [ASP.NET Core](#tab/dotnetcore)
+### [ASP.NET Core](#tab/dotnetcore)
 
 [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
 
-# [Node.js](#tab/node)
+### [Node.js](#tab/node)
 
 [Tutorial: Build a Node.js and MongoDB app in Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
-# [PHP](#tab/php)
+### [PHP](#tab/php)
 
 [Tutorial: Build a PHP and MySQL app in Azure](app-service-web-tutorial-php-mysql.md)
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 
 [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](containers/tutorial-python-postgresql-app.md)
 
-# [Ruby](#tab/ruby)
+### [Ruby](#tab/ruby)
 
 [Build a Ruby and Postgres app in Azure App Service on Linux](containers/tutorial-ruby-postgres-app.md)
 
@@ -146,7 +146,7 @@ In your code, make a standard HTTP post to the URL using any HTTP client languag
 
 Click on the preferred language/framework tab below to see an example.
 
-# [ASP.NET](#tab/dotnet)
+### [ASP.NET](#tab/dotnet)
 
 In ASP.NET, you can send the HTTP post with the [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) class. For example:
 
@@ -171,7 +171,7 @@ var statusCode = result.StatusCode.ToString();
 
 If you're testing this code on the sample app for [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), after the `Todo` item is added. To use the asynchronous code above, convert the Create action to asynchronous.
 
-# [ASP.NET Core](#tab/dotnetcore)
+### [ASP.NET Core](#tab/dotnetcore)
 
 In ASP.NET Core, you can send the HTTP post with the [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) class. For example:
 
@@ -200,7 +200,7 @@ var statusCode = result.StatusCode.ToString();
 
 If you're testing this code on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
 
-# [Node.js](#tab/node)
+### [Node.js](#tab/node)
 
 In Node.js, you can send the HTTP post easily with an npm package like [axios](https://www.npmjs.com/package/axios). For example:
 
@@ -227,7 +227,7 @@ var jsonData = {
 
 If you're testing this code on the sample app for [Tutorial: Build a Node.js and MongoDB app in Azure](app-service-web-tutorial-nodejs-mongodb-app.md), you could use it to send an email confirmation in the [create function](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), after [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
-# [PHP](#tab/php)
+### [PHP](#tab/php)
 
 In PHP, you can send the HTTP post easily with [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). For example:
 
@@ -259,7 +259,7 @@ Log::info(print_r($response, TRUE));
 
 If you're testing this code on the sample app for [Tutorial: Build a PHP and MySQL app in Azure](app-service-web-tutorial-php-mysql.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 
 In Python, you can send the HTTP post easily with [requests](https://pypi.org/project/requests/). For example:
 
@@ -290,7 +290,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](containers/tutorial-python-postgresql-app.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
-# [Ruby](#tab/ruby)
+### [Ruby](#tab/ruby)
 
 In Ruby, you can send the HTTP post easily with [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). For example:
 
@@ -309,7 +309,7 @@ If you're testing this code on the sample app for [Build a Ruby and Postgres app
 
 ---
 
-# More resources
+## More resources
 
 [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)  
 [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)  
