@@ -34,7 +34,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Nitro Productivity Suite single sign-on (SSO) enabled subscription.
+* A Nitro Productivity Suite [Enterprise subscription](https://www.gonitro.com/pricing).
 
 ## Scenario description
 
@@ -75,16 +75,39 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Nitro Productivity Suite** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **SAML Signing Certificate** section:
+
+    a. Find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+
+	![The Certificate download link](common/certificatebase64.png)
+    
+1. On the **Set up Nitro Productivity Suite** section:
+
+    a. Click the copy icon beside **Login URL**
+    
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    
+1. In the [Nitro Admin portal](https://admin.gonitro.com/), on the **Enterprise Settings** page find the **Single Sign-On** section and click the **Setup SAML SSO** button.
+
+	a. Paste the **Login URL** from the step above into the **Sign In URL** field.
+	
+	a. Upload the **Certificate (Base64)** from the earlier step above in the **X509 Signing Certificate** field.
+	
+	a. Click **Submit**
+	
+	a. Click **Enable Single Sign-On**
+
+
+1. Return to the [Azure portal](https://portal.azure.com/), on the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, copy and paste the **SAML Entity ID** field from the [Nitro Admin portal](https://admin.gonitro.com/). It should have the following pattern:
     `urn:auth0:gonitro-prod:<ENVIRONMENT>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, copy and paste the **ACS URL** field from the [Nitro Admin portal](https://admin.gonitro.com/). It should have the following pattern:
     `https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -92,8 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type the URL:
     `https://sso.gonitro.com/login`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Nitro Productivity Suite Client support team](https://www.gonitro.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. Click Save.
 
 1. Nitro Productivity Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -105,13 +127,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ---------------| --------------- | --------- |
 	| employeeNumber |  user.objectid |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
-
-1. On the **Set up Nitro Productivity Suite** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
