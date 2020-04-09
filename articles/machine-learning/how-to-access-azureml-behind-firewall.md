@@ -64,3 +64,4 @@ The hosts in this section are used to install R packages. They are required duri
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
+| **cloud.r-project.org** | Used when installing CRAN packages. |
