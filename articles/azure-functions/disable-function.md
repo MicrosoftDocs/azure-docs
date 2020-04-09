@@ -7,7 +7,7 @@ ms.date: 12/05/2019
 
 # How to disable functions in Azure Functions
 
-This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
+This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
 The recommended way to disable a function is by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
@@ -34,7 +34,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## Use the Portal
 
-You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
@@ -114,9 +114,8 @@ or
 
 In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
 
-You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
+You can edit the file in the Azure portal or use the **Enable** and **Disable** buttons on the function's **Overview** page. The portal switch works by changing the *function.json* file.
 
-![Function state switch](media/disable-function/function-state-switch.png)
 
 ## Next steps
 
