@@ -156,7 +156,7 @@ Second, customize your device templates by adding cloud properties. Cloud proper
 
 Third, customize device templates by building custom views. Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
 
-Here, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../core/quick-create-pnp-device.md) quickstart.
+Here, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../core/quick-create-simulated-device.md) quickstart.
 
 To customize the built-in interfaces of the RuuviTag device template:
 
