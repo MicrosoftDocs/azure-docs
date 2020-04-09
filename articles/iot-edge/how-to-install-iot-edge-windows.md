@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/09/2020
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Windows
@@ -157,7 +157,7 @@ You can also use the offline installation path parameter to update IoT Edge. For
 
 3. If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
 
-4. Optionally, download an installer for Visual C++ redistributable, for example the [Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/download/details.aspx?id=52685). Save the installer in the same folder on your IoT device as the IoT Edge files.
+4. Optionally, download an installer for Visual C++ redistributable. For example, the PowerShell script uses this version: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Save the installer in the same folder on your IoT device as the IoT Edge files.
 
 5. To install with offline components, [dot source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Deploy-IoTEdge` command and provide the absolute path to the file directory. For example,
 
