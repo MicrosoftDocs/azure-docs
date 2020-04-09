@@ -480,6 +480,8 @@
       items:
       - name: Change feed overview
         href: change-feed.md
+      - name: Change feed design patterns
+        href: change-feed-design-patterns.md
       - name: Reading change feed
         href: read-change-feed.md
       - name: Change feed processor
@@ -1157,7 +1159,7 @@
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: SQL playground
-      href: https://aka.ms/cosmos-db-playground
+      href: https://www.documentdb.com/sql/demo
     - name: FAQ
       href: faq.md
     - name: Whitepapers
