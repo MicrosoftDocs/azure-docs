@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 04/09/2020
 ms.author: rolyon
 ---
 
@@ -29,6 +29,9 @@ This article describes the basic steps you can follow to transfer an Azure subsc
 ## Overview
 
 Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage another Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
+
+> [!IMPORTANT]
+> Transferring a subscription does require downtime to complete the process.
 
 The following diagram shows the basic steps you must follow when you transfer a subscription to a different directory.
 
@@ -48,12 +51,12 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
 ### Understand the impact of transferring a subscription
 
-Depending on your situation, the following table lists the impact of transferring a subscription. By performing the steps in this article, you can re-create some of the resources that existed prior to the subscription transfer.
+Several Azure resources have a dependency on a subscription or a directory. Depending on your situation, the following table lists the known impact of transferring a subscription. By performing the steps in this article, you can re-create some of the resources that existed prior to the subscription transfer.
 
 > [!IMPORTANT]
-> Transferring a subscription does require downtime to complete the process.
+> This section lists the known Azure services or resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here. 
 
-| Resource or service | Impacted | Recoverable | What you can do |
+| Service or resource | Impacted | Recoverable | What you can do |
 | --------- | --------- | --------- | --------- |
 | Role assignments | Yes | Yes | All role assignments are permanently deleted. You must map users, groups, and service principals to corresponding objects in target directory. You must re-create the role assignments. |
 | Custom roles | Yes | Yes | All custom roles are permanently deleted. You must re-create the custom roles and any role assignments. |
@@ -81,22 +84,19 @@ To complete these steps, you will need:
 
 1. Sign in to Azure as an administrator.
 
-1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command:
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](/cli/azure/account#az-account-set) with the subscription ID or name you want to transfer.
+1. Use [az account set](/cli/azure/account#az-account-set) to set the active subscription you want to transfer.
 
     ```azurecli
     az account set --subscription "Marketing"
     ```
 
-### Discover affected resources
-
-> [!IMPORTANT]
-> Several Azure resources have a dependency on a subscription or a directory. This section lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here. 
+### Discover potential affected resources
 
 1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
 
@@ -229,11 +229,13 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ## Step 3: Re-create resources
 
-### Create custom roles
+### Sign in to target directory
 
 1. In the target directory, sign in as the user that accepted the transfer request.
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
+
+### Create custom roles
         
 1. Use [az role definition create](/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
 
