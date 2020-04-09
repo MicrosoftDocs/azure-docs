@@ -142,7 +142,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Agent status
 
-The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If one is not received for 15 minutes, the machine is considered offline and the status will automatically be changed to **Disconnected** in the portal. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
+The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline and the status will automatically be changed to **Disconnected** in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
 
 ## Install and configure agent
 

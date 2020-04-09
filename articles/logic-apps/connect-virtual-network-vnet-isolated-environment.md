@@ -27,7 +27,7 @@ This article shows you how to complete these tasks by using the Azure portal:
 * Create your ISE.
 * Add extra capacity to your ISE.
 
-You can also create an ISE by using the Logic Apps REST API, including setting up customer-managed keys:
+You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) or by using the Logic Apps REST API, including setting up customer-managed keys:
 
 * [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Set up customer-managed keys to encrypt data at rest for ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)

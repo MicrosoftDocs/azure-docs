@@ -35,7 +35,7 @@ Sharing one blob container as the default file system for multiple clusters isn'
 
 ## Access files from within cluster
 
-There are several ways you can access the files in Data Lake Storage from an HDInsight cluster. The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
+There are several ways you can access the files in Data Lake Storage from an HDInsight cluster. The URI scheme provides unencrypted access (with the *wasb:* prefix) and TLS encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 

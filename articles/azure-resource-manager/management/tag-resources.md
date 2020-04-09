@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/01/2020
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -10,11 +10,14 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
+> [!IMPORTANT]
+> Tag names are case-insensitive. Tag values are case-sensitive.
+
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Required access
 
-To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The **Tag Contributor** role lets you apply tags to an entity without having access to the entity itself.
+To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role lets you apply tags to an entity without having access to the entity itself. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
 
 The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role also grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -22,7 +25,7 @@ The [Contributor](../../role-based-access-control/built-in-roles.md#contributor)
 
 ### Apply tags
 
-Azure PowerShell offers two commands for applying tags - [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have Azure PowerShell 3.6.1 or later to use these commands.
+Azure PowerShell offers two commands for applying tags - [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have the Az.Resources module 1.12.0 or later. You can check your version with `Get-Module Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 or later.
 
 The **New-AzTag** replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
 
