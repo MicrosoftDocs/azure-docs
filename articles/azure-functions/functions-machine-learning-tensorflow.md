@@ -313,3 +313,4 @@ See also:
 
 - [Deploy the function to Azure using Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Azure Functions Python Developer Guide](./functions-reference-python.md)
+- [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md)
