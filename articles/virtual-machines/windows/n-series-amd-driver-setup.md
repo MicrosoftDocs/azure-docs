@@ -53,6 +53,10 @@ You can verify driver installation in Device Manager. The following example show
 
 You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/8th partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag.png)
+![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag2.png)
 
-If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output filw will show the informaiton related to AMD MI25 GPU .
+If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output filw will show the informaiton related to AMD MI25 GPU.
+
+![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag3.png)
+
+
