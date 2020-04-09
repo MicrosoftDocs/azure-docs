@@ -1,12 +1,12 @@
 ---
-title: Azure Automation State Configuration Continuous Deployment with Chocolatey
+title: Azure Automation State Configuration continuous deployment with Chocolatey
 description: DevOps continuous deployment using Azure Automation State Configuration, DSC, and Chocolatey package manager.  Example with full JSON Resource Manager template and PowerShell source.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ---
-# Usage Example: Continuous deployment to Virtual Machines using Automation State Configuration and Chocolatey
+# Usage Example: Provide continuous deployment to virtual machines using Automation State Configuration and Chocolatey
 
 In a DevOps world there are many tools to assist with various points in the Continuous Integration
 pipeline. Azure Automation State Configuration is a welcome new addition to the options that DevOps
@@ -80,7 +80,7 @@ aren't quite up to it. Put the package into some place reachable – a package r
 example uses a public folder in an Azure blob storage account, but it can be anywhere. Chocolatey
 works natively with NuGet servers and a few others for management of package metadata. [This
 article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options. This
-usage example uses NuGet. A Nuspec is metadata about your packages. The Nuspec's are “compiled”
+usage example uses NuGet. A Nuspec is metadata about your packages. The Nuspec's are "compiled"
 into NuPkg's and stored in a NuGet server. When your configuration requests a package by name, and
 references a NuGet server, the Chocolatey DSC Resource (now on the VM) grabs the package and
 installs it for you. You can also request a specific version of a package.
@@ -89,8 +89,8 @@ In the bottom left portion of the picture, there is an Azure Resource Manager te
 usage example, the VM extension registers the VM with the Azure Automation State Configuration Pull
 Server (that is, a pull server) as a Node. The configuration is stored in the pull server.
 Actually, it's stored twice: once as plain text and once compiled as an MOF file (for those that
-know about such things.) In the portal, the MOF is a “node configuration” (as opposed to simply
-“configuration”). It's the artifact that's associated with a Node so the node will know its
+know about such things.) In the portal, the MOF is a "node configuration" (as opposed to simply
+"configuration"). It's the artifact that's associated with a Node so the node will know its
 configuration. Details below show how to assign the node configuration to the node.
 
 Presumably you're already doing the bit at the top, or most of it. Creating the nuspec, compiling
@@ -133,7 +133,7 @@ the name of the configuration. In this usage example, the node is 'isvbox' and t
 ## Step 3: Adding required DSC resources to the pull server
 
 The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.
-Navigate to the resource you want and click the “Deploy to Azure Automation” button.
+Navigate to the resource you want and click the "Deploy to Azure Automation" button.
 
 ![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
@@ -240,8 +240,8 @@ Get-AzureRmAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-These steps result in a new node configuration named “ISVBoxConfig.isvbox” being placed on the pull
-server. The node configuration name is built as “configurationName.nodeName”.
+These steps result in a new node configuration named "ISVBoxConfig.isvbox" being placed on the pull
+server. The node configuration name is built as "configurationName.nodeName".
 
 ## Step 5: Creating and maintaining package metadata
 
