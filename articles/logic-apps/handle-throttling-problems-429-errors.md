@@ -86,21 +86,29 @@ For logic apps in the global, multi-tenant Azure Logic Apps service, throttling 
 
 To handle throttling at this level, you have these options:
 
-* Set up multiple connections for a single action so that you can process the data as partitions.
+* Set up multiple connections for a single action so that the logic app partitions the data for processing.
 
-  Consider whether you can distribute the workload by spreading an action's requests across multiple connections to the same service or system by using the same credentials.
+  For this option, consider whether you can distribute the workload by dividing an action's requests across multiple connections to the same destination using the same credentials.
 
-  For example, suppose your logic app gets tables from a SQL Server database and then gets the rows from each table. Based on the number of rows that you have to process, you can use multiple but separate connections to get those rows by splitting the rows into two sets.
+  For example, suppose that your logic app gets tables from a SQL Server database and then gets the rows from each table. Based on the number of rows that you have to process, you can use multiple connections and multiple **For each** loops to divide the total number of rows into smaller sets for processing. This scenario uses two **For each** loops to split the total number of rows in half. The first **For each** loop uses an expression that gets the first half. The other **For each** loop uses a different expression that gets the second half, for example:<p>
 
-  After the first branch reaches the limit, the second branch can continue the work.
+    * Expression 1: The `take()` function gets the front of a collection. For more information, see the [**`take()`** function](workflow-definition-language-functions-reference.md#take).
 
-  ![Create and use multiple connections for a single action](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
+      `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
+
+    * Expression 2: The `skip()` function removes the front of a collection and returns all the other items. For more information, see the [**`skip()`** function](workflow-definition-language-functions-reference.md#skip).
+
+      `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
+
+    Here's a visual example that shows how you can use these expressions:
+
+    ![Create and use multiple connections for a single action](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
 
 * Set up a different connection for each action.
 
-  Consider whether you can distribute the workload by spreading each action's requests over their own connection, even when actions connect to the same service or system and use the same credentials.
+  For this option, consider whether you can distribute the workload by spreading each action's requests over their own connection, even when actions connect to the same service or system and use the same credentials.
 
-  For example, suppose your logic app gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the getting the tables use one connection, while the getting each row uses another connection.
+  For example, suppose that your logic app gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the getting the tables use one connection, while the getting each row uses another connection.
 
   ![Create and use a different connections for each action](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
 
