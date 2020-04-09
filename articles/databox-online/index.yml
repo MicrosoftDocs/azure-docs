@@ -70,7 +70,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: C# Edge compute module
-            url: data-box-edge-create-iot-edge-module.md
+            url: azure-stack-edge-create-iot-edge-module.md
       - linkListType: download
         links:
           - text: "Samples - C# for Azure Stack Edge"
@@ -100,8 +100,8 @@ landingContent:
           - text: Azure Stack Edge
             url: data-box-edge-troubleshoot.md
           - text: Edge compute modules
-            url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
+            url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
           - text: Return or replace Azure Stack Edge
             url: data-box-edge-return-device.md
           - text: Open Support ticket
-            url: data-box-edge-contact-microsoft-support.md
+            url: azure-stack-edge-contact-microsoft-support.md

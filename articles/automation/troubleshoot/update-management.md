@@ -214,15 +214,15 @@ Use the following procedure if your subscription is configured for the Automatio
 
 ### Issue
 
-Virtual machines for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered by machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
+Virtual machines for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
 
 ### Cause
  
 Here are possible causes for this issue:
 
 * You don't have the correct access on the selected scopes.
-* The ARG query does not retrieve the expected machines.
-* Hybrid Runbook Worker is not installed on the machines.
+* The ARG query doesn't retrieve the expected machines.
+* Hybrid Runbook Worker isn't installed on the machines.
 
 ### Resolution 
 
@@ -257,9 +257,9 @@ Follow the steps below to find out if your queries are working correctly.
 
 3. If the machines aren't listed, there is probably an issue with the filter selected in the dynamic group. Adjust the group configuration as needed.
 
-#### ARG query retrieves expected machines, but they don't appear in dynamic group preview
+#### Hybrid Runbook Worker not installed on machines
 
-A machine that is not showing up in the dynamic group preview might not be listed in the Hybrid Runbook Worker group. Therefore, it can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
+Machines do appear in ARG query results but still don't show up in the dynamic group preview. In this case, the machines might not be designated as hybrid workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
 
 1. In the Azure portal, go to the Automation account for a machine that is not appearing correctly.
 

@@ -156,4 +156,4 @@ In this tutorial, you learned how to:
 To learn how to transfer data with your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Transfer data with Azure Stack Edge](./data-box-edge-deploy-add-shares.md).
+> [Transfer data with Azure Stack Edge](./azure-stack-edge-deploy-add-shares.md).

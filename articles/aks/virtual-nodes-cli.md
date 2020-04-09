@@ -1,5 +1,6 @@
 ---
-title: Create virtual nodes using the Azure CLI in Azure Kubernetes Services (AKS)
+title: Create virtual nodes using Azure CLI
+titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
@@ -62,7 +63,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. The follo
 * [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
-* [Windows Server nodes (currently in preview in AKS)](windows-container-cli.md) are not supported alongside virtual nodes. You can use virtual nodes to schedule Windows Server containers without the need for Windows Server nodes in an AKS cluster.
+* Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI. 
 
 ## Launch Azure Cloud Shell
 

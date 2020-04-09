@@ -146,9 +146,9 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
 ## Add a module
 
-There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](data-box-edge-create-iot-edge-module.md).
+There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](azure-stack-edge-create-iot-edge-module.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](data-box-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **advanced**. Select **Go to IoT Hub**.
 
@@ -186,7 +186,7 @@ In this section, you add a custom module to the IoT Edge device that you created
         In the **Container Create Options** box, enter the local mount points for the Edge modules that you copied in the preceding steps for the Edge share and Edge local share.
 
         > [!IMPORTANT]
-        > The paths used here are mounted into your container, so they must match what the functionality in your container expects. If you're following [Create a custom module](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code), the code specified in that module expects the copied paths. Do not modify these paths.
+        > The paths used here are mounted into your container, so they must match what the functionality in your container expects. If you're following [Create a custom module](azure-stack-edge-create-iot-edge-module.md#update-the-module-with-custom-code), the code specified in that module expects the copied paths. Do not modify these paths.
     
         In the **Container Create Options** box, you can paste the following sample:
     
