@@ -35,7 +35,7 @@ This guide demonstrates how an Angular single-page application (SPA) can:
 <!--start-collapse-->
 ### More information
 
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft Cloud or Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft cloud services or Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -62,7 +62,6 @@ This guide uses the following library:
 To run this tutorial, you need:
 
 * A local web server, such as [Node.js](https://nodejs.org/en/download/). Instructions in this guide are based on Node.js.
-
 * An integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
 
 ## Create your project
@@ -87,7 +86,7 @@ Register your **Redirect URI** value as `http://localhost:4200/` and enable impl
 
 ## Configure the application
 
-1. In the *src/app* folder, edit *app.module.ts* and add the `MSALModule` to `imports` as well as the `isIE` constant:
+1. In the *src/app* folder, edit *app.module.ts* and add `MSALModule` to `imports` as well as the `isIE` constant:
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -101,12 +100,12 @@ Register your **Redirect URI** value as `http://localhost:4200/` and enable impl
         MsalModule.forRoot({
           auth: {
             clientId: 'Enter_the_Application_Id_here', // This is your client ID
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant id
+            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant ID
             redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
           },
           cache: {
             cacheLocation: 'localStorage',
-            storeAuthStateInCookie: isIE, // set to true for Internet Explorer 11
+            storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
           },
         }, {
           popUp: !isIE,
@@ -133,7 +132,7 @@ Register your **Redirect URI** value as `http://localhost:4200/` and enable impl
     |---------|---------|
     |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
     |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
-    |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
+    |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
     |Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`.|
 
     For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
@@ -216,7 +215,7 @@ Next, provide a map of protected resources to `MsalModule.forRoot()` as `protect
       },
       cache: {
         cacheLocation: 'localStorage',
-        storeAuthStateInCookie: isIE, // set to true for IE 11
+        storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
       },
     },
     {
@@ -236,7 +235,7 @@ Next, provide a map of protected resources to `MsalModule.forRoot()` as `protect
 });
 ```
 
-Finally, retrieve a user's profile with an HTTP request.
+Finally, retrieve a user's profile with an HTTP request:
 
 ```JavaScript
 const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
@@ -250,11 +249,11 @@ getProfile() {
 ```
 
 ### acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
-MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the Interceptor instead for Angular apps, as shown in the previous section.
+MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the `Interceptor` class instead for Angular apps, as shown in the previous section.
 
 #### Get a user token silently
 
-The `acquireTokenSilent` method handles token acquisitions and renewal without user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is commonly used to obtain tokens used to access protected resources in subsequent calls. Calls to request or renew tokens are made silently.
+The `acquireTokenSilent` method handles token acquisitions and renewal without user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is commonly used to obtain tokens used to access protected resources in later calls. Calls to request or renew tokens are made silently.
 
 ```javascript
 const requestObj = {
@@ -269,12 +268,12 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-Where `scopes` contains scopes being requested to be returned in the access token for the API.
+In that code, `scopes` contains scopes being requested to be returned in the access token for the API.
 
 For example:
 
 * `["user.read"]` for Microsoft Graph
-* `["<Application ID URL>/scope"]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`)
+* `["<Application ID URL>/scope"]` for custom web APIs (that is, `api://<Application ID>/access_as_user`)
 
 #### Get a user token interactively
 
@@ -286,7 +285,7 @@ Sometimes you need the user to interact with the Microsoft identity platform end
 
 The recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling `acquireTokenPopup` results in a popup sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
+Calling `acquireTokenPopup` results in a pop-up sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
 
 ```javascript
   const requestObj = {
@@ -302,11 +301,11 @@ Calling `acquireTokenPopup` results in a popup sign-in window. Alternatively, `a
 ```
 
 > [!NOTE]
-> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of popup windows by Internet Explorer.
+> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of pop-up windows by Internet Explorer.
 
 ## Log out
 
-Add the following code to log out a user.
+Add the following code to log out a user:
 
 ```javascript
 logout() {
@@ -330,7 +329,7 @@ For a simple example of how to add UI by using the Angular Material component li
 
 ### Provide consent for application access
 
-The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in:
+The first time that you start to sign in to your application, you're prompted to grant it access to your profile and allow it to sign you in:
 
 ![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
