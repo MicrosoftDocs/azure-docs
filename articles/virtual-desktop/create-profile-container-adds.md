@@ -15,7 +15,9 @@ manager: lizross
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
-## Configure Azure AD DS
+## Set up Azure AD DS
+
+This section explains how to set up your Azure AD DS account and configure it to create FSLogix profile containers. If you already have your Azure AD DS account set up, skip ahead to [Add Azure AD DS admins](#add-azure-ad-ds-admins).
 
 To configure your Azure AD DS account to create FSLogix profile containers:
 
@@ -80,6 +82,7 @@ To enable authentication:
 1. Go to the Azure portal, then select **All services**, and then select **Storage accounts**.
 
 2. Select **Add** to create a storage account.
+
 3. In the window that appears:
 
     - Select **Subscription** (if applicable).
@@ -99,17 +102,22 @@ To enable authentication:
 
 8. Select **Overview** in the pane on the left side of the screen, then select **Files** in the main pane.
 
-9. Select **File share** and enter the **Name** and **Quota** into the fields that appear on the right side of the screen.
+9.  Select **File share** and enter the **Name** and **Quota** into the fields that appear on the right side of the screen.
 
 ## Assign access permissions to an identity
 
 From the Azure portal, navigate to the **Files share** created in the previous section.
 
 1. Select **Access Control (IAM)**.
+
 2. Select **Add a role assignment**.
+
 3. In the **Add role assignment** tab, select the appropriate built-in role from the role list. You'll need to at least select **Storage File Data SMB Share Contributor** for the account to get proper permissions.
+
 4. For **Assign access to**, select **Azure Active Directory user, group, or service principal**.
+
 5. Select a name or email address for the target Azure Active Directory identity.
+
 6. Select **Save**.
 
 ## Get the storage account access key
@@ -119,9 +127,6 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 2. From the list of storage accounts, select the account for which you enabled Azure AD DS and created the custom roles in steps above.
 
 3. Under **Settings**, select **Access keys** and copy the key from **key1**.
-
-   >[!NOTE]
-   >If the key contains the "/" symbol, select the **Refresh** icon to generate a new key.
 
 4. Go to the **Virtual Machines** tab and locate any VM that is going to be part of your host pool.
 
@@ -209,7 +214,7 @@ From the Azure portal, navigate to the **Files share** created in the previous s
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   When prompted for credentials, enter the same user that was granted the Tenant Creator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
+   When prompted for credentials, enter the same user that was granted the TenantCreator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
 
 2. Run the following cmdlets to assign the user to the remote desktop group:
 
