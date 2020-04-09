@@ -12,7 +12,7 @@ ms.author: dsindona
 # Offer settings tab
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 On the **New Offer** screen, the first step is to create the offer identity. The offer identity consists of three parts: **Offer ID**, **Publisher ID**, and **Name**. Each of these parts is covered in the following sections.
 
