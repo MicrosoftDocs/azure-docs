@@ -4,7 +4,7 @@ description: Azure Security Baseline for HDInsight
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1201,7 +1201,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 How to enable Soft-Delete in Azure Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
+https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Azure Security Center monitoring**: Currently not available
 

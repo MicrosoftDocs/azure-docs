@@ -4,7 +4,7 @@ description: Azure Security Baseline for Batch
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

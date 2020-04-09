@@ -4,7 +4,7 @@ description: Azure Security Baseline for Key Vault
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -583,7 +583,7 @@ Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-v
 
 **Responsibility**: Not applicable
 
-### 4.6: Use an active discovery tool to identify sensitive data
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Secure access to the management and data plane of your Azure Key Vault instances.
 
@@ -617,10 +617,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Guidance**: All managed objects (key, certificates, and secrets) are encrypted at rest in Azure Key Vault.
 
-Security controls for Azure Key Vault:
+Supporting documentation:
 
-https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
-
+- [Encryption Model and key management table](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
 
 
 **Azure Security Center monitoring**: Not applicable
