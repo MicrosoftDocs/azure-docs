@@ -26,11 +26,11 @@ For more granular administrative control in Azure ACtive Directory (Azure AD), y
 
     1. Go to Azure AD in the portal, and then in the applications select Graph Explorer and provide admin consent to Graph Explorer.
 
-        ![select Graph Explorer and provide admin consent on this page](./media/roles-administrative-units-scope/select-graph-explorer.png)
+        ![select Graph Explorer and provide admin consent on this page](./media/roles-aus-manage-admin-units/select-graph-explorer.png)
 
     1. In the Graph Explorer, ensure that you select the beta version.
 
-        ![select the beta version before the POST operation](./media/roles-administrative-units-scope/select-beta-version.png)
+        ![select the beta version before the POST operation](./media/roles-aus-manage-admin-units/select-beta-version.png)
 
 1. Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
 
@@ -40,11 +40,11 @@ For more granular administrative control in Azure ACtive Directory (Azure AD), y
 
 1. Go to Active Directory in the portal and select Administrative Units in the left panel.
 
-    ![navigate to Administrative units in Azure Active Directory](./media/roles-administrative-units-scope/nav-to-admin-units.png)
+    ![navigate to Administrative units in Azure Active Directory](./media/roles-aus-manage-admin-units/nav-to-admin-units.png)
 
 1. Select **Add*** and provide the name of the administrative unit and optionally can add a description for the administrative unit.
 
-    ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/add-new-admin-unit.png)
+    ![select Add and then enter a name for the administrative unit](./media/roles-aus-manage-admin-units/add-new-admin-unit.png)
 
 1. Select **Add** to finalize the administrative unit.
 
@@ -75,7 +75,7 @@ In Azure Active Directory (Azure AD), you can remove an admin unit that you no l
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit to be deleted and then select **Delete**. After confirming **Yes**, the administrative unit will be deleted.
 
-![Select an administrative unit to delete](./media/roles-administrative-units-scope/select-admin-unit-to-delete.png)
+![Select an administrative unit to delete](./media/roles-aus-manage-admin-units/select-admin-unit-to-delete.png)
 
 ### PowerShell
 

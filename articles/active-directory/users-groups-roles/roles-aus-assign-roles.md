@@ -39,11 +39,11 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit over which you want to assign the role to a user. On the left pane, select Roles and administrators to list all the available roles.
 
-![Select an administrative unit to change role scope](./media/roles-administrative-units-scope/select-role-to-scope.png)
+![Select an administrative unit to change role scope](./media/roles-aus-assign-roles/select-role-to-scope.png)
 
 Select the role to be assigned and then select **Add assignments**. This will slide open a panel on the right where you can select one or more users to be assigned to the role.
 
-![Select the role to scope and then select Add assignments](./media/roles-administrative-units-scope/select-add-assignment.png)
+![Select the role to scope and then select Add assignments](./media/roles-aus-assign-roles/select-add-assignment.png)
 
 ### PowerShell
 

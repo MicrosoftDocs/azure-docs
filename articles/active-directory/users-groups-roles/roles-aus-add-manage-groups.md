@@ -32,13 +32,13 @@ In the preview, you can assign groups only individually to an administrative uni
 
     Open the Groups overview page in Azure AD and select the group that needs to be assigned to the administrative unit. On the left side, select **Administrative units** to list out the administrative units the group is assigned to. On the top you will find the option Assign to administrative unit and clicking on it will give a panel on right side to choose the administrative unit.
 
-    ![assign a group individually to an administrative unit](./media/roles-administrative-units-scope/assign-to-group-1.png)
+    ![assign a group individually to an administrative unit](./media/roles-aus-add-manage-groups/assign-to-group-1.png)
 
 1. From the **Azure AD > Administrative units > All Groups** page
 
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
 
-    ![select an administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
+    ![select an administrative unit and then select Add member](./media/roles-aus-add-manage-groups/assign-to-admin-unit.png)
 
 ### PowerShell
 
@@ -70,7 +70,7 @@ Example:
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups that are members of the selected administrative unit.
 
-![Select an administrative unit to delete](./media/roles-administrative-units-scope/list-groups-in-admin-units.png)
+![Select an administrative unit to delete](./media/roles-aus-add-manage-groups/list-groups-in-admin-units.png)
 
 ### PowerShell
 

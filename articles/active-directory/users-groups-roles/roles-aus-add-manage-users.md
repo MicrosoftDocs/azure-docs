@@ -32,16 +32,16 @@ You can assign users to administrative units in two ways.
 
     1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on Assign to administrative unit and selecting the administrative units where the user is to be assigned.
 
-       ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/assign-users-individually.png)
+       ![select Add and then enter a name for the administrative unit](./media/roles-aus-add-manage-users/assign-users-individually.png)
 
     1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit where the users is to be assigned. Select All users on the left pane and then select Add member. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
 
-        ![select an administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
+        ![select an administrative unit and then select Add member](./media/roles-aus-add-manage-users/assign-to-admin-unit.png)
 
 1. Bulk assignment
     Go to Azure AD in the portal and select Administrative units. Select the administrative unit where users are to be added. Proceed by clicking on All users -> Add members from .csv file. You can then download the CSV template and edit the file. The format is simple and needs a single UPN to be added in each line. Once the file is ready, save it at an appropriate location and then upload it in step 3 as highlighted in the snapshot.
 
-        ![bulk assign users to an administrative unit](./media/roles-administrative-units-scope/bulk-assign-to-admin-unit.png)
+        ![bulk assign users to an administrative unit](./media/roles-aus-add-manage-users/bulk-assign-to-admin-unit.png)
 
 ### PowerShell
 
