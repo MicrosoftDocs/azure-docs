@@ -19,7 +19,7 @@ The best way to authenticate to Azure services is by using a [managed identity](
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use single-user/single-password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
-![Diagram of rotation solution](./media/rotate1.png)
+![Diagram of rotation solution](../media/rotate1.png)
 
 1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
 1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
@@ -41,7 +41,7 @@ This tutorial uses an existing Azure Resource Manager template to create compone
 1. Under **Resource group**, select **Create new**. Name the group **simplerotation**.
 1. Select **Purchase**.
 
-    ![Create a resource group](./media/rotate2.png)
+    ![Create a resource group](../media/rotate2.png)
 
 You'll now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in Azure CLI by running the following command:
 
@@ -73,7 +73,7 @@ The function app requires these components:
 1. In the **Resource group** list, select **simplerotation**.
 1. Select **Purchase**.
 
-   ![Select Purchase](./media/rotate3.png)
+   ![Select Purchase](../media/rotate3.png)
 
 After you complete the preceding steps, you'll have a storage account, a server farm, and a function app. You can verify this setup in Azure CLI by running the following command:
 
@@ -175,7 +175,7 @@ You can find the complete code on [GitHub](https://github.com/jlichwa/azure-keyv
 
 1. Upload the simplerotationsample-fn.zip file to Azure Cloud Shell.
 
-   ![Upload the file](./media/rotate4.png)
+   ![Upload the file](../media/rotate4.png)
 1. Use this CLI command to deploy the zip file to the function app:
 
    ```azurecli
@@ -184,15 +184,15 @@ You can find the complete code on [GitHub](https://github.com/jlichwa/azure-keyv
 
 After the function is deployed, you should see two functions under simplerotation-fn:
 
-![SimpleRotation and SimpleRotationHttpTest functions](./media/rotate5.png)
+![SimpleRotation and SimpleRotationHttpTest functions](../media/rotate5.png)
 
 ## Add an event subscription for the SecretNearExpiry event
 
 Copy the function app's `eventgrid_extension` key:
 
-   ![Select function app settings](./media/rotate6.png)
+   ![Select function app settings](../media/rotate6.png)
 
-   ![eventgrid_extension key](./media/rotate7.png)
+   ![eventgrid_extension key](../media/rotate7.png)
 
 Use the copied `eventgrid_extension` key and your subscription ID in the following command to create an Event Grid subscription for `SecretNearExpiry` events:
 
@@ -221,11 +221,11 @@ After few minutes, the `sqluser` secret should automatically rotate.
 
 To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
-![Go to Secrets](./media/rotate8.png)
+![Go to Secrets](../media/rotate8.png)
 
 Open the **sqluser** secret and view the original and rotated versions:
 
-![Open the sqluser secret](./media/rotate9.png)
+![Open the sqluser secret](../media/rotate9.png)
 
 ### Create a web app
 
@@ -258,7 +258,7 @@ To deploy the web app, complete these steps:
 
 Go to the deployed application and select the URL:
  
-![Select the URL](./media/rotate10.png)
+![Select the URL](../media/rotate10.png)
 
 You should see the Generated Secret Value with a Database Connected value of true.
 
