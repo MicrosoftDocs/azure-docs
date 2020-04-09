@@ -26,7 +26,7 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 - Call the Microsoft Graph API or other APIs that require access tokens from the *Microsoft identity platform endpoint*.
 
 >[!NOTE]
->This tutorial will walk you through how to create a new Angular SPA by using Microsoft Authentication Library (MSAL). If you want to download a sample app, see the [quickstart](quickstart-v2-angular.md).
+>This tutorial walks you through how to create a new Angular SPA by using Microsoft Authentication Library (MSAL). If you want to download a sample app, see the [quickstart](quickstart-v2-angular.md).
 
 ## How the sample app works
 
