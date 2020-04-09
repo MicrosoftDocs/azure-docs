@@ -85,39 +85,37 @@ The personal data feature detects the potential presence of this information:
 The following example shows a sample response:
 
 ```json
-"PII":{ 
-  "Email":[ 
-    { 
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
+"pii":{
+  "email":[
+      {
+        "detected":"abcdef@abcd.com",
+        "sub_type":"Regular",
+        "text":"abcdef@abcd.com",
+        "index":32
+      }
   ],
-  "IPA":[ 
-    { 
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
+  "ssn":[
+
   ],
-  "Phone":[ 
-    { 
-      "CountryCode":"US",
-      "Text":"4255550111",
-      "Index":56
-    },
-    { 
-      "CountryCode":"US",
-      "Text":"425 555 0111",
-      "Index":212
-    }
+  "ipa":[
+      {
+        "sub_type":"IPV4",
+        "text":"255.255.255.255",
+        "index":72
+      }
   ],
-  "Address":[ 
-    { 
-      "Text":"1234 Main Boulevard, Panapolis WA 96555",
-      "Index":89
-    }
+  "phone":[
+      {
+        "country_code":"US",
+        "text":"6657789887",
+        "index":56
+      }
+  ],
+  "address":[
+      {
+        "text":"1 Microsoft Way, Redmond, WA 98052",
+        "index":89
+      }
   ]
 }
 ```
