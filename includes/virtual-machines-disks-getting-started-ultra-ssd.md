@@ -58,7 +58,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ### VMs with no redundancy options
 
-Ultra disks deployed in West US must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in this region. To determine which ones in West US support ultra disks, you can use either of the following code snipptes. Make sure to replace the `vmSize` and `subscription` values first:
+Ultra disks deployed in West US must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in this region. To determine which ones in West US support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -200,7 +200,7 @@ az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016D
 
 ### Enable ultra disk compatibility on an existing VM
 
-If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability) then you can enable ultra disk compatibility on your VM.
+If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
 To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
 
@@ -280,7 +280,7 @@ New-AzVm `
 
 ### Enable ultra disk compatibility on an existing VM
 
-If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability) then you can enable ultra disk compatibility on your VM.
+If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
 To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, attach an ultra disk, then restart the VM:
 

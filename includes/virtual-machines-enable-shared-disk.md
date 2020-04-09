@@ -88,7 +88,7 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-#### ARM
+#### Azure Resource Manager
 
 To deploy a managed disk with the shared disk feature enabled, use the property `maxShares` and define a value greater than 1. This makes the disk shareable across multiple VMs.
 

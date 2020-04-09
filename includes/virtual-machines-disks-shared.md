@@ -89,6 +89,7 @@ Ultra disks have the unique capability of allowing you to set your performance b
 |DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
 |DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
 |DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
+
 \* Applies to shared ultra disks only
 
 The following formulas explain how the performance attributes can be set, since they are user modifiable:
@@ -107,7 +108,7 @@ The following examples depict a few scenarios that show how the throttling can w
 
 #### Two nodes cluster using cluster shared volumes
 
-The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultatenous write-access to the disk which results in the ReadWrite throttle being split across the two VMs and the ReadOnly throttle not being used.
+The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultaneous write-access to the disk, which results in the ReadWrite throttle being split across the two VMs and the ReadOnly throttle not being used.
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 

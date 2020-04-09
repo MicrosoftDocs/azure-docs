@@ -11,11 +11,14 @@ ms.custom: include file
 ---
 For now, ultra disks have additional limitations, they are as follows:
 
-The only infrastructure redundancy options currently available to ultra disks are availability zones, VMs using any other redundancy options cannot attach an ultra disk.  though ultra disks are not offered in every availability zone of these regions:
+The only infrastructure redundancy options currently available to ultra disks are availability zones. VMs using any other redundancy options cannot attach an ultra disk.
 
-The following table outlines the available regions and their corresponding availability options:
+The following table outlines the regions ultra disks are available in, as well as their corresponding availability options:
 
-|Regions  |No infrastructure Redundancy  |Availability zones  |
+> [!NOTE]
+> Ultra disks are not offered in every availability zone within these regions
+
+|Regions  |No infrastructure redundancy  |Availability zones  |
 |---------|---------|---------|
 |West US     |Yes         |No         |
 |West US 2    |No         |Yes         |
