@@ -314,7 +314,7 @@ logout() {
 ```
 
 ## Add UI
-For a simple example of how to add UI by using the Angular Material component library, see the [sample application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular).
+For an example of how to add UI by using the Angular Material component library, see the [sample application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular).
 
 ## Test your code
 
