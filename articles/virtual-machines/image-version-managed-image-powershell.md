@@ -5,33 +5,35 @@ author: cynthn
 ms.topic: article
 ms.service: virtual-machines
 ms.workload: infrastructure
-ms.date: 03/20/2020
+ms.date: 04/09/2020
 ms.author: cynthn
 
 ---
 
 # Migrate from a managed image to an image verison in a Shared Image Gallery
 
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
+If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image.
 
-An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+Images in an image gallery have two components, which we will create in this example:
+- An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
+- An **image version** is what is used to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
 
 ## Before you begin
 
-To complete the example in this article, you must have an existing managed image. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+To complete this article, you must have an existing managed image. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource group and VM names where needed.
 
 ## Get the gallery
 
-You can list all of the galleries and image definitions by name.
+You can list all of the galleries and image definitions by name. The results are in the format `gallery\image definition\image version`.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
 ```
 
-Once you find the right gallery and image definitions, create variables for them to use later. This example gets the gallery named *myGallery* in the *myResourceGroup* resource group.
+Once you find the right gallery, create a variable to use later. This example gets the gallery named *myGallery* in the *myResourceGroup* resource group.
 
 ```azurepowershell-interactive
 $gallery = Get-AzGallery `
@@ -56,14 +58,12 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -Name 'myImageDefinition' `
-   -OsState specialized `
+   -OsState generalized `
    -OsType Windows `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-
 
 ## Get the managed image
 
@@ -78,11 +78,11 @@ $managedImage = Get-AzImage `
 
 ## Create an image version
 
-Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Create an image version from the managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication. 
 
 
 ```azurepowershell-interactive
@@ -90,7 +90,7 @@ $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
 $job = $imageVersion = New-AzGalleryImageVersion `
-   -GalleryImageDefinitionName $imageDefinition `
+   -GalleryImageDefinitionName $imageDefinition.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
@@ -101,7 +101,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress, type `$job.State`.
 
 ```azurepowershell-interactive
 $job.State
@@ -126,5 +126,5 @@ Remove-AzImage `
 
 ## Next steps
 
-Once you have verified is complete, you can create a VM from the [generalized image version](vm-generalized-image-version-powershell.md).
+Once you have verified that replication is complete, you can create a VM from the [generalized image](vm-generalized-image-version-powershell.md).
 

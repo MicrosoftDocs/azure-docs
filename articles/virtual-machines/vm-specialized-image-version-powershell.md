@@ -28,7 +28,7 @@ $vmName = "mySpecializedVM"
 
 # Get the image. Replace the name of your resource group, gallery, and image definition. This will create the VM from the latest image version available.
 
-$imageDefiniton = Get-AzGalleryImageDefinition `
+$imageDefinition = Get-AzGalleryImageDefinition `
    -GalleryName myGallery `
    -ResourceGroupName myResourceGroup `
    -Name myImageDefinition

@@ -18,7 +18,7 @@ You can capture an image from both [specialized and generalized](https://docs.mi
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
-- An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+- An **image version** is what is used to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
 
 ## Before you begin
@@ -32,7 +32,7 @@ When working through this article, replace the resource names where needed.
 
 ## Get the gallery
 
-You can list all of the galleries and image definitions by name.
+You can list all of the galleries and image definitions by name. The results are in the format `gallery\image definition\image version`.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
