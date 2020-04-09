@@ -89,7 +89,7 @@ Ultra disks have the unique capability of allowing you to set your performance b
 |DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
 |DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as ReadOnly.         |
 |DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as ReadOnly.         |
- * Applies to shared ultra disks only
+\* Applies to shared ultra disks only
 
 The following formulas explain how the performance attributes can be set, since they are user modifiable:
 
@@ -102,6 +102,8 @@ The following formulas explain how the performance attributes can be set, since 
     - The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps
 
 ### Examples
+
+The following examples depict a few scenarios that show how the throttling can work with shared ultra disks, specifically.
 
 #### Two nodes cluster using cluster shared volumes
 
@@ -121,8 +123,7 @@ The following is an example of a 2-node WSFC that isn't using clustered shared v
 
 #### Four node Linux cluster
 
-
-The following is an example of a 4-node Linux cluster with a single Writer and three scale-out Readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle being split by the secondary VMs.
+The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle being split by the secondary VMs.
 
 :::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
 

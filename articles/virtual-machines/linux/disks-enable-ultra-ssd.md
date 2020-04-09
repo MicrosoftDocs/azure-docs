@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ---

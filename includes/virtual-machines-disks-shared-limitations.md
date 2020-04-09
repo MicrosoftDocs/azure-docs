@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/03/2020
+ ms.date: 04/09/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 
-While in preview, enabling shared disks is only available to a subset of disk types. Currently only ultra disks and premium SSDs can enable shared disks. Each managed disks that have shared disks enabled are subject to the following limitations, organized by disk type:
+While in preview, enabling shared disks is only available to a subset of disk types. Currently only ultra disks and premium SSDs can enable shared disks. Each managed disk that have shared disks enabled are subject to the following limitations, organized by disk type:
 
 ### Ultra disks
 
@@ -19,7 +19,7 @@ Ultra disks have their own separate list of limitations, unrelated to shared dis
 When sharing ultra disks, they have the following additional limitations:
 
 - Currently only supported in West US.
-- Currently limited to ARM or SDK support.
+- Currently limited to Azure Resource Manager or SDK support.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
 ### Premium SSDs

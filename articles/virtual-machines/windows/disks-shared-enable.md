@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks (preview) so that
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ---

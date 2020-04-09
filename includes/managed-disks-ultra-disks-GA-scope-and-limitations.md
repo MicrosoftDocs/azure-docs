@@ -17,7 +17,7 @@ The following table outlines the available regions and their corresponding avail
 
 |Regions  |No infrastructure Redundancy  |Availability zones  |
 |---------|---------|---------|
-|West US     |Yes         |         |
+|West US     |Yes         |No         |
 |West US 2    |No         |Yes         |
 |East US     |No         |Yes         |
 |East US 2     |No         |Yes         |
@@ -39,4 +39,4 @@ The following table outlines the available regions and their corresponding avail
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery
 - The current maximum limit for IOPS on GA VMs is 80,000.
 
-Azure ultra disks offer up to 16 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in account limits, contact Azure Support.
+Azure ultra disks offer up to 16 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, contact Azure Support.
