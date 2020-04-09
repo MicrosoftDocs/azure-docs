@@ -13,16 +13,18 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
+
 # GROUP BY options in Synapse SQL
 Synapse SQL allows for developing solutions by implementing different GROUP BY options. 
 
 ## What does GROUP BY do
 
-The [GROUP BY](https://docs.microsoft.com/sql/t-sql/queries/select-group-by-transact-sql?view=sql-server-ver15) T-SQL clause aggregates data to a summary set of rows.
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL clause aggregates data to a summary set of rows.
 
-SQL on-demand supports the whole range of GROUP BY options. SQL pool supports a limited number of GROUP BY options. 
+SQL on-demand supports the whole range of GROUP BY options. SQL pool supports a limited number of GROUP BY options.
 
 ## GROUP BY options supported in SQL pool
+
 GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
@@ -30,9 +32,11 @@ GROUP BY has some options that SQL pool doesn't support. These options have work
 * GROUP BY with CUBE
 
 ### Rollup and grouping sets options
+
 The simplest option here is to use UNION ALL to execute the rollup rather than relying on the explicit syntax. The result is exactly the same
 
 The following example uses the GROUP BY statement with the ROLLUP option:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -82,8 +86,8 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ### Cube options
-It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
+It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
 The first step is to define the 'cube' that defines all the levels of aggregation that we want to create. Take note of the CROSS JOIN of the two derived tables as it generates all levels. The rest of the code is there for formatting.
 
@@ -116,7 +120,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-The following image shows the results of [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7):
+The following image shows the results of [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ![Group by cube](./media/develop-group-by-options/develop-group-by-cube.png)
 
@@ -179,5 +183,5 @@ ORDER BY 1,2,3
 By breaking up the code into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](develop-overview.md).
 
+For more development tips, see [development overview](develop-overview.md).
