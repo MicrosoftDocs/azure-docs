@@ -28,7 +28,7 @@ Yes, you can limit access to the Kubernetes API server using [API Server Authori
 
 ## Can I make the Kubernetes API server accessible only within my virtual network?
 
-Not at this time, but this is planned. You can track progress on the [AKS GitHub repo][private-clusters-github-issue].
+Yes, you can [create a private Azure Kubernetes Service cluster][private-clusters].
 
 ## Can I have different VM sizes in a single cluster?
 
@@ -198,6 +198,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
+[private-clusters]: ./private-clusters.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
