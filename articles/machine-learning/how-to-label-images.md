@@ -6,7 +6,7 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 
 ---
 
@@ -21,21 +21,24 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 ## Prerequisites
 
-* The labeling portal URL for a running data labeling project
 * A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project
+* Contributor level access to the workspace that contains the labeling project.
 
-> [!NOTE]
-> The project administrator can find the labeling portal URL on the **Details** tab of the **Project details** page.
+## Sign in to the workspace
 
-## Sign in to the project's labeling portal
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-Go to the labeling portal URL that's provided by the project administrator. Sign in by using the email account that the administrator used to add you to the team. For most users, it will be your Microsoft account. If the labeling project uses Azure Active Directory, that's how you'll sign in.
+1. Select the subscription and the workspace that contains the labeling project.  Get this information from your project administrator.
+
+1. Select **Data labeling** on the left-hand side to find the project.  
+
+1. Select the project name in the list.
 
 ## Understand the labeling task
 
-After you sign in, you'll see the project's overview page.
+Once you've selected the project, at the top of the page, select **Label data**.
 
-Go to **View detailed instructions**. These instructions are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, return to the project page and select **Start labeling**.
+You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
 ## Common features of the labeling task
 
