@@ -1,6 +1,5 @@
 ---
 title: Update logic apps & runbooks for alerts migration
-author: yanivlavi
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
 author: yanivlavi
 ms.author: yalavi
