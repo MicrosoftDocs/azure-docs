@@ -1,6 +1,7 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
@@ -12,6 +13,7 @@
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
 - name: Tutorials
+  expanded: true
   items: 
     - name: Studio
       items: 
@@ -164,7 +166,6 @@
       displayName: deep learning vs machine learning, deep learning, vs, versus
       href: concept-deep-learning-vs-machine-learning.md
 - name: How-to guides
-  expanded: true
   items: 
     - name: Create & manage workspaces
       items: 
@@ -305,7 +306,6 @@
           displayName: log, monitor, metrics
           href: how-to-monitor-tensorboard.md
     - name: Deploy & serve models
-      expanded: true
       items: 
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
