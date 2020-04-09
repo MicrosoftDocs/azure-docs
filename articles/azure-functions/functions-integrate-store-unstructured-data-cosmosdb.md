@@ -31,19 +31,19 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 1. In the portal, navigate to and select the function app you created previously.
 
-   :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-app-select.png" alt-text="Select your function app in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-app-select.png" alt-text="Select your function app in the Azure portal." border="true":::
 
 1. Select **Functions**, and then select the Http function.
 
-   :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Select your Http function in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Select your Http function in the Azure portal." border="true":::
 
 1. Select **Integration** and **+ Add Output**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Add an Azure Cosmos DB output binding." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Add an Azure Cosmos DB output binding." border="true":::
 
 1. Use the **Create Output** settings as specified in the table:
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configure Azure Cosmos DB output binding." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configure Azure Cosmos DB output binding." border="true":::
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
