@@ -47,10 +47,9 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > #### Step 1: Register the application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) by using a personal Microsoft account, a work account, or a school account.
->
 > 1. If your account has access to more than one tenant, select your account at the upper right, and set your portal session to the Azure AD tenant that you want to use.
 > 1. Follow the instructions to [register a single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the Azure portal.
-> 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`
+> 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: **http://localhost:4200/**.
 > 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). Select the **Implicit grant** settings for **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -102,8 +101,8 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 >|---------|---------|
 >|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application(client) ID** value. |
 >|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
->|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
->|Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`.|
+>|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
+>|Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 >|cacheLocation  | (Optional:) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Optional:) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
@@ -126,7 +125,7 @@ If you're using Node.js:
    npm start
    ```
 
-1. Browse to `http://localhost:4200/`.
+1. Browse to **http://localhost:4200/**.
 1. Select **Login**.
 1. Select **Profile** to call Microsoft Graph.
 

@@ -15,12 +15,12 @@ ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Sign in users and call the Microsoft Graph API from an Angular SPA
+# Tutorial: Sign in users and call the Microsoft Graph API from an Angular SPA
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
-This guide demonstrates how an Angular single-page application (SPA) can:
+This tutorial demonstrates how an Angular single-page application (SPA) can:
 - Sign in personal accounts, work accounts, or school accounts.
 - Acquire an access token.
 - Call the Microsoft Graph API or other APIs that require access tokens from the *Microsoft identity platform endpoint*.
@@ -44,7 +44,7 @@ In this scenario, after a user signs in, an access token is requested and added 
 <!--start-collapse-->
 ### Libraries
 
-This guide uses the following library:
+This tutorial uses the following library:
 
 |Library|Description|
 |---|---|
@@ -61,7 +61,7 @@ This guide uses the following library:
 
 To run this tutorial, you need:
 
-* A local web server, such as [Node.js](https://nodejs.org/en/download/). Instructions in this guide are based on Node.js.
+* A local web server, such as [Node.js](https://nodejs.org/en/download/). Instructions in this tutorial are based on Node.js.
 * An integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
 
 ## Create your project
@@ -73,7 +73,7 @@ npm install -g @angular/cli@8                    # Install the Angular CLI
 npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
-ng generate component page-name                  # To add a new page (such as a the home or profile page)
+ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
 ## Register your application
@@ -82,7 +82,7 @@ Follow the [instructions to register a single-page application](https://docs.mic
 
 On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
 
-Register your **Redirect URI** value as `http://localhost:4200/` and enable implicit grant settings.
+Register your **Redirect URI** value as **http://localhost:4200/** and enable implicit grant settings.
 
 ## Configure the application
 
@@ -132,8 +132,8 @@ Register your **Redirect URI** value as `http://localhost:4200/` and enable impl
     |---------|---------|
     |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
     |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
-    |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
-    |Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`.|
+    |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
+    |Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 
     For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
