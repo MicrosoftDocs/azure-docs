@@ -8,7 +8,7 @@ ms.topic: conceptual
 # Publish a managed service offer to Azure Marketplace
 
 > [!IMPORTANT]
-> Starting March 30th, 2020, we'll begin moving management of your Managed Service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create new managed service offers](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) to manage your migrated offers.
+> Starting April 14th, 2020, we'll begin moving management of your Managed Service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create new managed service offers](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) to manage your migrated offers.
 
 In this article, you'll learn how to publish a public or private managed service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using [Cloud Partner Portal](https://cloudpartner.azure.com/). Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
