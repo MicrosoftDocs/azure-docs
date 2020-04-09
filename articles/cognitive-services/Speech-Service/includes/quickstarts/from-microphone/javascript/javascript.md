@@ -22,8 +22,6 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 ## Unpack the Speech SDK for JavaScript into that folder
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
 Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional, and is useful for debugging into the SDK code.
 
@@ -212,7 +210,7 @@ echo curl_exec($ch);
 
 ## Build and run the sample locally
 
-To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
+To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](../../../../regions.md) and trigger a recognition using the microphone.
 
 > [!NOTE]
 > This method doesn't work on the Safari browser.
@@ -220,7 +218,7 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 ## Build and run the sample via a web server
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
+To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](../../../../regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
 
 
 ## Next steps
