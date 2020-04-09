@@ -557,7 +557,7 @@ az group deployment create \
 
 ## Template for a static threshold metric alert that monitors multiple criteria
 
-Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics as well as support defining multiple criteria (up to 5 criterions per alert rule). You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
 
 Please note the following constraints when using dimensions in an alert rule that contains multiple criteria:
 - You can only select one value per dimension within each criterion.
