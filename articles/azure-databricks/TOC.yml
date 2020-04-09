@@ -1594,9 +1594,6 @@
       - name: MLflow
         href: /azure/databricks/dev-tools/api/latest/mlflow
         maintainContext: true
-      - name: SCIM
-        href: /azure/databricks/dev-tools/api/latest/scim
-        maintainContext: true 
       - name: Secrets
         href: /azure/databricks/dev-tools/api/latest/secrets
         maintainContext: true 
@@ -1688,6 +1685,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: April 2020
+        href: /azure/databricks/release-notes/product/2020/april
         maintainContext: true
       - name: March 2020
         href: /azure/databricks/release-notes/product/2020/march
