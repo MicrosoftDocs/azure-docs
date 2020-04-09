@@ -202,7 +202,7 @@ In this section, you create a notification hub and configure authentication with
 
 ## Configure your notification hub with APNs information
 
-Under **Notification Services**, select **Apple (APNS)** then follow the appopriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](#creating-a-certificate-for-notification-hubs) section.  
+Under **Notification Services**, select **Apple (APNS)** then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](#creating-a-certificate-for-notification-hubs) section.  
 
 > [!NOTE]
 > Use the **Production** for **Application Mode** only if you want to send push notifications to users who purchased your app from the store.
