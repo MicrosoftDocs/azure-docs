@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ---
 
-# Try the Speech service for free
+# Try the Speech service for free''
 
 In this article, you choose an option to easily test the Speech service free of charge so you can discover what the service can do, and decide whether it's right for your needs. Choose one of the two following options depending on your situation and use-case:
 
@@ -93,4 +93,4 @@ Complete one of our 10-minute quickstarts or check out our SDK samples:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [Speech SDK samples](speech-sdk.md#get-the-samples)
+> [Speech SDK samples](speech-sdk.md#sample-source-code)

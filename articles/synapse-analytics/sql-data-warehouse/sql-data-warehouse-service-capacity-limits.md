@@ -1,6 +1,6 @@
 ---
 title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) 
-description: Maximum values allowed for various components of SQL Analytics in Azure Synapse.
+description: Maximum values allowed for various components of Synapse SQL pool in Azure Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg

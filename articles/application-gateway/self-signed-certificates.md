@@ -257,11 +257,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### Verify the application gateway backend health
 
 1. Click the **Backend Health** view of your application gateway to check if the probe is healthy.
-1.    You should see that the Status is **Healthy** for the HTTPS probe.
-      ![HTTPS probe](media/self-signed-certificates/https-probe.png)
+1. You should see that the Status is **Healthy** for the HTTPS probe.
+
+![HTTPS probe](media/self-signed-certificates/https-probe.png)
 
 ## Next steps
 
