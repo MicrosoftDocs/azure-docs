@@ -27476,11 +27476,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
-      "redirect_url": "/azure/storage/common/storage-decide-blobs-files-disks",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
       "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
       "redirect_document_id": true
@@ -27778,11 +27773,6 @@
     {
       "source_path": "articles/storage/storage-incremental-snapshots.md",
       "redirect_url": "/azure/virtual-machines/windows/incremental-snapshots",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/storage/storage-introduction.md",
-      "redirect_url": "/azure/storage/common/storage-introduction",
       "redirect_document_id": true
     },
     {
@@ -39926,6 +39916,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-decide-blobs-files-disks.md",
+      "redirect_url": "/azure/storage/common/storage-introduction",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
       "redirect_document_id": false
@@ -50592,6 +50587,41 @@
     {
       "source_path": "articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-automation.md",
+      "redirect_url": "/azure/developer/chef/windows-vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-extension-portal.md",
+      "redirect_url": "/azure/developer/chef/client-install-from-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-habitat-overview.md",
+      "redirect_url": "/azure/developer/chef/habitat-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-inspec-overview.md",
+      "redirect_url": "/azure/developer/chef/inspec-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-overview.md",
+      "redirect_url": "/azure/developer/chef/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/",
+      "redirect_url": "/azure/developer/chef/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/index.yml",
+      "redirect_url": "/azure/developer/chef/",
       "redirect_document_id": false
     }
   ]
