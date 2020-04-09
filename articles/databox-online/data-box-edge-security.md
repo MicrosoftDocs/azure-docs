@@ -54,7 +54,7 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](data-box-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.

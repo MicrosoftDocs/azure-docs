@@ -43,7 +43,7 @@ To reset your device using the local web UI, take the following steps.
 
 The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.

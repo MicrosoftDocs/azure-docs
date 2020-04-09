@@ -123,7 +123,7 @@ To understand and refine the performance of your solution, you could use:
     - `dkr image [prune]` to clean up unused images and free up space.
     - `dkr ps --size` to view the approximate size of a running container. 
 
-    For more information on the available commands, go to [Monitor and troubleshoot compute modules](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    For more information on the available commands, go to [Monitor and troubleshoot compute modules](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge before deploying in production.
 

@@ -39,11 +39,11 @@ To create a share, do the following procedure:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
 
-   ![Device online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
+   ![Device online](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 
 2. Select **+ Add share** on the device command bar.
 
-   ![Add a share](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
+   ![Add a share](./media/azure-stack-edge-deploy-add-shares/select-add-share-1.png)
 
 3. In the **Add share** pane, do the following procedure:
 
@@ -70,11 +70,11 @@ To create a share, do the following procedure:
 
         If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
 
-        ![Add SMB share](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
+        ![Add SMB share](./media/azure-stack-edge-deploy-add-shares/add-share-smb-1.png)
    
     - **NFS share**: Enter the IP addresses of allowed clients that can access the share.
 
-        ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
+        ![Add NFS share](./media/azure-stack-edge-deploy-add-shares/add-share-nfs-1.png)
    
 4. Select **Create** to create the share.
     
@@ -114,7 +114,7 @@ On your Windows Server client connected to your Azure Stack Edge device, connect
 4. In the **Run** window, specify the `\\<device IP address>`, and then select **OK**.  
    File Explorer opens. You should now be able to view the shares that you created as folders. In File Explorer, double-click a share (folder) to view the content.
  
-    ![Connect to SMB share](./media/data-box-edge-deploy-add-shares/connect-to-share2.png)
+    ![Connect to SMB share](./media/azure-stack-edge-deploy-add-shares/connect-to-share2.png)
 
     The data is written to these shares as it is generated and the device pushes the data to cloud.
 
