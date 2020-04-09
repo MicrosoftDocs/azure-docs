@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 04/09/2020
 ms.author: dapine
 ---
 
@@ -317,7 +317,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
+For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
 [audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet

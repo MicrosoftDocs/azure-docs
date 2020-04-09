@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 04/09/2020
 ms.author: dapine
 ---
 
@@ -295,7 +295,7 @@ def synthesize_translations(result):
 translate_speech_to_text()
 ```
 
-For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
+For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig?view=azure-python
 [audioconfig]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python

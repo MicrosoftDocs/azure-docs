@@ -314,7 +314,7 @@ void translateSpeech() {
 }
 ```
 
-For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
+For more information about speech synthesis, see [the basics of speech synthesis](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig
 [audioconfig]: https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig
