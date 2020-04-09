@@ -22,6 +22,7 @@ To run the examples in this article, include the following `#include` and `using
 #include <iostream> // cin, cout
 #include <fstream>
 #include <string>
+#include <stdio.h>
 #include <stdlib.h>
 #include <speechapi_cxx.h>
 
@@ -63,9 +64,6 @@ auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 void translateSpeech() {
     auto config =
         SpeechTranslationConfig::FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
-
-    // Source (input) language
-    config->SetSpeechRecognitionLanguage("it-IT");
 }
 
 int main(int argc, char** argv) {
@@ -216,98 +214,101 @@ After a successful speech recognition and translation, the result contains all t
 
 ### Event-based synthesis
 
-The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [manual synthesis](#manual-synthesis). Specify the synthesis voice by assigning a [`VoiceName`][voicename] and provide an event handler for the `Synthesizing` event, get the audio. The following example saves the translated audio as a *.wav* file.
+The `TranslationRecognizer` object exposes a `Synthesizing` event. The event fires several times, and provides a mechanism to retrieve the synthesized audio from the translation recognition result. If you're translating to multiple languages, see [manual synthesis](#manual-synthesis). Specify the synthesis voice by assigning a [`SetVoiceName`][voicename] and provide an event handler for the `Synthesizing` event, get the audio. The following example saves the translated audio as a *.wav* file.
 
 > [!IMPORTANT]
-> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the [`VoiceName`][voicename] should be the same language as the target translation language, for example; `"de"` could map to `"de-DE-Hedda"`.
+> The event-based synthesis only works with a single translation, **do not** add multiple target translation languages. Additionally, the [`SetVoiceName`][voicename] should be the same language as the target translation language, for example; `"de"` could map to `"de-DE-Hedda"`.
 
-```csharp
-static async Task TranslateSpeechAsync()
-{
-    var translationConfig =
-        SpeechTranslationConfig.FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
-    
-    var fromLanguage = "en-US";
-    var toLanguage = "de";
-    translationConfig.SpeechRecognitionLanguage = fromLanguage;
-    translationConfig.AddTargetLanguage(toLanguage);
+```cpp
+void translateSpeech() {
+    auto translationConfig =
+        SpeechTranslationConfig::FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+
+    auto fromLanguage = "en-US";
+    auto toLanguage = "de";
+    translationConfig->SetSpeechRecognitionLanguage(fromLanguage);
+    translationConfig->AddTargetLanguage(toLanguage);
 
     // See: https://aka.ms/speech/sdkregion#standard-and-neural-voices
-    translationConfig.VoiceName = "de-DE-Hedda";
+    translationConfig->SetVoiceName("de-DE-Hedda");
 
-    using var recognizer = new TranslationRecognizer(translationConfig);
-
-    recognizer.Synthesizing += (_, e) =>
-    {
-        var audio = e.Result.GetAudio();
-        Console.WriteLine($"Audio synthesized: {audio.Length:#,0} byte(s) {(audio.Length == 0 ? "(Complete)" : "")}");
-
-        if (audio.Length > 0)
+    auto recognizer = TranslationRecognizer::FromConfig(translationConfig);
+    recognizer->Synthesizing.Connect([](const TranslationSynthesisEventArgs& e)
         {
-            File.WriteAllBytes("YourAudioFile.wav", audio);
-        }
-    };
+            auto audio = e.Result->Audio;
+            auto size = audio.size();
+            cout << "Audio synthesized: " << size << " byte(s)" << (size == 0 ? "(COMPLETE)" : "") << std::endl;
 
-    Console.Write($"Say something in '{fromLanguage}' and ");
-    Console.WriteLine($"we'll translate into '{toLanguage}'.\n");
+            if (size > 0) {
+                ofstream file("translation.wav", ios::out | ios::binary);
+                auto audioData = audio.data();
+                file.write((const char*)audioData, sizeof(audio[0]) * size);
+                file.close();
+            }
+        });
 
-    var result = await recognizer.RecognizeOnceAsync();
-    if (result.Reason == ResultReason.TranslatedSpeech)
+    cout << "Say something in '" << fromLanguage << "' and we'll translate...\n";
+
+    auto result = recognizer->RecognizeOnceAsync().get();
+    if (result->Reason == ResultReason::TranslatedSpeech)
     {
-        Console.WriteLine($"Recognized: \"{result.Text}\"");
-        Console.WriteLine($"Translated into '{toLanguage}': {result.Translations[toLanguage]}");
+        cout << "Recognized: \"" << result->Text << "\"" << std::endl;
+        for (auto pair : result->Translations)
+        {
+            auto language = pair.first;
+            auto translation = pair.second;
+            cout << "Translated into '" << language << "': " << translation << std::endl;
+        }
     }
 }
 ```
 
 ### Manual synthesis
 
-The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation. When creating a `SpeechSynthesizer` instance, the `SpeechConfig` object needs to have its [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] property set to the desired voice. The following example translates to five languages, and each translation is then synthesized to an audio file in the corresponding neural language.
+The [`Translations`][translations] dictionary can be used to synthesize audio from the translation text. Iterate through each translation, and synthesize the translation. When creating a `SpeechSynthesizer` instance, the `SpeechConfig` object needs to have its [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] property set to the desired voice. The following example translates to five languages, and each translation is then synthesized to an audio file in the corresponding neural language.
 
-```csharp
-static async Task TranslateSpeechAsync()
-{
-    var translationConfig =
-        SpeechTranslationConfig.FromSubscription(SPEECH__SERVICE__KEY, SPEECH__SERVICE__REGION);
+```cpp
+void translateSpeech() {
+    auto translationConfig =
+        SpeechTranslationConfig::FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
 
-    var fromLanguage = "en-US";
-    var toLanguages = new List<string> { "de", "en", "it", "pt", "zh-Hans" };
-    translationConfig.SpeechRecognitionLanguage = fromLanguage;
-    toLanguages.ForEach(translationConfig.AddTargetLanguage);
+    auto fromLanguage = "en-US";
+    auto toLanguages = { "de", "en", "it", "pt", "zh-Hans" };
+    translationConfig->SetSpeechRecognitionLanguage(fromLanguage);
+    for (auto language : toLanguages) {
+        translationConfig->AddTargetLanguage(language);
+    }
 
-    using var recognizer = new TranslationRecognizer(translationConfig);
+    auto recognizer = TranslationRecognizer::FromConfig(translationConfig);
 
-    Console.Write($"Say something in '{fromLanguage}' and ");
-    Console.WriteLine($"we'll translate into '{string.Join("', '", toLanguages)}'.\n");
+    cout << "Say something in '" << fromLanguage << "' and we'll translate...\n";
 
-    var result = await recognizer.RecognizeOnceAsync();
-    if (result.Reason == ResultReason.TranslatedSpeech)
+    auto result = recognizer->RecognizeOnceAsync().get();
+    if (result->Reason == ResultReason::TranslatedSpeech)
     {
         // See: https://aka.ms/speech/sdkregion#standard-and-neural-voices
-        var languageToVoiceMap = new Dictionary<string, string>
+        map<string, string> languageToVoiceMap;
+        languageToVoiceMap["de"] = "de-DE-KatjaNeural";
+        languageToVoiceMap["en"] = "en-US-AriaNeural";
+        languageToVoiceMap["it"] = "it-IT-ElsaNeural";
+        languageToVoiceMap["pt"] = "pt-BR-FranciscaNeural";
+        languageToVoiceMap["zh-Hans"] = "zh-CN-XiaoxiaoNeural";
+
+        cout << "Recognized: \"" << result->Text << "\"" << std::endl;
+        for (auto pair : result->Translations)
         {
-            ["de"] = "de-DE-KatjaNeural",
-            ["en"] = "en-US-AriaNeural",
-            ["it"] = "it-IT-ElsaNeural",
-            ["pt"] = "pt-BR-FranciscaNeural",
-            ["zh-Hans"] = "zh-CN-XiaoxiaoNeural"
-        };
+            auto language = pair.first;
+            auto translation = pair.second;
+            cout << "Translated into '" << language << "': " << translation << std::endl;
 
-        Console.WriteLine($"Recognized: \"{result.Text}\"");
+            auto speech_config =
+                SpeechConfig::FromSubscription(SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
+            speech_config->SetSpeechSynthesisVoiceName(languageToVoiceMap[language]);
 
-        foreach (var (language, translation) in result.Translations)
-        {
-            Console.WriteLine($"Translated into '{language}': {translation}");
+            auto audio_config = AudioConfig::FromWavFileOutput(language + "-translation.wav");
+            auto synthesizer = SpeechSynthesizer::FromConfig(speech_config, audio_config);
 
-            var speechConfig =
-                SpeechConfig.FromSubscription(
-                    SPEECH__SERVICE__KEY, SPEECH__SERVICE__REGION);
-            speechConfig.SpeechSynthesisVoiceName = languageToVoiceMap[language];
-
-            using var audioConfig = AudioConfig.FromWavFileOutput($"{language}-translation.wav");
-            using var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-            
-            await synthesizer.SpeakTextAsync(translation);
+            synthesizer->SpeakTextAsync(translation).get();
         }
     }
 }
@@ -315,11 +316,11 @@ static async Task TranslateSpeechAsync()
 
 For more information about speech synthesis, see [synthesize speech to a speaker](../../../quickstarts/text-to-speech.md).
 
-[config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
-[audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet
-[recognizer]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer?view=azure-dotnet
-[recognitionlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet
-[addlang]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.addtargetlanguage?view=azure-dotnet
-[translations]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognitionresult.translations?view=azure-dotnet
-[voicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig.voicename?view=azure-dotnet
-[speechsynthesisvoicename]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechsynthesisvoicename?view=azure-dotnet
+[config]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig
+[audioconfig]: https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig
+[recognizer]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-translationrecognizer
+[recognitionlang]: https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage
+[addlang]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig#addtargetlanguage
+[translations]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-translationrecognitionresult#translations
+[voicename]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig#setvoicename
+[speechsynthesisvoicename]: https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechsynthesisvoicename
