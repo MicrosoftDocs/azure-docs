@@ -10,17 +10,13 @@ ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
 ---
-# Create an FSLogix profile container with an Azure Files domain controller
+# Create a profile container with a domain controller
 
-
-This guide walks an IT administrator through the steps needed to configure an
-existing Windows Virtual Desktop (WVD) hostpool with profiles stored on an Azure
-Files storage account. Authentication will be via a domain controller (aka
-native AD).
+This article shows how to configure an existing Windows Virtual Desktop host pool with profiles stored on an Azure Files storage account. Authentication is done by a domain controller.
 
 The full guide for setting up Active Directory (AD) authentication over SMB for
 Azure file shares (AFS) is available
-[here](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-domain-services-enable#regional-availability).
+[here](../storage/files/storage-files-active-directory-domain-services-enable.md#regional-availability).
 
 ## Set up a storage account 
 
@@ -259,8 +255,7 @@ information on those available
 
 6.  Restart the VM
 
-Testing
--------
+# Testing
 
 Once the VM has been restarted sign in with a user that has permission on the
 session host and on the file share.
