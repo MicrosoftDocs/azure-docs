@@ -146,7 +146,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Use the `-Force` parameter if you want to overwrite without prompts.
 
-This example moves a directory named `my-directory` to a subdirectory of `my-directory-2` named `my-subdirectory`. This example also applies a umask to the subdirectory.
+This example moves a directory named `my-directory` to a subdirectory of `my-directory-2` named `my-subdirectory`. 
 
 ```powershell
 $filesystemName = "my-file-system"

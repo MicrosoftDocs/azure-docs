@@ -9,10 +9,16 @@ ms.date: 11/01/2019
 ms.custom: seodec18
 ---
 
-# Azure Disk Encryption for Windows VMs FAQ
+# Azure Disk Encryption for Windows virtual machines FAQ
 
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows VMs. For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
 
+## What is Azure Disk Encryption for Windows VMs?
+
+Azure Disk Encryption for Windows VMs uses the Bitlocker feature of Windows to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the ephemeral resource disk when the [VolumeType parameter is All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
+ 
+See [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
+ 
 ## Where is Azure Disk Encryption in general availability (GA)?
 
 Azure Disk Encryption is in general availability in all Azure public regions.
@@ -42,6 +48,19 @@ After you've encrypted the OS volume, disabling encryption on the OS volume isn'
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 
 No, Azure Disk Encryption only encrypts mounted volumes.
+
+## What is Storage server-side encryption?
+
+Storage server-side encryption encrypts Azure managed disks in Azure Storage. Managed disks are encrypted by default with Server-side encryption with a platform-managed key (as of June 10, 2017). You can manage encryption of managed disks with your own keys by specifying a customer-managed key. For more information, see [Server-side encryption of Azure managed disks](disk-encryption.md).
+ 
+## How is Azure Disk Encryption different from Storage server-side encryption with customer-managed key and when should I use each solution?
+
+Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the ephemeral resource disk with a customer-managed key.
+
+- If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
+- If your requirements include encrypting only data at rest with customer-managed key, then use [Server-side encryption with customer-managed keys](disk-encryption.md). You cannot encrypt a disk with both Azure Disk Encryption and Storage server-side encryption with customer managed keys.
+_ If you are using a scenario called out in [unsupported scenarios for Windows](disk-encryption-windows.md#unsupported-scenarios), consider [Server-side encryption with customer-managed keys](disk-encryption.md). 
+- If your organization's policy allows you to encrypt content at rest with an Azure-managed key, then no action is needed - the content is encrypted by default. For managed disks, the content inside storage is encrypted by default with Server-side encryption with platform-managed key. The key is managed by the Azure Storage service. 
 
 ## How do I rotate secrets or encryption keys?
 
