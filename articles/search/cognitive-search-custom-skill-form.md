@@ -30,7 +30,7 @@ You'll need to train a Form Recognizer model with your input forms before you us
 
 ## Set up the custom skill
 
-Clone the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository to your local machine. Then navigate to **Vision/AnalyzeForm/** and open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
+This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
 First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
 * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
@@ -160,8 +160,8 @@ To use this skill in a Cognitive Search pipeline, you'll need to add a skill def
 
 In this guide, you created a custom skill from the Azure Form Recognizer service. To learn more about custom skills, see the following resources. 
 
-* [Power Skills: a repository of custom skills](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search Power Skills: a repository of custom skills](https://github.com/*zure-Samples/azure-search-power-skills)
 * [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-* [How to define a skillset](cognitive-search-defining-skillset.md)
-* [Create Skillset (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
-* [How to map enriched fields](cognitive-search-output-field-mapping.md)
+* [Define a skillset](cognitive-search-defining-skillset.md)
+* [Create a skillset (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Map enriched fields](cognitive-search-output-field-mapping.md)
