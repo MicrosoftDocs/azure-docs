@@ -170,7 +170,7 @@ Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-a
     -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
   ```
 
-The included example implements these steps for cChoco and xNetworking. See the [Notes](#notes) for special handling for cChoco.
+The included example implements these steps for cChoco and xNetworking. 
 
 ## Step 4: Add the node configuration to the pull server
 
