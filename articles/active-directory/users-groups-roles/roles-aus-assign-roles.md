@@ -62,7 +62,7 @@ The highlighted section may be changed as required for the specific environment.
 
 ### Azure portal
 
-All the role assignments done with an administrative unit scope can be viewed in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Go to **Azure AD > Administrative units** in the portal. Select the admin unit for which you want to list the role assignments. Select **Roles and administrators** and open a role to view the assignments in the admin unit.
+All the role assignments done with an administrative unit scope can be viewed in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Go to **Azure AD > Administrative units** in the portal. Select the admin unit for the role assignments you want to list. Select **Roles and administrators** and open a role to view the assignments in the admin unit.
 
 ### PowerShell
 

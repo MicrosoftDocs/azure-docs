@@ -46,7 +46,7 @@ In the preview, you can assign groups only individually to an administrative uni
     $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
     Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 
-In this example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the group to the administrative unit. The object ID of the Administrative Unit to which user is to be added and the object ID of the group which needs to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
+In this example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the group to the administrative unit. The object ID of the administrative unit and the object ID of the group to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
 ### Graph API
 
@@ -68,7 +68,7 @@ Example:
 
 ### Azure portal
 
-Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups which are member of the selected administrative unit.
+Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups that are members of the selected administrative unit.
 
 ![Select an administrative unit to delete](./media/roles-administrative-units-scope/list-groups-in-admin-units.png)
 
@@ -77,7 +77,7 @@ Go to **Azure AD > Administrative units** in the portal. Select the administrati
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
 
-This will help you get all the members of the administrative unit. If you want to display all the groups which are members of the administrative unit, you can use the below code snippet:
+This will help you get all the members of the administrative unit. If you want to display all the groups that are members of the administrative unit, you can use the below code snippet:
 
     foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
     {
@@ -98,7 +98,7 @@ This will help you get all the members of the administrative unit. If you want t
 
 ### Azure portal
 
-In the Azure portal you can open a group's details by going to Azure AD > Groups. Click on the group to open the group's details. On the left panel, select Administrative units to list all the administrative units to which the group is assigned.
+In the Azure AD portal, you can open a group's details by opening **Groups**. Select a group to open the group's profile. Select **Administrative units** to list all the administrative units where the group is a member.
  
 (list_group_au.png)
 
@@ -109,10 +109,14 @@ In the Azure portal you can open a group's details by going to Azure AD > Groups
 ## Remove a group from an AU
 
 ### Azure portal
-There are two ways you can remove a group from an administrative unit. In the Azure portal you can open a group's details by going to Azure AD > Groups. Open the group that is to be removed from administrative unit. Click on Administrative units in the left panel to list all the administrative units the group is assigned to. Select the administrative unit you want the group to be removed from and click on Remove from administrative unit.
+
+There are two ways you can remove a group from an administrative unit in the Azure portal.
+
+Open **Azure AD** > **Groups** and open the profile for group you want to remove from administrative unit. 
+Select **Administrative units** in the left panel to list all the administrative units where the group is a member. Select the administrative unit that you want to remove the group from, and then select **Remove from administrative unit**.
  
 (group_au_remove.png)
-Alternatively, you can go to Azure AD > Administrative units and select the administrative unit from which the group is to be removed. Click on Groups in the left panel to list the member groups. Select the group to be removed from the administrative unit and then click on Remove groups.
+Alternatively, you can go to **Azure AD** > **Administrative units** and select the administrative unit where the group is a member. Select **Groups** in the left panel to list the member groups. Select the group to be removed from the administrative unit and then select **Remove groups**.
 
  
 (au_remove_group.png)
