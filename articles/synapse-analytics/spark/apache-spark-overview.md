@@ -17,6 +17,8 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 ![Spark: a unified framework](./media/apache-spark-overview/spark-overview.png)
 
+[!INCLUDE [preview](includes/note-preview.md)]
+
 ## What is Apache Spark
 
 Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.

@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Synapse?
+          - text: What is Azure Synapse? (formerly Azure SQL Data Warehouse)
             url: sql-data-warehouse-overview-what-is.md
       - linkListType: architecture
         links:
@@ -132,7 +132,7 @@ landingContent:
     linkLists:
       - linkListType: video
         links:
-          - text: Watch the latest data warehouse videos
+          - text: Watch the latest Synapse SQL videos
             url: sql-data-warehouse-videos.md
   #         # - text: linktext2
   #         #   url: file2.md
