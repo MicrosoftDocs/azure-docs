@@ -1037,6 +1037,8 @@
         href: monitor-cosmos-db.md
       - name: Monitor server-side latency
         href: monitor-server-side-latency.md
+      - name: Monitor request unit usage
+        href: monitor-request-unit-usage.md
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Audit control plane logs
