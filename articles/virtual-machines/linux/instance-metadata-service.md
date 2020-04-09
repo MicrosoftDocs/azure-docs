@@ -8,23 +8,25 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/09/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
 ---
 
 # Azure Instance Metadata service
 
-The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-Information provided includes the SKU, network configuration, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
+## Summary
 
-Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
-The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
+The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
+This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#-Metadata-APIs). 
+Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
+
+Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
 
 > [!IMPORTANT]
-> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata APIs](#metadata-apis) available.
+> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information and features. This page reflects the up-to-date [metadata APIs](#-Metadata-APIs) available.
 
-## Service availability
+## Regional Availability
 
 The service is available in generally available Azure regions. Not all API version may be available in all Azure Regions.
 
@@ -35,155 +37,25 @@ Regions                                        | Availability?                  
 [Azure China 21Vianet](https://www.azure.cn/)                                            | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 
-The version 2019-11-01 is currently getting deployed and may not be available in all regions.
+This table is updated when there are service updates and or new supported versions are available.
 
-This table is updated when there are service updates and/or new supported versions are available.
-
-To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
-Further examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds)
-
-## Usage
-
-### Versioning
-
-The Instance Metadata Service is versioned, and specifying the API version in the HTTP request is mandatory.
-
-You can see the newest versions listed in this [availability table](#service-availability).
-
-As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
-
-When no version is specified, an error is returned with a list of the newest supported versions.
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
-**Request**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance"
-```
-
-**Response**
-
-```json
-{
-    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
-    "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
-    ]
-}
-```
-
-### Using headers
-
-When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
-
-### Retrieving metadata
-
-Instance metadata is available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
-Access all data categories for a virtual machine instance using the following request:
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
-```
-
-> [!NOTE]
-> All instance metadata queries are case-sensitive.
-
-### Data output
-
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
-The following table is a reference of other data formats APIs may support.
-
-API | Default Data Format | Other Formats
---------|---------------------|--------------
-/instance | json | text
-/scheduledevents | json | none
-/attested | json | none
-
-To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
-```
-
-> [!NOTE]
-> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
-
-### Security
+## Security
 
 The Instance Metadata Service endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with a `X-Forwarded-For` header is rejected by the service.
 Requests must also contain a `Metadata: true` header to ensure that the actual request was directly intended and not a part of unintentional redirection.
 
-### Error
+> [!IMPORTANT]
+> Instance Metadata Service is not a channel for sensitive data. The end point is open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
+## Usage
 
-HTTP Status Code | Reason
-----------------|-------
-200 OK |
-400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
-404 Not Found | The requested element doesn't exist
-405 Method Not Allowed | Only `GET` requests are supported
-410 Gone | Retry after some time for a max of 70 seconds
-429 Too Many Requests | The API currently supports a maximum of 5 queries per second
-500 Service Error     | Retry after some time
+### Accessing Azure Instance Metadata Service
 
-### Examples
+To access Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
+More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
-> [!NOTE]
-> All API responses are JSON strings. All following example responses are pretty-printed for readability.
 
-#### Retrieving network information
-
-**Request**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
-```
-
-**Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
-```json
-{
-  "interface": [
-    {
-      "ipv4": {
-        "ipAddress": [
-          {
-            "privateIpAddress": "10.1.0.4",
-            "publicIpAddress": "X.X.X.X"
-          }
-        ],
-        "subnet": [
-          {
-            "address": "10.1.0.0",
-            "prefix": "24"
-          }
-        ]
-      },
-      "ipv6": {
-        "ipAddress": []
-      },
-      "macAddress": "000D3AF806EC"
-    }
-  ]
-}
-
-```
-
-#### Retrieving public IP address
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
-```
-
-#### Retrieving all metadata for an instance
+Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#-metadata-apis) section. 
 
 **Request**
 
@@ -307,23 +179,72 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 }
 ```
 
-## Metadata APIs
+### Data output
 
-The following APIs are available through the metadata endpoint:
+By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
+The following table is a reference of other data formats APIs may support.
+
+API | Default Data Format | Other Formats
+--------|---------------------|--------------
+/instance | json | text
+/scheduledevents | json | none
+/attested | json | none
+
+To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+```
+
+> [!NOTE]
+> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
+
+### Versioning
+
+The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
+
+You can see the newest versions listed in this [availability table](#-Regional-Availability).
+
+As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
+
+When no version is specified, an error is returned with a list of the newest supported versions.
+
+> [!NOTE]
+> The response is a JSON string. The following example indicates the error condition when version is not specified, the response is pretty-printed for readability.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Response**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
+
+## Metadata APIs
+IMDS contains multiple API interfaces representing different data sources. 
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-attested | See [Attested Data](#attested-data) | 2018-10-01
-identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | See [Instance API](#instance-api) | 2017-04-02
+instance | See [Instance API](#-Instance-API) | 2017-04-02
+attested | See [Attested Data](#-Attested-Data) | 2018-10-01
+identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
-### Instance API
+## Instance API
 
-The following Compute categories are available through the Instance API:
-
-> [!NOTE]
-> Through the metadata endpoint, the following categories are accessed through instance/compute
+Instance API exposes the important metadata for the VM instances, including the VM, network and storage. 
+The following categories can be accessed through instance/compute:
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
@@ -343,7 +264,7 @@ publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
-storageProfile | See [Storage Profile](#storage-profile) | 2019-06-01
+storageProfile | See [Storage Profile](#storage-metadata) | 2019-06-01
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
@@ -353,55 +274,8 @@ vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-se
 vmSize | [VM size](sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
-The following Network categories are available through the Instance API:
 
-> [!NOTE]
-> Through the metadata endpoint, the following categories are accessed through instance/network/interface
-
-Data | Description | Version Introduced
------|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
-
-## Attested Data
-
-Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
-
-### Example Attested Data
-
-> [!NOTE]
-> All API responses are JSON strings. The following example responses are pretty-printed for readability.
-
- **Request**
-
- ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
-
-```
-
-Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
-
- **Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
- ```json
-{
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
-}
-```
-
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
-
-## Example scenarios for usage  
-
-### Tracking VM running on Azure
+### Sample 1: Tracking VM running on Azure
 
 As a service provider, you may require to track the number of VMs running your software or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from Instance Metadata Service.
 
@@ -417,7 +291,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### Placement of containers, data-partitions based fault/update domain
+### Sample 2: Placement of containers, data-partitions based fault/update domain
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
@@ -436,7 +310,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### Getting more information about the VM during support case
+### Sample 3: Getting more information about the VM during support case
 
 As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
 
@@ -536,7 +410,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### Getting Azure Environment where the VM is running
+### Sample 4: Getting Azure Environment where the VM is running
 
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
@@ -560,145 +434,11 @@ The cloud and the values of the Azure Environment are listed below.
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-### Getting the tags for the VM
 
-Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+## Storage Metadata
 
-**Request**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
-```
-
-**Response**
-
-```text
-Department:IT;Environment:Test;Role:WebRole
-```
-
-The `tags` field is a string with the tags delimited by semicolons. This can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field which is a JSON array with no delimiters, and consequently, easier to parse.
-
-**Request**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
-```
-
-**Response**
-
-```json
-[
-  {
-    "name": "Department",
-    "value": "IT"
-  },
-  {
-    "name": "Environment",
-    "value": "Test"
-  },
-  {
-    "name": "Role",
-    "value": "WebRole"
-  }
-]
-```
-
-### Validating that the VM is running in Azure
-
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premises, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
-
-> [!NOTE]
-> Requires jq to be installed.
-
-**Request**
-
- ```bash
-  # Get the signature
-   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
-  # Decode the signature
-  base64 -d signature > decodedsignature
-  #Get PKCS7 format
-  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
-  # Get Public key out of pkc7
-  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
-  #Get the intermediate certificate
-  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
-  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
-  #Verify the contents
-  openssl smime -verify -in sign.pk7 -inform pem -noverify
- ```
-
- **Response**
-
-```json
-Verification successful
-{"nonce":"20181128-001617",
-  "plan":
-    {
-     "name":"",
-     "product":"",
-     "publisher":""
-    },
-"timeStamp":
-  {
-    "createdOn":"11/28/18 00:16:17 -0000",
-    "expiresOn":"11/28/18 06:16:17 -0000"
-  },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-"sku": "RS3-Pro"
-}
-```
-
-Data | Description
------|------------
-nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
-timestamp/createdOn | The UTC timestamp at which the first signed document was created
-timestamp/expiresOn | The UTC timestamp at which the signed document expires
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
-subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
-sku | Specific SKU for the VM image, introduced in `2019-11-01`
-
-#### Verifying the signature
-
-Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
-
-> [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different.
-
- Cloud | Certificate
----------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
-
-There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
-
-```bash
-
-# Verify the subject name for the main certificate
-openssl x509 -noout -subject -in signer.pem
-# Verify the issuer for the main certificate
-openssl x509 -noout -issuer -in signer.pem
-#Validate the subject name for intermediate certificate
-openssl x509 -noout -subject -in intermediate.pem
-# Verify the issuer for the intermediate certificate
-openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
-openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
-```
-
-In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
-
-> [!NOTE]
->The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
-Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
-
-### Storage profile
-
-Instance Metadata Service can provide details about the storage disks associated with the VM. This data can be found at the instance/compute/storageProfile endpoint.
+Storage metadata is part of the instance API under instance/compute/storageProfile endpoint.
+It provides details about the storage disks associated with the VM. 
 
 The storage profile of a VM is divided into three categories - image reference, OS disk, and data disks.
 
@@ -812,7 +552,255 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 }
 ```
 
-### Examples of calling metadata service using different languages inside the VM
+## VM Tags
+
+VM tags are included the instance API under instance/compute/tags endpoint.
+Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+```
+
+**Response**
+
+```text
+Department:IT;Environment:Test;Role:WebRole
+```
+
+The `tags` field is a string with the tags delimited by semicolons. This can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field which is a JSON array with no delimiters, and consequently, easier to parse.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
+
+## Network Metadata 
+
+Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
+
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
+ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
+subnet/address | Subnet address of the VM | 2017-04-02
+subnet/prefix | Subnet prefix, example 24 | 2017-04-02
+ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
+macAddress | VM mac address | 2017-04-02
+
+> [!NOTE]
+> All API responses are JSON strings. All following example responses are pretty-printed for readability.
+
+#### Sample 1: Retrieving network information
+
+***Request***
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+```
+
+***Response***
+
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+```json
+{
+  "interface": [
+    {
+      "ipv4": {
+        "ipAddress": [
+          {
+            "privateIpAddress": "10.1.0.4",
+            "publicIpAddress": "X.X.X.X"
+          }
+        ],
+        "subnet": [
+          {
+            "address": "10.1.0.0",
+            "prefix": "24"
+          }
+        ]
+      },
+      "ipv6": {
+        "ipAddress": []
+      },
+      "macAddress": "000D3AF806EC"
+    }
+  ]
+}
+
+```
+
+#### Sample 2: Retrieving public IP address
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+
+```
+
+
+## Attested Data
+
+Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
+
+### Sample 1: Getting attested Data
+
+> [!NOTE]
+> All API responses are JSON strings. The following example responses are pretty-printed for readability.
+
+***Request***
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+
+```
+
+Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+
+ ***Response***
+
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+```json
+{
+ "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
+}
+```
+
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+
+
+### Sample 2: Validating that the VM is running in Azure
+
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+
+> [!NOTE]
+> Requires jq to be installed.
+
+***Request***
+
+```bash
+  # Get the signature
+   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+  # Decode the signature
+  base64 -d signature > decodedsignature
+  #Get PKCS7 format
+  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
+  #Get the intermediate certificate
+  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
+  #Verify the contents
+  openssl smime -verify -in sign.pk7 -inform pem -noverify
+ ```
+
+ **Response**
+
+```json
+Verification successful
+{"nonce":"20181128-001617",
+  "plan":
+    {
+     "name":"",
+     "product":"",
+     "publisher":""
+    },
+"timeStamp":
+  {
+    "createdOn":"11/28/18 00:16:17 -0000",
+    "expiresOn":"11/28/18 06:16:17 -0000"
+  },
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+"sku": "RS3-Pro"
+}
+```
+
+Data | Description
+-----|------------
+nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
+timestamp/createdOn | The UTC timestamp at which the first signed document was created
+timestamp/expiresOn | The UTC timestamp at which the signed document expires
+vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
+subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
+sku | Specific SKU for the VM image, introduced in `2019-11-01`
+
+
+#### Sample 3: Verifying the signature
+
+Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
+
+> [!NOTE]
+> The certificate for Public cloud and sovereign cloud will be different.
+
+ Cloud | Certificate
+---------|-----------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
+
+```bash
+
+# Verify the subject name for the main certificate
+openssl x509 -noout -subject -in signer.pem
+# Verify the issuer for the main certificate
+openssl x509 -noout -issuer -in signer.pem
+#Validate the subject name for intermediate certificate
+openssl x509 -noout -subject -in intermediate.pem
+# Verify the issuer for the intermediate certificate
+openssl x509 -noout -issuer -in intermediate.pem
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
+openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
+```
+
+In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+
+> [!NOTE]
+>The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
+Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
+
+
+## Managed Identity via Metadata Service
+User can enable the managed identity on a VM, and then leverage Instance Metadata Service to pass the token for accessing Azure services. Applications running on a VM now can request a token from the Azure Instance Metadata service endpoint, and then use the token to authenticate to cloud services, including key vault.
+For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+
+## Scheduled Events via Metadata Service
+You can obtain the status of the scheduled events via metadata service, then user can specify a set of action to execute upon these events.  See [Scheduled Events](scheduled-events.md) for details. 
+
+
+## Sample Code in Different Languages
+
+Samples of calling metadata service using different languages inside the VM:
 
 Language | Example
 ---------|----------------
@@ -829,7 +817,23 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## FAQ
+
+## Error and Debugging
+
+If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
+
+HTTP Status Code | Reason
+----------------|-------
+200 OK |
+400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
+404 Not Found | The requested element doesn't exist
+405 Method Not Allowed | Only `GET` requests are supported
+410 Gone | Retry after some time for a max of 70 seconds
+429 Too Many Requests | The API currently supports a maximum of 5 queries per second
+500 Service Error     | Retry after some time
+
+
+### Known issues and FAQ
 
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
@@ -852,8 +856,15 @@ Puppet | https://github.com/keirans/azuremetadata
 10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
     * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
 
-    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-## Next steps
+## Support and Feedback
 
-- Learn more about [Scheduled Events](scheduled-events.md)
+Send your feedback and comments on https://feedback.azure.com.
+To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
+
+![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
+
+
+## Next Steps
+
+Learn more about [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
