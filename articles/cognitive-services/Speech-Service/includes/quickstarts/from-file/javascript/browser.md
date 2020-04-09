@@ -75,4 +75,4 @@ To launch your app, open your favorite web browser and point it to the public UR
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [footer](footer.md)]
