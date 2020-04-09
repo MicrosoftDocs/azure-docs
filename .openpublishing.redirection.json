@@ -40082,12 +40082,12 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template",
       "redirect_document_id": false
     },
     {
@@ -46282,7 +46282,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
@@ -46347,7 +46347,12 @@
     },
     {
       "source_path": "articles/iot-central/core/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-create-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
@@ -46782,7 +46787,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
@@ -46878,6 +46883,66 @@
     {
       "source_path": "articles/iot-central/core/tutorial-connect-device.md",
       "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-connected-logistics-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-digital-distribution-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-digital-distribution-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-micro-fulfillment-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-micro-fulfillment-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-smart-inventory-management-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-smart-inventory-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/overview-iot-central-retail-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/overview-iot-central-retail",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-create-app-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-customize-dashboard-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-customize-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-connected-logistics-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-digital-distribution-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-smart-inventory-management-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-micro-fulfillment-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
       "redirect_document_id": true
     },
     {

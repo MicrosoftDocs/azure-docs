@@ -35,7 +35,7 @@ As a builder, you can create and edit device templates in your IoT Central appli
 
 To add a new device template to your application, select the **Device Templates** tab in the left pane.
 
-![Device Templates page](./media/quick-create-pnp-device/devicedefinitions.png)
+![Device Templates page](./media/quick-create-simulated-device/device-definitions.png)
 
 A device template includes a device capability model that defines the telemetry the device sends, device properties, and the commands the device responds to.
 
@@ -55,7 +55,7 @@ The following steps show you how to use the device catalog to import the capabil
 
 1. After a few seconds, you can see your new device template:
 
-    ![MXChip IoT DevKit device template](./media/quick-create-pnp-device/devkit-template.png)
+    ![MXChip IoT DevKit device template](./media/quick-create-simulated-device/devkit-template.png)
 
     The MXChip IoT DevKit capability model includes interfaces such as **mxchip_sensor**, **mxchip_settings**, and **Device Information**. Interfaces define the capabilities of an MXChip IoT DevKit device. Capabilities include the telemetry a device sends, the properties a device reports, and the commands a device responds to.
 
@@ -72,7 +72,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 
 1. Select **Save** to save your changes:
 
-    ![Cloud properties](media/quick-create-pnp-device/cloudproperties.png)
+    ![Cloud properties](media/quick-create-simulated-device/cloud-properties.png)
 
 ## Views
 
@@ -99,7 +99,7 @@ To add a new **Manage device** form that an operator can use to manage the devic
 
 1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Fan Speed** property. Then select **Add section**:
 
-    ![Create new form](media/quick-create-pnp-device/new-form.png)
+    ![Create new form](media/quick-create-simulated-device/new-form.png)
 
 1. Select **Save** to save your new form.
 
@@ -113,7 +113,7 @@ To publish a device template:
 
 1. Select **Publish**:
 
-    ![Published model](media/quick-create-pnp-device/publishedmodel.png)
+    ![Published model](media/quick-create-simulated-device/published-model.png)
 
 1. On the **Publish this device template to the application** dialog, select **Publish**. 
 
@@ -127,7 +127,7 @@ To add a simulated device to your application, you use the **MXChip IoT DevKit**
 
 1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
 
-    ![Simulated device](./media/quick-create-pnp-device/simulated-device.png)
+    ![Simulated device](./media/quick-create-simulated-device/simulated-device.png)
 
 Now you can interact with the views that were created by the builder for the device template using simulated data:
 
@@ -135,7 +135,7 @@ Now you can interact with the views that were created by the builder for the dev
 
 1. The **Overview** view shows a plot of the simulated telemetry:
 
-    ![Overview view](./media/quick-create-pnp-device/simulated-telemetry.png)
+    ![Overview view](./media/quick-create-simulated-device/simulated-telemetry.png)
 
 1. The **About** view shows property values, including the cloud properties you added to the view.
 
@@ -153,7 +153,7 @@ After you create a new simulated device, the builder can use this device to cont
 
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
-    ![Configure preview device](./media/quick-create-pnp-device/configure-preview.png)
+    ![Configure preview device](./media/quick-create-simulated-device/configure-preview.png)
 
 ## Next steps
 

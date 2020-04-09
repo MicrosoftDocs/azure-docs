@@ -82,7 +82,7 @@ This first example is not Lucene-specific, but we lead with it to introduce the 
 
 For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The **searchFields** parameter restricts query execution to just the business_title field, and **select** specifies which fields are included in the response.
 
-### Partial query string
+### Search expression
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -115,7 +115,7 @@ You might have noticed the search score in the response. Uniform scores of 1 occ
 
 Full Lucene syntax supports scoping individual search expressions to a specific field. This example searches for business titles with the term senior in them, but not junior.
 
-### Partial query string
+### Search expression
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -153,7 +153,7 @@ The field specified in **fieldName:searchExpression** must be a searchable field
 Full Lucene syntax also supports fuzzy search, matching on terms that have a similar construction. 
 To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
-### Partial query string
+### Search expression
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -183,7 +183,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## Example 4: Proximity search
 Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, "hotel airport"~5 will find the terms hotel and airport within 5 words of each other in a document.
 
-### Partial query string
+### Search expression
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -236,7 +236,7 @@ When setting the factor level, the higher the boost factor, the more relevant th
 
 A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### Partial query string
+### Search expression
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -259,7 +259,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## Example 7: Wildcard search
 You can use generally recognized syntax for multiple (\*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
-### Partial query string
+### Search expression
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*
