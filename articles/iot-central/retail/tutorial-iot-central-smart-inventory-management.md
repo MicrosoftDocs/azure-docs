@@ -110,6 +110,6 @@ If you're not going to continue to use this application, delete the application 
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## Next steps
-* Learn more about smart inventory management [smart inventory management concept](./architecture-smart-inventory-management-pnp.md)
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
+* Learn more about smart inventory management [smart inventory management concept](./architecture-smart-inventory-management.md)
+* Learn more about other [IoT Central retail templates](./overview-iot-central-retail.md)
 * Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central.md)
