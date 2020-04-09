@@ -117,7 +117,7 @@ New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTE
 New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-You can put your Automation account into any of the following regions (aka location): East US 2,
+You can put your Automation account into any of the following regions (also known as locations): East US 2,
 South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and
 Australia Southeast, Canada Central, North Europe.
 
@@ -141,7 +141,7 @@ Navigate to the resource you want and click the "Deploy to Azure Automation" but
 
 ![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Another technique recently added to the Azure Portal allows you to pull in new modules or update
+Another technique recently added to the Azure portal allows you to pull in new modules or update
 existing modules. Click through the Automation account resource, the Assets tile, and finally the
 Modules tile. The Browse Gallery icon allows you to see the list of modules in the gallery, drill
 down into details and ultimately import into your Automation account. This is a great way to keep
