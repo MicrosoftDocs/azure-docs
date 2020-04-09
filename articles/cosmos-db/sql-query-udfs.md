@@ -21,7 +21,7 @@ Using UDFs, you can extend Azure Cosmos DB's query language. UDFs are a great wa
 However, we recommending avoiding UDFs when:
 
 - An equivalent [system function](sql-query-system-functions.md) already exists in Azure Cosmos DB. System functions will always use fewer RU's than the equivalent UDF.
-- The UDF is in the `WHERE` clause of your query. UDF's do not utilize the index so evaluating the UDF will require loading documents.
+- The UDF is the only filter in the `WHERE` clause of your query. UDF's do not utilize the index so evaluating the UDF will require loading documents. Combining additional filter predicates that use the index, in combination with a UDF, in the `WHERE` clause will reduce the number of documents processed by the UDF.
 
 If you must use the same UDF multiple times in a query, you should reference the UDF in a [subquery](sql-query-subquery.md#evaluate-once-and-reference-many-times), allowing you to use a JOIN expression to evaluate the UDF once but reference it many times.
 
