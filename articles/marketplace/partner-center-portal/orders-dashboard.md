@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 This article provides information on the **Orders dashboard** in Partner Center. This dashboard displays information about your orders in a graphical and downloadable format.
 
-To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under commercial marketplace.
+To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

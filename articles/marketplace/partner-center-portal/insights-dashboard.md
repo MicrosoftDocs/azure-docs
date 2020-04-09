@@ -15,7 +15,7 @@ This article provides information on the Marketplace Insights dashboard in Partn
 
 ## Marketplace Insights dashboard
 
-To access the **Marketplace Insights dashboard** in Partner Center, open the **[Analyze tab](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under commercial marketplace.
+To access the **Marketplace Insights dashboard** in Partner Center, open the **[Analyze tab](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 You can view graphical representations of the following items:  
 

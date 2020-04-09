@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 This article provides information on the Downloads dashboard in Partner Center. This dashboard displays a list of your download requests over the last 30 days.
 
-To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under commercial marketplace.
+To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

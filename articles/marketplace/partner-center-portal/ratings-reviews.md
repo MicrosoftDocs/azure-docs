@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 This article provides information on the Ratings & reviews dashboard in Partner Center. This dashboard displays a consolidated view of customer feedback for offers on Azure Marketplace and AppSource.
 
-To access the **Ratings & reviews dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under commercial marketplace.
+To access the **Ratings & reviews dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

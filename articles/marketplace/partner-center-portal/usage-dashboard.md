@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 This article provides information on the Usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
 
-To access the Usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under commercial marketplace.
+To access the Usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

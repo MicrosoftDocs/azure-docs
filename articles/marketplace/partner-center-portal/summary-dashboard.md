@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
-To access the Summary dashboard, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under commercial marketplace.
+To access the Summary dashboard, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
