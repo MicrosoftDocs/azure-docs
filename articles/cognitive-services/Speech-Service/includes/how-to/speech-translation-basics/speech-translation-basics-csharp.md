@@ -120,7 +120,7 @@ With every call to [`AddTargetLanguage`][addlang], a new target translation lang
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translationConfig`. This provides the credentials that the speech service requires to validate your request.
+After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translationConfig`. The configuration object provides the credentials that the speech service requires to validate your request.
 
 If you're recognizing speech using your device's default microphone, here's what the [`TranslationRecognizer`][recognizer] should look like:
 
@@ -297,7 +297,7 @@ static async Task TranslateSpeechAsync()
             ["zh-Hans"] = "zh-CN-XiaoxiaoNeural"
         };
 
-        Console.WriteLine($"Recognized: \"{result.Text}\":");
+        Console.WriteLine($"Recognized: \"{result.Text}\"");
 
         foreach (var (language, translation) in result.Translations)
         {
