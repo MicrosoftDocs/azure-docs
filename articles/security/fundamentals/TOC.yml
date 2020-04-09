@@ -126,6 +126,8 @@
     href: log-audit.md
   - name: Security management and monitoring
     href: management-monitoring-overview.md
+  - name: Enhance remote management
+    href: management.md
   - name: Operational security
     items:
     - name: Overview
