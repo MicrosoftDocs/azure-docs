@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/08/2020
 
 ---
 
@@ -509,9 +509,9 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     ...
     "provisioningState": "Creating",
     ...
-    "nodeTaints":  {
-      "sku": "gpu:NoSchedule"
-    },
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
     ...
   },
  ...
