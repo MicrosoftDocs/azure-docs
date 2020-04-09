@@ -178,24 +178,16 @@
       items:
       - name: Administrative units overview  
         href: directory-administrative-units.md
-      - name: Set role scope with AUs
-        href: roles-scope-admin-units.md
-      - name: Create an AU
-        href: roles-scope-create-au.md
-      - name: Add users to AUs
-        href: roles-scope-add-users.md
-      - name: Add groups to AUs
-        href: roles-scope-add-groups.md
+      - name: Add & manage AUs
+        href: roles-aus-manage-admin-units.md
+      - name: Add & manage users in AUs
+        href: roles-aus-add-manage-users.md
+      - name: Add & manage groups in AUs
+        href: roles-aus-add-manage-groups.md
       - name: Assign a role with AU scope
-        href: roles-scope-assign-role.md
-      - name: Delete an AU
-        href: roles-scope-delete-admin-unit.md
-      - name: List users in an AU
-        href: roles-scope-list-users.md
-      - name: List groups in an AU
-        href: roles-scope-list-groups.md
-      - name: List roles assigned on an AU
-        href: roles-scope-list-roles.md
+        href: roles-aus-assign-role.md
+      - name: FAQ and troubleshooting.md
+        href: roles-aus-faq-troubleshoot.md
   - name: Manage sign-in
     items:    
     - name: Customize company branding    

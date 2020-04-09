@@ -1,6 +1,6 @@
 ---
-title: Administrative unit scope for roles (preview) - Azure Active Directory | Microsoft Docs
-description: Using administrative units for more granular delegation of permissions in Azure Active Directory
+title: Add, remove, and list users in an administrative unit (preview) - Azure Active Directory | Microsoft Docs
+description: Manage users and their role permissions in an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,32 +9,22 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 04/09/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Add users to an administrative unit in Azure Active Directory
+# Add and manage users in an administrative unit in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can add users to an administrative unit for more granular administrative scope of control.
+In Azure Active Directory (Azure AD), you can add users to an administrative unit (AU) for more granular administrative scope of control.
 
-## Getting started
+For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-aus-manage-admin-units.md#getting-started).
 
-1. To run queries from the following instructions via [Graph Explorer](https://aka.ms/ge), please ensure the following:
+## Add users to an AU
 
-    1. Go to Azure AD in the portal, and then in the applications select Graph Explorer and provide admin consent to Graph Explorer.
-
-        ![select Graph Explorer and provide admin consent on this page](./media/roles-administrative-units-scope/select-graph-explorer.png)
-
-    1. In the Graph Explorer, ensure that you select the beta version.
-
-        ![select the beta version before the POST operation](./media/roles-administrative-units-scope/select-beta-version.png)
-
-1. Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
-
-## Azure portal
+### Azure portal
 
 You can assign users to administrative units in two ways.
 
@@ -53,7 +43,7 @@ You can assign users to administrative units in two ways.
 
         ![bulk assign users to an administrative unit](./media/roles-administrative-units-scope/bulk-assign-to-admin-unit.png)
 
-## PowerShell
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
@@ -61,7 +51,7 @@ You can assign users to administrative units in two ways.
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the Administrative Unit to which user is to be added and the object ID of the user which needs to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-## The Microsoft Graph
+### The Microsoft Graph
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
@@ -76,6 +66,51 @@ Example:
       "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
     }
 
+## List administrative units for a user
+
+### Azure portal
+
+In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile.
+ 
+(user_profile_au.png)
+
+Click on Administrative units on the left panel to see the list of administrative units to which the user has been assigned.
+ 
+(list_user_au.png)
+
+### PowerShell
+
+### Graph
+
+## Remove users from an AU
+
+### Azure portal
+
+#### Removing a single user from an administrative unit
+
+There are two ways you can remove a user from an administrative unit. In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile. Select the administrative unit you want the user to be removed from and click on Remove from administrative unit.
+ 
+(user_remove_au.png)
+Alternatively, go to Azure AD > Administrative units and select the administrative unit from which the user is to be removed. Select the user and click Remove member.
+  
+(au_remove_user.png)
+
+#### Bulk remove more than one user from an administrative unit
+
+You can go to Azure AD > Administrative units and select the administrative unit from which the users are to be removed. Click on Bulk remove member. Download the CSV template for providing the list of users to be removed.
+
+Edit the downloaded CSV template with the relevant user entries. Do not remove the first two rows of the template. Add one user UPN in each row.
+  (bulk_user_entries.png)
+
+Once you have saved the entries in the file, upload the file, select **Submit**.
+ 
+(bulk_user_remove.png)
+
+PowerShell
+
+Graph
+
 ## Next steps
 
-- [Add groups to an administrative unit](roles-scope-add-groups.md)
+- [Assign a role to an administrative unit](roles-aus-assign-role.md)
+- [Add groups to an administrative unit](roles-aus-add-manage-groups.md)
