@@ -21,9 +21,10 @@ A number of features have size or count limitations due to internal details of t
 * Total allowable objects of a single type (Entity, CutPlaneComponent, etc.): 16,777,215.
 * Total allowable active cut planes: 8.
 
-## Materials
+## Geometry
 
 * Total allowable materials in an asset: 65,535.
+* Maximum dimension of a single texture: 16,384 x 16,384.
 
 ## Overall number of polygons
 
