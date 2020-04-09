@@ -28,7 +28,7 @@ One of the core features of the Speech service is the ability to recognize human
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
+[!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
