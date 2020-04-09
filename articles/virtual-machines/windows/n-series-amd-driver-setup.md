@@ -51,7 +51,7 @@ You can verify driver installation in Device Manager. The following example show
 <br />
 ![GPU driver properties](./media/n-series-amd-driver-setup/device-manager.png)
 
-You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/8th partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
+You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
 ![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag2.png)
 
