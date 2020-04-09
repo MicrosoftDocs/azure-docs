@@ -812,6 +812,8 @@
         href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types

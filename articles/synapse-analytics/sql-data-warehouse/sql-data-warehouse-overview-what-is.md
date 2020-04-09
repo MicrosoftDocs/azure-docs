@@ -2,13 +2,13 @@
 title: What is Azure Synapse Analytics (formerly SQL DW)?
 description: Azure Synapse Analytics (formerly SQL DW) is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics.
 services: synapse-analytics
-author: mlee3gsd 
+author: filippopovic 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: 
 ms.date: 11/04/2019
-ms.author: martinle
+ms.author: filippopovic
 ms.reviewer: igorstan
 ---
 
@@ -22,7 +22,7 @@ Azure Synapse has four components:
   - SQL pool (pay per DWU provisioned)
   - SQL on-demand (pay per TB processed) – (Preview)
 - Spark: Deeply integrated Apache Spark (Preview)
-- Data Integration: Hybrid data integration (Preview)
+- Synapse Pipelines: Hybrid data integration (Preview)
 - Studio: Unified user experience.  (Preview)
 
 > [!NOTE]
