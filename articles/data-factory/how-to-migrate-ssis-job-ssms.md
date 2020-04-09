@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ---
-# Migrate on-premises SSIS jobs to Azure Data Factory
+# Migrate SQL Server Agent jobs with SSIS job migration wizard in SSMS
 
 When [migrating on-premises SQL Server Integration Services (SSIS) workloads to SSIS in ADF](scenario-ssis-migration-overview.md), after SSIS packages are migrated, you can do batch migration of SQL Server Agent jobs with job step type of SQL Server Integration Services Package to Azure Data Factory (ADF) pipelines/activities/schedule triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
 
