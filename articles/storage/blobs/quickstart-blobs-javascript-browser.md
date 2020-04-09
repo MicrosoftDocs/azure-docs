@@ -23,9 +23,9 @@ In this quickstart, you learn to manage blobs by using JavaScript in a browser. 
 
 ## Prerequisites
 
-- [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [An Azure Storage account](../common/storage-account-create.md)
-- [Node.js](https://nodejs.org) to open a local web server
+- [Node.js](https://nodejs.org)
 - [Visual Studio Code](https://code.visualstudio.com)
 - A VS Code extension for browser debugging, such as [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
@@ -176,7 +176,7 @@ Follow the process in [Bundling Azure SDK libraries for a browser](https://githu
 <script src="./dist/main.js"></script>
 ```
 
-Each time you make an update to the JavaScript code, run the command to recreate the bundle. This command will incorporate your updates. For more information, see the [Run and test the web application](#run-and-test-the-web-application) section.
+Each time you make an update to the JavaScript code, run the command to recreate the bundle. This command incorporates your updates. For more information, see the [Run and test the web application](#run-and-test-the-web-application) section.
 
 ## Object model
 
@@ -234,7 +234,7 @@ In the following sections, add each new block of JavaScript code after the previ
 
 ### Add your storage account info
 
-Next, add code to access your storage account, replacing the placeholders with your account name and the SAS you generated in a previous step.  Add the following code to the *index.js* file.
+Next, add code to access your storage account. Replace the placeholders with your account name and the SAS you generated earlier. Add the following code to the *index.js* file.
 
 ```javascript
 // Update with your account name and SAS string
@@ -287,7 +287,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-This code calls the [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) and [delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) functions. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled.
+This code calls the [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) and [ContainerClient.delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) functions. This code assumes that your storage account has been created and is enabled.
 
 ### List blobs
 
@@ -347,7 +347,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise. Each Promise is added to a list so that they can all be awaited together, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a `Promise`. Each `Promise` is added to a list so that they can all be awaited together, causing the files to upload in parallel.
 
 ### Delete blobs
 
