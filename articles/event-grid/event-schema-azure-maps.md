@@ -161,8 +161,6 @@ The data object has the following properties:
 | isEventPublished | boolean | True if at least one event is published to the Azure Maps event subscriber, false if no event is published to the Azure Maps event subscriber. |
 
 ## Tutorials
-Subscribe to Azure Maps events to respond to geofence events. For example, an application could deliver an email notification every time a device enters or exits a geofence.
-
 |Title  |Description  |
 |---------|---------|
 | [React to Azure Maps events by using Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure Maps with Event Grid. |

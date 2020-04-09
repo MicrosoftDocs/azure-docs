@@ -5,7 +5,7 @@ services: event-grid
 author: banisadr
 
 ms.service: event-grid
-ms.topic: reference
+ms.topic: article
 ms.date: 04/09/2020
 ms.author: babanisa
 ---
@@ -87,8 +87,7 @@ The data object has the following properties:
 | label | string | The label, if any, of the key-value that was modified or deleted. |
 | etag | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
 
-## Tutorials
-Subscribe to Azure App Configuration events to respond to key-value modification events.
+## Tutorials and how-tos
 
 |Title | Description |
 |---------|---------|

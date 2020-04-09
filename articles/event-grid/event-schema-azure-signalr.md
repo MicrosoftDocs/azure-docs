@@ -94,8 +94,6 @@ The data object has the following properties:
 | errorMessage | string | The error that causes the connection disconnected. |
 
 ## Tutorials and how-tos
-Subscribe to Azure SignalR Service events to respond to client connection events.
-
 |Title | Description |
 |---------|---------|
 | [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
