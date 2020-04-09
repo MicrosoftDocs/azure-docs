@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/09/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -45,8 +45,8 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > 
@@ -140,8 +140,8 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
@@ -226,8 +226,8 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copy access control lists (ACLs) along with the files.|**--persist-smb-permission**=\[true\|false\]|
-> |Copy SMB property information along with the files.|**--persist-smb-info**=\[true\|false\]|
+> |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Copy files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > 
