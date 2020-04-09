@@ -932,7 +932,7 @@
         - name: High availability options
           href: virtual-machines/windows/high-availability-dr.md
         - name: Always On availability group
-          href: virtual-machines/portal-sql-availability-group-overview.md
+          href: virtual-machines/windows/portal-sql-availability-group-overview.md
         - name: Backup and restore
           href: virtual-machines/windows/backup-recovery.md
         - name: Automated backup (SQL 2014)
@@ -948,7 +948,7 @@
         - name: Extend support for SQL 2008 & R2
           href: virtual-machines/windows/sql-2008-extend-end-of-support.md
         - name: Connect to a VM
-          href: virtual-machines/connect.md
+          href: virtual-machines/windows/connect.md
         - name: Configure storage
           href: virtual-machines/windows/storage-configuration.md
         - name: Automate management tasks
@@ -1063,9 +1063,9 @@
     - name: Tutorials
       items:
       - name: Availability group with STONITH (RHEL)
-        href: virtual-machines/linux/sql-server-linux-rhel-ha-stonith-tutorial.md
+        href: virtual-machines/linux/rhel-ha-stonith-tutorial.md
       - name: Configure availability group listener (RHEL)
-        href: virtual-machines/linux/sql-server-linux-rhel-ha-listener-tutorial.md
+        href: virtual-machines/linux/linux-rhel-ha-listener-tutorial.md
     - name: Reference
       items:
       - name: Azure CLI
@@ -1081,7 +1081,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: virtual-machines/linux/sql-server-linux-faq.md
+        href: virtual-machines/linux/frequently-asked-questions-faq.md
       - name: SQL Server on Linux Documentation
         href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
       - name: SQL Server Data Tools (SSDT)
