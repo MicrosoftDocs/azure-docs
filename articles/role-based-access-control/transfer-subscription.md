@@ -113,7 +113,9 @@ To complete these steps, you will need:
 1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
 
     ```azurecli
-    az graph query -q 'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions 11111111-1111-1111-1111-111111111111 --output table
+    az graph query -q \
+    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
+    --subscriptions 11111111-1111-1111-1111-111111111111 --output table
     ```
 
 ### Save all role assignments
