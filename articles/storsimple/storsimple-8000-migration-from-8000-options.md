@@ -29,12 +29,11 @@ This brand new migration option enables customers to store their organization's 
 
 For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
 
-
 ### Third-party options
 
 #### Migrate to Panzura Freedom NAS
 
-StorSimple 5000-7000, 8000 customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients.
+StorSimple 5000-7000 series and StorSimple 8000 series customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. The Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients.
 
 This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/migrate-storsimple-panzura/).
 
