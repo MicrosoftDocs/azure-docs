@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/09/2020
 ---
 
 # Azure HDInsight 4.0 overview
@@ -90,6 +90,9 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 * Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
 * You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
 * Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
+* Apache pig runs on Tez by default, However you can change it to Mapreduce
+* Spark SQL Ranger integration for row and column security is depricated
+
 
 ## Next steps
 
