@@ -125,6 +125,11 @@ public void ConfigureServices(IServiceCollection services)
 
 ### Enable W3C distributed tracing support for Java apps
 
+#### Java 3.0 agent
+
+  Java 3.0 agent supports W3C out of the box and no additional configuration is needed. 
+
+#### Java SDK
 - **Incoming configuration**
 
   - For Java EE apps, add the following to the `<TelemetryModules>` tag in ApplicationInsights.xml:
@@ -158,8 +163,8 @@ public void ConfigureServices(IServiceCollection services)
   >
   > Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
 
-> [!IMPORTANT]
-> Make sure the incoming and outgoing configurations are exactly the same.
+    > [!IMPORTANT]
+    > Make sure the incoming and outgoing configurations are exactly the same.
 
 ### Enable W3C distributed tracing support for Web apps
 
