@@ -16,7 +16,7 @@ The only infrastructure redundancy options currently available to ultra disks ar
 The following table outlines the regions ultra disks are available in, as well as their corresponding availability options:
 
 > [!NOTE]
-> Ultra disks are not offered in every availability zone within these regions
+> Some availability zone within these regions do not offer ultra disks.
 
 |Regions  |No infrastructure redundancy  |Availability zones  |
 |---------|---------|---------|
