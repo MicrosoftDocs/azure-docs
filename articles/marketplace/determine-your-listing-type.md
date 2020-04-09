@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 ms.author: dsindona
 ---
 
@@ -21,24 +21,41 @@ In this article, you will learn:
 - Which publishing options and calls-to-action are available in each storefront
 - Which offer types are available for each publishing option
 
-## Selecting a storefront, publishing option, and offer type for your solution
+## Commercial marketplace publishing options
 
-Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services:
+The following table shows the publishing options for offer types in Microsoft AppSource and Azure Marketplace.
+
+|   | **List (Contact)**  | **List (Trial)**  | **Free** | **BYOL** | **Transact**|
+| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
+| **Virtual Machine** |  |  |  | Azure Marketplace |  Azure Marketplace |
+| **Azure Apps (multi-VM)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
+| **Container image** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **IoT Edge module** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **Managed services** |  |  |  | Azure Marketplace |   |
+| **Consulting services** | Both storefronts |  |  |  |   |
+| **SaaS app** | Both storefronts | Both storefronts | Both storefronts |  | Both storefronts* |
+| **M365 App** | AppSource | AppSource |  |  | AppSource**  |
+| **Dynamics 365 add-in** |  AppSource | AppSource |  |  |   |
+| **PowerApps** | AppSource |AppSource  |  |  |   |
+
+&#42; SaaS app Transact offers in Microsoft AppSource are currently credit card only.
+
+&#42;&#42; Dynamics 365 Transact offers are monetized via a paid SaaS offer.
+
+## Selecting a storefront
+
+Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services. Each storefront serves unique customer requirements amd targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where to publish your offer.
 
 **Microsoft AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
 **Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
 
-## Understand storefront selection
-
-Each storefront serves unique customer requirements. The storefront where your offer will be published will be determined by offer type, offer transact capabilities and category and/or industry selection to target a specific audience. 
-
 >[!Note]
->"Cross-listing" (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.
+>Cross-listing (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).  Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|
