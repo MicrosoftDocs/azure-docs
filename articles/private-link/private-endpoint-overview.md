@@ -140,7 +140,7 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Relay (Microsoft.Relay/namespaces) | namespace |privatelink.servicebus.windows.net|
 |Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.{region}.privatelink.eventgrid.azure.net|
 |Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.{region}.privatelink.eventgrid.azure.net |
-|Azure WebApps(Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
+|Azure WebApps (Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
 |Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)	| workspace | privatelink.api.azureml.ms |
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 

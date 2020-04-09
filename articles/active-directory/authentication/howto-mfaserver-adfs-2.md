@@ -5,7 +5,7 @@ description: This is the Azure Multi-Factor authentication page that describes h
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
 ms.author: iainfou
@@ -56,7 +56,7 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
 13. When complete, click **OK** to return to the Add Form-Based Website dialog box.
 14. Click **OK** to close the dialog box.
 15. Once the URL and page variables have been detected or entered, the website data displays in the Form-Based panel.
-16. Click the **Native Module** tab and select the server, the website that the AD FS proxy is running under (like “Default Web Site”), or the AD FS proxy application (like “ls” under “adfs”) to enable the IIS plug-in at the desired level.
+16. Click the **Native Module** tab and select the server, the website that the AD FS proxy is running under (like "Default Web Site"), or the AD FS proxy application (like "ls" under "adfs") to enable the IIS plug-in at the desired level.
 17. Click the **Enable IIS authentication** box at the top of the screen.
 
 The IIS authentication is now enabled.
@@ -82,8 +82,8 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 
 1. Next, click the **Company Settings** icon and select the **Username Resolution** tab.
 2. Select the **Use LDAP unique identifier attribute for matching usernames** radio button.
-3. If users enter their username in “domain\username” format, the Server needs to be able to strip the domain off the username when it creates the LDAP query. That can be done through a registry setting.
-4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the “Wow6432Node” out of the path. Create a DWORD registry key called “UsernameCxz_stripPrefixDomain” and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
+3. If users enter their username in "domain\username" format, the Server needs to be able to strip the domain off the username when it creates the LDAP query. That can be done through a registry setting.
+4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the "Wow6432Node" out of the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
 
 Ensure that users have been imported from Active Directory into the Server. See the [Trusted IPs section](#trusted-ips) if you would like to allow internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
 
@@ -104,7 +104,7 @@ You can secure AD FS when the AD FS proxy is not used. Install the Azure Multi-F
    ![AD FS 2.0 Direct without a proxy](./media/howto-mfaserver-adfs-2/noproxy.png)
 
 8. Click **OK**.
-9. Click the **Native Module** tab and select the server, the website (like “Default Web Site”), or the AD FS application (like “ls” under “adfs”) to enable the IIS plug-in at the desired level.
+9. Click the **Native Module** tab and select the server, the website (like "Default Web Site"), or the AD FS application (like "ls" under "adfs") to enable the IIS plug-in at the desired level.
 10. Click the **Enable IIS authentication** box at the top of the screen.
 
 Azure Multi-Factor Authentication is now securing AD FS.

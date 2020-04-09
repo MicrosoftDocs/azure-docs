@@ -13,13 +13,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
 ---
 
 # Overview of Oracle Applications and solutions on Azure
 
-This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace, and the preview capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
 
@@ -55,7 +55,7 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 * Back-up your Oracle Database using Oracle RMAN and optionally use [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) to mount a [highly redudant Azure Blob Storage account](https://docs.microsoft.com/azure/storage/common/storage-redundancy) and write your RMAN backups to it for added resiliency.
 
-## Integration of Azure with OCI (preview)
+## Integration of Azure with OCI
 
 Run Oracle Applications in Azure infrastructure, connected to backend databases in Oracle Cloud Infrastructure (OCI). This solution uses the following capabilities: 
 
@@ -64,7 +64,10 @@ Run Oracle Applications in Azure infrastructure, connected to backend databases 
 
 ### Deploy Oracle Applications on Azure
 
-Use Terraform templates to set up Azure infrastructure and install Oracle Applications validated and supported to run in the cross-cloud configuration:
+Use Terraform templates to set up Azure infrastructure and install Oracle Applications. 
+
+> [!IMPORTANT]
+> Oracle will certify these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution by May 2020.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

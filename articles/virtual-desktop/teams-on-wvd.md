@@ -35,7 +35,7 @@ To enable Teams per-machine installation, set the following registry key on the 
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### Install Microsoft Teams
