@@ -50,6 +50,8 @@ If you previously installed an alpha version of the what-if module, uninstall th
    Unregister-PSRepository -Name WhatIfRepository
    ```
 
+You're ready to use what-if.
+
 ## See results
 
 In PowerShell, the output includes color-coded results that help you see the different types of changes.
