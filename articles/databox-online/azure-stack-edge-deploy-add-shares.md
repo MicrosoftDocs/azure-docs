@@ -30,7 +30,7 @@ Before you add shares to Azure Stack Edge, make sure that:
 
 - You've installed your physical device as described in [Install Azure Stack Edge](data-box-edge-deploy-install.md).
 
-- You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge](data-box-edge-deploy-connect-setup-activate.md).
+- You've activated the physical device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## Add a share
@@ -156,6 +156,6 @@ In this tutorial, you learned about the following Azure Stack Edge topics:
 To learn how to transform your data by using Azure Stack Edge, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Transform data with Azure Stack Edge](./data-box-edge-deploy-configure-compute.md)
+> [Transform data with Azure Stack Edge](./azure-stack-edge-deploy-configure-compute.md)
 
 

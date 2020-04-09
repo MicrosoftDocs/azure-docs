@@ -109,7 +109,7 @@ A replacement device is needed when the existing device has a hardware failure o
 
 1. [Open a Support ticket for hardware issue](#open-a-support-ticket). Microsoft Support will determine that a Field Replacement Unit (FRU) is not available for this instance or the device needs a hardware upgrade. In either case, Support will order a replacement device.
 2. [Create a new resource](data-box-edge-deploy-prep.md#create-a-new-resource) for the replacement device. Make sure to select the check box against **I have an Azure Stack Edge device**. 
-3. After you receive a replacement device, [install](data-box-edge-deploy-install.md) and [activate](data-box-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
+3. After you receive a replacement device, [install](data-box-edge-deploy-install.md) and [activate](azure-stack-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
 4. Follow all the steps to return the original device:
     1. Open another ticket to return the original device.
     2. [Erase the data on the device](#erase-data-from-the-device).

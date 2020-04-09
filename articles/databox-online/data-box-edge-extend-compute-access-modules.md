@@ -27,7 +27,7 @@ In this tutorial, you'll use a webserver app module to demonstrate the scenario.
 Before you begin, you'll need:
 
 - An Azure Stack Edge device with device setup completed.
-- You've completed **Configure compute** step as per the [Tutorial: Transform data with Azure Stack Edge](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
+- You've completed **Configure compute** step as per the [Tutorial: Transform data with Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 ## Enable network interface for compute
 

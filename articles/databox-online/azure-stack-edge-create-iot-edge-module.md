@@ -44,7 +44,7 @@ Before you begin, make sure you have:
 
     - The device also has an associated IoT Hub resource.
     - The device has Edge compute role configured.
-    For more information, go to [Configure compute](data-box-edge-deploy-configure-compute.md#configure-compute) for your Azure Stack Edge.
+    For more information, go to [Configure compute](azure-stack-edge-deploy-configure-compute.md#configure-compute) for your Azure Stack Edge.
 
 - The following development resources:
 
@@ -272,4 +272,4 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Next steps
 
-To deploy and run this module on Azure Stack Edge, see the steps in [Add a module](data-box-edge-deploy-configure-compute.md#add-a-module).
+To deploy and run this module on Azure Stack Edge, see the steps in [Add a module](azure-stack-edge-deploy-configure-compute.md#add-a-module).

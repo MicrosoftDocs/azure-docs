@@ -218,4 +218,4 @@ In this tutorial, you learned about Azure Stack Edge topics such as how to:
 Advance to the next tutorial to learn how to connect, set up, and activate your device.
 
 > [!div class="nextstepaction"]
-> [Connect and set up Azure Stack Edge](./data-box-edge-deploy-connect-setup-activate.md)
+> [Connect and set up Azure Stack Edge](./azure-stack-edge-deploy-connect-setup-activate.md)
