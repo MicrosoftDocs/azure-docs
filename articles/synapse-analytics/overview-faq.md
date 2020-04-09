@@ -98,3 +98,11 @@ A: Yes, you can use your third-party business applications, like Tableau and Pow
 ### Q: Does Azure Synapse Analytics provide APIs
 
 A: Yes, we provide an SDK to programmatically interact with Azure Synapse Analytics. More information is available [here] on which operations are supported by Synapse.
+
+## Next steps
+
+- [Create a workspace](quickstart-create-workspace.md)
+- [Use Synapse Studio](quickstart-synapse-studio.md)
+- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Use SQL on-demand](quickstart-sql-on-demand.md)
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
