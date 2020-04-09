@@ -19,7 +19,7 @@ In this article, you'll find tips for implementing group by options in SQL pool.
 
 ## What does GROUP BY do?
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
@@ -30,6 +30,7 @@ The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause agg
 The simplest option here is to use UNION ALL to perform the rollup rather than relying on the explicit syntax. The result is exactly the same.
 
 The following example using the GROUP BY statement with the ROLLUP option:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -79,9 +80,10 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ## Cube options
+
 It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
-Using the previous example, the first step is to define the 'cube' that defines all the levels of aggregation that we want to create. 
+Using the previous example, the first step is to define the 'cube' that defines all the levels of aggregation that we want to create.
 
 Take note of the CROSS JOIN of the two derived tables since this generates all the levels for us. The rest of the code is there for formatting:
 
@@ -177,5 +179,5 @@ ORDER BY 1,2,3
 By breaking up the code into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

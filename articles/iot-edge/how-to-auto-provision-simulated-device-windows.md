@@ -4,7 +4,7 @@ description: Use a simulated device on your Windows machine to test automatic de
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ services: iot-edge
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
-DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices.
+DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check "is IoT Edge device" option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices.
 
 This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
@@ -54,6 +54,9 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment.
 
 When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+
+> [!TIP]
+> In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
 Simulated device and individual enrollment guides:
 

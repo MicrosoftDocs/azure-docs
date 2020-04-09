@@ -113,6 +113,8 @@
       items:
         - name: What is text-to-speech?
           href: text-to-speech.md
+        - name: Text-to-speech basics
+          href: text-to-speech-basics.md
     - name: Quickstart
       items:
         - name: Synthesize speech to a speaker
@@ -456,8 +458,6 @@
           href: speech-sdk.md
         - name: Scenario availability
           href: scenario-availability.md
-        - name: Ship an application
-          href: ship-application.md
     - name: Quickstart
       items:
         - name: Setup Speech SDK
@@ -472,6 +472,9 @@
         - name: Configure OpenSSL for Linux
           displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
           href: how-to-configure-openssl-linux.md
+        - name: Configure RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
     - name: Samples
       items:
         - name: Speech SDK samples (GitHub)

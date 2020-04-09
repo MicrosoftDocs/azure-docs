@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -147,6 +147,9 @@ Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The followin
 | Maximum JOINs per query| 5 <sup>*</sup>|
 | Maximum UDFs per query| 10 <sup>*</sup>|
 | Maximum points per polygon| 4096 |
+| Maximum included paths per container| 500 |
+| Maximum excluded paths per container| 500 |
+| Maximum properties in a composite index| 8 |
 
 <sup>*</sup> You can increase these SQL query limits by contacting Azure Support.
 
@@ -158,7 +161,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum MongoDB query memory size | 40 MB |
+| Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
 | Idle connection timeout for server side connection closure* | 30 minutes |
 

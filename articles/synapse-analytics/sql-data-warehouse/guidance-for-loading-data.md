@@ -58,13 +58,13 @@ Connect to the SQL pool and create a user. The following code assumes you're con
 
 To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. 
+Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level.
 
 For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
 ## Allowing multiple users to load
 
-There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. 
+There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas.
 
 You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
@@ -79,46 +79,47 @@ User_A and user_B are now locked out from the other dept's schema.
 
 ## Loading to a staging table
 
-To achieve the fastest loading speed for moving data into a SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option. 
+To achieve the fastest loading speed for moving data into a SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option.
 
-Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. 
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution.
 
 Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
 ## Loading to a columnstore index
 
-Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. 
+Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup.
 
 When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This scenario, in turn, effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-- To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
-- Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. 
+- To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class.
+- Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index.
 
 > [!NOTE]
 > If you load too few rows, they might all route to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SqLBulkCopy API or bcp
-Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) or [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), you should consider increasing batch size for better throughput. 
+
+Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
 
 > [!TIP]
-> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
+> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity.
 
 ## Handling loading failures
 
-A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. 
+A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records.
 
 A data record is considered to be dirty if it meets one of the following conditions:
 
 - The data types and number of columns do not match the column definitions of the external table.
-- The data doesn't conform to the specified external file format. 
+- The data doesn't conform to the specified external file format.
 
-To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. 
+To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions.
 
-If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Inserting data into a production table
 
-A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
+A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load.
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
@@ -142,7 +143,7 @@ It is good security practice to change the access key to your blob storage on a 
 
 To rotate Azure Storage account keys:
 
-For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
+For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Example:
 
@@ -155,7 +156,7 @@ CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', S
 Rotate key from key 1 to key 2
 
 ```sql
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2'
 ```
 
 No other changes to underlying external data sources are needed.

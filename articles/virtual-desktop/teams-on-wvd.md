@@ -32,11 +32,11 @@ You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environm
 
 To enable Teams per-machine installation, set the following registry key on the host:
 
-      ```shell
-      [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
-      Type: REG_DWORD
-      Value: 0x1
-      ```
+```shell
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
+  Type: REG_DWORD
+  Value: 1
+```
 
 ### Install Microsoft Teams
 
