@@ -59,7 +59,8 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 
+255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 ```
 
 ## Analyze the response
@@ -71,9 +72,12 @@ The following response shows the various insights from the API. It contains pote
 
 ```json
 {
-   "original_text":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
-   "normalized_text":"   grabage  crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
-   "auto_corrected_text":"Is this a garbage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "original_text":"Is this a grabage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "normalized_text":"   grabage  crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "auto_corrected_text":"Is this a garbage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
    "status":{
       "code":3000,
       "description":"OK"
@@ -120,7 +124,8 @@ The following response shows the various insights from the API. It contains pote
          "term":"crap"
       }
    ],
-   "tracking_id":"WU_ibiza_65a1016d-0f67-45d2-b838-b8f373d6d52e_ContentModerator.F0_fe000d38-8ecd-47b5-a8b0-4764df00e3b5"
+   "tracking_id":"WU_ibiza_65a1016d-0f67-45d2-b838-b8f373d6d52e_ContentModerator.
+   F0_fe000d38-8ecd-47b5-a8b0-4764df00e3b5"
 }
 ```
 
