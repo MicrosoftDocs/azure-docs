@@ -112,5 +112,5 @@ Graph
 
 ## Next steps
 
-- [Assign a role to an administrative unit](roles-aus-assign-role.md)
+- [Assign a role to an administrative unit](roles-aus-assign-roles.md)
 - [Add groups to an administrative unit](roles-aus-add-manage-groups.md)

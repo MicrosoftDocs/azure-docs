@@ -127,5 +127,5 @@ Alternatively, you can go to **Azure AD** > **Administrative units** and select 
 
 ## Next steps
 
-- [Assign a role to an administrative unit](roles-aus-assign-role.md)
+- [Assign a role to an administrative unit](roles-aus-assign-roles.md)
 - [Manage users in an administrative unit](roles-aus-add-manage-users.md)

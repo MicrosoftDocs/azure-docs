@@ -185,7 +185,7 @@
       - name: Add & manage groups in AUs
         href: roles-aus-add-manage-groups.md
       - name: Assign a role with AU scope
-        href: roles-aus-assign-role.md
+        href: roles-aus-assign-roles.md
       - name: FAQ and troubleshooting.md
         href: roles-aus-faq-troubleshoot.md
   - name: Manage sign-in
