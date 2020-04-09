@@ -87,6 +87,9 @@ For now, customer-managed keys have the following restrictions:
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
+    > [!IMPORTANT]
+    > Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
+    
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
     $LocationName="westcentralus"

@@ -3,12 +3,12 @@ title: Cognitive Services containers frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions and answers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -71,7 +71,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **Q: How should I run the Cognitive Services containers on IoT devices?**
 
-Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+Whether you don't have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 
 **Q: How do I provide product feedback and feature recommendations?**
 
@@ -115,7 +115,7 @@ Explore the following tags for potential questions and answers that align with y
  
 **Q: What is the current support warranty for containers?**
 
-**A:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
+**A:** There is no warranty for previews. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
  
 **Q: What happens to Cognitive Services containers when internet connectivity is lost?**
 
