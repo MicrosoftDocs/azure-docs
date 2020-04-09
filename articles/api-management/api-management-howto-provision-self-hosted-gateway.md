@@ -36,9 +36,6 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 4. Optionally, enter a **Description** of the gateway resource.
 5. Optionally, select **+** under **APIs** to associate one or more APIs with this gateway resource.
-> [!TIP]
-> You can associate and remove an API from a gateway on the API's **Settings** tab.
-
 > [!IMPORTANT]
 > By default, none of the existing APIs will be associated with the new gateway resource. Therefore, attempts to invoke them via the new gateway will result in `404 Resource Not Found` responses.
 
