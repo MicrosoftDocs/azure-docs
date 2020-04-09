@@ -141,7 +141,7 @@ The destination of the inbound flow is the frontend IP address on the loopback i
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../sql-database/virtual-machines/windows/portal-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 
