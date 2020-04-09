@@ -17,14 +17,14 @@ The following table outlines the available regions and their corresponding avail
 
 |Regions  |No infrastructure Redundancy  |Availability zones  |
 |---------|---------|---------|
-|West US     |         |         |
-|West US 2    |         |         |
-|East US     |         |         |
-|East US 2     |         |         |
-|SouthEast Asia     |         |         |
-|North Europe     |         |         |
-|West Europe     |         |         |
-|UK South     |         |         |
+|West US     |Yes         |         |
+|West US 2    |No         |Yes         |
+|East US     |No         |Yes         |
+|East US 2     |No         |Yes         |
+|SouthEast Asia     |No         |Yes         |
+|North Europe     |No         |Yes         |
+|West Europe     |No         |Yes         |
+|UK South     |No         |Yes         |
 
 - Are only supported on the following VM series:
     - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)

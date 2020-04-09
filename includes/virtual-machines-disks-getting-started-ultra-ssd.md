@@ -5,11 +5,10 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/14/2019
+ ms.date: 04/08/2020
  ms.author: rogarana
  ms.custom: include file
 ---
-
 
 
 Azure ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
@@ -59,7 +58,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ### VMs with no redundancy options
 
-Ultra disks without any redundancy options are only available in West US, for now. However, not every disk size that supports ultra disks may be in this region. To determine which ones in West US support ultra disks, you can use either of the following code snipptes. Make sure to replace the `vmSize` and `subscription` values first:
+Ultra disks deployed in West US must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in this region. To determine which ones in West US support ultra disks, you can use either of the following code snipptes. Make sure to replace the `vmSize` and `subscription` values first:
 
 ```azurecli
 $subscription = "<yourSubID>"
