@@ -39,6 +39,12 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [python](../includes/quickstarts/from-file/python/python.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/javascript/header.md)]
+[!INCLUDE [python](../includes/quickstarts/from-file/javascript/javascript.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 [!INCLUDE [Header](../includes/quickstarts/from-file/more/header.md)]
 [!INCLUDE [More samples](../includes/quickstarts/from-file/more/more.md)]
