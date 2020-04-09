@@ -35,6 +35,7 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | Azure Information Protection app |![Check mark signifying support for this application][1] |
 | Intune Company Portal |![Check mark signifying support for this application][1] |
 | Microsoft Teams |![Check mark signifying support for this application][1] |
+| Office (mobile) |![Check mark signifying support for this application][1] |
 | OneNote |![Check mark signifying support for this application][1] |
 | OneDrive |![Check mark signifying support for this application][1] |
 | Outlook |![Check mark signifying support for this application][1] |
