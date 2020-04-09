@@ -62,7 +62,7 @@ To use the Azure IoT extension for the Azure CLI, you need:
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
 
-- Some commands need the connection string for a company model repository. A model repository for your company is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md). A third party might share their model repository connection string with you to give you access to their interfaces and models.
+- Some commands need the connection string for a company model repository. A third party might share their model repository connection string with you to give you access to their interfaces and models.
 
 ### Interact with a device
 
