@@ -163,7 +163,7 @@ Cassandra API is planning to support Secondary indexing to help create selective
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 
-Yes this is supported. You can find learn details of how to enable this [here](local-emulator.md#cassandra-api)
+Yes this is supported. You can find details of how to enable this [here](local-emulator.md#cassandra-api)
 
 
 ### Feature x of regular Cassandra API isn't working as today, where can the feedback be provided?
