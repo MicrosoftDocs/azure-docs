@@ -71,7 +71,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
     > [!div class="mx-imgBorder"]
     > ![Screenshot of published knowledge base settings](../media/how-to-integrate-power-virtual-agent/published-knowledge-base-settings.png)
 
-    Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal. You will need this information for the [Power Automate step](#create-power-automate-flow-to-connect-to-your-knowledge-base) to configure your QnA Maker `GenerateAnswer` connection.
+    Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal. You will need this information for the [Power Automate step](#create-a-power-automate-flow-to-connect-to-your-knowledge-base) to configure your QnA Maker `GenerateAnswer` connection.
 
 1. In the QnA Maker portal, on the **Settings** page, find the endpoint key, endpoint host, and knowledge base ID.
 
@@ -114,7 +114,7 @@ Although the agent can connect to your knowledge base from any topic, this tutor
 
 ## Use the authoring canvas to add an action
 
-Use the Power Virtual Agents authoring canvas to connect the fallback topic to your knowledge base. The topic starts with the unrecognized user text. Add an action that passes that text to QnA Maker, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](#add-solutions-flow-to-power-virtual-agent), later in this tutorial.
+Use the Power Virtual Agents authoring canvas to connect the fallback topic to your knowledge base. The topic starts with the unrecognized user text. Add an action that passes that text to QnA Maker, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](#add-your-solutions-flow-to-power-virtual-agents), later in this tutorial.
 
 This section creates the fallback topic conversation flow.
 
