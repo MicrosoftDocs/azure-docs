@@ -43,7 +43,7 @@ This tutorial uses an existing Azure Resource Manager template to create compone
 
     ![Create a resource group](../media/rotate2.png)
 
-You'll now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in Azure CLI by running the following command:
+You'll now have a key vault, a SQL Server instance, and a SQL database. You can verify this setup in the Azure CLI by running the following command:
 
 ```azurecli
 az resource list -o table
@@ -75,7 +75,7 @@ The function app requires these components:
 
    ![Select Purchase](../media/rotate3.png)
 
-After you complete the preceding steps, you'll have a storage account, a server farm, and a function app. You can verify this setup in Azure CLI by running the following command:
+After you complete the preceding steps, you'll have a storage account, a server farm, and a function app. You can verify this setup in the Azure CLI by running the following command:
 
 ```azurecli
 az resource list -o table
@@ -176,7 +176,7 @@ You can find the complete code on [GitHub](https://github.com/jlichwa/azure-keyv
 1. Upload the simplerotationsample-fn.zip file to Azure Cloud Shell.
 
    ![Upload the file](../media/rotate4.png)
-1. Use this CLI command to deploy the zip file to the function app:
+1. Use this Azure CLI command to deploy the zip file to the function app:
 
    ```azurecli
    az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
