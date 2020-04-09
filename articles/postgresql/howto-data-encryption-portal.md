@@ -1,5 +1,5 @@
 ---
-title: Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
+title: Data encryption - Azure portal - for Azure Database for PostgreSQL - Single server
 description: Learn how to set up and manage data encryption for your Azure Database for PostgreSQL Single server by using the Azure portal.
 author: kummanish
 ms.author: manishku
@@ -60,7 +60,7 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 
 4. To ensure all files (including temp files) are fully encrypted, restart the server.
 
-## Restore or create a replica of the server
+## Using Data encryption for restore or replica servers
 
 After Azure Database for PostgreSQL Single server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through a replica (local/cross-region) operation. So for an encrypted PostgreSQL server, you can use the following steps to create an encrypted restored server.
 

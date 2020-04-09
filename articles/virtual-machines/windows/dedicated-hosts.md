@@ -26,3 +26,5 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 - You can deploy a dedicated host using [Azure PowerShell](dedicated-hosts-powershell.md), the [portal](dedicated-hosts-portal.md), and [Azure CLI](../linux/dedicated-hosts-cli.md).
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+
+- You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../prepay-dedicated-hosts-reserved-instances.md).

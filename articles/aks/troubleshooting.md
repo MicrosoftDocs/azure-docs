@@ -55,7 +55,7 @@ The reason for the warnings on the dashboard is that the cluster is now enabled 
 
 The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
+If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
@@ -116,7 +116,7 @@ Naming restrictions are implemented by both the Azure platform and AKS. If a res
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
 * The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 
-## I’m receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
+## I'm receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 
 *This troubleshooting assistance is directed from aka.ms/aks-pending-operation*
 
@@ -293,7 +293,7 @@ If you are using a version of Kubernetes that does not have the fix for this iss
 In some cases, if an Azure Disk detach operation fails on the first attempt, it will not retry the detach operation and will remain attached to the original node VM. This error can occur when moving a disk from one node to another. For example:
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 This issue has been fixed in the following versions of Kubernetes:
@@ -343,12 +343,12 @@ This issue has been fixed in the following versions of Kubernetes:
 If you are using a version of Kubernetes that does not have the fix for this issue and your node VM is in a failed state, you can mitigate the issue by manually updating the VM status using one of the below:
 
 * For an availability set-based cluster:
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * For a VMSS-based cluster:
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
@@ -379,7 +379,7 @@ Recommended settings:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+If using a cluster with Kubernetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -486,6 +486,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
+
+### Slow disk attachment, GetAzureDiskLun takes 10 to 15 minutes and you receive an error
+
+On Kubernetes versions **older than 1.15.0** you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this is to wait approximately 15 minutes and retry.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

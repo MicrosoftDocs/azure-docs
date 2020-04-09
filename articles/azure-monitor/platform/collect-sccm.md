@@ -1,7 +1,6 @@
 ---
 title: Connect Configuration Manager to Azure Monitor | Microsoft Docs
 description: This article shows the steps to connect Configuration Manager to workspace in Azure Monitor and start analyzing data.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/17/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -177,7 +177,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/xmlchoose.png)
 
-1. On the **SAML Single Sign-On Settings** page, fields populate automatically and click save.
+1. On the **SAML Single Sign-On Settings** page, fields populate automatically, select the **User Provisioning Enabled** and then click **Save**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/salesforcexml.png)
 

@@ -26,7 +26,7 @@ When using the NPS extension for Azure MFA, the authentication flow includes the
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
 2. **NPS Server** connects to Active Directory to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
 3. **NPS Extension** triggers a request to Azure MFA for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
-4. **Azure MFA** communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
+4. **Azure MFA** communicates with Azure Active Directory to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow: 
 
@@ -75,6 +75,7 @@ The NPS server needs to be able to communicate with the following URLs over port
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
@@ -165,7 +166,7 @@ The installer creates a PowerShell script in this location: `C:\Program Files\Mi
 - Create a self-signed certificate.
 - Associate the public key of the certificate to the service principal on Azure AD.
 - Store the cert in the local machine cert store.
-- Grant access to the certificate’s private key to Network User.
+- Grant access to the certificate's private key to Network User.
 - Restart the NPS.
 
 Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate.
@@ -247,9 +248,9 @@ You can choose to create this key and set it to FALSE while your users are onboa
 
 ### NPS extension health check script
 
-The following script is available on the TechNet Gallery to perform basic health check steps when troubleshooting the NPS extension.
+The following script is available to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -300,7 +301,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
+4. Verify that `https://login.microsoftonline.com/` is accessible from the server running the extension.
 
 ---
 
@@ -331,6 +332,8 @@ It is recommended that older and weaker cipher suites be disabled or removed unl
 Additional troubleshooting guidance and possible solutions can be found in the article [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## Next steps
+
+- [Overview and configuration of Network Policy Server in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

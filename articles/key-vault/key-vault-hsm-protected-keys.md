@@ -7,6 +7,7 @@ manager: devtiw
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
@@ -27,10 +28,19 @@ This functionality is not available for Azure China 21Vianet.
 
 Transferring HSM-protected keys to Key Vault is supported via two different methods depending on the HSMs you use. Use the table below to determine which method should be used for your HSMs to  generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
 
-|HSM Vendor Name|Supported HSM models|Supported HSM-key transfer method|
-|---|---|---|
-|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>nShield family of HSMs</li></ul>|[Use legacy BYOK method](hsm-protected-keys-legacy.md)|
+|Vendor Name|Vendor Type|Supported HSM models|Supported HSM-key transfer method|
+|---|---|---|---|
+|nCipher|Manufacturer|<ul><li>nShield family of HSMs</li></ul>|[Use legacy BYOK method](hsm-protected-keys-legacy.md)|
+|Thales|Manufacturer|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## Next steps

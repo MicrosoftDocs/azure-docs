@@ -5,7 +5,7 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 
-ms.custom: mvc
+ms.custom: mvc,subject-armqs
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -15,6 +15,8 @@ ms.custom: mvc
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template. A multi-container application that includes a web front end and a Redis instance is run in the cluster.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -32,9 +34,11 @@ To create an AKS cluster using a Resource Manager template, you provide an SSH p
 
 To access AKS nodes, you connect using an SSH key pair. Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the *~/.ssh* directory. If an SSH key pair with the same name exists in the given location, those files are overwritten.
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
+
 The following command creates an SSH key pair using RSA encryption and a bit length of 2048:
 
-```azurecli-interactive
+```console
 ssh-keygen -t rsa -b 2048
 ```
 
@@ -64,13 +68,21 @@ Make a note of the *appId* and *password*. These values are used in the followin
 
 ## Create an AKS cluster
 
-The template used in this quickstart is to [deploy an Azure Kubernetes Service cluster](https://azure.microsoft.com/resources/templates/101-aks/). For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
+### Review the template
+
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-aks/).
+
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+
+For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
+
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template.
 
     [![Deploy to Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-2. Select or enter the following values.  
+2. Select or enter the following values.
 
     For this quickstart, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, *OS Type*, and *Kubernetes Version*. Provide your own values for the following template parameters:
 
@@ -91,7 +103,9 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
-## Connect to the cluster
+## Validate the deployment
+
+### Connect to the cluster
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
 
@@ -107,20 +121,20 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 The following example output shows the nodes created in the previous steps. Make sure that the status for all the nodes is *Ready*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
 aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
 aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
-## Run the application
+### Run the application
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
 
@@ -216,39 +230,39 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Deployments and Services created successfully:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## Test the application
+### Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -256,7 +270,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## Delete cluster
+## Clean up resources
 
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 

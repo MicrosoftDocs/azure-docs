@@ -24,7 +24,7 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
 
-- Learn more about [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), and [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/).
+- Learn more about [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), and [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](../security/azure-security-disk-encryption-faq.md) for Azure VM disk encryption.
 
 ### Limitations

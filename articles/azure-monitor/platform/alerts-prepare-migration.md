@@ -2,10 +2,10 @@
 title: Update logic apps & runbooks for alerts migration
 author: yanivlavi
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules

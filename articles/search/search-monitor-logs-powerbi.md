@@ -61,6 +61,25 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
     ![](media/search-monitor-logs-powerbi/powerbi-search.png)
 
+## How to change the app parameters
+If you would like to visualize data from a different storage account or change the number of days of data to query, follow the below steps to change the **Days** and **StorageAccount** parameters.
+
+1. Navigate to your Power BI apps, find your Azure Cognitive Search app and select the **Edit app** button to view the workspace.
+
+    ![](media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png)
+
+1. Select **Settings** from the Dataset options.
+
+    ![](media/search-monitor-logs-powerbi/workspace-view-select-settings.png)
+
+1. While in the Datasets tab, change the parameter values and select **Apply**. If there is an issue with the connection, update the data source credentials on the same page.
+
+1. Navigate back to the workspace and select **Refresh now** from the Dataset options.
+
+    ![](media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png)
+
+1. Open the report to view the updated data. You might also need to refresh the report to view the latest data.
+
 ## Troubleshooting
 If you find that you cannot see your data follow these troubleshooting steps:
 

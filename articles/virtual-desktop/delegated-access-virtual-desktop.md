@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
+manager: lizross
 ---
 # Delegated access in Windows Virtual Desktop
 

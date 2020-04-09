@@ -15,7 +15,7 @@ Today, Azure Backup provides a reporting solution that leverages [Azure Monitor 
 * Backup Reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Azure Backup Agent (MARS), Azure Backup Server (MABS) and System Center DPM.
 * For DPM workloads, Backup Reports are supported for DPM Version 5.1.363.0 and above, and Agent Version 2.0.9127.0 and above.
 * For MABS workloads, Backup Reports are supported for MABS Version 13.0.415.0 and above, and Agent Version 2.0.9170.0 and above.
-* Backup Reports can be viewed across all backup items, vaults, subscriptions and regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. 
+* Backup Reports can be viewed across all backup items, vaults, subscriptions and regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. Note that to view reports for a set of vaults, you only need to have **reader access to the LA Workspace** to which the vaults are sending their data. You **need not** have access to the individual vaults.
 * If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 * Data for log backup jobs is currently not displayed in the reports.
 
@@ -41,16 +41,20 @@ In the monitoring section of your Recovery Services vault, select **Diagnostic s
 
 Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> Once you configure diagnostics, it may take upto 24 hours for the initial data push to complete. Once data starts flowing into the LA Workspace, you may not be able to see data in the reports immediately, since data for the current partial day are not shown in the reports (more details [here](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Hence, it is recommended to start viewing the reports 2 days after you configure your vaults to send data to Log Analytics.
+
 3. **View reports on the Azure portal:**
 
-Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault’s blade and clicking on the **Backup Reports** menu item. 
+Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault's blade and clicking on the **Backup Reports** menu item. 
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
 Clicking this link opens up the Backup Report Workbook.
 
 > [!NOTE]
-> Currently, the initial load of the report may take up to 1 minute.
+> * Currently, the initial load of the report may take up to 1 minute.
+> * The Recovery Services vault is merely an entry point for Backup Reports. Once the Backup Reports Workbook opens up from a vault's blade, you will be able to see data aggregated across all your vaults (by selecting the appropriate set of LA Workspaces).
 
 Below is a description of the various tabs that the report contains:
 

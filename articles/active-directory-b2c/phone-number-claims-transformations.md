@@ -3,14 +3,14 @@ title: Phone number claims transformations in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for phone number claims transformations in Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -103,7 +103,7 @@ The self-asserted technical profile that calls the validation technical profile 
 
 - Input claims:
   - **phoneNumberString**: +1 (123) 456-7890
-- Output claims: 
+- Output claims:
   - **outputClaim**: +11234567890
 
 

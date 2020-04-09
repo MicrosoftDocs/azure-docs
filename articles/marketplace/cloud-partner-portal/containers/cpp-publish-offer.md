@@ -1,13 +1,12 @@
 ---
 title: Publish Azure Containers image offer | Azure Marketplace
 description: How to publish an Azure container offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish container offer

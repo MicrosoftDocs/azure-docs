@@ -6,14 +6,14 @@ cloud: gov
 author: todorgb
 ms.service: azure-government
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: todorb
 ---
 # Azure Government authorized reseller list
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
-Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **December 18, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
+Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **March 11, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 
 ## Approved direct CSPs
 
@@ -40,7 +40,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
 |[Amalgama Technologies Inc](http://amalgamatetech.com/)|
-|[Ambonare](https://www.ambonare.com)|
+|[Ambonare](https://www.redriver.com/ambonare)|
 |[American Technology Services](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
@@ -85,6 +85,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Ciracom Inc.](https://ciracom.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
+|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
 |[CodeLynx, LLC](https://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -184,7 +185,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Integration Partners Corp.](https://integrationpartners.com/)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
 |[Invoke, LLC](https://invokellc.com)|
-|[ISC](https://www.isc2.org/)|
 |[It1 Source LLC](https://www.it1.com)|
 |[ITInfra](https://itinfra.biz/)|
 |[IV4, Inc](https://www.iv4.com)|
@@ -390,7 +390,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |SoftwareONE|sales@softwareone.com|800-444-9890|
 |Zones International|publicsector@zones.com|253-205-3000|
 
-## Approved 2019 AOS-G Partners
+## Approved 2020 AOS-G Partners
 
 |Partner Name|Phone|
 |----------------------------|---------------------------|
@@ -399,7 +399,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |Arctic Information Technology, Inc.|907-261-9500|
 |C3 Integrated Solutions, Inc.|571-384-7950|
 |Catapult Systems, LLC|512-225-6916|
-|ISC|850-566-8421|
+|Cloud Navigator, Inc - formerly ISC|800-619-7377|
 |KTL Solutions, Inc.|301-360-0001|
 |LiftOff LLC|410-419-1591|
 |Permuta Technologies, Inc.|703-650-5040|

@@ -1,16 +1,18 @@
 ---
 title: Contacts information for a Power BI App offer | Azure Marketplace 
 description: Configure Contacts fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Power BI App Contacts tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 Use the **Contacts** tab of the **New Offer** page to provide technical and user support resources for your offer. It is divided into two sections: 
 **Engineering** and **Customer Support**.

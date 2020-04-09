@@ -1,5 +1,5 @@
 ---
-title: Set up advanced threat protection for Azure Key Vault
+title: Threat protection for Azure Key Vault
 description: This article explains how to set up advanced threat protection for Azure Key Vault in Azure Security Center
 services: security-center
 author: memildin

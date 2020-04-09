@@ -144,7 +144,7 @@ Please note that for production deployments separate certificates should be used
 
 ## Troubleshoot the deployment
 
-If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
+If your web role fails to come online, it is likely a problem with the security configuration. Check that the TLS/SSL is configured as described above.
 
 If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier.
 
@@ -248,7 +248,7 @@ The script files included are:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). If you configured SSL and left the http endpoint disabled, ensure that you use the https:// endpoint instead.
+5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). If you configured TLS and left the http endpoint disabled, ensure that you use the https:// endpoint instead.
 
    Sample command line:
 
@@ -327,7 +327,7 @@ You may see the below message when running the sample powershell scripts:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-This error means that your SSL certificate is not configured correctly. Please follow the instructions in section 'Connecting with a web browser'.
+This error means that your TLS/SSL certificate is not configured correctly. Please follow the instructions in section 'Connecting with a web browser'.
 
 If you cannot submit requests you may see this:
 

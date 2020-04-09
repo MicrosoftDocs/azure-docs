@@ -56,7 +56,7 @@ Ensure that the following prerequisites are in place.
 
      | Port number | How it's used |
      | --- | --- |
-     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
      | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
      
@@ -143,7 +143,7 @@ Second, you can create and run an unattended deployment script. This is useful w
         $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. Go to **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** and run the following script using the `$cred` object that you created:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
 >If an Authentication Agent is installed on a Virtual Machine, you can't clone the Virtual Machine to setup another Authentication Agent. This method is **unsupported**.

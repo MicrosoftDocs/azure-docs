@@ -8,19 +8,20 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About text-to-speech
   linkLists:
     - linkListType: overview
       links:
       - text: What is text-to-speech?
         url: text-to-speech.md
+      - text: Speech synthesis basics
+        url: text-to-speech-basics.md
     - linkListType: quickstart
       links:
         - text: Synthesize speech to a speaker
@@ -29,53 +30,33 @@ landingContent:
           url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Step-by-step guides
+- title: Develop with text-to-speech
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Improve synthesis with Custom Voice
-          url: how-to-custom-voice.md
-        - text: Synthesize speech with Long Audio API
-          url: long-audio-api.md
         - text: Get a list of voices with REST (Python)
           url: quickstart-python-get-text-to-speech-voices.md
         - text: Convert text-to-speech with REST (Python)
           url: quickstart-python-text-to-speech.md
-        - text: Improve synthesis with Audio Content creation
-          url: how-to-audio-content-creation.md
     - linkListType: concept
       links:
         - text: Get started with Custom Voice
           url: how-to-custom-voice.md
-        - text: Prepare Custom Voice data
-          url: how-to-custom-voice-prepare-data.md
         - text: Create and use Custom Voice models
           url: how-to-custom-voice-create-voice.md
-        - text: Record voice samples
-          url: record-custom-voice-samples.md
-        - text: Custom keyword naming guidelines
-          url: speech-devices-sdk-kws-guidelines.md
-        - text: Custom keyword spotting
-          url: speech-devices-sdk-create-kws.md
         - text: Gating of Custom Voice
           url: concepts-gating-overview.md
-        - text: Deployment of synthetic technology
-          url: concepts-guidelines-responsible-deployment-synthetic.md
-        - text: Disclosure design guidelines
-          url: concepts-disclosure-guidelines.md
-        - text: Disclosure design patterns
-          url: concepts-disclosure-patterns.md
 - title: Reference
   linkLists:
     - linkListType: reference
       links:
-        - text: Language support
-          url: language-support.md#text-to-speech
-        - text: Pricing
+        - text: Standard voice support
+          url: language-support.md#standard-voices
+        - text: Neural voice support
+          url: language-support.md#neural-voices
+        - text: SSML phonetic sets
+          url: speech-ssml-phonetic-sets.md
+        - text: Text-to-speech pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
-        - text: Code of conduct
-          url: https://aka.ms/custom-neural-code-of-conduct
-        - text: Disclosure for voice talent
-          url: https://aka.ms/disclosure-voice-talent

@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 ## General FAQ
 
-### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -60,7 +60,7 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 See below on how these actions can be rectified.
@@ -126,7 +126,7 @@ See below on how these actions can be rectified.
 **A:** It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
 
 >[!NOTE] 
->For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
 
 ---
 
@@ -178,17 +178,17 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 ### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
 
-**A:** To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+**A:** To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
 
 ---
 
 ### Q: How do I connect to a remote Azure AD joined device?
 
-**A:** See [Connect to remote Azure Active Directory-joined PC](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**A:** See [Connect to remote Azure Active Directory-joined PC](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
-### Q: Why do my users see *You can’t get there from here*?
+### Q: Why do my users see *You can't get there from here*?
 
 **A:** Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
 Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
@@ -219,7 +219,7 @@ This behavior:
 
 ### Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?
 
-**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/windows-enroll).  
+**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
 
 ---
 
@@ -309,8 +309,8 @@ Enable the following registry to block your users from adding additional work ac
 
 **A:** Take the following steps:
 
-1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-1.	[Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
+1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 

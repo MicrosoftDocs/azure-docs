@@ -1,26 +1,29 @@
 ### YamlMime:Landing
 
 title: Speech-to-text documentation
-summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text.
+summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time and batch transcription of audio streams into text.
 metadata:
   title: Speech-to-text documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/19/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About speech-to-text
   linkLists:
     - linkListType: overview
       links:
-      - text: What is speech-to-text?
+      - text: What is real-time speech-to-text?
         url: speech-to-text.md
+      - text: What is batch speech-to-text?
+        url: batch-transcription.md
+      - text: Speech recognition basics
+        url: speech-to-text-basics.md
     - linkListType: quickstart
       links:
         - text: Recognize speech with microphone input
@@ -29,51 +32,37 @@ landingContent:
           url: quickstarts/speech-to-text-from-file.md
         - text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
-- title: Step-by-step guides
+- title: Develop with speech-to-text
   linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Change speech recognition source language
-          url: how-to-specify-source-language.md
         - text: Choose speech recognition mode
           url: how-to-choose-recognition-mode.md
-        - text: Improve accuracy with Phrase Lists
-          url: how-to-phrase-lists.md
-        - text: Improve accuracy with Tenant Models
-          url: tutorial-tenant-model.md
+        - text: Change speech recognition source language
+          url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech
           url: how-to-custom-speech.md
-        - text: Select a specific microphone input device
-          url: how-to-select-audio-input-devices.md
-        - text: Use automatic source language detection
-          url: how-to-automatic-language-detection.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
-        - text: Use compressed audio input formats (iOS)
-          url: how-to-use-codec-compressed-audio-input-streams-ios.md
-        - text: Use compressed audio input formats (Android)
-          url: how-to-use-codec-compressed-audio-input-streams-android.md
+    - linkListType: tutorial
+      links:
+        - text: Improve accuracy with tenant models
+          url: tutorial-tenant-model.md
     - linkListType: concept
       links:
-        - text: Prepare Custom Speech data
-          url: how-to-custom-speech-test-data.md
-        - text: Inspect Custom Speech data
-          url: how-to-custom-speech-inspect-data.md
-        - text: Evaluate Custom Speech accuracy
-          url: how-to-custom-speech-evaluate-data.md
-        - text: Train a custom model
+        - text: Prepare data for Custom Speech
+          url: how-to-custom-speech-test-and-train.md
+        - text: Train a model for Custom Speech
           url: how-to-custom-speech-train-model.md
-        - text: Deploy a custom model
-          url: how-to-custom-speech-deploy-model.md
         - text: Create human-labeled transcriptions
           url: how-to-custom-speech-human-labeled-transcriptions.md
-- title: Reference
+- title: References
   linkLists:
     - linkListType: reference
       links:
         - text: Language support
           url: language-support.md#speech-to-text
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Speech-to-text FAQ
           url: faq-stt.md
+        - text: Speech-to-text pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

@@ -158,6 +158,6 @@ landingContent:
           - text:  Troubleshoot Azure Backup Server
             url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
           - text:  Review the features of Azure Backup
-            url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup
+            url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
           - text:  Understand how to backup Azure virtual machines to Recovery Services vaults
             url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm

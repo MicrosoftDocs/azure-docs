@@ -3,14 +3,14 @@ title: Define a SAML technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a SAML technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
-ms.author: marsma
+ms.date: 03/30/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -86,11 +86,32 @@ The **Name** attribute of the Protocol element needs to be set to `SAML2`.
 
 The **OutputClaims** element contains a list of claims returned by the SAML identity provider under the `AttributeStatement` section. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute.
 
-To read the SAML assertion **NamedId** in **Subject** as a normalized claim, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
+### Subject name output claim
 
-The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+To read the SAML assertion **NameId** in the **Subject** as a normalized claim, set the claim **PartnerClaimType** to value of the `SPNameQualifier` attribute. If the `SPNameQualifier`attribute is not presented, set the claim **PartnerClaimType** to value of the `NameQualifier` attribute. 
 
-The following example shows the claims returned by the Facebook identity provider:
+
+SAML assertion: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+	<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+	  <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Output claim:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+If both `SPNameQualifier` or `NameQualifier` attributes are not presented in the SAML assertion, set the claim **PartnerClaimType** to `assertionSubjectName`. Make sure the **NameId** is the first value in assertion XML. When you define more than one assertion, Azure AD B2C picks the subject value from the last assertion.
+
+The following example shows the claims returned by a SAML identity provider:
 
 - The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
@@ -114,6 +135,8 @@ The technical profile also returns claims that aren't returned by the identity p
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
 </OutputClaims>
 ```
+
+The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
 ## Metadata
 

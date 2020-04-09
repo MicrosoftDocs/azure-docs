@@ -35,7 +35,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 
 To begin your configuration, sign in to your Azure account. If you use the CloudShell "Try It", you are signed in automatically. Use the following examples to help you connect:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -61,7 +61,7 @@ az network express-route list-service-providers
 
 The response is similar to the following example:
 
-```azurecli
+```output
 [
   {
     "bandwidthsOffered": [
@@ -159,7 +159,7 @@ az network express-route list
 
 Your service key is listed in the *ServiceKey* field of the response.
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",
@@ -200,21 +200,21 @@ az network express-route list -h
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -229,7 +229,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 The response is similar to the following example:
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",

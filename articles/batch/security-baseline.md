@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -56,7 +56,7 @@ Understand Network Security provided by Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -273,7 +273,7 @@ How to remotely connect to your Azure Batch pool nodes:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -325,7 +325,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Guidance**: Use Windows Defender on your individual batch nodes in the case of Windows operating systems, or provide your own anti-malware solution if you are using Linux.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -468,7 +468,7 @@ How to monitor users identity and access activity in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -513,7 +513,7 @@ How to use Azure Identity Access Reviews:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -526,7 +526,7 @@ How to integrate Azure Activity Logs into Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -553,7 +553,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Responsibility**: Customer
 
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+### 3.13: <div>Provide Microsoft with access to relevant customer data during support scenarios<br></div>
 
 **Guidance**: Not available; Customer Lockbox not yet supported for Azure Batch. List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -616,9 +616,9 @@ How to secure Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -630,7 +630,7 @@ Ensure HTTPS is required for accessing the Storage Account containing your Azure
 
 Understand Azure Storage Account Encryption in Transit:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center monitoring**: Yes
 
@@ -656,7 +656,7 @@ How to secure Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Shared
 
@@ -692,7 +692,7 @@ Understand customer data protection in Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Shared
 
@@ -706,7 +706,7 @@ How to manage encryption keys for Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -730,7 +730,7 @@ How to enable additional logging/auditing for an Azure Storage Account:
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -753,7 +753,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 
 **Guidance**: Microsoft to maintain and update base Azure Batch Pool node images. Ensure Azure Batch Pool nodes' operating system remains patched for the duration of the cluster lifetime which may require enabling automatic updates, monitoring the nodes, or performing periodic reboots.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Shared
 
@@ -790,10 +790,10 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, etc.) within your subscription(s). Ensure that you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
+Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
 
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph Explorer:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -842,7 +842,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-How to create and user Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -865,11 +865,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Not allowed resource types
 - Allowed resource types
 
+
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
+
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
+How to create queries with Azure Resource Graph Explorer: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -903,16 +906,15 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
+
 - Not allowed resource types
 - Allowed resource types
 
-How to configure and manage Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to deny a specific resource type with Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -926,14 +928,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Responsibility**: Customer
 
-### 6.11: Limit Users' Ability to interact with Azure Resource Manager via Scripts
+### 6.11: <div>Limit Users' Ability to interact with Azure Resource Manager via Scripts</div>
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+How to configure Conditional Access to block access to Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -951,8 +951,7 @@ This is not applicable to Azure Batch, as users (non-administrators) of the Azur
 
 ### 6.13: Physically or Logically Segregate High Risk Applications
 
-**Guidance**: Not available,
-
+**Guidance**: Not applicable,
 Benchmark is intended for web applications running on Azure App Service or IaaS instances.
 
 **Azure Security Center monitoring**: Not applicable
@@ -968,10 +967,14 @@ Benchmark is intended for web applications running on Azure App Service or IaaS 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
 
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy Aliases:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -993,7 +996,9 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 - Microsoft.Storage
 - Microsoft.Network
 
+
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1011,11 +1016,17 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely Store Configuration of Azure Resources
 
-**Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure DevOps/Repos to securely store and manage your code.
+**Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+How to store code in Azure DevOps:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Azure Repos Documentation:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1026,9 +1037,14 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 **Guidance**: If using custom images for your Azure Batch pools, use Role-based access control (RBAC) to ensure only authorized users may access the images.
 
 
-Understand RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Understand RBAC in Azure:
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+How to configure RBAC in Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1061,7 +1077,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch instance. You may also use any built-in policies created specifically for Azure Batch or the resources used by Azure Batch, such as:
 
 - Subnets should be associated with a Network Security Group
-- Storage Accounts should use a virtual network service endpoint
+-Storage Accounts should use a virtual network service endpoint
 - Diagnostic logs in Batch accounts should be enabled
 
 How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1100,7 +1116,7 @@ How to provide Key Vault authentication with a managed identity:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1190,7 +1206,7 @@ How to backup key vault keys in Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1208,7 +1224,7 @@ How to restore a Customer Managed Key with PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1221,7 +1237,7 @@ How to enable Soft Delete in Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1328,3 +1344,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsibility**: Shared
 
+## Next steps
+
+- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

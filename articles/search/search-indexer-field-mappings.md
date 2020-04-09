@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
 manager: nitinme
-author: mgottein 
+author: mattmsft 
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
@@ -119,7 +119,7 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 #### Example - document key lookup
 
-Only URL-safe characters can appear in an Azure Cognitive Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time.
+Only URL-safe characters can appear in an Azure Cognitive Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time. However, a document key (both before and after conversion) can't be longer than 1,024 characters.
 
 When you retrieve the encoded key at search time, you can then use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
 
@@ -288,6 +288,28 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
     "targetFieldName" : "SearchableMetadata",
     "mappingFunction" : {
       "name" : "urlDecode"
+    }
+  }]
+ ```
+ 
+ <a name="fixedLengthEncodeFunction"></a>
+ 
+ ### fixedLengthEncode function
+ 
+ This function converts a string of any length to a fixed length string.
+ 
+ ### Example - map document keys that are too long
+ 
+When facing errors complaining about document key being longer than 1024 characters, this function can be applied to reduce the length of the document key.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "metadata_storage_path",
+    "targetFieldName" : "your key field",
+    "mappingFunction" : {
+      "name" : "fixedLengthEncode"
     }
   }]
  ```

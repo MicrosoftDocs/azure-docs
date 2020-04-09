@@ -1,7 +1,6 @@
 ---
 title: Azure Management 
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

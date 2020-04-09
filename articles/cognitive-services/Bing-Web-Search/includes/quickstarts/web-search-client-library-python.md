@@ -6,13 +6,13 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
 The Bing Web Search client library makes it easy to integrate Bing Web Search into your Python application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 
-Want to see the code right now? Samples for the [Bing Search client libraries for JavaScript](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) are available on GitHub.
+Want to see the code right now? Samples for the [Bing Search client libraries for Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) are available on GitHub.
 
 
 ## Prerequisites

@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 03/10/2020
 ms.author: helohr
+manager: lizross
 ---
 # Identify and diagnose issues
 
@@ -17,7 +18,7 @@ Windows Virtual Desktop offers a diagnostics feature that allows the administrat
 * Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 * Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
   
-Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
+Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
 To get started, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
@@ -29,23 +30,66 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
 
-### Retrieve diagnostic activities in your tenant
+>[!IMPORTANT]
+>The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md) for more information about how to send diagnostics data to your workspace. 
 
-You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
+### Filter diagnostic activities by user
 
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName>
-```
-
-Like other Windows Virtual Desktop PowerShell cmdlets, you must use the **-TenantName** parameter to specify the name of the tenant you want to use for your query. The tenant name is applicable for almost all diagnostic activity queries.
-
-### Retrieve detailed diagnostic activities
-
-The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticActivities** query, as shown in the following example.
+The **-UserName** parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
+
+The **-UserName** parameter can also be combined with other optional filtering parameters.
+
+### Filter diagnostic activities by time
+
+You can filter the returned diagnostic activity list with the **-StartTime** and **-EndTime** parameters. The **-StartTime** parameter will return a diagnostic activity list starting from a specific date, as shown in the following example.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
+```
+
+The **-EndTime** parameter can be added to a cmdlet with the **-StartTime** parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1 and August 10.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
+```
+
+The **-StartTime** and **-EndTime** parameters can also be combined with other optional filtering parameters.
+
+### Filter diagnostic activities by activity type
+
+You can also filter diagnostic activities by activity type with the **-ActivityType** parameter. The following cmdlet will return a list of end-user connections:
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
+```
+
+The following cmdlet will return a list of administrator management tasks:
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
+```
+
+The **Get-RdsDiagnosticActivities** cmdlet doesn't currently support specifying Feed as the ActivityType.
+
+### Filter diagnostic activities by outcome
+
+You can filter the returned diagnostic activity list by outcome with the **-Outcome** parameter. The following example cmdlet will return a list of successful diagnostic activities.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
+```
+
+The following example cmdlet will return a list of failed diagnostic activities.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
+```
+
+The **-Outcome** parameter can also be combined with other optional filtering parameters.
 
 ### Retrieve a specific diagnostic activity by activity ID
 
@@ -63,63 +107,13 @@ To view the error messages for a failed activity, you must run the cmdlet with t
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
-### Filter diagnostic activities by user
+### Retrieve detailed diagnostic activities
 
-The **-UserName** parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-The **-UserName** parameter can also be combined with other optional filtering parameters.
-
-### Filter diagnostic activities by time
-
-You can filter the returned diagnostic activity list with the **-StartTime** and **-EndTime** parameters. The **-StartTime** parameter will return a diagnostic activity list starting from a specific date, as shown in the following example.
+The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticActivities** query, as shown in the following example.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
 ```
-
-The **-EndTime** parameter can be added to a cmdlet with the **-StartTime** parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1 and August 10.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-The **-StartTime** and **-EndTime** parameters can also be combined with other optional filtering parameters.
-
-### Filter diagnostic activities by activity type
-
-You can also filter diagnostic activities by activity type with the **-ActivityType** parameter. The following cmdlet will return a list of end-user connections:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
-```
-
-The following cmdlet will return a list of administrator management tasks:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-The **Get-RdsDiagnosticActivities** cmdlet doesn’t currently support specifying Feed as the ActivityType.
-
-### Filter diagnostic activities by outcome
-
-You can filter the returned diagnostic activity list by outcome with the **-Outcome** parameter. The following example cmdlet will return a list of successful diagnostic activities.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
-```
-
-The following example cmdlet will return a list of failed diagnostic activities.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-The **-Outcome** parameter can also be combined with other optional filtering parameters.
 
 ## Common error scenarios
 
@@ -148,7 +142,7 @@ The following table lists common errors your admins might run into.
 |6000|AppGroupNotFound|The app group name you entered doesn't match any existing app groups. Review the app group name for typos and try again.|
 |6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any RemoteApps. Review RemoteApp name for typos and try again.|
 |6010|PublishedItemsExist|The name of the resource you're trying to publish is the same as a resource that already exists. Change the resource name and try again.|
-|7002|NameNotValidWhiteSpace|Don’t use white space in the name.|
+|7002|NameNotValidWhiteSpace|Don't use white space in the name.|
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|

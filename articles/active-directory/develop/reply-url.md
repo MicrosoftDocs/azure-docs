@@ -49,7 +49,7 @@ The Azure AD application model doesn't support wildcard URIs for apps that are c
 > [!NOTE]
 > The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add wildcard URIs on the UI. Adding wilcard URI for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use wildcards in the redirect URI. However, older apps that contain wildcards in redirect URIs will continue to work.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider one of the following approaches.
+If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider the following approach.
 
 ### Use a state parameter
 
@@ -65,10 +65,6 @@ In this approach:
 
 > [!NOTE]
 > This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
-
-### Add redirect URIs to service principals
-
-Another approach is to add redirect URIs to the [service principals](app-objects-and-service-principals.md#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. You can use this approach when you can't use a state parameter or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. 
 
 ## Next steps
 

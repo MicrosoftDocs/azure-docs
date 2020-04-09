@@ -1,7 +1,7 @@
 ---
-title: How to fulfill Custom Commands on the client with the Speech SDK
+title: How to fulfill commands from a client with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this article, we explain how to handle Custom Commands activities on client with the Speech SDK.
+description: In this article, we explain how to handle Custom Commands activities on a client with the Speech SDK.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -9,11 +9,11 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
 ---
 
-# How To: Fulfill Commands on the client with the Speech SDK (Preview)
+# Fulfill commands from a client with the Speech SDK (Preview)
 
 To complete tasks using a Custom Commands application you can send custom payloads to a connected client device.
 

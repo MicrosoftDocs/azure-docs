@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
+ms.date: 4/3/2020
 ---
 # Azure SQL Database serverless
 
@@ -143,11 +143,15 @@ If a serverless database is paused, then the first login will resume the databas
 
 The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
 
+### Customer managed transparent data encryption (BYOK)
+
+If using [customer managed transparent data encryption](transparent-data-encryption-byok-azure-sql.md) (BYOK) and the serverless database is auto-paused when key deletion or revocation occurs, then the database remains in the auto-paused state.  In this case, after the database is next resumed, the database becomes inaccessible within approximately 10 minutes.  Once the database becomes inaccessible, the recovery process is the same as for provisioned compute databases.  If the serverless database is online when key deletion or revocation occurs, then the database also becomes inaccessible within approximately 10 minutes in the same way as with provisioned compute databases.
+
 ## Onboarding into serverless compute tier
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
-1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
+1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
 
    |Service objective name|Service tier|Hardware generation|Max vCores|
    |---|---|---|---|
@@ -166,12 +170,12 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
-   |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
+   |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 10 minutes<br>Disable autopause: -1|60 minutes|
 
 
 ### Create new database in serverless compute tier 
 
-The following examples create a new database in the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
+The following examples create a new database in the serverless compute tier.
 
 #### Use Azure portal
 
@@ -195,7 +199,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### Use Transact-SQL (T-SQL)
 
-The following example creates a new database in the serverless compute tier.
+When using T-SQL, default values are applied for the min vcores and autopause delay.
 
 ```sql
 CREATE DATABASE testdb
@@ -206,7 +210,7 @@ For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transac
 
 ### Move database from provisioned compute tier into serverless compute tier
 
-The following examples move a database from the provisioned compute tier into the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
+The following examples move a database from the provisioned compute tier into the serverless compute tier.
 
 #### Use PowerShell
 
@@ -227,7 +231,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### Use Transact-SQL (T-SQL)
 
-The following example moves a database from the provisioned compute tier into the serverless compute tier.
+When using T-SQL, default values are applied for the min vcores and autopause delay.
 
 ```sql
 ALTER DATABASE testdb 

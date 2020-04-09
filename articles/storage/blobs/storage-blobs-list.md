@@ -15,7 +15,7 @@ ms.subservice: blobs
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders. 
 
-This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## Understand blob listing options
 

@@ -92,9 +92,9 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
 5. Select **Trigger release in TFS/Team Services**. Enter the URI for your Azure DevOps Services organization, such as **https://{your-organization-name}.visualstudio.com**.
 6. Enter the **Project** name.
 7. Choose a name for the release pipeline. (You create this release pipeline later in Azure DevOps Services.)
-8. Choose credentials to connect to your Azure DevOps Services or Team Foundation Server environment:
+8. Choose credentials to connect to your Azure DevOps Services or Azure DevOps Server environment:
    - Leave **Username** blank if you are using Azure DevOps Services. 
-   - Enter a username and password if you are using an on-premises version of Team Foundation Server.    
+   - Enter a username and password if you are using an on-premises version of Azure DevOps Server.    
    ![Configuring Jenkins post-build actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Save the Jenkins project.
 

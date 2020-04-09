@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
+apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
@@ -68,13 +68,13 @@ The following table shows a list of the local tools used on each supported opera
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
 
 ### Validation frequency
 
 The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
-received, the settings are checked on a 15-minute interval. Results are sent to the Guest
-Configuration resource provider as soon as the audit completes. When a policy [evaluation
+received, the settings for that configuration are re-checked on a 15-minute interval.
+Results are sent to the Guest Configuration resource provider when the audit completes. When a policy [evaluation
 trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
 written to the Guest Configuration resource provider. This update causes Azure Policy to evaluate
 the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest
@@ -91,14 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3|
-
-> [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
-> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
-> modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -197,29 +192,21 @@ assignment are automatically included.
 Guest Configuration policies currently only support assigning the same Guest Assignment once per
 machine, even if the Policy assignment uses different parameters.
 
-## Built-in resource modules
-
-When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is
-included with the latest version of DSC resource modules. This module can be downloaded from the
-PowerShell Gallery by using the 'Manual Download' link from the module page
-[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). The '.nupkg'
-file format can be renamed to '.zip' to uncompress and review.
-
 ## Client log files
 
 The Guest Configuration extension writes log files to the following locations:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Where `<version>` refers to the current version number.
 
 ### Collecting logs remotely
 
 The first step in troubleshooting Guest Configuration configurations or modules should be to use the
-`Test-GuestConfigurationPackage` cmdlet following the steps in
-[Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+`Test-GuestConfigurationPackage` cmdlet following the steps how to
+[create a custom Guest Configuration audit policy for Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
@@ -231,8 +218,8 @@ machines, the following example PowerShell script can be helpful. For more infor
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### Linux
@@ -244,8 +231,8 @@ the following example Bash script can be helpful. For more information, see
 ```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
 ## Guest Configuration samples

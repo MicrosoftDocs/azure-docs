@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/07/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ---
 
@@ -24,7 +24,7 @@ Azure delegated resource management allows greater flexibility to manage resourc
 
 ![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
-Using Azure delegated resource management, authorized users can sign in to the service provider’s tenant to access these resources, as shown here:
+Using Azure delegated resource management, authorized users can sign in to the service provider's tenant to access these resources, as shown here:
 
 ![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -32,7 +32,14 @@ Using Azure delegated resource management, authorized users can sign in to the s
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-We also provide APIs to perform Azure delegated resource management tasks. For more info, see the **Reference** section.
+The Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) show the **tenantID** for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
+
+Similarly, Azure CLI commands such as [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
+
+> [!TIP]
+> If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+
+We also provide APIs that are specific to performing Azure delegated resource management tasks. For more info, see the **Reference** section.
 
 ## Enhanced services and scenarios
 
@@ -51,6 +58,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Back up and restore customer data in customer tenants
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
+- Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
@@ -78,7 +86,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Security Center](../../security-center/index.yml):
 
 - Cross-tenant visibility
-  - Monitor compliance to security policies and ensure security coverage across all tenants’ resources
+  - Monitor compliance to security policies and ensure security coverage across all tenants' resources
   - Continuous regulatory compliance monitoring across multiple customers in a single view
   - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
 - Cross-tenant security posture management
@@ -86,7 +94,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Take action on resources that are out of compliance with actionable security recommendations
   - Collect and store security-related data
 - Cross-tenant threat detection and protection
-  - Detect threats across tenants’ resources
+  - Detect threats across tenants' resources
   - Apply advanced threat protection controls such as just-in-time (JIT) VM access
   - Harden network security group configuration with Adaptive Network Hardening
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
@@ -124,10 +132,11 @@ Support requests:
 ## Current limitations
 With all scenarios, please be aware of the following current limitations:
 
-- Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren’t supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 
+- Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren't supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 
 - Role assignments must use role-based access control (RBAC) [built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
-- Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
-- While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can’t create their own deny assignments (user-assigned deny assignments).
+- While you can onboard subscriptions that use Azure Databricks, users in the managing tenant can't launch Azure Databricks workspaces on a delegated subscription at this time.
+- While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can't create their own deny assignments (user-assigned deny assignments).
+- Users in the managing tenant will not have access to view billing info for a delegated customer subscription, even if they have a built-in role that would typically allow access. This is because access to billing information requires additional steps that are currently only supported for users within the same tenant.
 
 ## Next steps
 

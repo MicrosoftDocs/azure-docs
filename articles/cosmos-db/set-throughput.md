@@ -58,7 +58,8 @@ If the workload on a logical partition consumes more than the throughput that's 
 Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. Each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s.
 
 > [!NOTE]
-> In a shared throughput database, you can have a maximum of 25 containers in the database. If you already have more than 25 containers in a shared throughput database, you will not be able to create additional containers until the container count is less than 25.
+> In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
+If your Azure Cosmos DB account already contains a shared throughput database with >=25 containers, the account and all other accounts in the same Azure subscription are exempt from this change. Please [contact product support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you have feedback or questions. 
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
@@ -81,11 +82,11 @@ You can combine the two models. Provisioning throughput on both the database and
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The minimum provisioned throughput depends on the following factors: 
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) depends on the following factors: 
 
 * The maximum data size that you ever store in the container
 * The maximum throughput that you ever provision on the container
-* The maximum number of Azure Cosmos containers that you ever create in a database with shared throughput. 
+* The current number of Azure Cosmos containers that you have in a database with shared throughput. 
 
 You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) method allows you to scale the provisioned throughput value. 
 

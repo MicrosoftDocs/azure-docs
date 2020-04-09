@@ -4,9 +4,9 @@ description: Learn how to get a Linux Node.js app working in Azure App Service, 
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Build a PHP and MySQL app in Azure App Service on Linux
 
 > [!NOTE]
@@ -249,9 +249,9 @@ Save the changes.
 > To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL. With environment variables, you don't need the *.env* file in App Service.
 >
 
-### Configure SSL certificate
+### Configure TLS/SSL certificate
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+By default, Azure Database for MySQL enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
 Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `connections.mysql`, as shown in the following code.
 
@@ -398,15 +398,15 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-> [!NOTE]
+<!-- > [!NOTE]
 > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
 >
 > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
 > - `composer.phar` - The Composer package manager.
 >
-> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer).
->
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer). -->
+> 
 
 ### Browse to the Azure app
 

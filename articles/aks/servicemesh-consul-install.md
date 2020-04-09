@@ -46,7 +46,7 @@ We'll start by downloading version `v0.10.0` of the Consul Helm chart. This vers
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [MacOS - download](includes/servicemesh/consul/download-bash.md)]
+[!INCLUDE [macOS - download](includes/servicemesh/consul/download-bash.md)]
 
 ::: zone-end
 
@@ -104,7 +104,7 @@ kubectl get pod --namespace consul --output wide
 
 The following example output shows the services and pods (scheduled on Linux nodes) that should now be running:
 
-```console
+```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
 consul                               ExternalName   <none>        consul.service.consul   <none>                                                                    38s     <none>
 consul-consul-connect-injector-svc   ClusterIP      10.0.98.102   <none>                  443/TCP                                                                   3m26s   app=consul,component=connect-injector,release=consul
@@ -129,7 +129,7 @@ All of the pods should show a status of `Running`. If your pods don't have these
 
 The Consul UI was installed in our setup above and provides UI based configuration for Consul. The UI for Consul is not exposed publicly via an external ip address. To access the Consul user interface, use the [kubectl port-forward][kubectl-port-forward] command. This command creates a secure connection between your client machine and the relevant pod in your AKS cluster.
 
-```azurecli
+```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
@@ -146,7 +146,7 @@ You can now open a browser and point it to `http://localhost:8080/ui` to open th
 
 To remove Consul from your AKS cluster, use the following commands. The `helm delete` commands will remove the `consul` chart, and the `kubectl delete namespace` command will remove the `consul` namespace.
 
-```azurecli
+```console
 helm delete --purge consul
 kubectl delete namespace consul
 ```

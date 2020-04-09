@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
+ms.date: 03/24/2020
 ---
 
 # What is Azure SQL Database Edge Preview?
@@ -29,9 +29,8 @@ SQL Database Edge is available with three different editions or software plans. 
 
    |**Plan**  |**Description**  |
    |---------|---------|
-   |Developer  |  Development only sku, with the same throttling limits as imposed by Standard sku mentioned below |
-   |Standard   |  Standard plan supports up to 4 CPU's and up to 32 GB of memory for the SQL Database Edge Container. |
-   |Premium    |  Premium sku supports up to 8 cores and up to 64 GB of memory for the SQL Database Edge Container. |
+   |Azure SQL Database Edge Developer  |  Development only sku, each SQL Database Edge container is limited to upto 4 cores and 32 GB Memory  |
+   |Azure SQL Database Edge    |  Production sku,  each SQL Database Edge container is limited to upto 8 cores and 64 GB Memory . |
 
 ## Pricing and Availability
 
