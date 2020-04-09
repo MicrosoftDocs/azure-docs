@@ -24,11 +24,19 @@ Azure Active Directory (Azure AD) now provides the means to validate dynamic gro
 
 To get started, access Azure Active Directory from this URL: https://aka.ms/ValidateRules and sign in with your credentials. Then go to Azure Active Directory / Groups. Pick an existing dynamic group or create a new dynamic group and click on Dynamic membership rules. You can then see the Validate Rules Preview tab.
 
+![Find the Validate rules tab and start with an existing rule](./media/groups-dynamic-rule-validation/validate-tab.png)
+
 On **Validate rules** tab, you can select users to validate their memberships. 20 users or devices can be selected at one time.
+
+![Add users to validate the existing rule against](./media/groups-dynamic-rule-validation/validate-tab-add-users.png)
 
 After choosing the users or devices from the picker, and **Select**, validation will automatically start and validation results will appear.
 
+![View the results of the rule validation](./media/groups-dynamic-rule-validation/validate-tab-results.png)
+
 The results tell whether a user is a member of the group or not. If the rule is not valid or there is a network issue, the result will show as **Unknown**. In case of **Unknown**, the detailed error message will describe the issue and actions needed.
+
+![View the details of the results of the rule validation](./media/groups-dynamic-rule-validation/validate-tab-view-details.png)
 
 You can modify the rule and validation of memberships will be triggered. To see why user is not a member of the group, click on "View details" and verification details will show the result of each expression composing the rule. Click **OK** to exit.
 
