@@ -33,7 +33,7 @@ This article provides answers to some of the most common questions about running
 
 1. **What SQL Server virtual machine gallery images are available?** 
 
-   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](overview.md#payasyougo) and [Linux VM images](../linux/overview.md#installed-packages).
+   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](overview.md#payasyougo) and [Linux VM images](../linux/overview.md#packages).
 
 1. **Are existing SQL Server virtual machine gallery images updated?**
 

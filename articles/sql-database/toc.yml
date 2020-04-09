@@ -908,118 +908,118 @@
     - name: Overview
       items:
       - name: What is SQL on Azure VM?
-        href: /virtual-machines/windows/overview.md
+        href: virtual-machines/windows/overview.md
       - name: Doc changes
-        href: /virtual-machines/windows/doc-changes-release-notes.md
+        href: virtual-machines/windows/doc-changes-release-notes.md
     - name: Quickstarts
       items:
       - name: Create SQL VM (Portal)
-        href: /virtual-machines/windows/quickstart-sql-vm-create-portal.md
+        href: virtual-machines/windows/quickstart-sql-vm-create-portal.md
       - name: Create SQL VM (PowerShell)
-        href: /virtual-machines/windows/quickstart-sql-vm-create-powershell.md
+        href: virtual-machines/windows/quickstart-sql-vm-create-powershell.md
     - name: Concepts
       items:
       - name: Best practices
         items:
         - name: Performance best practices
-          href: /virtual-machines/windows/performance.md
+          href: virtual-machines/windows/performance.md
         - name: Security considerations
-          href: /virtual-machines/windows/security.md
+          href: virtual-machines/windows/security.md
         - name: Application patterns
-          href: /virtual-machines/windows/server-app-patterns-dev-strategies.md
+          href: virtual-machines/windows/server-app-patterns-dev-strategies.md
       - name: Business Continuity
         items:
         - name: High availability options
-          href: /virtual-machines/windows/high-availability-dr.md
+          href: virtual-machines/windows/high-availability-dr.md
         - name: Always On availability group
-          href: /virtual-machines/portal-sql-availability-group-overview.md
+          href: virtual-machines/portal-sql-availability-group-overview.md
         - name: Backup and restore
-          href: /virtual-machines/windows/backup-recovery.md
+          href: virtual-machines/windows/backup-recovery.md
         - name: Automated backup (SQL 2014)
-          href: /virtual-machines/windows/automated-backup-sql-2014.md
+          href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Automated backup (SQL 2016+)
-          href: /virtual-machines/windows/automated-backup.md
+          href: virtual-machines/windows/automated-backup.md
       - name: Management
         items:
         - name: Dedicated host
-          href: /virtual-machines/windows/dedicated-host.md
+          href: virtual-machines/windows/dedicated-host.md
         - name: With the Azure portal
-          href: /virtual-machines/windows/manage-portal.md
+          href: virtual-machines/windows/manage-portal.md
         - name: Extend support for SQL 2008 & R2
-          href: /virtual-machines/windows/sql-2008-extend-end-of-support.md
+          href: virtual-machines/windows/sql-2008-extend-end-of-support.md
         - name: Connect to a VM
-          href: /virtual-machines/connect.md
+          href: virtual-machines/connect.md
         - name: Configure storage
-          href: /virtual-machines/windows/storage-configuration.md
+          href: virtual-machines/windows/storage-configuration.md
         - name: Automate management tasks
           items:
           - name: Use the SQL Server IaaS Agent Extension
-            href: /virtual-machines/windows/sql-iaas-agent-extension.md
+            href: virtual-machines/windows/sql-iaas-agent-extension.md
           - name: Automated Patching
-            href: /virtual-machines/windows/automated-patching.md
+            href: virtual-machines/windows/automated-patching.md
           - name: Configure Azure Key Vault Integration
-            href: /virtual-machines/windows/integrate-keyvault-powershell.md
+            href: virtual-machines/windows/integrate-keyvault-powershell.md
     - name: How-to guides
       items:
       - name: Create SQL VM
         items:
         - name: Use the portal
-          href: /virtual-machines/windows/create-vm-portal".md
+          href: virtual-machines/windows/create-vm-portal".md
         - name: Use Azure PowerShell
-          href: /virtual-machines/windows/create-vm-powershell.md
+          href: virtual-machines/windows/create-vm-powershell.md
       - name: Register with SQL VM RP
         displayName: resource provider, registration
         items:
         - name: Single VM
-          href: /virtual-machines/windows/register-with-resource-provider.md
+          href: virtual-machines/windows/register-with-resource-provider.md
         - name: Bulk register multiple VMs
-          href: /virtual-machines/windows/bulk-register-with-resource-provider.md
+          href: virtual-machines/windows/bulk-register-with-resource-provider.md
       - name: Manage
         items: 
         - name: Licensing model
           displayName: ahb, ahub, payg, change, modify, update
-          href: /virtual-machines/windows/azure-hybrid-benefit-ahb.md
+          href: virtual-machines/windows/azure-hybrid-benefit-ahb.md
         - name: Edition 
           displayName: change, modify, update
-          href: /virtual-machines/windows/change-edition.md
+          href: virtual-machines/windows/change-edition.md
         - name: Azure Storage for backup & restore
-          href: /virtual-machines/windows/backup-recovery.md
+          href: virtual-machines/windows/backup-recovery.md
       - name: Migrate
         items:
         - name: SQL Server database to VM
-          href: /virtual-machines/windows/migrate-sql.md
+          href: virtual-machines/windows/migrate-sql.md
         - name: VM to a new region
-          href: /virtual-machines/windows/move-different-region.md
+          href: virtual-machines/windows/move-different-region.md
       - name: Configure High Availability
         items:
         - name: Always On availability group
           items:
           - name: Azure SQL VM CLI
-            href: /virtual-machines/windows/availability-group-cli.md
+            href: virtual-machines/windows/availability-group-cli.md
           - name: Azure portal template
-            href: /virtual-machines/windows/portal-alwayson-availability-groups.md
+            href: virtual-machines/windows/portal-alwayson-availability-groups.md
           - name: Azure Quickstart templates
-            href: /virtual-machines/windows/availability-group-quickstart-template.md
+            href: virtual-machines/windows/availability-group-quickstart-template.md
           - name: Multiple regions
-            href: /virtual-machines/windows/portal-availability-group-dr.md
+            href: virtual-machines/windows/portal-availability-group-dr.md
           - name: Domain-independent (workgroup)
-            href: /virtual-machines/windows/workgroup-availability-group.md
+            href: virtual-machines/windows/workgroup-availability-group.md
           - name: Configure manually
             items:
             - name: Prerequisites
-              href: /virtual-machines/windows/portal-availability-group-prereq.md
+              href: virtual-machines/windows/portal-availability-group-prereq.md
             - name: Tutorial
-              href: /virtual-machines/windows/portal-availability-group-tutorial.md
+              href: virtual-machines/windows/portal-availability-group-tutorial.md
             - name: Load balancer - Azure portal
-              href: /virtual-machines/windows/portal-alwayson-int-listener.md
+              href: virtual-machines/windows/portal-alwayson-int-listener.md
             - name: Load balancer - Azure PowerShell
-              href: /virtual-machines/windows/portal-ps-alwayson-int-listener.md
+              href: virtual-machines/windows/portal-ps-alwayson-int-listener.md
         - name: Failover Cluster Instance
           items:
           - name: With Storage Spaces Direct
-            href: /virtual-machines/windows/portal-create-failover-cluster.md
+            href: virtual-machines/windows/portal-create-failover-cluster.md
           - name: With Premium File Share
-            href: /virtual-machines/windows/portal-create-failover-cluster-premium-file-share.md
+            href: virtual-machines/windows/portal-create-failover-cluster-premium-file-share.md
     - name: Reference
       items:
       - name: Azure PowerShell
@@ -1035,9 +1035,9 @@
     - name: Resources
       items:
       - name: Windows FAQ
-        href: /virtual-machines/windows/frequently-asked-questions-faq.md
+        href: virtual-machines/windows/frequently-asked-questions-faq.md
       - name: Pricing
-        href: /virtual-machines/windows/pricing-guidance.md
+        href: virtual-machines/windows/pricing-guidance.md
       - name: SQL Server Data Tools (SSDT)
         href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
@@ -1055,17 +1055,17 @@
     - name: Overview
       items:
       - name: About Linux SQL Server VMs
-        href: /virtual-machines/linux/overview.md
+        href: virtual-machines/linux/overview.md
     - name: Quickstarts
       items:
       - name: Create SQL VM - Portal
-        href: /virtual-machines/linux/provision-virtual-machine.md
+        href: virtual-machines/linux/provision-virtual-machine.md
     - name: Tutorials
       items:
       - name: Availability group with STONITH (RHEL)
-        href: /virtual-machines/linux/sql-server-linux-rhel-ha-stonith-tutorial.md
+        href: virtual-machines/linux/sql-server-linux-rhel-ha-stonith-tutorial.md
       - name: Configure availability group listener (RHEL)
-        href: /virtual-machines/linux/sql-server-linux-rhel-ha-listener-tutorial.md
+        href: virtual-machines/linux/sql-server-linux-rhel-ha-listener-tutorial.md
     - name: Reference
       items:
       - name: Azure CLI
@@ -1081,7 +1081,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: /virtual-machines/linux/sql-server-linux-faq.md
+        href: virtual-machines/linux/sql-server-linux-faq.md
       - name: SQL Server on Linux Documentation
         href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
       - name: SQL Server Data Tools (SSDT)
