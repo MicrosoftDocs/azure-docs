@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 Before you set up a compute role on your Azure Stack Edge device, make sure that:
 
-- You've activated your Azure Stack Edge device as described in [Connect, set up, and activate Azure Stack Edge](data-box-edge-deploy-connect-setup-activate.md).
+- You've activated your Azure Stack Edge device as described in [Connect, set up, and activate Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## Configure compute
