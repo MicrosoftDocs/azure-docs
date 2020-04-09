@@ -73,7 +73,7 @@ Click **Basics** and configure the following settings:
 * **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 * **Subscription** is the subscription that Azure bills to run all deployed resources for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
-* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../active-directory-b2c/overview.md#resource-groups).
+* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](overview.md#resource-groups).
 * **Location** is the Azure region where the tutorial creates the resources. Choose an Azure region.
 
 The following screenshot is a completed **Basics** blade:
@@ -204,7 +204,7 @@ To RDP to a SQL Server, follow these steps:
 2. Click **Resources**.
 3. In the **Resources** blade, click **sqlserver-0**, which is the computer name of one of the virtual machines that's running SQL Server.
 4. On the blade for **sqlserver-0**, click **Connect**. Your browser asks if you want to open or save the remote connection object. Click **Open**.
-5. **Remote desktop connection** might warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
+5. **Remote desktop connection** might warn you that the publisher of this remote connection can't be identified. Click **Connect**.
 6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name**, type **contoso\DomainAdmin**. You configured this account when you set the administrator user name in the template. Use the complex password that you chose when you configured the template.
 7. **Remote desktop** might warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial, the name is **sqlserver-0.contoso.com**. Click **Yes**.
 

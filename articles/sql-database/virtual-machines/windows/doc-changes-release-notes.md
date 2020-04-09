@@ -40,7 +40,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | **SQL Server edition modification** | You can now change the [edition property](change-edition.md) for your SQL Server VM. |
 | **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](register-with-resource-provider.md) by using the new SQL IaaS modes. This capability includes [Windows Server 2008](register-with-resource-provider.md#management-modes) images.|
 | **Bring-your-own-license images using Azure Hybrid Benefit** | Bring-your-own-license images deployed from Azure Marketplace can now switch their [license type to pay-as-you-go](azure-hybrid-benefit-ahb.md#remarks).| 
-| **New SQL Server VM management in Azure portal** | There's now a way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VMs in the Azure portal](../../../cloud-services/manage-portal.md).  | 
+| **New SQL Server VM management in Azure portal** | There's now a way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VMs in the Azure portal](manage-portal.md).  | 
 | **Extended support for SQL Server 2008/2008 R2** | [Extend support](sql-2008-extend-end-of-support.md) for SQL Server 2008 and SQL Server 2008 R2 by migrating *as is* to an Azure VM. | 
 | **Custom image supportability** | You can now install the [SQL Server IaaS extension](sql-iaas-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](azure-hybrid-benefit-ahb.md). When you're registering your custom image with the SQL resource provider, specify the license type as "AHUB." Otherwise, the registration will fail. | 
 | **Named instance supportability** | You can now use the [SQL Server IaaS extension](sql-iaas-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
@@ -64,16 +64,16 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 **Windows VMs**:
 
-* [Overview of SQL Server on a Windows VM](../../../active-directory-b2c/overview.md)
+* [Overview of SQL Server on a Windows VM](overview.md)
 * [Provision a SQL Server Windows VM](create-vm-portal.md)
 * [Migrating a database to SQL Server on an Azure VM](migrate-sql-server.md)
 * [High availability and disaster recovery for SQL Server on Azure Virtual Machines](high-availability-dr.md)
-* [Performance best practices for SQL Server on Azure Virtual Machines](../../../azure-monitor/app/performance.md)
+* [Performance best practices for SQL Server on Azure Virtual Machines](performance.md)
 * [Application patterns and development strategies for SQL Server on Azure Virtual Machines](server-app-patterns-dev-strategies.md)
 
 **Linux VMs**:
 
-* [Overview of SQL Server on a Linux VM](../../../active-directory-b2c/overview.md)
+* [Overview of SQL Server on a Linux VM](../linux/overview.md)
 * [Provision a SQL Server Linux virtual machine](../linux/provision-virtual-machine.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

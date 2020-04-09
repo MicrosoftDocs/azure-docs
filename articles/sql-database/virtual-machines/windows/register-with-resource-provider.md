@@ -28,7 +28,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 - **Free management**:  Registering with the SQL VM resource provider in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
 
-- **Simplified license management**: Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](../../../cloud-services/manage-portal.md), the Az CLI, or PowerShell: 
+- **Simplified license management**: Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-portal.md), the Az CLI, or PowerShell: 
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -241,7 +241,7 @@ To upgrade the agent mode to full:
 ### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [SQL virtual machines](../../../cloud-services/manage-portal.md#access-the-sql-virtual-machines-resource) resource. 
+1. Go to your [SQL virtual machines](manage-portal.md#access-the-sql-virtual-machines-resource) resource. 
 1. Select your SQL Server virtual machine, and select **Overview**. 
 1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
 
@@ -282,7 +282,7 @@ You can verify if your SQL Server VM has already been registered with the SQL VM
 ### Azure portal 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Go to your [SQL Server virtual machines](../../../cloud-services/manage-portal.md).
+1. Go to your [SQL Server virtual machines](manage-portal.md).
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL VM resource provider. 
 1. View the value under **Status**. If **Status** is **Succeeded**, then the SQL Server VM has been registered with the SQL VM resource provider successfully. 
 

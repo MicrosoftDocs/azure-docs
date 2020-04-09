@@ -21,7 +21,7 @@ ms.author: mathoma
 
 When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
 
-This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](../../../azure-monitor/app/performance.md) for Azure VMs running SQL Server.
+This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](performance.md) for Azure VMs running SQL Server.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -29,7 +29,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](../../../active-directory-b2c/overview.md#payasyougo).
+* Provisioned with a [SQL Server gallery image](overview.md#payasyougo).
 * Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
 * Uses [premium SSDs](../../../virtual-machines/windows/disks-types.md).
 
@@ -91,7 +91,7 @@ You can use the following quickstart template to deploy a SQL Server VM using st
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](../../../cloud-services/manage-portal.md#access-the-sql-virtual-machines-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](manage-portal.md#access-the-sql-virtual-machines-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log
