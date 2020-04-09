@@ -26,12 +26,12 @@ landingContent:
         links:
           - text: What is Azure Synapse? (formerly Azure SQL Data Warehouse)
             url: sql-data-warehouse-overview-what-is.md
+          - text: Tips and best practices
+            url: cheat-sheet.md
       - linkListType: architecture
         links:
           - text: Azure Synapse architecture
             url: massively-parallel-processing-mpp-architecture.md
-          - text: Tips and best practices
-            url: cheat-sheet.md
           - text: Reference Architecture
             url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
