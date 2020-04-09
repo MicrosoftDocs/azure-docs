@@ -59,7 +59,7 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 ```
 
 ## Analyze the response
@@ -70,8 +70,8 @@ The following response shows the various insights from the API. It contains pote
 > The machine-assisted 'Classification' feature is in preview and supports English only.
 
 ```json
-{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.\r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123.\r\nAlso, 999-99-9999 looks like a social security number (SSN).",
-"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 4255550111, IP: 255. 255. 255. 255, 1234 Main Boulevard, Panapolis WA 96555. \r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123. \r\nAlso, 999- 99- 9999 looks like a social security number ( SSN) .",
+{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.",
+"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 4255550111, IP: 255. 255. 255. 255, 1234 Main Boulevard, Panapolis WA 96555.",
 "Misrepresentation":null,
 "PII":{  
   "Email":[  
@@ -99,37 +99,12 @@ The following response shows the various insights from the API. It contains pote
       "CountryCode":"US",
       "Text":"425 555 0111",
       "Index":211
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"+44 123 456 7890",
-      "Index":207
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0234 567 8901",
-      "Index":227
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0456 789 0123",
-      "Index":244
     }
   ],
   "Address":[  
     {  
       "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
-    }
-  ],
-  "SSN":[  
-    {  
-      "Text":"999999999",
-      "Index":56
-    },
-    {  
-      "Text":"999-99-9999",
-      "Index":266
     }
   ]
 },
