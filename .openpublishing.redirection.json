@@ -40082,12 +40082,12 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template",
       "redirect_document_id": false
     },
     {
@@ -46282,7 +46282,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
@@ -46347,7 +46347,12 @@
     },
     {
       "source_path": "articles/iot-central/core/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-create-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
@@ -46782,7 +46787,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
       "redirect_document_id": false
     },
     {
