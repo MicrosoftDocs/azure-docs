@@ -932,7 +932,7 @@
         - name: High availability options
           href: virtual-machines/windows/high-availability-dr.md
         - name: Always On availability group
-          href: virtual-machines/windows/portal-sql-availability-group-overview.md
+          href: virtual-machines/windows/portal-availability-group-overview.md
         - name: Backup and restore
           href: virtual-machines/windows/backup-recovery.md
         - name: Automated backup (SQL 2014)
@@ -964,7 +964,7 @@
       - name: Create SQL VM
         items:
         - name: Use the portal
-          href: virtual-machines/windows/create-vm-portal".md
+          href: virtual-machines/windows/create-vm-portal.md
         - name: Use Azure PowerShell
           href: virtual-machines/windows/create-vm-powershell.md
       - name: Register with SQL VM RP
@@ -987,7 +987,7 @@
       - name: Migrate
         items:
         - name: SQL Server database to VM
-          href: virtual-machines/windows/migrate-sql.md
+          href: virtual-machines/windows/migrate-sql-server.md
         - name: VM to a new region
           href: virtual-machines/windows/move-different-region.md
       - name: Configure High Availability
@@ -1065,7 +1065,7 @@
       - name: Availability group with STONITH (RHEL)
         href: virtual-machines/linux/rhel-ha-stonith-tutorial.md
       - name: Configure availability group listener (RHEL)
-        href: virtual-machines/linux/linux-rhel-ha-listener-tutorial.md
+        href: virtual-machines/linux/rhel-ha-listener-tutorial.md
     - name: Reference
       items:
       - name: Azure CLI
