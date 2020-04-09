@@ -58,6 +58,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 Open the *program.cs* file and add the following `using` directives:
 
 ```csharp
+using Azure;
 using System;
 using System.Globalization;
 using Azure.AI.TextAnalytics;
@@ -68,7 +69,7 @@ In the application's `Program` class, create variables for your resource's key a
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -82,7 +83,6 @@ static void Main(string[] args)
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
-    EntityPIIExample(client);
     EntityLinkingExample(client);
     KeyPhraseExtractionExample(client);
 
@@ -123,7 +123,6 @@ If you're using version `3.0-preview`, you can use an optional `TextAnalyticsCli
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity Recognition](#named-entity-recognition-ner)
-* [Detect personal information](#detect-personal-information)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -259,7 +258,6 @@ Language: English
 
 > [!NOTE]
 > New in version `3.0-preview`:
-> * Entity recognition now includes the ability to detect personal information in text.
 > * Entity linking is now a separated from entity recognition.
 
 
@@ -288,33 +286,6 @@ Named Entities:
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Length: 9,      Score: 0.80
 ```
-
-## Detect personal information
-
-Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
-
-```csharp
-static void EntityPIIExample(TextAnalyticsClient client)
-{
-    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(inputText);
-    Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### Output
-
-```console
-Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
-                Length: 11,     Score: 0.85
-```
-
 
 ## Entity linking
 
