@@ -55,5 +55,12 @@ The hosts in this section are used to install Python packages. They are required
 | **anaconda.com** | Used when installing conda packages |
 | **pypi.org** | Used when installing pip packages |
 
+## R hosts
 
+The hosts in this section are used to install R packages. They are required during development, training, and deployment.
 
+> [!IMPORTANT]
+> Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
