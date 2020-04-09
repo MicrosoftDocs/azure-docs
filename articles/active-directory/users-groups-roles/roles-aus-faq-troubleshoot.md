@@ -40,5 +40,5 @@ Yes. Support for Administrative Units exists in [PowerShell cmdlet documentation
 
 ## Next steps
 
-- [Administrative units to restrict scope for roles overview](directory-admininistrative-units.md)
+- [Administrative units to restrict scope for roles overview](directory-administrative-units.md)
 - [Manage administrative units](roles-aus-manage-admin-units.md)
