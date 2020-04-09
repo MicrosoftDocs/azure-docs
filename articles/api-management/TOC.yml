@@ -102,6 +102,9 @@
               href: api-management-howto-deploy-multi-region.md
             - name: Provision a self-hosted gateway
               href: api-management-howto-provision-self-hosted-gateway.md
+            - name: Deploy a self-hosted gateway to Azure Kubernetes Service
+              href: api-management-howto-deploy-self-hosted-gateway-to-aks.md
+            - name: Deploy a self-hosted gateway to Docker
             - name: Deploy a self-hosted gateway to Kubernetes
               href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
             - name: Deploy a self-hosted gateway to Docker
@@ -216,6 +219,12 @@
               href: api-management-howto-ip-addresses.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
+            - name: Log requests with Azure Application Insights
+              href: api-management-howto-app-insights.md
+            - name: Configure cloud metrics and logs for self-hosted gateway
+              href: api-management-howto-configure-cloud-metrics-and-logs.md
+            - name: Configure local metrics and logs for self-hosted gateway
+              href: api-management-howto-configure-local-metrics-and-logs.md
             - name: Log requests with Azure Application Insights
               href: api-management-howto-app-insights.md
             - name: Set up DR using backup/restore
