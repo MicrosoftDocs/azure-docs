@@ -11,7 +11,7 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# State Configuration Overview
+# State Configuration overview
 
 Azure Automation State Configuration is an Azure service that allows you to write, manage, and
 compile PowerShell Desired State Configuration (DSC)
