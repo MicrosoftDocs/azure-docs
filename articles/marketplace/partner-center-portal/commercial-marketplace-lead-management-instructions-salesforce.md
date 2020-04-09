@@ -63,9 +63,9 @@ When you are ready to configure the lead management information for your offer i
 
 To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
 
-    >[!Note]
-    >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
+>[!Note]
+>You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
-    ![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
 
-    ![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

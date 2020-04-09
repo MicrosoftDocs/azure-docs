@@ -75,3 +75,5 @@ When you are ready to configure the lead management information for your offer i
 6. Select **OK**.
 
 To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
+
+![Connection details](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

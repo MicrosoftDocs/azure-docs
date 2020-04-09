@@ -214,5 +214,5 @@ When leads are generated, Microsoft sends leads to the Flow, which get routed to
 
 ![Connection details](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Connection details](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Connection details](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

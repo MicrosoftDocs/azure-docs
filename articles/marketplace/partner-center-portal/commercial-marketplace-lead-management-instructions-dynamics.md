@@ -176,6 +176,7 @@ When you are ready to configure the lead management information for your offer i
     ![Connection details - lead destination](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Provide the **Dynamics 365 Instance URL** such as `https://contoso.crm4.dynamics.com`.
+
 5. Select the method of **Authentication**, Azure Active Directory, or Office 365. 
 6. If you selected Azure Active Directory, provide the **Application (client) ID** (example: `23456052-aaaa-bbbb-8662-1234df56788f`), **Directory ID** (example: `12345678-8af1-4asf-1234-12234d01db47`), and **Client secret** (example: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,9 @@ When you are ready to configure the lead management information for your offer i
 8. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolon.
 9. Select **OK**.
 
+To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
+
+![Lead management - connection details storage account](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
