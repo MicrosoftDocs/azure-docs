@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 04/08/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -28,7 +28,7 @@ Every block blob, append blob, or page blob that was written to Azure Storage af
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-## About encryption key management
+## Encryption key management
 
 By default, data in a storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
@@ -48,6 +48,30 @@ The following table compares key management options for Azure Storage encryption
 
 <sup>1</sup> For information about creating an account that supports using customer-managed keys with Queue storage, see [Create an account that supports customer-managed keys for queues](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> For information about creating an account that supports using customer-managed keys with Table storage, see [Create an account that supports customer-managed keys for tables](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+
+## Encryption scopes for Blob storage (preview)
+
+By default, a storage account is encrypted with a key that is scoped to the storage account. The key may be either a Microsoft-managed key or a customer-managed key stored in Azure Key Vault. All data in the storage account is encrypted with that key.
+
+Encryption scopes enable you to manage encryption at the level of the container or blob with a key that is scoped to that object. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data belonging to different customers that resides in the same storage account.
+
+You can define one or more encryption scopes for a storage account using the Azure Storage resource provider. When you define the scope, you specify what type of key you want to use for that scope. The key may be either a Microsoft-managed key or a customer-managed key that is stored in Azure Key Vault. Encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
+
+After you have defined an encryption scope, you can specify that encryption scope on a request to create a container or a blob.
+
+### Create a container or blob with an encryption scope
+
+When you create a container and specify an encryption scope for that container, all blobs subsequently created in that container belong to that encryption scope by default.
+
+To create a blob in the same container that belongs to a different encryption scope, you can override the default encryption scope on the operation to create the blob.
+
+### Create a blob with an encryption scope
+
+To create a blob that belongs to a specified encryption scope, specify that encryption scope on the operation to create the blob.
+
+### Disable an encryption scope
+
+To disable an encryption scope...
 
 ## Next steps
 
