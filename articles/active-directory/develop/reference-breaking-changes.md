@@ -1,18 +1,13 @@
 ---
-title: Azure Active Directory breaking changes reference | Microsoft Docs
+title: Azure Active Directory breaking changes reference
 description: Learn about changes made to the Azure AD protocols that may impact your application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: ryanwi

@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
+ms.date: 04/04/2020
 ms.author: dapine
 ---
 
@@ -13,7 +13,7 @@ ms.author: dapine
 * The Python Speech SDK package is available for these operating systems:
     * Windows: x64 and x86.
     * Mac: macOS X version 10.12 or later.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 on x64.
+    * Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 on x64.
 * On Linux, run these commands to install the required packages:
 
 # [Ubuntu](#tab/ubuntu)
@@ -38,7 +38,7 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> On RHEL/CentOS 7/8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
