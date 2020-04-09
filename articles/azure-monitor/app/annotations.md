@@ -83,7 +83,7 @@ Now, whenever you use the release template to deploy a new release, an annotatio
 
 To enable annotations in your workbook go to **Advanced Settings** and select **Show annotations**.
 
-![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
+   ![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
