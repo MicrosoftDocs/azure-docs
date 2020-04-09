@@ -120,7 +120,7 @@ enable a system assigned managed identity, if one doesn't exist.
 
 > [!WARNING]
 > Avoid enabling user assigned managed identity to virtual machines in scope
-> for Policies that enable system assigned managed identity. The user assigned
+> for policies that enable system assigned managed identity. The user assigned
 > identity will be replaced and could machine become unresponsive.
 
 ## Guest Configuration definition requirements
