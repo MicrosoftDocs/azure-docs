@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 03/11/2020
+ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -28,8 +28,8 @@ The following metrics are available in the Azure portal for SQL Analytics. These
 | Memory percentage       | Memory utilization (SQL Server) across all nodes for the data warehouse | Avg, Min, Max   |
 | Active Queries          | Number of active queries executing on the system             | Sum              |
 | Queued Queries          | Number of queued queries waiting to start executing          | Sum              |
-| Successful Connections  | Number of successful connections to the data                 | Sum, Count       |
-| Failed Connections      | Number of failed connections to the data warehouse           | Sum, Count       |
+| Successful Connections  | Number of successful connections (logins) against the database | Sum, Count       |
+| Failed Connections      | Number of failed connections (logins) against the database | Sum, Count       |
 | Blocked by Firewall     | Number of logins to the data warehouse which was blocked     | Sum, Count       |
 | DWU limit               | Service level objective of the data warehouse                | Avg, Min, Max    |
 | DWU percentage          | Maximum between CPU percentage and Data IO percentage        | Avg, Min, Max    |
@@ -37,7 +37,7 @@ The following metrics are available in the Azure portal for SQL Analytics. These
 | Cache hit percentage    | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
-| Data Storage Size (GB) | Total size of data loaded into the database. This includes data residing in CCI and non-CCI tables where the size of non-CCI tables is measured by the total database file size | Sum |
+| Data Storage Size (GB) | Total size of the database This includes used, reserved, and unallocated space. Unallocated space is kept for the database to optimize query and load performance. | Sum |
 | Disaster Recovery Size (GB) | Total size of the geo-backup taken every 24 hours | Sum |
 | Snapshot Storage size (GB) | Total size of snapshots taken to provide database restore points. This includes automated and user-defined snapshots. | Sum |
 
