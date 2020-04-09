@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure Automation State Configuration
+title: Get started with Azure Automation State Configuration
 description: Explanation and examples of the most common tasks in Azure Automation State Configuration (DSC)
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Getting started with Azure Automation State Configuration
+# Get started with Azure Automation State Configuration
 
 This article explains how to do the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, onboarding machines to manage, and viewing reports. For an overview of what Azure Automation State Configuration is, see [Azure Automation State Configuration Overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview).
 
