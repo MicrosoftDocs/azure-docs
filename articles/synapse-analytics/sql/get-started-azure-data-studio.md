@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Studio (preview): Connect and query SQL Analytics" 
-description: Use Azure Data Studio (preview) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+title: "Azure Data Studio (preview): Connect and query Synapse SQL" 
+description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with Azure Data Studio (preview)
+# Connect to Synapse SQL with Azure Data Studio (preview)
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
@@ -22,11 +22,11 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [Azure Data Studio (preview)](/sql/azure-data-studio/download-azure-data-studio) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+You can use [Azure Data Studio (preview)](/sql/azure-data-studio/download-azure-data-studio) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 
 ## Connect 
 
-To connect to SQL Analytics, open Azure Data Studio and select **New Connection**.
+To connect to Synapse SQL, open Azure Data Studio and select **New Connection**.
 
 ![Open Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
@@ -69,7 +69,7 @@ After successful login, you should see a dashboard like this:
 
 ## Query
 
-Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](https://docs.microsoft.com/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)](https://docs.microsoft.com/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
@@ -85,7 +85,7 @@ OPENROWSET(
 ```
 
 ## Next steps 
-Explore other ways to connect to SQL Analytics: 
+Explore other ways to connect to Synapse SQL: 
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)

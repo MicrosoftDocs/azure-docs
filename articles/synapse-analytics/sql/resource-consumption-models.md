@@ -1,6 +1,6 @@
 ---
 title: Synapse Analytics SQL resource consumption
-description: Learn about SQL Analytics consumption models in Azure Synapse Analytics.
+description: Learn about Synapse SQL consumption models in Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics

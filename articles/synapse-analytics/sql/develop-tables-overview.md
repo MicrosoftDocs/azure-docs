@@ -1,6 +1,6 @@
 ---
-title: Design tables using SQL Analytics
-description: Introduction to designing tables in SQL Analytics. 
+title: Design tables using Synapse SQL
+description: Introduction to designing tables in Synapse SQL. 
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,11 +12,11 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Design tables using SQL Analytics
+# Design tables using Synapse SQL
 
 This document includes key concepts for designing tables with SQL pool and SQL on-demand (preview).  
 
-[SQL on-demand (preview)](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
+[SQL on-demand (preview)](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to SQL pool vs. SQL on-demand:
 
@@ -189,7 +189,7 @@ For a list of columnstore features, see [What's new for columnstore indexes](htt
 
 ## Statistics
 
-The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. 
+The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. Synapse SQL supports automatic creation of statistics. 
 
 Statistical updating doesn't happen automatically. Update statistics after a significant number of rows are added or changed. For instance, update statistics after a load. Additional information is provided in the [Statistics guidance](develop-tables-statistics.md) article.
 

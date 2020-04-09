@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Analytics
-description: Get connected to SQL Analytics.
+title: Connect to Synapse SQL
+description: Get connected to Synapse SQL.
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -11,10 +11,10 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics
-Get connected to the SQL Analytics capability in Azure Synapse Analytics.
+# Connect to Synapse SQL
+Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
-## Supported tools for SQL Analytics on-demand (preview)
+## Supported tools for Synapse SQL on-demand (preview)
 The fully supported tool is Azure Data Studio (preview).
 
 SQL Server Management Studio is supported partially from version 18.4. There are limited features such as connecting and querying.
@@ -40,7 +40,7 @@ To find the fully qualified server name:
 ![Full server name SQL on-demand](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## Supported drivers and connection strings
-SQL Analytics supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+Synapse SQL supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -68,7 +68,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 ## Connection settings
-SQL Analytics standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+Synapse SQL standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
 | Database Setting | Value |
 |:--- |:--- |
@@ -83,6 +83,6 @@ For executing **SQL on-demand** queries, recommended tools are [Azure Data Studi
 
 
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). To learn more about authentication options, see [Authentication to SQL Analytics](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To connect and query with Visual Studio, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). To learn more about authentication options, see [Authentication to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL Analytics using sqlcmd
+title: Connect to Synapse SQL using sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query SQL on-demand (preview) and SQL pool.
 services: synapse analytics
 author: azaricstefan 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with sqlcmd
+# Connect to Synapse SQL with sqlcmd
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio (preview)](get-started-azure-data-studio.md)
@@ -22,14 +22,14 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within SQL Analytics.  
+You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within Synapse SQL.  
 
 ## 1. Connect
-To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
+To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a Synapse SQL instance
 
 To use SQL Server Authentication, you need to add the username and password parameters:
 

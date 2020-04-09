@@ -44,7 +44,7 @@ SQL pool supports loading and exporting data through several tools including Azu
 > [!NOTE]
 Polybase is the best choice when you are loading or exporting large volumes of data, or you need faster performance. 
 
-PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Analytics pool and will load and export data more quickly than any other tool.  
+PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL pool and will load and export data more quickly than any other tool.  
 
 PolyBase loads can be run using CTAS or INSERT INTO. CTAS will minimize transaction logging and is the fastest way to load your data. Azure Data Factory also supports PolyBase loads and can achieve performance similar to CTAS. PolyBase supports various file formats including Gzip files. 
 

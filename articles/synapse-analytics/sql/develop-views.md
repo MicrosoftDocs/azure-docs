@@ -1,6 +1,6 @@
 ---
-title: T-SQL views using SQL Analytics
-description: Tips for using T-SQL views and developing solutions with SQL Analytics.
+title: T-SQL views using Synapse SQL
+description: Tips for using T-SQL views and developing solutions with Synapse SQL.
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# T-SQL views using SQL Analytics
+# T-SQL views using Synapse SQL
 
-In this article, you'll find tips for using T-SQL views and developing solutions with SQL Analytics. 
+In this article, you'll find tips for using T-SQL views and developing solutions with Synapse SQL. 
 
 ## Why use views?
 
@@ -68,16 +68,16 @@ Forcing a specific query or joining hint is another benefit of using T-SQL views
 
 ## Limitations
 
-Views in SQL Analytics are only stored as metadata. Consequently, the following options aren't available:
+Views in Synapse SQL are only stored as metadata. Consequently, the following options aren't available:
 
 * There isn't a schema binding option
 * Base tables can't be updated through the view
 * Views can't be created over temporary tables
 * There's no support for the EXPAND / NOEXPAND hints
-* There are no indexed views in SQL analytics
+* There are no indexed views in Synapse SQL
 
 ## Next steps
 
-For more development tips, see [SQL Analytics development overview](develop-overview.md).
+For more development tips, see [Synapse SQL development overview](develop-overview.md).
 
 
