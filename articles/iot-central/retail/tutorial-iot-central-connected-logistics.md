@@ -110,6 +110,6 @@ If you're not going to continue to use this application, delete the application 
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
 ## Next steps
-* Learn more about [connected logistics concept](./architecture-connected-logistics-pnp.md)
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
+* Learn more about [connected logistics concept](./architecture-connected-logistics.md)
+* Learn more about other [IoT Central retail templates](./overview-iot-central-retail.md)
 * Learn more about [IoT Central overview](../core/overview-iot-central.md)

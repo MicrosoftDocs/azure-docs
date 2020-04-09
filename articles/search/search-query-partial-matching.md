@@ -10,13 +10,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
 ---
-# Partial term search and patterns with special characters - Azure Cognitive Search (wildcard, regex, patterns)
+# Partial term search and patterns with special characters (wildcard, regex, patterns)
 
 A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string. A *pattern* might a combination of fragments, sometimes with special characters such as dashes or slashes that are part of the query. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
 Partial search can be problematic if the index doesn't have terms in the format required for pattern matching. During the text analysis phase of indexing, using the default standard analyzer, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can support partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
+The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
 ## What is partial search in Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Analyzers are assigned on a per-field basis, which means you can create fields i
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 
