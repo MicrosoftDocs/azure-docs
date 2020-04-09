@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
 
 ---
@@ -35,6 +35,7 @@ You can copy data from an Oracle database to any supported sink data store. You 
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database:
+    - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
     - Oracle 12c R1 (12.1) and higher
     - Oracle 11g R1 (11.1) and higher
