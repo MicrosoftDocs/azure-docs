@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
+apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
@@ -107,6 +107,16 @@ doesn't allow outbound traffic, configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
 The [service tag](../../../virtual-network/service-tags-overview.md)
 "GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+
+## Azure managed identity requirements
+
+The **DeployIfNotExists** policies that add the extension to virtual machines also
+enable a system assigned managed identity, if one doesn't exist.
+
+> [!WARNING]
+> Avoid enabling user assigned managed identity to virtual machines in scope
+> for policies that enable system assigned managed identity. The user assigned
+> identity will be replaced and could machine become unresponsive.
 
 ## Guest Configuration definition requirements
 
