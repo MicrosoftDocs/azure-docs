@@ -50615,11 +50615,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/",
-      "redirect_url": "/azure/developer/chef/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/chef/index.yml",
       "redirect_url": "/azure/developer/chef/",
       "redirect_document_id": false
