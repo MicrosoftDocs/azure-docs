@@ -249,7 +249,7 @@ getProfile() {
 ```
 
 ### acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
-MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the `Interceptor` class instead for Angular apps, as shown in the previous section.
+MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the `MsalInterceptor` class instead for Angular apps, as shown in the previous section.
 
 #### Get a user token silently
 
