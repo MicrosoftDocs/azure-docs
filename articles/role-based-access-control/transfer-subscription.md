@@ -26,7 +26,7 @@ This article describes the basic steps you can follow to transfer an Azure subsc
 
 ## Overview
 
-When you transfer an Azure subscription to a different Azure AD directory, some artifacts are not transferred to the target directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the target directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure your managed identities still work, you must take additional steps.
+When you transfer an Azure subscription to a different Azure AD directory, some artifacts are not transferred to the target directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the target directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure your managed identities still work, you must take additional steps. Therefore
 
 The following diagram shows the basic steps you must follow when you transfer a subscription to a different directory.
 
@@ -46,32 +46,19 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
 ### Understand the impact of transferring a subscription
 
-Depending on your situation, the following table lists the impact of transferring a subscription.
+Depending on your situation, the following table lists the impact of transferring a subscription. By performing the steps in this article, you can re-create many of the artifacts that existed prior to the subscription transfer.
 
 > [!IMPORTANT]
 > Transferring a subscription does require downtime to complete the process.
 
-| You are using  | Impact of a transfer  | What you can do  |
+| Artifact | After transfer | What you can do |
 | --------- | --------- | --------- |
-| Role assignments for any of the following: **User**, **Group** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | Before initiating the transfer, follow the instructions in this article to transfer your role assignments to the target directory. |
-| Role assignments for any of the following: **Service Principal**, **SQL Azure**, **Managed Identity** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | Currently, there is not a procedure for this scenario. You must investigate the impact of these role assignment deletions. |
-| Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
-| Custom roles | All custom role definitions and role assignments are permanently deleted from the source directory and will not be transferred to the target directory. | You must manually re-create the custom role definitions and role assignments in the target directory. |
-
-### What gets re-created?
-
-The following table lists the artifacts that will get re-created when you follow the steps in this article.
-
-| Artifact | Re-created |
-| --------- | :---------: |
-| Role assignments for users | :heavy_check_mark: |
-| Role assignments for groups | :heavy_check_mark: |
-| Role assignments for service principals | :heavy_check_mark: |
-| Custom role definitions | :heavy_check_mark: |
-| Role assignments that use custom roles | :heavy_check_mark: |
-| Managed identities | :x: |
-| Azure SQL Databases with Azure AD authentication | :x: |
-| Key Vault access policies | :x: |
+| Role assignments | All are permanently deleted | You must map users, groups, and service principals to corresponding objects in target directory. You must re-create the role assignments. |
+| Custom roles | All are permanently deleted | You must re-create the custom roles and any role assignments. |
+| System-assigned managed identities | Broken | You must disable and re-enable the managed identities. You must re-create the role assignments. |
+| User-assigned managed identities | Broken | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
+| Azure SQL Databases with Azure AD authentication | Broken |  |
+| Key Vault access policies | Broken |  |
 
 ## Prerequisites
 
@@ -83,7 +70,7 @@ To complete these steps, you will need:
 
 ## Step 1: Prepare for the transfer
 
-### Inventory role assignments in the source directory
+### Save all role assignments in the source directory
 
 1. Sign in to Azure as an administrator.
 
@@ -115,7 +102,7 @@ To complete these steps, you will need:
 
 1. Review the list of role assignments. There might be role assignments you won't need in the target directory.
 
-### Inventory custom roles in the source directory
+### Save custom roles in the source directory
 
 1. Use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
 
@@ -131,7 +118,7 @@ To complete these steps, you will need:
 
 1. Make copies of the custom role files.
 
-1. Adjust each copy to use the following format.
+1. Modify each copy to use the following format.
 
     You'll use these files later to re-create the custom roles in the target directory.
 
@@ -155,19 +142,35 @@ To complete these steps, you will need:
 
 1. If necessary, in the target directory, create any users, groups, or service principals you will need.
 
-### List managed identities in the source directory
+### List role assignments for managed identities in the source directory
 
 Managed identities do not get updated when a subscription is transferred to another directory. As a result, any existing system-assigned or user-assigned managed identities will be broken. After the transfer, you can re-enable any system-assigned managed identities. For user-assigned managed identities, you will have to re-create and attach them in the target directory.
 
-1. List the virtual machines that have system-assigned managed identities enabled. For more information, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
-
-1. Use [az identity list](/cli/azure/identity#az-identity-list) to list any user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+1. Use [az ad sp list](/azure/ad/sp#az-ad-sp-list) to list your system-assigned and user-assigned managed identities.
 
     ```azurecli
-    az identity list -g <resource_group>
+    az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
     ```
 
-### Inventory other artifacts in the source directory
+1. In the list of managed identities, determine which are system-assigned and which are user-assigned. You can use the following criteria to determine the type.
+
+    | Criteria | Type |
+    | --- | --- |
+    | `alternativeNames` property includes `isExplicit=False` | System-assigned |
+    | `alternativeNames` property does not include `isExplicit` | System-assigned |
+    | `alternativeNames` property includes `isExplicit=True` | User-assigned |
+
+    You can also use [az identity list](/cli/azure/identity#az-identity-list) to just list user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+
+    ```azurecli
+    az identity list
+    ```
+
+1. Get a list of the `objectId` values for your managed identities.
+
+1. Search your list of role assignments to see if there are any role assignments for your managed identities.
+
+### List other artifacts in the source directory
 
 > [!IMPORTANT]
 > There are other artifacts that have a dependency on a subscription or a particular directory. This section lists the other known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here. 
@@ -229,7 +232,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create role assignments in target directory
 
-1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) create the role assignments. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to create the role assignments for users, groups, and service principals. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -240,6 +243,12 @@ In this step, you transfer the billing ownership of the subscription from the so
 1. If you have system-assigned managed identities, disable and re-enable the managed identities. For more information, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
 
 1. If you have user-assigned managed identities, delete, re-create, and attach them to the appropriate resource such as virtual machines. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to create the role assignments for managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+
+    ```azurecli
+    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
+    ```
 
 ### Create other artifacts in target directory
 
