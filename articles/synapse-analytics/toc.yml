@@ -176,6 +176,8 @@
     items:
     - name: Overview
       items:
+      - name: Synapse SQL architecture
+        href: sql/overview-synapse-sql.md
       - name: SQL on-demand
         href: sql/on-demand.md
       - name: SQL pool 

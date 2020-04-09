@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This article describes the architecture components of Synapse SQL.
 
-[!INCLUDE [preview](includes/note-preview.md)]
+[!INCLUDE [preview](../includes/note-preview.md)]
 
 ## Synapse SQL architecture components
 

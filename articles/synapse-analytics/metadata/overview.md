@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools.
 
-[!INCLUDE [preview](./includes/note-preview.md)]
+[!INCLUDE [preview](../includes/note-preview.md)]
 
 
 
