@@ -34,7 +34,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   * Time
   * Integer
   
-  This image shows what value type selection looks like within the Form Recognizer sample labeling tool:
+  This image shows the value type selection menu in the Form Recognizer sample labeling tool:
 
   > [!div class="mx-imgBorder"]
   > ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
