@@ -51,7 +51,7 @@ To create a new Azure IoT Central application:
 
 1. If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign in using a Microsoft account:
 
-    ![Enter your organization account](./media/tutorial-in-store-analytics-create-app-pnp/sign-in.png)
+    ![Enter your organization account](./media/tutorial-in-store-analytics-create-app/sign-in.png)
 
 1. To start creating a new Azure IoT Central application, select **New Application**.
 
@@ -72,9 +72,9 @@ To create a new in-store analytics checkout application:
 
 1. Select **Create**.
 
-    ![Azure IoT Central Create Application page](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
+    ![Azure IoT Central Create Application page](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)
 
-    ![Azure IoT Central Create Application billing info](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
+    ![Azure IoT Central Create Application billing info](./media/tutorial-in-store-analytics-create-app/preview-application-template-billinginfo.png)
 
 ## Customize application settings
 
@@ -84,7 +84,7 @@ To select a predefined application theme:
 
 1. Select **Settings** on the masthead.
 
-    ![Azure IoT Central application settings](./media/tutorial-in-store-analytics-create-app-pnp/settings-icon.png)
+    ![Azure IoT Central application settings](./media/tutorial-in-store-analytics-create-app/settings-icon.png)
 
 2. Select a new **Theme**.
 
@@ -96,7 +96,7 @@ To create a custom theme:
 
 1. Expand the left pane, if not already expanded.
 
-    ![Azure IoT Central left pane](./media/tutorial-in-store-analytics-create-app-pnp/dashboard-expand.png)
+    ![Azure IoT Central left pane](./media/tutorial-in-store-analytics-create-app/dashboard-expand.png)
 
 1. Select **Administration > Customize your application**.
 
@@ -108,11 +108,11 @@ To create a custom theme:
 
 1. Select **Save**. 
 
-    ![Azure IoT Central customized logo](./media/tutorial-in-store-analytics-create-app-pnp/select-application-logo.png)
+    ![Azure IoT Central customized logo](./media/tutorial-in-store-analytics-create-app/select-application-logo.png)
 
     After you save, the application updates the browser colors, the logo in the masthead, and the browser icon. 
 
-    ![Azure IoT Central updated application settings](./media/tutorial-in-store-analytics-create-app-pnp/saved-application-settings.png)
+    ![Azure IoT Central updated application settings](./media/tutorial-in-store-analytics-create-app/saved-application-settings.png)
 
 To update the application image:
 
@@ -124,7 +124,7 @@ To update the application image:
 
 1. Optionally, navigate to the **My Apps** view on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. The application tile displays the updated application image.
 
-    ![Azure IoT Central customize application image](./media/tutorial-in-store-analytics-create-app-pnp/customize-application-image.png)
+    ![Azure IoT Central customize application image](./media/tutorial-in-store-analytics-create-app/customize-application-image.png)
 
 ## Create device templates
 As a builder, you can create device templates that enable you and the application operators to configure and manage devices. You create a template by building a custom one, by importing an existing template file, or by importing a template from the Azure IoT device catalog. After you create and customize a device template, use it to connect real devices to your application. Optionally, use a device template to generate simulated devices for testing.
@@ -141,13 +141,13 @@ To add a RuuviTag device template to your application:
 
 1. Select **Next: Customize**.
 
-    ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template.png)
+    ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
 1. Select **Create**. The application adds the RuuviTag device template.
 
 1. Select **Device templates** on the left pane. The page displays all device templates included in the application template, and the RuuviTag device template you just added.
 
-    ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app-pnp/device-templates-list.png)
+    ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app/device-templates-list.png)
 
 ## Customize device templates
 You can customize the device templates in your application in three ways. First, you customize the native built-in interfaces in your devices by changing the device capabilities. For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type, the units of measurement, and minimum and maximum operating ranges. 
@@ -166,7 +166,7 @@ To customize the built-in interfaces of the RuuviTag device template:
 
 1. Hide the left pane. The summary view of the template displays the device capabilities.
 
-    ![Azure IoT Central RuuviTag device template summary view](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-summary-view.png)
+    ![Azure IoT Central RuuviTag device template summary view](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png)
 
 1. Select **Customize** in the RuuviTag device template menu. 
 
@@ -184,7 +184,7 @@ For the `humidity` telemetry type, make the following changes:
 
 1. Select **Save** to save your changes.
 
-    ![Azure IoT Central RuuviTag device template customization](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-customize.png)
+    ![Azure IoT Central RuuviTag device template customization](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 To add a cloud property to a device template in your application:
 
@@ -204,7 +204,7 @@ Specify the following values to create a custom property to store the location o
 
 1. Select **Save** to save your custom cloud property.
 
-    ![Azure IoT Central RuuviTag device template customization](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-cloud-property.png)
+    ![Azure IoT Central RuuviTag device template customization](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
 1. Select **Publish**. 
 
@@ -249,7 +249,7 @@ To create a rule:
 
 1. Enter a typical upper range indoor humidity level for your environment as the **Value**. For example, enter *65*. You've set a condition for your rule that occurs when relative humidity in any RuuviTag real or simulated sensor exceeds this value. You may need to adjust the value up or down depending on the normal humidity range in your environment.  
 
-   ![Azure IoT Central add rule conditions](./media/tutorial-in-store-analytics-create-app-pnp/rules-add-conditions.png)
+   ![Azure IoT Central add rule conditions](./media/tutorial-in-store-analytics-create-app/rules-add-conditions.png)
 
 To add an action to the rule:
 
@@ -263,7 +263,7 @@ To add an action to the rule:
 
 1. Select **Done** to complete the action.
 
-   ![Azure IoT Central add actions to rules](./media/tutorial-in-store-analytics-create-app-pnp/rules-add-action.png)
+   ![Azure IoT Central add actions to rules](./media/tutorial-in-store-analytics-create-app/rules-add-action.png)
 
 1. Select **Save** to save and activate the new rule. 
 
@@ -281,4 +281,4 @@ In this tutorial, you learned how to:
 Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard-pnp.md)
+> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard.md)
