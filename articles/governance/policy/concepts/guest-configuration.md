@@ -108,6 +108,16 @@ Group](../../../virtual-network/manage-network-security-group.md#create-a-securi
 The [service tag](../../../virtual-network/service-tags-overview.md)
 "GuestAndHybridManagement" can be used to reference the Guest Configuration service.
 
+## Azure managed identity requirements
+
+The **DeployIfNotExists** policies that add the extension to virtual machines also
+enable a system assigned managed identity, if one doesn't exist.
+
+> [!WARNING]
+> Avoid enabling user assigned managed identity to virtual machines in scope
+> for policies that enable system assigned managed identity. The user assigned
+> identity will be replaced and could machine become unresponsive.
+
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
