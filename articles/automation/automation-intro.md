@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Overview
+title: Azure Automation overview
 description: Learn how to use Azure Automation to automate the lifecycle of infrastructure and applications.
 services: automation
 ms.subservice: process-automation
@@ -22,7 +22,7 @@ Azure Automation delivers a cloud-based automation and configuration service tha
 
 Process automation in Azure Automation allows you to automate frequent, time-consuming, and error-prone cloud management tasks. This service helps you focus on work that adds business value. By reducing errors and boosting efficiency, it also helps to lower your operational costs. 
 
-Process automation supports the integration of Azure services and other public systems required in deploying, configuring, and managing your end-to-end processes. The service allows you to author [runbooks](automation-runbook-types.md) graphically, in PowerShell, or using Python. By using a [Hybrid Runbook Worker](automation-hybrid-runbook-worker), you can unify management by orchestrating across on-premises environments. [Webhooks](automation-webhooks.md) let you fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
+Process automation supports the integration of Azure services and other public systems required in deploying, configuring, and managing your end-to-end processes. The service allows you to author [runbooks](automation-runbook-types.md) graphically, in PowerShell, or using Python. By using a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), you can unify management by orchestrating across on-premises environments. [Webhooks](automation-webhooks.md) let you fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
 
 ## Configuration management
 
@@ -32,7 +32,7 @@ The Azure Automation state configuration service provides rich reporting and sea
 
 ## Update management
 
-Azure Automation includes the [update management](https://docs.microsoft.com/en-us/azure/automation/automation-update-managementUpdate) solution for Windows and Linux systems across hybrid environments. With this solution, you get visibility into update compliance across Azure and other clouds, and on-premises. Update management allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use update management features to exclude it from a deployment.
+Azure Automation includes the [update management](https://docs.microsoft.com/azure/automation/automation-update-managementUpdate) solution for Windows and Linux systems across hybrid environments. With this solution, you get visibility into update compliance across Azure and other clouds, and on-premises. Update management allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use update management features to exclude it from a deployment.
 
 ## Shared capabilities
 
