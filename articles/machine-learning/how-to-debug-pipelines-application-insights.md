@@ -3,8 +3,13 @@ title: Debug and troubleshoot machine learning pipelines in Application Insights
 titleSuffix: Azure Machine Learning
 description: Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
+<<<<<<< HEAD
 author: sanpil
 ms.author: sanpil
+=======
+author: aburek
+ms.author: shvija
+>>>>>>> ec1793816ed472b3038da6d61b7426a601702a61
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
