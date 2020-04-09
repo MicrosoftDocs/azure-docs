@@ -45,7 +45,7 @@ If you need to explore data in the data lake, or optimize your existing data tra
 
 - Basic discovery and exploration: Quickly reason about the data in various formats (Parquet, CSV, JSON) within your data lake so you can plan how to extract optimal value from it.
 - Logical data warehouse: Provide a relational abstraction on top of raw or disparate data without relocating and transforming data. You'll have an always up-to-date view of your data.
-- Data transformation: A simple, scalable, and high performing way to transform data in the lake using T-SQL. You're able to feed the data to BI and other tools, or load it into a relational data store such as SQL Analytics databases, Azure SQL Database, etc.
+- Data transformation: A simple, scalable, and high performing way to transform data in the lake using T-SQL. You're able to feed the data to BI and other tools, or load it into a relational data store such as Synapse SQL databases, Azure SQL Database, etc.
 
 Different professional roles can benefit from SQL on-demand:
 

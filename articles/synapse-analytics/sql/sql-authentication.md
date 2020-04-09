@@ -13,16 +13,16 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
-To authorize to SQL Analytics, you can use two authorization types:
+To authorize to Synapse SQL, you can use two authorization types:
 
 - AAD authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
+AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
 
 ## Administrative accounts
 
-There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the Properties tab of your SQL Analytics.
+There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the Properties tab of your Synapse SQL.
 
 ![SQL Server Admins](./media/sql-authentication/sql-admins.png)
 
@@ -32,7 +32,7 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Azure Active Directory admin**
 
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Azure Synapse SQL Analytics.
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to Synapse SQL.
 
 The **Server admin** and **Azure AD admin** accounts have the following characteristics:
 

@@ -1,6 +1,6 @@
 ---
 title: Using Multi-factor AAD authentication
-description: SQL Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
+description: Synapse SQL support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -10,9 +10,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick
 ---
 
-# Using Multi-factor AAD authentication with SQL Analytics (SSMS support for MFA)
+# Using Multi-factor AAD authentication with Synapse SQL (SSMS support for MFA)
 
-SQL Analytics support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
+Synapse SQL support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 
 This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
 
@@ -66,7 +66,7 @@ If you are running SSMS 18.x or later then the AD domain name or tenant ID is no
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### Azure AD business to business support   
-Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) can connect to SQL Analytics only as part of members of a group created in current Azure AD and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. 
+Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) can connect to Synapse SQL only as part of members of a group created in current Azure AD and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. 
 
 For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure Ad domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific  database (that is, MyDatabase) by Azure AD SQL admin or Azure AD DBO  by executing a Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
@@ -76,7 +76,7 @@ The usergroup, by default, has only the connect permission and any further data 
 
 Note that user `steve@gmail.com` as a guest user must check the box and add the AD domain name `contosotest.onmicrosoft.com` in the SSMS **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the Universal with MFA connection options, otherwise it is greyed out.
 
-## Universal Authentication limitations for SQL Analytics
+## Universal Authentication limitations for Synapse SQL
 
 - SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
 - SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricted a login for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
@@ -87,5 +87,5 @@ Note that user `steve@gmail.com` as a guest user must check the box and add the 
 - The Active Directory Authentication Library (ADAL) version for Universal authentication was updated to its latest ADAL.dll 3.13.9 available released version. See [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## Next steps
-For more information, see the [Connect to SQL Analytics with SQL Server Management Studio](get-started-ssms.md) article. 
+For more information, see the [Connect to Synapse SQL with SQL Server Management Studio](get-started-ssms.md) article. 
 

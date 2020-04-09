@@ -12,7 +12,7 @@ ms.reviewer: jrasnick, carlrab
 ---
 
 
-# Connect to SQL Analytics with Power BI Professional
+# Connect to Synapse SQL with Power BI Professional
 
 > [!div class="op_single_selector"]
 >

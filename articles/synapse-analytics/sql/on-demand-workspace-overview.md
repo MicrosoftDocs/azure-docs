@@ -1,6 +1,6 @@
 ---
 title: SQL on-demand (preview)
-description: Learn about SQL Analytics on-demand in Azure Synapse Analytics.
+description: Learn about Synapse SQL on-demand in Azure Synapse Analytics.
 services: sql-datawarehouse
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -27,7 +27,7 @@ If you need to explore data in the data lake, gain insights from it or optimize 
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
 - Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data.
-- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (SQL Analytics databases, Azure SQL Database, etc.).
+- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can fed to BI and other tools, or loaded into a relational data store (Synapse SQL databases, Azure SQL Database, etc.).
 
 Different professional roles can benefit from SQL on-demand:
 
@@ -42,7 +42,7 @@ SQL on-demand endpoint is provided within every Azure Synapse workspace. You can
 
 ## Client tools
 
-SQL on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query SQL Analytics](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
+SQL on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query Synapse SQL](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
 
 At this moment, latest version of Azure Data Studio is fully supported. Latest version of SSMS can be used to connect and query but is not supported yet. It will be fully supported until GA. Please make sure you use latest versions of tools.
 

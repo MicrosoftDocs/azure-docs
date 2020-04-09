@@ -175,4 +175,4 @@ Once you're done using this report, delete the resources with the following step
 
 ## Next steps
 
-Advance to the [Query storage files](develop-storage-files-overview.md) to learn how to query storage files using SQL Analytics.
+Advance to the [Query storage files](develop-storage-files-overview.md) to learn how to query storage files using Synapse SQL.
