@@ -1,5 +1,5 @@
 ---
-title: What is Azure Synapse Analytics 
+title: What is Azure Synapse Analytics? 
 description: An Overview of Azure Synapse Analytics 
 services: synapse-analytics 
 author: saveenr 
@@ -11,7 +11,7 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# What is Azure Synapse Analytics (workspaces)
+# What is Azure Synapse Analytics (workspaces)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
@@ -27,7 +27,7 @@ Azure Synapse provides the simplest and fastest way for an enterprise to gather 
 
 Additionally, Azure Synapse facilitates predictive model building and advanced analytics with machine learning via its built-in support for **AzureML**.
 
-## Key Features & Benefits
+## Key features & benefits
 
 ### Industry-leading SQL
 
@@ -42,11 +42,10 @@ scenarios using standard T-SQL experiences familiar to data engineers. It also e
 
 **Synapse Spark** deeply and seamlessly integrates Apache Spark--the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
 
-* ML models with SparkML algorithms and AzureML integration
-* for Apache Spark 2.4 with built-in support for Linux Foundation Delta Lake
+* ML models with SparkML algorithms and AzureML integration for Apache Spark 2.4 with built-in support for Linux Foundation Delta Lake.
 * Simplified resource model that frees you from having to worry about managing clusters.
-* Fast Spark start-up and aggressive autoscaling
-* Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application
+* Fast Spark start-up and aggressive autoscaling.
+* Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application.
 
 ### Interop of SQL and Spark on your Data Lake
 
@@ -56,7 +55,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast scalable load and unload for data going between SQL and Spark databases
 
-### Built-in Orchestration via Pipelines
+### Built-in orchestration via pipelines
 
 Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich data pipelines without using a separate orchestration engine.
 
@@ -64,7 +63,7 @@ Azure Synapse comes built-in with the same Data Integration engine and experienc
 * Orchestrate Notebooks, Pipelines, Spark jobs, SQL Scripts, Stored procedures
 * Code-Free ETL with Data flow activities
 
-### Unified Management, Monitoring, and Security
+### Unified management, monitoring, and security
 
 Azure Synapse provides a single way for enterprises to manage analytics resources, monitor usage and activity, and enforce security.
 

@@ -1488,6 +1488,7 @@ Jump to a resource provider namespace:
 > | networkSecurityGroups | Yes | Yes |
 > | networkWatchers | Yes | No |
 > | networkWatchers / connectionMonitors | Yes | No |
+> | networkWatchers / flowLogs | No | No |
 > | networkWatchers / lenses | Yes | No |
 > | networkWatchers / pingMeshes | Yes | No |
 > | p2sVpnGateways | Yes | Yes |

@@ -44,19 +44,19 @@ The following table lists the topics that are relevant to SQL pool vs. SQL on-de
 | [Unsupported table features](#unsupported-table-features)    | Yes                | No                      |
 | [Table size queries](#table-size-queries)                    | Yes                | No                      |
 
-## Determine table category 
+## Determine table category
 
-A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into fact and dimension tables. Some tables are used for integration or staging data before moving to a fact or dimension table. As you design a table, decide whether the table data belongs in a fact, dimension, or integration table. This decision informs the appropriate table structure and distribution. 
+A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into fact and dimension tables. Some tables are used for integration or staging data before moving to a fact or dimension table. As you design a table, decide whether the table data belongs in a fact, dimension, or integration table. This decision informs the appropriate table structure and distribution.
 
 - **Fact tables** contain quantitative data that are commonly generated in a transactional system, and then loaded into the data warehouse. For example, a retail business generates sales transactions every day, and then loads the data into a data warehouse fact table for analysis.
 
-- **Dimension tables** contain attribute data that might change but usually changes infrequently. For example, a customer's name and address are stored in a dimension table and updated only when the customer's profile changes. To minimize the size of a large fact table, the customer's name and address don't need to be in every row of a fact table. Instead, the fact table and the dimension table can share a customer ID. A query can join the two tables to associate a customer's profile and transactions. 
+- **Dimension tables** contain attribute data that might change but usually changes infrequently. For example, a customer's name and address are stored in a dimension table and updated only when the customer's profile changes. To minimize the size of a large fact table, the customer's name and address don't need to be in every row of a fact table. Instead, the fact table and the dimension table can share a customer ID. A query can join the two tables to associate a customer's profile and transactions.
 
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema names
 
-Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15) called wwi.
+Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) called wwi.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -64,7 +64,7 @@ CREATE SCHEMA wwi;
 
 ## Table names
 
-If you're migrating multiple databases from an on-prem solution to SQL pool, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](https://docs.microsoft.com/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15) sample data warehouse within one schema called wwi. 
+If you're migrating multiple databases from an on-prem solution to SQL pool, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) sample data warehouse within one schema called wwi.
 
 To show the organization of the tables in SQL pool, you could use fact, dim, and int as prefixes to the table names. The table below shows some of the schema and table names for WideWorldImportersDW.  
 
@@ -73,14 +73,13 @@ To show the organization of the tables in SQL pool, you could use fact, dim, and
 | City | Dimension | wwi.DimCity |
 | Order | Fact | wwi.FactOrder |
 
-
-## Table persistence 
+## Table persistence
 
 Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to the data warehouse.
 
 ### Regular table
 
-A regular table stores data in Azure Storage as part of the data warehouse. The table and the data persist whether or not a session is open.  The example below creates a regular table with two columns. 
+A regular table stores data in Azure Storage as part of the data warehouse. The table and the data persist whether or not a session is open.  The example below creates a regular table with two columns.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -90,13 +89,13 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in SQL pool, can offer faster performance.  
 
-SQL on-demand supports temporary tables. But, its usage is limited since you can select from temporary table but cannot join it with files in storage. 
+SQL on-demand supports temporary tables. But, its usage is limited since you can select from temporary table but cannot join it with files in storage.
 
 For more information, see  [Temporary tables](develop-tables-temporary.md).
 
 ### External table
 
-[External tables](develop-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage. 
+[External tables](develop-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage.
 
 Import data from external tables into SQL pool using the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -104,11 +103,11 @@ For SQL on-demand, you can use [CETAS](develop-tables-cetas.md) to save the quer
 
 ## Data types
 
-SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](../sql/develop-tables-data-types.md).
+SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](../sql/develop-tables-data-types.md).
 
 ## Distributed tables
 
-A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  SQL pool supports three methods for distributing data: 
+A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  SQL pool supports three methods for distributing data:
 
 - Round-robin (default)
 - Hash
@@ -116,23 +115,24 @@ A fundamental feature of SQL pool is the way it can store and operate on tables 
 
 ### Hash-distributed tables
 
-A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
+A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column.
 
 For more information, see [Design guidance for distributed tables](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Replicated tables
 
-A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables because joins on replicated tables don't require data movement. Replication requires extra storage, though, and isn't practical for large tables. 
+A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables because joins on replicated tables don't require data movement. Replication requires extra storage, though, and isn't practical for large tables.
 
 For more information, see [Design guidance for replicated tables](../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Round-robin tables
 
-A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  But, queries can require more data movement than the other distribution methods. 
+A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  But, queries can require more data movement than the other distribution methods.
 
 For more information, see [Design guidance for distributed tables](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Common distribution methods for tables
+
 The table category often determines the optimal option for table distribution.
 
 | Table category | Recommended distribution option |
@@ -143,14 +143,14 @@ The table category often determines the optimal option for table distribution.
 
 ## Partitions
 
-In SQL pool, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. 
+In SQL pool, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition.
 
 You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
-> When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. 
+> When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement if the existing data is to be truncated.
 
-The code below switches the transformed daily data into a SalesFact partition and overwrites any existing data. 
+The code below switches the transformed daily data into a SalesFact partition and overwrites any existing data.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -159,7 +159,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 In SQL on-demand, you can limit the files/folders (partitions) that will be read by your query. Partitioning by path is supported using the filepath and fileinfo functions described in [Querying storage files](develop-storage-files-overview.md). The following example reads a folder with data for year 2017:
 
 ```sql
-SELECT 
+SELECT
     nyc.filepath(1) AS [year],
     payment_type,
     SUM(fare_amount) AS fare_total
@@ -168,9 +168,9 @@ FROM
         BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS nyc
-WHERE 
-    nyc.filepath(1) = 2017 
-GROUP BY 
+WHERE
+    nyc.filepath(1) = 2017
+GROUP BY
     nyc.filepath(1),
     payment_type
 ORDER BY
@@ -185,11 +185,11 @@ By default, SQL pool stores a table as a clustered columnstore index. This form 
 > [!TIP]
 > A heap table can be especially useful for loading transient data, such as a staging table, which is transformed into a final table.
 
-For a list of columnstore features, see [What's new for columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-what-s-new?view=sql-server-ver15). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](../sql/data-load-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](../sql/data-load-columnstore-compression.md).
 
 ## Statistics
 
-The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. 
+The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics.
 
 Statistical updating doesn't happen automatically. Update statistics after a significant number of rows are added or changed. For instance, update statistics after a load. Additional information is provided in the [Statistics guidance](develop-tables-statistics.md) article.
 
@@ -203,36 +203,38 @@ You can create a table as a new empty table. You can also create and populate a 
 
 | T-SQL Statement | Description |
 |:----------------|:------------|
-| [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Creates an empty table by defining all the table columns and options. |
-| [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15) | Creates an external table. The definition of the table is stored in SQL pool. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
-| [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
-| [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Creates an empty table by defining all the table columns and options. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Creates an external table. The definition of the table is stored in SQL pool. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
 
 ## Aligning source data with the data warehouse
 
-Data warehouse tables are populated by loading data from another data source. To achieve a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse. 
+Data warehouse tables are populated by loading data from another data source. To achieve a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse.
 
 > [!NOTE]
-> Getting the data to align might be the hardest part of designing your tables. 
+> Getting the data to align might be the hardest part of designing your tables.
 
 If data is coming from multiple data stores, you can port the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of SQL pool to implement transformation operations. Once the data is prepared, you can insert it into production tables.
 
 ## Unsupported table features
+
 SQL pool supports many, but not all, of the table features offered by other databases.  The following list shows some of the table features that aren't supported in SQL pool.
 
-- Foreign key, check [Table Constraints](https://docs.microsoft.com/sql/t-sql/statements/alter-table-table-constraint-transact-sql?view=sql-server-ver15)
-- [Computed Columns](https://docs.microsoft.com/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?view=sql-server-ver15)
-- [Indexed Views](https://docs.microsoft.com/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15)
-- [Sequence](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver15)
-- [Sparse Columns](https://docs.microsoft.com/sql/relational-databases/tables/use-sparse-columns?view=sql-server-ver15)
+- Foreign key, check [Table Constraints](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Computed Columns](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Indexed Views](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Sparse Columns](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - Surrogate Keys, implement with [Identity](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Synonyms](https://docs.microsoft.com/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver15)
-- [Triggers](https://docs.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-ver15)
-- [Unique Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver15)
-- [User-Defined Types](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types?view=sql-server-ver15)
+- [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Triggers](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Unique Indexes](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [User-Defined Types](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions is to use [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?view=aps-pdw-2016-au7).
+
+One simple way to identify space and rows consumed by a table in each of the 60 distributions is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -246,7 +248,7 @@ AS
 WITH base
 AS
 (
-SELECT 
+SELECT
  GETDATE()                                                             AS  [execution_time]
 , DB_NAME()                                                            AS  [database_name]
 , s.name                                                               AS  [schema_name]
@@ -267,15 +269,15 @@ SELECT
 , nps.[partition_number]                                               AS  [partition_nmbr]
 , nps.[reserved_page_count]                                            AS  [reserved_space_page_count]
 , nps.[reserved_page_count] - nps.[used_page_count]                    AS  [unused_space_page_count]
-, nps.[in_row_data_page_count] 
-    + nps.[row_overflow_used_page_count] 
+, nps.[in_row_data_page_count]
+    + nps.[row_overflow_used_page_count]
     + nps.[lob_used_page_count]                                        AS  [data_space_page_count]
-, nps.[reserved_page_count] 
- - (nps.[reserved_page_count] - nps.[used_page_count]) 
- - ([in_row_data_page_count] 
+, nps.[reserved_page_count]
+ - (nps.[reserved_page_count] - nps.[used_page_count])
+ - ([in_row_data_page_count]
          + [row_overflow_used_page_count]+[lob_used_page_count])       AS  [index_space_page_count]
 , nps.[row_count]                                                      AS  [row_count]
-from 
+from
     sys.schemas s
 INNER JOIN sys.tables t
     ON s.[schema_id] = t.[schema_id]
@@ -348,7 +350,7 @@ SELECT
 ,  ([index_space_page_count]  * 8.0)/1000000000                        AS [index_space_TB]
 FROM base
 )
-SELECT * 
+SELECT *
 FROM size
 ;
 ```
@@ -358,7 +360,7 @@ FROM size
 This query returns the rows and space by table.  Table space summary allows you to see which tables are your largest tables. You'll also see whether they're round-robin, replicated, or hash-distributed.  For hash-distributed tables, the query shows the distribution column.  
 
 ```sql
-SELECT 
+SELECT
      database_name
 ,    schema_name
 ,    table_name
@@ -371,9 +373,9 @@ SELECT
 ,    SUM(data_space_GB)             as table_data_space_GB
 ,    SUM(index_space_GB)            as table_index_space_GB
 ,    SUM(unused_space_GB)           as table_unused_space_GB
-FROM 
+FROM
     dbo.vTableSizes
-GROUP BY 
+GROUP BY
      database_name
 ,    schema_name
 ,    table_name
@@ -388,7 +390,7 @@ ORDER BY
 ### Table space by distribution type
 
 ```sql
-SELECT 
+SELECT
      distribution_policy_name
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
@@ -403,7 +405,7 @@ GROUP BY distribution_policy_name
 ### Table space by index type
 
 ```sql
-SELECT 
+SELECT
      index_type_desc
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
@@ -418,7 +420,7 @@ GROUP BY index_type_desc
 ### Distribution space summary
 
 ```sql
-SELECT 
+SELECT
     distribution_id
 ,    SUM(row_count)                as total_node_distribution_row_count
 ,    SUM(reserved_space_MB)        as total_node_distribution_reserved_space_MB
@@ -432,4 +434,5 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
+
 After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).

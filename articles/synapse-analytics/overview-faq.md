@@ -89,7 +89,7 @@ A: End-to-end single sign-on experience is an important authentication process i
 
 ### Q: How do I get access to files and folders in the ADLSg2
 
-A: Access to files and folders is currently managed through ADLSg2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md).
+A: Access to files and folders is currently managed through ADLSg2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics
 

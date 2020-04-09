@@ -60,5 +60,3 @@ If a metadata object is deleted or changed with Spark, the changes are picked up
 - [Learn more about Azure Synapse Analytics' shared metadata Databases](database.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
 
-<!--- [Learn more about the Synchronization with SQL Analytics On-Demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics Pools](overview.md)-->
