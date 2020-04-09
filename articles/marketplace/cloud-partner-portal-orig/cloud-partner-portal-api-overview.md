@@ -30,8 +30,7 @@ Before using the APIs, you should review:
 - The [Prerequisites](./cloud-partner-portal-api-prerequisites.md) article to
 learn how to add a service principal to your account, and get an
 Azure Active Directory (Azure AD) access token for authentication.
-- The two [concurrency control](./cloud-partner-portal-api-concurrency-control.md).
-strategies available for calling these APIs.
+- The two [concurrency control](./cloud-partner-portal-api-concurrency-control.md) strategies available for calling these APIs.
 - Additional API [considerations](./cloud-partner-portal-api-considerations.md), such as versioning and error handling.
 
 ## Changes to CPP APIs after the migration to Partner Center
