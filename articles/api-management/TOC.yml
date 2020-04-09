@@ -104,7 +104,6 @@
               href: api-management-howto-provision-self-hosted-gateway.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: api-management-howto-deploy-self-hosted-gateway-to-aks.md
-            - name: Deploy a self-hosted gateway to Docker
             - name: Deploy a self-hosted gateway to Kubernetes
               href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
             - name: Deploy a self-hosted gateway to Docker
