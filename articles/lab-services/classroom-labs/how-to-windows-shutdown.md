@@ -54,7 +54,7 @@ To set the RDP session idle time limit, you can connect to the template VM and e
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 90
+$maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -75,6 +75,9 @@ Or, you can choose to follow these manual steps using the template VM:
     ![Idle session limit](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
 1. Finally, to combine this behavior with the **automatic shutdown on disconnect** setting, you should follow steps in the how-to article: [Enable automatic shutdown of VMs on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
+
+> [!NOTE]
+> After configuring this setting using either PowerShell to modify the registry setting directly or manually using the Group Policy editor, you must first restart the VM for the settings to take effect.  Also, if you configure the setting using the registry, the Group Policy editor doesn't always refresh to reflect changes to the registry setting; however, the registry setting still takes effect as expected and you will see the RDP session disconnected when idle for the length of time that you've specified.
 
 ## Remove Windows shutdown command from Start menu
 
