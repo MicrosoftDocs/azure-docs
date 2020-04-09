@@ -99,12 +99,7 @@ Do the following steps in the Azure portal to create a share.
 
 If you created a share before you configured compute on your Azure Stack Edge device, you will need to mount the share. Take the following steps to mount a share.
 
-<<<<<<< HEAD
-
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
-=======
 1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
->>>>>>> a3fe094beb6a83ddc6a22796cd00a18b9fdadc86
 
    ![Select share](media/data-box-edge-manage-shares/select-share-mount.png)
 
