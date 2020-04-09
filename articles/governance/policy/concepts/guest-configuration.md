@@ -26,7 +26,7 @@ applicable policy assignment and the corresponding configuration definition.
 ### Limits set on the extension
 
 To limit the extension from impacting applications running inside the machine, the Guest
-Configuration isn't allowed to exceed more than 5% of CPU utilization. This limitation exists for
+Configuration isn't allowed to exceed more than 5% of CPU. This limitation exists for
 both built-in and custom definitions.
 
 ## Register Guest Configuration resource provider
@@ -107,8 +107,7 @@ Windows Server Nano Server isn't supported in any version.
 ## Guest Configuration Extension network requirements
 
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that
-doesn't allow outbound traffic, configure exceptions with [Network Security
+access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic, configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
 The [service tag](../../../virtual-network/service-tags-overview.md)
 "GuestAndHybridManagement" can be used to reference the Guest Configuration service.
@@ -116,9 +115,7 @@ The [service tag](../../../virtual-network/service-tags-overview.md)
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to
-prepare the machine with the Guest Configuration agent and other components to support the
-[validation tools](#validation-tools).
+definition and an **AuditIfNotExists** definition. 
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
@@ -133,7 +130,7 @@ If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
 task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
 
 Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment
-uses the local validation tools to determine if the configuration assignment is Compliant or
+determines if the guest assignment is Compliant or
 Non-compliant. The validation tool provides the results to the Guest Configuration client. The
 client forwards the results to the Guest Extension, which makes them available through the Guest
 Configuration resource provider.
@@ -148,7 +145,7 @@ data](../how-to/get-compliance-data.md).
 > resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
-for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings
+for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security
 inside Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
 **AuditIfNotExists** pairs for Windows and three pairs for Linux. The
 [policy definition](definition-structure.md#policy-rule) logic validates that only the target
@@ -156,25 +153,21 @@ operating system is evaluated.
 
 #### Auditing operating system settings following industry baselines
 
-One of the initiatives available in Azure Policy provides the ability to audit operating system
-settings inside virtual machines following a "baseline" from Microsoft. The definition,
+One initiative in Azure Policy provides the ability to audit operating system
+settings following a "baseline". The definition,
 _\[Preview\]: Audit Windows VMs that do not match Azure security baseline settings_ includes a
-complete set of audit rules based on settings from Active Directory Group Policy.
+set of rules based on Active Directory Group Policy.
 
-Most of the settings are available as parameters. This functionality allows you to customize what is
-audited to align the policy with your organizational requirements or to map the policy to
+Most of the settings are available as parameters. Parameters allow you to customize what is
+audited. Align the policy with your requirements or map the policy to
 third-party information such as industry regulatory standards.
 
-Some parameters support an integer value range. For example, the Maximum Password Age parameter can
-be set using a range operator to give flexibility to machine owners. You could audit that the
-effective Group Policy setting requiring users to change their passwords should be no more than 70
-days, but shouldn't be less than one day. As described in the info-bubble for the parameter, to make
-this business policy the effective audit value, set the value to "1,70".
+Some parameters support an integer value range. For example, the Maximum Password Age setting could audit the
+effective Group Policy setting. A "1,70" range would confirm that users are required to change their passwords at least every 70
+days, but no less than one day.
 
-If you assign the policy using an Azure Resource Manager deployment template, you can use a
-parameters file to manage these settings from source control. Using a tool such as Git to manage
-changes to Audit policies with comments at each check-in documents evidence as to why an assignment
-should be an exception to the expected value.
+If you assign the policy using an Azure Resource Manager deployment template, use a parameters file to manage exceptions. Check in the files to a version control system such as Git. Comments about file changes provide evidence why an assignment
+is an exception to the expected value.
 
 #### Applying configurations using Guest Configuration
 
@@ -224,9 +217,7 @@ If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
 
-To use the Azure VM Run Command capability to capture information from log files in Windows
-machines, the following example PowerShell script can be helpful. For more information, see
-[Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command.md).
+Capture information from log files using [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), the following example PowerShell script can be helpful.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -237,9 +228,8 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### Linux
 
-To use the Azure VM Run Command capability to capture information from log files in Linux machines,
-the following example Bash script can be helpful. For more information, see
-[Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command.md)
+Capture information from log files using [Azure VM Run Command](../../../virtual-machines/linux/run-command.md),
+the following example Bash script can be helpful.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -250,7 +240,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## Guest Configuration samples
 
-Source for the Policy Guest Configuration built-in initiatives are available in the following
+Guest Configuration built-in policy samples are available in the following
 locations:
 
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
