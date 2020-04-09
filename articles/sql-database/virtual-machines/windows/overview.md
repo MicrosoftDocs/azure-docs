@@ -32,7 +32,7 @@ SQL Server Azure VMs can use [Automated Patching](automated-patching.md) to sche
 
 ## Automated backups
 
-SQL Server Azure VMs can take advantage of [Automated Backup](automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](-use-storage-backup-restore.md).
+SQL Server Azure VMs can take advantage of [Automated Backup](automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](use-storage-backup-restore.md).
 
 ## High availability
 

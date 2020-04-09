@@ -65,7 +65,7 @@ By default, SQL Server listens on a well-known port, 1433. For increased securit
 
 To configure this after provisioning, you have two options:
 
-- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](../../../cloud-services/manage-portal.md#access-the-sql-virtual-machines-resource). This provides an option to change the port.
+- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](manage-portal.md#access-the-sql-virtual-machines-resource). This provides an option to change the port.
 
   ![TCP port change in portal](./media/security/sql-vm-change-tcp-port.png)
 
@@ -104,7 +104,7 @@ For more information about virtual machine security, see the [virtual machines s
 
 ## Next Steps
 
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](../../../azure-monitor/app/performance.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](performance.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 

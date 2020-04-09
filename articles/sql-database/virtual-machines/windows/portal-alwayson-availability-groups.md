@@ -73,7 +73,7 @@ Click **Basics** and configure the following settings:
 * **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 * **Subscription** is the subscription that Azure bills to run all deployed resources for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
-* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](overview.md#resource-groups).
+* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview#resource-groups).
 * **Location** is the Azure region where the tutorial creates the resources. Choose an Azure region.
 
 The following screenshot is a completed **Basics** blade:

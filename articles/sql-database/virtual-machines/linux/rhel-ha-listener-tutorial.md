@@ -75,7 +75,7 @@ Azure calls the back-end address pool *backend pool*. In this case, the back-end
 
 6. Select each virtual machine in the environment, and associate the appropriate IP address to each selection.
 
-    :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-backend-pool.png" alt-text="Add backend pool":::
+    :::image type="content" source="media/rhel-ha-listener-tutorial/add-backend-pool.png" alt-text="Add backend pool":::
 
 7. Click **Add**. 
 
@@ -129,7 +129,7 @@ The load balancing rules configure how the load balancer routes traffic to the S
    | **Idle timeout (minutes)** |*4* |
    | **Floating IP (direct server return)** |**Enabled** |
 
-   :::image type="content" source="media/sql-server-linux-rhel-ha-listener-tutorial/add-load-balancing-rule.png" alt-text="Add load balancing rule":::
+   :::image type="content" source="media/rhel-ha-listener-tutorial/add-load-balancing-rule.png" alt-text="Add load balancing rule":::
 
 4. Click **OK**. 
 5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
