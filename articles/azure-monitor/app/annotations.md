@@ -71,19 +71,19 @@ Create a separate API key for each of your Azure Pipelines release templates.
    > [!NOTE]
    > Release annotations are not currently available in the Metrics pane of Application Insights
 
-Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in two places:
+Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in the following locations:
 
-1. The usage pane where you also have the ability to manually create release annotations:
+The usage pane where you also have the ability to manually create release annotations:
 
-    ![Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as green checkmarks above the chart indicating the moment in time that a release occurred](./media/annotations/usage-pane.png)
+![Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as green checkmarks above the chart indicating the moment in time that a release occurred](./media/annotations/usage-pane.png)
 
-2. In any log-based workbook query where the visualization displays time along the x-axis.
+In any log-based workbook query where the visualization displays time along the x-axis.
 
-    ![Screenshot of workbooks pane with time series log-based query with annotations displayed](./media/annotations/workbooks-annotations.png)
+![Screenshot of workbooks pane with time series log-based query with annotations displayed](./media/annotations/workbooks-annotations.png)
 
 To enable annotations in your workbook go to **Advanced Settings** and select **Show annotations**.
 
-   ![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
+![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
