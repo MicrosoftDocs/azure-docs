@@ -7,10 +7,13 @@ manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/08/2020
 ---
 
 # Create a new Managed Service offer
+
+> [!IMPORTANT]
+> We're moving the management of your Managed Service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a Managed Service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers in Cloud Partner Portal.
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
