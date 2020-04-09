@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 

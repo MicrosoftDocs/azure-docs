@@ -7,7 +7,7 @@ author: spelluru
 editor: ''
 
 ms.service: event-grid
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ---

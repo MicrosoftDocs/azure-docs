@@ -4,8 +4,8 @@ description: Describes the properties and schema provided for Azure Key Vault ev
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 

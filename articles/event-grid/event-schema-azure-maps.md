@@ -4,7 +4,7 @@ description: Describes the properties and schema provided for Azure Maps events 
 services: event-grid
 author: banisadr
 ms.service: event-grid
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ---
@@ -160,7 +160,7 @@ The data object has the following properties:
 | invalidPeriodGeofenceGeometryId | string[]  | Lists of the geometry ID of the geofence that is in invalid period relative to the user time in the request. |
 | isEventPublished | boolean | True if at least one event is published to the Azure Maps event subscriber, false if no event is published to the Azure Maps event subscriber. |
 
-## Tutorials
+## Tutorials and how-tos
 |Title  |Description  |
 |---------|---------|
 | [React to Azure Maps events by using Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure Maps with Event Grid. |

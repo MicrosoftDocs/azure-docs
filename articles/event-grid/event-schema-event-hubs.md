@@ -5,8 +5,8 @@ services: event-grid
 author: spelluru
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 

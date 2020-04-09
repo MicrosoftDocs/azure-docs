@@ -5,7 +5,7 @@ services: event-grid
 author: spelluru
 
 ms.service: event-grid
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ---
@@ -14,7 +14,6 @@ ms.author: spelluru
 
 This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure Blob Storage as an event source.
 
-For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
 >[!NOTE]
 > Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.

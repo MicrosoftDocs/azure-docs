@@ -1,11 +1,11 @@
 ---
 title: Azure App Configuration as Event Grid source
-description: Describes the properties that are provided for Azure App Configuration events with Azure Event Grid
+description: This article describes how to use Azure App Configuration as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 services: event-grid
 author: banisadr
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ---
@@ -74,7 +74,7 @@ An event has the following top-level data:
 | subject | string | Publisher-defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
+| ID | string | Unique identifier for the event. |
 | data | object | App Configuration event data. |
 | dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
