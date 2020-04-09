@@ -574,6 +574,8 @@
           href: cassandra-introduction.md
         - name: Wire protocol support
           href: cassandra-support.md
+        - name: Frequently asked questions
+          href: cassandra-faq.md          
       - name: Quickstarts
         items:
         - name: .NET
