@@ -28,9 +28,11 @@ The [Azure classic CLI](../cli-install-nodejs.md) is a cross-platform, open-sour
 ## Azure CLI
 The [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
 
-
 ## Azure IoT device SDKs
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
+
+## Azure IoT Explorer
+The [Azure IoT Explorer](iot-pnp/howto-install-iot-explorer.md) is used to view the telemetry the device is sending, work with device properties, and call commands. You can also use the tool to interact with and test your devices.
 
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -104,9 +106,9 @@ Refers to device state information, such as the connectivity method currently in
 Device data refers to the per-device data stored in the IoT Hub [identity registry](#identity-registry). It is possible to import and export this data.
 
 ## Device explorer
-The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry).The tool can also send and receive messages to your devices.
+The device explorer has been replaced with the [Azure IoT Explorer](#azure-iot-explorer), which is used to view the telemetry a device is sending, work with device properties, and call commands. YOu can also use the tool to interact with and test your devices.
 
-## Device identity
+## Device identity#
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
 
 ## Device management
