@@ -145,7 +145,7 @@ You use the Vcpkg package to build the generated device code stub. The applicati
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device ID**) as parameters for the application. To get the credentials from certification portal, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. After the build completes successfully, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device ID**) as parameters for the application.
 
     ```cmd\sh
     .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
@@ -171,7 +171,7 @@ During certification, your device is tested programmatically to ensure it implem
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play device ready for certification the suggested next step is to:
+Now that you've built an IoT Plug and Play device ready for certification the suggested next step is to review the:
 
 > [!div class="nextstepaction"]
-> [Learn how to certify your device](tutorial-certification-test.md)
+> [Developer guide](concepts-developer-guide.md)

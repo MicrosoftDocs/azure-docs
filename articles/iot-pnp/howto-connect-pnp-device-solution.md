@@ -256,9 +256,7 @@ The previous sections show you how to run a selection of the service samples. Th
 
 Using the same instructions as for the service and device samples, you need to set the following environment variable:
 
-* `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
-
-You can find this connection string in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) on the **Connection strings** tab for your **Company repository**.
+`AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
 The connection string looks like the following example:
 

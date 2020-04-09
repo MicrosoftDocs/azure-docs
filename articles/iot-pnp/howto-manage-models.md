@@ -14,9 +14,8 @@ ms.author: philmea
 
 The IoT Plug and Play Preview model repository stores device capability models and interfaces. The repository makes the models and interfaces discoverable and consumable by solution developers.
 
-There are three tools you can use to manage the repository:
+There are two tools you can use to manage the repository:
 
-- The Azure Certified for IoT portal
 - The Azure CLI
 - Visual Studio Code
 
@@ -24,15 +23,8 @@ There are three tools you can use to manage the repository:
 
 There are two types of model repository for storing device capability models and interfaces:
 
-- There is a single _Public repository_ that stores the device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). This repository also stores [common interfaces](./concepts-common-interfaces.md) and [DCMs and interfaces published by Microsoft Partners](./howto-onboard-portal.md). To learn how to certify a device and add its device capability model to the public repository, see the tutorial [Certify your IoT Plug and Play device](./tutorial-certification-test.md).
-- There are multiple _Company repositories_. A company repository is automatically created for your organization when you [onboard to the Azure Certified for IoT portal](./howto-onboard-portal.md). You can use your company repository to store your device capability models and interfaces during development and test.
-
-## Azure Certified for IoT portal
-
-In the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com), you can complete the following tasks:
-
-- [Complete the certification process for your IoT device](./tutorial-certification-test.md).
-- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./howto-connect-pnp-device-solution.md).
+- There is a single _Public repository_ that stores the device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). This repository also stores [common interfaces](./concepts-common-interfaces.md) and DCMs and interfaces published by Microsoft Partners.
+- There are multiple _Company repositories_. A company repository is automatically created for your organization when you onboard to the Azure Certified for IoT portal. You can use your company repository to store your device capability models and interfaces during development and test.
 
 ## Azure CLI
 
@@ -57,4 +49,4 @@ To open the **Model Repository** view in Visual Studio Code.
 
 ## Next steps
 
-The suggested next step is to learn how to [submit an IoT Plug and Play device for certification](tutorial-certification-test.md).
+The suggested next step is to learn how to [Connect to a device in your solution](howto-connect-pnp-device-solution.md).

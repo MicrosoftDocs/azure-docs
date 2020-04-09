@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Install and use the Azure IoT extension for the Azure CLI
 
-[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and MacOS. The Azure CLI is also pre-installed in the [Azure Cloud Shell](https://shell.azure.com). The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
+[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI is also pre-installed in the [Azure Cloud Shell](https://shell.azure.com). The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
 The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
 
@@ -62,7 +62,7 @@ To use the Azure IoT extension for the Azure CLI, you need:
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
 
-- Some commands need the connection string for a company model repository. A model repository for your company is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md). A third party might share their model repository connection string with you to give you access to their interfaces and models.
+- Some commands need the connection string for a company model repository. A third party might share their model repository connection string with you to give you access to their interfaces and models.
 
 ### Interact with a device
 

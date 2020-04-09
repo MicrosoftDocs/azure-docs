@@ -15,14 +15,6 @@ manager: philmea
 
 Definitions of common terms as used in the IoT Plug and Play articles.
 
-## Azure Certified for IoT portal
-
-You can use the [Azure Certified for IoT portal](https://aka.ms/ACFI) website to:
-
-- Complete the [certification process](#device-certification) for your [IoT Plug and Play device](#iot-plug-and-play-device).
-- Find [device capability models](#device-capability-model).
-- Publish a device capability model to the [public model repository](#public-model-repository).
-
 ## Azure CLI
 
 The Azure CLI is a cross-platform, command-line tool for managing Azure resources. The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing [IoT Plug and Play devices](#iot-plug-and-play-device). You can use the extension to:
@@ -36,10 +28,6 @@ The Azure CLI is a cross-platform, command-line tool for managing Azure resource
 ## Azure IoT Central
 
 Azure IoT Central is a fully managed software-as-a-service solution that makes it easy to connect, monitor, and manage your [IoT Plug and Play devices](#iot-plug-and-play-device). You can use [device capability models](#device-capability-model) to automatically configure an IoT Central application to monitor and manage your devices.
-
-## Azure IoT certification service
-
-The Azure IoT certification service runs a set of certification tests when you submit an [IoT Plug and Play device](#iot-plug-and-play-device) for certification through the [Azure Certified for IoT portal](#azure-certified-for-iot-portal). Before you can add a device to the [Certified for IoT device catalog](#certified-for-iot-device-catalog), the device must be certified.
 
 ## Azure IoT Tools extension
 
@@ -68,11 +56,7 @@ IoT Hub is a managed service, hosted in the cloud, that acts as a central messag
 
 ## Azure IoT device SDK
 
-There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications. One of the requirements for [device  certification](#device-certification) is that the device client code uses one of the Azure IoT device SDKs.
-
-## Certified for IoT device catalog
-
-The [Certified for IoT device catalog](https://catalog.azureiotsolutions.com/) lists [IoT Plug and Play devices](#iot-plug-and-play-device) that have passed the [device certification](#device-certification) tests. The [device capability models](#device-capability-model) for the IoT Plug and Play devices in the catalog and published in the public model repository.
+There are device SDKs for multiple languages that you can use to build IoT Plug and Play device client applications.
 
 ## Commands
 
@@ -80,7 +64,7 @@ Commands defined in an [interface](#interface) represent methods that can be exe
 
 ## Common interface
 
-All [IoT Plug and Play devices](#iot-plug-and-play-device) are expected to implement some common [interfaces](#interface). For example, the device information interface defines hardware and operating system information about the device. [Device certification](#device-certification) requires your device to implement several common interfaces. You can retrieve common interface definitions from the public model repository.
+All [IoT Plug and Play devices](#iot-plug-and-play-device) are expected to implement some common [interfaces](#interface). For example, the device information interface defines hardware and operating system information about the device. You can retrieve common interface definitions from the public model repository.
 
 ## Company model repository
 
@@ -97,10 +81,6 @@ A connection string encapsulates the information required to connect to an endpo
 ## Device capability model
 
 A device capability model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device capability model typically corresponds to a physical device, product, or SKU. You use the [Digital Twin Definition Language](#digital-twin-definition-language) to define a device capability model.
-
-## Device certification
-
-Device certification is the process of certifying an [IoT Plug and Play device](#iot-plug-and-play-device) so that it can be added to the [Certified for IoT device catalog](#certified-for-iot-device-catalog) and its [device capability model](#device-capability-model) and [interfaces](#interface) added to the [public model repository](#public-model-repository).
 
 ## Device developer
 
@@ -148,11 +128,7 @@ The IoT Hub query language is used for multiple purposes. For example, you can u
 
 ## IoT Plug and Play device
 
-An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device capability model](#device-capability-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices. The [Azure Certified for IoT device catalog](#certified-for-iot-device-catalog) lists available IoT Plug and Play devices. Each IoT Plug and Play device in the catalog has been validated, and has a [device capability model](#device-capability-model).
-
-## Microsoft Partner Center
-
-[Microsoft Partner Center](https://docs.microsoft.com/partner-center/) is where your organization manages its end-to-end relationship with Microsoft. You need a Microsoft Partner Center account before you can certify your [IoT Plug and Play device](#iot-plug-and-play-device) in the [Azure Certified for IoT portal](#azure-certified-for-iot-portal).
+An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device capability model](#device-capability-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
 ## Model discovery
 
@@ -172,7 +148,7 @@ Properties are data fields defined in an [interface](#interface) that represent 
 
 ## Public model repository
 
-There is a single public model repository that stores [device capability models](#device-capability-model) and [interfaces](#interface) for [certified devices](#device-certification). The public model repository also stores [common interface](#common-interface) definitions.
+There is a single public model repository that stores [device capability models](#device-capability-model) and [interfaces](#interface). The public model repository also stores [common interface](#common-interface) definitions.
 
 ## Registration ID
 

@@ -10,7 +10,7 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 
-# As a device builder, I need to know what is PnP and how to certify devices, so I can understand how they can help me build and market my IoT devices.
+# As a device builder, I need to know what is PnP, so I can understand how it can help me build and market my IoT devices.
 ---
 
 # What is IoT Plug and Play Preview?
@@ -32,7 +32,6 @@ This article outlines:
 - The typical roles associated with a project that uses IoT Plug and Play.
 - How to use IoT Plug and Play devices in your application.
 - How to develop an IoT device application that supports IoT Plug and Play.
-- How to certify an IoT Plug and Play device and publish to the [Certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
 
 ## User roles
 
@@ -48,8 +47,6 @@ As a solution developer, you can develop a cloud-hosted IoT solution that uses I
 - [IoT Central](../iot-central/core/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
 - [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
 
-You can find IoT Plug and Play devices through the Azure Certified for IoT device catalog. Each IoT Plug and Play device in the catalog has been validated, and has a device capability model. View the device capability model to understand the device's functionality or use it to simulate the device in Azure IoT Central.
-
 When you connect an IoT Plug and Play device, you can view its device capability model, the interfaces included in the model, and the telemetry, properties, and commands defined in those interfaces.
 
 ## Develop an IoT device application
@@ -61,16 +58,6 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 1. Author the device software or firmware that implements the capabilities declared in the device capability model and interfaces. The Azure IoT SDK includes APIs to implement device capability models.
 
 The [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack provides many features to assist you. For example, as a device developer you can use an extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
-
-## Certify an IoT Plug and Play device
-
-As a device developer, you can submit IoT hardware products for certification. You can publish a certified device in the Certified for IoT device catalog. The certification process steps include:
-
-- Join the [Microsoft Partner Network](https://partner.microsoft.com).
-- Onboard to the Certified for Azure IoT portal.
-- Submit an IoT Plug and Play device capability model and marketing information to create a new device record.
-- Pass automated set of validation tests for the device.
-- Publish to the Certified for IoT device catalog.
 
 ## Regional availability
 

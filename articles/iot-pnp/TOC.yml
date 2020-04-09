@@ -23,8 +23,6 @@
     href: tutorial-visual-studio-code-windows.md
   - name: Build a device ready for certification
     href: tutorial-build-device-certification.md
-  - name: Certify your device
-    href: tutorial-certification-test.md
   - name: Connect a device to IoT Central
     href: ../iot-central/core/tutorial-connect-pnp-device.md
 - name: Concepts
@@ -46,9 +44,7 @@
   - name: Install IoT explorer
     href: howto-install-iot-explorer.md
   - name: Install Azure CLI extension
-    href: howto-install-pnp-cli.md    
-  - name: Onboard to the IoT portal
-    href: howto-onboard-portal.md
+    href: howto-install-pnp-cli.md
   - name: Manage models
     href: howto-manage-models.md
   - name: Connect to a device in your solution
