@@ -1,10 +1,10 @@
 ---
 title: Azure SignalR Service internals
-description: An overview of Azure SignalR Service internals.
+description: Learn about Azure SignalR Service internals, the architecture, the connections and how data is transmitted.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service internals

@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Kallidus
 
-To configure single sign-on on **Kallidus** side, you need to send the **App Federation Metadata Url** to [Kallidus support team](https://kallidus.zendesk.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Kallidus** side, you need to send the **App Federation Metadata Url** and a copy of the **Signing Certificate (Public)** to [Kallidus support team](https://kallidus.zendesk.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

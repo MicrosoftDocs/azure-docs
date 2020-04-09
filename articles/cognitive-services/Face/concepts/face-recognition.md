@@ -1,7 +1,7 @@
 ---
 title: "Face recognition concepts"
 titleSuffix: Azure Cognitive Services
-description: Learn concepts about face recognition.
+description: This article explains the concepts of the Verify, Find Similar, Group, and Identify face recognition operations and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime

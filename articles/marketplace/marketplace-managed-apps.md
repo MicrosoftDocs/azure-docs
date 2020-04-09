@@ -2,12 +2,12 @@
 title: Azure Applications Managed Application Offer Publishing Guide
 description: This article describes the requirements to publish a managed application in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
-manager: evansma
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: v-qiwe
+ms.author: dsindona
 
 ---
 
@@ -28,8 +28,8 @@ Use the Azure app: managed app offer type when the following conditions are requ
 
 |Requirements |Details  |
 |---------|---------|
-|Deployed to a customer's Azure subscription | Managed Apps must be deployed in the customer’s subscription and can be managed by a third party. | 
-|Billing and metering    |  The resources will be provisioned in the customer’s Azure subscription. Pay-as-you-go (PAYGO) virtual machines will be transacted with the customer via Microsoft, billed via the customer’s Azure subscription (PAYGO). <br> In the case of bring-your-own-license, while Microsoft will bill infrastructure costs incurred in the customer subscription, you will transact your software licensing fees to the customer directly.        |
+|Deployed to a customer's Azure subscription | Managed Apps must be deployed in the customer's subscription and can be managed by a third party. | 
+|Billing and metering    |  The resources will be provisioned in the customer's Azure subscription. Pay-as-you-go (PAYGO) virtual machines will be transacted with the customer via Microsoft, billed via the customer's Azure subscription (PAYGO). <br> In the case of bring-your-own-license, while Microsoft will bill infrastructure costs incurred in the customer subscription, you will transact your software licensing fees to the customer directly.        |
 |Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<ul> <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]

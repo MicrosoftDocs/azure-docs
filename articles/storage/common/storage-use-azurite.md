@@ -1,5 +1,5 @@
 ---
-title: Use the Azurite open-source emulator for Azure storage development and testing (preview)
+title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure storage applications.
 author: mhopkins-msft
 
@@ -10,7 +10,7 @@ ms.subservice: common
 ms.topic: conceptual
 ---
 
-# Use the Azurite open-source emulator for Azure storage development and testing (preview)
+# Use the Azurite emulator for local Azure Storage development and testing (preview)
 
 The Azurite version 3.2 open-source emulator (preview) provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
@@ -278,6 +278,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### Loose mode
+
+**Optional** By default, Azurite applies strict mode to block unsupported request headers and parameters. Disable strict mode by using the **--loose** switch.
+
+```console
+azurite --loose
+```
+
+Note the capital 'L' shortcut switch:
+
+```console
+azurite -L
+```
+
 ## Authorization for tools and SDKs
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with Shared Key and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
@@ -303,6 +317,33 @@ The easiest way to connect to Azurite from your application is to configure a co
 ```
 
 For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
+
+### Custom storage accounts and keys
+
+Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`.
+
+For example, use a custom storage account that has one key:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+Or use multiple storage accounts with 2 keys each:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azurite refreshes custom account names and keys from the environment variable every minute by default. With this feature, you can dynamically rotate the account key, or add new storage accounts without restarting Azurite.
+
+> [!NOTE]
+> The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
+
+> [!NOTE]
+> Update the connection string accordingly when using custom account names and keys.
+
+> [!NOTE]
+> Use the `export` keyword to set environment variables in a Linux environment, use `set` in Windows.
 
 ### Storage Explorer
 

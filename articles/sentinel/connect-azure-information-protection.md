@@ -1,24 +1,23 @@
 ---
-title: Connecting Azure Information Protection data to Azure Sentinel| Microsoft Docs
+title: Connect Azure Information Protection to Azure Sentinel
 description: Learn how to connect Azure Information Protection data in Azure Sentinel.
 services: sentinel
-documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
-
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2019
-ms.author: cabailey
-
+ms.author: yelevin
 ---
 
 # Connect data from Azure Information Protection
+
+> [!IMPORTANT]
+> The Azure Information Protection data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can stream logging information from [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises.
 
@@ -51,11 +50,6 @@ However, if logging information from Azure Information Protection is going to a 
 - Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## Connect to Azure Information Protection
-
-> [!IMPORTANT]
-> The Azure Information Protection data connector in Azure Sentinel is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use the following instructions if you haven't configured a Log Analytics workspace for Azure Information Protection, or you need to change the workspace that stores the Azure Information Protection logging information.
 

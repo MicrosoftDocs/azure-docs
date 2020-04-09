@@ -1,6 +1,6 @@
 ---
-title: Get started with the U-SQL catalog in Azure Data Lake Analytics
-description: Learn how to use the U-SQL catalog to share code and data.
+title: Use the U-SQL catalog in Azure Data Lake Analytics
+description: Learn how to use the U-SQL catalog to share code and data. Create table-valued functions, create views, create tables, and query them.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr

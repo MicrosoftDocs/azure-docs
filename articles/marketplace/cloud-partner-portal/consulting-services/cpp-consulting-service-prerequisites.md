@@ -1,28 +1,29 @@
 ---
 title: Azure and Dynamics 365 consulting service offer prerequisites | Azure Marketplace
 description: Prerequisites for an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Consulting service prerequisites
 
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
+
 Review the description of and requirements for this offer type in [Consulting Services for Azure Marketplace and AppSource](../../consulting-services.md).  The following specific consulting service types have additional requirements:
 
-|     Offer type   |    Requirement   |
-|     ----------   |    -----------   |
-| Microsoft Azure | Partners must have a Silver or Gold certification for the [Cloud Platform competency](https://partner.microsoft.com/membership/cloud-platform-competency). |
-| Dynamics 365 for Customer Engagement | Partners must have a Silver or Gold certification for the [Cloud Customer Relationship Management competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). |
-| Dynamics 365 for Finance & Operations | Partners must have a Silver or Gold certification for the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). Partners also must have a minimum revenue of $25,000 in Cloud Operations in the previous 12 months. |
-| Dynamics 365 Business Central | Partners must have acted as a Cloud Solution Provider (CSP) or a Digital Partner of Record (DPOR) for at least one customer. <br/> For information on how to become a CSP, see [Get started as a CSP](https://partner.microsoft.com/cloud-solution-provider/get-started). <br/> For DPOR requirements, see the [DPOR overview](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1). |
-|  Power BI  | Get listed on the Power BI partner showcase. For more information, see [Solution Partner criteria](https://powerbi.microsoft.com/become-a-partner). |
-|  PowerApps       | Partners must have a solution published on the [Partner Solution Showcase](https://powerapps.microsoft.com/partner-showcase). |
-|  |  |
-
+| Offer type | Requirement |
+|---------|---------|
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
+| Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|Power Apps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 ## Next steps
 

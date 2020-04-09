@@ -1,10 +1,10 @@
 ---
 title: LINQ to SQL translation in Azure Cosmos DB
-description: Mapping LINQ queries to Azure Cosmos DB SQL queries.
+description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---
@@ -59,7 +59,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **OrderBy** and **OrderByDescending**: Translate to ORDER BY with ASC or DESC.
 - **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. Commonly used for strings, since they’re not comparable in .NET.
-- **Take**: Translates to SQL TOP for limiting results from a query.
+- **Skip** and **Take**: Translates to SQL OFFSET and LIMIT for limiting results from a query and doing pagination.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent SQL built-in functions.
 - **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent SQL built-in functions.
 - **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent SQL built-in functions.

@@ -4,10 +4,10 @@ description: 'Learn about the different ways you can visualize your Azure Data E
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 01/30/2020
 ---
 
 # Data visualization with Azure Data Explorer 
@@ -32,11 +32,15 @@ Azure Data Explorer provides the capability to connect to [Power BI](https://pow
 
 ## Microsoft Excel
 
-Azure Data Explorer provides the capability to connect to [Microsoft Excel](https://products.office.com/excel) using the built-in native Excel connector, or import a query from Azure Data Explorer into Excel.
+Azure Data Explorer provides the capability to connect to [Microsoft Excel](https://products.office.com/excel) using the [built-in native Excel connector](excel-connector.md), or [import a query](excel-blank-query.md) from Azure Data Explorer into Excel.
 
 ## Grafana
 
 [Grafana](https://grafana.com) provides an Azure Data Explorer plugin that enables you to visualize data from Azure Data Explorer. You [set up Azure Data Explorer as a data source for Grafana, and then visualize the data](/azure/data-explorer/grafana). 
+
+## Kibana
+
+Azure Data Explorer provides the capability to connect to [Kibana (the Discover page)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) using K2Bridge, an open source connector. You [set up Azure Data Explorer as a data source for Kibana, and then visualize the data](/azure/data-explorer/k2bridge).
 
 ## ODBC connector
 
@@ -56,3 +60,7 @@ Azure Data Explorer provides the capability to connect to [Qlik](https://www.qli
 ## Sisense
 
 Azure Data Explorer provides the capability to connect to [Sisense](https://www.sisense.com) using the JDBC connector. You [set up Azure Data Explorer as a data source for Sisense, and then visualize the data](/azure/data-explorer/sisense).
+
+## Redash
+
+You can use [Redash](https://redash.io/) to build dashboards and visualize data. [Set up Azure Data Explorer as a data source for Redash, and then visualize the data](/azure/data-explorer/redash).

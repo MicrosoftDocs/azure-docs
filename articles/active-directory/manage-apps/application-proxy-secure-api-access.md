@@ -8,8 +8,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: celested
+ms.date: 02/12/2020
+ms.author: mimart
 ms.reviewer: japere
 ---
 # Secure access to on-premises APIs with Azure AD Application Proxy
@@ -47,19 +47,19 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally. 
    
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** in the left navigation. Then, on the **Overview** page, select **Enterprise applications**.
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**. Then select **Enterprise applications**.
    
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
    
-1. On the **Add an application** page, under **Add your own app**, select **On-premises application**. 
+1. On the **Add an application** page, select **On-premises applications**. The **Add your own on-premises application** page appears.
    
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector. 
    
 1. Once you've installed the Application Proxy Connector, on the **Add your own on-premises application** page:
    
-   1. Enter *SecretAPI* next to **Name**.
+   1. Next to **Name**, enter *SecretAPI*.
       
-   1. Enter the URL you use to access the API from within your intranet next to **Internal Url**. 
+   1. Next to **Internal Url**, enter the URL you use to access the API from within your intranet.
       
    1. Make sure **Pre-Authentication** is set to **Azure Active Directory**. 
       

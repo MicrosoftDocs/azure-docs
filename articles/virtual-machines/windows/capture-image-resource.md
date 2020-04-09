@@ -1,5 +1,5 @@
 ---
-title: Create a managed image in Azure | Microsoft Docs
+title: Create a managed image in Azure 
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.author: cynthn
 
 A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Generalize the Windows VM using Sysprep
 
@@ -53,12 +53,23 @@ To generalize your Windows VM, follow these steps:
 
 6. When Sysprep completes, it shuts down the VM. Do not restart the VM.
 
+> [!TIP]
+> **Optional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
+>
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Where D: is the mounted VHD's path.
+>
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 ## Create a managed image in the portal 
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com) to manage the VM image. Search for and select **Virtual machines**.
 
-2. In the menu on the left, select **Virtual machines** and then select the VM from the list.
+2. Select your VM from the list.
 
 3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
 
@@ -66,7 +77,7 @@ To generalize your Windows VM, follow these steps:
 
 4. For **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
 
-5. For **Resource group**, either select **Create new** and enter a name, or select **Use existing** and select a resource group to use from the drop-down list.
+5. For **Resource group**, either select **Create new** and enter a name, or select a resource group to use from the drop-down list.
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
 
@@ -74,13 +85,13 @@ To generalize your Windows VM, follow these steps:
 
 8. Select **Create** to create the image.
 
-9. After the image is created, you can find it as an **Image** resource in the list of resources in the resource group.
+After the image is created, you can find it as an **Image** resource in the list of resources in the resource group.
 
 
 
 ## Create an image of a VM using Powershell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
@@ -202,9 +213,9 @@ You can create a managed image from a snapshot of a generalized VM by following 
     ```	
 
 
-## Create an image from a VHD in a storage account
+## Create an image from a VM that uses a storage account
 
-Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
+To create a managed image from a VM that doesn't use managed disks, you need the URI of the OS VHD in the storage account, in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
 
 
 1.  Create some variables.

@@ -1,18 +1,12 @@
 ---
 title: Simple Logs experience in Azure Monitor (Preview) | Microsoft Docs
 description: The Simple Logs experience allows you to create basic queries in Azure Monitor without directly interacting with KQL.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/12/2019
+author: bwren
 ms.author: bwren
+ms.date: 09/12/2019
+
 ---
 
 # Simple Logs experience in Azure Monitor (Preview)
@@ -26,7 +20,7 @@ Azure Monitor provides a [rich experience](get-started-portal.md) for creating [
 The Simple Logs experience retrieves data from the *AzureDiagnostics*, *AzureMetrics*, and *AzureActivity* table for the selected resource. 
 
 ## Using Simple Logs
-Navigate to any Cosmos DB or Key Vault in your Azure subscription with [diagnostic settings configured to collect logs in a Log Analytics workspace](../platform/diagnostic-logs-stream-log-store.md). Click **Logs** in the **Monitoring** menu to open the Simple Logs experience.
+Navigate to any Cosmos DB or Key Vault in your Azure subscription with [diagnostic settings configured to collect logs in a Log Analytics workspace](../platform/resource-logs-collect-storage.md). Click **Logs** in the **Monitoring** menu to open the Simple Logs experience.
 
 ![Menu](media/simple-logs/menu.png)
 

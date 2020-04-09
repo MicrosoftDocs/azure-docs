@@ -1,12 +1,12 @@
 ---
 title: Azure Key Vault deployment template | Azure Marketplace
 description: Lists the Azure Resource Manager template required to deploy a new Azure Key Vault instance.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Key vault deployment template

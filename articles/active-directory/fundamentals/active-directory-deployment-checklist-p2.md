@@ -51,7 +51,7 @@ In this phase, administrators enable baseline security features to create a more
 | [Customize Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md) | Stop lockouts from cloud-based users from being replicated to on-premises Active Directory users | |
 | [Enable Extranet Smart Lockout for AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extranet lockout protects against brute force password guessing attacks, while letting valid AD FS users continue to use their accounts. | |
 | [Deploy Azure AD Multi-Factor Authentication using Conditional Access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using Conditional Access policies. | Azure AD Premium P1 |
-| [Enable Azure Active Directory Identity Protection](../identity-protection/enable.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
+| [Enable Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
 | [Use risk detections to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
 | [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
 
@@ -91,7 +91,7 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 | [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
 | [Implement dynamic group membership policies](../users-groups-roles/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
-| [Automate user provisioning and deprovisioning](../manage-apps/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
+| [Automate user provisioning and deprovisioning](../app-provisioning/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
 
 ## Next steps
 

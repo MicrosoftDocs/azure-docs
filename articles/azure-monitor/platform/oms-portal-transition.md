@@ -1,17 +1,12 @@
 ---
 title: OMS portal moving to Azure | Microsoft Docs
 description: The OMS portal is being sunsetted with all functionality moving to the Azure portal. This article provides details on this transition.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
+ms.date: 08/22/2019
+
 ---
 
 # OMS portal moving to Azure

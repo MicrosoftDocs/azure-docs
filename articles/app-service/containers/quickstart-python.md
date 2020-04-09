@@ -1,60 +1,60 @@
 ---
-title: Create Python app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Quickstart: Create a Linux Python app'
+description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
-ms.date: 08/23/2019
-ms.author: cephalin
+ms.date: 04/03/2020
+ms.custom: seo-python-october2019, cli-validate
 
 experimental: true
-experiment_id: 1e304dc9-5add-4b
+experiment_id: 01a9132f-eaab-4c
 ---
-# Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
+# Quickstart: Create a Python app in Azure App Service on Linux
 
-![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
+In this quickstart, you deploy a Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+
+If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Prerequisites
 
-To complete this quickstart:
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 is also supported)
+- <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher. Run `az --version` to check your version.
 
-* <a href="https://www.python.org/downloads/" target="_blank">Install Python 3.7</a>
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* An Azure subscription. If you don't have one already, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+## Download the sample
 
-## Download the sample locally
+In a terminal window, run the following command to clone the sample application to your local computer. 
 
-In a terminal window, run the following commands to clone the sample application to your local machine, and go to the directory with the sample code.
-
-```bash
+```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Then go into that folder:
+
+```terminal
 cd python-docs-hello-world
 ```
 
-The repository contains an *application.py*, which tells App Service that the repository contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
+The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
-## Run the app locally
+## Run the sample
 
-Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
+In a terminal window, use the commands below (as appropriate for your operating system) to install the required dependencies and launch the built-in development server. 
+
+# [Bash](#tab/bash)
 
 ```bash
-# In Bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py flask run
+export FLASK_APP=application.py
+flask run
+```
 
-# In PowerShell
+# [PowerShell](#tab/powershell)
+
+```powershell
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
@@ -62,136 +62,162 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-Open a web browser, and go to the sample app at `http://localhost:5000/`.
+# [Cmd](#tab/cmd)
 
-You see the **Hello World!** message from the sample app displayed in the page.
-
-![Sample app running locally](media/quickstart-python/hello-world-in-browser.png)
-
-In your terminal window, press **Ctrl+C** to exit the web server.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Download the sample
-
-In the Cloud Shell, create a quickstart directory and then change to it.
-
-```bash
-mkdir quickstart
-
-cd $HOME/quickstart
+```cmd
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+SET FLASK_APP=application.py
+flask run
 ```
 
-Next, run the following command to clone the sample app repository to your quickstart directory.
+---
 
-```bash
-git clone https://github.com/Azure-Samples/python-docs-hello-world
+Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
+
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+
+In your terminal window, press **Ctrl**+**C** to exit the web server.
+
+## Sign in to Azure
+
+The Azure CLI provides you with many convenient commands that you use from a local terminal to provision and manage Azure resources from the command line. You can use commands to complete the same tasks that you would through the Azure portal in a browser. You can also use CLI commands in scripts to automate management processes.
+
+To run Azure commands in the Azure CLI, you must first sign in using the `az login` command. This command opens a browser to gather your credentials.
+
+```azurecli
+az login
 ```
 
-While running, it displays information similar to the following example:
+## Deploy the sample
 
-```bash
-Cloning into 'python-docs-hello-world'...
-remote: Enumerating objects: 43, done.
-remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
-Unpacking objects: 100% (43/43), done.
-Checking connectivity... done.
+The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
+
+In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*).
+
+
+```azurecli
+az webapp up --sku F1 -n <app-name>
 ```
 
-## Create a web app
+The `--sku F1` argument creates the web app on the Free pricing tier. You can omit this argument to use a premium tier instead, which incurs an hourly cost.
 
-Change to the directory that contains the sample code and run the `az webapp up` command.
+You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.
 
-In the following example, replace `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*).
+The `az webapp up` command may take a few minutes to completely run. While running, it displays information similar to the following example, where `<app_name>` will be the name you provided earlier:
 
-```bash
-cd python-docs-hello-world
-
-az webapp up -n <app-name>
-```
-
-This command may take a few minutes to run. While running, it displays information similar to the following example:
-
-```json
-The behavior of this command has been altered by the following extension: webapp
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+<pre>
+Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
 Creating app '<app-name>' ....
-Webapp creation complete
-Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
-Preparing to deploy contents to app.
-All done.
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://<app-name>.azurewebsites.net
 {
-  "app_url": "https:/<app-name>.azurewebsites.net",
-  "location": "Central US",
+  "URL": "http://<app-name>.net",
+  "appserviceplan": "appsvc_asp_Linux_centralus",
+  "location": "eastus",
   "name": "<app-name>",
   "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
-  "sku": "BASIC",
-  "src_path": "/home/username/quickstart/python-docs-hello-world ",
-  "version_detected": "-",
-  "version_to_create": "python|3.7"
+  "resourcegroup": "appsvc_rg_Linux_centralus",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "D:\\Examples\\python-docs-hello-world"
 }
-```
+</pre>
 
 [!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
-Browse to the deployed application using your web browser.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-```bash
-http://<app-name>.azurewebsites.net
-```
+The Python sample code is running a Linux container in App Service using a built-in image.
 
-The Python sample code is running in App Service on Linux with a built-in image.
+![Run a sample Python app in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
-![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
+**Congratulations!** You've deployed your Python app to App Service on Linux.
 
-**Congratulations!** You've deployed your first Python app to App Service on Linux.
+## Redeploy updates
 
-## Update locally and redeploy the code
-
-In the Cloud Shell, enter `code application.py` to open the Cloud Shell editor.
-
-![Code application.py](media/quickstart-python/code-applicationpy.png)
-
- Make a small change to the text in the call to `return`:
+In your favorite code editor, open *application.py* and update the `hello` function as follows. This change adds a `print` statement to generate logging output that you work with in the next section. 
 
 ```python
-return "Hello Azure!"
+def hello():
+    print("Handling request to home page.")
+    return "Hello Azure!"
 ```
 
-Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
+Save your changes and exit the editor. 
 
-Redeploy the app using the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command. Substitute the name of your app for `<app-name>`, and specify a location for `<location-name>` (using one of the values shown from the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command).
+Redeploy the app using the `az webapp up` command again:
 
-```bash
-az webapp up -n <app-name> -l <location-name>
+```azurecli
+az webapp up
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+This command uses values that are cached in the *.azure/config* file, including the app name, resource group, and App Service plan.
 
-![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
+Once deployment has completed, switch back to the browser window open to `http://<app-name>.azurewebsites.net` and refresh the page, which should display the modified message:
 
-## Manage your new Azure app
+![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
+> [!TIP]
+> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-From the left menu, select **App Services**, and then select the name of your Azure app.
+## Stream logs
 
-![Portal navigation to Azure app](./media/quickstart-python/app-service-list.png)
+You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
+
+To stream logs, run the following command:
+
+```azurecli
+az webapp log tail
+```
+
+Refresh the app in the browser to generate console logs, which should include lines similar to the following text. If you don't see output immediately, try again in 30 seconds.
+
+<pre>
+2020-04-03T22:54:04.236405938Z Handling request to home page.
+2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
+</pre>
+
+You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+
+To stop log streaming at any time, type `Ctrl`+`C`.
+
+## Manage the Azure app
+
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
+
+![Navigate to App Services in the Azure portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Select the name of your Azure app.
+
+![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
 You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service page in Azure portal](media/quickstart-python/app-service-detail.png)
+![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-The left menu provides different pages for configuring your app. 
+The App Service menu provides different pages for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location. If you use an App Service SKU other than the free F1 tier, these resources incur ongoing costs (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)).
+
+If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
+
+```azurecli
+az group delete -n <resource-group-name>
+```
 
 ## Next steps
 

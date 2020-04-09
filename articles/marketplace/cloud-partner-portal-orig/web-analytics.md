@@ -1,20 +1,12 @@
 ---
 title: Web Analytics 
-description: .
-services: Azure, Marketplace, Cloud Partner Portal, 
-
-author: pbutlerm
-manager: Ricardo.Villalobos  
-
-
-
+description: This article provides you with instructions on how to learn and use Web Analytics to best grow your business.
+author: dsindona
 ms.service: marketplace
-
-
-
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 

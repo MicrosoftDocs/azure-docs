@@ -1,18 +1,11 @@
 ---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.author: mbullwin
+
 ---
+
 # How do I ... in Application Insights?
 ## Get an email when ...
 ### Email if my site goes down
@@ -71,7 +64,7 @@ Some points to consider:
 [Use PowerShell to create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Use PowerShell to Manage Application Insights
-* [Create new resources](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Separate telemetry from different versions
@@ -97,11 +90,11 @@ Or
 <a name="search-specific-users"></a>
 
 ### Filter out anonymous or authenticated users
-If your users sign in, you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
+If your users sign in, you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
 
 You can then:
 
-* Search on specific user ids
+* Search on specific user IDs
 
 ![](./media/how-do-i/110-search.png)
 
@@ -113,12 +106,12 @@ You can then:
 Create a [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
 
 ## List specific users and their usage
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
 
-* [Set authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
-* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
+* [Set authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
+* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user ID as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user ID to all server telemetry. You can then filter and segment metrics and searches on the user ID.
 
 ## Reduce traffic from my app to Application Insights
 * In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
@@ -149,7 +142,7 @@ For ASP.NET Core applications you may access `TelemetryConfiguration` instance u
 You can disable standard collectors (for example, performance counters, HTTP requests, or dependencies)
 
 * **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core applicaitons** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET Core applications** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## View system performance counters
 Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.

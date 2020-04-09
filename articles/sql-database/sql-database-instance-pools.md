@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance pools (preview) | Microsoft Docs
+title: Instance pools (preview)
 description: This article describes Azure SQL Database instance pools (preview).
 services: sql-database
 ms.service: sql-database
@@ -53,7 +53,7 @@ The following list provides the main use cases where instance pools should be co
 
 ## Architecture of instance pools
 
-Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and to provide isolation and security for customers, instance pools also rely on [virtual
+Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual
 clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
 The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows Job Objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
@@ -121,7 +121,7 @@ If you are experiencing issues related to instance pool deployment (creation or 
 
 If you are experiencing issues related to single instances or databases within a pool, you should create a regular support ticket for Azure SQL Database managed instances.
 
-To create larger managed instance deployments (with or without instance pools), you may need to obtain a larger regional quota. Use the [standard managed instance procedure for requesting a larger quota](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), but note that if you are using instance pools, the deployment logic compares total vCore consumption *at the pool level* against your quota to determine whether you are allowed to create new resources without further increasing your quota.
+To create larger managed instance deployments (with or without instance pools), you may need to obtain a larger regional quota. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md). Note that if you are using instance pools, the deployment logic compares total vCore consumption *at the pool level* against your quota to determine whether you are allowed to create new resources without further increasing your quota.
 
 ## Instance pool billing
 
@@ -131,7 +131,7 @@ vCore price for a pool is charged regardless of how many instances are deployed 
 
 For the Compute price (measured in vCores), two pricing options are available:
 
-  1. *License included*: Apply existing SQL Server licenses with Software Assurance.
+  1. *License included*: Price of SQL licenses is included. This is for the customers who choose not to apply existing SQL Server licenses with Software Assurance.
   2. *Azure Hybrid Benefit*: A reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their existing SQL Server licenses with Software Assurance. For eligibility and other details, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Setting different pricing options is not possible for individual instances in a pool. All instances in the parent pool must be either at License Included price or Azure Hybrid Benefit price. The license model for the pool can be altered after the pool is created.

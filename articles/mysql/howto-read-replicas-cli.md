@@ -1,11 +1,11 @@
 ---
-title: Create and manage read replicas in Azure Database for MySQL - Azure CLI, REST API
-description: This article describes how to set up and manage read replicas in Azure Database for MySQL using the Azure CLI, REST API
+title: Manage read replicas - Azure CLI, REST API - Azure Database for MySQL
+description: Learn how to set up and manage read replicas in Azure Database for MySQL using the Azure CLI or REST API.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/14/2019
+ms.date: 3/18/2020
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API

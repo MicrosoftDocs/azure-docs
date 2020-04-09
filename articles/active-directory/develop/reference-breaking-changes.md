@@ -1,24 +1,18 @@
 ---
-title: Azure Active Directory breaking changes reference | Microsoft Docs
+title: Azure Active Directory breaking changes reference
 description: Learn about changes made to the Azure AD protocols that may impact your application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # What's new for authentication? 
@@ -37,7 +31,42 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-September 2019: Additional enforcement of POST semantics according to URL parsing rules - duplicate parameters will trigger an error and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+None scheduled at this time.  Please see below for the changes that are in or are coming to production. 
+
+## March 2020 
+
+### User passwords will be restricted to 256 characters.
+
+**Effective date**: March 13, 2020
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: All user flows. 
+
+Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may recieve requests to help reset the users password. 
+
+The error in the sign in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Message: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Remediation:
+
+The user is unable to login because their password exceeds the permitted maximum length. They should contact their admin to reset the password. If SSPR is enabled for their tenant, they can reset their password by following the "Forgot your password" link.
+
+
+
+## February 2020 
+
+### Empty fragments will be appended to every HTTP redirect from the login endpoint. 
+
+**Effective date**: February 8, 2020
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: OAuth and OIDC flows that use response_type=query - this covers the [authorization code flow](v2-oauth2-auth-code-flow.md) in some cases, and the [implicit flow](v2-oauth2-implicit-grant-flow.md). 
+
+When an authentication response is sent from login.microsoftonline.com to an application via HTTP redirect, the service will append an empty fragment to the reply URL.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the authentication request.  No apps should have a dependency on this behavior. 
+
 
 ## August 2019
 
@@ -89,7 +118,7 @@ If the Contoso gateway app were a multi-tenant application, however, then the re
 
 **Protocol impacted**: All flows
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
 
 The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
 
@@ -142,7 +171,7 @@ Starting on November 15, 2018, Azure AD will stop accepting previously used auth
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
-For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  If using ADAL or MSAL, this is handled for you by the library - replace the second instance of 'AcquireTokenByAuthorizationCodeAsync' with 'AcquireTokenSilentAsync'. 
+For more information about refresh tokens, see [Refreshing the access tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  If using ADAL or MSAL, this is handled for you by the library - replace the second instance of 'AcquireTokenByAuthorizationCodeAsync' with 'AcquireTokenSilentAsync'. 
 
 ## May 2018
 
@@ -152,7 +181,7 @@ For more information about refresh tokens, see [Refreshing the access tokens](v1
 
 **Endpoints impacted**: Both v1.0 and v2.0
 
-**Protocols impacted**: Implicit flow and [OBO flow](v1-oauth2-on-behalf-of-flow.md)
+**Protocols impacted**: Implicit flow and [on-behalf-of flow](v2-oauth2-on-behalf-of-flow.md)
 
 After May 1, 2018, id_tokens cannot be used as the assertion in an OBO flow for new applications. Access tokens should be used instead to secure APIs, even between a client and middle tier of the same application. Apps registered before May 1, 2018 will continue to work and be able to exchange id_tokens for an access token; however, this pattern is not considered a best practice.
 

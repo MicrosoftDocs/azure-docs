@@ -1,22 +1,14 @@
 ﻿---
-title: Azure PowerShell Script Sample - Scale a web app manually | Microsoft Docs
-description: Azure PowerShell Script Sample - Scale a web app manually
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'PowerShell: Scale a web app manually'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to scale an app manually.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Scale a web app manually using PowerShell

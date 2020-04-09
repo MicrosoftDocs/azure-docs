@@ -12,7 +12,6 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
 
@@ -31,7 +30,7 @@ You can federate your on-premises environment with Azure AD and use this federat
 
 ## Next Steps
 
-- [What is hybrid identity?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [What is hybrid identity?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
 - [What is password hash synchronization?](whatis-phs.md)
 - [What is federation?](whatis-fed.md)

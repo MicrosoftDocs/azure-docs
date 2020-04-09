@@ -1,11 +1,11 @@
 ---
 title: Total Cost of Ownership (TCO) with Azure Cosmos DB
 description: This article compares the total cost of ownership of Azure Cosmos DB with IaaS and on-premises databases
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 

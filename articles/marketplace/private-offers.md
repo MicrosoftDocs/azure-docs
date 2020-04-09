@@ -1,13 +1,12 @@
 ---
 title: Private offers | Azure Marketplace
 description: Private offers in the Azure Marketplace for app and service publishers.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Private offers
@@ -28,7 +27,7 @@ Private offers are now available for Virtual Machine, Azure Application (impleme
 
 ## Creating Private offers using SKUs and plans
 
-For *new or existing offers with public SKUs or plans*, publishers can easily create new, private variations by creating new SKUs or plans and marking them as private.  [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) and plans are components of an offer and are only visible and purchasable by the targeted customers. Private SKUs and plans can reuse the base images and/or offer metadata already published for a public SKU or plan. This option allows publishers to create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Virtual Machine and Azure application offers only, when a private SKU shares a base image with a public SKU, any changes to the offer’s base image will propagate across all public and private SKUs using that base image.
+For *new or existing offers with public SKUs or plans*, publishers can easily create new, private variations by creating new SKUs or plans and marking them as private.  [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) and plans are components of an offer and are only visible and purchasable by the targeted customers. Private SKUs and plans can reuse the base images and/or offer metadata already published for a public SKU or plan. This option allows publishers to create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Virtual Machine and Azure application offers only, when a private SKU shares a base image with a public SKU, any changes to the offer's base image will propagate across all public and private SKUs using that base image.
 
 For *new offers that only include private SKUs or plans*, publishers can create their offers as any other offer, and then mark the SKUs or plans as private. The offers that only have private SKUs or plans will not be discoverable or accessible via [Azure Marketplace](https://azuremarketplace.microsoft.com) or the [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers that are not associated with the offer.
 
@@ -43,7 +42,10 @@ Private offers are only discoverable via the [Azure portal](https://azure.micros
 
 ![[Private offers]](./media/marketplace-publishers-guide/private-offer.png)
 
-Private offers will also appear in search results. Just look out for the “Private” badge.
+Private offers will also appear in search results. Just look out for the "Private" badge.
+
+>[!Note]
+>Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
 ## Next steps
 

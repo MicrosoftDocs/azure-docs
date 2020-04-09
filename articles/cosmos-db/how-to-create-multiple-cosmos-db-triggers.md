@@ -1,5 +1,5 @@
 ---
-title: How to create multiple independent Azure Functions triggers for Cosmos DB
+title: Create multiple independent Azure Functions triggers for Cosmos DB
 description: Learn how to configure multiple independent Azure Functions triggers for Cosmos DB to create event-driven architectures.
 author: ealsur
 ms.service: cosmos-db
@@ -33,7 +33,7 @@ The goal of this article is to guide you to accomplish the second option.
 
 ## Configuring a shared leases container
 
-To configure the shared leases container, the only extra configuration you need to make on your triggers is to add the `LeaseCollectionPrefix` [attribute](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) if you are using C# or `leaseCollectionPrefix` [attribute](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) if you are using JavaScript. The value of the attribute should be a logical descriptor of what that particular trigger.
+To configure the shared leases container, the only extra configuration you need to make on your triggers is to add the `LeaseCollectionPrefix` [attribute](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) if you are using C# or `leaseCollectionPrefix` [attribute](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) if you are using JavaScript. The value of the attribute should be a logical descriptor of what that particular trigger.
 
 For example, if you have three Triggers: one that sends emails, one that does an aggregation to create a materialized view, and one that sends the changes to another storage, for later analysis, you could assign the `LeaseCollectionPrefix` of "emails" to the first one, "materialized" to the second one, and "analytics" to the third one.
 
@@ -103,6 +103,6 @@ And for JavaScript, you can apply the configuration on the `function.json` file,
 
 ## Next steps
 
-* See the full configuration for the [Azure Functions trigger for Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
-* Check the extended [list of samples](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) for all the languages.
+* See the full configuration for the [Azure Functions trigger for Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
+* Check the extended [list of samples](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) for all the languages.
 * Visit the Serverless recipes with Azure Cosmos DB and Azure Functions [GitHub repository](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) for more samples.

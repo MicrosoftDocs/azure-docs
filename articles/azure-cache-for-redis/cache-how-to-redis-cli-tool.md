@@ -1,20 +1,11 @@
 ---
-title: How to use redis-cli with Azure Cache for Redis | Microsoft Docs
-description: Learn how to use redis-cli with Azure Cache for Redis.
-services: cache
-documentationcenter: ''
+title: How to use redis-cli with Azure Cache for Redis
+description: Learn how to use *redis-cli.exe* as a command-line tool for interacting with an Azure Cache for Redis as a client.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 03/22/2018
 ---
 
 # How to use the Redis command-line tool with Azure Cache for Redis

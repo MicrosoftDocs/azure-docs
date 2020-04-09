@@ -1,9 +1,9 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
+ms.author: rogarana
 ---
 Changes made to the Azure file share by using the Azure portal or SMB are not immediately detected and replicated like changes to the server endpoint. Azure Files does not yet have change notifications or journaling, so there's no way to automatically initiate a sync session when files are changed. On Windows Server, Azure File Sync uses [Windows USN journaling](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) to automatically initiate a sync session when files change.
 

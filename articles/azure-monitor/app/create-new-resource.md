@@ -1,20 +1,11 @@
 ---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: mbullwin
+ms.date: 12/02/2019
 
 ---
+
 # Create an Application Insights resource
 
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
@@ -31,9 +22,12 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring. |
+   | **Name**      | Unique value | Name that identifies the app you are monitoring. |
    | **Resource Group**     | myResourceGroup      | Name for the new or existing resource group to host App Insights data. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+
+> [!NOTE]
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) as it simplifies the required syntax.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
@@ -43,7 +37,7 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need copy to add the instrumentation key to your application's code.
+The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 ![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
 

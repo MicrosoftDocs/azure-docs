@@ -1,12 +1,12 @@
 ---
 title: Azure partner and customer usage attribution | Azure Marketplace
 description: Overview of how to track customer usage for Azure Marketplace solutions
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: dsindona
 ms.service: marketplace
-ms.topic: article
-ms.date: 11/17/2018
-ms.author: pabutler
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 9/23/2019
+ms.author: dsindona
 ---
 
 # Azure partner customer usage attribution
@@ -29,7 +29,7 @@ Customer usage attribution is required on [Azure Application](https://docs.micro
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Use Resource Manager templates
-Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution should be straight forward.
+Many partner solutions are deployed on a customer's subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution should be straight forward.
 
 For more information on creating and publishing Solution Templates, see
 
@@ -81,7 +81,7 @@ The resource needs to be added in the **mainTemplate.json** or **azuredeploy.jso
 
 ## Use the Resource Manager APIs
 
-In some cases, you might prefer to make calls directly against the Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/azure/#pivot=sdkstools) to enable these calls. You can use one of the SDKs, or call the REST APIs directly to deploy resources.
+In some cases, you might prefer to make calls directly against the Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/azure/?pivot=sdkstools) to enable these calls. You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
 If you're using a Resource Manager template, you should tag your solution by following the instructions described earlier. If you aren't using a Resource Manager template and making direct API calls, you can still tag your deployment to associate usage of Azure resources.
 
@@ -122,7 +122,7 @@ For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go
 
 ## Use Terraform
 
-The support for Terraform is available through Azure Provider’s 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
+The support for Terraform is available through Azure Provider's 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
 
 Azure provider for Terraform added a new optional field called [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) which is where you specify the tracking GUID that you use for your solution. The value of this field can also be sourced from the *ARM_PARTNER_ID* Environment Variable.
 
@@ -132,7 +132,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Partners who want to get their deployment via Terraform tracked by customer usage attribution need to do the following:
 
@@ -227,7 +227,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
+You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
 
 Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
 
@@ -262,7 +262,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 1. Choose the **Category** for your issue:
 
    - For usage association issues, select **Other**.
-   - For access issues with the Azure Marketplace CPP, select **Access Problem**.
+   - For access issues with the Azure Marketplace, select **Access Problem**.
 
      ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -295,7 +295,7 @@ sign-in credentials, an online request form will open:
 
 View step-by-step instructions with screenshots at [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
-### What’s next
+### What's next
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 
@@ -311,7 +311,7 @@ Yes, a customer or implementation partner may customize the template and can cha
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
-Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the CPP to register GUIDs used for the deployment outside of the Azure Marketplace.
+Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the commercial marketplace enrollment in Partner Center to register GUIDs used for the deployment outside of the Azure Marketplace.
 
 **Does the customer receive reporting as well?**
 

@@ -2,13 +2,9 @@
 title: Onboard Update Management, Change Tracking, and Inventory solutions from an Azure VM
 description: Learn how to onboard an Azure virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 03/20/2019
+ms.date: 03/04/2020
 ms.topic: conceptual
-ms.service: automation
 ms.custom: mvc
-manager: carmonm
 ---
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure virtual machine
@@ -21,13 +17,17 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable the solutions
 
-Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account. When onboarding a solution from a VM you need to have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is onboarded to a workspace. To learn about additional permissions that are needed in general, see [permissions needed to onboard machines](automation-role-based-access-control.md#onboarding).
+First, enable one or all three of the solutions on your VM:
 
-To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
+1. In the [Azure portal](https://portal.azure.com), from the left-hand pane select **Virtual machines** or search for and select **Virtual machines** from the **Home** page.
+2. Select the VM for which you want to enable a solution for.
+3. On the VM page, under **Operations**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation account. When onboarding a solution from a VM, you need to have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is onboarded to a workspace. To learn about additional permissions that are required, see [permissions needed to onboard machines](automation-role-based-access-control.md#onboarding).
+
+To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
 Select the Azure Log Analytics workspace and Automation account, and then select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
-![Onboard the Update Management solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Onboard the Update Management solution](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
 Go to the other solutions, and then select **Enable**. The Log Analytics workspace and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
 
@@ -36,7 +36,7 @@ Go to the other solutions, and then select **Enable**. The Log Analytics workspa
 
 ## Scope configuration
 
-Each solution uses a scope configuration in the workspace to target the computers that get the solution. The scope configuration is a group of one or more saved searches that are used to limit the scope of the solution to specific computers. To access the scope configurations, in your Automation account, under **RELATED RESOURCES**, select **Workspace**. In the workspace, under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
+Each solution uses a scope configuration in the workspace to target the computers that get the solution. The scope configuration is a group of one or more saved searches that are used to limit the scope of the solution to specific computers. To access the scope configurations, in your Automation account, under **Related resources**, select **Workspace**. In the workspace, under **Workspace data sources**, select **Scope Configurations**.
 
 If the selected workspace doesn't already have the Update Management or Change Tracking solutions, the following scope configurations are created:
 
@@ -90,9 +90,9 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
-* Update schedules - Each will have names that match the update deployments you created)
+* Update schedules - Each will have names that match the update deployments you created.
 
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid worker groups created for the solution -  Each will be named similarly to machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
@@ -102,10 +102,19 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 
 Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
 ## Next steps
 
 Continue to the tutorials for the solutions to learn how to use them:
 
 * [Tutorial - Manage updates for your VM](automation-tutorial-update-management.md)
+
 * [Tutorial - Identify software on a VM](automation-tutorial-installed-software.md)
+
 * [Tutorial - Troubleshoot changes on a VM](automation-tutorial-troubleshoot-changes.md)

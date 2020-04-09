@@ -1,14 +1,12 @@
 ---
 title: "Overview of autoscale in Virtual Machines, Cloud Services, and Web Apps"
 description: "Autoscale in Microsoft Azure. Applies to Virtual Machines, Virtual machine Scale sets, Cloud Services and Web Apps."
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: robb
-ms.subservice: autoscale
+
 ---
+
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
@@ -85,7 +83,6 @@ Autoscale only scales horizontally, which is an increase ("out") or decrease ("i
 
 In contrast, vertical scaling is different. It keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart.
 
-For more information, see [Vertically scale Azure virtual machine with Azure Automation](../../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Methods of access
 You can set up autoscale via

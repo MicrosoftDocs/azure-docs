@@ -1,5 +1,5 @@
 ---
-title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery | Microsoft Docs
+title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery 
 description: Migrate your existing virtual machines to Azure Premium Storage by using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: "virtual-machines-windows,storage"
 cloud: Azure
@@ -73,7 +73,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 1. Open the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**.
    >[!NOTE]
-   >Backup and Site Recovery was formerly part of the ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+   >Backup and Site Recovery was formerly part of the [OMS suite](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Specify a region that VMs will be replicated to. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. 
 
 ### Step 2: Choose your protection goals 

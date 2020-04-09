@@ -1,19 +1,19 @@
 ---
 title:  "Multiclass Logistic Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning service to create a logistic regression model that can be used to predict multiple values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict multiple values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Multiclass Logistic Regression module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a logistic regression model that can be used to predict multiple values.
 
@@ -29,13 +29,13 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 ## Configure a multiclass logistic regression
 
-1. Add the **Multiclass Logistic Regression** module to the experiment.
+1. Add the **Multiclass Logistic Regression** module to the pipeline.
 
 2. Specify how you want the model to be trained, by setting the **Create trainer mode** option.
 
     + **Single Parameter**: Use this option if you know how you want to configure the model, and provide a specific set of values as arguments.
 
-    + **Parameter Range**: Use this option if you are not sure of the best parameters, and want to use a parameter sweep.
+    + **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
 
 3. **Optimization tolerance**, specify the threshold value for optimizer convergence. If the improvement between iterations is less than the threshold, the algorithm stops and returns the current model.
 
@@ -47,19 +47,16 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
      Different linear combinations of L1 and L2 terms have been devised for logistic regression models, such as [elastic net regularization](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Random number seed**: Type an integer value to use as the seed for the algorithm if you want the results to be repeatable over runs. Otherwise, a system clock value is used as the seed, which can produce slightly different results in runs of the same experiment.
+6. **Random number seed**: Type an integer value to use as the seed for the algorithm if you want the results to be repeatable over runs. Otherwise, a system clock value is used as the seed, which can produce slightly different results in runs of the same pipeline.
 
 8. Connect a labeled dataset, and one of the train modules:
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-9. Run the experiment.
+9. Submit the pipeline.
 
-## Results
-
-After training is complete, you can see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

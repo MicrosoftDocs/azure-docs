@@ -1,14 +1,12 @@
 ---
 title: "Using CI/CD with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"
 ms.topic: "conceptual"
 manager: gwallace
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to set up continuous integration/continuous deployment using Azure DevOps with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 
@@ -26,7 +24,7 @@ Although this article guides you with Azure DevOps, the same concepts would appl
 * [Azure DevOps organization with a project](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Azure Container Registry [administrator account](../../container-registry/container-registry-authentication.md#admin-account) details available
-* [Authorize your AKS cluster to pull from your Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
+* [Authorize your AKS cluster to pull from your Azure Container Registry](../../aks/cluster-container-registry-integration.md)
 
 ## Download sample code
 For the sake of time, let's create a fork of our sample code GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Fork**. Once the fork process is complete, **Clone** your forked version of the repository locally. By default the _master_ branch will be checked out, but we've included some time-saving changes in the _azds_updates_ branch, which should also have been transferred during your fork. The _azds_updates_ branch contains updates we ask you to make manually in the Dev Spaces tutorial sections, as well as some pre-made YAML and JSON files for streamlining the deployment of the CI/CD system. You can use a command like `git checkout -b azds_updates origin/azds_updates` to check out the _azds_updates_ branch in your local repository.
@@ -72,7 +70,7 @@ Depending on the language you've chosen, the pipeline YAML has been checked-in a
 To create a Pipeline from this file:
 1. On your DevOps project main page, navigate to Pipelines > Builds.
 1. Select the option to create a **New** build pipeline.
-1. Select **GitHub** as the source, authorize with your GitHub account if necessary, and select the _azds_updates_ branch from your forked version of the dev-spaces sampleapp repository.
+1. Select **GitHub** as the source, authorize with your GitHub account if necessary, and select the _azds_updates_ branch from your forked version of the _dev-spaces_ sample application repository.
 1. Select **Configuration as code**, or **YAML**, as your template.
 1. You are now presented with a configuration page for your build pipeline. As mentioned above navigate to the language-specific path for the **YAML file path** using the **...** button. For example, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Go to the **Variables** tab.
@@ -129,7 +127,7 @@ An automated release process will now begin, deploying the *mywebapi* and *webfr
 The release is done when all tasks are complete.
 
 > [!TIP]
-> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](../../aks/kubernetes-dashboard.md). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](../../container-registry/container-registry-auth-aks.md) prerequisite.
+> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](../../aks/kubernetes-dashboard.md). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](../../aks/cluster-container-registry-integration.md) prerequisite.
 
 You now have a fully automated CI/CD pipeline for your GitHub fork of the Dev Spaces sample apps. Each time you commit and push code, the build pipeline will build and push the *mywebapi* and *webfrontend* images to your custom ACR instance. Then the release pipeline will deploy the Helm chart for each app into the _dev_ space on your Dev Spaces-enabled cluster.
 

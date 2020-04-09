@@ -1,12 +1,12 @@
 ---
 title: Virtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace
 description: Describes the Test Drive tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine Test Drive tab
@@ -35,7 +35,7 @@ The following table describes the purpose and content of these fields.  Required
 |**Test Drive ARM Template\***| Upload the Azure Resource Manager template associated with this Test Drive. For more information, see [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
 | **Access Information\***    | Azure Resource Manager access and trial login information, written as plain text or simple HTML. |
 | *Test Drive Deployment Subscription Details* |  |
-| **Azure Subscription Id\*** | Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: “a83645ac-1234-5ab6-6789-1h234g764ghty”)    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
+| **Azure Subscription Id\*** | Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: "a83645ac-1234-5ab6-6789-1h234g764ghty")    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
 | **Azure AD Tenant Id\***    | Azure Active Directory tenant ID.  Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Azure Active Directory** on the left menubar, then clicking **Properties** in the middle menubar, then copying the **Directory ID** from the form.  This identifier should also be a GUID.  If blank, then you must create a tenant ID for your organization. |
 | **Azure AD App Id\***       | Identifier for your registered Azure VM solution  |
 | **Azure AD App Key\***      | Authentication key for your registered solution |

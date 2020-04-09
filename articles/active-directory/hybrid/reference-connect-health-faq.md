@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -127,7 +128,7 @@ In this case, manually delete the entry that belongs to the older server. The da
 The health agent can fail to register due to the following possible reasons:
 
 * The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](how-to-connect-health-agent-install.md#requirements) for details.
-* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
+* Outbound communication is subjected to an TLS inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
 * The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Role Based Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) to delegate access to other users.
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**

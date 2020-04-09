@@ -1,19 +1,19 @@
 ---
 title: Back up SQL Server databases to Azure 
-description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: tutorial
+description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
+ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: dacurwin
-
-
 ---
 # About SQL Server Backup in Azure VMs
 
-SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
+[Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
+
+1. Workload aware backups that support all backup types - full, differential, and log
+2. 15-min RPO (recovery point objective) with frequent log backups
+3. Point-in-time recovery up to a second
+4. Individual database level backup and restore
+
+To view the backup and restore scenarios that we support today, refer to the [support matrix](sql-support-matrix.md#scenario-support).
 
 ## Backup process
 
@@ -21,7 +21,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 
 * Once you specify the SQL Server VM that you want to protect and query for the databases in it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
 * This extension consists of a coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup and restore, the plugin is responsible for actual data flow.
-* To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. Azure Backup leverages the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account needs to be a public login on SQL. If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](#set-vm-permissions).
+* To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. The `NT SERVICE\AzureWLBackupPluginSvc` account is a [Virtual Service Account](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts), and therefore does not require any password management. Azure Backup leverages the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account needs to be a public login on SQL. If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](#set-vm-permissions).
 * Once you trigger configure protection on the selected databases, the backup service sets up the coordinator with the backup schedules and other policy details, which the extension caches locally on the VM.
 * At the scheduled time, the coordinator communicates with the plugin and it starts streaming the backup data from the SQL server using VDI.  
 * The plugin sends the data directly to the recovery services vault, thus eliminating the need for a staging location. The data is encrypted and stored by the Azure Backup service in storage accounts.
@@ -34,91 +34,8 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 Before you start, verify the below:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) in the marketplace.
-2. Review the [feature consideration](#feature-consideration-and-limitations) and [scenario support](#scenario-support).
+2. Review the [feature consideration](sql-support-matrix.md#feature-consideration-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
 3. [Review common questions](faq-backup-sql-server.md) about this scenario.
-
-## Scenario support
-
-**Support** | **Details**
---- | ---
-**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
-**Supported geos** | Australia South East (ASE), East Australia (AE) <br> Brazil South (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> East US (EUS), East US 2 (EUS2), West Central US (WCUS), West US (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), India South (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> North Europe (NE), West Europe <br> UK South (UKS), UK West (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD Central, US DoD East
-**Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
-**Supported SQL Server versions** | SQL Server 2017 as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**Supported .NET versions** | .NET Framework 4.5.2 and above installed on the VM
-
-### Support for SQL Server 2008 and SQL Server 2008 R2
-
-Azure Backup has recently announced support for [EOS SQL Severs](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) - SQL Server 2008 and SQL Server 2008 R2. The solution is currently in preview for EOS SQL Server and supports the following configuration:
-
-1. SQL Server 2008 and SQL Server 2008 R2 running on Windows 2008 R2 SP1
-2. .NET Framework 4.5.2 and above needs to be installed on the VM
-3. Backup for FCI and mirrored databases isn’t supported
-
-Users will not be charged for this feature until the time it is generally available. All of the other [feature considerations and limitations](#feature-consideration-and-limitations) apply to these versions as well. Kindly refer to the [prerequisites](backup-sql-server-database-azure-vms.md#prerequisites) before you configure protection on SQL Servers 2008 and 2008 R2.
-
-## Feature consideration and limitations
-
-- SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
-- The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic VMs.
-- VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-- SQL Server **Failover Cluster Instance (FCI)** and SQL Server Always on Failover Cluster Instance are not supported.
-- Back up and restore operations for mirror databases and database snapshots aren't supported.
-- Using more than one backup solutions to back up your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
-- Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure.
-- Azure Backup supports only Full and Copy-only Full backup types for **Read-only** databases
-- Databases with large number of files can't be protected. The maximum number of files that is supported is **~1000**.  
-- You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
-- You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
-- We support databases up to **2 TB** in size; for sizes greater than that, performance issues may come up.
-- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
-- In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
-
-### Back up behavior in case of Always on availability groups
-
-It is recommended that the backup is configured on only one node of an AG. Backup should always be configured in the same region as the primary node. In other words, you always need the primary node to be present in the region in which you are configuring backup. If all the nodes of the AG are in the same region in which the backup is configured, there isn’t any concern.
-
-**For cross-region AG**
-- Regardless of the backup preference, backups won’t happen from the nodes that are not in the same region where the backup is configured. This is because the cross-region backups are not supported. If you have only two nodes and the secondary node is in the other region; in this case, the backups will continue to happen from primary node (unless your backup preference is ‘secondary only’).
-- If a fail-over happens to a region different than the one in which the backup is configured, backups would fail on the nodes in the failed-over region.
-
-Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).
-
-- **Backup preference: Primary**
-
-**Backup Type** | **Node**
-    --- | ---
-    Full | Primary
-    Differential | Primary
-    Log |  Primary
-    Copy-Only Full |  Primary
-
-- **Backup preference: Secondary Only**
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
-
-- **Backup preference: Secondary**
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
-
-- **No Backup preference**
-
-**Backup Type** | **Node**
---- | ---
-Full | Primary
-Differential | Primary
-Log |  Secondary
-Copy-Only Full |  Secondary
 
 ## Set VM permissions
 
@@ -224,7 +141,6 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 ```
-
 
 ## Next steps
 

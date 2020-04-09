@@ -1,18 +1,12 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Trace Telemetry | Microsoft Docs
+title: Azure Application Insights Data Model - Trace Telemetry
 description: Application Insights data model for trace telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Trace telemetry: Application Insights data model
 
 Trace telemetry (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents `printf` style trace statements that are text-searched. `Log4Net`, `NLog`, and other text-based log file entries are translated into instances of this type. The trace does not have measurements as an extensibility.

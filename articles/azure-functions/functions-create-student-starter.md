@@ -1,29 +1,24 @@
 ---
-title: Create a Function using Azure for Students Starter | Microsoft Docs
+title: Create a function using Azure for Students Starter 
 description: Learn how to create an Azure Function from within an Azure for Student Starter subscription
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-services: functions
-documentationcenter: na
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
-manager: ggailey777
 
-ms.assetid: 
-ms.service: azure-functions
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: alkarche
 
 
 ---
-# Create a Function using Azure for Students Starter
+# Create a function using Azure for Students Starter
 
-In this tutorial, we will create a hello world HTTP function in an Azure for Students Starter subscription. We'll also walk through what's available in Azure Functions in this subscription type.
+In this tutorial, we will create a "hello world" HTTP function in an Azure for Students Starter subscription. We'll also walk through what's available in Azure Functions in this subscription type.
 
 Microsoft *Azure for Students Starter* gets you started with the Azure products you need to develop in the cloud at no cost to you. [Learn more about this offer here.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here.](./functions-overview.md)
 
-## Create a Function
+## Create a function
 
  In this topic, learn how to use Functions to create an HTTP triggered "hello world" function in the Azure portal.
 
@@ -35,9 +30,9 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. 
+You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. Select the **Create a resource** button found in the upper-left corner of the Azure portal. Then select **Compute** > **Function App**.
 
     ![Create a function app in the Azure portal](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -49,7 +44,7 @@ You must have a function app to host the execution of your functions. A function
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
    | **[App Service Plan/Location](./functions-scale.md)** | New | The hosting plan that controls what region your function app is deployed to and the density of your resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here.](./functions-scale.md)|
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights is used to store and analyze your function app's logs. It is enabled by default if you choose a location that supports Application Insights. Application Insights can be enabled for any function by manually choosing a nearby region to deploy Application Insights. Without Application Insights, you will only be able to view live streaming logs.
@@ -110,20 +105,20 @@ Now, you can run the new function by sending an HTTP request.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## Supported Features in Azure for Students Starter
+## Supported features in Azure for Students Starter
 
-In Azure for Student Starter you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
+In Azure for Students Starter you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
 
 * The HTTP trigger is the only trigger type supported.
     * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
 * Languages Supported: 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 & 10)
+    * JavaScript (Node.js 8 & 10)
     * F# (.NET Core 2)
     * [See languages supported in higher plans here](supported-languages.md)
 * Windows is the only supported operating system.
 * Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
-* Only [the 2.x runtime](functions-versions.md) is supported.
+* Only [version 2.x and later](functions-versions.md) of the Functions runtime is supported.
 * All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your preferred tool.
 
 ## Next steps

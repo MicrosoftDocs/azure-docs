@@ -1,8 +1,8 @@
 ---
-title: Frequently asked questions about Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view.
+title: Frequently asked questions
+description: FAQs about the Azure Spatial Anchors service.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
@@ -108,6 +108,7 @@ When you create an anchor, the client SDK captures environment information aroun
 **A:** Developers can build apps with Azure Spatial Anchors using familiar tools and frameworks for their device:
 
 - Unity across HoloLens, iOS, and Android
+- Xamarin on iOS and Android
 - Swift or Objective-C on iOS
 - Java or the Android NDK on Android
 - C++/WinRT on HoloLens

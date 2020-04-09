@@ -4,18 +4,17 @@
   items:
   - name: What is authentication?
     href: overview-authentication.md
-- name: Quickstart
-  items:
-  - name: Configure password reset
-    href: quickstart-sspr.md
 - name: Tutorials
+  expanded: true
   items:
-  - name: 1 Enable MFA for Applications
-    href: tutorial-mfa-applications.md
-  - name: 2 Enable a SSPR pilot
-    href: tutorial-sspr-pilot.md
-  - name: Enable SSPR on-premises integration
-    href: tutorial-enable-writeback.md
+  - name: Enable self-service password reset
+    href: tutorial-enable-sspr.md
+  - name: Enable Azure Multi-Factor Authentication
+    href: tutorial-enable-azure-mfa.md
+  - name: Enable password writeback to on-premises
+    href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -49,6 +48,8 @@
       href: concept-mfa-authprovider.md
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
+    - name: Data residency
+      href: concept-mfa-data-residency.md
     - name: MFA for Office 365
       href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: MFA FAQ
@@ -65,17 +66,15 @@
   items:
   - name: Self-service password reset
     items:
-    - name: Deploy self-service password reset
+    - name: Deployment guide
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
-    - name: Enable password writeback
-      href: howto-sspr-writeback.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
-    - name: Deploy cloud-based MFA
+    - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Per user MFA
       href: howto-mfa-userstates.md
@@ -98,7 +97,7 @@
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
       - name: Azure VPN and Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+        href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
@@ -111,28 +110,32 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
-    - name: On-premises integration
-      items:
-      - name: Deploy Azure AD password protection
-        href: howto-password-ban-bad-on-premises-deploy.md
-      - name: Configure Azure AD password protection
-        href: howto-password-ban-bad-on-premises-operations.md
-      - name: Monitor Azure AD password protection
-        href: howto-password-ban-bad-on-premises-monitor.md
-      - name: Troubleshoot Azure AD password protection
-        href: howto-password-ban-bad-on-premises-troubleshoot.md
-      - name: Frequently asked questions
-        href: howto-password-ban-bad-on-premises-faq.md
-      - name: On-premises agent version history
-        href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Plan and deploy on-premises
+      href: howto-password-ban-bad-on-premises-deploy.md
+    - name: Enable and configure on-premises
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Monitor on-premises deployments
+      href: howto-password-ban-bad-on-premises-monitor.md
+    - name: Troubleshoot on-premises deployments
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+    - name: On-premises FAQs
+      href: howto-password-ban-bad-on-premises-faq.md
+    - name: On-premises agent version history
+      href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Passwordless
     items: 
-      - name: Passwordless security keys
-        href: howto-authentication-passwordless-security-key.md
+      - name: Deploying passwordless
+        href: howto-authentication-passwordless-deployment.md
+      - name: Passwordless FIDO2 security keys
+        items:
+          - name: Enable FIDO2 security keys for your tenant
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
+            href: howto-authentication-passwordless-security-key-windows.md
+          - name: SSO to on-premises resources
+            href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business

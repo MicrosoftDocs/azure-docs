@@ -1,18 +1,12 @@
 ---
 title: Optimize your SQL Server environment with Azure Monitor | Microsoft Docs
 description: With Azure Monitor, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.author: magoedte
+
 ---
 
 # Optimize your SQL environment with the SQL Server Health Check solution in Azure Monitor
@@ -35,7 +29,7 @@ After you've added the solution and an assessment is completed, summary informat
 
 ## Prerequisites
 
-* The SQL Health Check solution requires a supported version of .NET Framework 4 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.  
+* The SQL Health Check solution requires a supported version of .NET Framework 4.6.2 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.  
 * The solution supports SQL Server version 2012, 2014, and 2016.
 * A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription.
 
@@ -197,6 +191,19 @@ If you have recommendations that you want to ignore, you can create a text file 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## SQL Health Check solution FAQ
+
+*What checks are performed by the SQL Assessment solution?*
+
+* The following query shows a description of all checks currently performed:
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+The results can then be exported to Excel for further review.
+
+
 *How often does a health check run?*
 
 * The check runs every seven days.

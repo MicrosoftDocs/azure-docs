@@ -1,23 +1,15 @@
 ---
-title: Client and server SDK versioning in Mobile Apps and Mobile Services | Microsoft Docs
-description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: crdun
-editor: ''
+title: Client and server SDK versioning
+description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps.
 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-
 ---
 # Client and server versioning in Mobile Apps and Mobile Services
+
 The latest version of Azure Mobile Services is the **Mobile Apps** feature of Azure App Service.
 
 The Mobile Apps client and server SDKs are originally based on those in Mobile Services, but they are *not* compatible with each other.
@@ -31,11 +23,11 @@ The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the que
 
 For example:
 
-GET https://service.azurewebsites.net/tables/TodoItem
+`GET https://service.azurewebsites.net/tables/TodoItem`
 
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
-POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+`POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0`
 
 ## Opting out of version checking
 You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.

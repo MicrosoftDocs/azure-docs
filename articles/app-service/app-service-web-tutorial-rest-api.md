@@ -1,24 +1,13 @@
 ---
-title: 'Tutorial: Host RESTful API with CORS - Azure App Service'
-description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
-services: app-service\api
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: 'Tutorial: Host RESTful API with CORS'
+description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back end APIs.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/21/2018
-ms.author: cephalin
-ms.custom: mvc, devcenter, seo-javascript-september2019
-ms.custom: seodec18
-
+ms.date: 02/11/2020
+ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
 ---
+
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
@@ -69,7 +58,7 @@ dotnet run
 
 Navigate to `http://localhost:5000/swagger` in a browser to play with the Swagger UI.
 
-![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/local-run.png)
+![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Navigate to `http://localhost:5000/api/todo` and see a list of ToDo JSON items.
 
@@ -133,7 +122,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
 
@@ -157,7 +146,7 @@ dotnet run
 
 Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (`Ctrl`+`Shift`+`i` in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![CORS error in browser client](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![CORS error in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 Because of the domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`), and the fact that your API in App Service is not sending the `Access-Control-Allow-Origin` header, your browser has prevented cross-domain content from loading in your browser app.
 
@@ -180,7 +169,7 @@ You can set more than one client URL in `properties.cors.allowedOrigins` (`"['UR
 
 Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API and interact with it. Your remote API now supports CORS to your browser app running locally. 
 
-![CORS success in browser client](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![CORS success in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Congratulations, you're running an API in Azure App Service with CORS support.
 

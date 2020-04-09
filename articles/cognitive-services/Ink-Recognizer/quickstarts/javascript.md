@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and Node.js"
 titleSuffix: Azure Cognitive Services
-description: Use the Ink Recognizer API to start recognizing digital ink strokes.
+description: Use the Ink Recognizer API to start recognizing digital ink strokes in this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -29,8 +29,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 - A web browser
 - The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
+### Create an Ink Recognizer resource
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
 ## Create a new application
 
@@ -105,10 +106,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
         // Your endpoint can be found in the Azure portal. For example: "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-        var SERVER_ADDRESS = "YOUR-SUBSCRIPTION-URL";
+        var SERVER_ADDRESS = process.env["INK_RECOGNITION_ENDPOINT"];
         var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
-        // Replace the subscriptionKey string value with your valid subscription key.
-        var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
+        var SUBSCRIPTION_KEY = process.env["INK_RECOGNITION_SUBSCRIPTION_KEY"];
         var xhttp = new XMLHttpRequest();
         ```
     2. Create the return function for the `XMLHttpRequest` object. This function will parse the API response from a successful request, and display it in the application. 

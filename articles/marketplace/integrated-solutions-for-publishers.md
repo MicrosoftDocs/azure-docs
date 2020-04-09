@@ -1,35 +1,34 @@
 ---
-title: Integrated Solutions | Azure
-description: Integrated Solutions in Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-
-author: qianw211
+title: Integrated solutions - Azure Marketplace
+description: Integrated solutions in Azure Marketplace and Microsoft AppSource
+author: dsindona
 ms.service: marketplace
-ms.topic: article
-ms.date: 08/15/2019
-ms.author: v-qiwe
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 12/16/2019
+ms.author: dsindona
 
 ---
-# Publishing Integrated Solutions
+# Publish an integrated solution
 
-An Integrated Solution combines multiple ISV point solution technologies together, along with the deployment and services of a systems integrator (SI), into a single bundled offer that is listed in the marketplace by the SI as a [consulting services offer](https://docs.microsoft.com/azure/marketplace/consulting-services).
+In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Microsoft AppSource or Azure Marketplace as a [consulting service](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
-These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are then integrated by an SI to create a unified and repeatable deployment experience for customers, to get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization and consulting, and supports around the solution. The outcome is an integrated solution, including technology and services.
+Integrated solutions aim to address a specific customer need or scenario. Providers begin by understanding the industry challenge or pain points. They then integrate two or more best-of-breed technologies to create a unified and repeatable deployment experience for customers. Providers get customers up and running rapidly. They offer a single point of contact to the customer, providing relevant customization, consulting, and solution support. The outcome is an integrated solution, including technology and services.
 
-See this video for an overview of the [Integrated Solutions Program](https://aka.ms/AA5qos4).
+For an overview of the Integrated Solutions program, watch [this video](https://aka.ms/AA5qos4).
 
-## Key benefits to Integrated Solutions in the marketplace
+## Benefits of integrated solutions in the marketplace
 
-* Customers can find packaged solutions that solve end-to-end business challenges through the marketplace, and experience accelerated time to value with the technology integrated up front. Customers avoid having to engage separately with multiple ISV apps deployed in a fragmented way.
-* ISVs have their IP packaged along with other solutions and services that enhance the value of their technology, delivered by expert SIs.
-* SIs create pre-defined, pre-integrated solutions with best-of-breed technology to scale, land, and expand in more customer accounts.
-* Microsoft can leverage these pre-integrated, industry aligned solutions to more easily co-sell to customers, with pricing and terms sorted in advance. 
+* Customers can find packaged solutions that solve end-to-end business challenges through the marketplace. They get accelerated time to value because the technology is integrated up front. Customers avoid having to engage separately with multiple apps deployed in a fragmented way.
+* IP is packaged along with other solutions and services that enhance the value of the technology that's delivered by expert services partners.
+* Services partners create predefined, preintegrated solutions with best-of-breed technology to scale, land, and expand in more customer accounts.
+* Microsoft can use these preintegrated, industry-aligned solutions to more easily co-sell to customers. Pricing and terms are sorted in advance.
 
 ## Eligibility criteria
 
-* All participating partners must have an MPN ID
-* Participating SI should be co-sell ready
-* Participating ISVs should be IP co-sell 
+* Participating partners must have an MPN ID.
+* Participating services providers should be co-sell ready.
+* Participating software vendors should be IP co-sell ready.
 * At least one participating partner must have Gold Competency in one of the following areas:
 
     * Application Development
@@ -37,57 +36,77 @@ See this video for an overview of the [Integrated Solutions Program](https://aka
     * Application Lifecycle Management
     * Cloud Platform
     * Data Analytics
-    * Data Center
+    * Datacenter
     * Data Platform
     * DevOps
 
-* Solution must include at least two partner organizations, bringing together IP and services for a complete customer solution and experience
-* Partner IP must be built on Azure, Dynamics 365, and/or Power Platform
-* The IP of the integrated solution needs to be differentiated from simply the IP of the ISV + basic SI services
-* The objective across all partners is to create a repeatable offering that can be listed, and eventually transacted, through Azure Marketplace and/or AppSource
+* The solution must include at least two partner organizations, bringing together IP and services for a complete customer solution and experience.
+* The partner IP must be built on Azure, Dynamics 365, or Power Platform.
+* The IP of the integrated solution needs to be differentiated from simply the IP of the software vendor and the basic services-provider offerings.
+* All partners share the objective of creating a repeatable offering that can be listed and eventually transacted through Microsoft AppSource, Azure Marketplace or both.
 
-## Nomination process
+## Submit a nomination
 
-Partners who want to participate in the program should identify the other partners they want to work with and complete the [Integrated Solutions Nomination](https://aka.ms/AA5qicu) form. The Integrated Solutions program team will then review the nomination and follow up within 10 business days with approval and next steps. 
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated Solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
-## Developing your Integrated Solution 
+## Develop an integrated solution
 
-Once the nomination is approved, follow the below steps, leveraging the linked program resources, to develop your integrated solution: 
+After your nomination is approved, use the linked program resources to develop your integrated solution. Follow these steps:
 
-1. Complete key business and technical discussions in a workshop format to define the solution (scope, target customers, value proposition, pricing, licensing, terms and conditions, support approach, marketing activities, sales process, and activities) and integration approach (integration points, solution architecture, authentication, user interface, monitoring, deployment mechanism, APIs, and unified data repository). 
+1. Complete key business and technical discussions in a workshop format to define the solution and integration approach.
 
-    The following resources are available to guide partners through this process:
+    Your discussion about the solution should involve the following points:
+    * Scope
+    * Target customers
+    * Value proposition
+    * Pricing
+    * Licensing
+    * Terms and conditions
+    * Support approach
+    * Marketing activities
+    * Sales process
+    * Activities
 
-    1. [Business Decision Workshop Discussion Guide](https://aka.ms/AA5qicx)
-    1. [Technical Decision Workshop Discussion Guide](https://aka.ms/AA5qid1)
-    1. [Quickstart Video – Business and Technical Workshops](https://aka.ms/AA5qos9)
+    Your discussion about the integration approach should involve the following points:
+    * Integration points
+    * Solution architecture
+    * Authentication
+    * User interface
+    * Monitoring
+    * Deployment mechanism
+    * APIs
+    * Unified data repository
 
-1. Identify a cross-partner project manager to drive Project Plan and Timeline resulting from business and technical workshops.
+    Use these resources for the development process:
 
-1. Complete technical integration of the solution.
+    * [Business decision workshop discussion guide](https://aka.ms/AA5qicx)
+    * [Technical decision workshop discussion guide](https://aka.ms/AA5qid1)
+    * [Quickstart video: Business and technical workshops](https://aka.ms/AA5qos9)
 
-1. Finalize solution pricing and decide on single price point to surface on Azure Marketplace or AppSource.
+1. Identify a cross-partner project manager to drive the project plan and timeline that you developed in the business and technical workshops.
 
-1. Complete marketing collateral for the Azure Marketplace or AppSource listing, including:
+1. Develop the complete technical integration of the solution.
 
-    1. Combined solution name
-    2. Listing description of integrated solution ([Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices))
-    1. Customer 1 pager ([template](https://aka.ms/AA5s08a))
-    1. Customer presentation ([template](https://aka.ms/AA5s7ql))
-    1. Logo for combined solution 
+1. Decide the solution pricing and a single price point to surface on Microsoft AppSource or Azure Marketplace.
 
-## Publishing your Integrated Solution 
+1. Complete the marketing collateral for the Microsoft AppSource or Azure Marketplace listing, including:
 
-Once the technical integration is complete and the marketing collateral is ready, refer to the publisher guide for [Consulting Services for Azure Marketplace and AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). Using this resource, determine whether to publish in Azure Marketplace or AppSource depending on the audience you want to reach, prepare your publishing artifacts, and complete the publishing process.
+    * A combined solution name.
+    * A listing description of the integrated solution. Follow [offer-listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+    * A one-page pitch to customers. Use the [one-pager template](https://aka.ms/AA5s08a).
+    * A customer presentation. Use the [presentation template](https://aka.ms/AA5s7ql).
+    * A logo for the combined solution.
 
-Although there are five service types available for Consulting Services offers, an Integrated Solution must be either a proof of concept or a full implementation.
+## Publish your integrated solution
 
-## Going to market with your Integrated Solution 
+After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
 
-Once your solution is live in Azure Marketplace or AppSource, you’ll want to drive awareness and demand generation through marketing activities. Review the activities listed in the [Project Plan and Timeline](https://aka.ms/AA5qiuc), including activities that partners can drive within their own teams and with one another. Then, access [Go-to-Market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) provided to partners who have published in the marketplace. All Integrated Solution offers are eligible for trial-level benefits.
+Although five service types are available for consulting-service offers, an integrated solution must be either a proof of concept or a full implementation.
 
-## Next Steps
+## Go to market with your integrated solution
 
-See [Integrated Solutions](https://docs.microsoft.com/azure/marketplace/integrated-solutions) for information on purchasing an Integrated Solution in the Marketplace.
+When your solution is live in Microsoft AppSource or Azure Marketplace, you'll want to drive awareness and demand through marketing activities. Review the activities listed in the [Project plan and timeline](https://aka.ms/AA5qiuc). This resource includes activities that partners can drive within their own teams and with one another. Then access the [go-to-market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) for partners who publish in the marketplace. All integrated-solution offers are eligible for trial-level benefits.
 
----
+## Next steps
+
+For information about purchasing an integrated solution in the marketplace, see [Integrated solutions](https://docs.microsoft.com/azure/marketplace/integrated-solutions).

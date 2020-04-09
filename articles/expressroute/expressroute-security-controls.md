@@ -1,11 +1,9 @@
 ---
-title: Security controls for Azure ExpressRoute
+title: 'Azure ExpressRoute: Security controls'
 description: A checklist of security controls for evaluating Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
 
 ms.topic: conceptual
 ms.date: 06/05/2019

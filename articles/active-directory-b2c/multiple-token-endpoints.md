@@ -1,15 +1,16 @@
 ---
-title: Migrate OWIN-based web APIs to b2clogin.com - Azure Active Directory B2C
+title: Migrate OWIN-based web APIs to b2clogin.com
+titleSuffix: Azure AD B2C
 description: Learn how to enable a .NET web API to support tokens issued by multiple token issuers while you migrate your applications to b2clogin.com.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -28,7 +29,7 @@ The following sections present an example of how to enable multiple issuers in a
 
 You need the following Azure AD B2C resources in place before continuing with the steps in this article:
 
-* [User flows](tutorial-create-user-flows.md) or [custom policies](active-directory-b2c-get-started-custom.md) created in your tenant
+* [User flows](tutorial-create-user-flows.md) or [custom policies](custom-policy-get-started.md) created in your tenant
 
 ## Get token issuer endpoints
 
@@ -142,7 +143,7 @@ When the endpoint strings are constructed during execution of the web app, the b
 
 This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints. As you might notice, there are several other strings in the *Web.Config* files of both the TaskService and TaskWebApp projects that would need to be changed if you want to build and run these projects against your own tenant. You're welcome to modify the projects appropriately if you want to see them in action, however, a full walk-through of doing so is outside the scope of this article.
 
-For more information about the different types of security tokens emitted by Azure AD B2C, see [Overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+For more information about the different types of security tokens emitted by Azure AD B2C, see [Overview of tokens in Azure Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

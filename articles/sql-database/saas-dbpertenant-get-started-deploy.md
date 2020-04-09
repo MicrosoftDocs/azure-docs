@@ -1,5 +1,5 @@
 ﻿---
-title: Database-per-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs 
+title: Database-per-tenant SaaS tutorial
 description: Deploy and explore the Wingtip Tickets SaaS multitenant application that demonstrates the database-per-tenant pattern and other SaaS patterns by using Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -108,7 +108,7 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Select **Fabrikam Jazz Club** in the Events Hub.
+2. Select **Fabrikam Jazz Club** in the Events Hub.
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -122,7 +122,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traff
 
     | URL part        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *single* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
+    | events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *single* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
     | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |
@@ -214,14 +214,14 @@ Refresh the Events Hub to make the new tenant appear in the list.
 
 Now that you've started running a load against the collection of tenants, let's look at some of the resources that were deployed.
 
-1. In the [Azure portal](https://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
+1. In the [Azure portal](https://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
     - The catalog server contains two databases, **tenantcatalog** and **basetenantdb** (a template database that's copied to create new tenants).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Go back to your list of SQL servers.
 
-3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
+3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
 
 4. See the following items:
 
@@ -234,7 +234,7 @@ Now that you've started running a load against the collection of tenants, let's 
 
 After *LoadGenerator.ps1* runs for several minutes, enough data should be available to start looking at some monitoring capabilities. These capabilities are built into pools and databases.
 
-Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
+Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
 
    ![Monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

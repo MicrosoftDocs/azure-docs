@@ -1,18 +1,12 @@
 ---
 title: Set up availability alerts with Azure Application Insights | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.reviewer: sdash
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 06/19/2019
+
+ms.reviewer: sdash
 ---
 
 # Availability alerts
@@ -64,7 +58,7 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 

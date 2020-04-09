@@ -1,19 +1,9 @@
 ---
-title: Configure custom container - Azure App Service | Microsoft Docs 
-description: Learn how to configure Node.js apps to work in Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Configure a custom Linux container
+description: Learn how to configure a custom Linux container in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
 ---
 
 # Configure a custom Linux container for Azure App Service
@@ -161,6 +151,12 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
+
+## Configure VNet integration
+
+Using a custom container with VNet integration may require additional container configuration. See [Integrate your app with an Azure Virtual Network](../web-sites-integrate-with-vnet.md).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

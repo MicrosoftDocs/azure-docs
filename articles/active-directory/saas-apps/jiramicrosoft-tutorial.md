@@ -39,7 +39,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.0 or JIRA Service Desk 3.0 to 3.5 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.8.0 or JIRA Service Desk 3.0 to 4.8.0 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -57,8 +57,8 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.0
-* JIRA Service Desk 3.0.0 to 3.5.0
+* JIRA Core and Software: 6.4 to 8.8.0
+* JIRA Service Desk 3.0.0 to 4.8.0
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -181,11 +181,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -195,6 +195,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
 	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	
+	1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
 
 	1. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user ID. If the user ID is not matched, then system will not allow users to sign in.
 
@@ -213,7 +215,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 	   > [!Note]
 	   > To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
-	   > `https://<domain:port>/login.action?force_azure_login=false`
+	   > `https://<domain:port>/login.jsp?force_azure_login=false`
 
 	1. Click **Save** button to save the settings.
 

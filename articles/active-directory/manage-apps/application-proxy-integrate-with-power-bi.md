@@ -1,5 +1,5 @@
 ---
-title: Enable remote access to Power BI with Azure AD Application Proxy | Microsoft Docs
+title: Enable remote access to Power BI with Azure AD Application Proxy
 description: Covers the basics about how to integrate an on-premises Power BI with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Enable remote access to Power BI Mobile with Azure AD Application Proxy
 
-This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016 and later. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as conditional access and multi-factor authentication.  
+This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016 and later. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as Conditional Access and multi-factor authentication.  
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ For more information, see [Kerberos Constrained Delegation for single sign-on to
 Now you're ready to configure Azure AD Application Proxy.
 
 1. Publish Report Services through Application Proxy with the following settings. For step-by-step instructions on how to publish an application through Application Proxy, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **Internal URL**: Enter the URL to the Report Server that the connector can reach in the corporate network. Make sure this URL is reachable from the server the connector is installed on. A best practice is using a top-level domain such as `https://servername/` to avoid issues with subpaths (for example, `https://servername/reports/` and `https://servername/reportserver/`) not published through Application Proxy.
+   - **Internal URL**: Enter the URL to the Report Server that the connector can reach in the corporate network. Make sure this URL is reachable from the server the connector is installed on. A best practice is using a top-level domain such as `https://servername/` to avoid issues with subpaths published through Application Proxy. For example, use `https://servername/` and not `https://servername/reports/` or `https://servername/reportserver/`.
      > [!NOTE]
      > We recommend using a secure HTTPS connection to the Report Server. See [Configure SSL connections on a native mode report server](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) for information how to.
    - **External URL**: Enter the public URL the Power BI mobile app will connect to. For example, it may look like `https://reports.contoso.com` if a custom domain is used. To use a custom domain, upload a certificate for the domain, and point a DNS record to the default msappproxy.net domain for your application. For detailed steps, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
@@ -117,6 +117,8 @@ Before the Power BI mobile app can connect and access Report Services, you must 
    When configuring the app for Power BI Mobile **Android**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
    > The Redirect URIs must be added for the application to work correctly. If you are configuring the app for both Power BI Mobile iOS and Android, add the following Redirect URI of type Public Client (Mobile & Desktop) to the list of Redirect URIs configured for iOS: `urn:ietf:wg:oauth:2.0:oob`.
@@ -132,9 +134,6 @@ Before the Power BI mobile app can connect and access Report Services, you must 
 3. Enter valid credentials for your user and select **Sign in**. You'll see the elements from your Reporting Services server.
 
 ## Step 5: Configure Intune policy for managed devices (optional)
-
-> [!NOTE]
-> This functionality is currently only available on iOS.
 
 You can use Microsoft Intune to manage the client apps that your company's workforce uses. Intune allows you to use capabilities such as data encryption and additional access requirements. To learn more about app management through Intune, see Intune App Management. To enable the Power BI mobile application to work with the Intune policy, use the following steps.
 

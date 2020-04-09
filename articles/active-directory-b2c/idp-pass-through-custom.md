@@ -1,23 +1,24 @@
 ---
-title: Pass an access token through a custom policy to your application in Azure Active Directory B2C
-description: Learn how you can pass an access token for OAuth2.0 identity providers as a claim through a custom policy to your application in Azure Active Directory B2C.
+title: Pass an access token through a custom policy to your app
+titleSuffix: Azure AD B2C
+description: Learn how you can pass an access token for OAuth 2.0 identity providers as a claim through a custom policy to your application in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Pass an access token through a custom policy to your application in Azure Active Directory B2C
 
-A [custom policy](active-directory-b2c-get-started-custom.md) in Azure Active Directory B2C (Azure AD B2C) provides users of your application an opportunity to sign up or sign in with an identity provider. When this happens, Azure AD B2C receives an [access token](active-directory-b2c-reference-tokens.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You add a claim type and output claim to your custom policy to pass the token through to the applications that you register in Azure AD B2C.
+A [custom policy](custom-policy-get-started.md) in Azure Active Directory B2C (Azure AD B2C) provides users of your application an opportunity to sign up or sign in with an identity provider. When this happens, Azure AD B2C receives an [access token](tokens-overview.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You add a claim type and output claim to your custom policy to pass the token through to the applications that you register in Azure AD B2C.
 
-Azure AD B2C supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) and [OpenID Connect](active-directory-b2c-reference-oidc.md) identity providers. For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank.
 
 ## Prerequisites
 
@@ -100,4 +101,4 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-Learn more about tokens in the [Azure Active Directory B2C token reference](active-directory-b2c-reference-tokens.md).
+Learn more about tokens in the [Azure Active Directory B2C token reference](tokens-overview.md).

@@ -1,18 +1,18 @@
 ---
 title: Lead management for cloud marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Lead management for cloud marketplace
 
 
-Customers are the center of any good business. In the transformation of today’s product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
+Customers are the center of any good business. In the transformation of today's product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
 
 
 
@@ -33,16 +33,16 @@ Here are step-by-step instructions on how to connect each of the possible lead d
 
 **Salesforce** - [Click here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) to get instructions for setting up your Salesforce instance to get leads.
 
-**Azure Table** – [Click here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
+**Azure Table** - [Click here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
 
-**Https Endpoint** – [Click here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) to get the instructions for setting up your Https Endpoint to get leads.
+**Https Endpoint** - [Click here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) to get the instructions for setting up your Https Endpoint to get leads.
 
-Once you have configured your lead destination properly and have hit Publish on your offer, we will validate the connection and send you a test lead. When you are viewing the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment. It's important to make sure that your lead settings stay up-to-date so that you don’t lose any leads, so make sure you update these connections whenever something has changed on your end.
+Once you have configured your lead destination properly and have hit Publish on your offer, we will validate the connection and send you a test lead. When you are viewing the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment. It's important to make sure that your lead settings stay up-to-date so that you don't lose any leads, so make sure you update these connections whenever something has changed on your end.
 
 
 ### What are the next steps?
 
-Once the technical set up is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you’re interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
+Once the technical set up is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
 
 
@@ -75,11 +75,11 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
 
-> Resolution: Sign in to the Azure Portal, check if the application key matches what’s in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Resolution: Sign in to the Azure Portal, check if the application key matches what's in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
-> Resolution: Sign in to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it’s a valid Dynamic CRM instance
+> Resolution: Sign in to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it's a valid Dynamic CRM instance
 
 ## Frequently asked questions
 
@@ -108,7 +108,7 @@ After setting up your offer, and lead destination, publish your offer. On lead v
 **How can I find the test lead?**
 
 
-Search for “MSFT_TEST” in your lead destination, here’s a sample test lead data: 
+Search for "MSFT_TEST" in your lead destination, here's a sample test lead data: 
 
 company = MSFT_TEST_636573304831318844 
 
@@ -136,38 +136,38 @@ title = MSFT_TEST_636573304831318844
 
  
 
-**I have a live offer, but I’m not seeing any leads?**
+**I have a live offer, but I'm not seeing any leads?**
 
 Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer** 
 
   *Sources:*
 
-    “AzureMarketplace”, 
-    “AzurePortal”, 
-    “TestDrive”,  
-    “SPZA” (acronym for AppSource) 
+    "AzureMarketplace", 
+    "AzurePortal", 
+    "TestDrive",  
+    "SPZA" (acronym for AppSource) 
 
   *Actions:*
 
-    “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
+    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
 
-    “DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
+    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    “Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
 
-    “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
+    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
   *Offers:*
 
-    “checkpoint.check-point-r77-10sg-byol”, 
-    “bitnami.openedxcypress”, 
-    “docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a” 
+    "checkpoint.check-point-r77-10sg-byol", 
+    "bitnami.openedxcypress", 
+    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
 
  
 
-  *Here’s sample data of the customer information*
+  *Here's sample data of the customer information*
 
     { 
 
@@ -202,7 +202,7 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
  **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
+You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables/blobs. 
 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 

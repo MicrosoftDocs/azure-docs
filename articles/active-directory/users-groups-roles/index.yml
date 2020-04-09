@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Enterprise user management documentation - Azure Active Directory
+title: Enterprise user management documentation - Azure AD
 summary: Azure AD user management services such as groups and administrator role assignments help you accomplish your top tasks quickly. Assign licenses, assign application access to groups or users, or delegate permissions to distribute identity management tasks. 
 
 
@@ -10,9 +10,9 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: users-groups-roles
-  manager: mtillman
+  manager: daveba
   ms.topic: landing-page
-  ms.date: 08/28/2019
+  ms.date: 11/08/2019
   author: curtand
   ms.author: curtand
 
@@ -34,7 +34,7 @@ landingContent:
           - text: Delegate administration
             url: roles-concept-delegation.md
           - text: Compare Azure RBAC roles and Azure AD administrator roles
-            url: https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
 
   # Card
   - title: Get started
@@ -42,11 +42,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Add a user
-            url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
           - text: Set expiration policy for groups
             url: groups-quickstart-expiration.md
           - text: Assign licenses to users
-            url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: https://docs.microsoft.com/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
 
   # Card
   - title: Assign Azure AD admin roles
@@ -89,6 +89,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Add a custom domain name
-            url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
           - text: Managing custom domain names
             url: domains-manage.md

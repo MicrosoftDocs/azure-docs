@@ -1,18 +1,14 @@
 ---
-title: Import and export blueprint definitions with PowerShell
+title: Import and export blueprints with PowerShell
 description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/03/2019
-ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
+ms.topic: how-to
 ---
 # Import and export blueprint definitions with PowerShell
 
 Azure Blueprints can be fully managed through Azure portal. As organizations advance in their use of
-Blueprints, they should start thinking of blueprint definitions as managed code. This concept is
-often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code
+Azure Blueprints, they should start thinking of blueprint definitions as managed code. This concept
+is often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code
 offers additional advantages beyond what Azure portal offers. These benefits include:
 
 - Sharing blueprint definitions

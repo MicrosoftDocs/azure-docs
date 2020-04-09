@@ -1,11 +1,11 @@
 ---
-title: Send custom events to web endpoint - Event Grid, PowerShell
-description: Use Azure Event Grid and PowerShell to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
+title: 'Quickstart: Send custom events to web endpoint - Event Grid, PowerShell'
+description: 'Quickstart: Use Azure Event Grid and PowerShell to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18

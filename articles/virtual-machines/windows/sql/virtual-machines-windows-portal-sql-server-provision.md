@@ -1,5 +1,5 @@
 ---
-title: Provisioning guide for Windows SQL Server VMs in the Azure portal | Microsoft Docs
+title: Provision virtual machine with Azure portal
 description: This how-to guide describes your options for creating Windows SQL Server 2017 virtual machines in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -12,9 +12,10 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
 
@@ -50,17 +51,6 @@ When you create a SQL Server virtual machine, you can select one of several pre-
 1. Select **Create**.
 
 
-## <a id="configure"></a> Configuration options
-
-There are multiple tabs for configuring a SQL Server virtual machine. For the purpose of this guide, we will focus on the following: 
-
-| Step | Description |
-| --- | --- |
-| **Basics** |[Configure basic settings](#1-configure-basic-settings) |
-| **Optional Features** |[Configure optional features](#2-configure-optional-features) |
-| **SQL Server settings** |[Configure SQL server settings](#3-configure-sql-server-settings) |
-| **Review + create** | [Review the summary](#4-review--create) |
-
 ## 1. Configure basic settings
 
 
@@ -72,7 +62,7 @@ On the **Basics** tab, provide the following information:
     ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/management/overview.md).
 
 
 * Under **Instance details**:
@@ -137,8 +127,6 @@ On the **Monitoring** tab, configure monitoring and autoshutdown.
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
-
-
 | Setting |
 | --- |
 | [Connectivity](#connectivity) |
@@ -147,7 +135,7 @@ On the **SQL Server settings** tab, configure specific settings and optimization
 | [Storage configuration](#storage-configuration) |
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup) |
-| [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### Connectivity
@@ -203,24 +191,19 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### Storage configuration
 
-On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the Performance Optimized Storage Configuration page and specify the storage requirements.
 
-
-> [!NOTE]
-> If you manually configured your VM to use standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
-
-> [!TIP]
-> The number of stops and the upper limits of each slider is dependent on the size of VM you selected. A larger and more powerful VM is able to scale up more.
-
-You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these values by using the sliding scales. You can change these storage settings based on workload. The portal automatically calculates the number of disks to attach and configure based on these requirements.
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimized for**, select one of the following options:
 
 * **General** is the default setting and supports most workloads.
-* **Transactional** processing optimizes the storage for traditional database OLTP workloads.
+* **Transactional processing** optimizes the storage for traditional database OLTP workloads.
 * **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
-![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### SQL Server License
 If you're a Software Assurance customer, you can utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 
@@ -254,9 +237,9 @@ To encrypt the backup, click **Enable**. Then specify the **Password**. Azure cr
 For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
-### R Services (Advanced Analytics)
+### Machine Learning Services
 
-You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). This option enables you to use advanced analytics with SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
+You have the option to enable [Machine Learning Services](/sql/advanced-analytics/). This option enables you to use machine learning with Python and R in SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
 
 
 ## 4. Review + create

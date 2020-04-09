@@ -15,6 +15,8 @@ ms.author: diberry
 # Use a list entity to increase entity detection 
 This article demonstrates the use of a [list entity](luis-concept-entity-types.md) to increase entity detection. List entities do not need to be labeled as they are an exact match of terms.  
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 In this article, you learn how to:
 
 > [!div class="checklist"]

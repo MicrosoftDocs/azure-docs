@@ -1,60 +1,33 @@
 ---
 title: Language support - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The language of a knowledge base affects QnA Maker's ability to auto-extract questions and answers from sources, as well as the relevance of the results QnA Maker provides in response to user queries. A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
+description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/21/2019
+ms.topic: reference
+ms.date: 09/24/2019
 ms.author: diberry
-ms.custom: seodec18
 ---
-# Language support for QnA Maker
+# Language support for a QnA Maker resource and knowledge bases
 
-The language of a knowledge base affects QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md), as well as the relevance of the results QnA Maker provides in response to user queries.
+Language for the service is selected when you create the first knowledge base in the resource. All additional knowledge bases in the resource must be in the same language. 
 
-## Auto extraction
-QnA Maker supports question/answer extraction in any language page, but the effectiveness of the extraction is much higher for the following languages, as QnA Maker uses keywords to identify questions.
+The language determines the relevance of the results QnA Maker provides in response to user queries.
 
-|Languages supported| Locale|
-|-----|----|
-|English|en-*|
-|French|fr-*|
-|Italian|it-*|
-|German|de-*|
-|Spanish|es-*|
+Learn more about the [impact of language selection](../how-to/language-knowledge-base.md).
 
-## Primary Language detection
+## Languages supported
 
-The primary language used for detection is set for the QnA Maker resource, and all knowledge bases created on that resource, when the first document or URL is added to the first knowledge base. The language can't be changed. 
+The following list contains the languages supported for a QnA Maker resource. 
 
-If the user plans to support multiple languages, they need to have a new QnA Maker resource for each language. Learn how to [create a language-based QnA Maker knowledge base](../how-to/language-knowledge-base.md).  
-
-Verify the primary language with the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).  
-1. Look for and select the Azure Search resource created as part of your QnA Maker resource. The Azure Search resource name will begin with the same name as the QnA Maker resource and will have the type **Search service**. Please keep in mind, only one QnA Maker resource can be linked to one Azure Search resource.
-1. From the **Overview** page of the Search resource, select **Indexes**. 
-1. Select the **testkb** index.
-1. Select the **Fields** tab. 
-1. View the **Analyzer** column for the **questions** and **answer** fields. 
-
-
-## Query matching and relevance
-QnA Maker depends on [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search for providing results. Special re-ranking features are available for En-* languages that enable better relevance.
-
-While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in en-*, that are not yet available for other languages. We do not make these features available, as they are part of the internal working of the QnA Maker's ranker. 
-
-QnA Maker [auto-detects the language of the knowledge base](#primary-language-detection) during creation and sets the analyzer accordingly. You can create knowledge bases in the following languages. 
-
-|Languages supported|
-|-----|
+|Language|
+|--|
 |Arabic|
 |Armenian|
-Bengali|
+|Bengali|
 |Basque|
 |Bulgarian|
 |Catalan|
@@ -105,3 +78,8 @@ Bengali|
 |Ukrainian|
 |Urdu|
 |Vietnamese|
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Language selection](../how-to/language-knowledge-base.md)

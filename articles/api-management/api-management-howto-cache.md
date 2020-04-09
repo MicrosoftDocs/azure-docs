@@ -67,7 +67,7 @@ With caching policies shown in this example, the first request to the **GetSpeak
 
 9. In the **outbound** element, add the following policy:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
 

@@ -1,21 +1,22 @@
-﻿---
-title: Tutorial - Customize the interface of user experiences - Azure Active Directory B2C | Microsoft Docs
-description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
+---
+title: "Tutorial: Customize the user interface"
+titleSuffix: Azure AD B2C
+description: Learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Customize the interface of user experiences in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
@@ -59,7 +60,7 @@ Although you can store your files in many ways, for this tutorial, you store the
 
 1. In the menu, select **CORS**.
 2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
-3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
+3. For **Allowed Methods**, select `GET`,`PUT`, and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).
 6. For **Max age**, enter 200.
@@ -161,4 +162,4 @@ In this article, you learned how to:
 > * Test the customized UI
 
 > [!div class="nextstepaction"]
-> [Language customization in Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md)
+> [Language customization in Azure Active Directory B2C](user-flow-language-customization.md)

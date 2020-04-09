@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to create a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -32,7 +32,7 @@ This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node
 > * Access the routes with AngularJS
 > * Run the application
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -347,7 +347,7 @@ In this tutorial, you created a web application that keeps track of book records
 > * Access the routes with AngularJS
 > * Run the application
 
-Advance to the next tutorial to learn how to secure web servers with SSL certificates.
+Advance to the next tutorial to learn how to secure web servers with TLS certificates.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [Secure web server with TLS](tutorial-secure-web-server.md)

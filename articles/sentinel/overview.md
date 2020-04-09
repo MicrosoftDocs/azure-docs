@@ -3,7 +3,7 @@ title: What is Azure Sentinel?| Microsoft Docs
 description: Learn about Azure Sentinel, its key capabilities, and how it works.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,13 +15,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
-ms.author: rkarlin
+ms.date: 09/24/2019
+ms.author: yelevin
 
 ---
 # What is Azure Sentinel?
-
-
 
 Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
 
@@ -35,17 +33,17 @@ Azure Sentinel is your birds-eye view across the enterprise alleviating the stre
 
 - **Respond to incidents rapidly** with built-in orchestration and automation of common tasks.
 
-
 ![Azure Sentinel core capabilities](./media/overview/core-capabilities.png)
 
 Building on the full range of existing Azure services, Azure Sentinel natively incorporates proven foundations, like Log Analytics, and Logic Apps. Azure Sentinel enriches your investigation and detection with AI, and provides Microsoft's threat intelligence stream and enables you to bring your own threat intelligence. 
 
- 
 ## Connect to all your data
 
 To on-board Azure Sentinel, you first need to [connect to your security sources](connect-data-sources.md). Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
 
 ![Data collectors](./media/collect-data/collect-data-page.png)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Workbooks
 
@@ -69,10 +67,9 @@ For example, if you use the ServiceNow ticketing system, you can use the tools p
 ![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
+## Investigation
 
-## Investigation (preview)
-
-Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
+Currently in preview, Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
 ![Investigation](./media/tutorial-investigate-cases/map-timeline.png)
 

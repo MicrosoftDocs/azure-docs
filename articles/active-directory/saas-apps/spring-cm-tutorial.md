@@ -222,7 +222,7 @@ To enable Azure Active Directory users to sign in to SpringCM, they must be prov
 1. Click **Save**.
 
    > [!NOTE]
-   > You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision AAD user accounts.
+   > You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table | Microsoft Docs'
+title: 'Tutorial: Implement the data lake capture pattern to update a Azure Databricks Delta table | Microsoft Docs'
 description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: sumameh
 ---
 
-# Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table
+# Tutorial: Implement the data lake capture pattern to update a Databricks Delta table
 
 This tutorial shows you how to handle events in a storage account that has a hierarchical namespace.
 
@@ -37,7 +37,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.

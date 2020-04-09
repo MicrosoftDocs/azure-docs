@@ -1,5 +1,5 @@
 ---
-title: What is an Azure SQL Database single database | Microsoft Docs
+title: What is a single database
 description: Learn about single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -23,7 +23,7 @@ The single database deployment option creates a database in Azure SQL Database w
 
 ## Dynamic scalability
 
-You can build your first app on a small, single database at low cost in the serverless (preview) compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](sql-database-single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at low cost in the serverless compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](sql-database-single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 ## Single databases and elastic pools
 
@@ -31,7 +31,7 @@ A single database can be moved into or out of an [elastic pool](sql-database-ela
 
 ## Monitoring and alerting
 
-You use the built-in [performance monitoring](sql-database-performance.md) and [alerting tools](sql-database-insights-alerts-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring.
+You use the built-in [performance monitoring](sql-database-performance-guidance.md) and [alerting tools](sql-database-insights-alerts-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring.
 
 ## Availability capabilities
 
@@ -53,6 +53,6 @@ SQL Database provides a range of [built-in security and compliance](sql-database
 
 ## Next steps
 
-- To quickly get started with a single database, start with the [Single database quickstart guide.md](sql-database-single-database-quickstart-guide.md).
+- To quickly get started with a single database, start with the [Single database quickstart guide](sql-database-single-database-quickstart-guide.md).
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-single-database-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).

@@ -1,18 +1,16 @@
 ---
-title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory | Microsoft Docs"
+title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 services: data-factory
-documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
 ---
 
 # Troubleshoot SSIS Integration Runtime management in Azure Data Factory
@@ -102,7 +100,7 @@ This error means the execution of custom setup script (main.cmd) failed. Try the
 
 ### CustomSetupScriptTimeout
 
-This error indicates an execute custom setup script timeout. Make sure that your blob container contains only the necessary custom setup files. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
+This error indicates an execute custom setup script timeout. Make sure that your script can be executed silently, and no interactive input needed, and make sure your blob container contains only the necessary custom setup files. It is recommended to test the script on local machine first. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
 
 ### CustomSetupScriptLogUploadFailure
 
@@ -154,3 +152,38 @@ When you stop SSIS IR, all the resources related to Virtual Network are deleted.
 ### NodeUnavailable
 
 This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because configuration of DNS server and NSG is controlled by the customer, the customer must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
+
+## Static public IP addresses configuration
+
+When you join the Azure-SSIS IR to Azure Virtual Network, you are also able to bring your own static public IP addresses for the IR so that the IR can access data sources which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Besides the above virtual network issues, you may also meet static public IP addresses-related issue. Please check the following errors for help.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+This error can occur for a variety of reasons when you start the Azure-SSIS IR:
+
+| Error message | Solution|
+|:--- |:--- |
+| The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
+| The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
+| The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
+| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for help. |
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### PublicIPResourceGroupLockedDuringStart
+
+If Azure-SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level, the network resources are not deleted as expected. To fix the error, please remove the delete lock and restart the IR.
+
+### PublicIPResourceGroupLockedDuringStop
+
+When you stop Azure-SSIS IR, all the network resources created in the resource group containing your public IP address will be deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock and restart the IR.
+
+### PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (e.g., the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock so that we can cleanup the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address cannot be released and we will not be able to upgrade your IR further.
+
+### PublicIPNotUsableDuringUpgrade
+
+When you want to bring your own static public IP addresses, two public IP addresses should be provided. One of them will be used to create the IR nodes immediately and another one will be used during upgrade of the IR. This error can occur when the other public IP address is unusable during upgrade. Please refer to  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) for possible causes.

@@ -1,18 +1,15 @@
 ---
-title: Query Performance Insight in Azure Database for MySQL
+title: Query Performance Insight - Azure Database for MySQL
 description: This article describes the Query Performance Insight feature in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 3/18/2020
 ---
 # Query Performance Insight in Azure Database for MySQL
 
 **Applies to:** Azure Database for MySQL 5.7
-
-> [!IMPORTANT]
-> Query Performance Insight is in preview.
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
@@ -53,7 +50,7 @@ You can click and drag in the chart to narrow down to a specific time window. Al
 ### Wait statistics
 
 > [!NOTE]
-> Wait statistics are meant for troubleshooting query performance issues. It is recommended to be turned on only for troubleshooting purposes.
+> Wait statistics are meant for troubleshooting query performance issues. It is recommended to be turned on only for troubleshooting purposes. <br>If you receive the error message in the Azure portal "*The issue encountered for 'Microsoft.DBforMySQL'; cannot fulfill the request. If this issue continues or is unexpected, please contact support with this information.*" while viewing wait statistics, use a smaller time period.
 
 Wait statistics provides a view of the wait events that occur during the execution of a specific query. Learn more about the wait event types in the [MySQL engine documentation](https://go.microsoft.com/fwlink/?linkid=2098206).
 

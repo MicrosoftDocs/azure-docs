@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
@@ -32,7 +32,7 @@ This diagram illustrates each component of this scenario:
 ![Diagram of Content Moderator receiving information from Facebook through "FBListener" and sending information through "CMListener"](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> In 2018, Facebook implemented a more strict vetting of Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
+> In 2018, Facebook implemented a more strict vetting policy for Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
     | -------------------- |-------------|
     | cm:TeamId   | Your Content Moderator TeamId  | 
     | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) |
-    | cm:Region | Your Content Moderator region name, without the spaces. |
+    | cm:Region | Your Content Moderator region name, without the spaces. You can find this in the **Location** field of the **Overview** tab of your Azure resource.|
     | cm:ImageWorkflow | Name of the workflow to run on Images |
     | cm:TextWorkflow | Name of the workflow to run on Text |
     | cm:CallbackEndpoint | Url for the CMListener Function App that you will create later in this guide |

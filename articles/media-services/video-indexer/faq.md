@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions about Video Indexer - Azure
-titlesuffix: Azure Media Services
-description: Get answers to frequently asked questions about Video Indexer.
+titleSuffix: Azure Media Services
+description: This article gives answers to frequently asked questions about Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,11 +9,11 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
 ---
 
-# Frequently asked questions
+# Video Indexer frequently asked questions
 
 This article answers frequently asked questions about Video Indexer.
 
@@ -73,6 +73,14 @@ Yes, you can integrate Video Indexer into serverless technologies like Logic App
 
 You can see which Azure regions Video Indexer is available on the [regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) page.
 
+### Can I customize Video Indexer models for my specific use case? 
+
+Yes. In Video Indexer you can customize some of the available models to better fit your needs. 
+
+For example, our Person model supports out-of-the-box 1,000,000 faces of celebrity recognition, but you can also train it to recognize other faces which are not in that database. 
+
+For details, see articles about customizing [Person](customize-person-model-overview.md), [Brands](customize-brands-model-overview.md), and [Language](customize-language-model-overview.md) models. 
+
 ### What is the SLA for Video Indexer?
 
 Azure Media Service’s SLA covers Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Video Indexer paid accounts and does not apply to the free trial.
@@ -107,13 +115,28 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
 
 Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions. 
 
-### What is the Privacy policy for Video Indexer?
+### What is the privacy policy for Video Indexer?
 
 Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ### What certifications does Video Indexer have?
 
 Video Indexer currently has the SOC certification. To review Video Indexer's certification, please refer to the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+
+### What is the difference between private and public videos? 
+
+When videos are uploaded to Video Indexer, you can choose from two privacy settings: private and public. Public videos are accessible for anyone, including anonymous and unidentified users. Private ones are restricted solely to the account members. 
+
+### I tried to upload a video as public and it was flagged for inappropriate or offensive content, what does that mean? 
+
+When uploading a video to Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account members).   
+
+In order to set the video for public access, you can either: 
+
+* Build your own interface layer (such as app or website) and use it to interact with the Video Indexer service. This way the video remains private in our portal and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface. 
+* Request a human review of the content, which would result in removing of the restriction assuming the content is not explicit. 
+
+    This option can be explored if the Video Indexer website is used directly by your users as the interface layer, and for public (unauthenticated) viewing. 
 
 ## API Questions
 
@@ -148,6 +171,12 @@ Access tokens are needed to use the Video Indexer APIs for security purposes. Th
 ### How often do I need to get a new access token? When do access tokens expire?
 
 Access tokens expire every hour, so you need to generate a new access token every hour. 
+
+### What are the login options to Video Indexer Developer portal?
+
+You can login using Azure AD, Microsoft account, Google account or Facebook account. 
+
+Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
 
 ## Billing questions
 

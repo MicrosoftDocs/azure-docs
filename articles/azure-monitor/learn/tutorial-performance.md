@@ -1,15 +1,13 @@
 ---
 title: Diagnose performance issues using Azure Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose performance issues in your application using Azure Application Insights.
-services: application-insights
-keywords:
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
 ---
 
 # Find and diagnose performance issues with Azure Application Insights
@@ -69,7 +67,7 @@ Application Insights collects performance details for the different operations i
 
 	![Performance tip](media/tutorial-performance/6-perf-tip.png)
 
-8.  For further analysis, you can click **Download Trace** to download the trace in to Visual Studio.
+8.   For further analysis, you can click **Download Trace** to download the trace. You can view this data using [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## Use logs data for server
  Logs provides a rich query language that allows you to analyze all data collected by Application Insights. You can use this to perform deep analysis on request and performance data.

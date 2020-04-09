@@ -1,12 +1,11 @@
 ---
-title: Set up disaster recovery to Azure for physical on-premises servers with Azure Site Recovery 
+title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew 
 
 ---
@@ -69,7 +68,7 @@ Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 ## Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.

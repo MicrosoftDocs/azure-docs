@@ -1,6 +1,6 @@
----
+﻿---
 title: Azure VM Guest OS firewall is blocking inbound traffic | Microsoft Docs
-description:
+description: Learn how to fix the Remote Desktop Portal (RDP) connection issue that the guest operating system firewall is blocking inbound traffic.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -99,7 +99,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
 
 #### Mitigation 2
 
-1.	Query the firewall profiles to determine whether the inbound firewall policy is set to *BlockInboundAlways*:
+1.	Query the firewall profiles to determine whether the inbound firewall policy is set to *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -112,7 +112,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
     >    * *BlockInbound*: All inbound traffic will be blocked unless you have a rule in effect to allow that traffic.
     >    * *BlockInboundAlways*: All firewall rules will be ignored and all traffic will be blocked.
 
-2.	Edit the *DefaultInboundAction* to set these profiles to **Allow** traffic. To do this, run the following command:
+2.	Edit the *DefaultInboundAction* to set these profiles to **Allow** traffic. To do this, run the following command:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -135,7 +135,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
 
 2.	Start a Remote Desktop connection to the recovery VM.
 
-3.	Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached system disk.
+3.	Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached system disk.
 
 #### Mitigation 1
 
@@ -147,7 +147,7 @@ See [How to Enable-Disable a Firewall rule on a Guest OS](enable-disable-firewa
 
 2.	Start a Remote Desktop connection to the recovery VM.
 
-3.	After the system disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+3.	After the system disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
 4.	Open an elevated CMD instance, and then run the following script:
 

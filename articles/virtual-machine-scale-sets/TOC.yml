@@ -13,11 +13,13 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
-  - name: Create with a template
+  - name: Create with ARM template
     items:
     - name: Linux scale set
+      displayName: ARM, resource manager
       href: quick-create-template-linux.md
     - name: Windows scale set
+      displayName: ARM, resource manager
       href: quick-create-template-windows.md
 - name: Tutorials
   items:
@@ -64,7 +66,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
     href: ../virtual-machines/windows/regions.md
@@ -125,6 +127,8 @@
   - name: Maintenance and updates
     href: ../virtual-machines/windows/maintenance-and-updates.md
     maintainContext: true
+  - name: Orchestration modes
+    href: orchestration-modes.md
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -132,6 +136,9 @@
       maintainContext: true
     - name: Select a disk type
       href: ../virtual-machines/windows/disks-types.md
+      maintainContext: true
+    - name: Encryption
+      href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
       maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
@@ -150,8 +157,14 @@
   - name: Infrastructure automation
     href: ../virtual-machines/windows/infrastructure-automation.md
     maintainContext: true
-  - name: Security and policy
-    href: ../virtual-machines/windows/security-policy.md
+  - name: Security
+    items:
+    - name: Security and policy
+      href: ../virtual-machines/windows/security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
@@ -163,8 +176,6 @@
       maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
-  - name: Built-in security controls
-    href: virtual-machine-scale-sets-security-controls.md
 - name: How To
   items:
   - name: Plan and design
@@ -212,18 +223,21 @@
     - name: Encrypt disks in scale sets
       items:
       - name: Use PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+        href: disk-encryption-powershell.md
       - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        href: disk-encryption-cli.md
+      - name: Use Azure Resource Manager templates
+        href: disk-encryption-azure-resource-manager.md
       - name: Extension sequencing
-        href: ../security/azure-security-disk-encryption-extension-sequencing.md
-        maintainContext: true
+        href: disk-encryption-extension-sequencing.md
+      - name: Key vault for Azure Disk Encryption
+        href: disk-encryption-key-vault.md
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Use spot instance
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -238,9 +252,13 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Automatic OS upgrades
       href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Instance protection (Preview)
+    - name: Automatic instance repairs (preview)
+      href: virtual-machine-scale-sets-automatic-instance-repairs.md
+    - name: Instance protection
       href: virtual-machine-scale-sets-instance-protection.md
-    - name: Terminate notification on delete (Preview)
+    - name: Scale-In Policy
+      href: virtual-machine-scale-sets-scale-in-policy.md
+    - name: Terminate notification on delete
       href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries
       items:

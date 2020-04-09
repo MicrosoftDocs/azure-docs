@@ -1,5 +1,5 @@
 ---
-title: How to manage a user-assigned managed identity using the Azure portal
+title: Manage a user-assigned managed identity in the Azure portal - Azure AD
 description: Step by step instructions on how to create, list, delete and assign a role to a user-assigned managed identity.
 services: active-directory
 documentationcenter: 
@@ -28,7 +28,7 @@ In this article, you learn how to create, list, delete or assign a role to a use
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Create a user-assigned managed identity

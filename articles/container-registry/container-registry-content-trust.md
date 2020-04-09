@@ -1,14 +1,8 @@
 ---
-title: Content trust in Azure Container Registry
-description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Manage signed images
+description: Learn how to enable content trust for your Azure container registry, and push and pull signed images.
 ms.topic: article
 ms.date: 09/06/2019
-ms.author: danlep
 ---
 # Content trust in Azure Container Registry
 
@@ -99,7 +93,9 @@ For example, to grant yourself the role, you can run the following commands in a
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
+```
 
+```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 

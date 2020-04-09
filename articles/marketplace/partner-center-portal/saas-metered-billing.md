@@ -1,10 +1,10 @@
 ---
 title: Metered billing using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
@@ -57,8 +57,8 @@ An Azure customer subscribing to CNS service will be able to send the included q
 Billing dimensions are used to communicate to the customer on how they will be billed for using the software, and also to communicate usage events to Microsoft. They are defined as follows:
 
 * **Dimension identifier**: the immutable identifier referenced while emitting usage events.
-* **Dimension name**: the display name associated with the dimension, e.g. “text messages sent”.
-* **Unit of measure**: the description of the billing unit, e.g. “per text message” or “per 100 emails”.
+* **Dimension name**: the display name associated with the dimension, e.g. "text messages sent".
+* **Unit of measure**: the description of the billing unit, e.g. "per text message" or "per 100 emails".
 * **Price per unit**: the price for one unit of the dimension.  
 * **Included quantity for monthly term**: quantity of dimension included per month for customers paying the recurring monthly fee, must be an integer.
 * **Included quantity for annual term**: quantity of dimension included per month for customers paying the recurring annual fee, must be an integer.
@@ -77,10 +77,10 @@ The other attributes of a dimension are specific to each plan and can have diffe
 * Included quantity for monthly customers 
 * Included quantity for annual customers 
 
-Dimensions also have two special concepts, “enabled” and “infinite”:
+Dimensions also have two special concepts, "enabled" and "infinite":
 
-* **Enabled** indicates that this plan participates in this dimension.  You might want to leave this un-checked if you are creating a new plan that does not send usage events based on this dimension.  Also, any new dimensions added after a plan was first published will show up as “not enabled” on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
-* **Infinite**, represented by the infinity symbol “∞”, indicates that this plan participates in this dimension, but does not meter usage against this dimension.  If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers, with an indication that it will never incur a charge for this plan.
+* **Enabled** indicates that this plan participates in this dimension.  You might want to leave this un-checked if you are creating a new plan that does not send usage events based on this dimension.  Also, any new dimensions added after a plan was first published will show up as "not enabled" on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
+* **Infinite**, represented by the infinity symbol "∞", indicates that this plan participates in this dimension, but does not meter usage against this dimension.  If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers, with an indication that it will never incur a charge for this plan.
 
 >[!Note] 
 >The following scenarios are explicitly supported: <br> - You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans. <br> - You can publish a **flat-rate** plan without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
@@ -93,7 +93,7 @@ Metered billing using the marketplace metering service is not compatible with of
 
 ### Locking behavior
 
-Because a dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It’s important that you have your dimensions fully defined for a plan before you publish.
+Because a dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It's important that you have your dimensions fully defined for a plan before you publish.
   
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -123,9 +123,9 @@ If you have one of the following, you can open a support ticket.
 Follow the steps below to submit your support ticket:
 
 1. Go to the [support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**.  Do not change the pre-populated dropdown menu selections.
-2. Under “Select the product version”, select **Live offer management**.
-3. Under “Select a category that best describe the issue”, choose **SaaS apps**.
-4. Under “Select a problem that best describes the issue”, select **metered billing**.
+2. Under "Select the product version", select **Live offer management**.
+3. Under "Select a category that best describe the issue", choose **SaaS apps**.
+4. Under "Select a problem that best describes the issue", select **metered billing**.
 5. By selecting the **Next** button, you will be directed to the **Issue details** page, where you can enter more details on your issue.
 
 See [Support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) for more publisher support options.

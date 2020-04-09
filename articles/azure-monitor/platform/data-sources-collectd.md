@@ -1,18 +1,12 @@
 ---
 title: Collect data from CollectD in Azure Monitor | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 11/27/2018
-ms.author: magoedte
+
 ---
 
 # Collect data from CollectD on Linux agents in Azure Monitor
@@ -64,6 +58,8 @@ The Log Analytics agent for Linux also listens on port 26000 for CollectD metric
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> CollectD by default is set to read values at a 10-second [interval](https://collectd.org/wiki/index.php/Interval). As this directly affects the volume of data sent to Azure Monitor Logs, you might need to tune this interval within the CollectD configuration to strike a good balance between the monitoring requirements and associated costs and usage for Azure Monitor Logs.
 
 ## Versions supported
 - Azure Monitor currently supports CollectD version 4.8 and above.

@@ -28,6 +28,12 @@
       href: azure-disk-enc-linux.md
     - name: Windows
       href: azure-disk-enc-windows.md
+  - name: Azure Key Vault
+    items:
+    - name: Linux
+      href: key-vault-linux.md
+    - name: Windows
+      href: key-vault-windows.md
   - name: Azure Backup for SQL Server
     items:
     - name: Azure Backup for SQL Server
@@ -58,18 +64,26 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Log Analytics
+  - name: Azure Monitor
     items:
-    - name: Linux
-      href: oms-linux.md
-    - name: Windows
-      href: oms-windows.md
-  - name: Azure Monitor for VMs
-    items:
-    - name: Linux Dependency agent
-      href: agent-dependency-linux.md
-    - name: Windows Dependency agent
-      href: agent-dependency-windows.md
+    - name: Diagnostics extension
+      items:
+      - name: Linux
+        href: diagnostics-linux.md
+      - name: Windows
+        href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+    - name: Log Analytics
+      items:
+      - name: Linux
+        href: oms-linux.md
+      - name: Windows
+        href: oms-windows.md
+    - name: Azure Monitor for VMs
+      items:
+      - name: Linux Dependency agent
+        href: agent-dependency-linux.md
+      - name: Windows Dependency agent
+        href: agent-dependency-windows.md
   - name: PowerShell DSC
     href: dsc-overview.md
     items:
@@ -83,14 +97,6 @@
       href: dsc-template.md
   - name: Virtual machine access
     href: vmaccess.md
-  - name: Virtual machine diagnostics
-    items:
-    - name: Linux
-      href: diagnostics-linux.md
-    - name: Windows
-      href: diagnostics-windows.md
-    - name: Use templates
-      href: diagnostics-template.md
   - name: Third-party extensions
     items:
     - name: Chef

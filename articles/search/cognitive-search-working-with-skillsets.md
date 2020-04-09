@@ -1,24 +1,24 @@
 ---
-title: Working with skillsets - Azure Search
-description: Skillsets are where you author an AI enrichment pipeline in cognitive search, understanding a few concepts and how skillsets work allows you to build simple or complex skillsets
-manager: eladz
+title: Skillset concepts and workflow
+titleSuffix: Azure Cognitive Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
+
+manager: nitinme
 author: vkurpad
-services: search
-ms.service: search
-ms.subservice: cognitive-search
-ms.topic: conceptual
-ms.date: 09/05/2019
 ms.author: vikurpad
-ms.subservice: cognitive-search
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Working with skillsets
-This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search, start with:
-+ [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
-+ [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
+# Skillset concepts and composition in Azure Cognitive Search
+
+This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with:
++ [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Knowledge store (preview)](knowledge-store-concept-intro.md)
 
 ## Specify the Skillset
-A skillset is a reusable resource in Azure Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
+A skillset is a reusable resource in Azure Cognitive Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
 
 A skillset has three properties:
 
@@ -28,7 +28,7 @@ A skillset has three properties:
 
 
 
-Skillsets are authored in JSON. You can build complex skillsets with looping and [branching](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) using the [expression language](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. These concepts are best described with an example. To illustrate some of the concepts and capabilities, we'll walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you'll need to use a REST API client to [get the skillset](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Skillsets are authored in JSON. You can build complex skillsets with looping and [branching](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) using the [expression language](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). The expression language uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. These concepts are best described with an example. To illustrate some of the concepts and capabilities, we'll walk through the [hotel reviews sample](knowledge-store-connect-powerbi.md) skillset. To view the skillset once you've followed the import data workflow, you'll need to use a REST API client to [get the skillset](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
 
 ### Enrichment tree
 
@@ -43,16 +43,16 @@ Once a document is in the enrichment pipeline, it is represented as a tree of co
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
- As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
+ As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. 
 
 You can selectively persist only a subset of the enrichments to the index or the knowledge store.
-For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
+For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.
 
 ### Context
 Each skill requires a context. A context determines:
 +	The number of times the skill executes, based on the nodes selected. For context values of type collection, adding an ```/*``` at the end will result in the skill being invoked once for each instance in the collection. 
 +	Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node. 
-+	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
++	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
 
 |Context|Input|Shape of Input|Skill Invocation|
 |---|---|---|---|
@@ -61,7 +61,7 @@ Each skill requires a context. A context determines:
 
 ### SourceContext
 
-The `sourceContext` is only used in [shaper skills](cognitive-search-skill-shaper.md) and [projections](knowledge-store-projection-overview.md). It is used to construct multi-level, nested objects. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section.
+The `sourceContext` is only used in skill inputs and [projections](knowledge-store-projection-overview.md). It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type.
 
 ### Projections
 
@@ -111,7 +111,7 @@ The colors of the connectors in the tree above indicate that the enrichments wer
 
 ## Save enrichments in a knowledge store 
 
-Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
+Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections for your enriched document. To learn more about the knowledge store see [knowledge store overview](knowledge-store-concept-intro.md)
 
 ### Slicing projections
 

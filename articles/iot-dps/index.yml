@@ -1,52 +1,83 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure IoT Hub Device Provisioning Service Documentation
+### YamlMime:Landing
+
+title: Azure IoT Hub Device Provisioning Service (DPS) Documentation
+summary: The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. Learn how to provision devices to your IoT hub(s) with our quickstarts, tutorials, and samples.
+
 metadata:
-  title: Azure IoT Hub Device Provisioning Service Documentation - Tutorials, API Reference
-  description: Overview of Azure IoT Hub Device Provisioning Service.
-  author: nberdy
-  manager: briz
+  title: Azure IoT Hub Device Provisioning Service (DPS) Documentation
+  description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
+  author: wesmc7777
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: nberdy
-abstract:
-  description: The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. Learn how to provision devices to your IoT hub(s) with our quickstarts, tutorials, and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to set up your first Device Provisioning Service instance and provision a simulated device to your IoT hub.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/sql-database/media/index/portal.svg
-      text: Set up auto provisioning
-      href: /azure/iot-dps/quick-setup-auto-provision
-    - image: 
-        src: /azure/sql-database/media/index/portal.svg
-      text: Create simulated device
-      href: /azure/iot-dps/quick-create-simulated-device
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to use the IoT Hub Device Provisioning Service to automatically provision security enabled devices to single or multiple IoT hubs.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configure cloud resources</a>
-    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up your device to connect to Azure</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision devices to a single IoT hub</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple, load-balanced IoT hubs</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST API
-      html: <p><a href="/rest/api/iot-dps">REST</a></p>
-    - title: Azure IoT SDKs
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>
+  ms.date: 03/03/2020
+  ms.author: wesmc
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure IoT Hub Device Provisioning Service (DPS)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is DPS?
+            url: about-iot-dps.md
+      - linkListType: concept
+        links:
+          - text: Auto-provisioning concepts for Azure IoT
+            url: concepts-auto-provisioning.md
+      - linkListType: video
+        links:
+          - text: IoT Hub DPS Demo
+            url: https://azure.microsoft.com/resources/videos/iot-hub-dps-demo/
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up a DPS using the Azure Portal
+            url: quick-setup-auto-provision.md
+      - linkListType: sample
+        links:
+          - text: Provision a simulated symmetric key device using C
+            url: quick-create-simulated-device-symm-key.md
+          - text: Provision a simulated symmetric key device using Java
+            url: quick-create-simulated-device-symmetric-key-java.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to provision for multitenancy
+            url: how-to-provision-multitenant.md
+          - text: How to use custom allocation policies
+            url: how-to-use-custom-allocation-policies.md
+
+  # Card
+  - title: Manage access
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to manage device enrollments
+            url: how-to-manage-enrollments.md
+          - text: Control access to Azure IoT Hub Device Provisioning Service
+            url: how-to-control-access.md
+
+  # Card
+  - title: Develop an IoT solution with DPS
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure IoT SDK for C
+            url: https://github.com/Azure/azure-iot-sdk-c
+          - text: Azure IoT SDK for Python
+            url: https://github.com/Azure/azure-iot-sdk-python
+          - text: Azure IoT SDK for Node.js
+            url: https://github.com/Azure/azure-iot-sdk-node
+          - text: Azure IoT SDK for Java
+            url: https://github.com/Azure/azure-iot-sdk-java
+          - text: Azure IoT SDK for .NET
+            url: https://github.com/Azure/azure-iot-sdk-csharp
+          - text: REST API
+            url: /rest/api/iot-dps

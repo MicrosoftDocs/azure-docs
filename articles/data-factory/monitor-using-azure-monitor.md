@@ -1,5 +1,5 @@
 ---
-title: Monitor data factories using Azure Monitor | Microsoft Docs
+title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -61,7 +61,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to the JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -182,7 +182,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you got from Azure AD. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -426,6 +426,9 @@ Azure Data Factory version 2 emits the following metrics.
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
+> [!NOTE]
+> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
+
 ## Monitor Data Factory metrics with Azure Monitor
 
 You can use Data Factory integration with Monitor to route data to Monitor. This integration is useful in the following scenarios:
@@ -462,8 +465,11 @@ Create or add diagnostic settings for your data factory.
 
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
+* In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables
+* In _Azure-Diagnostics_ mode, diagnostic logs flow into _AzureDiagnostics_ table
+
 > [!NOTE]
-> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
@@ -499,11 +505,12 @@ Installing Azure Data Factory Analytics creates a default set of views so that t
 
 ![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
-![Graphical representation of runs and errors](media/data-factory-monitor-oms/monitor-oms-image7.png)
-
 You can visualize the preceding metrics, look at the queries behind these metrics, edit the queries, create alerts, and take other actions.
 
 ![Graphical representation of pipeline runs by data factory"](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
 
 ## Alerts
 

@@ -67,7 +67,7 @@ You can copy individual files in a file share snapshot over to its base share or
 
 The share snapshot remains intact after copying, but the base file share is overwritten with a copy of the data that was available in the share snapshot. All the restored files count toward "changed content."
 
-You can copy a file in a share snapshot to a destination with a different name. The resulting destination file is a writable file and not a share snapshot.
+You can copy a file in a share snapshot to a different destination with a different name. The resulting destination file is a writable file and not a share snapshot. In this case, your base file share will remain intact.
 
 When a destination file is overwritten with a copy, any
 share snapshots associated with the original destination file remain intact.

@@ -1,23 +1,13 @@
 ---
-title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
+title: 'Tutorial: ASP.NET Core with SQL Database' 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
@@ -45,7 +35,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 
@@ -69,8 +59,8 @@ The sample project contains a basic CRUD (create-read-update-delete) app using [
 Run the following commands to install the required packages, run database migrations, and start the application.
 
 ```bash
-dotnet restore
-dotnet ef database update
+dotnet tool install -g dotnet-ef --version 3.1.1
+dotnet-ef database update
 dotnet run
 ```
 
@@ -405,13 +395,15 @@ For more information on customizing the ASP.NET Core logs, see [Logging in ASP.N
 
 ## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the app you created.
+To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-From the left menu, click **App Services**, then click the name of your Azure app.
+![Select App Services in Azure portal](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The left side of the page shows the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

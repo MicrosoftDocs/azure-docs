@@ -1,10 +1,10 @@
 ---
 title: SaaS offer creation checklist - Commercial Marketplace for Azure
 description: The details you can provide in the SaaS offer creation process. - Commercial Marketplace for Azure
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
 ---
@@ -37,7 +37,7 @@ The first pieces of information you will be asked to provide are an ID and alias
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
-| Offer ID  | Required, can’t be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
+| Offer ID  | Required, can't be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
 | Offer alias  | Required. |
 
 ## Offer setup page
@@ -47,17 +47,17 @@ The offer setup page is where you can opt into different channels and selling mo
 | **Field name**    | **Notes**   | 
 | :---------------- | :-----------|  
 | Would you like to sell through Microsoft?  | Required. Default: Yes |
-| How do you want potential customers to interact with the offer listing? (Call to action)  | Required if not selling through Microsoft. Default: Free Trial, Options: “Get it now”, “Free Trial”, “Contact me.” |
-| Trial URL  | Required if “Free Trial” is selected, as the way customers should interact with the offer listing. |
-| Offer URL  | Required if “Get it Now” is selected, as the way customers should interact with the offer listing |
+| How do you want potential customers to interact with the offer listing? (Call to action)  | Required if not selling through Microsoft. Default: Free Trial, Options: "Get it now", "Free Trial", "Contact me." |
+| Trial URL  | Required if "Free Trial" is selected, as the way customers should interact with the offer listing. |
+| Offer URL  | Required if "Get it Now" is selected, as the way customers should interact with the offer listing |
 | Channels  | Optional. Default: Not opted into the CSP (reseller) channel.  |
 | Test Drive | Optional. Default: No test drive enabled.  |
 | Type of Test Drive | Required if enabled a test drive. Default: None selected. Options: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead Management – connect to a CRM system | Required if selling through Microsoft, or if listing offers as “Contact me.” Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
+| Lead Management - connect to a CRM system | Required if selling through Microsoft, or if listing offers as "Contact me." Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
 
 ## Properties page
 
-The properties page is where you define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. Be sure to provide complete and accurate details about your offer on this page, so that it’s displayed appropriately and offered to the right set of customers. 
+The properties page is where you define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers. 
 
 | **Field name**    | **Notes**   | 
 | :---------------- | :-----------|  
@@ -69,7 +69,7 @@ The properties page is where you define the categories and industries used to gr
 
 ## Offer listing page
 
-The listing page is where you provide the text and images that customers see when viewing your offer’s listing in the marketplace. 
+The listing page is where you provide the text and images that customers see when viewing your offer's listing in the marketplace. 
 
 | **Field name**    | **Notes**   |
 | :---------------- | :-----------| 
@@ -114,7 +114,7 @@ The first pieces of information you are asked to provide are a name and an ID fo
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
-| Plan ID  | Required if selling through Microsoft. It can’t be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
+| Plan ID  | Required if selling through Microsoft. It can't be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
 | Plan Name  | Required if selling through Microsoft. Must be unique across all the plans in the offer. Max 50 characters. |
 
 ## Plan listing page

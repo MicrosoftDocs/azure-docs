@@ -1,19 +1,14 @@
 ---
-title: Azure Status Monitor v2 troubleshooting and known issues | Microsoft Docs
-description: The known issues of Status Monitor v2 and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent troubleshooting and known issues | Microsoft Docs
+description: The known issues of Application Insights Agent and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 04/23/2019
+
 ---
-# Troubleshooting Status Monitor v2
+
+# Troubleshooting Application Insights Agent (formerly named Status Monitor v2)
 
 When you enable monitoring, you might experience issues that prevent data collection.
 This article lists all known issues and provides troubleshooting examples.
@@ -93,9 +88,9 @@ You can use the `Get-Module -ListAvailable` command to determine which modules a
 If a module hasn't been loaded into a PowerShell session, you can manually load it by using the `Import-Module <path to psd1>` command.
 
 
-### Troubleshooting the Status Monitor v2 module
+### Troubleshooting the Application Insights Agent module
 
-#### List the commands available in the Status Monitor v2 module
+#### List the commands available in the Application Insights Agent module
 Run the command `Get-Command -Module Az.ApplicationMonitor` to get the available commands:
 
 ```
@@ -111,7 +106,7 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### Determine the current version of the Status Monitor v2 module
+#### Determine the current version of the Application Insights Agent module
 Run the `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` command to display the following information about the module:
    - PowerShell module version
    - Application Insights SDK version

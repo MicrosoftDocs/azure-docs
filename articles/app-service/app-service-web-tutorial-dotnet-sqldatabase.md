@@ -1,23 +1,11 @@
 ---
-title: Build ASP.NET app with SQL Database - Azure App Service | Microsoft Docs 
+title: 'Tutorial: ASP.NET app with SQL Database' 
 description: Learn how to deploy a C# ASP.NET app with a SQL Server database to Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.custom: seodec18
-
+ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
@@ -390,11 +378,11 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the app you created. 
+Go to the [Azure portal](https://portal.azure.com) to manage the web app. Search for and select **App Services**. 
 
+![Search for Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-From the left menu, click **App Service**, then click the name of your Azure app.
+Select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

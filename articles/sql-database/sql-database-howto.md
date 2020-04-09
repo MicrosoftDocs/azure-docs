@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database | Microsoft Docs
+title: Configure and manage
 description: Learn how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-ms.date: 01/25/2019
+ms.date: 11/14/2019
 ---
 # How to use Azure SQL Database
 
@@ -37,7 +37,7 @@ In this section you can find various guides, scripts, and explanations that can 
 
 - [Manual tuning](sql-database-performance-guidance.md)
 - [Use DMVs to monitor performance](sql-database-monitoring-with-dmvs.md)
-- [Use Query store to monitor performance](sql-database-operate-query-store.md)
+- [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Use Intelligent Insights diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-memory OLTP space](sql-database-in-memory-oltp-monitoring.md)
@@ -66,7 +66,6 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Connectivity](sql-database-libraries.md)
 - [Use Spark Connector](sql-database-spark-connector.md)
 - [Authenticate app](sql-database-client-id-keys.md)
-- [Error messages](sql-database-develop-error-messages.md)
 - [Use batching for better performance](sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](sql-database-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)

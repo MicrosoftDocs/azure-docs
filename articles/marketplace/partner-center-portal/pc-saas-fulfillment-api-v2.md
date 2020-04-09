@@ -1,12 +1,12 @@
 ---
 title: SaaS Fulfillment API v2 | Azure Marketplace 
 description: This article explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace by using the associated fulfillment v2 APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 05/23/2019
-ms.author: evansma
+ms.date: 10/18/2019
+ms.author: dsindona
 ---
 
 # SaaS fulfillment APIs, version 2 
@@ -54,15 +54,15 @@ The following diagram shows the actions when an update is initiated from the Saa
 
 #### Suspended
 
-This state indicates that a customer’s payment hasn't  been received. By policy, we'll provide the customer a grace period before canceling the subscription. When a subscription is in this state: 
+This state indicates that a customer's payment hasn't  been received. By policy, we'll provide the customer a grace period before canceling the subscription. When a subscription is in this state: 
 
-- As a partner, you may choose to degrade or block the user’s access to the service.
+- As a partner, you may choose to degrade or block the user's access to the service.
 - The subscription must be kept in a recoverable state that can restore full functionality without any loss of data or settings. 
 - Expect to get a reinstate request for this subscription via the fulfillment APIs or a de-provisioning request at the end of the grace period. 
 
 #### Unsubscribed 
 
-Subscriptions reach this state in response to either an explicit customer request or nonpayment of dues. The expectation from the partner is that the customer’s data is retained for recovery on request for a certain number of days and then deleted. 
+Subscriptions reach this state in response to either an explicit customer request or nonpayment of dues. The expectation from the partner is that the customer's data is retained for recovery on request for a certain number of days and then deleted. 
 
 
 ## API reference
@@ -82,14 +82,14 @@ The following table lists the definitions for common parameters and entities use
 | `offerId`                | A unique string identifier for each offer (for example: "offer1").  |
 | `planId`                 | A unique string identifier for each plan/SKU (for example: "silver"). |
 | `operationId`            | The GUID identifier for a particular operation.  |
-|  `action`                | The action being performed on a resource, either `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | The action being performed on a resource, either `Unsubscribe`, `Suspend`, `Reinstate`, or `ChangePlan`, `ChangeQuantity`, `Transfer`. |
 |   |   |
 
 Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32-hexadecimal) numbers that are typically automatically generated. 
 
 #### Resolve a subscription 
 
-The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to a partner’s website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
+The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to a partner's website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
 
 ##### Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
@@ -107,7 +107,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  x-ms-requestid    |  A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). For example: "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  The token query parameter in the URL when the user is redirected to the SaaS partner’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
+|  x-ms-marketplace-token  |  The token query parameter in the URL when the user is redirected to the SaaS partner's website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
 
@@ -129,7 +129,7 @@ Code: 400<br>
 Bad request. x-ms-marketplace-token is missing, malformed, or expired.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -176,7 +176,11 @@ Lists all the SaaS subscriptions for a publisher.
 
 Code: 200 <br/>
 Gets the publisher and corresponding subscriptions for all the publisher's offers, based on the authentication token.
-Response payload:<br>
+
+>[!Note]
+>[Mock APIs](#mock-apis) are used when you first develop the offer, while real APIs need to be used when actually publishing the offer.  Real APIs and Mock APIs differ by the first line of the code.  In the real API there is the `subscription` section, while this section doesn't exist for mock API.
+
+Response payload for mock API:<br>
 
 ```json
 {
@@ -203,18 +207,57 @@ Response payload:<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
+          "isFreeTrial": "true", // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+And for real API: <br>
 
+```json
+{
+  "subscriptions": [
+      {
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "offer1",
+          "planId": "silver",
+          "quantity": "10",
+          "beneficiary": { // Tenant, object id and email address for which SaaS subscription is purchased.
+              "emailId": "<email>",
+              "objectId": "<guid>",                     
+              "tenantId": "<guid>"
+          },
+          "purchaser": { // Tenant, object id and email address that purchased the SaaS subscription. These could be different for reseller scenario
+              "emailId": "<email>",
+              "objectId": "<guid>",                      
+              "tenantId": "<guid>"
+          },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
+          "allowedCustomerOperations": [
+              "Read" // Possible Values: Read, Update, Delete.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
+          "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
+          "isTest": false, //indicating whether the current subscription is a test asset
+          "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
+      }
+  ],
+  "@nextLink": ""
+}
+```
 The continuation token will be present only if there are additional "pages" of plans to retrieve. 
 
 Code: 403 <br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. 
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher. 
 
 Code: 500<br>
 Internal server error.
@@ -232,7 +275,7 @@ Internal server error.
 
 Gets the specified SaaS subscription. Use this call to get license information and plan information.
 
-##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -272,7 +315,7 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
-        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
+        "isFreeTrial": "true", // true - customer subscription is currently in free trial, false - customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
@@ -283,7 +326,7 @@ Response Body:
 ```
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.<br> 
@@ -339,7 +382,7 @@ Code: 404<br>
 Not found.<br> 
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. <br> 
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher. <br> 
 
 Code: 500<br>
 Internal server error.<br>
@@ -390,7 +433,7 @@ Code: 400<br>
 Bad request: validation failures.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -453,7 +496,7 @@ Code: 400<br>
 Bad request: validation failures.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -520,7 +563,7 @@ Bad request: validation failures.
 
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -544,7 +587,7 @@ Internal server error.
 
 Unsubscribe and delete the specified subscription.
 
-##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -571,7 +614,7 @@ Code: 400<br>
 Delete on a subscription with **Delete** not in `allowedCustomerOperations`.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -640,7 +683,7 @@ Code: 400<br>
 Bad request: validation failures.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -660,7 +703,7 @@ Internal server error.
 
 #### Get operation status
 
-Enables the publisher to track the status of the specified triggered async operation (such as `subscribe`, `unsubscribe`, `changePlan`, or `changeQuantity`).
+Enables the publisher to track the status of the specified triggered async operation (such as `Subscribe`, `Unsubscribe`, `ChangePlan`, or `ChangeQuantity`).
 
 ##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -705,7 +748,7 @@ Code: 400<br>
 Bad request: validation failures.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
  
 Code: 404<br>
 Not found.
@@ -765,7 +808,7 @@ Code: 400<br>
 Bad request: validation failures.
 
 Code: 403<br>
-Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn't belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -796,7 +839,7 @@ The publisher must implement a webhook in this SaaS service to proactively notif
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
+  "publisherId": "<this is the publisher's name>",
   "offerId": "<this is the offer name>",
   "planId": "<this is the plan id>",
   "quantity": "<the number of seats, will be null if not per-seat saas offer>",
@@ -807,11 +850,11 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 }
 ```
 Where the action can be one of the following: 
-- `unsubscribe` (when the resource has been deleted)
-- `changePlan` (when the change plan operation has completed)
-- `changeQuantity` (when the change quantity operation has completed)
-- `suspend` (when resource has been suspended)
-- `reinstate` (when resource has been reinstated after suspension)
+- `Unsubscribe` (when the resource has been deleted)
+- `ChangePlan` (when the change plan operation has completed)
+- `ChangeQuantity` (when the change quantity operation has completed)
+- `Suspend` (when resource has been suspended)
+- `Reinstate` (when resource has been reinstated after suspension)
 
 Where the status can be one of the following: 
 - **NotStarted** <br>

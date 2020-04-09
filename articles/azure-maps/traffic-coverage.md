@@ -1,8 +1,8 @@
 ---
-title: Traffic coverage in Azure Maps | Microsoft Docs
-description: Learn about traffic coverage in Azure Maps
-author: walsehgal
-ms.author: v-musehg
+title: Traffic coverage | Microsoft Azure Maps
+description: In this article, you will learn about traffic coverage in Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -15,7 +15,7 @@ manager: timlt
 
 Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions.
 
-However, Maps does not have the same level of information and accuracy for all regions. The following table provides information about what kind of traffic information you can request from each region: 
+However, Maps doesn't have the same level of information and accuracy for all countries or regions. The following table provides information about what kind of traffic information you can request from each country or region: 
 
 ## Americas
 
@@ -42,6 +42,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Hong Kong SAR     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
+|Kazakhstan    |✓         |✓         |
 |Macao SAR     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |New Zealand     |✓         |✓         |

@@ -5,11 +5,11 @@ description: Deploying Windows Authentication and Azure Multi-Factor Authenticat
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Use the Windows Authentication section of the Azure Multi-Factor Authentication Server to enable and configure Windows authentication for applications. Before you set up Windows Authentication, keep the following list in mind:
 
 * After setup, reboot the Azure Multi-Factor Authentication for Terminal Services to take effect.
-* If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
+* If 'Require Azure Multi-Factor Authentication user match' is checked and you are not in the user list, you will not be able to log into the machine after reboot.
 * Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
 
 > [!IMPORTANT]

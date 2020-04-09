@@ -2,11 +2,11 @@
 title: Azure HDInsight virtual network architecture
 description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
+ms.date: 10/31/2019
 ---
 
 # Azure HDInsight virtual network architecture
@@ -26,6 +26,16 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 | Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
 | Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
 | Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to performing the desired processing. |
+
+## Resource naming conventions
+
+Please use Fully Qualified Domain Names (FQDNs) when addressing nodes in your cluster. You can get the FQDNs for various node types in your cluster using the [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+These FQDNs will be of the form `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+The `<node-type-prefix>` will be *hn* for headnodes, *wn* for worker nodes and *zn* for zookeeper nodes.
+
+If you need just the host name, use only the first part of the FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## Basic virtual network resources
 
@@ -69,4 +79,4 @@ Public IP addresses are also provided to the two endpoints that allow connection
 
 ## Next steps
 
-* [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

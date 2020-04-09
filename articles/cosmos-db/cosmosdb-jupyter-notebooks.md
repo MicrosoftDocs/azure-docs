@@ -1,16 +1,18 @@
 ---
-title: Introduction to the built-in Jupyter notebooks support in Azure Cosmos DB
+title: Introduction to the built-in Jupyter notebooks support in Azure Cosmos DB (Preview)
 description: Learn how you can use the built-in Jupyter notebooks support in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
 ms.topic: overview 
 ms.date: 09/22/2019
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ---
 
-# Built-in Jupyter notebooks support in Azure Cosmos DB
+# Built-in Jupyter notebooks support in Azure Cosmos DB (preview)
 
 Jupyter notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and Table. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. The Jupyter notebooks run within the Azure Cosmos accounts and they enable developers to perform data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
+
+![Jupyter notebooks visualizations in Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
 The Jupyter notebooks supports magic functions that extend the capabilities of the kernel by supporting additional commands. Cosmos magic is a command that extends the capabilities of the Python kernel in Jupyter notebook so you can run Azure Cosmos SQL API queries in addition to Apache Spark. You can easily combine Python and SQL API queries to query and visualize data by using rich visualization libraries integrated with render commands.
 Azure portal natively integrates Jupyter notebook experience into Azure Cosmos accounts as shown in the following image:
@@ -51,9 +53,8 @@ Jupyter notebooks can include several types of components, each organized into d
 
 To get started with built-in Jupyter notebooks in Azure Cosmos DB see the following articles:
 
-* [How to create a notebook]()
-* [How to install dependencies in a notebook]()
-* [How to use a notebook and Cosmos magic extension to analyze data]()
+* [Enable notebooks in an Azure Cosmos account](enable-notebooks.md)
+* [Use notebook features and commands](use-notebook-features-and-commands.md)
 
 
 

@@ -3,6 +3,7 @@ title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
@@ -14,7 +15,7 @@ ms.date: 09/10/2019
 
 You can manage your storage account with the [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) in your key vault. This article provides examples of C# code that fetches a SAS token and performs operations with it.  For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys.md) or [Manage storage account keys with Key Vault and Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
-# Code samples
+## Code samples
 
 In this example, the code fetches a SAS token from your key vault, uses it to create a new storage account, and creates a new Blob service client.  
 

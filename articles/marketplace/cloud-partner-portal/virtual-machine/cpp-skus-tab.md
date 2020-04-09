@@ -1,12 +1,12 @@
 ---
 title: Virtual machine SKUs tab in the Cloud Partner Portal for Azure Marketplace 
 description: Describes the SKUs tab used in creating a virtual machine offer in the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine SKUs tab
@@ -80,7 +80,7 @@ Starting September 1 2018, a new section called **Simplified Currency Pricing** 
 * Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. 
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TD: Meaning? - Offer created, published, other? -->
-* To set each region’s price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
+* To set each region's price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
 
 
 ## Next steps

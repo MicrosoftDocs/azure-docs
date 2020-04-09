@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy your ASP.NET app and Azure SQL Database code by using Azure DevOps Projects'
 description: DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET app and Azure SQL Database code in a few quick steps.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial

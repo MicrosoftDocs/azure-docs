@@ -1,12 +1,8 @@
 ---
-
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-author: snehithm
-ms.author: snmuvva 
-ms.date: 9/18/2018
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: alerts
 
 ---
@@ -122,15 +118,28 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. 
 
-You can specify the scope of monitoring by a single metric alert in one of three ways:
+This feature is currently supported for platform metrics (not custom metrics) for the following services in the following Azure clouds:
 
-- as a list of virtual machines in one Azure region within a subscription
+| Service | Public Azure | Government | China |
+|:--------|:--------|:--------|:--------|
+| Virtual machines  | **Yes** | No | No |
+| SQL server databases | **Yes** | **Yes** | No |
+| SQL server elastic pools | **Yes** | **Yes** | No |
+| Data box edge devices | **Yes** | **Yes** | No |
+
+You can specify the scope of monitoring by a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
+
+- a list of virtual machines in one Azure region within a subscription
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
 
 ## Typical latency
 
@@ -140,41 +149,6 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
-
-|Resource type supported by classic metric alerts | Supported by metric alerts |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Yes |
-| Microsoft.Batch/batchAccounts| Yes|
-|Microsoft.Cache/redis| Yes |
-|Microsoft.ClassicCompute/virtualMachines | No |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No|
-|Microsoft.CognitiveServices/accounts | No |
-|Microsoft.Compute/virtualMachines | Yes|
-|Microsoft.Compute/virtualMachineScaleSets| Yes|
-|Microsoft.ClassicStorage/storageAccounts| No |
-|Microsoft.DataFactory/datafactories | Yes|
-|Microsoft.DBforMySQL/servers| Yes|
-|Microsoft.DBforPostgreSQL/servers| Yes|
-|Microsoft.Devices/IotHubs | No|
-|Microsoft.DocumentDB/databaseAccounts| Yes|
-|Microsoft.EventHub/namespaces | Yes|
-|Microsoft.Logic/workflows | Yes|
-|Microsoft.Network/loadBalancers |Yes|
-|Microsoft.Network/publicIPAddresses| Yes|
-|Microsoft.Network/applicationGateways| Yes|
-|Microsoft.Network/expressRouteCircuits| Yes|
-|Microsoft.Network/trafficManagerProfiles | Yes|
-|Microsoft.Search/searchServices | Yes|
-|Microsoft.ServiceBus/namespaces| Yes |
-|Microsoft.Storage/storageAccounts | Yes|
-|Microsoft.StreamAnalytics/streamingjobs| Yes|
-|Microsoft.TimeSeriesInsights/environments | Yes|
-|Microsoft. Web/serverfarms | Yes |
-|Microsoft. Web/sites (excluding functions) | Yes|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No |
-|Microsoft.SQL/Servers | No |
 
 ## Next steps
 

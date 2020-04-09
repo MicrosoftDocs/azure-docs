@@ -125,6 +125,8 @@ Each IoT hub has the following configuration options for file upload notificatio
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
 
+You can set these properties on your IoT hub using the Azure portal, Azure CLI, or PowerShell. To learn how, see the topics under [Configure file upload](iot-hub-configure-file-upload.md).
+
 ## Additional reference material
 
 Other reference topics in the IoT Hub developer guide include:

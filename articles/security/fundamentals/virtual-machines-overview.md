@@ -1,10 +1,11 @@
 ---
-title: Security features used with Azure virtual machines - Azure security | Microsoft Docs
+title: Security features used with Azure VMs
+titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/2/2019
 ms.author: terrylan
 
 ---
@@ -41,22 +42,10 @@ Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-ti
 
 Microsoft Antimalware for Azure is a single-agent solution for applications and tenant environments. It's designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring.
 
-When you deploy and enable Microsoft Antimalware for Azure, the following core features are available:
-
-* **Real-time protection**: Monitors activity in Cloud Services and on Virtual Machines to detect and block malware execution.
-* **Scheduled scanning**: Periodically performs targeted scanning to detect malware, including actively running programs.
-* **Malware remediation**: Automatically takes action on detected malware, such as deleting or quarantining malicious files and cleaning up malicious registry entries.
-* **Signature updates**: Automatically installs the latest protection signatures (virus definitions) to ensure that protection is up-to-date on a pre-determined frequency.
-* **Antimalware engine updates**: Automatically updates the Microsoft Antimalware for Azure engine.
-* **Antimalware platform updates**: Automatically updates the Microsoft Antimalware for Azure platform.
-* **Active protection**: Reports telemetry metadata to Azure about detected threats and suspicious resources to ensure rapid response. Enables real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
-* **Samples reporting**: Provides and reports samples to the Microsoft Antimalware for Azure service to help refine the service and enable troubleshooting.
-* **Exclusions**: Allows application and service administrators to configure certain files, processes, and drives to exclude them from protection and scanning for performance and other reasons.
-* **Antimalware event collection**: Records antimalware service health, suspicious activities, and remediation actions taken in the operating system event log and collects them in your Azure storage account.
+Learn more about [Microsoft Antimalware for Azure](antimalware.md) and the core features available.
 
 Learn more about antimalware software to help protect your virtual machines:
 
-* [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
 * [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
@@ -68,7 +57,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint protection and response](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automated investigation and remediation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Secure score](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Secure score](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Advanced hunting](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -98,7 +87,7 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 Learn more:
 
 * [Azure Disk Encryption for IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
-* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
 
@@ -175,3 +164,7 @@ Learn more:
 
 * [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+
+## Next steps
+
+Learn about [security best practices](iaas.md) for VMs and operating systems.

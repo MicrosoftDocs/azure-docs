@@ -1,21 +1,11 @@
 ---
-title: Cache ASP.NET Session State Provider | Microsoft Docs
-description: Learn how to store ASP.NET Session State using Azure Cache for Redis
-services: cache
-documentationcenter: na
+title: Cache ASP.NET Session State Provider
+description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis. 
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-
-ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
-ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.date: 05/01/2017
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 05/01/2017
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
 
@@ -129,6 +119,11 @@ Once these steps are performed, your application is configured to use the Azure 
 * Distributed In Memory Session State Provider such as Azure Cache for Redis Session State Provider - This provider gives you the best of both worlds. Your Web App can have a simple, fast, and scalable Session State Provider. Because this provider stores the Session state in a Cache, your app has to take in consideration all the characteristics associated when talking to a Distributed In Memory Cache, such as transient network failures. For best practices on using Cache, see [Caching guidance](../best-practices-caching.md) from Microsoft Patterns & Practices [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance).
 
 For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+
+## Third-party session state providers
+
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## Next steps
 

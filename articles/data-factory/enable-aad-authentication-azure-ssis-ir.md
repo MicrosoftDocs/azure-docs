@@ -1,18 +1,18 @@
 ---
-title: Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime | Microsoft Docs
+title: Enable AAD for Azure SSIS Integration Runtime
 description: This article describes how to enable Azure Active Directory authentication with the managed identity for Azure Data Factory to create Azure-SSIS Integration Runtime.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 5/14/2019
 ---
+
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
 
 This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of conventional authentication methods (like SQL authentication) to:

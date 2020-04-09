@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: curtand
 
-ms.reviewer: elkuzmen
+ms.reviewer: addimitu
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -62,21 +62,33 @@ Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if
 
 ## Delete a subscription
 
-You can put a subscription into the Deprovisioned state to be deleted in three days using the Microsoft 365 admin center.
+You can put a subscription into the **Deprovisioned** state to be deleted in three days using the Microsoft 365 admin center.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a global administrator in your organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign in with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Select **Billing** and select **Subscriptions**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
-  
+2. Preview the new Microsoft 365 admin center by making sure the **Try the new admin center** toggle is enabled.
+
+   ![Preview the new M365 admin center experience](./media/directory-delete-howto/preview-toggle.png)
+
+3. Once the new admin center is enabled, you need to cancel a subscription before you can delete it. Select **Billing** and select **Products & services**, then select **Cancel subscription** for the subscription you want to cancel. You will be brought to a feedback page.
+
+   ![Choose a subscription to cancel](./media/directory-delete-howto/cancel-choose-subscription.png)
+
+4. Complete the feedback form and select **Cancel subscription** to cancel the subscription.
+
+   ![Cancel command in the subscription preview](./media/directory-delete-howto/cancel-command.png)
+
+5. You can now delete the subscription. Select **Delete** for the subscription you want to delete. If you cannot find the subscription in the **Products & services** page, make sure you have **Subscription status** set to **All**.
+
    ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
-  
-3. Select **Delete** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can reactivate the subscription during the three-day period if you change your mind.
+
+6. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) during the three-day period if you change your mind.
   
    ![carefully read terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
-4. Now the subscription state has changed, the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
+7. Now the subscription state has changed, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
-5. Once you have deleted a subscription in your directory, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
+8. Once you have deleted a subscription in your directory and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
 
@@ -93,7 +105,7 @@ When you begin the deletion of the self-service sign-up product, the action perm
 
 For more information about currently available self-service sign-up products and services, see [Available self-service programs](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Product state | Data | Access to data
 ------------- | ---- | --------------
@@ -104,13 +116,13 @@ Deleted | Data deleted | Users can’t access self-service sign-up product, file
 
 You can put a self-service sign-up product like Microsoft Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Microsoft Power BI:
+2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Microsoft Power BI:
 
     ![the username is mistyped or not found](./media/directory-delete-howto/licenses-page.png)
 
-3. Select **Delete** to delete the product and accept the terms that data is deleted immediately and irrevocably. This delete action will remove all users and remove organization access to the product. Click Yes to move forward with the deletion.  
+3. Select **Delete** to delete the product and accept the terms that data is deleted immediately and irrevocably. This delete action will remove all users and remove organization access to the product. Click Yes to move forward with the deletion.  
 
     ![the username is mistyped or not found](./media/directory-delete-howto/delete-product.png)
 

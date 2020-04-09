@@ -1,15 +1,15 @@
 ---
-title: 'Create an Azure private endpoint using Azure CLI| Microsoft Docs'
-description: Learn about Azure private endpoint
+title: 'Quickstart - Create an Azure private endpoint using Azure CLI'
+description: Learn about Azure private endpoint in this Quickstart
 services: private-link
-author: KumudD
+author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
-# Create a private endpoint using Azure CLI
+# Quickstart: Create a private endpoint using Azure CLI
 Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure SQL Database server in this example). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -34,7 +34,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -44,7 +44,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## Create the VM 
-Create a VM with az vm create. When prompted, provide a password to be used as the sign-in credentials for the VM. This example creates a VM named *myVm*: 
+Create a VM with az vm create. When prompted, provide a password to be used as the sign-in credentials for the VM. This example creates a VM named *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -144,7 +144,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
 
- 1. In the Remote Desktop of *myVM*, open PowerShell.
+ 1. In the Remote Desktop of *myVM*, open PowerShell.
  2. Enter nslookup myserver.database.windows.net 
       You'll receive a message similar to this: 
 
@@ -164,7 +164,7 @@ In this section, you will connect to the SQL Database Server from the VM using t
  Password: Enter a password provided during creation.
  Remember password: Select Yes.
  
- 5. Select **Connect**.
+ 5. Select **Connect**.
  6. Browse **Databases** from left menu.
  7. (Optionally) Create or query information from *mydatabase*
  8. Close the remote desktop connection to *myVm*.
@@ -178,4 +178,3 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 - Learn more about [Azure Private Link](private-link-overview.md)
- 

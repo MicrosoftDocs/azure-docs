@@ -368,7 +368,7 @@
       href: service-fabric-get-started.md
     - name: Linux
       href: service-fabric-get-started-linux.md
-    - name: Mac OS
+    - name: macOS
       href: service-fabric-get-started-mac.md
     - name: Set up the Service Fabric CLI
       href: service-fabric-cli.md
@@ -406,8 +406,6 @@
       items:
       - name: Deploy a guest executable
         href: service-fabric-deploy-existing-app.md
-      - name: Deploy multiple guest executables
-        href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
       items:      
       - name: Docker compose (preview)
@@ -484,11 +482,15 @@
         href: service-fabric-tutorial-deploy-api-management.md
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
+      - name: Using Service Fabric Secrets Store
+        href: service-fabric-application-secret-store.md
         items:
         - name: Set up an encryption certificate and encrypt secrets on Windows
           href: service-fabric-application-secret-management-windows.md
         - name: Set up an encryption certificate and encrypt secrets on Linux
           href: service-fabric-application-secret-management-linux.md
+        - name: Securely store secrets with KeyVaultReference (preview)
+          href: service-fabric-keyvault-references.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Run a service startup script as a local user or system account
@@ -674,7 +676,9 @@
         - name: Manage cluster certificates
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
-          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Upgrade cluster nodes to use managed disks
+          href: upgrade-managed-disks.md      
     - name: Standalone clusters
       items:
       - name: Create
@@ -877,6 +881,8 @@
     href: service-fabric-common-questions.md
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+  - name: Azure Resource Manager Deployment Guardrails
+    href: service-fabric-azure-resource-manager-guardrails.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator

@@ -1,13 +1,14 @@
 ---
-title: Advanced data security - Azure SQL Database | Microsoft Docs
+title: Advanced data security
 description: Learn about functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your Azure SQL database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.devlang: 
 ms.topic: conceptual
-author: monhaber
-ms.author: v-mohabe
+ms.author: memildin
+author: memildin
+manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ---
@@ -19,8 +20,8 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 
 Advanced data security (ADS) provides a set of advanced SQL security capabilities, including data discovery & classification, vulnerability assessment, and Advanced Threat Protection.
 
-- [Data discovery & classification](sql-database-data-discovery-and-classification.md) (currently in preview) provides capabilities built into Azure SQL Database for discovering, classifying, labeling & protecting the sensitive data in your databases. It can be used to provide visibility into your database classification state, and to track the access to sensitive data within the database and beyond its borders.
-- [Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
+- [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) provides capabilities built into Azure SQL Database for discovering, classifying, labeling & reporting the sensitive data in your databases. It can be used to provide visibility into your database classification state, and to track the access to sensitive data within the database and beyond its borders.
+- [Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
 - [Advanced Threat Protection](sql-database-threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Advanced Threat Protection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
 
 Enable SQL ADS once to enable all of these included features. With one click, you can enable ADS for all databases on your SQL Database server or managed instance. Enabling or managing ADS settings requires belonging to the [SQL security manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) role, SQL database admin role or SQL server admin role. 
@@ -33,7 +34,7 @@ The following steps get you started with ADS.
 
 ## 1. Enable ADS
 
-Enable ADS by navigating to **Advanced Data Security** under the **Security** heading for your SQL Database server or manged instance. To enable ADS for all databases on the database server or managed instance, click **Enable Advanced Data Security on the server**.
+Enable ADS by navigating to **Advanced Data Security** under the **Security** heading for your SQL Database server or managed instance. To enable ADS for all databases on the database server or managed instance, click **Enable Advanced Data Security on the server**.
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled ADS for another server in the same resource group and region, then the existing storage account is used.
@@ -67,7 +68,7 @@ Advanced data security settings for your database server or managed instance can
 
 ## Next steps 
 
-- Learn more about [data discovery & classification](sql-database-data-discovery-and-classification.md) 
-- Learn more about [vulnerability assessment](sql-vulnerability-assessment.md) 
+- Learn more about [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) 
+- Learn more about [vulnerability Assessment](sql-vulnerability-assessment.md) 
 - Learn more about [Advanced Threat Protection](sql-database-threat-detection.md)
-- Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

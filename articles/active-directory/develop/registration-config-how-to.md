@@ -1,23 +1,18 @@
 ---
-title: Configure endpoints | Microsoft Docs
+title: Configure endpoints
 description: How to find the authentication endpoints for a custom application you are developing or registering with Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # How to configure endpoints

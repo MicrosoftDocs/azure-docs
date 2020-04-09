@@ -1,10 +1,10 @@
 ---
-title: Enforce security with policies on Windows VMs in Azure | Microsoft Docs
+title: Enforce security with policies on Windows VMs in Azure 
 description: How to apply a policy to an Azure Resource Manager Windows Virtual Machine
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: kasing
+ms.author: mimckitt
 
 ---
 # Apply policies to Windows VMs with Azure Resource Manager

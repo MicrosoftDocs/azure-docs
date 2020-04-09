@@ -2,11 +2,8 @@
 title: Azure Quickstart - Create an Azure Automation account | Microsoft Docs
 description: Learn how to create an Azure Automation account and run a runbook
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 04/04/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ---
@@ -19,13 +16,13 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+[Sign in to Azure](https://portal.azure.com)
 
 ## Create Automation account
 
 1. Click the **Create a resource** button found on the upper left-hand corner of Azure.
 
-1. Select **Management Tools**, and then select **Automation**.
+1. Select **IT & Management Tools**, and then select **Automation**.
 
 1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. It is important to note, that when creating an Automation Account, the name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group. Names for Automation Accounts that were deleted may not be immediately available.* One Automation Account can manage resources across all regions and subscriptions for a given tenant. When complete, click **Create**, to start the Automation account deployment.
 

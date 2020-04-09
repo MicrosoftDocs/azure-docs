@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and PHP"
+title: "Quickstart: Search for images using the Bing Image Search REST API and PHP"
 titleSuffix: Azure Cognitive Services
 description:  Use this quickstart to send image search requests to the Bing Image Search REST API using PHP, and receive JSON responses.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/26/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,7 +35,7 @@ To run this application, follow these steps.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is located in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
-3. define the API endpoint, your subscription key, and search term.
+3. Define the API endpoint, your subscription key, and search term. the endpoint can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -43,7 +43,8 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-   ## Construct and perform an HTTP request
+
+## Construct and perform an HTTP request
 
 1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 
@@ -53,6 +54,7 @@ To run this application, follow these steps.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
+
 2. Send the web request and get the JSON response.
 
     ```php
@@ -64,16 +66,16 @@ To run this application, follow these steps.
 
 Process and print the returned JSON response.
 
-    ```php
-    $headers = array();
-        foreach ($http_response_header as $k => $v) {
-            $h = explode(":", $v, 2);
-            if (isset($h[1]))
-                if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
-                    $headers[trim($h[0])] = trim($h[1]);
-        }
-        return array($headers, $result);
-    ```
+```php
+$headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+```
 
 ## Example JSON response
 

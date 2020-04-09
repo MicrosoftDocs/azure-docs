@@ -1,28 +1,28 @@
 ---
-title: Azure Status Monitor v2 overview | Microsoft Docs
-description: An overview of Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent overview | Microsoft Docs
+description: An overview of Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: TimothyMothra
 ms.author: tilee
----
-# Status Monitor v2
+ms.date: 09/16/2019
 
-Status Monitor v2 is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+---
+
+# Deploy Azure Monitor Application Insights Agent for on-premises servers
+
+> [!IMPORTANT]
+> This guidance is recommended for On-Premises and non-Azure cloud deployments of Application Insights Agent. Here's the recommended approach for [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+
+Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-The module provides codeless instrumentation of .NET web apps hosted with IIS.
 Telemetry is sent to the Azure portal, where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your app.
+
+> [!NOTE]
+> The module only currently supports codeless instrumentation of .NET web apps hosted with IIS. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications.
 
 ## PowerShell Gallery
 
-Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -48,9 +48,9 @@ Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az
 
 ## FAQ
 
-- Does Status Monitor v2 support proxy installations?
+- Does Application Insights Agent support proxy installations?
 
-  *Yes*. There are multiple ways to download Status Monitor v2. 
+  *Yes*. There are multiple ways to download Application Insights Agent. 
 If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 You can also manually download the module and either install it on your computer or use it directly.
 Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
@@ -58,10 +58,6 @@ Each of these options is described in the [detailed instructions](status-monitor
 - Does Status Monitor v2 support ASP.NET Core applications?
 
   *No*. For instructions to enable monitoring of ASP.NET Core applications, see [Application Insights for ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). There's no need to install StatusMonitor for an ASP.NET Core application. This is true even if ASP.NET Core application is hosted in IIS.
-  
-Does Status Monitor v2 support ASP.NET Core applications? 
-
-  *No*. Please follow [these](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) instructions to enable monitoring for ASP.NET Core Applications. There is no need to install StatusMonitor for an ASP.NET Core Application. This is true even if ASP.NET Core Application is hosted in IIS.
 
 - How do I verify that the enablement succeeded?
 

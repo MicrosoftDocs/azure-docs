@@ -1,17 +1,15 @@
 ---
-title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
+title: Delegate roles by admin task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 03/03/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -44,19 +42,19 @@ Task | Least privileged role | Additional roles
 Create Azure AD B2C directories | All non-guest users ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Create B2C applications | Global Administrator | 
 Create enterprise applications | Cloud Application Administrator | Application Administrator
-Create, read, update, and delete B2C policies | Global Administrator | 
-Create, read, update, and delete identity providers | Global Administrator | 
-Create, read, update, and delete password reset user flows | Global Administrator | 
-Create, read, update, and delete profile editing user flows | Global Administrator | 
-Create, read, update, and delete sign-in user flows | Global Administrator | 
-Create, read, update, and delete sign-up user flow |Global Administrator | 
-Create, read, update, and delete user attributes | Global Administrator | 
-Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Read all configuration | Global Administrator | 
-Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Create, read, update, and delete B2C policies | B2C IEF Policy Administrator | 
+Create, read, update, and delete identity providers | External Identity Provider Administrator | 
+Create, read, update, and delete password reset user flows | B2C User Flow Administrator | 
+Create, read, update, and delete profile editing user flows | B2C User Flow Administrator | 
+Create, read, update, and delete sign-in user flows | B2C User Flow Administrator | 
+Create, read, update, and delete sign-up user flow |B2C User Flow Administrator | 
+Create, read, update, and delete user attributes | B2C User Flow Attribute Administrator | 
+Create, read, update, and delete users | User Administrator
+Read all configuration | Global reader | 
+Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -76,7 +74,7 @@ Configure company properties | Global Administrator |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Passthrough authentication | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 Seamless single sign-on | Global Administrator | 
 
 ## Connect Health
@@ -95,7 +93,6 @@ Read sync services | Reader ([see documentation](https://docs.microsoft.com/azur
 View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 View sync service metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-
 
 ## Custom domain names
 
@@ -126,8 +123,8 @@ Read BitLocker keys | Security Reader | Password administrator, Security adminis
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Consent to any delegated permissions | Cloud application administrator | Application administrator
-Consent to application permissions not including Microsoft Graph or Azure AD Graph | Cloud application administrator | Application administrator
-Consent to application permissions to Microsoft Graph or Azure AD Graph | Global Administrator | 
+Consent to application permissions not including Microsoft Graph | Cloud application administrator | Application administrator
+Consent to application permissions to Microsoft Graph | Privileged Role Administrator | 
 Consent to applications accessing own data | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Create enterprise application | Cloud application administrator | Application administrator
 Manage Application Proxy | Application administrator | 
@@ -144,7 +141,7 @@ Update single sign-on properties | Enterprise application owner ([see documentat
 ## Entitlement management
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
 Add SharePoint Online sites to catalog | Global administrator
 
 
@@ -156,7 +153,7 @@ Assign license | User administrator |
 Create group | User administrator | 
 Create, update, or delete access review of a group or of an app | User administrator | 
 Manage group expiration | User administrator | 
-Manage group settings | Global Administrator | 
+Manage group settings | Groups Administrator | User Administrator | 
 Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User administrator
 Read membership of groups with hidden membership | Helpdesk Administrator | User administrator, Teams administrator
@@ -226,18 +223,18 @@ Configure one-time bypass | Global Administrator |
 Configure phone call settings | Global Administrator | 
 Configure providers | Global Administrator | 
 Configure server settings | Global Administrator | 
-Read activity report | Global Administrator | 
-Read all configuration | Global Administrator | 
-Read server status | Global Administrator |  
+Read activity report | Global reader | 
+Read all configuration | Global reader | 
+Read server status | Global reader |  
 
 ## Organizational relationships
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Manage identity providers | Global Administrator | 
+Manage identity providers | External Identity Provider Administrator | 
 Manage settings | Global Administrator | 
 Manage terms of use | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Password reset
 
@@ -273,7 +270,7 @@ Read all configuration | Default user role ([see documentation](https://docs.mic
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Security - Conditional Access
 
@@ -330,11 +327,11 @@ Create user | User administrator |
 Delete users | User administrator | 
 Invalidate refresh tokens of limited admins (see documentation) | User administrator | 
 Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User administrator
-Invalidate refresh tokens of privileged admins (see documentation) | Global Administrator | 
+Invalidate refresh tokens of privileged admins (see documentation) | Privileged Authentication Administrator | 
 Read basic configuration | Default User role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Reset password for limited admins (see documentation) | User administrator | 
 Reset password of non-admins (see documentation) | Password administrator | User administrator
-Reset password of privileged admins | Global Administrator | 
+Reset password of privileged admins | Privileged Authentication Administrator | 
 Revoke license | License administrator | User administrator
 Update all properties except User Principal Name | User administrator | 
 Update User Principal Name for limited admins (see documentation) | User administrator | 

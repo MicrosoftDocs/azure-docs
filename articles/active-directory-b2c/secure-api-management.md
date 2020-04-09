@@ -2,14 +2,14 @@
 title: Secure an Azure API Management API by using Azure Active Directory B2C
 description: Learn how to use access tokens issued by Azure Active Directory B2C to secure an Azure API Management API endpoint.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -31,11 +31,25 @@ You need the following resources in place before continuing with the steps in th
 
 When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
-1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com).
-1. Under **Manage**, select **Applications**.
-1. Record the value in the **APPLICATION ID** for *webapp1* or another application you've previously created.
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to get the application ID. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
-  ![Location of a B2C application's Application ID in the Azure portal](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### [Applications](#tab/applications/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Under **Manage**, select **Applications**.
+1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **App registrations (Preview)**, then select the **Owned applications** tab.
+1. Record the value in the **Application (client) ID** column for *webapp1* or another application you've previously created.
+
+* * *
 
 ## Get token issuer endpoint
 
@@ -199,17 +213,17 @@ If you see the `401` status code, you've verified that only callers with a valid
 
 ## Support multiple applications and issuers
 
-Several applications typically interact with a single REST API. To allow multiple applications to call your API, add their application IDs to the `<audiences>` element in the APIM inbound policy.
+Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the APIM inbound policy.
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-Similarly, to support multiple token issuers, add their endpoint URIs to the `<audiences>` element in the APIM inbound policy.
+Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the APIM inbound policy.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->

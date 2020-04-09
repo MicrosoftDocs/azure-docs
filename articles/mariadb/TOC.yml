@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MariaDB?
     href: overview.md
+  - name: Which MariaDB option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -41,23 +43,32 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md  
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Virtual Network
-      href: concepts-data-access-security-vnet.md
     - name: Connectivity architecture
       href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Virtual Network
+      href: concepts-data-access-security-vnet.md
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md      
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
-    - name: Overview
+    - name: Business continuity intro
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
@@ -129,6 +140,10 @@
       href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
       href: howto-auto-grow-storage-cli.md  
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
   - name: Access server logs
     items:
     - name: Slow query logs
@@ -169,6 +184,12 @@
       href: howto-manage-vnet-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
   - name: Restart server
     items:
     - name: Azure portal
@@ -183,7 +204,7 @@
     href: /rest/api/mariadb
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformariadb/allversions
-  - name: Azure stored procedures
+  - name: Management stored procedures
     href: reference-stored-procedures.md
 - name: Resources
   items:

@@ -55,7 +55,6 @@ To configure the integration of Shmoop For Schools into Azure AD, you need to ad
 1. In the **Add from the gallery** section, type **Shmoop For Schools** in the search box.
 1. Select **Shmoop For Schools** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Shmoop For Schools
 
 Configure and test Azure AD SSO with Shmoop For Schools using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Shmoop For Schools.
@@ -63,10 +62,10 @@ Configure and test Azure AD SSO with Shmoop For Schools using a test user called
 To configure and test Azure AD SSO with Shmoop For Schools, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+	* **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+	* **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Shmoop For Schools SSO](#configure-shmoop-for-schools-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create Shmoop For Schools test user](#create-shmoop-for-schools-test-user)** - to have a counterpart of B.Simon in Shmoop For Schools that is linked to the Azure AD representation of user.
+	* **[Create Shmoop For Schools test user](#create-shmoop-for-schools-test-user)** - to have a counterpart of B.Simon in Shmoop For Schools that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -90,38 +89,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Shmoop For Schools Client support team](mailto:support@shmoop.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Shmoop For Schools application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+1. Shmoop For Schools application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
 	> [!NOTE]
 	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-6. In addition to above, Shmoop For Schools application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table: 
+1. In addition to above, Shmoop For Schools application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
 	| --------- | --------------- |
 	| role      | user.assignedroles |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -166,7 +147,7 @@ In this section, a user called B.Simon is created in Shmoop For Schools. Shmoop 
 > [!NOTE]
 > If you need to create a user manually, contact the [Shmoop For Schools support team](mailto:support@shmoop.com).
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -180,3 +161,4 @@ When you click the Shmoop For Schools tile in the Access Panel, you should be au
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Try Shmoop For Schools with Azure AD](https://aad.portal.azure.com/)

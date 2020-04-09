@@ -1,12 +1,8 @@
 ---
-title: Sample - IRS 1075 blueprint - Control mapping
-description: Control mapping of the IRS 1075 blueprint sample to Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/07/2019
+title: IRS 1075 blueprint sample controls
+description: Control mapping of the IRS 1075 blueprint sample. Each control is mapped to one or more Azure Policies that assists with assessment.
+ms.date: 11/20/2019
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the IRS 1075 blueprint sample
 
@@ -53,10 +49,10 @@ Azure implements [role-based access control](../../../../role-based-access-contr
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
-centralized identity management of database users and other Microsoft services. Additionally, this 
-blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
-RBAC rules are error prone.
+centralized identity management of database users and other Microsoft services. Additionally, this
+blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding
+where custom RBAC rules are implemented can help you verify need and proper implementation, as
+custom RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
@@ -120,11 +116,11 @@ indicators can help you ensure least privilege controls are implemented.
 ## 9.3.1.12 AC-17 (1) Remote Access | Automated Monitoring / Control
 
 This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
-definitions to monitors that remote debugging for Azure App Service application is turned off and
-policy definitions that audit Linux virtual machines that allow remote connections from accounts
-without passwords. This blueprint also assigns an Azure Policy definition that helps you monitor
-unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
-access methods comply with your security policy.
+definitions to monitor that remote debugging for Azure App Service application is turned off. The
+blueprint also assigns policy definitions that audit Linux virtual machines that allow remote
+connections from accounts without passwords. Additionally, the blueprint assigns an Azure Policy
+definition that helps you monitor unrestricted access to storage accounts. Monitoring these
+indicators can help you ensure remote access methods comply with your security policy.
 
 - \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
@@ -479,8 +475,9 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Overview](./index.md)
+> [IRS 1075 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

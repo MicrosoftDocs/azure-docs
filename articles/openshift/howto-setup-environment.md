@@ -1,14 +1,12 @@
 ---
-title: Set up your Azure Red Hat OpenShift development environment | Microsoft Docs
+title: Set up your Azure Red Hat OpenShift development environment
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
-services: openshift
 keywords:  red hat openshift setup set up
 author: jimzim
 ms.author: jzim
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
 #Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---
 
@@ -16,7 +14,6 @@ manager: jeconnoc
 
 To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
-* Purchase Azure virtual machine reserved instances.
 * Install version 2.0.65 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
 * Register for the `AROGA` feature and associated resource providers.
 * Create an Azure Active Directory (Azure AD) tenant.
@@ -25,21 +22,11 @@ To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 The following instructions will walk you through all of these prerequisites.
 
-## Purchase Azure Red Hat OpenShift application nodes reserved instances
-
-Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
-
-If you are an Azure customer, [purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
-
-If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
-
-Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
-
 ## Install the Azure CLI
 
 Azure Red Hat OpenShift requires version 2.0.65 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
 
-```bash
+```azurecli
 az --version
 ```
 
@@ -57,49 +44,49 @@ To register these providers and features manually, use the following instruction
 
 1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
-    ```bash
+    ```azurecli
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
 1. Register the Microsoft.ContainerService AROGA feature:
 
-    ```bash
+    ```azurecli
     az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Register the Microsoft.Storage provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Storage --wait
     ```
     
 1. Register the Microsoft.Compute provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Compute --wait
     ```
 
 1. Register the Microsoft.Solutions provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Solutions --wait
     ```
 
 1. Register the Microsoft.Network provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Network --wait
     ```
 
 1. Register the Microsoft.KeyVault provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.KeyVault --wait
     ```
 
 1. Refresh the registration of the Microsoft.ContainerService resource provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.ContainerService --wait
     ```
 

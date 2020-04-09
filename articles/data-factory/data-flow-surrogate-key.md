@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow Surrogate Key Transformation
-description: How to use Azure Data Factory's Mapping Data Flow Surrogate Key Transformation to generate sequential key values
+title: Mapping data flow Surrogate Key Transformation
+description: How to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
 ---
 
-# Mapping Data Flow Surrogate Key Transformation
+# Mapping data flow Surrogate Key Transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use the Surrogate Key Transformation to add an incrementing non-business arbitrary key value to your data flow rowset. This is useful when designing dimension tables in a star schema analytical data model where each member in your dimension tables needs to have a unique key that is a non-business key, part of the Kimball DW methodology.
 

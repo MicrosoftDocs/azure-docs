@@ -1,31 +1,23 @@
 ---
-title: "Quickstart: Create a new app in the LUIS portal" 
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you create a new app in the LUIS portal. Create the basic parts of an app, intents, and entities. Test the app by providing a sample user utterance in the interactive test panel to get the predicted intent. Building an app is free; it doesn't require an Azure subscription. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+title: "Quickstart: Create a new app in the LUIS portal"
+description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
 ms.topic: quickstart
-ms.date: 09/04/2019
-ms.author: diberry
-#Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
+ms.date: 03/24/2020
+#Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances.
 ---
 
 # Quickstart: Create a new app in the LUIS portal
 
-In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai). First you create the basic parts of an app, **intents**, and **entities**. Then you test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
-
-Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
+In this quickstart, you build a new app in the LUIS portal. First, create the basic parts of an app, **intents**, and **entities**. Then test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create an app
 
-1. Select **Create new app** from the context toolbar.
+1. Select **+ New app for conversation** from the context toolbar, then select **New app for conversation**.
 
-   [![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up window, configure the app with the following settings and then select **Done**.
 
@@ -33,8 +25,8 @@ Building an app is free and doesn't require an Azure subscription. When you're r
    |--|--|--|
    |Name|`myEnglishApp`|Unique LUIS app name<br>required|
    |Culture|**English**|Language of utterances from users, **en-us**<br>required|
-   |Description|`App made with LUIS Portal`|Description of app<br>optional|
-   | | | |
+   |Description (Optional)|`App made with LUIS Portal`|Description of app<br>optional|
+   |Prediction resource (Optional) |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
 
    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -54,13 +46,11 @@ The app's two different _intentions_ align to the following intents:
 
 To create intents, complete the following steps:
 
-1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create new intent**.
+1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create**.
 
-   [![Select Create new intent button](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Select Create to create new intent](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. Enter the intent name, `FindForm`, and then select **Done**.
-
-   ![Enter the intent name of FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## Add an example utterance
 
@@ -68,7 +58,8 @@ You add example utterances after you create intents. Example utterances are text
 
 For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
-[![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Add the following 15 example utterances to the `FindForm` intent.
 
@@ -106,13 +97,16 @@ To return the form number in the runtime prediction response, the form must be m
 
 1. Select **Entities** from the menu on the left.
 
-1. Select **Create new entity** on the **Entities** page.
+1. Select **Create** on the **Entities** page.
 
-1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits.
+1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, then select **Next**.
 
-   ![Enter entity information for the regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Create regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Select **Done**.
+1. Enter the regular expression (**RegEx**) expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits, then select **Create**.
+
+   ![Enter regular expression for entity](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## Add example utterances to the None intent
 
@@ -130,11 +124,11 @@ The **None** intent's example utterances should be outside of your client applic
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   For this human resources app, these example utterances are outside the domain. If your human resources domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
+   For this app, these example utterances are outside the domain. If your domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
 
 ## Train the app
 
-In the menu in the upper right, select **Train** to apply the intent and entity model changes to the current version of the app.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Look at the regular expression entity in the example utterances
 
@@ -142,7 +136,8 @@ In the menu in the upper right, select **Train** to apply the intent and entity 
 
    The entity is marked where it appears in the example utterances. If you want to see the original text instead of the entity name, toggle **Entities View** from the toolbar.
 
-   [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## Test your new app with the interactive test pane
 
@@ -154,15 +149,16 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
    ```Is there a form named hrf-234098```
 
-   ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
+    Select **Inspect** to see entity predictions.
+
+   > [!div class="mx-imgBorder"]
+   > ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
    The top predicted intent is correctly **FindForm** with over 90% confidence (0.977). The **Human Resources Form Number** entity is extracted with a value of hrf-234098.
 
 ## Clean up resources
 
 When you're done with this quickstart and aren't moving on to the next quickstart, select **My apps** from the top navigation menu. Then select the app's left check box from the list and select  **Delete** from the context toolbar above the list.
-
-[![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## Next steps
 

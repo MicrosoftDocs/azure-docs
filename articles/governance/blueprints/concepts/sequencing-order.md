@@ -1,12 +1,8 @@
 ---
 title: Understand the deployment sequence order
-description: Learn about the lifecycle that a blueprint definition goes through and details about each stage.
-author: DCtheGeek
-ms.author: dacoulte
+description: Learn about the default order that blueprint artifacts are deployed in during a blueprint assignment and how to customize the deployment order.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
 ---
 # Understand the deployment sequence in Azure Blueprints
 
@@ -46,8 +42,8 @@ created within that resource group:
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a
 specific order. The most common use pattern of this scenario is when a blueprint definition includes
-several Azure Resource Manager templates. Blueprints handles this pattern by allowing the sequencing
-order to be defined.
+several Azure Resource Manager templates. Azure Blueprints handles this pattern by allowing the
+sequencing order to be defined.
 
 The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
 definition, for resource groups, and artifact objects support this property. `dependsOn` is a string

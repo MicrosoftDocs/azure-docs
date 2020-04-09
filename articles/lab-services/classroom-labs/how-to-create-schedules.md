@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 10/12/2019
 ms.author: spelluru
 
 ---
@@ -22,61 +22,58 @@ Schedules allow you to configure a classroom lab such that VMs in the lab automa
 > [!IMPORTANT]
 > The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-configure-student-usage.md#set-quotas-for-users). The quota is for the time outside of schedule hours that a student spends on VMs. 
 
-## Add a schedule (once)
+## Set a schedule for the lab
+Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota you specified earlier is the additional time assigned to each user outside this scheduled time. 
 
-1. Switch to the **Schedules** page, and select **Add schedule** on the toolbar. 
+> [!NOTE]
+> Before we get started, here's how schedules affect lab virtual machines: 
+>- Template virtual machine is not included in schedules. 
+>- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the the machine will not start on the scheduled hours. 
+>- All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule. 
 
-    ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
-2. On the **Add schedule** page, confirm that **Once** option is selected at the top. If it's not, select **Once**. 
-3. For **Schedule date (required)**, enter the date or select the calendar icon to select a date. 
-4. For **Start time**, select the time when you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
-5. For **Stop time**, select the time when you want the VMs to be shut down. The stop time is required if the start time is not set. Select **Remove stop event** if you want to specify only the start time. if the **Stop time** is disabled, select **Add stop event** next to the drop-down list to enable it.
-6. For **Time zone (required)**, select the time zone for the start and stop times you specified. 
-7. For **Notes**, enter any description or notes for the schedule. 
-8. Select **Save**. 
-
-    ![Onetime schedule](../media/how-to-create-schedules/add-schedule-page.png)
-
-## Add a recurring schedule (weekly)
-
-1. Switch to the **Schedules** page, and select **Add schedule** on the toolbar. 
+1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
-2. On the **Add schedule** page, switch to **Weekly** at the top. 
-3. For **Schedule days (required)**, select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
-4. For the **From** field, enter the **schedule start date** or pick a date by selecting the **calendar** button. This field is required. 
-5. For **Schedule end date**, enter or select an end date on which the VMs are to be shut down. 
-6. For **Start time**, select the time at which you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
-7. For **Stop time**, select the time at which you want the VMs to be shut down. The stop time is required if the start time is not set. Select **Remove stop event** if you want to specify only the start time. if the **Stop time** is disabled, select **Add stop event** next to the drop-down list to enable it.
-8. For **Time zone (required)**, select the time zone for the start and stop times you specified.  
-9. For **Notes**, enter any description or notes for the schedule. 
-10. Select **Save**. 
+2. Confirm that **Standard** is selected the **Event type**. You select **Start only** to specify only the start time for the VMs. You select **Stop only** to specify only the stop time for the VMs. 
+7. In the **Repeat** section, select the current schedule. 
+
+    ![Add schedule button on the Schedules page](../media/how-to-create-schedules/select-current-schedule.png)
+5. On the **Repeat** dialog box, do the following steps:
+    1. Confirm that **every week** is set for the **Repeat** field. 
+    3. Specify the **start date**.
+    4. Specify the **start time** at which you want the VMs to be started.
+    5. Specify the **stop time** on which the VMs are to be shut down. 
+    6. Specify the **time zone** for the start and stop times you specified. 
+    2. Select the days on which you want the schedule to take effect. In the following example, Monday-Thursday is selected. 
+    8. Select **Save**. 
+
+        ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Now, on the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule. 
+4. On the **Add scheduled event** page, select **Save**. 
 
     ![Weekly schedule](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## View schedules in calendar
 You can see the scheduled dates and times highlighted in the calendar view as shown in the following image:
 
-![Schedules in the calendar view](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Schedules in the calendar view](../media/how-to-create-schedules/schedules-calendar.png)
 
 Select the **Today** button in the top-right corner to switch to current date in the calendar. Select **left arrow** to switch to the previous week and **right arrow** to switch to the next week in the calendar. 
 
 ## Edit a schedule
-When you double-click on a highlighted schedule in the calendar or select the **pencil** button on the toolbar, you see the **Edit schedule** page. Updating settings on this page is same as updating settings in the **Add schedule** page as described in the [Add a recurring schedule](#add-a-recurring-schedule-weekly) section. 
+When you select a highlighted schedule in the calendar, you see buttons to **edit** or **delete** the schedule. 
 
-![Edit schedule page](../media/how-to-create-schedules/edit-schedule-page.png)
+![Edit schedule page](../media/how-to-create-schedules/schedule-edit-button.png)
+
+On the **Edit scheduled event** page, you can update the schedule, and select **Save**. 
 
 ## Delete a schedule
 
-1. To delete a schedule, select the trash can (delete) button on the toolbar as shown in the following image:
+1. To delete a schedule, select a highlighted schedule in the calendar, and select the trash icon (delete) button:
 
-    ![Delete button on toolbar](../media/how-to-create-schedules/delete-schedule-button.png)
-
-    You can use the delete button for any of the scheduled dates and times in the calendar, and select **delete**. 
-2. On the **Delete schedules** page, select **Yes**.
-
-    ![Delete schedules confirmation](../media/how-to-create-schedules/delete-schedules-confirmation.png)
-
+    ![Delete button on toolbar](../media/how-to-create-schedules/schedule-delete-button.png)
+2. On the **Delete scheduled event** dialog box, select **Yes** to confirm the deletion. 
 
 
 

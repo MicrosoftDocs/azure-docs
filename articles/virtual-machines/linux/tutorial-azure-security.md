@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Security Center for Linux VMs in Azure | Microsoft Docs
+title: Tutorial - Use Azure Security Center for Linux VMs in Azure 
 description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -132,5 +132,5 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

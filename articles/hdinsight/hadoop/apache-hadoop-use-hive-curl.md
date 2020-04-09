@@ -2,13 +2,12 @@
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight using Curl.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 06/28/2019
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 01/06/2020
 ---
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
@@ -23,7 +22,7 @@ Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Had
 
 * A REST client. This document uses [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) on Windows PowerShell and [Curl](https://curl.haxx.se/) on [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* If you use Bash, you will also need jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* If you use Bash, you'll also need jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 ## Base URI for Rest API
 
@@ -34,6 +33,7 @@ The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `htt
 When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
 ### Setup (Preserve credentials)
+
 Preserve your credentials to avoid reentering them for each example.  The cluster name will be preserved in a separate step.
 
 **A. Bash**  
@@ -51,9 +51,10 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### Identify correctly cased cluster name
-The actual casing of the cluster name may be different than you expect, depending on how the cluster was created.  The steps here will show the actual casing, and then store it in a variable for all subsequent examples.
 
-Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN is not case-sensitive.)
+The actual casing of the cluster name may be different than you expect, depending on how the cluster was created.  The steps here will show the actual casing, and then store it in a variable for all later examples.
+
+Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -70,7 +71,7 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Run a Hive query
+## Run a Hive query
 
 1. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
@@ -141,7 +142,7 @@ $clusterName
 
    These statements perform the following actions:
 
-   * `DROP TABLE` - If the table already exists, it is deleted.
+   * `DROP TABLE` - If the table already exists, it's deleted.
    * `CREATE EXTERNAL TABLE` - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
      > [!NOTE]  
@@ -150,7 +151,7 @@ $clusterName
      > Dropping an external table does **not** delete the data, only the table definition.
 
    * `ROW FORMAT` - How the data is formatted. The fields in each log are separated by a space.
-   * `STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it is stored as text.
+   * `STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it's stored as text.
    * `SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
 
      > [!NOTE]  
@@ -180,17 +181,13 @@ $clusterName
 
 1. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
-    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
+    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) document.
 
-## <a id="nextsteps"></a>Next steps
-
-For general information on Hive with HDInsight:
-
-* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+## Next steps
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 For more information on the REST API used in this document, see the [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.

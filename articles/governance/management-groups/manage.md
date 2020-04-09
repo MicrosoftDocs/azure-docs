@@ -1,10 +1,7 @@
 ---
-title: How to change, delete, or manage your management groups - Azure Governance
+title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-author: rthorn17
-ms.service: governance
-ms.date: 05/22/2019
-ms.author: rithorn
+ms.date: 12/18/2019
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -15,6 +12,12 @@ Management groups give you enterprise-grade management at a large scale no matte
 [Organize your resources with Azure management groups](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
+>To see the updates sooner you need to update your token by refreshing the browser, signing in and out, or requesting a new token.  
+
+
 
 ## Change the name of a management group
 
@@ -63,11 +66,9 @@ To delete a management group, the following requirements must be met:
 
 1. There are no child management groups or subscriptions under the management group.
 
-   - To move a subscription out of a management group, see [Move subscription to another management group](#move-subscriptions-in-the-hierarchy).
+   - To move a subscription or management group to another management group see [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions).
 
-   - To move a management group to another management group, see [Move management groups in the hierarchy](#move-management-groups-in-the-hierarchy).
-
-1. You have write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
+1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
 
 ### Delete in the portal
 
@@ -126,7 +127,7 @@ You can view any management group you have a direct or inherited RBAC role on.
 
 ### View in PowerShell
 
-You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET Powershell commands.  
+You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET PowerShell commands.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -193,27 +194,33 @@ To return a specific management group and all the levels of the hierarchy under 
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## Move subscriptions in the hierarchy
+## Moving management groups and subscriptions   
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can be made children of another management group. A subscription that moves to a
-management group inherits all user access and policies from the parent management group.
+management group inherits all user access and policies from the parent management group
 
-To move the subscription, all of the following RBAC permissions need to be true:
+When moving a management group or subscription to be a child of another management group three rules need to be evaluated as true.
 
-- "Owner" role on the child subscription.
-- "Owner", "Contributor", or "Management Group Contributor" role on the target parent management group.
-- "Owner", "Contributor", or "Management Group Contributor" role on the existing parent management group.
+If you're doing the move action, you need: 
 
-If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+-  Management group write and Role Assignment write permissions on the child subscription or management group.
+    - Built-on role example **Owner**
+- Management group write access on the target parent management group.
+    - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+- Management group write access on the existing parent management group.
+    - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 
-If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor.
+**Exception**: If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+
+If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you're able to move it to any management group where you're a contributor. 
 
 To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
-### Move subscriptions in the portal
 
-#### Add an existing Subscription to a management group
+## Move subscriptions 
+
+#### Add an existing Subscription to a management group in the portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
@@ -229,7 +236,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Select "Save".
 
-#### Remove a subscription from a management group
+#### Remove a subscription from a management group in the portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
@@ -277,9 +284,7 @@ To remove the subscription from the management group, use the subscription remov
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## Move management groups in the hierarchy  
-
-When you move a parent management group, the hierarchy under that group moves with it. For the access you need to move management groups, see [Management group access](index.md#management-group-access).
+## Move management groups 
 
 ### Move management groups in the portal
 
@@ -320,7 +325,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## Audit management groups using activity logs
 
-Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
+Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
 ![Activity Logs with management groups](media/al-mg.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance auditing | Microsoft Docs
+title: Managed instance auditing
 description: Learn how to get started with Azure SQL Database managed instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
@@ -9,10 +9,10 @@ ms.devlang:
 ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/08/2019
+ms.date: 03/27/2020
 ---
 # Get started with Azure SQL Database managed instance auditing
 
@@ -26,7 +26,7 @@ ms.date: 04/08/2019
 The following section describes the configuration of auditing on your managed instance.
 
 1. Go to the [Azure portal](https://portal.azure.com).
-1. Create an Azure Storage **container** where audit logs are stored.
+2. Create an Azure Storage **container** where audit logs are stored.
 
    1. Navigate to the Azure Storage where you would like to store your audit logs.
 
@@ -44,8 +44,10 @@ The following section describes the configuration of auditing on your managed in
    1. Provide a container **Name**, set Public access level to **Private**, and then click **OK**.
 
       ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
-
-1. After creating the container for the Audit logs there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
+  > [!IMPORTANT]
+  > Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage)
+  
+3. After creating the container for the Audit logs there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
    - <a id="blobtsql"></a>Configure blog storage for audit logs using T-SQL:
 
@@ -132,12 +134,12 @@ The following section describes the configuration of auditing on your managed in
 
      1. Click **OK** in the "Create Audit" dialog.
 
-1. <a id="createspec"></a>After configuring the Blob container as target for the audit logs, create a Server Audit Specification or Database Audit Specification as you would for SQL Server:
+4. <a id="createspec"></a>After configuring the Blob container as target for the audit logs, create and enable a Server Audit Specification or Database Audit Specification as you would for SQL Server:
 
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. Enable the server audit that you created in step 6:
+5. Enable the server audit that you created in step 3:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -147,7 +149,7 @@ The following section describes the configuration of auditing on your managed in
 
 For additional information:
 
-- [Auditing differences between single databases, elastic pool,s, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Auditing differences between single databases, elastic pools, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -178,7 +180,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
     GO
     ```
 
-9. Create a server audit specification or database audit specification as you would for SQL Server:
+9. Create and enable a server audit specification or database audit specification as you would for SQL Server:
 
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -186,7 +188,8 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
 10. Enable the server audit created in step 8:
  
     ```SQL
-    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    ALTER SERVER AUDIT [<your_audit_name>]
+    WITH (STATE=ON);
     GO
     ```
 
@@ -219,7 +222,6 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
 - With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
 - In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
 
 XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are **not supported**.

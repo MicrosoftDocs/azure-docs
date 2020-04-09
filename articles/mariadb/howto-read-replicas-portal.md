@@ -1,11 +1,11 @@
 ---
-title: Create and manage read replicas in Azure Database for MariaDB
+title: Manage read replicas - Azure portal - Azure Database for MariaDB
 description: This article describes how to set up and manage read replicas in Azure Database for MariaDB using the portal
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 3/18/2020
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure portal

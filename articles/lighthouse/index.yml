@@ -5,13 +5,13 @@ summary: Azure Lighthouse lets service providers manage Azure resources across a
 
 metadata:
   title: Azure Lighthouse Documentation
-  description: Learn how to manage customer resources at scale
+  description: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/19/2019
+  ms.date: 09/25/2019
   
 landingContent:
   - title: About Azure Lighthouse
@@ -39,17 +39,19 @@ landingContent:
             url: ./concepts/recommended-security-practices.md
           - text: Cloud Solution Provider program considerations
             url: ./concepts/cloud-solution-provider.md
+          - text: Enterprise scenarios
+            url: ./concepts/enterprise.md
 
   - title: Marketplace offers
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Managed Services offers in Azure Marketplace
-            url: ./concepts/managed-services-offers.md
       - linkListType: how-to-guide
         links:
           - text: Publish Managed Services offers
             url: ./how-to/publish-managed-services-offers.md
+      - linkListType: concept
+        links:
+          - text: Managed Services offers in Azure Marketplace
+            url: ./concepts/managed-services-offers.md
 
   - title: Samples and templates
     linkLists:
@@ -59,6 +61,24 @@ landingContent:
             url: https://github.com/Azure/Azure-Lighthouse-samples/
           - text: Index of Azure Lighthouse samples
             url: ./samples/index.md
+
+  - title: Work with Azure services
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure Monitor Logs at scale
+            url: ./how-to/monitor-at-scale.md
+          - text: Deploy Azure Policy at scale
+            url: ./how-to/policy-at-scale.md
+
+  - title: Azure portal experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
 
   - title: Reference - Downloads
     linkLists:
@@ -86,15 +106,6 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
   
-  - title: Azure portal experiences
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and manage customers
-            url: ./how-to/view-manage-customers.md
-          - text: View and manage service providers
-            url: ./how-to/view-manage-service-providers.md
-
   - title: Get involved
     linkLists:
       - linkListType: get-started

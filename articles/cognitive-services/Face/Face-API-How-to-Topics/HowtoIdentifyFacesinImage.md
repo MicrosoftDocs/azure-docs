@@ -1,7 +1,7 @@
 ---
-title: "Example: Identify faces in images - Face API"
+title: "Example: Identify faces in images - Face"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to identify faces in images.
+description: This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # Example: Identify faces in images
 
-This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance. The samples are written in C# by using the Azure Cognitive Services Face API client library.
+This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance. The samples are written in C# by using the Azure Cognitive Services Face client library.
 
 ## Preparation
 
@@ -77,7 +77,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a> Step 2.2: Detect faces and register them to the correct person
-Detection is done by sending a "POST" web request to the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API with the image file in the HTTP request body. When you use the client library, face detection is done through the DetectAsync method for the FaceClient class.
+Detection is done by sending a "POST" web request to the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API with the image file in the HTTP request body. When you use the client library, face detection is done through one of the Detect..Async methods of the FaceClient class.
 
 For each face that's detected, call [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) to add it to the correct person.
 
@@ -127,7 +127,7 @@ while(true)
 
 ## Step 4: Identify a face against a defined PersonGroup
 
-When the Face API performs identifications, it computes the similarity of a test face among all the faces within a group. It returns the most comparable persons for the testing face. This process is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
+When the Face service performs identifications, it computes the similarity of a test face among all the faces within a group. It returns the most comparable persons for the testing face. This process is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
 
 The testing face must be detected by using the previous steps. Then the face ID is passed to the identification API as a second argument. Multiple face IDs can be identified at once. The result contains all the identified results. By default, the identification process returns only one person that matches the test face best. If you prefer, specify the optional parameter maxNumOfCandidatesReturned to let the identification process return more candidates.
 
@@ -138,8 +138,8 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceClient.Face.DetectAsync(s);
-    var faceIds = faces.Select(face => face.FaceId).ToArray();
+    var faces = await faceClient.Face.DetectWithStreamAsync(s);
+    var faceIds = faces.Select(face => face.FaceId.Value).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)

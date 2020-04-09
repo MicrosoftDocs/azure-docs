@@ -1,18 +1,9 @@
 ---
-title: Sync content from a cloud folder - Azure App Service
-description: Learn how to deploy your app to Azure App Service via content sync from a cloud folder.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-
+title: Sync content from a cloud folder
+description: Learn how to deploy your app to Azure App Service via content sync from a cloud folder, including OneDrive or Dropbox.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
 
@@ -20,7 +11,7 @@ ms.custom: seodec18
 # Sync content from a cloud folder to Azure App Service
 This article shows you how to sync your content to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) from Dropbox and OneDrive. 
 
-The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). You can, work with your app code and content in a designated cloud folder, and then sync to App Service with the click of a button. Content sync uses the Kudu build server. 
+The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). You can work with your app code and content in a designated cloud folder, and then sync to App Service with the click of a button. Content sync uses the Kudu build server. 
 
 ## Enable content sync deployment
 

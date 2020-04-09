@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
 
 ---
@@ -36,7 +36,7 @@ When you create public IP address resources, Azure assigns an available public I
 - You can create public IP address resources from a known range.
 - You, or your business partners can create firewall rules with ranges that include public IP addresses you've currently assigned, as well as addresses you haven't assigned yet. This eliminates the need to change firewall rules as you assign IP addresses to new resources.
 - The default size of a range you can create is /28 or 16 IP addresses.
-- There are no limits as to how many ranges you can create, however, there are limits on the maximum number of static public IP addresses you can have in an Azure subscription. As a result, the number of ranges you create can't encompass more static public IP addresses than you can have in your subscription. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- There are no limits as to how many ranges you can create, however, there are limits on the maximum number of static public IP addresses you can have in an Azure subscription. As a result, the number of ranges you create can't encompass more static public IP addresses than you can have in your subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - The addresses that you create using addresses from the prefix can be assigned to any Azure resource that you can assign a public IP address to.
 - You can easily see which IP addresses that are allocated and not yet allocated within the range.
 
@@ -45,7 +45,7 @@ You can associate the following resources to a static public IP address from a p
 
 |Resource|Scenario|Steps|
 |---|---|---|
-|Virtual Machines| Associating public IPs from a prefix to your virtual machines in Azure reduces management overhead when it comes to whitelisting IPs in a firewall. You can simply whitelist an entire prefix with a single firewall rule. As you scale with virtual machines in Azure, you can associate IPs from the same prefix saving cost, time, and management overhead.| To associate IPs from a prefix to your virtual machine: 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. [Associate the IP to your virtual machine's network interface.](virtual-network-network-interface-addresses.md#add-ip-addresses)
+|Virtual Machines| Associating public IPs from a prefix to your virtual machines in Azure reduces management overhead when it comes to whitelisting IPs in a firewall. You can simply whitelist an entire prefix with a single firewall rule. As you scale with virtual machines in Azure, you can associate IPs from the same prefix saving cost, time, and management overhead.| To associate IPs from a prefix to your virtual machine: 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. [Associate the IP to your virtual machine's network interface.](virtual-network-network-interface-addresses.md#add-ip-addresses) You can also [associate the IPs to a Virtual Machine Scale Set](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Standard Load Balancers | Associating public IPs from a prefix to your frontend IP configuration or outbound rule of a Load Balancer ensures simplification of your Azure public IP address space. You can simplify your scenario by grooming outbound connections to be originated from a range of contiguous IP addresses defined by  public IP prefix. | To associate IPs from a prefix to your Load balancer: 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. When creating the Load Balancer, select or update the IP created in step 2 above as the frontend IP of your Load Balancer. |
 | Azure Firewall | You can use a public IP from a prefix for outbound SNAT. This means all outbound virtual network traffic is translated to the [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) public IP. Since this IP comes from a predetermined prefix, it is very easy to know ahead of time what your public IP footprint in Azure will look like. | 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. When you [deploy the Azure firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), be sure to select the IP you previously allocated from the prefix.|
 | Application Gateway v2 | You can use a public IP from a prefix for your autoscaling and zone-redundant Application gateway v2. Since this IP comes from a predetermined prefix, it is very easy to know ahead of time what your public IP footprint in Azure will look like. | 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. When you [deploy the Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), be sure to select the IP you previously allocated from the prefix.|
@@ -53,9 +53,8 @@ You can associate the following resources to a static public IP address from a p
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure allocates the IP addresses for the prefix, based on the size that you specify.
-- You can create a prefix of upto 16 IP addresses or a /28. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- You can create a prefix of up to 16 IP addresses or a /28 by default. Review [Network limits increase requests](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) and [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
 - You can't change the range, once you've created the prefix.
-- The range is for IPv4 addresses only. The range does not contain IPv6 addresses.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses cannot be assigned to resources in the classic deployment model.
 - All public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix, and must be assigned to resources in the same region and subscription.

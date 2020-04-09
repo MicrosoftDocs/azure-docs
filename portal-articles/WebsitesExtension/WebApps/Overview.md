@@ -38,7 +38,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
   - [Java with MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python with PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Bind an existing SSL certificate to your application](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Bind an SSL certificate to your application](/azure/app-service/configure-ssl-bindings)
 
 ## Free Pluralsight Video Training
 

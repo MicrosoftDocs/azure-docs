@@ -78,11 +78,18 @@ Many organizations have common access concerns that Conditional Access policies 
 - Blocking risky sign-in behaviors
 - Requiring organization-managed devices for specific applications
 
+## Customer case studies
+
+Discover how other organizations use Azure AD Conditional Access to define and implement automated access control decisions. The following featured stories demonstrate how these customer needs are met.
+
+* [Wipro drives mobile productivity with Microsoft cloud security tools to improve customer engagements.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) The Conditional Access policies in Azure AD have enabled the company to share documents, resources, and applications with trusted outside entities---who can use their own credentials---while maintaining control over its own corporate data.
+* [Aramex delivery limited - Global logistics and transportation company creates cloud-connected office with identity and access management solution](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Ensuring secure access was especially difficult with Aramex's remote employees. The company is now applying Conditional Access to let these remote employees access their SaaS applications from outside the network. The Conditional Access rule will decide whether to enforce Multi-Factor Authentication, giving only the right people the right access.
+
 ## License requirements
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
 
 ## Next steps
 
@@ -92,6 +99,6 @@ To learn how to implement Conditional Access in your environment, see [Plan your
 
 [Learn about Identity Protection](../identity-protection/overview-v2.md)
 
-[Learn about Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Learn about Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Learn about Microsoft Intune](/intune/index)

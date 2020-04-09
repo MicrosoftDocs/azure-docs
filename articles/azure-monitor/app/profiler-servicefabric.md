@@ -1,18 +1,14 @@
 ---
-title: Profile live Azure Service Fabric applications with Application Insights | Microsoft Docs
+title: Profile live Azure Service Fabric apps with Application Insights
 description: Enable Profiler for a Service Fabric application
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
+ms.date: 08/06/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Profile live Azure Service Fabric applications with Application Insights
 
 You can also deploy Application Insights Profiler on these services:

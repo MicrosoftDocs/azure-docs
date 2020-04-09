@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
+  - name: Which MySQL option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -19,7 +21,7 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
-    - name: .Net
+    - name: .NET
       href: connect-csharp.md    
     - name: Python
       href: connect-python.md
@@ -55,6 +57,8 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
+  - name: Java connection pooling
+    href: sample-scripts-java-connection-pooling.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -69,23 +73,36 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md        
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
+    - name: Connectivity architecture
+      href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
     - name: Virtual Network
       href: concepts-data-access-and-security-vnet.md
-    - name: Connectivity architecture
-      href: concepts-connectivity-architecture.md      
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md   
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Data Encryption
+      href: concepts-data-encryption-mysql.md
+    - name: Azure AD authentication
+      href: concepts-azure-ad-authentication.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
-    - name: Overview
+    - name: Business continuity intro
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
@@ -161,6 +178,8 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
@@ -205,6 +224,8 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    - name: Troubleshoot data encryption
+      href: howto-data-encryption-troubleshoot.md
   - name: Advanced Threat Protection
     items:
     - name: Azure portal
@@ -215,6 +236,26 @@
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
+  - name: Data Encryption
+    items:
+    - name: Azure portal
+      href: howto-data-encryption-portal.md
+    - name: Azure CLI
+      href: howto-data-encryption-cli.md
+  - name: Azure AD Integration
+    items:
+    - name: Configure Azure AD integration
+      href: howto-configure-sign-in-azure-ad-authentication.md
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
   - name: Restart server
     items:
     - name: Azure portal
@@ -229,7 +270,7 @@
     href: /rest/api/mysql
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformysql/allversions
-  - name: Azure stored procedures
+  - name: Management stored procedures
     href: reference-stored-procedures.md
 - name: Resources
   items:

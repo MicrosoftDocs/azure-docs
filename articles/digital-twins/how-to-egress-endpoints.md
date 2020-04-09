@@ -1,16 +1,16 @@
 ---
-title: 'Egress and endpoints in Azure Digital Twins | Microsoft Docs'
-description: Guidelines on how to create endpoints with Azure Digital Twins.
+title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
+ms.date: 01/21/2020
 ---
 
-# Egress and endpoints
+# Egress and endpoints in Azure Digital Twins
 
 Azure Digital Twins *endpoints* represent a message or event broker within a user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 
@@ -56,7 +56,7 @@ Events are sent by IoT objects (such as devices and sensors) for processing by A
 For more information about the Event Grid event schema:
 
 - Review the [Azure Event Grid event schema reference](../event-grid/event-schema.md).
-- Read the [Azure EventGrid Node.js SDK EventGridEvent reference](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Read the [Azure EventGrid Node.js SDK EventGridEvent reference](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
 ## Event types
 
@@ -243,7 +243,7 @@ The following examples demonstrate how to configure the supported endpoints.
 
 An authenticated HTTP POST request against:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 

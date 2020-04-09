@@ -1,6 +1,6 @@
 ---
-title: Managed identities for Azure resources with Azure Service Bus | Microsoft Docs
-description: Use managed identities for Azure resources with Azure Service Bus
+title: Managed identities for Azure resources with Service Bus
+description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -52,7 +52,14 @@ Before you assign an RBAC role to a security principal, determine the scope of a
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. 
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. Here's an example of using the Azure CLI command: [az-role-assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign an identity to a Service Bus RBAC role: 
+
+    ```azurecli
+    az role assignment create \
+        --role $service_bus_role \
+        --assignee $assignee_id \
+        --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
+    ```
 - **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
 - **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
 - **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.

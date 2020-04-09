@@ -1,24 +1,20 @@
 ---
-title: How to use Micrometer with Azure Application Insights Java SDK | Microsoft Docs
-description: 'A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: How to use Micrometer with Azure Application Insights Java SDK
+description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 11/01/2018
+
 ---
+
 # How to use Micrometer with Azure Application Insights Java SDK
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
 ## Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
+* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)
+  2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
 * [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
@@ -31,7 +27,7 @@ Steps
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0</version>
     </dependency>
 
     <dependency>
@@ -58,7 +54,7 @@ Steps
 Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
-* Azure-spring-boot-metrics-starters 2.1.5 or above  
+* Azure-spring-boot-metrics-starters 2.0.7 or later
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
 Steps:
@@ -69,21 +65,21 @@ Steps:
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.1.6</version>
+          <version>2.0.7</version>
     </dependency>
     ```
 1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
 
-     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Build your application and run
 4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
 Default Metrics:
 
 *    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
-*    For example, if the netflix hystrix is present on class path we get those metrics as well. 
+*    For example, if Netflix Hystrix is present on class path we get those metrics as well. 
 *    The following metrics can be available by adding respective beans. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -115,10 +111,8 @@ How to turn off automatic metrics collection:
 ## Use Micrometer with non-Spring Boot web applications
 
 Add the following dependencies to your pom.xml or build.gradle file:
- 
-* [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) or above
-* [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
-* [Register Web Filter](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web Auto 2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
@@ -135,14 +129,41 @@ Steps:
         
         <dependency>
         	<groupId>com.microsoft.azure</groupId>
-        	<artifactId>applicationinsights-web</artifactId>
-        	<version>2.2.0</version>
-        </dependency
+        	<artifactId>applicationinsights-web-auto</artifactId>
+        	<version>2.5.0</version>
+        </dependency>
      ```
 
-2. Put Application Insights.xml in the resources folder
+2. Put `ApplicationInsights.xml` file in the resources folder:
 
-    Sample Servlet class (emits a timer metric):
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. Sample Servlet class (emits a timer metric):
 
     ```Java
         @WebServlet("/hello")
@@ -181,7 +202,7 @@ Steps:
     
     ```
 
-      Sample configuration class:
+4. Sample configuration class:
 
     ```Java
          @WebListener
@@ -246,5 +267,5 @@ Add the following binding code to the configuration  file:
 
 ## Next steps
 
-* To learn more about Micrometer refer to the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).

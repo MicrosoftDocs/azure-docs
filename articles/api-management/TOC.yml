@@ -6,6 +6,8 @@
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
+      - name: Manage microservices deployed in AKS
+        href: api-management-kubernetes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -31,8 +33,8 @@
         href: api-management-get-started-revise-api.md
       - name: 8 - Add multiple versions
         href: api-management-get-started-publish-versions.md
-      - name: 9 - Customize the Developer portal
-        href: api-management-customize-styles.md
+      - name: 9 - Customize developer portal
+        href: api-management-howto-developer-portal-customize.md
 - name: Samples
   items:
       - name: Policies
@@ -49,6 +51,10 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+      - name: Security
+        items:
+            - name: Built-in security controls
+              href: api-management-security-controls.md
       - name: Subscriptions
         href: api-management-subscriptions.md
       - name: Manage using automation
@@ -57,8 +63,9 @@
         href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
-      - name: Built-in security controls
-        href: api-management-security-controls.md
+      - name: Self-hosted gateway overview
+        href: self-hosted-gateway-overview.md
+
 - name: How-to guides
   items:
       - name: Define APIs
@@ -91,6 +98,16 @@
               href: api-management-howto-autoscale.md
             - name: Configure a custom domain
               href: configure-custom-domain.md
+            - name: Deploy to multiple Azure regions
+              href: api-management-howto-deploy-multi-region.md
+            - name: Provision a self-hosted gateway
+              href: api-management-howto-provision-self-hosted-gateway.md
+            - name: Deploy a self-hosted gateway to Kubernetes
+              href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+            - name: Deploy a self-hosted gateway to Docker
+              href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+            - name: Configure custom domain for self-hosted gateway
+              href: api-management-howto-configure-custom-domain-gateway.md            
       - name: Cache
         items:
             - name: Add caching to improve performance
@@ -107,6 +124,8 @@
         items:
             - name: Protect your API with Azure AD
               href: api-management-howto-protect-backend-with-aad.md
+            - name: Protect your SPA Backend API with Azure AD B2C
+              href: howto-protect-backend-frontend-azure-ad-b2c.md
             - name: Connect to a virtual network
               href: api-management-using-with-vnet.md
             - name: Connect to an internal virtual network
@@ -119,17 +138,13 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
-      - name: Customize the developer experience
+      - name: Customize developer experience
         items:
-            - name: Access and customize the new developer portal
+            - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
-            - name: Modify page content and layout
-              href: api-management-modify-content-layout.md
-            - name: Customize system pages using templates
-              href: api-management-developer-portal-templates.md
-            - name: Authentication with Azure AD
+            - name: Authenticate with Azure AD
               href: api-management-howto-aad.md
-            - name: Authentication with Azure AD B2C
+            - name: Authenticate with Azure AD B2C
               href: api-management-howto-aad-b2c.md
             - name: Delegated authentication
               href: api-management-howto-setup-delegation.md
@@ -137,6 +152,34 @@
               href: api-management-howto-configure-notifications.md
             - name: Enable console OAuth support
               href: api-management-howto-oauth2.md
+            - name: Legacy portal - customize the portal
+              href: api-management-customize-styles.md
+            - name: Legacy portal - modify pages and layouts
+              href: api-management-modify-content-layout.md
+            - name: Legacy portal - customize with templates
+              href: api-management-developer-portal-templates.md
+      - name: Legacy portal templates
+        items:
+            - name: Data model reference
+              href: api-management-template-data-model-reference.md
+            - name: Page controls
+              href: api-management-page-controls.md
+            - name: Templates
+              href: api-management-developer-portal-templates-reference.md
+            - name: APIs
+              href: api-management-api-templates.md
+            - name: Products
+              href: api-management-product-templates.md
+            - name: Applications
+              href: api-management-application-templates.md
+            - name: Issues
+              href: api-management-issue-templates.md
+            - name: User profile
+              href: api-management-user-profile-templates.md
+            - name: Pages
+              href: api-management-page-templates.md
+            - name: Template resources
+              href: api-management-template-resources.md
       - name: Define policies
         items:
             - name: Set or edit policies
@@ -165,34 +208,10 @@
               href: api-management-cross-domain-policies.md
             - name: Transformation policies
               href: api-management-transformation-policies.md
-      - name: Template reference
-        items:
-            - name: Templates
-              href: api-management-developer-portal-templates-reference.md
-            - name: APIs
-              href: api-management-api-templates.md
-            - name: Products
-              href: api-management-product-templates.md
-            - name: Applications
-              href: api-management-application-templates.md
-            - name: Issues
-              href: api-management-issue-templates.md
-            - name: User profile
-              href: api-management-user-profile-templates.md
-            - name: Pages
-              href: api-management-page-templates.md
-            - name: Template resources
-              href: api-management-template-resources.md
-      - name: Data model reference
-        href: api-management-template-data-model-reference.md
-      - name: Page controls
-        href: api-management-page-controls.md
       - name: Manage in production
         items:
             - name: Manage groups
               href: api-management-howto-create-groups.md
-            - name: Deploy to multiple Azure regions
-              href: api-management-howto-deploy-multi-region.md
             - name: Retrieve IP addresses
               href: api-management-howto-ip-addresses.md
             - name: Log events to Azure Event Hubs

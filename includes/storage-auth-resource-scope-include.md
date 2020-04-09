@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 03/28/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -21,4 +21,4 @@ The following list describes the levels at which you can scope access to Azure b
 - **The subscription.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in all of the resource groups in the subscription.
 
 > [!IMPORTANT]
-> If your subscription includes an Azure DataBricks namespace, roles assigned at the subscription scope will be blocked from granting access to blob and queue data.
+> If your subscription includes an Azure DataBricks namespace, roles that are scoped to the subscription will not grant access to blob and queue data. Scope roles to the resource group, storage account, or container or queue instead.     

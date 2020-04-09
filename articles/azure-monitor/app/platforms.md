@@ -1,18 +1,10 @@
 ---
 title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
 description: Languages, platforms, and integrations available for Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/18/2019
+
 ms.reviewer: olegan
-ms.author: mbullwin
 ---
 
 # Supported languages
@@ -21,6 +13,7 @@ ms.author: mbullwin
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)
 
 ## Supported platforms and frameworks
 
@@ -37,6 +30,7 @@ ms.author: mbullwin
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
+* [Python](../../azure-monitor/app/opencensus-python.md)
 * [Universal Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 
@@ -52,4 +46,4 @@ ms.author: mbullwin
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## Unsupported SDKs
-We're aware that several other community-supported SDKs exist. However, Azure Monitor only provides support when using the supported SDKs listed on this page. We’re constantly assessing opportunities to expand our support for other languages, so follow our [GitHub Announcements](https://github.com/microsoft/ApplicationInsights-Announcements/issues) page to receive the latest SDK news. 
+We're aware that several other community-supported SDKs exist. However, Azure Monitor only provides support when using the supported SDKs listed on this page. We're constantly assessing opportunities to expand our support for other languages, so follow our [GitHub Announcements](https://github.com/microsoft/ApplicationInsights-Announcements/issues) page to receive the latest SDK news. 

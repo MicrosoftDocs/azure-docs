@@ -1,5 +1,6 @@
 ---
-title: Secure back-end services using client certificate authentication - Azure API Management | Microsoft Docs
+title: Secure back-end services using client certificate authentication
+titleSuffix: Azure API Management
 description: Learn how to secure back-end services using client certificate authentication in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -11,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 01/08/2020
 ms.author: apimpm
 ---
 
@@ -25,34 +26,37 @@ For information about managing certificates using the API Management REST API, s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this article, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]). You need access to the certificate and the password for uploading it to the API Management service.
+This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this article, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in the Azure App Service refer to this article][to configure certificate authentication in Azure WebSites refer to this article]). You need access to the certificate and the password for uploading it to the API Management service.
 
-## <a name="step1"> </a>Upload a client certificate
+## <a name="step1"> </a>Upload a Certificate
 
-![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert.png)
+> [!NOTE]
+> Instead of an uploaded certificate you can use a certificate stored in the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) service as shown in this [example](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
+
+![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
 Follow the steps below to upload a new client certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance][Create an API Management service instance].
 
 1. Navigate to your Azure API Management service instance in the Azure portal.
-2. Select **Client certificates** from the menu.
-3. Click the **+ Add** button.  
-    ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
-4. Browse for the certificate, provide its ID and password.  
+2. Select **Certificates** from the menu.
+3. Click the **+ Add** button.
+    ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+4. Browse for the certificate, provide its ID and password.
 5. Click **Create**.
 
 > [!NOTE]
 > The certificate must be in **.pfx** format. Self-signed certificates are allowed.
 
-Once the certificate is uploaded, it shows in the **Client certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
+Once the certificate is uploaded, it shows in the **Certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
-> To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
+> To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end).
 
 ## <a name="step1a"> </a>Delete a client certificate
 
 To delete a certificate, click context menu **...** and select **Delete** beside the certificate.
 
-![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
+![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png)
 
 If the certificate is in use by an API, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any APIs that are configured to use it.
 
@@ -60,14 +64,14 @@ If the certificate is in use by an API, then a warning screen is displayed. To d
 
 ## <a name="step2"> </a>Configure an API to use a client certificate for gateway authentication
 
-1. Click **APIs** from the **API Management** menu on the left and navigate to the API.  
+1. Click **APIs** from the **API Management** menu on the left and navigate to the API.
     ![Enable client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. In the **Design** tab, click on a pencil icon of the **Backend** section. 
-3. Change the **Gateway credentials** to **Client cert** and select your certificate from the dropdown.  
+2. In the **Design** tab, click on a pencil icon of the **Backend** section.
+3. Change the **Gateway credentials** to **Client cert** and select your certificate from the dropdown.
     ![Enable client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Click **Save**. 
+4. Click **Save**.
 
 > [!WARNING]
 > This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the back-end server.

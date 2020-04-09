@@ -1,11 +1,11 @@
 ---
 title: Partitioning in Azure Cosmos DB
-description: Overview of partitioning in Azure Cosmos DB.
-ms.author: rimman
-author: rimman
+description: Learn about partitioning in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 12/02/2019
 
 ---
 
@@ -33,7 +33,7 @@ To learn more about how Azure Cosmos DB manages partitions, see [Logical partiti
 
 The following is a good guidance for choosing a partition key:
 
-* A single logical partition has an upper limit of 10 GB of storage.  
+* A single logical partition has an upper limit of 20 GB of storage.  
 
 * Azure Cosmos containers have a minimum throughput of 400 request units per second (RU/s). When throughput is provisioned on a database, minimum RUs per container is 100 request units per second (RU/s). Requests to the same partition key can't exceed the throughput that's allocated to a partition. If requests exceed the allocated throughput, requests are rate-limited. So, it's important to pick a partition key that doesn't result in "hot spots" within your application.
 

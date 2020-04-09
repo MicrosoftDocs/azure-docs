@@ -1,22 +1,26 @@
 ---
 title: 'Quickstart: Create a data science experiment'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) - Azure
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---
 
-# Quickstart: Create your first data science experiment in Azure Machine Learning Studio
+# Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
 
-In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio](what-is-ml-studio.md) that predicts the price of a car based on different variables such as make and technical specifications.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio (classic)](what-is-ml-studio.md) that predicts the price of a car based on different variables such as make and technical specifications.
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) is a great introduction to machine learning using everyday language and concepts.
 
@@ -37,20 +41,18 @@ This quickstart follows the default workflow for an experiment:
 [Choose and apply an algorithm]: #choose-and-apply-an-algorithm
 [Predict new automobile prices]: #predict-new-automobile-prices
 
-If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this quickstart.
-
 ## Get the data
 
 The first thing you need in machine learning is data.
-There are several sample datasets included with Studio that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
+There are several sample datasets included with Studio (classic) that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]
-> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio (classic) workspace.
 
 Here's how to get the dataset into your experiment.
 
-1. Create a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window. Select **EXPERIMENT** >  **Blank Experiment**.
+1. Create a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio (classic) window. Select **EXPERIMENT** >  **Blank Experiment**.
 
 1. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**. The name doesn't need to be unique.
 
@@ -128,7 +130,7 @@ Now that the data is clean, we're ready to specify what features we're going to 
 
 ## Define features
 
-In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile.
+In machine learning, *features* are individual measurable properties of something you're interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile.
 
 Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Some features have a strong correlation with other features and can be removed. For example, city-mpg and highway-mpg are closely related so we can keep one and remove the other without significantly affecting the prediction.
 
@@ -238,7 +240,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 In this quickstart, you created a simple experiment using a sample dataset. To explore the process of creating and deploying a model in more depth, continue to the predictive solution tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop a predictive solution in Studio](tutorial-part1-credit-risk.md)
+> [Tutorial: Develop a predictive solution in Studio (classic)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

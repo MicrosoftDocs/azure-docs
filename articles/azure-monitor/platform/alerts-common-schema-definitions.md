@@ -1,15 +1,12 @@
 ---
 title: Common alert schema definitions for Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
-author: anantr
-services: azure-monitor
-ms.service: azure-monitor
+author: ofirmanor
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: anantr
 ms.subservice: alerts
----
+ms.date: 03/14/2019
 
+---
 
 # Common alert schema definitions
 
@@ -148,7 +145,7 @@ Any alert instance describes the resource that was affected and the cause of the
 ### Log alerts
 
 > [!NOTE]
-> For log alerts that have a custom JSON payload defined, enabling the common schema reverts the payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludedSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### `monitoringService` = `Log Analytics`
 
@@ -159,7 +156,7 @@ Any alert instance describes the resource that was affected and the cause of the
     "SearchQuery": "search * \n| where Type == \"Heartbeat\" \n| where Category == \"Direct Agent\" \n| where TimeGenerated > ago(30m) ",
     "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
     "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
-    "ResultCount": 15,
+    "ResultCount": 2,
     "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2Fpipelinealertrg%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2FINC-OmsAlertRunner%22%7D%5D%7D/query/search%20%2A%20%0A%7C%20where%20Type%20%3D%3D%20%22Heartbeat%22%20%0A%7C%20where%20Category%20%3D%3D%20%22Direct%20Agent%22%20%0A%7C%20where%20TimeGenerated%20%3E%20%28datetime%282019-03-22T13%3A51%3A31.0000000%29%20-%2030m%29%20%20/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a31.0000000Z%2f2019-03-22T13%3a51%3a31.0000000Z",
     "SeverityDescription": "Warning",
     "WorkspaceId": "2a1f50a7-ef97-420c-9d14-938e77c2a929",
@@ -170,7 +167,7 @@ Any alert instance describes the resource that was affected and the cause of the
     "SearchIntervalInMinutes": "15",
     "Threshold": 10000,
     "Operator": "Less Than",
-    "SearchResult": {
+    "SearchResults": {
       "tables": [
         {
           "name": "PrimaryResult",
@@ -211,7 +208,7 @@ Any alert instance describes the resource that was affected and the cause of the
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -226,14 +223,14 @@ Any alert instance describes the resource that was affected and the cause of the
     "SearchQuery": "search *",
     "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
     "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
-    "ResultCount": 0,
+    "ResultCount": 2,
     "LinkToSearchResults": "https://portal.azure.com#@72f988bf-86f1-41af-91ab-2d7cd011db47/blade/Microsoft_OperationsManagementSuite_Workspace/AnalyticsBlade/initiator/AnalyticsShareLinkToQuery/isQueryEditorVisible/true/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%<subscription ID>%2FresourceGroups%2FPipeLineAlertRG%2Fproviders%2Fmicrosoft.insights%2Fcomponents%2FWEU-AIRunner%22%7D%5D%7D/query/search%20%2A/isQuerybase64Compressed/false/timespanInIsoFormat/2019-03-22T13%3a36%3a33.0000000Z%2f2019-03-22T13%3a51%3a33.0000000Z",
     "SearchIntervalDurationMin": "15",
     "SearchIntervalInMinutes": "15",
     "Threshold": 10000,
     "Operator": "Less Than",
     "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
-    "SearchResult": {
+    "SearchResults": {
       "tables": [
         {
           "name": "PrimaryResult",
@@ -274,7 +271,7 @@ Any alert instance describes the resource that was affected and the cause of the
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

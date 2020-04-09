@@ -1,5 +1,5 @@
 ---
-title: Datasets in Azure Data Factory | Microsoft Docs
+title: Datasets
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
@@ -10,6 +10,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ---
 
@@ -70,7 +71,7 @@ typeProperties | The type properties are different for each type (for example: A
 
 ### Data flow compatible dataset
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 See [supported dataset types](#dataset-type) for a list of dataset types that are [Data Flow](concepts-data-flow-overview.md) compatible. Datasets that are compatible for Data Flow require fine-grained dataset definitions for transformations. Thus, the JSON definition is slightly different. Instead of a _structure_ property, datasets that are Data Flow compatible have a _schema_ property.
 

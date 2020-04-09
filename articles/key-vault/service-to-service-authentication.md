@@ -10,6 +10,7 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: general
 
 ---
 
@@ -84,7 +85,7 @@ To use Azure CLI:
 
 1. Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verify access by entering *az account get-access-token*. If you receive an error, check that the right version of Azure CLI is correctly installed.
+1. Verify access by entering *az account get-access-token --resource https://vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
 
    If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI. Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
@@ -168,7 +169,11 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Use a shared secret credential to sign into Azure AD
 
-1. Create a service principal certificate with a password using [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+1. Create a service principal certificate with a password using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command with the --sdk-auth parameter.
+
+    ```azurecli
+    az ad sp create-for-rbac --sdk-auth
+    ```
 
 1. Set an environment variable named **AzureServicesAuthConnectionString** to the following value:
 

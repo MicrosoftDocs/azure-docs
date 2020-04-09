@@ -1,12 +1,15 @@
 ---
-title: Create a Node.js web app - Azure App Service
-description: How to deploy a Node.js app to Azure App Service
-author: msangapu
+title: 'Quickstart: Create a Linux Node.js app'
+description: Get started with Linux apps on Azure App Service by deploying your first Node.js app to a Linux container in App Service.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
+
+# NOTE: this article is nearly identical to app-service/app-service-web-get-started-nodejs.md.
+# The difference is that this article uses defaults to deploy to Linux, whereas the other
+# uses the advanced option to deploy to Windows.
 ---
 
 # Create a Node.js app in Azure
@@ -23,7 +26,7 @@ You will also need to install the [Azure App Service extension](vscode:extension
 
 ### Sign in
 
-Once the extension is installed, log into your Azure account. In the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account. In the Activity Bar, select the Azure logo to show the **AZURE APP SERVICE** explorer. Select **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](./media/quickstart-nodejs/sign-in.png)
 
@@ -36,7 +39,7 @@ export HTTPS_PROXY=https://username:password@proxy:8080
 export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-If setting the environment variables doesn't correct the issue, contact us by clicking the **I ran into an issue** button below.
+If setting the environment variables doesn't correct the issue, contact us by selecting the **I ran into an issue** button below.
 
 ### Prerequisite check
 
@@ -52,24 +55,14 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 Next, create a Node.js application that can be deployed to the Cloud. This quickstart uses an application generator to quickly scaffold out the application from a terminal.
 
 > [!TIP]
-> If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy the website](#deploy-the-website).
+> If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy to Azure](#deploy-to-azure).
 
-### Install the Express generator
+### Scaffold a new application with the Express Generator
 
-[Express](https://www.expressjs.com) is a popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
-
-```bash
-npm install -g express-generator
-```
-
-The `-g` switch installs the Express Generator globally on your machine so you can run it from anywhere.
-
-### Scaffold a new application
-
-Next, scaffold a new Express application called `myExpressApp` by running:
+[Express](https://www.expressjs.com) is a popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and can be run directly (without installation) by using the npm command-line tool `npx`.
 
 ```bash
-express myExpressApp --view pug --git
+npx express-generator myExpressApp --view pug --git
 ```
 
 The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`) and to create a `.gitignore` file.
@@ -96,9 +89,9 @@ Now, open your browser and navigate to [http://localhost:3000](http://localhost:
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-## Deploy the website
+## Deploy to Azure
 
-In this section, you deploy your Node.js website using VS Code and the Azure App Service extension. This quickstart uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
+In this section, you deploy your Node.js app using VS Code and the Azure App Service extension. This quickstart uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
 
 ### Deploy using Azure App Service
 
@@ -108,7 +101,7 @@ First, open your application folder in VS Code.
 code .
 ```
 
-In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
+In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy your app to Azure.
 
 ![Deploy to Web App](./media/quickstart-nodejs/deploy.png)
 
@@ -117,43 +110,43 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 1. Choose the directory that you currently have open, `myExpressApp`.
 
-2. Choose **Create new Web App**.
+1. Choose **Create new Web App**, which deploys to App Service on Linux by default.
 
-3. Type a globally unique name for your Web App and press ENTER. Valid characters for an app name are 'a-z', '0-9', and '-'.
+1. Type a globally unique name for your Web App and press ENTER. Valid characters for an app name are 'a-z', '0-9', and '-'.
 
-4. Choose your **Node.js version**, LTS is recommended.
+1. Choose your **Node.js version**, LTS is recommended.
 
     The notification channel shows the Azure resources that are being created for your app.
 
-Click **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
+1. Select **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
 
-![Configured deployment](./media/quickstart-nodejs/server-build.png)
+    ![Configured deployment](./media/quickstart-nodejs/server-build.png)
 
-When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
+1. When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
-![Configured deployment](./media/quickstart-nodejs/save-configuration.png)
+    ![Configured deployment](./media/quickstart-nodejs/save-configuration.png)
 
 > [!TIP]
 > Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
-### Browse the website
+### Browse the app in Azure
 
-Once the deployment completes, click **Browse Website** in the prompt to view your freshly deployed website.
+Once the deployment completes, select **Browse Website** in the prompt to view your freshly deployed web app.
 
 ### Troubleshooting
 
-If you see the error **"You do not have permission to view this directory or page."**, then the application probably failed to start correctly. Head to the next section and view the log output to find and fix the error. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
+If you see the error **"You do not have permission to view this directory or page."**, then the application probably failed to start correctly. Head to the next section and view the log output to find and fix the error. If you aren't able to fix it, contact us by selecting the **I ran into an issue** button below. We're happy to help!
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-### Updating the website
+### Update the app
 
 You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
 
 ## Viewing Logs
 
-In this section, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the output window in Visual Studio Code.
+In this section, you learn how to view (or "tail") the logs from the running App Service app. Any calls to `console.log` in the app are displayed in the output window in Visual Studio Code.
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 

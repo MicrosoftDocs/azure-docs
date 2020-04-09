@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/17/2019
+  ms.date: 02/24/2020
 
 landingContent:
   # Card
@@ -36,7 +36,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Jenkins server
-            url: install-jenkins-solution-template.md
+            url: install-solution-template-quickstart.md
       - linkListType: download
         links:
         - text: Sample jobs and scripts
@@ -48,7 +48,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Scale with Azure Container Instances
-            url: /azure/container-instances/container-instances-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: container-instances-jenkins.md
           - text: Scale with Azure VM agents
             url: jenkins-azure-vm-agents.md
 
@@ -66,7 +66,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy from GitHub to AKS
-            url: /azure/aks/jenkins-continuous-deployment?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: jenkins-continuous-deployment.md
           - text: Deploy to AKS using blue/green pattern
             url: jenkins-aks-blue-green-deployment.md
           - text: Deploy using the Azure Dev Spaces plug-in
@@ -83,7 +83,7 @@ landingContent:
             url: tutorial-jenkins-deploy-web-app-azure-app-service.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy using the App Service plugin
+          - text: Deploy using the App Service plug-in
             url: deploy-jenkins-app-service-plugin.md
 
   # Card
@@ -92,7 +92,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to a Linux VM using Azure DevOps Services
-            url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: tutorial-build-deploy-jenkins.md
 
   # Card
   - title: CI/CD to Azure Storage
@@ -100,7 +100,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Using Azure Storage with a Jenkins C/I solution
-            url: /azure/storage/storage-java-jenkins-continuous-integration-solution?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: storage-java-jenkins-continuous-integration-solution.md
 
   # Card
   - title: CI/CD to Linux VMs
@@ -108,7 +108,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a dev infrastructure on a Linux VM
-            url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: tutorial-jenkins-github-docker-cicd.md
 
   # Card
   - title: CI/CD to Service Fabric
@@ -116,4 +116,12 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build and deploy an Azure Service Fabric app
-            url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+            url: service-fabric-cicd-your-linux-applications-with-jenkins.md
+
+  # Card
+  - title: CI/CD to Azure Spring Cloud
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy to Azure Spring Cloud using the Azure CLI
+            url: tutorial-jenkins-deploy-cli-spring-cloud-service.md

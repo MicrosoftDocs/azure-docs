@@ -1,19 +1,20 @@
 ---
-title: Azure Data Factory Mapping Data Flow Unpivot Transformation
-description: Azure Data Factory Mapping Data Flow Unpivot Transformation
+title: Mapping data flow Unpivot Transformation
+description: Azure Data Factory mapping data flow Unpivot Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ---
 
 # Azure Data Factory Unpivot Transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Use Unpivot in ADF Mapping Data Flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
+
+Use Unpivot in ADF mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
 
 ![Unpivot Transformation](media/data-flow/unpivot1.png "Unpivot options 1")
 

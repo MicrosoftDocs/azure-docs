@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Blockchain Service Documentation
+title: Azure Blockchain Service documentation
 summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
 
 metadata:
-  title: Azure Blockchain Service Documentation - Tutorials, API Reference
+  title: Azure Blockchain Service documentation
   description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  ms.date: 08/29/2019
+  ms.date: 11/04/2019
 
 landingContent:
   - title: About Azure Blockchain Service
@@ -28,7 +28,6 @@ landingContent:
             url: data-security.md
           - text: Development tools
             url: develop.md
-
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -45,8 +44,6 @@ landingContent:
             url: connect-metamask.md
           - text: Use Geth to connect to a transaction node
             url: connect-geth.md
-          - text: Use Truffle to connect to a transaction node
-            url: connect-truffle.md
       - linkListType: tutorial
         links:
           - text: Use Visual Studio Code to create, build, and deploy smart contracts
@@ -61,7 +58,36 @@ landingContent:
             url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
           - text: Publish events and ledger data
             url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
-
+  - title: Integrate
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Send blockchain data to other Azure services using Blockchain Data Manager
+            url: data-manager.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Blockchain Data Manager using the Azure portal
+            url: data-manager-portal.md
+          - text: Configure Blockchain Data Manager using Azure CLI
+            url: data-manager-cli.md
+          - text: Integrate blockchain using Azure Logic Apps
+            url: ethereum-logic-app.md
+      - linkListType: tutorial
+        links:
+          - text: Use Blockchain Data Manager to send data to Azure Cosmos DB
+            url: data-manager-cosmosdb.md
+      - linkListType: video
+        links:
+          - text: Introduction to Blockchain Data Manager
+            url: https://aka.ms/BTDataManager
+          - text: Use Ethereum Blockchain connector with Azure Logic Apps
+            url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
+          - text: Common scenarios connecting blockchain using Azure Logic Apps
+            url: https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true
+          - text: Generate web services from smart contracts
+            url: https://channel9.msdn.com/Shows/Blocktalk/Generating-Web-Services-from-Smart-Contracts-Based-on-Logic-Apps-Flows-and-Azure-Functions?term=logic%20apps%20blockchain&lang-en=true
+          - text: Publish smart contract events to Azure Event Grid or Azure Service Bus
+            url: https://channel9.msdn.com/Shows/Blocktalk/Generate-Logic-Apps-and-Flows-to-Publish-Smart-Contract-Events-to-Event-Grid-and-Service-Bus?term=logic%20apps%20blockchain&lang-en=true
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
@@ -74,9 +100,6 @@ landingContent:
             url: configure-transaction-nodes.md
           - text: Configure Active Directory access
             url: configure-aad.md
-
-  - title: API
-    linkLists:
       - linkListType: reference
         links:
           - text: REST API

@@ -1,10 +1,10 @@
 ---
 title: Co-sell country and region codes | Azure Marketplace
 description: Use these two-letter country/region codes when providing contact info on your offer's Co-sell page.
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe 
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ---
@@ -13,9 +13,9 @@ ms.date: 08/27/2019
 
 Use these two-letter country/region codes when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md).
 
-If the contact covers all Countries/Regions, use the three letter code “OOO”.
+If the contact covers all Countries/Regions, use the three letter code "OOO".
 
-If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks).
+If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks).
 
 ## Country/Region table
 
@@ -77,7 +77,7 @@ If a contact covers more than one Country/Region, enter each of the two letter c
 | Congo (DRC)                         | CD        |
 | Cook Islands                        | CK        |
 | Costa Rica                          | CR        |
-| Côte d’Ivoire                       | CI        |
+| Côte d'Ivoire                       | CI        |
 | Croatia                             | HR        |
 | Cuba                                | CU        |
 | Curaçao                             | CW        |

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 09/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.login.em2.oraclecloud.com:443/oam/fed`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Oracle Fusion ERP Client support team](mailto:jinshu.peethambaran@oracle.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Oracle Fusion ERP Client support team](https://www.oracle.com/applications/erp/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -128,11 +128,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Oracle Fusion ERP SSO
 
-To configure single sign-on on **Oracle Fusion ERP** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Oracle Fusion ERP support team](mailto:jinshu.peethambaran@oracle.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Oracle Fusion ERP** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Oracle Fusion ERP support team](https://www.oracle.com/applications/erp/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Oracle Fusion ERP test user
 
-In this section, you create a user called Britta Simon in Oracle Fusion ERP. Work with [Oracle Fusion ERP support team](mailto:jinshu.peethambaran@oracle.com) to add the users in the Oracle Fusion ERP platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Oracle Fusion ERP. Work with [Oracle Fusion ERP support team](https://www.oracle.com/applications/erp/) to add the users in the Oracle Fusion ERP platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

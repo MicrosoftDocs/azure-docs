@@ -1,12 +1,12 @@
 ---
-title: What are service dependencies in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Conditional Access service dependencies - Azure Active Directory 
 description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,7 +41,7 @@ The below table lists additional service dependencies, where the client apps mus
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Microsoft Azure Management (portal and API) | Early-bound |
 | Microsoft Classroom | Exchange                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound  |
+|                     | SharePoint                                  | Early-bound |
 | Microsoft Teams     | Exchange                                    | Early-bound |
 |                     | MS Planner                                  | Late-bound  |
 |                     | SharePoint                                  | Early-bound |
@@ -55,6 +55,9 @@ The below table lists additional service dependencies, where the client apps mus
 | Project             | Dynamics CRM                                | Early-bound |
 | Skype for Business  | Exchange                                    | Early-bound |
 | Visual Studio       | Microsoft Azure Management (portal and API) | Early-bound |
+| Microsoft Forms     | Exchange                                    | Early-bound |
+|                     | SharePoint                                  | Early-bound |
+| Microsoft To-Do     | Exchange                                    | Early-bound |
 
 ## Next steps
 

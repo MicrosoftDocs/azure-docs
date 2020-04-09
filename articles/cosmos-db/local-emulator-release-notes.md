@@ -1,14 +1,14 @@
 ---
 title: Azure Cosmos Emulator download and release notes
-description: Read the Azure Cosmos Emulator release notes and download it.
+description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
 ---
 
-# Use the Azure Cosmos Emulator for local development and testing
+# Azure Cosmos Emulator - Release notes and download information
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
@@ -20,6 +20,22 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.9.1
+
+- This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.
+
+### 2.9.0
+
+- This release adds the option to set the consistency to consistent prefix and increase the maximum limits for users and permissions.
+
+### 2.7.2
+
+- This release adds MongoDB version 3.6 server support to the Cosmos Emulator. To start a MongoDB endpoint that target version 3.6 of the service, start the emulator from an Administrator command line with "/EnableMongoDBEndpoint=3.6" option.
+
+### 2.7.0
+
+- This release fixes a regression which prevented users from executing queries against the SQL API account from the emulator when using .NET core or x86 .NET based clients.
 
 ### 2.4.6
 

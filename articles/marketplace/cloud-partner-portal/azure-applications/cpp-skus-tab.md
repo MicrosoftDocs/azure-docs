@@ -1,12 +1,12 @@
 ---
 title: Configure SKUs for an Azure application offer | Azure Marketplace 
 description: How to configure the SKUs for an Azure managed application and an Azure solution template.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application SKUs tab
@@ -27,8 +27,8 @@ Use these steps to create a new SKU:
 
     ![New SKU prompt](./media/azureapp-plus-sku.png)
 
-3. In the New SKU popup window, type a **SKU ID**. This id is limited to 50 characters and must consist only  of lowercase, alphanumeric characters, dashes or underscores. The SKU ID can’t end in a dash.
-4. The SKU ID is visible to customers in product URLs, Resource Manager templates (if applicable), and billing reports. You can’t modify this id after the offer’s published.
+3. In the New SKU popup window, type a **SKU ID**. This id is limited to 50 characters and must consist only  of lowercase, alphanumeric characters, dashes or underscores. The SKU ID can't end in a dash.
+4. The SKU ID is visible to customers in product URLs, Resource Manager templates (if applicable), and billing reports. You can't modify this id after the offer's published.
 
 ### SKU Details for a Solution Template
 
@@ -69,24 +69,26 @@ Configure the following SKU settings. The fields appended with an asterisk are r
 | **Cloud Availability\*** | The location of the SKU. The default is **Public Azure**.  <b/>   **Public Azure** - App will be deployable to customers in all public Azure regions that have marketplace integration.  <b/>   **Azure Government Cloud** - App will be deployed in the Azure Government Cloud. Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommends publishers test and validate their solution works as expected in this environment. To stage and test, request a [trial account](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government is a government-community cloud with controlled access for customers from the US Federal, State, local or tribal AND partners eligible to serve these entities. |
 | **Is this a private SKU?\*** | Select **Yes** if this SKU is only available to a select group of customers. |
 | **Country/Region availability\*** | Use **Select regions** to view the list of countries/regions that are available. Check each country/region, and then select **OK** to save your picks.  <b/>   ![Country and region availability list](./media/azure-app-select-country-region.png)  |
-| **Old Pricing\*** | The price for the SKU, in USD per month. Prices are set in local currency using current exchange rates upon configuration. Validate these since you ultimately own these settings. To set or view each country/region’s price individually, please export the pricing spreadsheet and import with custom pricing.  You must save your pricing changes to enable export/import of pricing data.  |
+| **Old Pricing\*** | The price for the SKU, in USD per month. Prices are set in local currency using current exchange rates upon configuration. Validate these since you ultimately own these settings. To set or view each country/region's price individually, please export the pricing spreadsheet and import with custom pricing.  You must save your pricing changes to enable export/import of pricing data.  |
 | **Simplified Currency Pricing\*** | The price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
 |  |  |
 
 
 ### Package Details for Solution Template
 
-   ![Package details for solution template](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Package details for solution template](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Provide the following **Package Details** values.  The fields appended with an asterisk are required.
 
 - **Version\*** - The version of the package that you will upload. Version tags must be of the form X.Y.Z, where X, Y, and Z are integers.
 - **Package file (.zip)\*** - This package contains the following files, saved in a .zip file.
-  - MainTemplate.json - The deployment template file that's used to deploy the solution/application and create the resources defined for the solution. For more information, see [How to author deployment template files](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition.json - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **mainTemplate.json\*** - The deployment template file that's used to deploy the solution/application and create the resources defined for the solution. For more information, see [How to author deployment template files](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition.json\*** - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Scripts (if required) - Any additional scripts that may be required when running the template, for example, `Microsoft.Compute/virtualMachines/extensions`.
+  - Nested templates (if required) - Any additional nested templates.
 
-  >[!IMPORTANT] 
-  >This package should contain any nested templates or scripts that are needed to provision this application. The MainTemplate.json file and createUIDefinition.json file must be in the root folder.
+  > [!IMPORTANT] 
+  > This package should contain any nested templates or scripts that are needed to provision this application. The mainTemplate.json file and createUIDefinition.json file must be in the root folder. For more information about deployment artifacts, see [Azure Resource Manager Templates - Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### Package Details for Managed Application
@@ -101,15 +103,15 @@ Provide the following Package Details.  The fields appended with an asterisk are
   - applianceCreateUIDefinition.json - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json - The template file that contains only the Microsoft.Solution/appliances resource. For more information, see [Understand the structure and syntax of Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
 Note the following key properties of this resource:
-    - “kind” - The value should be "Marketplace" in the case of Marketplace-Managed application.
-    - "ManagedResourceGroupId” - The resource group in the customer's subscription where all the resources defined in the applianceMainTemplate.json will be deployed.
-    - "PublisherPackageId"- The string that uniquely identifies the package. This value needs to be constructed as follows: it’s a concatenation of [publisherId].[OfferId]-preview[SKUID].[PackageVersion].
+    - "kind" - The value should be "Marketplace" in the case of Marketplace-Managed application.
+    - "ManagedResourceGroupId" - The resource group in the customer's subscription where all the resources defined in the applianceMainTemplate.json will be deployed.
+    - "PublisherPackageId"- The string that uniquely identifies the package. This value needs to be constructed as follows: it's a concatenation of [publisherId].[OfferId]-preview[SKUID].[PackageVersion].
 
   >[!IMPORTANT] 
   >This package should contain any nested templates or scripts that are needed to provision this application. These files must be in the root folder:  MainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json.
 
 - **Tenant Id\*** - The Azure Active Directory tenant id of your organization.
-- **Enable JIT Access?\*** – Select **Yes** to enable Just-In-Time management access for customer deployments using this offer.
+- **Enable JIT Access?\*** - Select **Yes** to enable Just-In-Time management access for customer deployments using this offer.
 
   >[!NOTE] 
   >If you enable JIT, you must update the  CreateUiDefinition.json file to support JIT access.
@@ -131,11 +133,11 @@ Add the policies that the Managed App complies with. Learn more about Azure Reso
 **To create a new authorization:**
 
 1. Under **Authorization**, select **+ New Authorization**.
-2. For **Principal Id**, type the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that’s granted is indicated by the Role Definition.
+2. For **Principal Id**, type the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that's granted is indicated by the Role Definition.
 3. For **Role Definition**, select one of these options from the dropdown list:  Owner or Contributor. For more information, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 >[!NOTE] 
->Multiple authorizations can be added. However, it’s recommended to create an Active Directory user group and specify its ID in the "PrincipalId." This will enable addition of more users to the user group without having to update the SKU.
+>Multiple authorizations can be added. However, it's recommended to create an Active Directory user group and specify its ID in the "PrincipalId." This will enable addition of more users to the user group without having to update the SKU.
 
 **To create a new policy:**
 

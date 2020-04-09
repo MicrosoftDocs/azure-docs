@@ -1,18 +1,11 @@
 ---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.author: mbullwin
+ms.date: 10/29/2019
+
 ---
+
 # Monitoring usage and performance in Classic Windows Desktop apps
 
 Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](../../azure-monitor/app/ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
@@ -69,6 +62,44 @@ using Microsoft.ApplicationInsights;
             base.OnClosing(e);
         }
 
+```
+
+## Override storage of computer name
+
+By default this SDK will collect and store the computer name of the system emitting telemetry. To override collection you need to use a telemetry Initializer:
+
+**Write custom TelemetryInitializer as below.**
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here, you can pass an empty string if needed.
+                  telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
+            }
+        }
+    }
+}
+```
+Instantiate the initializer in the `Program.cs` `Main()` method below setting the instrumentation key:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+   static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+        }
 ```
 
 ## Next steps

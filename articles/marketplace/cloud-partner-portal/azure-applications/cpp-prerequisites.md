@@ -1,12 +1,12 @@
 ---
 title: Azure Application offer prerequisites | Azure Marketplace 
 description: The prerequisites for publishing an Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application prerequisites
@@ -35,16 +35,16 @@ For more information, see [Create Azure portal user interface for your managed a
 
 The business requirements include the following procedural, contractual, and legal obligations:
 
-* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher
+* You must be a registered Cloud Marketplace Publisher. If you're not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher
 ).
 
 >[!NOTE]
->You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn’t be specific to individual services or offers.
+>You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn't be specific to individual services or offers.
 
 * Your company (or its subsidiary) must be in a sell-from-country/region supported by the Azure Marketplace. For a current list of these countries/regions, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-* Your product must be licensed in a way that’s compatible with billing models supported by the Azure Marketplace. For more information, see [billing options](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) in the Azure Marketplace.
-* You’re responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
-* You’re responsible for licensing your software and any third-party software dependencies.
+* Your product must be licensed in a way that's compatible with billing models supported by the Azure Marketplace. For more information, see [billing options](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) in the Azure Marketplace.
+* You're responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
+* You're responsible for licensing your software and any third-party software dependencies.
 * You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal.
 * You must agree to the terms of the Microsoft Azure Marketplace Participation Policies and Publisher Agreement.
 * You must comply with the Microsoft Azure Website Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.

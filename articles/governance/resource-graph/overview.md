@@ -1,14 +1,10 @@
 ---
 title: Overview of Azure Resource Graph
-description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 05/06/2019
+description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
+ms.date: 03/02/2020
 ms.topic: overview
-ms.service: resource-graph
-manager: carmonm
 ---
-# Overview of the Azure Resource Graph service
+# What is Azure Resource Graph?
 
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across a
@@ -27,7 +23,7 @@ In this documentation, you'll go over each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## How does Resource Graph complement Azure Resource Manager
 
@@ -37,8 +33,9 @@ facilities for calling individual resource providers for detailed properties one
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
-look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
-table. An alternative way to see supported resource types is through the [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
+review the [table and resource type reference](./reference/supported-tables-resources.md). An
+alternative way to see supported resource types is through the
+[Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:
 
@@ -53,6 +50,13 @@ When an Azure resource is updated, Resource Graph is notified by Resource Manage
 Resource Graph then updates its database. Resource Graph also does a regular _full scan_. This scan
 ensures that Resource Graph data is current if there are missed notifications or when a resource is
 updated outside of Resource Manager.
+
+> [!NOTE]
+> Resource Graph uses a `GET` to the latest non-preview API of each resource provider to gather
+> properties and values. As a result, the property expected may not be available. In some cases, the
+> API version used has been overridden to provide more current or widely used properties in the
+> results. See the [Show API version for each resource type](./samples/advanced.md#apiversion)
+> sample for a complete list in your environment.
 
 ## The query language
 
@@ -119,7 +123,6 @@ structured the same for each language. Learn how to enable Resource Graph with:
 
 ## Next steps
 
+- Run your first query by using the [Azure portal](first-query-portal.md).
 - Run your first query with [Azure CLI](first-query-azurecli.md).
 - Run your first query with [Azure PowerShell](first-query-powershell.md).
-- Start with [Starter Queries](./samples/starter.md).
-- Enhance your understanding with [Advanced Queries](./samples/advanced.md).

@@ -1,19 +1,17 @@
----
-title: View administrator role permissions in the admin center - Azure Active Directory | Microsoft Docs
+﻿---
+title: View custom role assignments in the Azure AD portal | Microsoft Docs
 description: You can now see and manage members of an Azure AD administrator role in the Azure AD admin center.
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # View custom role assignments in Azure Active Directory
@@ -28,7 +26,7 @@ This article describes how to view custom roles you have assigned in Azure Activ
 This procedure describes viewing assignments of a role with organization-wide scope.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
+1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
 1. Select **Assignments** to view the assignments for the role.
 
     ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
@@ -81,7 +79,7 @@ HTTP request to get a role assignment for a given role definition.
 GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
 Response
@@ -105,7 +103,7 @@ This section describes viewing assignments of a role with single-application sco
 
     ![Create or edit app registrations from the App registrations page](./media/roles-create-custom/appreg-all-apps.png)
 
-1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
+1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
 
     ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
 

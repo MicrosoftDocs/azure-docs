@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: mbaldwin
 ---
 
@@ -43,7 +43,7 @@ Assumptions:
 - You created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
 - You already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
 
-All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select “\>\_” towards the top right of the portal).
+All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select "\>\_" towards the top right of the portal).
 
 ## Provisioning a Dedicated HSM
 
@@ -67,15 +67,15 @@ az feature show \
    --name AllowBaremetalServers
 ```
 
-Both commands should return a status of “Registered” (as shown below). If the commands don't return "Registered" you need to register for this service, contact your Microsoft account representative.
+Both commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service, contact your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
 ### Creating HSM resources
 
-An HSM is provisioned into a customers’ virtual network so a virtual network and subnet are required. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly as HSMrequest@Microsoft.com.
+An HSM is provisioned into a customers' virtual network so a virtual network and subnet are required. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly as HSMrequest@Microsoft.com.
 
-Once you have the files, you must edit the parameter file to insert your preferred names for resources. Edit lines with “value”: “”.
+Once you have the files, you must edit the parameter file to insert your preferred names for resources. Edit lines with "value": "".
 
 - `namingInfix` Prefix for names of HSM resources
 - `ExistingVirtualNetworkName` Name of the virtual network used for the HSMs
@@ -122,7 +122,7 @@ The associated Azure Resource Manager template file will create 6 resources with
 - An HSM in stamp 1
 - An HSM in stamp 2
 
-Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal, click the “\>\_” cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
+Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal, click the "\>\_" cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
 
 The command shell has an upload/download option on the toolbar and you should select this to upload the template and parameter files to your file share:
 
@@ -140,7 +140,8 @@ az network vnet create \
 ```
 
 ```azurecli
---vnet-name myHSM-vnet \
+az network vnet create \
+  --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
   --address-prefixes 10.2.1.0/24 \
@@ -156,7 +157,7 @@ az network vnet subnet create \
 ```
 
 >[!NOTE]
->The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  The HSM provisioning will not work without this option being set.
+>The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs".  The HSM provisioning will not work without this option being set.
 
 Once all pre-requisites are in place, run the following command to use the Azure Resource Manager template ensuring you have updated values with your unique names (at least the resource group name):
 
@@ -173,7 +174,7 @@ This deployment should take approximately 25 to 30 minutes to complete with the 
 
 ![provisioning status](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-When the deployment completes successfully “provisioningState”: “Succeeded” will be displayed. You can connect to your existing virtual machine and use SSH to ensure availability of the HSM device.
+When the deployment completes successfully "provisioningState": "Succeeded" will be displayed. You can connect to your existing virtual machine and use SSH to ensure availability of the HSM device.
 
 ## Verifying the Deployment
 
@@ -189,7 +190,7 @@ az resource show \
 
 ![provisioning output](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
-You will also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand “subscriptions” on the left, expand your specific subscription for Dedicated HSM, expand “resource groups”, expand the resource group you used and finally select the “resources” item.
+You will also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand "subscriptions" on the left, expand your specific subscription for Dedicated HSM, expand "resource groups", expand the resource group you used and finally select the "resources" item.
 
 ## Testing the Deployment
 
@@ -203,9 +204,9 @@ The IP Address of the VM could also be used in place of the DNS name in the abov
 ![components list](media/tutorial-deploy-hsm-cli/resources.png)
 
 >[!NOTE]
->Notice the “Show hidden types” checkbox, which when selected will display HSM resources.
+>Notice the "Show hidden types" checkbox, which when selected will display HSM resources.
 
-In the screenshot above, clicking the “HSM1_HSMnic” or “HSM2_HSMnic” would show the appropriate Private IP Address. Otherwise, the `az resource show` command used above is a way to identify the right IP Address. 
+In the screenshot above, clicking the "HSM1_HSMnic" or "HSM2_HSMnic" would show the appropriate Private IP Address. Otherwise, the `az resource show` command used above is a way to identify the right IP Address. 
 
 When you have the correct IP address, run the following command substituting that address:
 
@@ -228,24 +229,13 @@ At this point, you have allocated all resources for a highly available, two HSM 
 
 ## Delete or clean up resources
 
-If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands in order.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `network interface delete -device eth0`
-4. `network interface delete -device eth1`
-5. `network interface delete -device eth2`
-6. `network interface delete -device eth3`
-7. `my file clear -f`
-8. `my public-key clear -f`
-9. `syslog rotate`
-
+If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
 > if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
 
-If you have finished with resources in this resource group, then you can remove them all with the following command:
+If you have finished with all resources in this resource group, then you can remove them all with the following command:
 
 ```azurecli
 az group deployment delete \

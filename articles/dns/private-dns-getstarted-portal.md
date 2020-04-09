@@ -2,19 +2,17 @@
 title: Quickstart - Create an Azure private DNS zone using the Azure portal
 description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/20/2019
-ms.author: victorh
+ms.date: 10/11/2019
+ms.author: rohink
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
 # Quickstart: Create an Azure private DNS zone using the Azure portal
 
 This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
@@ -46,7 +44,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
 1. On the **Create Private DNS zone** page, type or select the following values:
 
-   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
+   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription.
    -  **Name**: Type *private.contoso.com* for this example.
 1. For **Resource group location**, select **West Central US**.
 
@@ -56,13 +54,21 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
 It may take a few minutes to create the zone.
 
-## Create a virtual network
+## Virtual network and parameters
 
-1. On the portal page upper left, select **Create a resource**, then **Networking**, then select **Virtual network**.
-2. For **Name**, type **myAzureVNet**.
-3. For **Resource group**, select **MyAzureResourceGroup**.
-4. For **Location**, select **West Central US**.
-5. Accept the other default values and select **Create**.
+In this section you'll need to replace the following parameters in the steps with the information below:
+
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | MyAzureResourceGroup (Select existing resource group) |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | West Central US      |
+| **\<IPv4-address-space>**   | 10.2.0.0\16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0\24          |
+
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Link the virtual network
 
@@ -86,9 +92,8 @@ Now, create two virtual machines so you can test your private DNS zone:
 1. Select **MyAzureResourceGroup** for the resource group.
 1. Type **myVM01** - for the name of the virtual machine.
 1. Select **West Central US** for the **Region**.
-1. Type **azureadmin** for the administrator user name.
-2. Type **Azure12345678** for the password and confirm the password.
-
+1. Enter a name for the administrator user name.
+2. Enter a password and confirm the password.
 5. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
 10. Accept the other defaults for the page and then click **Next: Disks >**.
 11. Accept the defaults on the **Disks** page, then click **Next: Networking >**.
@@ -123,7 +128,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 2. Run the following command:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repeat for myVM02.

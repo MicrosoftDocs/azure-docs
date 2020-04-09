@@ -1,23 +1,12 @@
 ---
-title: Create C# ASP.NET Framework web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: 'QuickStart: Create a C# ASP.NET app'
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/30/2019
-ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.custom: seodec18
-
+ms.date: 10/21/2019
+ms.custom: mvc, devcenter, seodec18
 ---
+
 # Create an ASP.NET Framework web app in Azure
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
@@ -41,19 +30,19 @@ Create an ASP.NET web app by following these steps:
 
 1. Open Visual Studio and then select **Create a new project**.
 
-1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
+2. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
 
-1. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
+3. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
 
    ![Configure your web app project](./media/app-service-web-get-started-dotnet-framework/configure-web-app-project-framework.png)
 
-1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template. 
+4. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
-1. Make sure authentication is set to **No Authentication**. Select **Create**.
+5. Make sure authentication is set to **No Authentication**. Select **Create**.
 
    ![Create ASP.NET Web Application](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
 
-1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
+6. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
    ![Run app locally](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
@@ -61,7 +50,7 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
-1. Choose **App Service** and then select **Publish**.
+1. Choose **App Service** and then change **Create profile** to **Publish**.
 
    ![Publish from project overview page](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
@@ -96,9 +85,9 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
-   ![Configure app name](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
+2. Select **Create** to start creating the Azure resources.
 
-1. Select **Create** to start creating the Azure resources.
+   ![Configure app name](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
 Once the wizard completes, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser.
 
@@ -117,15 +106,11 @@ The app name specified in the **App Service Create new** page is used as the URL
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
-1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
-
-1. In the **Publish** summary page, select **Publish**.
-
-   ![Visual Studio summary page for publishing](./media/app-service-web-get-started-dotnet-framework/publish-summary-page-framework-vs2019.png)
+1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**. Then, select **Publish**.
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
@@ -133,9 +118,11 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
+1. To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-1. From the left menu, select **App Services**, and then select the name of your Azure app.
+   ![Select App services](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+
+2. On the **App Services** page, select the name of your web app.
 
    ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 
@@ -144,14 +131,6 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
    ![App Service overview in Azure portal](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
    The left menu provides different pages for configuring your app.
-
-## Video
-
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
-
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

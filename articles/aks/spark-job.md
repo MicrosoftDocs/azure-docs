@@ -1,13 +1,9 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
-description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
-services: container-service
+description: Use Azure Kubernetes Service (AKS) to create and run an Apache Spark job for large-scale data processing.
 author: lenadroid
-manager: jeconnoc
-
-ms.service: container-service
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ---
@@ -39,10 +35,16 @@ Create a resource group for the cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Create the AKS cluster with nodes that are of size `Standard_D3_v2`.
+Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 Connect to the AKS cluster.
@@ -60,7 +62,7 @@ Before running Spark jobs on an AKS cluster, you need to build the Spark source 
 Clone the Spark project repository to your development system.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 Change into the directory of the cloned repository and save the path of the Spark source to a variable.
@@ -132,7 +134,7 @@ Run the following commands to add an SBT plugin, which allows packaging the proj
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 Run these commands to copy the sample code into the newly created project and add all necessary dependencies.
@@ -147,7 +149,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -179,7 +181,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 
 Upload the jar file to the Azure storage account with the following commands.
 
-```bash
+```azurecli
 CONTAINER_NAME=jars
 BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
@@ -210,6 +212,13 @@ Navigate back to the root of Spark repository.
 cd $sparkdir
 ```
 
+Create a service account that has sufficient permissions for running a job.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 Submit the job using `spark-submit`.
 
 ```bash
@@ -219,6 +228,7 @@ Submit the job using `spark-submit`.
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
@@ -226,8 +236,10 @@ Submit the job using `spark-submit`.
 This operation starts the Spark job, which streams job status to your shell session. While the job is running, you can see Spark driver pod and executor pods using the kubectl get pods command. Open a second terminal session to run these commands.
 
 ```console
-$ kubectl get pods
+kubectl get pods
+```
 
+```output
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
 spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
@@ -255,7 +267,7 @@ kubectl get pods --show-all
 
 Output:
 
-```bash
+```output
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
@@ -268,7 +280,7 @@ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 
 Within these logs, you can see the result of the Spark job, which is the value of Pi.
 
-```bash
+```output
 Pi is roughly 3.152155760778804
 ```
 
@@ -276,7 +288,7 @@ Pi is roughly 3.152155760778804
 
 In the above example, the Spark jar file was uploaded to Azure storage. Another option is to package the jar file into custom-built Docker images.
 
-To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add am `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
+To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add an `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
 
 Update the jar path to the location of the `SparkPi-assembly-0.1.0-SNAPSHOT.jar` file on your development system. You can also use your own custom jar file.
 
@@ -304,6 +316,7 @@ When running the job, instead of indicating a remote jar URL, the `local://` sch
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
@@ -329,7 +342,7 @@ Check out Spark documentation for more details.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

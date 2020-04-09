@@ -1,15 +1,18 @@
 ---
 title: Technical information for a Power BI App offer | Azure Marketplace 
 description: Configure Technical info fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Power BI Apps Technical Info tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 On the **New Offer** page, use the **Technical Info** tab to provide the Power BI installer package URL and other information that you need to validate the new offer.  For the initial release, all Power BI apps are free and are available for download from AppSource. Because of this, you can't define stock-keeping units (SKUs) for this offer type.
 

@@ -136,6 +136,6 @@ Azure portal now supports change the OS disk of the VM. To do this, follow these
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
 

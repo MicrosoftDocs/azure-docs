@@ -90,7 +90,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
 1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.key``` properties. If you already have data you'd like to store in your database, you can use the Data Migration tool in Azure Cosmos DB rather than defining the data here. You config.js file should have the following code:
 
-   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
+   :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
    JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
    
@@ -120,7 +120,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    ```
    
 > [!Note]
-> If connecting to the **Cosmos DB Emulator**, disable SSL verification for your node process:
+> If connecting to the **Cosmos DB Emulator**, disable TLS verification for your node process:
 >   ```
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -433,7 +433,7 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each cont
         ]
     };
 
-    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec).fetchAll();
     for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
@@ -597,7 +597,7 @@ Deleting the created database will remove the database and all children resource
 
 Altogether, your code should look like this:
 
-[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
 In your terminal, locate your ```app.js``` file and run the command: 
 
@@ -657,7 +657,7 @@ Install the project's dependencies via npm. Use the following command:
 
 * ```npm install``` 
 
-Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
+Next, in the ```config.js``` file, update the config.endpoint and config.key values as described in [Step 3: Set your app's configurations](#Config).  
 
 Then in your terminal, locate your ```app.js``` file and run the command:  
 

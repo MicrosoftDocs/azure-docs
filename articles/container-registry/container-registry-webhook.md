@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry webhooks
-description: Learn how to use webhooks to trigger events when certain actions occur in your registry repositories.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Webhooks to respond to registry actions
+description: Learn how to use webhooks to trigger events when push or pull actions occur in your registry repositories.
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: danlep
 ---
 
 # Using Azure Container Registry webhooks

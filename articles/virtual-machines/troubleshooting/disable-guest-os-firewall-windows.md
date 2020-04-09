@@ -1,6 +1,6 @@
----
+﻿---
 title: Disable the guest OS Firewall in Azure VM | Microsoft Docs
-description: 
+description: Learn a workaround method for troubleshooting situations where a guest operating system firewall is filtering partial or complete traffic to a VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -24,7 +24,7 @@ This article provides a reference for situations in which you suspect that the g
 
 ## Solution
 
-The process that is described in this article is intended to be used as a workaround so that you can focus on fixing your real issue, which is how to set up the firewall rules correctly. It\rquote s a Microsoft Best Practice to have the Windows Firewall component enabled. How you configure the firewall rules \cf3 depends on the level of access to the VM that\rquote s required.
+The process that is described in this article is intended to be used as a workaround so that you can focus on fixing your real issue, which is how to set up the firewall rules correctly. It is a Microsoft Best Practice to have the Windows Firewall component enabled. How you configure the firewall rules depends on the level of access to the VM that is required.
 
 ### Online Solutions 
 
@@ -89,7 +89,7 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
 
 1.	On the troubleshooting VM, start registry editor, and then go to **File** > **Connect Network Registry**.
 
-2.	Open up the *TARGET MACHINE*\SYSTEM branch, and specify the following values:
+2.	Open up the *TARGET MACHINE*\SYSTEM branch, and specify the following values:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -97,15 +97,15 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remove Service Console.
+3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remote Service Console.
 
-4.	Open an instance of **Services.msc**.
+4.	Open an instance of **Services.msc**.
 
 5.	Click **Services (Local)**.
 
 6.	Select **Connect to another computer**.
 
-7.	Enter the **Private IP Address (DIP)** of the problem VM.
+7.	Enter the **Private IP Address (DIP)** of the problem VM.
 
 8.	Restart the local firewall policy.
 
@@ -145,7 +145,7 @@ If you have a situation in which you cannot reach the VM by any method, Custom S
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'

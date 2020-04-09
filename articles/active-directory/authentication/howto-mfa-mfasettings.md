@@ -5,11 +5,11 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 06/03/2019
+ms.topic: how-to
+ms.date: 11/18/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
+You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA**.
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -59,7 +59,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 ### Block a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
 4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
@@ -67,7 +67,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 ### Unblock a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 3. Select **Unblock** in the **Action** column next to the user to unblock.
 4. Enter a comment in the **Reason for unblocking** field.
 5. Select **Unblock** to finish unblocking the user.
@@ -79,7 +79,7 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 ### Turn on fraud alerts
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Fraud alert**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
 3. Set the **Allow users to submit fraud alerts** setting to **On**.
 4. Select **Save**.
 
@@ -112,6 +112,8 @@ Configure email addresses here for users who will receive fraud alert emails.
 >[!NOTE]
 >When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
 
+In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536. If using spam filters, make sure to exclude these numbers.
+
 ### Custom voice messages
 
 You can use your own recordings or greetings for two-step verification with the _custom voice messages_ feature. These messages can be used in addition to or to replace the Microsoft recordings.
@@ -119,7 +121,7 @@ You can use your own recordings or greetings for two-step verification with the 
 Before you begin, be aware of the following restrictions:
 
 * The supported file formats are .wav and .mp3.
-* The file size limit is 5 MB.
+* The file size limit is 1 MB.
 * Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
 
 ### Custom message language behavior
@@ -140,7 +142,7 @@ For example, if there is only one custom message, with a language of German:
 ### Set up a custom message
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Browse to **Azure Active Directory** > **MFA** > **Phone call settings**.
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the type of greeting.
 1. Choose the language.
@@ -157,7 +159,7 @@ Sample scripts for creating custom messages.
 | Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
 | Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
 | Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
-| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Fraud reported    A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
 | Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
 | Authentication denied retry | Verification denied. |
 | Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
@@ -179,7 +181,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 ### Create a one-time bypass
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
 5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
@@ -188,7 +190,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 ### View the one-time bypass report
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
 
 ## Caching rules
 
@@ -200,7 +202,7 @@ You can set a time period to allow authentication attempts after a user is authe
 ### Set up caching
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Caching rules**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Caching rules**.
 3. Select **Add**.
 4. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
 5. If necessary, select an authentication type and specify an application.
@@ -208,9 +210,11 @@ You can set a time period to allow authentication attempts after a user is authe
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
+Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
 
 ![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+The trusted IP address ranges can be private or public.
 
 ## App passwords
 
@@ -293,7 +297,7 @@ If your organization deploys the NPS extension to provide MFA to on-premises app
 
 | Azure AD tenant type | Trusted IPs feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet.|
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. A maximum of 50 Trusted IP ranges can be configured.|
 | Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
 
 The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
@@ -364,9 +368,9 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 | Method | Description |
 |:--- |:--- |
 | Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. |
-| Text message to phone |Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Users who are configured for two-way SMS are automatically switched to _call to phone_ verification at that time.|
-| Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Text message to phone |Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Administrators should enable another method for users who previously used two-way SMS.|
+| Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### Enable and disable verification methods
 
@@ -384,7 +388,7 @@ Additional details about the use of authentication methods can be found in the a
 The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
 
 >[!IMPORTANT]
->If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
 >The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 

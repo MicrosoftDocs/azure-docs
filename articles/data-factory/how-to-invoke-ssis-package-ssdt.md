@@ -1,18 +1,17 @@
 ---
-title: Execute SSIS packages in Azure Data Factory from SSDT | Microsoft Docs
+title: Execute SSIS packages from SSDT 
 description: Learn how to execute SSIS packages in Azure from SSDT. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 07/31/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/31/2019
 ---
 
 # Execute SSIS packages in Azure from SSDT

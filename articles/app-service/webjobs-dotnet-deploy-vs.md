@@ -1,18 +1,10 @@
 ---
-title: Develop and deploy WebJobs using Visual Studio - Azure 
-description: Learn how to develop and deploy Azure WebJobs to Azure App Service using Visual Studio.
-services: app-service
-documentationcenter: ''
+title: Develop and deploy WebJobs using VS
+description: Learn how to develop Azure WebJobs in Visual Studio and deploy them to Azure App Service, including creating a scheduled task.
 author: ggailey777
-manager: jeconnoc
-
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
@@ -226,6 +218,8 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 ### CRON expressions
 
 WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ### setting.job reference
 

@@ -20,7 +20,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ---
 
-# Tutorial: Push localized notifications to Windows apps by using Azure Notification Hubs
+# Tutorial: Send localized push notifications to Windows apps using Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)

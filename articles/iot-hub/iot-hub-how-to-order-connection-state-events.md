@@ -1,5 +1,5 @@
 ---
-title: Order device connection events from Azure IoT Hub using Azure Cosmos DB | Microsoft Docs
+title: Order device connection events fr Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state
 services: iot-hub
 ms.service: iot-hub

@@ -1,12 +1,12 @@
 ---
 title: Use Azure Cosmos DB resource tokens with the Gremlin SDK
 description: Learn how to create resource tokens and use them to access the Graph database. 
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: olignat
 ---
 
 # Use Azure Cosmos DB resource tokens with the Gremlin SDK

@@ -9,8 +9,9 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.localizationpriority: high 
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
+ms.localizationpriority: high
+
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 ::: zone target="docs"
 
@@ -41,7 +42,7 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
-- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
 

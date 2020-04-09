@@ -238,7 +238,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
    b. Click **Save**.
 
 > [!NOTE]
-> You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision AAD user accounts.
+> You can use any other AirWatch user account creation tools or APIs provided by AirWatch to provision Azure AD user accounts.
 
 ### Test SSO
 

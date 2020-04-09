@@ -1,6 +1,6 @@
 ---
 title: Oracle solutions on Microsoft Azure | Microsoft Docs
-description: Learn about options to deploy Oracle applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
+description: Learn about options to deploy Oracle Applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -13,13 +13,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
 ---
 
-# Overview of Oracle applications and solutions on Azure
+# Overview of Oracle Applications and solutions on Azure
 
-This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace, and the preview capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
 
@@ -39,7 +39,7 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5, and 7.6
+* Oracle Linux with the Unbreakable Enterprise Kernel (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5, and 7.6 
 
 ## High availability and disaster recovery options
 
@@ -51,20 +51,23 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 ## Backup Oracle Workloads
 
-* Back-up your Oracle VMs using [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+* Back-up your Oracle VMs using [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Back-up your Oracle Database using Oracle RMAN and optionally use [Azure Blob Fuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) to mount a [highly redudant Azure Blob Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) and write your RMAN backups to it for added resiliency.
+* Back-up your Oracle Database using Oracle RMAN and optionally use [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) to mount a [highly redudant Azure Blob Storage account](https://docs.microsoft.com/azure/storage/common/storage-redundancy) and write your RMAN backups to it for added resiliency.
 
-## Integration of Azure with OCI (preview)
+## Integration of Azure with OCI
 
-Run Oracle applications in Azure infrastructure, connected to backend databases in Oracle Cloud Infrastructure (OCI). This solution uses the following capabilities: 
+Run Oracle Applications in Azure infrastructure, connected to backend databases in Oracle Cloud Infrastructure (OCI). This solution uses the following capabilities: 
 
 * **Cross-cloud networking** - Use the direct interconnect available between Azure ExpressRoute and Oracle FastConnect to establish high-bandwidth, private, and low-latency connections between the application and the database layer.
 * **Integrated identity** - Set up federated identity between Azure AD and Oracle IDCS to create a single identity source for the solutions. Enable single sign-on to manage resources across OCI and Azure.
 
-### Deploy Oracle applications on Azure
+### Deploy Oracle Applications on Azure
 
-Use Terraform templates to set up Azure infrastructure and install Oracle applications validated and supported to run in the cross-cloud configuration:
+Use Terraform templates to set up Azure infrastructure and install Oracle Applications. 
+
+> [!IMPORTANT]
+> Oracle will certify these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution by May 2020.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
@@ -76,15 +79,17 @@ Also deploy custom applications in Azure that connect with OCI and other Azure s
 
 ### Set up Oracle databases in OCI
 
-Use Oracle Database Cloud Services (Autonomous Database, RAC, Exadata, DBaaS, Single Node) in conjunction with Oracle applications running in Azure. Learn more about [OCI database options](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Use Oracle Database Cloud Services (Autonomous Database, RAC, Exadata, DBaaS, Single Node) in conjunction with Oracle Applications running in Azure. Learn more about [OCI database options](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## Licensing
 
-Deployment of Oracle applications in Azure is based on a "bring your own license" model. It's assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
+Deployment of Oracle Applications in Azure is based on a "bring your own license" model. It's assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 
 ## Next steps
 
 * Learn more about deploying [Oracle VM images](oracle-vm-solutions.md) in Azure infrastructure.
 
 * Learn more about how to [interconnect Azure with OCI](oracle-oci-overview.md).
+
+* Check out the [Oracle on Azure overview session](https://myignite.techcommunity.microsoft.com/sessions/82915) from Ignite 2019. 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create an internal load balancer - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial shows you how to create an internal Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -89,7 +89,7 @@ Create a Basic internal load balancer by using the portal. The name and IP addre
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **East US 2**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic**.                          |
     | Virtual network           | Select *MyVNet*.                          |    
@@ -116,10 +116,10 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
 1. On the **Add a backend pool** page, type or select the following values:
    
    - **Name**: Type *MyBackendPool*.
-   - **Associated to**: Drop down and select **Availability set**.
-   - **Availability set**: Select **MyAvailabilitySet**.
+   - **Associated to**: Drop down and select **Virtual Machine**.
    
-1. Select **Add a target network IP configuration**. 
+   
+1. Select **Virtual Machine**. 
    1. Add **MyVM1** and **MyVM2** to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
    

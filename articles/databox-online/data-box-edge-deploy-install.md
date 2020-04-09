@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -149,21 +149,10 @@ Locate the components for installing the rail kit assembly:
 
     ![Engage and release slam latch](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### Route the cables
-
-> [!NOTE]
->  If you did not order the optional Cable Management Arm (CMA), use the two hook and loop straps provided in the rail kit to route the cables at the back of your system.
-
-1. Locate the outer CMA brackets on the interior sides of both rack flanges.
-2. Bundle the cables gently, pulling them clear of the system connectors to the left and right sides.
-3. Thread the hook and loop straps through the slots on the outer CMA brackets on each side of the system to secure the cable bundles.
-
-
-    ![Route the cables](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## Cable the device
 
-The following procedures explain how to cable your Data Box Edge device for power and network.
+Route the cables and then cable your device. The following procedures explain how to cable your Data Box Edge device for power and network.
 
 Before you start cabling your device, you need the following:
 

@@ -1,5 +1,5 @@
 ---
-title: What is the Geo Artificial Intelligence
+title: What is the Geo Artificial Intelligence Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: The Geo Artificial Intelligence Data Science Virtual Machine provides ArcGIS Pro for working with geographic data as well as Python, R, and data science toolkits for working with ML and AI.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
@@ -15,7 +15,7 @@ ms.date: 03/05/2018
 
 # What is the Geo Artificial Intelligence Data Science Virtual Machine?
 
-The Geo Artificial Intelligence Data Science Virtual Machine (also known as Geo AI Data Science VM, or Geo-DSVM) delivers geospatial analytics capabilities from the Azure Data Science Virtual Machine (DSVM). Specifically, this VM extends the AI and data science toolkits in the [DSVM](overview.md) by adding the market-leading [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geographic information system from ERSI.
+The Geo Artificial Intelligence Data Science Virtual Machine (also known as Geo AI Data Science VM, or Geo-DSVM) delivers geospatial analytics capabilities from the Azure Data Science Virtual Machine (DSVM). Specifically, this VM extends the AI and data science toolkits in the [DSVM](overview.md) by adding the market-leading [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geographic information system from ESRI.
 
  Geo AI Data Science VM is a product offering that arose out of the collaboration between ESRI and Microsoft. The result is a powerful environment that provides the ability to:
 

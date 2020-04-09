@@ -1,15 +1,15 @@
 ---
 title: Configure containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Configure various settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
 ---
 
@@ -101,13 +101,11 @@ Replace {_argument_name_} with your own values:
 
 ## Container Docker examples
 
-#### [Read](#tab/read)
-
 The following Docker examples are for the Read container.
 
 ### Basic example
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -117,7 +115,7 @@ The following Docker examples are for the Read container.
 
 ### Logging example 
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -125,33 +123,6 @@ The following Docker examples are for the Read container.
   ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
-
-#### [Recognize Text](#tab/recognize-text)
-
-The following Docker examples are for the Recognize Text container.
-
-### Basic example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
-
-### Logging example
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
-
-***
 
 ## Next steps
 

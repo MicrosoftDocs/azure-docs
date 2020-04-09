@@ -1,13 +1,9 @@
 ---
-title: Build schedule-based automated workflows - Azure Logic Apps
+title: Build schedule-based automated workflows
 description: Tutorial - Create a schedule-based, recurring, automated workflow by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
@@ -29,7 +25,7 @@ In this tutorial, you learn how to:
 
 When you're done, your logic app looks like this workflow at a high level:
 
-![High-level logic app](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![High-level logic app workflow overview](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 ## Prerequisites
 
@@ -47,24 +43,24 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Create logic app](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
+   ![Create your logic app resource](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
 1. Under **Create logic app**, provide this information about your logic app as shown and described. When you're done, select **Create**.
 
-   ![Provide logic app information](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Provide information about your logic app](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Name** | LA-TravelTime | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "LA-TravelTime". |
    | **Subscription** | <*your-Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | LA-TravelTime-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which is used to organize related resources. This example uses "LA-TravelTime-RG". |
+   | **Resource group** | LA-TravelTime-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example uses "LA-TravelTime-RG". |
    | **Location** | West US | TThe region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
 1. After Azure deploys your app, on the Azure toolbar, select **Notifications** > **Go to resource** for your deployed logic app.
 
-   ![Go to resource](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-logic-app.png)
+   ![Go to your new logic app resource](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    Or, you can find and select your logic app by typing the name in the search box.
 
@@ -82,11 +78,11 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. On the **Recurrence** shape, select the **ellipses** (**...**) button, and then select **Rename**. Rename the trigger with this description: `Check travel time every weekday morning`
 
-   ![Rename trigger](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![Rename the Recurrence trigger description](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
 1. Inside the trigger, change these properties.
 
-   ![Change interval and frequency](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
+   ![Change the Recurrence trigger's interval and frequency](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -100,7 +96,7 @@ Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-ap
    * **At these hours**
    * **At these minutes**
 
-   ![Add trigger properties](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
+   ![Add properties for Recurrence trigger](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
 
 1. Now set the values for the additional properties as shown and described here.
 
@@ -135,7 +131,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
 1. If you don't have a Bing Maps connection, you're asked to create a connection. Provide these connection details, and select **Create**.
 
-   ![Create Bing Maps connection](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   ![Create connection to Bing Maps API](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -216,11 +212,11 @@ By default, the previous **Get route** action returns the current travel time wi
 
    1. After the property value resolves inside the expression, select **OK**.
 
-      ![Select "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      ![To finish building the expression, select "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
       The **Value** property now appears as shown here:
 
-      !["Value" property with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![The "Value" property appears with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 1. Save your logic app.
 
@@ -242,7 +238,7 @@ Next, add a condition that checks whether the current travel time is greater tha
 
    1. From the dynamic content list that appears, under **Variables**, select the **travelTime** property.
 
-      ![Build condition left side](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
+      ![Build the condition's left side](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
    1. In the middle comparison box, select the **is greater than** operator.
 
@@ -250,7 +246,7 @@ Next, add a condition that checks whether the current travel time is greater tha
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Finished condition to check travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Save your logic app.
 
@@ -264,7 +260,7 @@ Now, add an action that emails you when the travel time exceeds your limit. This
 
 1. Under **Choose an action**, select **Standard**. In the search box, enter "send email". The list returns many results, so first select the email connector that you want, for example:
 
-   ![Select email connector](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![Select the email connector that you want](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
    * For Azure work or school accounts, select **Office 365 Outlook**.
    * For personal Microsoft accounts, select **Outlook.com**.
@@ -315,17 +311,17 @@ Now, add an action that emails you when the travel time exceeds your limit. This
 
    1. After the property resolves inside the expression, select **OK**.
 
-      !["Body" property with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![After "Body" property resolves, select "OK"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
       The **Body** property now appears as shown here:
 
-      !["Body" property with resolved expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Resolved "Body" property in expression](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. Save your logic app.
 
 Next, test your logic app, which now looks similar to this example:
 
-![Finished logic app](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![Finished example logic app workflow](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
 ## Run your logic app
 
@@ -335,7 +331,7 @@ To manually start your logic app, on the designer toolbar bar, select **Run**.
 
 * If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. Here is an example email that your logic app sends:
 
-![Email sent with travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
+![Example sent email that shows the travel time](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
 
 If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 

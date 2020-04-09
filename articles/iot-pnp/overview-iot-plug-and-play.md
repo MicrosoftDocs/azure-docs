@@ -3,7 +3,7 @@ title: Introduction to IoT Plug and Play Preview | Microsoft Docs
 description: Learn about IoT Plug and Play Preview. IoT Plug and Play is based on an open modeling language that enables IoT devices to declare their capabilities. IoT devices present that declaration, called a device capability model, when they connect to cloud solutions such as Azure IoT Central or partner applications. The cloud solution can then automatically understand the device and start interacting with it — all without writing any code.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
@@ -23,7 +23,7 @@ IoT Plug and Play Preview enables solution developers to integrate devices with 
 
 You can reuse interfaces across device capability models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/core/overview-iot-central.md), and other Azure services remain the same.
 
 Solutions built on IoT Hub or IoT Central can benefit from IoT Plug and Play.
 
@@ -45,7 +45,7 @@ IoT Plug and Play is useful for two types of developers:
 
 As a solution developer, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. You can use either of the following Azure services:
 
-- [IoT Central](../iot-central/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
+- [IoT Central](../iot-central/core/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
 - [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
 
 You can find IoT Plug and Play devices through the Azure Certified for IoT device catalog. Each IoT Plug and Play device in the catalog has been validated, and has a device capability model. View the device capability model to understand the device's functionality or use it to simulate the device in Azure IoT Central.
@@ -74,7 +74,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 
 ## Regional availability
 
-During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
+During public preview, IoT Plug and Play is available in all regions.
 
 ## Message quotas in IoT Hub
 During public preview, IoT Plug and Play devices send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
@@ -83,6 +83,6 @@ During public preview, IoT Plug and Play devices send separate messages per inte
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device.md)
-- [Connect a device to IoT Hub](./quickstart-connect-pnp-device.md)
-- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution.md)
+- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device-windows.md)
+- [Connect a device to IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution-node.md)

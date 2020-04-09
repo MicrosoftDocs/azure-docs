@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure HPC Cache Preview documentation
+title: Azure HPC Cache documentation
 summary: Use Azure HPC Cache to expedite file access for read-intensive high-performance computing (HPC) workloads
 
 metadata:
   title: Microsoft Azure HPC Cache 
-  description: Learn how to create and use Azure HPC Cache to solve the latency problem between your compute resources and storage. Azure HPC Cache is for file-based read-heavy workloads, and can create an aggregated virtual filesystem that incorporates Azure Blob storage and on-premises hardware filers.
+  description: Learn how to create and use Azure HPC Cache to solve the latency problem between your compute resources and storage. Azure HPC Cache is for file-based read-heavy workloads, and can create an aggregated virtual file system that incorporates Azure Blob storage and on-premises hardware filers.
   ms.service: hpc-cache 
   ms.topic: landing-page 
   ms.collection: collection
   author: ekpgh
-  ms.author: v-erkell
-  ms.date: 08/30/2019
+  ms.author: rohogue
+  ms.date: 11/07/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -33,16 +33,20 @@ landingContent:
         links:
           - text: Configure prerequisites for Azure HPC Cache
             url: hpc-cache-prereqs.md
-          - text: Create the cache 
+          - text: Create the cache
             url: hpc-cache-create.md
-          - text: Add storage  # where to put the ingest articles? collapsible heading??
-            url: hpc-cache-add-storage.md    
+          - text: Add storage
+            url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
+          - text: Manage and monitor the cache
+            url: hpc-cache-manage.md
       - linkListType: concept
         links:
           - text: Plan the aggregated namespace
             url: hpc-cache-namespace.md
+          - text: Move data to storage targets (if needed)
+            url: hpc-cache-ingest.md
 
   # Card
   - title: Troubleshoot 
@@ -51,3 +55,15 @@ landingContent:
         links:
           - text: Open a support ticket
             url: hpc-cache-support-ticket.md
+          - text: Edit a storage target
+            url: hpc-cache-edit-storage.md
+          - text: Work around firewall settings to create Blob storage targets
+            url: hpc-cache-blob-firewall-fix.md
+          - text: Troubleshoot NFS storage target creation
+            url: troubleshoot-nas.md
+      - linkListType: concept
+        links:
+          - text: Recover from a regional outage
+            url: hpc-region-recovery.md
+          - text: Use Azure NetApp Files storage targets
+            url: hpc-cache-netapp.md

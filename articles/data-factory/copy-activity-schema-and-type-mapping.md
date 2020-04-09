@@ -1,24 +1,24 @@
 ---
-title: Schema mapping in copy activity | Microsoft Docs
+title: Schema mapping in copy activity 
 description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data when copying data.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 02/13/2020
 ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
 
-This article describes how Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when execute the data copy.
+This article describes how the Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when executing the data copy.
 
 ## Schema mapping
 
@@ -89,7 +89,7 @@ The following properties are supported under `translator` -> `mappings` -> objec
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Name of the source or sink column.                           | Yes      |
 | ordinal  | Column index. Start with 1. <br>Apply and required when using delimited text without header line. | No       |
-| path     | JSON path expression for each field to extract or map. Apply for hierarchical data e.g. MongoDB/REST.<br>For fields under root object, JSON path starts with root $; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element. | No       |
+| path     | JSON path expression for each field to extract or map. Apply for hierarchical data e.g. MongoDB/REST.<br>For fields under the root object, the JSON path starts with root $; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element. | No       |
 | type     | Data Factory interim data type of the source or sink column. | No       |
 | culture  | Culture of the source or sink column. <br>Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`. | No       |
 | format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No       |
@@ -102,14 +102,14 @@ The following properties are supported under `translator` -> `mappings` in addit
 
 ### Alternative column mapping
 
-You can specify copy activity -> `translator` -> `columnMappings` to map between tabular-shaped data . In this case, "structure" section is required for both input and output datasets. Column mapping supports **mapping all or subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following are error conditions that result in an exception:
+You can specify copy activity -> `translator` -> `columnMappings` to map between tabular-shaped data . In this case, the "structure" section is required for both input and output datasets. Column mapping supports **mapping all or subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following are error conditions that result in an exception:
 
 * Source data store query result does not have a column name that is specified in the input dataset "structure" section.
 * Sink data store (if with pre-defined schema) does not have a column name that is specified in the output dataset "structure" section.
 * Either fewer columns or more columns in the "structure" of sink dataset than specified in the mapping.
 * Duplicate mapping.
 
-In the following example, the input dataset has a structure and it points to a table in an on-premises Oracle database.
+In the following example, the input dataset has a structure, and it points to a table in an on-premises Oracle database.
 
 ```json
 {
@@ -257,11 +257,11 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }

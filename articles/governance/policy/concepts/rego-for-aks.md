@@ -1,21 +1,18 @@
 ---
-title: Understand how to audit the contents of a virtual machine
+title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 06/24/2019
+ms.date: 03/18/2020
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy for Azure Kubernetes Service
 
 Azure Policy integrates with the [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) (AKS)
 to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
-By extending use of [GateKeeper](https://github.com/open-policy-agent/gatekeeper), an _admission
-controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), Azure Policy
-makes it possible to manage and report on the compliance state of your Azure resources and AKS
-clusters from one place.
+By extending use of
+[Gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/deprecated) v2, an
+_admission controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA),
+Azure Policy makes it possible to manage and report on the compliance state of your Azure resources
+and AKS clusters from one place.
 
 > [!NOTE]
 > Azure Policy for AKS is in Limited Preview and only supports built-in policy definitions.
@@ -40,7 +37,7 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
 
   1. Register the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource
      providers. For steps, see
-     [Resource providers and types](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+     [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then
      searching for and selecting **Policy**.
@@ -68,14 +65,27 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
 
   # Feature register: enables installing the add-on
   az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.ContainerService
+  
   # Feature register: enables the add-on to call the Azure Policy resource provider
-  az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
+  az feature register --namespace Microsoft.PolicyInsights --name AKS-DataPlaneAutoApprove
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.PolicyInsights/AKS-DataPlaneAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.PolicyInsights
+  
   ```
 
 ## Azure Policy Add-on
 
-The _Azure Policy Add-on_ for Kubernetes connects the Azure Policy service to the GateKeeper
+The _Azure Policy Add-on_ for Kubernetes connects the Azure Policy service to the Gatekeeper
 admission controller. The add-on, which is installed into the _azure-policy_ namespace, enacts the
 following functions:
 
@@ -122,7 +132,7 @@ step is done with Azure CLI:
 
 #### Installation steps
 
-Once the prerequisites are completed, install the Azure Policy add-on in the AKS cluster you want to
+Once the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster you want to
 manage.
 
 - Azure portal
@@ -156,7 +166,7 @@ manage.
 
 The add-on checks in with Azure Policy for changes in policy assignments every 5 minutes. During
 this refresh cycle, the add-on removes all _configmaps_ in the _azure-policy_ namespace then
-recreates the _configmaps_ for GateKeeper use.
+recreates the _configmaps_ for Gatekeeper use.
 
 > [!NOTE]
 > While a _cluster admin_ may have permission to the _azure-policy_ namespace, it's not recommended
@@ -164,23 +174,24 @@ recreates the _configmaps_ for GateKeeper use.
 > refresh cycle.
 
 Every 5 minutes, the add-on calls for a full scan of the cluster. After gathering details of the
-full scan and any real-time evaluations by GateKeeper of attempted changes to the cluster, the
-add-on reports the results back to Azure Policy for inclusion in [compliance details](../how-to/get-compliance-data.md)
-like any Azure Policy assignment. Only results for active policy assignments are returned during the
-audit cycle.
+full scan and any real-time evaluations by Gatekeeper of attempted changes to the cluster, the
+add-on reports the results back to Azure Policy for inclusion in
+[compliance details](../how-to/get-compliance-data.md) like any Azure Policy assignment. Only
+results for active policy assignments are returned during the audit cycle.
 
 ## Policy language
 
 The Azure Policy language structure for managing AKS follows that of existing policies. The effect
 _EnforceRegoPolicy_ is used to manage your AKS clusters and takes _details_ properties specific to
-working with OPA and GateKeeper. For details and examples, see the [EnforceRegoPolicy](effects.md#enforceregopolicy)
-effect.
+working with OPA and Gatekeeper v2. For details and examples, see the
+[EnforceRegoPolicy](effects.md#enforceregopolicy) effect.
 
 As part of the _details.policy_ property in the policy definition, Azure Policy passes the URI of a
-rego policy to the add-on. Rego is the language that OPA and GateKeeper support to validate or
+rego policy to the add-on. Rego is the language that OPA and Gatekeeper support to validate or
 mutate a request to the Kubernetes cluster. By supporting an existing standard for Kubernetes
 management, Azure Policy makes it possible to reuse existing rules and pair them with Azure Policy
-for a unified cloud compliance reporting experience. For more information, see [What is Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+for a unified cloud compliance reporting experience. For more information, see
+[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## Built-in policies
 
@@ -203,17 +214,20 @@ To find the built-in policies for managing AKS using the Azure portal, follow th
 Alternately, use the [Assign a policy - Portal](../assign-policy-portal.md) quickstart to find and
 assign an AKS policy. Search for a Kubernetes policy definition instead of the sample 'audit vms'.
 
+> [!IMPORTANT]
+> Built-in policies in category **Kubernetes service** are only for use with AKS.
+
 ## Logging
 
-### Azure Policy add-on logs
+### Azure Policy Add-on logs
 
-As a Kubernetes controller/container, the Azure Policy add-on keeps logs in the AKS cluster. The
+As a Kubernetes controller/container, the Azure Policy Add-on keeps logs in the AKS cluster. The
 logs are exposed in the **Insights** page of the AKS cluster. For more information, see
 [Understand AKS cluster performance with Azure Monitor for containers](../../../azure-monitor/insights/container-insights-analyze.md).
 
-### GateKeeper logs
+### Gatekeeper logs
 
-To enable GateKeeper logs for new resource requests, follow the steps in [Enable and review Kubernetes master node logs in AKS](../../../aks/view-master-logs.md).
+To enable Gatekeeper logs for new resource requests, follow the steps in [Enable and review Kubernetes master node logs in AKS](../../../aks/view-master-logs.md).
 Here is an example query to view denied events on new resource requests:
 
 ```kusto
@@ -222,19 +236,19 @@ Here is an example query to view denied events on new resource requests:
 | limit 100
 ```
 
-To view logs from GateKeeper containers, follow the steps in [Enable and review Kubernetes master node logs in AKS](../../../aks/view-master-logs.md)
+To view logs from Gatekeeper containers, follow the steps in [Enable and review Kubernetes master node logs in AKS](../../../aks/view-master-logs.md)
 and check the _kube-apiserver_ option in the **Diagnostic settings** pane.
 
 ## Remove the add-on
 
-To remove the Azure Policy add-on from your AKS cluster, use either the Azure portal or Azure CLI:
+To remove the Azure Policy Add-on from your AKS cluster, use either the Azure portal or Azure CLI:
 
 - Azure portal
 
   1. Launch the AKS service in the Azure portal by clicking **All services**, then searching for and
      selecting **Kubernetes services**.
 
-  1. Select your AKS cluster where you want to disable the Azure Policy add-on.
+  1. Select your AKS cluster where you want to disable the Azure Policy Add-on.
 
   1. Select **Policies (preview)** on the left side of the Kubernetes service page.
 
@@ -252,12 +266,38 @@ To remove the Azure Policy add-on from your AKS cluster, use either the Azure po
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
+## Diagnostic data collected by Azure Policy Add-on
+
+The Azure Policy Add-on for Kubernetes collects limited cluster diagnostic data. This diagnostic
+data is vital technical data related to software and performance. It's used in the following ways:
+
+- Keep Azure Policy Add-on up to date
+- Keep Azure Policy Add-on secure, reliable, performant
+- Improve Azure Policy Add-on - through the aggregate analysis of the use of the add-on
+
+The information collected by the add-on isn't personal data. The following details are currently
+collected:
+
+- Azure Policy Add-on agent version
+- Cluster type
+- Cluster region
+- Cluster resource group
+- Cluster resource ID
+- Cluster subscription ID
+- Cluster OS (Example: Linux)
+- Cluster city (Example: Seattle)
+- Cluster state or province (Example: Washington)
+- Cluster country or region (Example: United States)
+- Exceptions/errors encountered by Azure Policy Add-on during agent installation on policy
+  evaluation
+- Number of Gatekeeper policies not installed by Azure Policy Add-on
+
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/index.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

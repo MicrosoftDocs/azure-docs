@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Private cloud VMware components 
+title: Private cloud VMware components 
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how VMware components are installed on private cloud 
 author: sharaths-cs
 ms.author: dikamath

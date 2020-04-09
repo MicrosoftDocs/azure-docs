@@ -1,5 +1,6 @@
 ---
-title: Azure API management policy sample - Generate Shared Access Signature  | Microsoft Docs
+title: Sample API management policy - Generate Shared Access Signature
+titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how to generate Shared Access Signature using expressions and forward the request to Azure storage with rewrite-uri policy..
 services: api-management
 documentationcenter: ''

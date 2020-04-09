@@ -1,18 +1,12 @@
 ---
 title: Create a Log Analytics workspace using Azure PowerShell| Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure PowerShell.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/12/2019
-ms.author: magoedte
+
 ---
 
 # Create a Log Analytics workspace with Azure PowerShell
@@ -21,7 +15,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
-* Device collections from System Center Configuration Manager  
+* Device collections from Configuration Manager  
 * Diagnostic or log data from Azure storage  
  
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
@@ -39,7 +33,7 @@ If you don't have an Azure subscription, create [a free account](https://azure.m
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a workspace
-Create a workspace with [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. 
+Create a workspace with [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example creates a workspace in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. 
 
 For information about regions supported, see [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field. 
 
@@ -112,7 +106,7 @@ The following parameters set a default value:
 
 2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
-4. You are ready to deploy this template. Use the following commands from the folder containing the template:
+4. You are ready to deploy this template. Use the following commands from the folder containing the template. When you're prompted for a workspace name, provide a name that is globally unique across all Azure subscriptions.
 
     ```powershell
         New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json

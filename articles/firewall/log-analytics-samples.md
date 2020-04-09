@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall log analytics samples
-description: Azure Firewall log analytics samples
+description: Azure Monitor logs can be used to analyze your Azure Firewall. A sample file is built in View Designer in Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/23/2020
 ms.author: victorh
 ---
 
@@ -21,7 +21,7 @@ Here's how you can configure an example Azure Monitor logs visualization. You ca
 
 Execute the following steps to add the view to your Log Analytics workspace:
 
-1. Open the Log Analytics workspace in the Azure Portal.
+1. Open the Log Analytics workspace in the Azure portal.
 2. Open **View Designer** below **General**.
 3. Click **Import**.
 4. Browse and select the **AzureFirewall.omsview** file you downloaded before.
@@ -161,6 +161,15 @@ AzureDiagnostics
 | sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
+## Sample logs
+
+The following log samples show the data included in a log entry.
+
+![log entry](media/log-analytics-samples/log1.png)
+
+![log entry](media/log-analytics-samples/log2.png)
+
+![log entry](media/log-analytics-samples/log3.png)
 ## Next steps
 
 To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).

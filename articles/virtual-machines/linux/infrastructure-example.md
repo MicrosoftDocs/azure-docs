@@ -1,22 +1,12 @@
 ---
-title: Example Azure Infrastructure Walkthrough | Microsoft Docs
+title: Example Azure infrastructure walkthrough 
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
-documentationcenter: ''
-services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Linux VMs

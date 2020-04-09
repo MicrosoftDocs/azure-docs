@@ -1,5 +1,5 @@
 - name: Azure Service Health
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: Azure Service Health service

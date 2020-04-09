@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Blueprints
+  - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
     href: overview.md
 - name: Quickstarts
@@ -44,9 +44,58 @@
   - name: CIS Microsoft Azure Foundations Benchmark
     items:
     - name: Overview
+      displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/index.md
     - name: Recommendation mapping
+      displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, cis
+      href: ./samples/cis-azure-1.1.0/deploy.md
+  - name: DoD Impact Level 4
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL4
+      href: ./samples/dod-impact-level-4/deploy.md
+  - name: FedRAMP Moderate
+    items:
+    - name: Overview
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, moderate
+      href: ./samples/fedramp-m/deploy.md
+  - name: FedRAMP High
+    items:
+    - name: Overview
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/deploy.md
+  - name: HIPAA HITRUST
+    items:
+    - name: Overview
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/index.md
+    - name: Control mapping
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/deploy.md
   - name: IRS 1075
     items:
     - name: Overview
@@ -55,6 +104,9 @@
     - name: Control mapping
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/deploy.md
   - name: ISO 27001
     items:
     - name: Overview
@@ -88,6 +140,17 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: Media   
+    items:
+    - name: Overview
+      displayName: standards, Media MPAA
+      href: ./samples/media/index.md
+    - name: Control mapping
+      displayName: standards, Media
+      href: ./samples/media/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Media
+      href: ./samples/media/deploy.md
   - name: NIST SP 800-53 Rev4
     items:
     - name: Overview
@@ -162,7 +225,7 @@
   - name: Sequencing order of blueprint deployment
     displayName: customize
     href: ./concepts/sequencing-order.md
-  - name: Resource locking in Blueprints
+  - name: Resource locking in Azure Blueprints
     displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
 - name: How-to guides
@@ -184,7 +247,7 @@
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
-- name: References
+- name: Reference
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint

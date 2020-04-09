@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy Azure virtual network container networking | Microsoft Docs
 description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters that you deploy yourself, that you deploy using the ACS-Engine, and for Docker containers.
 services: virtual-network
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
@@ -156,10 +156,10 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 - **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: Name of the network. This property can be set to any unique value.
-- **type**: Name of the network plug-in. Set to *azure-vnet*.
+- **type**: Name of the network plug-in. Set to *azure-vnet*.
 - **mode**: Operational mode. This field is optional. The only mode supported is "bridge". For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
-- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
+- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
 
 ## Download and install the plug-in
 

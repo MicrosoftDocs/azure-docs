@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -73,7 +73,7 @@ You'll first have to publish your application. This action involves:
 To publish your own on-premises application:
 
 1. If you didn't in the last section, sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
-1. Select **Enterprise applications** > **New application** > **On-premises application**. The **Add your own on-premises application** page appears.
+1. Select **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
    ![Add your own on-premises application](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 1. Fill out the required fields with information about your new application. Use the guidance below for the settings.
@@ -157,21 +157,7 @@ To collect this information:
 1. Select **Add**. The PingAccess key appears in the table of client secrets, with a random string that autofills in the **VALUE** field.
 1. Next to the PingAccess key's **VALUE** field, select the **Copy to clipboard** icon, then copy and save it. You specify this value later as PingAccess's client secret.
 
-### Update GraphAPI to send custom fields (optional)
-
-If you need a custom claim that sends other tokens within the access_token consumed by PingAccess, set the `acceptMappedClaims` application field to `True`. You can use Graph Explorer or the Azure AD portal's application manifest to make this change.
-
-**This example uses Graph Explorer:**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**This example uses the [Azure Active Directory portal](https://aad.portal.azure.com/) to update the `acceptMappedClaims` field:**
+**Update the `acceptMappedClaims` field:**
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
 1. Select **Azure Active Directory** > **App registrations**. A list of applications appears.
@@ -210,7 +196,7 @@ To make your application use a custom claim and include additional fields, be su
 > [!NOTE]
 > To use a custom claim, you must also have a custom policy defined and assigned to the application. This policy should include all required custom attributes.
 >
-> You can do policy definition and assignment through PowerShell, Azure AD Graph Explorer, or Microsoft Graph. If you're doing them in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Add-AzureADServicePrincipalPolicy`. For more information, see [Claims mapping policy assignment](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> You can do policy definition and assignment through PowerShell or Microsoft Graph. If you're doing them in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Add-AzureADServicePrincipalPolicy`. For more information, see [Claims mapping policy assignment](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 Example:
 ```powershell

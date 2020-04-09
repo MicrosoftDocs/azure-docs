@@ -1,19 +1,14 @@
 ---
-title: Troubleshoot Azure point-to-site connection problems| Microsoft Docs
+title: 'Troubleshoot Azure point-to-site connection problems'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
+
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 03/26/2020
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -246,32 +241,6 @@ To resolve this problem, re-download and redeploy the Point to Site package on a
 
 The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
-## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
-
-### Symptom
-
-When you dial the VPN connection on the point-to-site client, the VPN client should add a route toward the Azure virtual network. The IP helper service should add a route for the subnet of the VPN clients. 
-
-The VPN client range belongs to a smaller subnet of 10.0.0.0/8, such as 10.0.12.0/24. Instead of a route for 10.0.12.0/24, a route for 10.0.0.0/8 is added that has higher priority. 
-
-This incorrect route breaks connectivity with other on-premises networks that might belong to another subnet within the 10.0.0.0/8 range, such as 10.50.0.0/24, that don't have a specific route defined. 
-
-### Cause
-
-This behavior is by design for Windows clients. When the client uses the PPP IPCP protocol, it obtains the IP address for the tunnel interface from the server (the VPN gateway in this case). However, because of a limitation in the protocol, the client does not have the subnet mask. Because there is no other way to get it, the client tries to guess the subnet mask based on the class of the tunnel interface IP address. 
-
-Therefore, a route is added based on the following static mapping: 
-
-If address belongs to class A --> apply /8
-
-If address belongs to class B --> apply /16
-
-If address belongs to class C --> apply /24
-
-### Solution
-
-Have routes for other networks be injected in the routing table with longest prefix match or lower metric (hence higher priority) than the Point to Site. 
-
 ## VPN client cannot access network file shares
 
 ### Symptom
@@ -365,6 +334,19 @@ Update the NIC driver:
 3. Double-click the device name, select **Update driver**, select **Search automatically for updated driver software**.
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.
+
+## VPN Client Error: Dialing VPN connection <VPN Connection Name>, Status = VPN Platform did not trigger connection
+
+You may also see the following error in Event Viewer from RasClient: "The user <User> dialed a connection named <VPN Connection Name> which has failed. The error code returned on failure is 1460."
+
+### Cause
+
+The Azure VPN Client does not have the "Background apps" App Permission enabled in App Settings for Windows.
+
+### Solution
+
+1. In Windows, go to Settings -> Privacy -> Background apps
+2. Toggle the "Let apps run in the background" to On
 
 ## Error: 'File download error Target URI is not specified'
 

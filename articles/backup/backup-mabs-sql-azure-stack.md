@@ -1,15 +1,11 @@
 ---
 title: Back up SQL Server workloads on Azure Stack
-description: Use Azure Backup Server to protect SQL Server workload on Azure Stack.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
+description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
 ---
 # Back up SQL Server on Azure Stack
+
 Use this article to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
@@ -23,6 +19,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 [Install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
+
 1. On the Azure Backup Server UI, click the **Protection** workspace.
 
 2. On the tool ribbon, click **New** to create a new protection group.
@@ -106,6 +103,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## On-demand backup of a SQL Server database
+
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -122,6 +120,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
+
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that is specified as an **Online** point.
@@ -146,7 +145,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.

@@ -1,5 +1,5 @@
 ---
-title: LUIS and QnAMaker - Bot Integration 
+title: LUIS and QnAMaker - Bot Integration
 titleSuffix: Azure Cognitive Services
 description: As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -32,13 +32,13 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 1. [Create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Add an intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) for each QnA Maker knowledge base. The example utterances should correspond to questions in the QnA Maker knowledge bases.
 1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
-1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and host region. You will need these values later. 
+1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and [custom domain name](../../cognitive-services-custom-subdomains.md). You will need these values later.
 
 ## Create QnA Maker knowledge bases
 
 1. Sign in to [QnA Maker](https://qnamaker.ai).
 1. [Create](https://www.qnamaker.ai/Create) a knowledge bases for each intent in the LUIS app.
-1. Test and publish the knowledge bases. When you publish each KB, make note of the KB ID, host (subdomain before _.azurewebsites.net/qnamaker_), and the authorization endpoint key. You will need these values later. 
+1. Test and publish the knowledge bases. When you publish each KB, make note of the KB ID, resource name (custom subdomain before _.azurewebsites.net/qnamaker_), and the authorization endpoint key. You will need these values later.
 
     This article assumes the KBs are all created in the same Azure QnA Maker subscription.
 
@@ -46,7 +46,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Web app Bot
 
-1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select the 4.x SDK and the C# programming language.
+1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select C# programming language.
 
 1. Once the web app bot is created, in the Azure portal, select the web app bot.
 1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.
@@ -55,7 +55,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Change code in BasicLuisDialog.cs
 1. From the **Bot Management** section of the web app bot navigation in the Azure portal, select **Build**.
-2. Select **Open online code editor**. A new browser tab opens with the online editing environment. 
+2. Select **Open online code editor**. A new browser tab opens with the online editing environment.
 3. In the **WWWROOT** section, select the **Dialogs** directory, then open **BasicLuisDialog.cs**.
 4. Add dependencies to the top of the **BasicLuisDialog.cs** file:
 
@@ -104,13 +104,13 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     [Serializable]
     public class QnAMakerService
     {
-        private string qnaServiceHostName;
+        private string qnaServiceResourceName;
         private string knowledgeBaseId;
         private string endpointKey;
 
-        public QnAMakerService(string hostName, string kbId, string endpointkey)
+        public QnAMakerService(string resourceName, string kbId, string endpointkey)
         {
-            qnaServiceHostName = hostName;
+            qnaServiceResourceName = resourceName;
             knowledgeBaseId = kbId;
             endpointKey = endpointkey;
 
@@ -131,7 +131,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         }
         public async Task<string> GetAnswer(string question)
         {
-            string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
+            string uri = qnaServiceResourceName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
             string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
@@ -150,7 +150,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     ```
 
 
-7. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.  
+7. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.
 
     ```csharp
     [Serializable]
@@ -164,8 +164,8 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         // QnA Maker global settings
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
-        static string qnamaker_endpointDomain = "my-qnamaker-s0-s";
-        
+        static string qnamaker_resourceName = "my-qnamaker-s0-s";
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -173,8 +173,8 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         static string Finance_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
         // Instantiate the knowledge bases
-        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
-        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
+        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
+        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
 
         public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
             LUIS_appId,
@@ -235,4 +235,4 @@ In the Azure portal, select **Test in Web Chat** to test the bot. Type messages 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a business continuity plan for QnA Maker](../How-To/business-continuity-plan.md)
+> [Integrate your knowledge base with a Power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)

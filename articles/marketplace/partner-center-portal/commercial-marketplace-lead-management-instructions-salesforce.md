@@ -1,17 +1,20 @@
 ---
 title: Configure lead management for Salesforce | Azure Marketplace
 description: Configure lead management on Salesforce for Azure Marketplace customers.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce
 
-This article describes how to setup your Salesforce system to process sales leads from your marketplace offer.
+This article describes how to set up your Salesforce system to process sales leads from your commercial marketplace offer.
+
+> [!Note]
+> Marketplace does not support pre-populated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Set up your Salesforce system
 
@@ -21,14 +24,16 @@ This article describes how to setup your Salesforce system to process sales lead
     ![Salesforce setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. From the Setup page, navigate via the left navigation to **Platform Tools->Feature Settings->Marketing->Web-to-Lead**.
-    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
+
+        ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. If you are using the Salesforce Classic experience:
     1. Select **Setup** from Salesforce Home page.
     ![Salesforce classic setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. From the Setup page, navigate via the left navigation to **Build ->Customize->Leads->Web-to-Lead**.
-    ![Salesforce classic web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+
+        ![Salesforce classic web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 The rest of the instructions are the same irrespective of which Salesforce experience you are using.
 
@@ -39,7 +44,7 @@ The rest of the instructions are the same irrespective of which Salesforce exper
 6. On the **Create a Web-to-Lead Form**, make sure `the Include reCAPTCHA in HTML` setting is unchecked and select **Generate**. 
     ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
-7. You will be presented with some HTML text. Search for the text “oid” and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
+7. You will be presented with some HTML text. Search for the text "oid" and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
     ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-5.png)
 
 8. Selected **Finished**.

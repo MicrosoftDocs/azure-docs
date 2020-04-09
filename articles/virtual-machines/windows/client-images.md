@@ -1,5 +1,5 @@
 ---
-title: Use Windows client images in Azure | Microsoft Docs
+title: Use Windows client images in Azure 
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
 services: virtual-machines-windows
 documentationcenter: ''

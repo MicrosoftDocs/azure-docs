@@ -1,20 +1,15 @@
 ---
-title: Azure Quickstart - Back up a VM with PowerShell
-description: Learn how to back up your virtual machines with Azure PowerShell
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: Quickstart - Back up a VM with PowerShell
+description: In this Quickstart, learn how to back up your Azure virtual machines with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with PowerShell
 
-The [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module is used to create and manage Azure resources from the command line or in scripts. 
+The [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module is used to create and manage Azure resources from the command line or in scripts.
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with the AZ module. Alternatively, you can back up a VM using the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
 
@@ -26,17 +21,17 @@ This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. 
 
 ## Sign in and register
 
-1. Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
     ```powershell
     Connect-AzAccount
     ```
+
 2. The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), as follows:
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## Create a Recovery Services vault
 
@@ -49,7 +44,6 @@ When you create the vault:
 - Azure Backup automatically handles storage for backed up data. By default the vault uses [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). Geo-redundancy ensures that backed up data is replicated to a secondary Azure region, hundreds of miles away from the primary region.
 
 Now create a vault:
-
 
 1. Use the  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) to create the vault:
 
@@ -68,11 +62,12 @@ Now create a vault:
     ```
 
 3. Change the storage redundancy configuration (LRS/GRS) of the vault with [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), as follows:
-    
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > Storage Redundancy can be modified only if there are no backup items protected to the vault.
 
@@ -81,7 +76,7 @@ Now create a vault:
 You enable backup for an Azure VM, and specify a backup policy.
 
 - The policy defines when backups run, and how long recovery points created by the backups should be retained.
-- The default protection policy runs a backup once a day for the VM, and retains the created recovery points for 30 days. You can use this default policy to quickly protect your VM. 
+- The default protection policy runs a backup once a day for the VM, and retains the created recovery points for 30 days. You can use this default policy to quickly protect your VM.
 
 Enable backup as follows:
 
@@ -102,17 +97,18 @@ Enable backup as follows:
 
 ## Start a backup job
 
-Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:
+Backups run according to the schedule specified in the backup policy. You can also run an on-demand backup:
 
 - The first initial backup job creates a full recovery point.
 - After the initial backup, each backup job creates incremental recovery points.
 - Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-To run an ad hoc backup, you use the [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+To run an on-demand backup, you use the [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+
 - You specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Each VM to back up is treated as an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Run an ad hoc backup job as follows:
+Run an on-demand backup job as follows:
 
 1. Specify the container, obtain VM information, and run the backup.
 
@@ -130,7 +126,6 @@ Run an ad hoc backup job as follows:
 
 2. You might need to wait up to 20 minutes, since the first backup job creates a full recovery point. Monitor the job as described in the next procedure.
 
-
 ## Monitor the backup job
 
 1. Run [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) to monitor the job status.
@@ -138,6 +133,7 @@ Run an ad hoc backup job as follows:
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     Output is similar to the following example, which shows the job as **InProgress**:
 
     ```output
@@ -149,10 +145,10 @@ Run an ad hoc backup job as follows:
 
 2. When the job status is **Completed**, the VM is protected and has a full recovery point stored.
 
-
 ## Clean up the deployment
 
 If you no longer need to back up the VM, you can clean it up.
+
 - If you want to try out restoring the VM, skip the clean-up.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
@@ -165,10 +161,9 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-
 ## Next steps
 
-In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. 
+In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point.
 
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
