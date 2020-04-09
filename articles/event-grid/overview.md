@@ -30,20 +30,19 @@ This image shows how Event Grid connects sources and handlers, and isn't a compr
 
 For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
-* [Azure subscriptions (management operations)](event-sources.md#azure-subscriptions)
-* [Container Registry](event-sources.md#container-registry)
-* [Custom topics](event-sources.md#custom-topics)
-* [Event Hubs](event-sources.md#event-hubs)
-* [IoT Hub](event-sources.md#iot-hub)
-* [Key Vault (preview)](event-sources.md#key-vault-preview)
-* [Media Services](event-sources.md#media-services)
-* [Resource groups (management operations)](event-sources.md#resource-groups)
-* [Service Bus](event-sources.md#service-bus)
-* [Storage Blob](event-sources.md#storage)
-* [Azure Maps](event-sources.md#maps)
-* [App Configuration](event-sources.md#app-configuration)
-* [Signal R](event-sources.md#azure-signalr)
-* [Machine Learning](event-sources.md#azure-machine-learning)
+- [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Container Registry](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Azure Media Services](event-schema-media-services.md)
+- [Azure resource groups](event-schema-resource-groups.md)
+- [Azure Service Bus](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Azure subscriptions](event-schema-subscriptions.md)
 
 ## Event handlers
 

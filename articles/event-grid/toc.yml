@@ -95,9 +95,13 @@
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
 - name: Concepts
-  items:
-  - name: Event Grid concepts
+  items:    
+  - name: Event Grid terminology
     href: concepts.md
+  - name: Event Grid event schema
+    href: event-schema.md
+  - name: Custom topics
+    href: custom-topics.md
   - name: System topics
     items: 
     - name: Overview (system topics)
