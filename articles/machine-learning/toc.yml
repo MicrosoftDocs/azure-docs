@@ -311,7 +311,6 @@
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
           href: how-to-deploy-and-where.md
         - name: Deployment scenarios
-          expanded: true
           items: 
             - name: Compute instances
               href: how-to-deploy-local-container-notebook-vm.md
