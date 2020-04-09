@@ -36,7 +36,7 @@ To create an app registration, you need to provide the resource IDs for the Azur
 
 ```json
 [{
-    "resourceAppId": "https://api.azuredigitaltwins.net/",
+    "resourceAppId": "https://digitaltwins.azure.net",
     "resourceAccess": [
      {
        "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
@@ -91,7 +91,7 @@ To authenticate a .NET app with Azure services, you can use the following minima
 > If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you can find the tenant ID in the default directory overview in the Azure Active Directory section. 
 
 ```csharp
-private string adtAppId = "https://api.azuredigitaltwins.net/";
+private string adtAppId = "https://digitaltwins.azure.net";
 private string clientId = "<your-app-registration-ID>";
 private string tenantId = "<your-tenant-ID>";
 private AuthenticationResult authResult;
@@ -127,7 +127,7 @@ namespace Azure Digital TwinsGettingStarted
     {
         private const string clientId = "<your-app-registration>";
         // The Azure Digital Twins API resource ID
-        private const string adtAppId = "https://api.azuredigitaltwins.net/";
+        private const string adtAppId = "https://digitaltwins.azure.net";
         private static AuthenticationResult authResult;
 
         private static AzureDigitalTwinsAPIClient client;

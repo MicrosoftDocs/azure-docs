@@ -190,7 +190,7 @@ namespace adtIngestFunctionSample
 {
     public static class Function1
     {
-        const string AdtAppId = "https://api.azuredigitaltwins.net/";
+        const string AdtAppId = "https://digitaltwins.azure.net";
         const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
