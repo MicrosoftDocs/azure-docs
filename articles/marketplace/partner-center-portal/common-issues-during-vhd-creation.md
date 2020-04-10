@@ -12,7 +12,7 @@ ms.date: 04/09/2020
 # Common issues during VHD creation
 
 > [!NOTE]
-> We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Common issues during VHD creation (FAQ)](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) in Cloud Partner Portal to manage your offers.
+> We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Common issues during VHD creation (FAQ)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) in Cloud Partner Portal to manage your offers.
 
 These frequently asked questions (FAQ) cover common issues you might encounter when creating a virtual hard disk (VHD) for your Azure Virtual Machine offer.
 
