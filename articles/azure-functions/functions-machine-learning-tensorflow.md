@@ -152,7 +152,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 To build your own model using the free tier of the Custom Vision Service, follow the instructions in the [sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 > [!TIP]
-> If you want to host your TensorFlow model separately instead of deploying it together with the function app, see [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
+> If you want to host your TensorFlow model independent of the function app, you can instead mount a file share containing your model to your Linux function app. To learn more, see [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
 
 1. In the *start* folder, run following command to copy the model files into the *classify* folder. Be sure to include `\*` in the command. 
 
