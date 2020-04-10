@@ -119,6 +119,16 @@ To deploy the model as a web service, you must provide the following items:
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
+#### Controlled rollout
+
+When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
+
+* Create multiple versions of an endpoint for a deployment
+* Perform A/B testing by routing traffic to different versions of the endpoint.
+* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
+
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### IoT Edge devices
 
 You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
@@ -135,8 +145,10 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 - Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
 - [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
+- [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+- [Integration with Azure Event Grid](concept-event-grid-integration) allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
 
 > [!TIP]
 > While some information on models and datasets are automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
@@ -158,7 +170,7 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 ## Retrain your model on new data
 
-Often, you'll want to update your model, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
 There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
