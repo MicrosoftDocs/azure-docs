@@ -13,9 +13,9 @@
   - name: Work remotely
     items:
     - name: Support for working remotely
-    href: ../networking/working-remotely-support.md
+      href: ../networking/working-remotely-support.md
     - name: Leverage Azure Bastion
-    href: work-remotely-support.md
+      href: work-remotely-support.md
 - name: How-to guides
   items:
   - name: Create a bastion host
