@@ -155,7 +155,7 @@ This section describes some ways to handle exceptions or intermittent issues in 
 
 The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by `ErrorActionPreference`.
 
-When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as `PathNotFound` from the [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final [Write-Output](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) command never executes, as the script stops.
+When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as `PathNotFound` from the [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) command never executes, as the script stops.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -343,7 +343,7 @@ For long-running tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid 
 
 Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, such as a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Child runbooks execute in parallel in separate processes.
 
-Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the [Get-AzAutomationJob](https://docs.microsoft.com/en-us/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) cmdlet to check the job status for a child runbook if it still has more operations after the child completes.
+Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) cmdlet to check the job status for a child runbook if it still has more operations after the child completes.
 
 ## Next steps
 
