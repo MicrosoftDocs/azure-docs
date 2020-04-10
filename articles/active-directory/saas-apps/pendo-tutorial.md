@@ -41,7 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Pendo supports **IDP** initiated SSO
-* Once you configure Pendo you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Pendo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Pendo from the gallery
 
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set-up single sign-on with SAML** page, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://sso.connect.pingidentity.com/<CUSTOM_GUID>`
@@ -86,20 +86,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL:
     `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
+    c. In the **Relay State** text box, type a URL using the following pattern:
+    `https://pingone.com/1.0/<CUSTOM_GUID>`
+
 	> [!NOTE]
-	> Identifier value is not real. Update this value with the actual Identifier. Contact [Pendo Client support team](mailto:support@pendo.io) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Relay State. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Pendo application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. Pendo application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **name** is mapped with **user.userprincipalname**. Pendo application expects **name** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/default-attributes.png)
+	![image](common/edit-attribute.png)
 
-1. In addition to above, Pendo application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| ----------| --------- |
-	| name | user.mail |
-
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
