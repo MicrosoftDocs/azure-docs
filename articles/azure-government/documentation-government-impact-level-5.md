@@ -34,7 +34,8 @@ To include a service in Impact Level 5 scope, there are two key areas that will 
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated on dedicated physical nodes.
+The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Host
+which provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
 
@@ -206,13 +207,17 @@ All Virtual Machines should use Disk Encryption for Virtual Machines, Disk Encry
 | **Virtual Machine Scale Sets** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
 > [!IMPORTANT]
-> <sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
+> <sup>1</sup> When deploying VMs in these regions you must use **Azure Dedicated Host** as described below.
+
+#### [Azure Dedicated Hosts](https://azure.microsoft.com/services/virtual-machines/dedicated-host/)
+
+Azure Dedicated Host provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions. Using dedicated host, your Azure VMs are placed on an isolated and dedicated physical server that runs only your organization’s workloads to meet compliance guidelines and standards.
+
+Current Dedicated Host SKUs (VM series and Host Type) that offer necessary compute isolation include specific offerings from our VM families are listed here: (https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
 #### Isolated Virtual Machines
 
-Specific VM types when deployed consume the entire physical host for that VM. These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions.  In addition to deploying on these hosts, the underlying storage and disks for these virtual machines must be configured with encryption at rest.
-
-Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
+Virtual machine scale sets are not currently supported on Azure Dedicated Hosts. Specific VM types when deployed consume the entire physical host for that VM.  Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 Current VM SKUs that offer necessary compute isolation include specific offerings from our VM families:
 
