@@ -28,12 +28,12 @@ This article provides general guidance about how to detect dependencies on these
 
 The dates when these changes take effect are:
 
-| Cloud               | Phase 1 Start Date | Phase 2 Start Date |
-|---------------------|--------------------|--------------------|
-| Azure (global)      |  January 13, 2020  | March 31, 2020     |
-| Azure Government    |  March 13, 2020    | May 11, 2020       |
-| Azure Germany       |  March 13, 2020    | May 11, 2020       |
-| Azure China         |  March 13, 2020    | May 11, 2020       |
+| Cloud               | Phase 1 Start Date | Phase 2 Start Date      |
+|---------------------|--------------------|-------------------------|
+| Azure (global)      |  January 13, 2020  | May 11, 2020 (extended) |
+| Azure Government    |  March 13, 2020    | May 11, 2020            |
+| Azure Germany       |  March 13, 2020    | May 11, 2020            |
+| Azure China         |  March 13, 2020    | May 11, 2020            |
 
 ## Check whether your application is already compliant
 

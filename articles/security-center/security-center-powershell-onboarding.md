@@ -28,9 +28,9 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 
 1. Set the [Security Center standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
+2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
-3. Activate Security Center’s automatic agent provisioning which [deploys the Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Activate Security Center’s automatic agent provisioning which [deploys the Log Analytics agent](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Set the organization’s [CISO as the security contact for Security Center alerts and notable events](security-center-provide-security-contact-details.md).
 
@@ -63,7 +63,7 @@ These steps should be performed before you run the Security Center cmdlets:
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.	Auto-provision installation of the Microsoft Monitoring Agent on your Azure VMs:
+4.	Auto-provision installation of the Log Analytics agent on your Azure VMs:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     

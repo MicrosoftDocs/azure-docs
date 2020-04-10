@@ -4,18 +4,18 @@
  author: tfitzmac
  ms.service: governance
  ms.topic: include
- ms.date: 03/24/2020
+ ms.date: 03/26/2020
  ms.author: tomfitz
  ms.custom: include file
 ---
 
-| Resource | Default limit | Maximum limit |
-| --- | --- | --- |
-| Management groups per directory | 10,000 | 10,000 |
-| Subscriptions per management group | Unlimited. | Unlimited. |
-| Levels of management group hierarchy | Root level plus 6 levels<sup>1</sup> | Root level plus 6 levels<sup>1</sup> |
-| Direct parent management group per management group | One | One |
-| [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) per location | 800<sup>2</sup> | 800 |
+| Resource | Limit |
+| --- | --- |
+| Management groups per directory | 10,000 |
+| Subscriptions per management group | Unlimited. |
+| Levels of management group hierarchy | Root level plus 6 levels<sup>1</sup> |
+| Direct parent management group per management group | One |
+| [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) per location | 800<sup>2</sup> |
 
 <sup>1</sup>The 6 levels don't include the subscription level.
 

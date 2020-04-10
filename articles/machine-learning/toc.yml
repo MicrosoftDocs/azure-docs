@@ -24,12 +24,17 @@
     - name: 'Designer: 2. Deploy that model'
       displayName: studio
       href: tutorial-designer-automobile-price-deploy.md
-    - name: Create an automated ML experiment
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
-    - name: Forecast demand with automated ML (Bike share data)
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-automated-ml-forecast.md
+    - name: Automated ML (UI)
+      items:
+      - name: Create an automated ML experiment
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-first-experiment-automated-ml.md
+      - name: Forecast demand with automated ML (Bike share data)
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-automated-ml-forecast.md
+    - name: Label image data
+      displayName: tag, tagging, images
+      href: tutorial-labeling.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -97,6 +102,9 @@
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
+  - name: Distributed training
+    displayName: parallellization, deep learning, deep neural network, dnn
+    href: concept-distributed-training.md
   - name: Model management (MLOps)
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
@@ -113,6 +121,9 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
+  - name: Manage ML pitfalls
+    displayName: automl, auto ml, risks
+    href: concept-manage-ml-pitfalls.md    
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
@@ -135,6 +146,9 @@
         - name: Use virtual networks
           displayName: vnet, blob
           href: how-to-enable-virtual-network.md
+        - name: Use Private Link
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
         - name: Use Azure AD identity in AKS deployments
@@ -187,39 +201,47 @@
       href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
-    - name: Connect to data in Azure Storage
-      displayName: blob, get, fileshare, access storage, mount, download
-      href: how-to-access-data.md
-    - name: Get data from a datastore
-      displayName: data, data set, register, access data
-      href: how-to-create-register-datasets.md
-    - name: Train with datasets
-      displayName: data, dataset, mount
-      href: how-to-train-with-datasets.md
-    - name: Import data in the designer
-      displayName: designer, data, import, dataset, datastore
-      href: how-to-designer-import-data.md
-    - name: Detect drift on datasets
-      displayName: data, dataset
-      href: how-to-monitor-datasets.md
-    - name: Version & track datasets
-      displayName: data, data set
-      href: how-to-version-track-datasets.md     
-    - name: Get data labeled
-      displayName: data, dataset, labeling
-      href: how-to-create-labeling-projects.md
-    - name: Label images
-      displayName: data, dataset, labeling
-      href: how-to-label-images.md
-    - name: Create datasets with labels
-      displayName: data, labels, torchvision
-      href: how-to-use-labeled-dataset.md
-    - name: Data ingestion with Azure Data Factory
-      displayName: data, ingestion, adf
-      href: how-to-data-ingest-adf.md
-    - name: DevOps for data ingestion
-      displayName: data, ingestion, devops
-      href: how-to-cicd-data-ingestion.md
+    - name: Label data
+      items:
+      - name: Get data labeled
+        displayName: data, dataset, labeling
+        href: how-to-create-labeling-projects.md
+      - name: Label images
+        displayName: data, dataset, labeling
+        href: how-to-label-images.md
+      - name: Create datasets with labels
+        displayName: data, labels, torchvision
+        href: how-to-use-labeled-dataset.md
+    - name: Get data
+      items:
+      - name: Data ingestion with Azure Data Factory
+        displayName: data, ingestion, adf
+        href: how-to-data-ingest-adf.md
+      - name: DevOps for data ingestion
+        displayName: data, ingestion, devops
+        href: how-to-cicd-data-ingestion.md
+      - name: Import data in the designer
+        displayName: designer, data, import, dataset, datastore
+        href: how-to-designer-import-data.md
+    - name: Access data
+      items:
+      - name: Connect to Azure Storage
+        displayName: blob, get, fileshare, access, mount, download, data lake
+        href: how-to-access-data.md
+      - name: Get data from a datastore
+        displayName: data, data set, register, access data
+        href: how-to-create-register-datasets.md
+    - name: Manage & consume data
+      items:
+      - name: Train with datasets
+        displayName: data, dataset, mount
+        href: how-to-train-with-datasets.md
+      - name: Detect drift on datasets
+        displayName: data, dataset
+        href: how-to-monitor-datasets.md
+      - name: Version & track datasets
+        displayName: data, data set
+        href: how-to-version-track-datasets.md
   - name: Train models
     items:
     - name: Use estimators for ML
@@ -243,8 +265,6 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-    - name: Chainer
-      href: how-to-train-chainer.md
   - name: Interpret models
     displayName: interpretability
     items:
@@ -336,11 +356,14 @@
     items:
     - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
+    - name: Moving data into and between ML pipeline steps (Python)
+      href: how-to-move-data-in-out-of-pipelines.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
     - name: Trigger a pipeline
       href: how-to-trigger-published-pipeline.md
     - name: Debug & troubleshoot pipelines
+      displayName: designer
       href: how-to-debug-pipelines.md
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
