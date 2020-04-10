@@ -22,9 +22,9 @@ ms.author: rolyon
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you transfer an Azure subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
+Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
-This article describes the basic steps you can follow to transfer an Azure subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
 ## Overview
 
@@ -45,9 +45,9 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
 ### Why would you transfer a subscription to a different directory?
 
-- You want to manage a subscription in your primary Azure AD directory.
 - You have acquired a company and you want to manage an acquired subscription in your primary Azure AD directory.
-- You have applications that depend on a particular subscription ID that is not easy to change.
+- Someone in your organization created a subscription and you want to consolidate management to a particular Azure AD directory.
+- You have applications that depend on a particular subscription ID and it isn't easy to modify the application configuration or code.
 
 ### Understand the impact of transferring a subscription
 
@@ -56,19 +56,19 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 > [!IMPORTANT]
 > This section lists the known Azure services or resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here. 
 
-| Service or resource | Impacted | Recoverable | What you can do |
-| --------- | --------- | --------- | --------- |
-| Role assignments | Yes | Yes | All role assignments are permanently deleted. You must map users, groups, and service principals to corresponding objects in target directory. You must re-create the role assignments. |
-| Custom roles | Yes | Yes | All custom roles are permanently deleted. You must re-create the custom roles and any role assignments. |
-| System-assigned managed identities | Yes | Yes | You must disable and re-enable the managed identities. You must re-create the role assignments. |
-| User-assigned managed identities | Yes | Yes | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
-| Azure Key Vault | Yes | Yes |  |
-| Azure Storage | Yes | Yes |  |
-| Azure SQL Databases with Azure AD authentication | Yes | No |  |
-| Azure Managed Disks | No | N/A |  |
-| Azure Container Services for Kubernetes | Yes | Yes |  |
-| Azure Active Directory Domain Services | Yes | No |  |
-| Azure File Sync | Yes | Yes |  |
+| Service or resource | Impacted | Recoverable | Are you impacted? | What you can do |
+| --------- | --------- | --------- | --------- | --------- |
+| Role assignments | Yes | Yes | [List role assignments](#save-all-role-assignments) | All role assignments are permanently deleted. You must map users, groups, and service principals to corresponding objects in the target directory. You must re-create the role assignments. |
+| Custom roles | Yes | Yes | [List custom roles](#save-custom-roles) | All custom roles are permanently deleted. You must re-create the custom roles and any role assignments. |
+| System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
+| User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
+| Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-other-known-resources) |  |
+| Azure Storage | Yes | Yes |  |  |
+| Azure SQL Databases with Azure AD authentication | Yes | No | [Check Azure SQL Databases with Azure AD authentication](#list-other-known-resources) |  |  |
+| Azure Managed Disks | No | N/A |  |  |
+| Azure Container Services for Kubernetes | Yes | Yes |  |  |
+| Azure Active Directory Domain Services | Yes | No |  |  |
+| Azure File Sync | Yes | Yes |  |  |
 
 ## Prerequisites
 
@@ -94,28 +94,6 @@ To complete these steps, you will need:
 
     ```azurecli
     az account set --subscription "Marketing"
-    ```
-
-### Discover potential affected resources
-
-1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
-
-    ```azurecli
-    az extension list
-    ```
-
-1. If not, install the *resource-graph* extension.
-
-    ```azurecli
-    az extension add --name resource-graph
-    ```
-
-1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
-
-    ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions 11111111-1111-1111-1111-111111111111 --output table
     ```
 
 ### Save all role assignments
@@ -206,6 +184,18 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 ### List other known resources
 
+1. Use [az extension list](/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
+
+    ```azurecli
+    az extension list
+    ```
+
+1. If not, install the *resource-graph* extension.
+
+    ```azurecli
+    az extension add --name resource-graph
+    ```
+
 1. If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
 
     ```azurecli
@@ -216,6 +206,14 @@ Managed identities do not get updated when a subscription is transferred to anot
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
+    ```
+
+1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
+
+    ```azurecli
+    az graph query -q \
+    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
+    --subscriptions 11111111-1111-1111-1111-111111111111 --output table
     ```
 
 ## Step 2: Transfer billing ownership
