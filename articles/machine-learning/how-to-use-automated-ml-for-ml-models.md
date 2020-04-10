@@ -151,7 +151,6 @@ Variance| Measure of how far spread out this column's data is from its average v
 Skewness| Measure of how different this column's data is from a normal distribution.
 Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
-
 <a name="featurization"></a>
 
 ## Advanced featurization options
@@ -160,12 +159,15 @@ Automated machine learning offers preprocessing and data guardrails automaticall
 
 ### Preprocessing
 
+> [!NOTE]
+> If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an * are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). 
+
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |
-|Drop high cardinality or no variance features|Drop these from training and validation sets, including features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).|
-|Impute missing values|For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
-|Generate additional features|For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|
-|Transform and encode |Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
+|Drop high cardinality or no variance features* |Drop these from training and validation sets, including features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).|
+|Impute missing values* |For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
+|Generate additional features* |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|
+|Transform and encode *|Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
 |Word embeddings|Text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word's embedding vector in a document is aggregated together to produce a document feature vector.|
 |Target encodings|For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce over fitting of the mapping and noise caused by sparse data categories.|
 |Text target encoding|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
@@ -174,7 +176,24 @@ Automated machine learning offers preprocessing and data guardrails automaticall
 
 ### Data guardrails
 
-Data guardrails are applied when automatic featurization is enabled or validation is set to auto. Data guardrails help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. Users can review data guardrails in the studio within the **Data guardrails** tab of an Automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK. The following table describes the data guardrails currently supported, and the associated statuses that users may come across when submitting their experiment.
+Data guardrails are applied when automatic featurization is enabled or validation is set to auto. Data guardrails help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. 
+
+Users can review data guardrails in the studio within the **Data guardrails** tab of an automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK. 
+
+#### Data Guardrail States
+
+Data guardrails will display one of three states: **Passed**, **Done**, or **Alerted**.
+
+State| Description
+----|----
+Passed| No data problems were detected and no user action is required. 
+Done| Changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. 
+Alerted| A data issue that could not be remedied was detected. We encourage users to revise and fix the issue. 
+
+>[!NOTE]
+> Previous versions of automated ML experiments displayed a fourth state: **Fixed**. Newer experiments will not display this state, and all guardrails which displayed the **Fixed** state will now display **Done**.   
+
+The following table describes the data guardrails currently supported, and the associated statuses that users may come across when submitting their experiment.
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
@@ -184,17 +203,6 @@ Validation split handling |**Done**| *The validation configuration was set to 'a
 Class balancing detection |**Passed** <br><br><br><br> **Alerted** | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias fix the balancing problem. Learn more about [imbalanced data.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
 Memory issues detection |**Passed** <br><br><br><br> **Done** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
 Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series was analyzed and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
-
-#### Data Guardrail States
-Data guardrails will display one of three states: 'Passed', 'Done, or 'Alerted'.
-
-State| Description
-----|----
-Passed| No data problems were detected and no user action is required. 
-Done| Changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. 
-Alerted| A data issue that could not be remedied was detected. We encourage users to revise and fix the issue. 
-
-Previous version of the Automated ML displayed a fourth state: 'Fixed'. Newer experiments will not display this state, and all guardrails which displayed the 'Fixed' state will now display 'Done'.   
 
 ## Run experiment and view results
 

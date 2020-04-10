@@ -9,7 +9,10 @@ ms.date: 04/06/2020
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools host essential system services such as CoreDNS. User node pools are where you place your application-specific pods. Every AKS cluster must contain at least one system node pool with at least one node. If you run a single system node pool for your AKS cluster, we recommend you use at least three nodes for the node pool. 
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node. 
+
+> [!Important]
+> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
 
 ## Before you begin
 

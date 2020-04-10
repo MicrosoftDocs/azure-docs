@@ -49,6 +49,10 @@ landingContent:
   # Card (optional)
   - title: Load data
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Fast data ingestion with the COPY statement
+            url: quickstart-bulk-load-copy-tsql.md
       - linkListType: concept
         links:
           - text: Design data loading strategy
