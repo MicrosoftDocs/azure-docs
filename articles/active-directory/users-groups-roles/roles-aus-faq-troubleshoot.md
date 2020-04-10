@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Troubleshooting and FAQ for administrative units in Azure Active Directory
 
-For more granular administrative control in Azure ACtive Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs). You can find sample Powershell scripts for common tasks at https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0.
+For more granular administrative control in Azure ACtive Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs). You can find sample PowerShell scripts for common tasks at https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0.
 
 ## Frequently asked questions
 
@@ -33,19 +33,19 @@ For more granular administrative control in Azure ACtive Directory (Azure AD), y
 
 **Q: I just added / removed a member of the administrative unit and it is still showing up in the UI**
 
-**A:** Sometimes processing of the add / removal of one or more member of the administrative unit may take a few minutes to reflect under the Administrative Units blade. You may choose to wait for a few minutes for it to reflect under the administrative units. Alternatively, you can go directly to the associated resource's properties and see if the action has been completed. See List administrative units for a user and List administrative units for a group for more information.
+**A:** Sometimes processing of the addition or removal of one or more members of the administrative unit might take a few minutes to reflect under the **Administrative units** page. You may choose to wait for a few minutes for it to reflect under the administrative units. Alternatively, you can go directly to the associated resource's properties and see if the action has been completed. For more information about users and groups in AUs, see [List administrative units for a user](roles-aus-add-manage-users.md) and [List administrative units for a group](roles-aus-add-manage-groups.md).
 
 **Q: As a delegated password administrator on an administrative unit, I am unable to reset a specific user's password**
 
-**A:** An administrator assigned over an administrative unit you can reset password only for users assigned to your administrative unit. Make sure that the user for which the password reset is failing belongs to the administrative units over which you have been assigned the role. If the user belongs to the same administrative unit and you are still not able to reset the password of the user, check the roles that the user hold. To prevent an elevation of privilege, an administrative unit level administrator cannot reset the password of a user which holds a role on the directory level.
+**A:** An administrator assigned over an administrative unit you can reset password only for users assigned to your administrative unit. Make sure that the user for which the password reset is failing belongs to the administrative units over which you have been assigned the role. If the user belongs to the same administrative unit and you still can't reset the password of the user, check the roles that are assigned to the user. To prevent an elevation of privilege, an administrative unit scoped administrator cannot reset the password of a user that is assigned to a role with an organization-wide scope.
 
 **Q: Why are administrative units necessary? Couldn't we have used security groups as the way to define a scope?**
 
-**A:** Security Groups have an existing purpose and authorization model. A User administrator, for example, can manage membership of all security groups in the Azure AD organization. That is because is it reasonable that a User Administrator can use groups to manage access to applications like Salesforce. A User administrator should not have the ability to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. Administrative units, like Organizational Units in Windows Server Active Directory, are intended to provide a way to scope administration of a wide range of directory objects. Security groups themselves can be members of resource scopes. Using security groups to define the set of security groups an administrator can manage would get very confusing.
+**A:** Security groups have an existing purpose and authorization model. A User administrator, for example, can manage membership of all security groups in the Azure AD organization, such as to use groups to manage access to applications like Salesforce. A User administrator should not have the ability to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. Administrative units, like Organizational Units in Windows Server Active Directory, are intended to provide a way to scope administration of a wide range of directory objects. Security groups themselves can be members of resource scopes. Using security groups to define the set of security groups an administrator can manage could become confusing.
 
 **Q: What does it mean to add a group to an administrative unit?**
 
-**A:** Adding a group to an administrative unit brings the group itself into the management scope of any User administrator who is also scoped to that amin unit. User admins for the administrative unit can manage the name and membership of the group itself. It does not grant the User admin for the administrative unit any permission to manage the users of the group (for example, reset their passwords). To grant the User Administrator the ability to manage users, the users have to be direct members of the administrative unit.
+**A:** Adding a group to an administrative unit brings the group itself into the management scope of any User administrator who is also scoped to that admin unit. User admins for the administrative unit can manage the name and membership of the group itself. It does not grant the User admin for the administrative unit any permission to manage the users of the group (for example, reset their passwords). To grant the User Administrator the ability to manage users, the users have to be direct members of the administrative unit.
 
 **Q: Can a resource (user or group) be a member of more than one administrative unit?**
 
