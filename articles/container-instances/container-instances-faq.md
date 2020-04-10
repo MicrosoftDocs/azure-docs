@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
 author: dkkapur
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/10/2020
 ---
 
 # Frequently asked questions about Azure Container Instances
