@@ -54,7 +54,7 @@ Where `{search keywords}` is the context of your search. Consider using these sc
 
 If you can't find an answer to your problem with the search box on Stack Overflow, submit a new question. Stack Overflow is the preferred channel for development-related questions. It's where members of the Stack Overflow community and Microsoft team members are directly involved in helping you solve your problems.
 
-Review questions or ask questions [here](https://go.microsoft.com/fwlink/?linkid=2126464). Use the appropriate tag for your question, so we are sure to see the question.
+<b>Post a question [here](https://go.microsoft.com/fwlink/?linkid=2126464)</b>. Use the appropriate tag for your question, so we are sure to see the question.
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:
