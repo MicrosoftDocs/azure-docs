@@ -26,7 +26,7 @@ For SQL pool, the unit of scale is an abstraction of compute power that is known
 
 For SQL on-demand, being serverless, scaling is done automatically to accommodate query resource requirements. As topology changes over time by adding, removing nodes or failovers, it adapts to changes and makes sure your query has enough resources and finishes successfully. For example, the image below shows SQL on-demand utilizing 4 compute nodes to execute a query.
 
-![Synapse SQL architecture](./media/synapse-sql-architecture/sql-architecture.png)
+![Synapse SQL architecture](./media//overview-architecture/sql-architecture.png)
 
 Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL. 
 
@@ -87,7 +87,7 @@ To shard data into a hash-distributed table, SQL pool uses a hash function to de
 
 The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. 
 
-![Distributed table](media/synapse-sql-architecture/hash-distributed-table.png "Distributed table") 
+![Distributed table](media//overview-architecture/hash-distributed-table.png "Distributed table") 
 
 * Each row belongs to one distribution. 
 * A deterministic hash algorithm assigns each row to one distribution. 
@@ -108,7 +108,7 @@ A table that is replicated caches a full copy of the table on each compute node.
 
 The diagram below shows a replicated table that is cached on the first distribution on each compute node. 
 
-![Replicated table](media/synapse-sql-architecture/replicated-table.png "Replicated table") 
+![Replicated table](media/overview-architecture/replicated-table.png "Replicated table") 
 
 ## Next steps
 
