@@ -76,7 +76,7 @@ Or, you can choose to follow these manual steps using the template VM:
 
 1. Finally, to combine this behavior with the **automatic shutdown on disconnect** setting, you should follow steps in the how-to article: [Enable automatic shutdown of VMs on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
 
-> [!NOTE]
+> [!WARNING]
 > After configuring this setting using either PowerShell to modify the registry setting directly or manually using the Group Policy editor, you must first restart the VM for the settings to take effect.  Also, if you configure the setting using the registry, the Group Policy editor doesn't always refresh to reflect changes to the registry setting; however, the registry setting still takes effect as expected and you will see the RDP session disconnected when idle for the length of time that you've specified.
 
 ## Remove Windows shutdown command from Start menu
