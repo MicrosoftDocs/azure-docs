@@ -120,4 +120,4 @@ A replacement device is needed when the existing device has a hardware failure o
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](data-box-edge-manage-bandwidth-schedules.md).
+- Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
