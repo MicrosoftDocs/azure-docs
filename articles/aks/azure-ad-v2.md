@@ -10,13 +10,13 @@ ms.date: 03/24/2020
 # Integrate Azure AD in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing AKS v1 clusters with AD integration are not affected by the new AKS v2 experience.
+> Existing AKS clusters with AAD (Azure Active Directory) integration are not affected by the new AKS managed AAD experience.
 
-Azure AD integration with AKS v2 is designed to simplify the Azure AD integration with AKS v1 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+Azure AD integration with AKS managed AAD is designed to simplify the Azure AD integration experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing Azure AD enabled AKS v1 cluster to the v2 experience.
+* You can't currently upgrade an existing AKS AAD Integration cluster to the new AKS managed AAD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -101,7 +101,7 @@ Alternatively, if you first create a group and add members, you can enable the A
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-A successful creation of an Azure AD v2 cluster has the following section in the response body
+A successful creation of an AKS Managed AAD cluster has the following section in the response body
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
