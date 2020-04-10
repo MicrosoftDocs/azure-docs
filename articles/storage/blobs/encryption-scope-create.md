@@ -85,3 +85,5 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 > It is not possible to delete an encryption scope in the preview (???will it be possible in GA???).
 
 ## Next steps
+
+- [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)

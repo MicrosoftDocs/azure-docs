@@ -56,21 +56,24 @@ Encryption scopes enable you to manage encryption at the level of the container 
 
 You can create one or more encryption scopes for a storage account using the Azure Storage resource provider. When you create the scope, you specify what type of key you want to use for that scope. The key may be either a Microsoft-managed key or a customer-managed key that is stored in Azure Key Vault. Encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
-After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob.
+After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](../blobs/encryption-scope-create.md).
 
 ### Create a container or blob with an encryption scope
 
-When you create a container and specify an encryption scope for that container, all blobs subsequently created in that container belong to that encryption scope by default.
+When you create a container and specify an encryption scope for that container, all blobs subsequently created in that container belong to that encryption scope by default. You can also specify an encryption scope when you create an individual blob.
 
-To create a blob in the same container that belongs to a different encryption scope, you can override the default encryption scope on the operation to create the blob.
+When you create a blob, you can specify an encryption scope that overrides the encryption scope specified for the container, unless the container was created with the Deny Override flag (???figure out what to call this).
 
-### Create a blob with an encryption scope
-
-To create a blob that belongs to a specified encryption scope, specify that encryption scope on the operation to create the blob.
+Read operations on a blob that belongs to an encryption scope happen transparently, so long as the encryption scope is not disabled.
 
 ### Disable an encryption scope
 
-To disable an encryption scope...
+When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
+
+When an encryption scope is disabled, you are no longer billed for it. ???Need more info on pricing/costs???
+
+> [!NOTE]
+> It is not possible to delete an encryption scope in the preview (???will it be possible in GA???).
 
 ## Next steps
 
