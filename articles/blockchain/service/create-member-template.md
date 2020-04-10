@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/07/2020
+ms.date: 04/10/2020
 ---
 
 <!-- ms.topic and ms.custom in the metadata section are required -->
@@ -16,17 +16,13 @@ ms.date: 04/07/2020
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using an Azure Resource Manager template.
 
+An Azure Blockchain Service member is a blockchain node in a private consortium blockchain network. When provisioning a member, you can create or join a consortium network. You need at least one member for a consortium network. The number of blockchain members needed by participants depends on your scenario. Consortium participants may have one or more blockchain members or they may share members with other participants. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
+
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Prerequisites
-
-None.
-
-## Create a blockchain member
-
-### Review the template
+## Review the template
 
 <!-- The first sentence must be the following sentence. The link is the quickstart template from GitHub. The link must begin with https://github.com/Azure/azure-quickstart-templates/. -->
 
@@ -46,9 +42,14 @@ Azure resources defined in the template:
 
 1. Select the following link to sign in to Azure and open a template.
 
-  [![Deploy to Azure](./media/create-member-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Deploy to Azure](./media/create-member-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
-1. Specify the **x**: provide the Y and add .
+1. Specify the Blockchain **Member name** and **Member password**.
+
+    Available locations for the deployment are *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, and *japaneast*.
+
+    By default, the template uses the *Basic* pricing tier and the same value for the member password and the for the consortium management account password.
+
 1. Select **Purchase** to deploy the template.
 
   The Azure portal is used here to deploy the template. You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
@@ -59,7 +60,8 @@ Azure resources defined in the template:
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
+When no longer needed, [delete the resource group](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
+), which deletes the resources in the resource group.
 
 <!--
 
