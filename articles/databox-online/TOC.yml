@@ -94,7 +94,7 @@
     - name: Manage 
       items:
       - name: Edge compute
-        href: data-box-edge-manage-compute.md
+        href: azure-stack-edge-manage-compute.md
       - name: Edge compute network
         href: data-box-edge-extend-compute-access-modules.md
       - name: Shares

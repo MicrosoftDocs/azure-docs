@@ -86,7 +86,7 @@ landingContent:
           - text: Azure Stack Edge shares
             url: data-box-edge-manage-shares.md
           - text: Edge compute
-            url: data-box-edge-manage-compute.md
+            url: azure-stack-edge-manage-compute.md
           - text: Edge compute network
             url: data-box-edge-extend-compute-access-modules.md
 
