@@ -14,24 +14,28 @@ ms.custom: seo-lt-2019
 ---
 
 # Use transactions in Synapse SQL pool
+
 This article includes tips for implementing transactions and developing solutions in SQL pool.
 
 ## What to expect
-As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure SQL pool is maintained at scale, some features are limited when compared to SQL Server. This article highlights the differences. 
+
+As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure SQL pool is maintained at scale, some features are limited when compared to SQL Server. This article highlights the differences.
 
 ## Transaction isolation levels
+
 SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
 
-Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
+Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for details.
 
 ## Transaction size
-A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. 
+
+A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count.
 
 To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns, consider taking an average column length rather than using the maximum size.
 
 In the following table, two assumptions have been made:
 
-* An even distribution of data has occurred 
+* An even distribution of data has occurred
 * The average row length is 250 bytes
 
 ## Gen2
@@ -72,26 +76,24 @@ In the following table, two assumptions have been made:
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
+The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log.
 
 To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
 > <!--REPLICATED_TABLE-->
-> 
-> 
 
 ## Transaction state
+
 SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
-> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example, `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. 
+> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example, `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state.
 
-SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction, it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. 
+SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction, it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back.
 
 As such, it's important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
-
 
 For example, in SQL Server, you might see a transaction that looks like the following:
 
@@ -180,11 +182,13 @@ The expected behavior is now observed. The error in the transaction is managed a
 All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATCH block.
 
 ## Error_Line() function
-It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. 
+
+It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool.
 
 Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](sql-data-warehouse-develop-label.md) article.
 
 ## Using THROW and RAISERROR
+
 THROW is the more modern implementation for raising exceptions in SQL pool but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
 
 * User-defined error messages numbers cannot be in the 100,000 - 150,000 range for THROW
@@ -192,6 +196,7 @@ THROW is the more modern implementation for raising exceptions in SQL pool but R
 * Use of sys.messages is not supported
 
 ## Limitations
+
 SQL pool does have a few other restrictions that relate to transactions.
 
 They are as follows:
@@ -204,5 +209,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL pool best practices, see [SQL pool best practices](sql-data-warehouse-best-practices.md).
 
+To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL pool best practices, see [SQL pool best practices](sql-data-warehouse-best-practices.md).

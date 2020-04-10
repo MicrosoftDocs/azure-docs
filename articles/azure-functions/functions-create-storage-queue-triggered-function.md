@@ -3,7 +3,7 @@ title: Create a function in Azure triggered by queue messages
 description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to a queue in Azure.
 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---

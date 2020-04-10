@@ -268,7 +268,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 1. Ensure you add the claim used above as an input claim:
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 After you add the above snippets, your technical profile should look like the following XML code:
@@ -288,7 +288,7 @@ After you add the above snippets, your technical profile should look like the fo
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

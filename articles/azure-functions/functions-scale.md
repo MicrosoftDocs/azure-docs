@@ -128,7 +128,7 @@ It's certainly possible for multiple function apps to share the same storage acc
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#core-storage-services).
 
 ## How the Consumption and Premium plans work
 
