@@ -15,23 +15,23 @@
   items:
   - name: Storage events
     items:
+    - name: Portal
+      href: blob-event-quickstart-portal.md
     - name: Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Azure PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Portal
-      href: blob-event-quickstart-portal.md
     - name: ARM template
       displayName: Resource Manager
       href: blob-event-quickstart-template.md
   - name: Custom events
     items:
+    - name: Portal
+      href: custom-event-quickstart-portal.md
     - name: Azure CLI
       href: custom-event-quickstart.md
     - name: PowerShell
       href: custom-event-quickstart-powershell.md
-    - name: Portal
-      href: custom-event-quickstart-portal.md
   - name: Azure Functions as event handler
     href: custom-event-to-function.md
   - name: Queue storage as event handler
@@ -136,6 +136,21 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+  - name: Event Domains
+    href: event-domains.md
+  - name: Event handlers
+    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
+    href: event-handlers.md
+  - name: Event delivery
+    items: 
+    - name: Delivery and retry
+      href: delivery-and-retry.md
+    - name: Event filtering
+      href: event-filtering.md
+  - name: Disaster recovery
+    items:
+    - name: Geo disaster recovery
+      href: geo-disaster-recovery.md      
   - name: Security 
     items: 
     - name: Authentication
@@ -144,17 +159,6 @@
       href: security-authorization.md
     - name: Network security
       href: network-security.md
-  - name: Delivery and retry
-    href: delivery-and-retry.md
-  - name: Event filtering
-    href: event-filtering.md
-  - name: Event Domains
-    href: event-domains.md
-  - name: Event handlers
-    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
-    href: event-handlers.md
-  - name: Geo disaster recovery
-    href: geo-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Configure private endpoints (preview)
@@ -173,8 +177,6 @@
     href: manage-event-delivery.md
   - name: Filter events
     href: how-to-filter-events.md
-  - name: Monitor event delivery
-    href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
   - name: Subscribe through portal
@@ -187,10 +189,14 @@
     href: how-to-event-domains.md
   - name: Implement client-side failover
     href: custom-disaster-recovery.md
-  - name: Troubleshoot errors
-    href: troubleshoot-errors.md
-  - name: Enable diagnostic logs for a topic
-    href: enable-diagnostic-logs-topic.md
+  - name: Troubleshoot
+    items: 
+    - name: Enable diagnostic logs for a topic
+      href: enable-diagnostic-logs-topic.md
+    - name: Troubleshoot errors
+      href: troubleshoot-errors.md
+    - name: Monitor event delivery
+      href: monitor-event-delivery.md
 - name: Reference
   items:
   - name: Azure CLI
