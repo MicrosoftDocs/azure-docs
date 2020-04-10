@@ -140,4 +140,4 @@ This section lists the specifications related to the enclosure environment such 
 
 ## Next steps
 
-- [Deploy your Azure Stack Edge](data-box-edge-deploy-prep.md)
+- [Deploy your Azure Stack Edge](azure-stack-edge-deploy-prep.md)

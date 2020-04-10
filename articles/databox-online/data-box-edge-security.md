@@ -45,7 +45,7 @@ Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Ed
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](data-box-edge-deploy-prep.md#get-the-activation-key).
+For more information, see [Get an activation key](azure-stack-edge-deploy-prep.md#get-the-activation-key).
 
 ### Protect the device via password
 
@@ -90,4 +90,4 @@ For more information, review the Microsoft privacy policy on the [Trust Center](
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](data-box-edge-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-deploy-prep.md)

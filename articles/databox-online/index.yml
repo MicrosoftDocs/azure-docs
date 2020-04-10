@@ -62,7 +62,7 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
           - text: Azure Stack Edge
-            url: data-box-edge-deploy-prep.md
+            url: azure-stack-edge-deploy-prep.md
 
   # Card
   - title: Develop

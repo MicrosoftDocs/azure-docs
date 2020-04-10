@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 Before you configure and set up your Azure Stack Edge device, make sure that:
 
 * You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-deploy-install.md).
-* You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](data-box-edge-deploy-prep.md).
+* You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md).
 
 ## Connect to the local web UI setup 
 
@@ -128,7 +128,7 @@ Your dashboard displays the various settings that are required to configure and 
 
 6. In the left pane, select **Cloud settings**, and then activate your device with the Azure Stack Edge service in the Azure portal.
     
-    1. In the **Activation key** box, enter the activation key that you got in [Get the activation key](data-box-edge-deploy-prep.md#get-the-activation-key) for Azure Stack Edge.
+    1. In the **Activation key** box, enter the activation key that you got in [Get the activation key](azure-stack-edge-deploy-prep.md#get-the-activation-key) for Azure Stack Edge.
     2. Select **Apply**.
        
         ![Local web UI "Cloud settings" page](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)

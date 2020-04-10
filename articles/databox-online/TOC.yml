@@ -66,7 +66,7 @@
   - name: Tutorials
     items:
     - name: 1 - Prepare
-      href: data-box-edge-deploy-prep.md
+      href: azure-stack-edge-deploy-prep.md
     - name: 2 - Install
       href: azure-stack-edge-deploy-install.md
     - name: 3 - Connect, set up, activate
