@@ -22,7 +22,7 @@ This article describes how to create and publish a Container offer for Azure Mar
 2. In the left menu, select **Commercial Marketplace**, then **Overview**.
 3. On the **Overview** page, select **+ New offer**, then **Azure Container**. The **New offer** dialog box appears.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-0-overview-new-offer.png" alt-text="Illustrated the Overview page in Partner Center. The New offer button and Consulting service offer are highlighted.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustrated the Overview page in Partner Center. The New offer button and Consulting service offer are highlighted.":::
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -31,7 +31,7 @@ This article describes how to create and publish a Container offer for Azure Mar
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID can be seen by customers in the web address for the marketplace offer and Azure Resource Manager templates.
+- This ID can be seen by customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** , the offer web address will be **https&#8203;://azuremarketplace.microsoft.com/marketplace/../test-offer-1**.
 - The Offer ID can't be changed after you select **Create**.
 
@@ -377,7 +377,7 @@ Provide the following information on the **Image repository details** tab.
 
 **Azure resource group name** – Provide the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in Azure Portal.
 
-**Azure Container Registry name** – Provide the name of the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%20Fregistries) in the Azure Portal.
+**Azure Container Registry name** – Provide the name of the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure Portal.
 
 **Admin username for the Azure Container Registry** – Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) linked with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in Azure portal.
 
@@ -400,7 +400,7 @@ Customers must be able to automatically get updates from the Azure Marketplace w
 
 This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them.
 
-All manifest tags (except the latest tag) must start with either X.Y **-** or X.Y.Z- where X, Y, and Z are integers. For example, if a **latest** tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details, see [Prepare your Azure Container technical assets](https:docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+All manifest tags (except the latest tag) must start with either X.Y **-** or X.Y.Z- where X, Y, and Z are integers. For example, if a **latest** tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details, see [Prepare your Azure Container technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > Remember to add a test tag to your image so you can identify the image during testing.
