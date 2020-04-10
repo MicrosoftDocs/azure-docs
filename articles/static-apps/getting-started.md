@@ -120,8 +120,12 @@ To avoid any costs associated with following the quickstart procedure, a Clean u
 
 ## Next steps
 
+<!-- Uncomment this block and add the appropriate link
+
 > [!div class="nextstepaction"]
-> [setup local development](static-apps-local-development.md)
+> [Next steps button](contribute-get-started-mvc.md)
+
+-->
 
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.

@@ -47,8 +47,12 @@ Include a sentence or two to explain only what is needed to complete the procedu
 
 ## Next steps
 
+<!-- Uncomment this block and add the appropriate link
+
 > [!div class="nextstepaction"]
-> [setup local development](static-apps-local-development.md)
+> [Next steps button](contribute-get-started-mvc.md)
+
+-->
 
 <!--- Required:
 A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
