@@ -15,7 +15,7 @@ ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Tutorial: Sign in users and call the Microsoft Graph API from an Angular SPA
+# Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
