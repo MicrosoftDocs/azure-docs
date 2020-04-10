@@ -197,13 +197,15 @@ To get started, create a logic app in your Azure subscription by using the follo
     ![Configure autoshutdown for a compute VM](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
 
 ### Activity log
-When you update the autoshutdown setting, you will see the **Add or modify schedules** operation in the activity log. If you don't see it yet, wait for sometime and refresh the activity log.
-
-When you select the operation and switch to the **Change history** tab in the **Add or modify schedules** page, you see the change history for the setting. In the following example, the shutdown time was changed from 7 PM to 6 PM on April 10, 2020 at 15:18:47 EST. And, the setting was disabled at 15:25:09 EST. 
-
-To see more details about the operation, switch to the **JSON** tab in the **Add or modify schedules** page.
+When you update the autoshutdown setting, you will see the **Add or modify schedules** operation in the activity log. If you don't see it, remove **Resource: mycomputevm** from the filters. If you still don't see it, wait for sometime and refresh the activity log.
 
 ![Activity log entry](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+
+When you select the **Add or modify schedules** operation and switch to the **Change history** tab in the **Add or modify schedules** page, you see the change history for the setting. In the following example, the shutdown time was changed from 7 PM to 6 PM on April 10, 2020 at 15:18:47 EST. And, the setting was disabled at 15:25:09 EST. 
+
+![Activity log - change history](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+
+To see more details about the operation, switch to the **JSON** tab in the **Add or modify schedules** page.
 
 
 
