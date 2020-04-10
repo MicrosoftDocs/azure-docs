@@ -401,7 +401,11 @@ END
 
 ## Pause and scaling guidance
 
-Azure Synapse Analytics lets you [pause, resume, and scale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) your SQL pool on demand. When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool.
+Azure Synapse Analytics lets you [pause, resume, and scale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) your SQL pool on demand. 
+
+When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. 
+
+If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool. 
 
 > [!IMPORTANT]
 > Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations.
