@@ -45,7 +45,7 @@ The following screenshots show the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
 
-To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics-pnp.md) tutorial.
+To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md) tutorial.
 
 ## Digital distribution center
 
@@ -67,7 +67,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
 
-To learn more, see the [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center-pnp.md) tutorial.
+To learn more, see the [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md) tutorial.
 
 ## In-store analytics - condition monitoring
 
@@ -90,7 +90,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
 
-To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) tutorial.
+To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## In-store analytics - checkout
 
@@ -113,7 +113,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
 
-To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) tutorial.
+To learn more, see the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## Smart inventory management
 
@@ -134,7 +134,7 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
-To learn more, see the [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management-pnp.md) tutorial.
+To learn more, see the [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md) tutorial.
 
 ## Micro-fulfillment center
 
@@ -155,15 +155,15 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 > [!div class="mx-imgBorder"]
 > ![Micro-fulfillment Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center-pnp.md) tutorial.
+To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md) tutorial.
 
 ## Next steps
 
 To get started building a retail solution:
 
-* Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
-* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics-pnp.md).
-* [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center-pnp.md).
-* [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center-pnp.md).
+* Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
+* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).
+* [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
+* [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
+* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
 * Learn more about IoT Central in the [IoT Central overview](../preview/overview-iot-central.md).
