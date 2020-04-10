@@ -40,6 +40,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improved the error message shown when duplicated timestamps are found.
     + Disallowed target_rolling_window_size to be set to values less then 2.
     + Fixed the lag imputation failure. The issue was caused by the insufficient number of observations needed to seasonally decompose a series. The "de-seasonalized" data is used to compute a partial autocorrelation function (PACF) to determine the lag length.
+    + Enabled column purpose featurization customization for forecasting tasks by featurization config. Numerical and Categorical as column purpose for forecasting tasks are now supported.
+    + Enabled drop column featurization customization for forecasting tasks by featurization config.
+    + Enabled imputation customization for forecasting tasks by featurization config. Constant value imputation for target column and mean, median, most_frequent and constant value imputation for training data are now supported.
   + **azureml-contrib-pipeline-steps**
     + Accept string compute names to be passed to ParallelRunConfig
   + **azureml-core**
