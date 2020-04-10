@@ -44,7 +44,7 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 ## Selecting a storefront
 
-Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services. Each storefront serves unique customer requirements amd targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where to publish your offer.
+Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services. Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where to publish your offer.
 
 **Microsoft AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 

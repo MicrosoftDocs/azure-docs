@@ -24,11 +24,11 @@ Either the publisher or Microsoft is responsible for managing software license t
 
 ### List, trial, and BYOL publishing options
 
-Publishers withe existing commerce capabilities can choose list, trial, and BYOL publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
+Publishers withe existing commerce capabilities can choose list, trial, and bring-your-own-license (BYOL) publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
 
 ### Transact publishing option
 
-The transact publishing option takes advantage of Microsoft commerce capabilities, and provides an end-to-end experiences from discovery and evaluation to purchase and implementation. Transact offers are billed against an existing Microsoft subscription or a credit card, allowing Microsoft to host cloud marketplace transactions on behalf of the publisher.
+The transact publishing option takes advantage of Microsoft commerce capabilities, and provides an end-to-end experience from discovery and evaluation to purchase and implementation. Transact offers are billed against an existing Microsoft subscription or a credit card, allowing Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
 You choose the transact option when you create a new offer in Partner Center. On the **Offer setup** page under **Setup details**, select "Yes, I would like to sell through Microsoft and have Microsoft host transactions on my behalf." This option will show only if transact is available for your offer type.
 

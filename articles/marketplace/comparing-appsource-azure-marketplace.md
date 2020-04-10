@@ -1,6 +1,6 @@
 ---
 title: Comparing Microsoft AppSource and the Azure Marketplace 
-description: This article explains the differences between commercial marketplace storefronts - Microsoft AppSource and Azure Marketplace.
+description: This article explains the differences between Microsoft commercial marketplace storefronts - Microsoft AppSource and Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
