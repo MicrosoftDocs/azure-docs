@@ -1,17 +1,13 @@
 ---
-title: Change token lifetime defaults for custom Azure AD apps | Microsoft Docs
+title: Change token lifetime defaults for custom Azure AD apps
 description: How to update Token Lifetime policies for your application that you are developing on Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi

@@ -26,7 +26,7 @@ To add your Cosmos account to the Robo 3T connection manager, perform the follow
 1. Retrieve the connection information for your Cosmos account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-mongodb-account.md).
 
     ![Screenshot of the connection string blade](./media/mongodb-robomongo/connectionstringblade.png)
-2. Run *Robomongo.exe*
+2. Run the *Robomongo* application.
 
 3. Click the connection button under **File** to manage your connections. Then, click **Create** in the **MongoDB Connections** window, which will open up the **Connection Settings** window.
 
