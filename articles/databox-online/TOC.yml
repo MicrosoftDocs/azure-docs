@@ -112,7 +112,7 @@
     - name: Contact Microsoft Support
       href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
-      href: data-box-edge-monitor.md
+      href: azure-stack-edge-monitor.md
     - name: Return or replace device
       href: data-box-edge-return-device.md
   - name: Release notes
