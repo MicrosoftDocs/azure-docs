@@ -18,7 +18,7 @@ Azure Edge Zones is a family of offerings from Microsoft Azure that enables data
 Typical use case scenarios for Edge Zones include:
 
 - Real-time command and control in robotics.
-- Real-time analytics and inferencing with artificial intelligence and machine learning.
+- Real-time analytics and inferencing via artificial intelligence and machine learning.
 - Machine vision.
 - Remote rendering for mixed reality and VDI scenarios.
 - Immersive multiplayer gaming.
@@ -43,7 +43,7 @@ Typical use cases include:
 
 - Gaming and game streaming.
 - Media streaming and content delivery.
-- Real-time analytics and inferencing using artificial intelligence and machine learning.
+- Real-time analytics and inferencing via artificial intelligence and machine learning.
 - Rendering for mixed reality.
 
 Azure Edge Zones will be available in the following metro areas:
@@ -52,7 +52,7 @@ Azure Edge Zones will be available in the following metro areas:
 - Los Angeles, CA
 - Miami, FL
 
-[Reach out to the Edge Zones team](https://aka.ms/EdgeZones) for more information.
+[Contact the Edge Zones team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="carrier"></a>Azure Edge Zones with Carrier
 
@@ -66,7 +66,7 @@ Typical use cases include:
 
 - Gaming and game streaming.
 - Media streaming and content delivery.
-- Real-time analytics and inferencing using artificial intelligence and machine learning.
+- Real-time analytics and inferencing via artificial intelligence and machine learning.
 - Rendering for mixed reality.
 - Connected automobiles.
 - Tele-medicine.
@@ -79,7 +79,7 @@ Edge Zones will be offered in partnership with the following operators:
 
 ![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
-Azure private edge zones are small-footprint extensions of Azure placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) side-by-side along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
+Azure private edge zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
 
 Azure Private Edge Zones lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
 
@@ -105,7 +105,7 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 
 #### <a name="vnf"></a>Virtualized network functions (VNFs)
 
-##### <a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks
+**<a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks**
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
 - [Druid Software](https://www.druidsoftware.com/)
@@ -114,25 +114,25 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 - [Metaswitch](https://www.metaswitch.com/)
 - [Nokia Digital Automation Cloud](https://www.dac.nokia.com/)
 
-##### <a name="mobile-radio"></a>Mobile radio partners
+**<a name="mobile-radio"></a>Mobile radio partners**
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-##### <a name="sdwan-vendors"></a>SD-WAN vendors
+**<a name="sdwan-vendors"></a>SD-WAN vendors**
 
 - [NetFoundry](https://netfoundry.io/)
 - [Nuage Networks from Nokia](https://www.nuagenetworks.net/)
 - [VMware SD-WAN by Velocloud](https://www.velocloud.com/)
 
-##### <a name="router-vendors"></a>Router vendors
+**<a name="router-vendors"></a>Router vendors**
 
 - [Arista](https://www.arista.com/)
 
-##### <a name="firewall-vendors"></a>Firewall vendors
+**<a name="firewall-vendors"></a>Firewall vendors**
 
 - [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
-##### <a name="msp-mobile"></a>Managed Solutions Providers: Mobile operators and Global System Integrators (GSIs)
+**<a name="msp-mobile"></a>Managed Solutions Providers: Mobile operators and Global System Integrators (GSIs)**
 
 | GSIs and operators | Mobile operators |
 | --- | --- |
