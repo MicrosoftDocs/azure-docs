@@ -35,11 +35,11 @@ To reset your device using the local web UI, take the following steps.
 1. In the local web UI, go to **Maintenance > Device reset**.
 2. Select **Reset device**.
 
-    ![Reset device](media/data-box-edge-return-device/device-reset-1.png)
+    ![Reset device](media/azure-stack-edge-return-device/device-reset-1.png)
 
 3. When prompted for confirmation, review the warning and select **Yes** to continue.
 
-    ![Confirm reset](media/data-box-edge-return-device/device-reset-2.png)  
+    ![Confirm reset](media/azure-stack-edge-return-device/device-reset-2.png)  
 
 The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
@@ -55,7 +55,7 @@ To begin the return process, take the following steps.
 
 1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Azure Stack Edge Hardware**.
 
-    ![Open Support ticket](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Open Support ticket](media/azure-stack-edge-return-device/open-support-ticket-1.png)  
 
 2. A Microsoft Support engineer will contact you. Provide the shipping details.
 3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
@@ -95,11 +95,11 @@ Take the following steps to delete the device and the resource in Azure portal.
 
 1. In the Azure portal, go to your resource and then to **Overview**. From the command bar, select **Delete**.
 
-    ![Select delete](media/data-box-edge-return-device/delete-resource-1.png)
+    ![Select delete](media/azure-stack-edge-return-device/delete-resource-1.png)
 
 2. In the **Delete device** blade, type the name of the device you want to delete and select **Delete**.
 
-    ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Confirm delete](media/azure-stack-edge-return-device/delete-resource-2.png)
 
 You're notified after the device and the associated resource is successfully deleted.
 

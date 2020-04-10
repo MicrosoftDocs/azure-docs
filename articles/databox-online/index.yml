@@ -102,6 +102,6 @@ landingContent:
           - text: Edge compute modules
             url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
           - text: Return or replace Azure Stack Edge
-            url: data-box-edge-return-device.md
+            url: azure-stack-edge-return-device.md
           - text: Open Support ticket
             url: azure-stack-edge-contact-microsoft-support.md

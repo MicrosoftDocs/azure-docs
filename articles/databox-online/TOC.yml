@@ -114,7 +114,7 @@
     - name: Monitor
       href: azure-stack-edge-monitor.md
     - name: Return or replace device
-      href: data-box-edge-return-device.md
+      href: azure-stack-edge-return-device.md
   - name: Release notes
     items:
     - name: 1906 - Current
