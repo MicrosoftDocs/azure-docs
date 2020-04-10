@@ -1,6 +1,6 @@
 ---
-title: Request real-time transit data | Microsoft Azure Maps
-description: Request real-time data using the Microsoft Azure Maps Mobility Service.
+title: Request real-time public transit data | Microsoft Azure Maps
+description: Request real-time public transit data using the Microsoft Azure Maps Mobility Service.
 author: philmea
 ms.author: philmea
 ms.date: 09/06/2019
@@ -11,15 +11,15 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request real-time data using the Azure Maps Mobility Service
+# Request real-time public transit data using the Azure Maps Mobility Service
 
-This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request real-time transit data.
+This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request real-time public transit data.
 
 In this article you'll learn how to:
 
 
  * Request next real-time arrivals for all lines arriving at a given stop
- * Request real-time information for a given bike docking station.
+
 
 
 ## Prerequisites
@@ -119,86 +119,6 @@ Let's use "522" as our metro ID, which is the metro ID for the  "Seattle–Tacom
 The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) allows users to request static and real-time information. For example, users can request availability and vacancy information for a bike, or a scooter docking station. The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) is also part of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService).
 
 In order to make a request to the [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock), you'll need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) with the **objectType** parameter assigned to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
-
-
-### Get dock ID
-
-To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
-
-1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
-
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
- 
-    ```HTTP
-    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
-    ```
-
-3. After a successful request, you'll receive the following response. Notice that we now have the **id** in the response, which can be used later as a query parameter in the request to the Get Transit Dock Info API.
-
-    ```JSON
-    {
-        "results": [
-            {
-                "id": "121---4640799",
-                "type": "bikeDock",
-                "objectDetails": {
-                    "availableVehicles": 0,
-                    "vacantLocations": 31,
-                    "lastUpdated": "2019-09-07T00:55:19Z",
-                    "operatorInfo": {
-                        "id": "121---80",
-                        "name": "Citi Bike"
-                    }
-                },
-                "position": {
-                    "latitude": 40.767128,
-                    "longitude": -73.962243
-                },
-                "viewport": {
-                    "topLeftPoint": {
-                        "latitude": 40.768039,
-                        "longitude": -73.963413
-                    },
-                    "btmRightPoint": {
-                        "latitude": 40.766216,
-                        "longitude": -73.961072
-                    }
-                }
-            }
-        ]
-    }
-    ```
-
-
-### Get real-time bike dock status
-
-Follow the steps below to make a request to the Get Transit Dock Info API to get real-time data for the selected dock.
-
-1. In Postman, click **New Request** | **GET request** and name it **Get real-time dock data**.
-
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
- 
-    ```HTTP
-    https://atlas.microsoft.com/mobility/transit/dock/json?subscription-key={subscription-key}&api-version=1.0&query=121---4640799
-    ```
-
-3. After a successful request, you'll receive a response of the following structure:
-
-    ```JSON
-    {
-        "availableVehicles": 0,
-        "vacantLocations": 31,
-        "position": {
-            "latitude": 40.767128,
-            "longitude": -73.962246
-        },
-        "lastUpdated": "2019-09-07T00:55:19Z",
-        "operatorInfo": {
-            "id": "121---80",
-            "name": "Citi Bike"
-        }
-    }
-    ```
 
 
 ## Next steps
