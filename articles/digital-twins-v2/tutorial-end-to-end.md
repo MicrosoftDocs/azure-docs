@@ -482,12 +482,12 @@ This completes the end-to-end scenario walkthrough.
 
 Here is a review of what you completed in this scenario tutorial.
 
-1. Simulated device telemetry events enter IoT Hub, are routed through Event Grid, and trigger the *HubToDT* Azure function (represented in light blue on the diagram below)
-2. The *HubToDT* Azure function calls the Azure Digital Twins API that sets a property on *thermostat67* (represented in red on the diagram)
-3. A "Property Change event" is routed to the event grid topic endpoint, and the Event Grid subscription triggers the *ProcessDTRoutedData* Azure Function (represented by green on the diagram)
-4. The *ProcessDTRoutedData* Azure function calls an Azure Digital Twins API that sets a property on *room21* (represented in purple on the diagram)
+1. Simulated device telemetry events enter IoT Hub, are routed through Event Grid, and trigger the *HubToDT* Azure function (represented with **arrow A** on the diagram below)
+2. The *HubToDT* Azure function calls the Azure Digital Twins API that sets a property on *thermostat67* (represented in red with **arrow B** on the diagram)
+3. A "Property Change event" is routed to the event grid topic endpoint, and the Event Grid subscription triggers the *ProcessDTRoutedData* Azure Function (represented with **arrow C** on the diagram)
+4. The *ProcessDTRoutedData* Azure function calls an Azure Digital Twins API that sets a property on *room21* (represented with **arrow D** on the diagram)
 
-![A marked-up version of the full building scenario graphic, highlighting the flow of data described below](media/tutorial-end-to-end/building-scenario-4.jpg)
+![A marked-up version of the full building scenario graphic, highlighting the flow of data described above](media/tutorial-end-to-end/building-scenario-4.png)
 
 
 # Troubleshooting
