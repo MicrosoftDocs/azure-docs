@@ -300,7 +300,7 @@ deleteButton.addEventListener("click", deleteFiles);
 
 This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) function to remove each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
 
-## Run and test the web application
+## Run the code
 
 From the command line, run the command for your chosen bundler to recreate the bundle with your updated *index.js* file.
 
@@ -364,7 +364,7 @@ Now you can run the page in the debugger and get a feel for how blob storage wor
 
 To open *index.html* in the browser with the Visual Studio Code debugger attached, select **Run > Start Debugging** or press F5 in Visual Studio Code.
 
-## Clean up resources
+### Clean up resources
 
 To clean up the resources created during this quickstart, go to the [Azure portal](https://portal.azure.com) and delete the resource group you created in the [Prerequisites](#prerequisites) section.
 
