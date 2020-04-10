@@ -121,10 +121,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Nitro Productivity Suite application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition, the Nitro Productivity Suite application expects a few more attributes to be passed back in the SAML response, as shown in the following table. These attributes are prepopulated, but you can review them per your requirements.
 	
 	| Name  |  Source Attribute|
-	| ---------------| --------------- | --------- |
+	| ---------------| --------------- |
 	| employeeNumber |  user.objectid |
 
 
