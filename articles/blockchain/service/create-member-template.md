@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 The syntax for the codefence is: -->
 
-:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="000-000" highlight="000-000":::
+[!code-json[<Azure Resource Manager template create blockchain member>](~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json)]
 
 Azure resources defined in the template:
 
