@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 04/08/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -30,7 +30,7 @@ For more information about the cryptographic modules underlying Azure Storage en
 
 ## Encryption key management
 
-By default, data in a storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
+Data in a new storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
 - You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in Blob storage and in Azure Files.<sup>1,2</sup> For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md).
 - You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage (preview)](encryption-customer-provided-keys.md).
@@ -43,8 +43,7 @@ The following table compares key management options for Azure Storage encryption
 |    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files<sup>1,2</sup>                                                                                                               |    Blob storage                                                                  |
 |    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Azure Key Vault or any other key store                                                                 |
 |    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Key usage                           |    Microsoft                                          |    Azure portal, Storage Resource Provider REST API, Azure Storage management libraries, PowerShell, CLI        |    Azure Storage REST API (Blob storage), Azure Storage client libraries    |
-|    Key access                          |    Microsoft only                                     |    Microsoft, Customer                                                                                                                    |    Customer only                                                                 |
+|    Key control                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 
 <sup>1</sup> For information about creating an account that supports using customer-managed keys with Queue storage, see [Create an account that supports customer-managed keys for queues](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> For information about creating an account that supports using customer-managed keys with Table storage, see [Create an account that supports customer-managed keys for tables](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
@@ -55,9 +54,9 @@ By default, a storage account is encrypted with a key that is scoped to the stor
 
 Encryption scopes enable you to manage encryption at the level of the container or blob with a key that is scoped to that object. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data belonging to different customers that resides in the same storage account.
 
-You can define one or more encryption scopes for a storage account using the Azure Storage resource provider. When you define the scope, you specify what type of key you want to use for that scope. The key may be either a Microsoft-managed key or a customer-managed key that is stored in Azure Key Vault. Encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
+You can create one or more encryption scopes for a storage account using the Azure Storage resource provider. When you create the scope, you specify what type of key you want to use for that scope. The key may be either a Microsoft-managed key or a customer-managed key that is stored in Azure Key Vault. Encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
-After you have defined an encryption scope, you can specify that encryption scope on a request to create a container or a blob.
+After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob.
 
 ### Create a container or blob with an encryption scope
 
