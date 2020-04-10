@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Azure CDN Coverage by Metro 
