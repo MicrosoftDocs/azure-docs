@@ -27,59 +27,59 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 
 2. Navigate to /Partner API and make a POST request with the following input payload:
 
-  ```json
-  {  
+   ```json
+   {  
+ 
+     "dockerDetails": {  
+       "credentials": { 
+         "username": "<credentials to access private docker - not required for public docker>", 
+         "password": "<credentials to access private docker – not required for public docker>"  
+       },  
+       "imageName" : "<docker image name. Default is azurefarmbeats/fambeats-noaa>",
+       "imageTag" : "<docker image tag, default:latest>",
+       "azureBatchVMDetails": {  
+         "batchVMSKU" : "<VM SKU. Default is standard_d2_v2>",  
+         "dedicatedComputerNodes" : 1,
+         "nodeAgentSKUID": "<Node SKU. Default is batch.node.ubuntu 18.04>"  
+       }
+     },
+     "partnerCredentials": {  
+       "key1": "value1",  
+       "key2": "value2"  
+     },  
+     "partnerType": "Weather",  
+     "name": "<Name of the partner>",  
+     "description": "<Description>",
+     "properties": {  }  
+   }  
+   ```
 
-    "dockerDetails": {  
-      "credentials": { 
-        "username": "<credentials to access private docker - not required for public docker>", 
-        "password": "<credentials to access private docker – not required for public docker>"  
-      },  
-      "imageName" : "<docker image name. Default is azurefarmbeats/fambeats-noaa>",
-      "imageTag" : "<docker image tag, default:latest>",
-      "azureBatchVMDetails": {  
-        "batchVMSKU" : "<VM SKU. Default is standard_d2_v2>",  
-        "dedicatedComputerNodes" : 1,
-        "nodeAgentSKUID": "<Node SKU. Default is batch.node.ubuntu 18.04>"  
-      }
-    },
-    "partnerCredentials": {  
-      "key1": "value1",  
-      "key2": "value2"  
-    },  
-    "partnerType": "Weather",  
-    "name": "<Name of the partner>",  
-    "description": "<Description>",
-    "properties": {  }  
-  }  
-  ```
+   For example, to get weather data from NOAA by Azure Open Datasets, use the payload below. You can modify the name and description as per your preference.
 
-  For example, to get weather data from NOAA by Azure Open Datasets, use the payload below. You can modify the name and description as per your preference.
+   ```json
+   {
+ 
+     "dockerDetails": {
+       "imageName": "azurefarmbeats/farmbeats-noaa",
+       "imageTag": "latest",
+       "azureBatchVMDetails": {
+         "batchVMSKU": "standard_d2_v2",
+         "dedicatedComputerNodes": 1,
+         "nodeAgentSKUID": "batch.node.ubuntu 18.04"
+       }
+     },
+     "partnerType": "Weather",
+     "name": "ods-noaa",
+     "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
+   }  
+   ```
 
-  ```json
-  {
+   > [!NOTE]
+   > For more information about the Partner object, see [Appendix](get-weather-data-from-weather-partner.md#appendix)
 
-    "dockerDetails": {
-      "imageName": "azurefarmbeats/farmbeats-noaa",
-      "imageTag": "latest",
-      "azureBatchVMDetails": {
-        "batchVMSKU": "standard_d2_v2",
-        "dedicatedComputerNodes": 1,
-        "nodeAgentSKUID": "batch.node.ubuntu 18.04"
-      }
-    },
-    "partnerType": "Weather",
-    "name": "ods-noaa",
-    "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
-  }  
-  ```
+   The preceding step will provision the resources to enable docker to run in the customer's FarmBeats environment.  
 
-  > [!NOTE]
-  > For more information about the Partner object, see [Appendix](get-weather-data-from-weather-partner.md#appendix)
-
-  The preceding step will provision the resources to enable docker to run in the customer's FarmBeats environment.
-
-  It takes about 10-15 minutes to provision the above resources.
+   It takes about 10-15 minutes to provision the above resources.
 
 3. Check the status of the /Partner object that you created in step 2. To do this, make a GET request on /Partner API and check for the **status** of the partner object. Once FarmBeats provisions the partner successfully, the status is set to **Active**.
 
@@ -88,46 +88,46 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 
 5. Now your FarmBeats instance has an active weather data partner and you can run jobs to request weather data for a particular location (latitude/longitude) and a date range. The JobType(s) will have details on what parameters are required to run weather jobs.
 
-  For example, for NOAA data from Azure Open Datasets, following JobType(s) will be created:
+   For example, for NOAA data from Azure Open Datasets, following JobType(s) will be created:
 
-  - get_weather_data (Get ISD/historical weather data)
-  - get_weather_forecast_data (Get GFS/forecast weather data)
+   - get_weather_data (Get ISD/historical weather data)
+   - get_weather_forecast_data (Get GFS/forecast weather data)
 
 6. Make a note of the **ID** and the parameters of the JobType(s).
 
 7. Navigate to /Jobs API and make a POST request on /Jobs with the following input payload:
 
-  ```json
+   ```json
+    {
+         "typeId": "<id of the JobType>",
+         "arguments": {
+           "additionalProp1": {},
+           "additionalProp2": {},
+           "additionalProp3": {}
+         },
+         "name": "<name of the job>",
+         "description": "<description>",
+         "properties": {}
+       }
+   ```
+
+   For example, to run **get_weather_data**, use the following payload:
+
+   ```json
    {
-        "typeId": "<id of the JobType>",
-        "arguments": {
-          "additionalProp1": {},
-          "additionalProp2": {},
-          "additionalProp3": {}
-        },
-        "name": "<name of the job>",
-        "description": "<description>",
-        "properties": {}
-      }
-  ```
-
-  For example, to run **get_weather_data**, use the following payload:
-
-  ```json
-  {
-
-        "typeId": "<id of the JobType>",
-        "arguments": {
-              "latitude": 47.620422,
-              "longitude": -122.349358,
-              "start_date": "yyyy-mm-dd",
-              "end_date": "yyyy-mm-dd"
-        },
-        "name": "<name of the job>",
-        "description": "<description>",
-        "properties": {}
-  }
-  ```
+ 
+         "typeId": "<id of the JobType>",
+         "arguments": {
+               "latitude": 47.620422,
+               "longitude": -122.349358,
+               "start_date": "yyyy-mm-dd",
+               "end_date": "yyyy-mm-dd"
+         },
+         "name": "<name of the job>",
+         "description": "<description>",
+         "properties": {}
+   }
+   ```
 
 8. The preceding step will run the weather jobs as defined in the partner docker and ingest weather data into FarmBeats. You can check the status of the job by making a GET request on /Jobs and look for **currentState** in the response. Once complete, the currentState is set to **Succeeded**.
 
@@ -200,7 +200,7 @@ To query weather data using FarmBeats REST API, follow the steps below:
    }
    ```
 
-In the above example, the response has data for two timestamps along with the measure name ("Temperature") and values of the reported weather data in the two timestamps. You will need to refer to the associated Weather Data Model (as described in step 2 above) to interpret the type and unit of the reported values.
+In the preceding example, the response has data for two timestamps along with the measure name ("Temperature") and values of the reported weather data in the two timestamps. You will need to refer to the associated Weather Data Model (as described in step 2 above) to interpret the type and unit of the reported values.
 
 ### Query using Azure Time Series Insights (TSI)
 
