@@ -21,9 +21,7 @@ It can seem daunting trying to secure your workers in today's world, especially 
 
 Each table provides a consistent security recommendation, protecting both Administrator and User identities from the main security attacks (breach replay, phishing, and password spray) while minimizing the user impact and improving the user experience. 
 
-The guidance will also allow administrators to configure access to SaaS and on prem applications in a secure and protected manner and is applicable to either cloud or hybrid (synced) identities and applies to users working remotely or in the office.
-
-This guide is not intended to provide guidance at the device, application or data layer. To secure devices or applications please refer to the following documents  xxxxxxxx.
+The guidance will also allow administrators to configure access to SaaS and on-premises applications in a secure and protected manner and is applicable to either cloud or hybrid (synced) identities and applies to users working remotely or in the office.
 
 This checklist will help you quickly deploy critical recommended actions to protect your organization immediately by explaining how to:
 
@@ -45,7 +43,7 @@ There are a number of recommendations that Azure AD Free or OFFICE 365 app custo
 - Office 365 (O365 E1 / E3 / E5 / F1 / A1 /A3 /A5)
 - Office 365 Business (Essentials / Business /Business Premium)
 - Microsoft 365 (M365 Business / A1)
-- Azure AD free (included with Azure, Dynamics 365, Intune and Power Platform
+- Azure AD Free (included with Azure, Dynamics 365, Intune, and Power Platform
 
 #### Azure AD Free Customers / OFFICE 365 APPS (O365 E1, E3, E5, F1, A1)
 
@@ -68,7 +66,7 @@ There are a number of recommendations that Azure AD Free or OFFICE 365 app custo
 The following table is intended to highlight the key actions for the following license subscriptions:
 
 - Azure Active Directory Premium P1 (Azure AD P1)
-- Enterprise, Mobility and Security (EMS E3)
+- Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3 / A3 / F1 / F3)
 
 #### PREMIUM P1 (AADP P1/ M365 E3/A3, EMS E3)
@@ -87,7 +85,7 @@ The following table is intended to highlight the key actions for the following l
 | [Enable Secure hybrid access: Secure legacy apps with existing app delivery controllers and networks](../manage-apps/secure-hybrid-access.md) (if applicable). | Publish and protect your on-premises and cloud legacy authentication applications by connecting them to Azure AD with your existing application delivery controller or network. |
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) (if using hybrid identities) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. |
 | [Integrate supported SaaS applications from the gallery to Azure AD and enable Single sign on](../manage-apps/add-application-portal.md) | Azure AD has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery accessible directly from the Azure portal. Provide access to corporate SaaS applications remotely and securely with improved user experience (SSO). |
-| [Enable Conditional Access – Device based](../conditional-access/require-managed-devices.md) | Improve security and user experiences with device based Conditional Access. This ensures users can only access from devices that meet your standards for security and compliance. These devices are also known as managed devices. Managed devices can be Intune compliant or Hybrid Azure AD joined devices. |
+| [Enable Conditional Access – Device based](../conditional-access/require-managed-devices.md) | Improve security and user experiences with device-based Conditional Access. This step ensures users can only access from devices that meet your standards for security and compliance. These devices are also known as managed devices. Managed devices can be Intune compliant or Hybrid Azure AD joined devices. |
 | [Enable Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Protect users from using weak and easy to guess passwords. |
 | [Designate more than one global administrator](../users-groups-roles/directory-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. Break Glass Accounts ensure you can access the service in an emergency. |
 | [Use non-global administrative roles where possible](../users-groups-roles/directory-assign-admin-roles.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. |
@@ -100,7 +98,7 @@ The following table is intended to highlight the key actions for the following l
 The following table is intended to highlight the key actions for the following license subscriptions:
 
 - Azure Active Directory Premium P2 (Azure AD P2)
-- Enterprise, Mobility and Security (EMS E5)
+- Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5 / A5)
 
 #### PREMIUM P2 (AADP P2/ M365 E5/A5, EMS E5)
@@ -121,7 +119,7 @@ The following table is intended to highlight the key actions for the following l
 | [Enable Secure hybrid access: Secure legacy apps with existing app delivery controllers and networks](../manage-apps/secure-hybrid-access.md) (if applicable). | Publish and protect your on-premises and cloud legacy authentication applications by connecting them to Azure AD with your existing application delivery controller or network. |
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) (if using hybrid identities) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. |
 | [Integrate supported SaaS applications from the gallery to Azure AD and enable Single sign on](../manage-apps/add-application-portal.md) | Azure AD has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery accessible directly from the Azure portal. Provide access to corporate SaaS applications remotely and securely with improved user experience (SSO). |
-| [Enable Conditional Access – Device based](../conditional-access/require-managed-devices.md) | Improve security and user experiences with device based Conditional Access. This ensures users can only access from devices that meet your standards for security and compliance. These devices are also known as managed devices. Managed devices can be Intune compliant or Hybrid Azure AD joined devices. |
+| [Enable Conditional Access – Device based](../conditional-access/require-managed-devices.md) | Improve security and user experiences with device-based Conditional Access. This step ensures users can only access from devices that meet your standards for security and compliance. These devices are also known as managed devices. Managed devices can be Intune compliant or Hybrid Azure AD joined devices. |
 | [Enable Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Protect users from using weak and easy to guess passwords. |
 | [Designate more than one global administrator](../users-groups-roles/directory-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. Break Glass Accounts ensure you can access the service in an emergency. |
 | [Use non-global administrative roles where possible](../users-groups-roles/directory-assign-admin-roles.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. |
@@ -132,12 +130,10 @@ The following table is intended to highlight the key actions for the following l
 
 ## Summary
 
-There are many aspects to a secure Identity infrastructure, but this checklist will help you quickly accomplish a safer and secure identity infrastructure while enabling you users to work remotely. Securing your identity is just part of your security story, protecting data, applications and devices should also be considered. For more information, there is additional information in the following articles which provide an additional view on deploying these features : Azure Active Directory Feature Deployment Guide and Five steps to securing your identity infrastructure.  
-
-We appreciate how seriously you take Identity Security and hope this document is a useful roadmap to a more secure posture for your organization.
+There are many aspects to a secure Identity infrastructure, but this checklist will help you quickly accomplish a safer and secure identity infrastructure while enabling you users to work remotely. Securing your identity is just part of your security story, protecting data, applications, and devices should also be considered.
 
 ## Next steps
 
-For detailed deployment guidance for individual features of Azure AD review the [Azure AD project deployment plans](active-directory-deployment-plans.md).
+For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](active-directory-deployment-plans.md).
 
-For an end-to-end Azure AD deployment checklist see the article [Azure Active Directory feature deployment guide](active-directory-deployment-checklist-p2.md)
+For an end-to-end Azure AD deployment checklist, see the article [Azure Active Directory feature deployment guide](active-directory-deployment-checklist-p2.md)
