@@ -132,8 +132,8 @@ Create a new function called `sentiment_analysis_example()` that takes the clien
 ```python
 def sentiment_analysis_example(client):
 
-    document = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(documents = document)[0]
+    documents = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(documents = documents)[0]
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
         response.confidence_scores.positive,
@@ -202,8 +202,8 @@ Create a new function called `language_detection_example()` that takes the clien
 ```python
 def language_detection_example(client):
     try:
-        document = ["Ce document est rédigé en Français."]
-        response = client.detect_language(documents = document, country_hint = 'us')[0]
+        documents = ["Ce document est rédigé en Français."]
+        response = client.detect_language(documents = documents, country_hint = 'us')[0]
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -249,8 +249,8 @@ Create a new function called `entity_recognition_example` that takes the client 
 def entity_recognition_example(client):
 
     try:
-        document = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(documents = document)[0]
+        documents = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(documents = documents)[0]
 
         print("Named Entities:\n")
         for entity in result.entities:
@@ -282,12 +282,12 @@ Create a new function called `entity_linking_example()` that takes the client as
 def entity_linking_example(client):
 
     try:
-        document = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        documents = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
         to develop and sell BASIC interpreters for the Altair 8800. 
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""]
-        result = client.recognize_linked_entities(documents = document)[0]
+        result = client.recognize_linked_entities(documents = documents)[0]
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -412,9 +412,9 @@ Create a new function called `key_phrase_extraction_example()` that takes the cl
 def key_phrase_extraction_example(client):
 
     try:
-        document = ["My cat might need to see a veterinarian."]
+        documents = ["My cat might need to see a veterinarian."]
 
-        response = client.extract_key_phrases(documents = document)[0]
+        response = client.extract_key_phrases(documents = documents)[0]
 
         if not response.is_error:
             print("\tKey Phrases:")
