@@ -22,7 +22,7 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
-      - text: Speech recognition basics?
+      - text: Speech recognition basics
         url: speech-to-text-basics.md
     - linkListType: quickstart
       links:

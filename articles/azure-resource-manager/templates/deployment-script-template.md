@@ -308,7 +308,7 @@ The life cycle of these resources is controlled by the following properties in t
 
 Deployment script execution is an idempotent operation. If none of the deploymentScripts resource properties (including the inline script) is changed, the script will not be executed when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-string.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It is good for keeping a history of script execution.
+- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It is good for keeping a history of script execution.
 
     > [!NOTE]
     > The utcNow function can only be used in the default value for a parameter.

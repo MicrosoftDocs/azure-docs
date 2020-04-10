@@ -91,6 +91,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1196,6 +1197,33 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
 
+## Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | actionGroups | Yes | Yes |
+> | activityLogAlerts | Yes | Yes |
+> | alertrules | Yes | Yes |
+> | autoscalesettings | Yes | Yes |
+> | components | Yes | Yes |
+> | components / linkedStorageAccounts | No | No |
+> | components / ProactiveDetectionConfigs | No | No |
+> | diagnosticSettings | No | No |
+> | guestDiagnosticSettings | Yes | Yes |
+> | guestDiagnosticSettingsAssociation | Yes | Yes |
+> | logprofiles | Yes | Yes |
+> | metricAlerts | Yes | Yes |
+> | privateLinkScopes | Yes | Yes |
+> | privateLinkScopes / privateEndpointConnections | No | No |
+> | privateLinkScopes / scopedResources | No | No |
+> | queryPacks | Yes | Yes |
+> | queryPacks / queries | No | No |
+> | scheduledQueryRules | Yes | Yes |
+> | webtests | Yes | Yes |
+> | workbooks | Yes | Yes |
+> | workbooktemplates | Yes | Yes |
+
 ## Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
@@ -1449,7 +1477,7 @@ Jump to a resource provider namespace:
 > | applicationSecurityGroups | Yes | Yes |
 > | azureFirewallFqdnTags | No | No |
 > | azureFirewalls | Yes | No |
-> | bastionHosts | Yes | Yes |
+> | bastionHosts | Yes | No |
 > | bgpServiceCommunities | No | No |
 > | connections | Yes | Yes |
 > | ddosCustomPolicies | Yes | Yes |
@@ -1479,15 +1507,16 @@ Jump to a resource provider namespace:
 > | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | Yes |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
-> | loadBalancers | Yes | No |
+> | loadBalancers | Yes | Yes |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkIntentPolicies | Yes | Yes |
 > | networkInterfaces | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
-> | networkWatchers | Yes | No |
+> | networkWatchers | Yes | Yes |
 > | networkWatchers / connectionMonitors | Yes | No |
+> | networkWatchers / flowLogs | No | No |
 > | networkWatchers / lenses | Yes | No |
 > | networkWatchers / pingMeshes | Yes | No |
 > | p2sVpnGateways | Yes | Yes |
@@ -1518,8 +1547,8 @@ Jump to a resource provider namespace:
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworkTaps | Yes | Yes |
-> | virtualWans | Yes | Yes |
-> | vpnGateways | Yes | No |
+> | virtualWans | Yes | No |
+> | vpnGateways | Yes | Yes |
 > | vpnSites | Yes | Yes |
 > | webApplicationFirewallPolicies | Yes | Yes |
 
@@ -1815,7 +1844,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Yes | No |
+> | namespaces | Yes | Yes |
 > | namespaces / authorizationrules | No | No |
 > | namespaces / disasterrecoveryconfigs | No | No |
 > | namespaces / eventgridfilters | No | No |
