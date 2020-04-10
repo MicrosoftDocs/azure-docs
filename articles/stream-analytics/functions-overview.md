@@ -1,6 +1,6 @@
 ---
 title: User-defined functions in Azure Stream Analytics
-description: This article is an overview of 
+description: This article is an overview of user-defined functions in Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
@@ -25,8 +25,8 @@ FROM
 
 Azure Stream Analytics supports the following four function types: 
 
-* Javascript user-defined functions 
-* Javascript user-defined aggregates 
+* JavaScript user-defined functions 
+* JavaScript user-defined aggregates 
 * C# user-defined functions (using Visual Studio) 
 * Azure Machine Learning 
 
