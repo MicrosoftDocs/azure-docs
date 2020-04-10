@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -55,7 +55,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
    ![Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Select **Load file**, and then select the generated Resource Manager template.
+1. Select **Load file**, and then select the generated Resource Manager template. This is the **arm_template.json** file located in the .zip file exported in step 1.
 
    ![Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -149,16 +149,16 @@ There are two ways to handle secrets:
 
     ```json
     {
-	    "parameters": {
-		    "azureSqlReportingDbPassword": {
-	    		"reference": {
-    				"keyVault": {
-					    "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-			        },
-        		    "secretName": " < secret - name > "
-		        }
-		    }
-	    }
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
     }
     ```
 
@@ -166,7 +166,7 @@ There are two ways to handle secrets:
 
     The parameters file needs to be in the publish branch as well.
 
--  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
+1. Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
 
     1.  On the **Tasks** tab, create a new task. Search for **Azure Key Vault** and add it.
 
@@ -174,9 +174,9 @@ There are two ways to handle secrets:
 
     ![Add a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### Grant permissions to the Azure Pipelines agent
+#### Grant permissions to the Azure Pipelines agent
 
-   The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
+The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
 
 ### Update active triggers
 
@@ -209,7 +209,7 @@ When running a post-deployment script, you will need to specify a variation of t
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
 
@@ -361,7 +361,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -454,7 +460,13 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
@@ -466,7 +478,10 @@ If you're in GIT mode, you can override the default properties in your Resource 
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-Under these conditions, to override the default parameterization template, create a file named arm-template-parameters-definition.json in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
+Under these conditions, to override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
+
+> [!NOTE]
+> A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.
 
 ### Syntax of a custom parameters file
 
@@ -550,7 +565,7 @@ Here's an example of what a parameterization template might look like:
 Here's an explanation of how the preceding template is constructed, broken down by resource type.
 
 #### Pipelines
-	
+    
 * Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
 * Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as that of the source factory.
 
@@ -652,7 +667,7 @@ Following is the current default parameterization template. If you need to add o
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-		    "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -762,7 +777,7 @@ The following example shows how to add a single value to the default parameteriz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-		    "poolName": "=",
+            "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -816,25 +831,25 @@ If you don't have Git configured, you can access the linked templates via **Expo
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
-1.	In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
+1.    In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
 
-2.	From the commit message, get the commit ID of the collaboration branch.
+2.    From the commit message, get the commit ID of the collaboration branch.
 
-3.	Create a new hotfix branch from that commit.
+3.    Create a new hotfix branch from that commit.
 
-4.	Go to the Azure Data Factory UX and switch to the hotfix branch.
+4.    Go to the Azure Data Factory UX and switch to the hotfix branch.
 
-5.	By using the Azure Data Factory UX, fix the bug. Test your changes.
+5.    By using the Azure Data Factory UX, fix the bug. Test your changes.
 
-6.	After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
+6.    After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
 
-7.	Manually check this build into the adf_publish branch.
+7.    Manually check this build into the adf_publish branch.
 
-8.	If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
+8.    If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
 
-9.	Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
+9.    Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
 
-10.	Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
+10.    Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
 
 ## Best practices for CI/CD
 

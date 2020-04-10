@@ -1,5 +1,6 @@
 ---
-title: Reset the credentials for an Azure Kubernetes Service (AKS) cluster
+title: Reset the credentials for a cluster
+titleSuffix: Azure Kubernetes Service
 description: Learn how update or reset the service principal or AAD Application credentials for an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
@@ -64,7 +65,7 @@ The output is similar to the following example. Make a note of your own `appId` 
 
 Now define variables for the service principal ID and client secret using the output from your own [az ad sp create-for-rbac][az-ad-sp-create] command, as shown in the following example. The *SP_ID* is your *appId*, and the *SP_SECRET* is your *password*:
 
-```azurecli-interactive
+```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```

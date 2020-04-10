@@ -49,8 +49,6 @@ Any private data that is required to be persisted by Stream Analytics is stored 
 
 * User-defined functions 
 
-* Results of sampling data from inputs 
-
 * Checkpoints needed by the Stream Analytics runtime
 
 * Snapshots of reference data 

@@ -74,7 +74,7 @@ To compute the output of the network for a particular input, a value is calculat
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
   
-14. Run the pipeline.
+14. Submit the pipeline.
 
 ## Results
 

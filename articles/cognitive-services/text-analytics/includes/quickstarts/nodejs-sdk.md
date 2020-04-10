@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ---
@@ -28,21 +28,20 @@ ms.reviewer: sumeh, assafi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org/).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. 
-    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll do this later in the quickstart.
-    * You can use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
 ### Create a new Node.js application
 
-> [!NOTE]
-> You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
-
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
-mkdir myapp && cd myapp
+mkdir myapp 
+
+cd myapp
 ```
 
 Run the `npm init` command to create a node application with a `package.json` file. 
@@ -57,8 +56,11 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics
+npm install --save @azure/ai-text-analytics@1.0.0-preview.3
 ```
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
 
 #### [Version 2.1](#tab/version-2)
 
@@ -68,14 +70,13 @@ Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 npm install --save @azure/cognitiveservices-textanalytics
 ```
 
-Your app's `package.json` file will be updated with the dependencies.
-
-Create a file named `index.js` and add the following libraries:
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), which contains the code examples in this quickstart. 
 
 ---
 
 Your app's `package.json` file will be updated with the dependencies.
-Create a file named `index.js` and add the following libraries:
+Create a file named `index.js` and add the following:
 
 #### [Version 3.0-preview](#tab/version-3)
 
@@ -156,14 +157,13 @@ async function sentimentAnalysis(client){
         console.log(`ID: ${document.id}`);
         console.log(`\tDocument Sentiment: ${document.sentiment}`);
         console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.sentimentScores.positive.toFixed(2)} \tNegative: ${document.sentimentScores.negative.toFixed(2)} \tNeutral: ${document.sentimentScores.neutral.toFixed(2)}`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
         console.log(`\tSentences Sentiment(${document.sentences.length}):`);
         document.sentences.forEach(sentence => {
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
             console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.sentimentScores.positive.toFixed(2)} \tNegative: ${sentence.sentimentScores.negative.toFixed(2)} \tNeutral: ${sentence.sentimentScores.neutral.toFixed(2)}`);
-            console.log(`\t\tLength: ${sentence.length}, Offset: ${sentence.offset}`);
-        })
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+        });
     });
 }
 sentimentAnalysis(textAnalyticsClient)
@@ -182,11 +182,9 @@ ID: 0
                 Sentence sentiment: positive
                 Sentences Scores:
                 Positive: 1.00  Negative: 0.00  Neutral: 0.00
-                Length: 30, Offset: 0
                 Sentence sentiment: neutral
                 Sentences Scores:
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
-                Length: 30, Offset: 31
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -281,7 +279,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.score}`);
         });
     });
 }
@@ -295,25 +293,26 @@ Run your code with `node index.js` in your console window.
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Offset: 0, Length: 9    Score: 1
+        Score: 1
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Offset: 25, Length: 10  Score: 0.67
+        Score: 0.67
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Offset: 40, Length: 10  Score: 0.81
+        Score: 0.81
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
-        Offset: 54, Length: 13  Score: 0.8
+        Score: 0.8
         Name: interpreters      Category: PersonType    Subcategory: N/A
-        Offset: 95, Length: 12  Score: 0.6
+        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
-        Offset: 123, Length: 4  Score: 0.8
+        Score: 0.8
 Document ID: 1
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Offset: 21, Length: 9   Score: 0.96
+        Score: 0.96
         Name: Redmond   Category: Location      Subcategory: GPE
-        Offset: 60, Length: 7   Score: 0.09
+        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
-        Offset: 71, Length: 2   Score: 0.8
+        Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
+        Score: 0.31
 ```
 
 ## Using NER to detect personal information
@@ -333,7 +332,7 @@ async function entityPiiRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.score}`);
         });
     });
 }
@@ -347,7 +346,7 @@ Run your code with `node index.js` in your console window.
 ```console
 Document ID: 0
         Name: 123-12-1234       Category: U.S. Social Security Number (SSN)     Subcategory: N/A
-        Offset: 33, Length: 11  Score: 0.85
+        Score: 0.85
 ```
 
 ## Entity Linking
@@ -365,11 +364,10 @@ async function linkedEntityRecognition(client){
     entityResults.forEach(document => {
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.name} \tID: ${entity.id} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text}`);
-                console.log(`\t\tOffset: ${match.offset}, Length: ${match.length} \tScore: ${match.score.toFixed(3)}`);
+                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
             });
         });
     });
@@ -385,32 +383,24 @@ Run your code with `node index.js` in your console window.
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800
-                Offset: 116, Length: 11         Score: 0.777
+                Text: Altair 8800       Score: 0.78
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates
-                Offset: 25, Length: 10  Score: 0.555
-                Text: Gates
-                Offset: 161, Length: 5  Score: 0.555
+                Text: Bill Gates        Score: 0.55
+                Text: Gates     Score: 0.55
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen
-                Offset: 40, Length: 10  Score: 0.533
+                Text: Paul Allen        Score: 0.53
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft
-                Offset: 0, Length: 9    Score: 0.469
-                Text: Microsoft
-                Offset: 150, Length: 9  Score: 0.469
+                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.47
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4
-                Offset: 54, Length: 7   Score: 0.248
+                Text: April 4   Score: 0.25
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC
-                Offset: 89, Length: 5   Score: 0.281
+                Text: BASIC     Score: 0.28
 ```
 
 #### [Version 2.1](#tab/version-2)

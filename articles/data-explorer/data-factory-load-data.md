@@ -56,7 +56,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
    | **Name** | In the box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For rules about naming Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
    | **Subscription** | In the drop-down list, select the Azure subscription in which to create the data factory. |
    | **Resource Group** | Select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**. |
-   | **Version** | In the drop-down list, select **V2**. |	
+   | **Version** | In the drop-down list, select **V2**. |    
    | **Location** | In the drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can exist in other locations or regions. |
 
 1. Select **Create**.
@@ -75,7 +75,7 @@ You can load data from many types of [data stores](/azure/data-factory/copy-acti
 
 You can load your data in either of the following ways:
 
-* In the Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* In the Azure Data Factory user interface, in the left pane, select the **Author** icon. This is shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * In the Azure Data Factory Copy Data tool, as shown in [Use the Copy Data tool to copy data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### Copy data from Amazon S3 (source)
@@ -121,7 +121,7 @@ You can load your data in either of the following ways:
 
    ![Source data store created connection](media/data-factory-load-data/source-data-store-created-connection.png)
 
-1. In the **Choose the input file or folder** pane, do the following:
+1. In the **Choose the input file or folder** pane, do the following steps:
 
     a. Browse to the file or folder that you want to copy, and then select it.
 
@@ -139,9 +139,12 @@ You can load your data in either of the following ways:
 
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
 
+> [!NOTE]
+> Use the [Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md) and use any of the [ingest from query commands](/azure/kusto/management/data-ingestion/ingest-from-query), such as `.set-or-replace`.
+
 #### Create the Azure Data Explorer linked service
 
-To create the Azure Data Explorer linked service, do the following;
+To create the Azure Data Explorer linked service, do the following steps:
 
 1. To use an existing data store connection or specify a new data store, in the **Destination data store** pane, select **Create new connection**.
 
@@ -151,13 +154,13 @@ To create the Azure Data Explorer linked service, do the following;
 
     ![The New linked service pane](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** pane, do the following:
+1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps:
 
     ![The Azure Data Explorer New Linked Service pane](media/data-factory-load-data/adx-new-linked-service.png)
 
    a. In the **Name** box, enter a name for the Azure Data Explorer linked service.
 
-   b. Under **Account selection method**, do one of the following: 
+   b. Under **Account selection method**, choose one of the following options: 
 
     * Select **From Azure subscription** and then, in the drop-down lists, select your **Azure subscription** and your **Cluster**. 
 
@@ -183,7 +186,7 @@ To create the Azure Data Explorer linked service, do the following;
 
 #### Configure the Azure Data Explorer data connection
 
-After you've created the linked service connection, the **Destination data store** pane opens, and the connection you created is available for use. To configure the connection, do the following;
+After you've created the linked service connection, the **Destination data store** pane opens, and the connection you created is available for use. To configure the connection, do the following steps:
 
 1. Select **Next**.
 
@@ -211,7 +214,7 @@ After you've created the linked service connection, the **Destination data store
 
     ![The destination dataset "Column mapping" pane](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. In the **Settings** pane, do the following:
+1. In the **Settings** pane, do the following steps:
 
     a. Under **Fault tolerance settings**, enter the relevant settings.
 

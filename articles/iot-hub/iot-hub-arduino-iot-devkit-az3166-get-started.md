@@ -77,7 +77,13 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
    > [!NOTE]
-   > If you get an error running `device-identity`, install the [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) for more details.
+   > If you get an error running `device-identity`, install the [Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds commands that are specific to IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) to Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
@@ -139,7 +145,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
 1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
 
-    ```bash
+    ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 

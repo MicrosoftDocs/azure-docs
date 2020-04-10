@@ -35,6 +35,10 @@
   - name: Concepts
     expanded: false
     items:
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Container registry SKUs and limits
       href: container-registry-skus.md
     - name: Registries, repositories, and images
@@ -120,7 +124,7 @@
     - name: Monitor
       expanded: false
       items:
-        - name: Diagnostic and audit logs (preview)
+        - name: Diagnostic and audit logs
           href: container-registry-diagnostics-audit-logs.md  
         - name: Audit compliance using Azure Policy (preview)
           href: container-registry-azure-policy.md 

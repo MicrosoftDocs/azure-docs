@@ -35,8 +35,11 @@ You can also use [resources.azure.com](https://resources.azure.com) or the [Azur
 
 The exact presentation of the output depends on the options you provide to the command, but here is some sample output from the CLI:
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -65,7 +68,7 @@ The {instance-id} part of the name is the same decimal number as the "instanceId
 
 If you query the [instance metadata](../virtual-machines/windows/instance-metadata-service.md) from within a scale set VM, you see a "name" in the output:
 
-```
+```output
 {
   "compute": {
     "location": "westus",

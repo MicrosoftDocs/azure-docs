@@ -17,7 +17,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) or [JavaScript](javascript.md)
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
@@ -81,8 +81,8 @@ Insert this snippet in ApplicationInsights.config:
 ```xml
 <TelemetryProcessors>
   <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
-	 <!-- Set public property -->
-	 <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+     <!-- Set public property -->
+     <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
   </Add>
 </TelemetryProcessors>
 ```
@@ -200,7 +200,7 @@ public void Process(ITelemetry item)
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-     	return false;
+         return false;
      }
   
      return true;
@@ -241,24 +241,24 @@ namespace MvcWebRole.Telemetry
    */
   public class MyTelemetryInitializer : ITelemetryInitializer
   {
-	public void Initialize(ITelemetry telemetry)
-	{
-		var requestTelemetry = telemetry as RequestTelemetry;
-		// Is this a TrackRequest() ?
-		if (requestTelemetry == null) return;
-		int code;
-		bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-		if (!parsed) return;
-		if (code >= 400 && code < 500)
-		{
-			// If we set the Success property, the SDK won't change it:
-			requestTelemetry.Success = true;
+    public void Initialize(ITelemetry telemetry)
+    {
+        var requestTelemetry = telemetry as RequestTelemetry;
+        // Is this a TrackRequest() ?
+        if (requestTelemetry == null) return;
+        int code;
+        bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+        if (!parsed) return;
+        if (code >= 400 && code < 500)
+        {
+            // If we set the Success property, the SDK won't change it:
+            requestTelemetry.Success = true;
 
-			// Allow us to filter these requests in the portal:
-			requestTelemetry.Properties["Overridden400s"] = "true";
-		}
-		// else leave the SDK to set the Success property
-	}
+            // Allow us to filter these requests in the portal:
+            requestTelemetry.Properties["Overridden400s"] = "true";
+        }
+        // else leave the SDK to set the Success property
+    }
   }
 }
 ```
@@ -270,9 +270,9 @@ In ApplicationInsights.config:
 ```xml
 <ApplicationInsights>
   <TelemetryInitializers>
-	<!-- Fully qualified type name, assembly name: -->
-	<Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
-	...
+    <!-- Fully qualified type name, assembly name: -->
+    <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
+    ...
   </TelemetryInitializers>
 </ApplicationInsights>
 ```
@@ -304,26 +304,6 @@ For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitialize
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### Java telemetry initializers
-
-[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-Then register the custom initializer in your applicationinsights.xml file.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### JavaScript telemetry initializers
 *JavaScript*
 
@@ -331,40 +311,40 @@ Insert a telemetry initializer immediately after the initialization code that yo
 
 ```JS
 <script type="text/javascript">
-	// ... initialization code
-	...({
-		instrumentationKey: "your instrumentation key"
-	});
-	window.appInsights = appInsights;
+    // ... initialization code
+    ...({
+        instrumentationKey: "your instrumentation key"
+    });
+    window.appInsights = appInsights;
 
 
-	// Adding telemetry initializer.
-	// This is called whenever a new telemetry item
-	// is created.
+    // Adding telemetry initializer.
+    // This is called whenever a new telemetry item
+    // is created.
 
-	appInsights.queue.push(function () {
-		appInsights.context.addTelemetryInitializer(function (envelope) {
-			var telemetryItem = envelope.data.baseData;
+    appInsights.queue.push(function () {
+        appInsights.context.addTelemetryInitializer(function (envelope) {
+            var telemetryItem = envelope.data.baseData;
 
-			// To check the telemetry items type - for example PageView:
-			if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-				// this statement removes url from all page view documents
-				telemetryItem.url = "URL CENSORED";
-			}
+            // To check the telemetry items type - for example PageView:
+            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                // this statement removes url from all page view documents
+                telemetryItem.url = "URL CENSORED";
+            }
 
-			// To set custom properties:
-			telemetryItem.properties = telemetryItem.properties || {};
-			telemetryItem.properties["globalProperty"] = "boo";
+            // To set custom properties:
+            telemetryItem.properties = telemetryItem.properties || {};
+            telemetryItem.properties["globalProperty"] = "boo";
 
-			// To set custom metrics:
-			telemetryItem.measurements = telemetryItem.measurements || {};
-			telemetryItem.measurements["globalMetric"] = 100;
-		});
-	});
+            // To set custom metrics:
+            telemetryItem.measurements = telemetryItem.measurements || {};
+            telemetryItem.measurements["globalMetric"] = 100;
+        });
+    });
 
-	// End of inserted code.
+    // End of inserted code.
 
-	appInsights.trackPageView();
+    appInsights.trackPageView();
 </script>
 ```
 
@@ -376,6 +356,14 @@ You can add as many initializers as you like, and they are called in the order t
 
 Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported,make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
+> [!NOTE]
+> You can modify the `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+
+```python
+def callback_function(envelope):
+    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+```
+
 ```python
 # Example for log exporter
 import logging
@@ -386,8 +374,8 @@ logger = logging.getLogger(__name__)
 
 # Callback function to append '_hello' to each log message telemetry
 def callback_function(envelope):
-	envelope.data.baseData.message += '_hello'
-	return True
+    envelope.data.baseData.message += '_hello'
+    return True
 
 handler = AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>')
 handler.add_telemetry_processor(callback_function)
@@ -407,11 +395,11 @@ config_integration.trace_integrations(['requests'])
 
 # Callback function to add os_type: linux to span properties
 def callback_function(envelope):
-	envelope.data.baseData.properties['os_type'] = 'linux'
-	return True
+    envelope.data.baseData.properties['os_type'] = 'linux'
+    return True
 
 exporter = AzureExporter(
-	connection_string='InstrumentationKey=<your-instrumentation-key-here>'
+    connection_string='InstrumentationKey=<your-instrumentation-key-here>'
 )
 exporter.add_telemetry_processor(callback_function)
 tracer = Tracer(exporter=exporter, sampler=ProbabilitySampler(1.0))
@@ -483,7 +471,7 @@ The following sample initializer adds a custom property to every tracked telemet
 public void Initialize(ITelemetry item)
 {
   var itemProperties = item as ISupportProperties;
-  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+  if(itemProperties != null && !itemProperties.Properties.ContainsKey("customProp"))
     {
         itemProperties.Properties["customProp"] = "customValue";
     }

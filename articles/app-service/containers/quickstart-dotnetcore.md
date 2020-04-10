@@ -6,9 +6,9 @@ ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create an ASP.NET Core app in App Service on Linux
 
 > [!NOTE]

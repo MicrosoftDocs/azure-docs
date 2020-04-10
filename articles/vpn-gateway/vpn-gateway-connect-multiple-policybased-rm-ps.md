@@ -34,9 +34,9 @@ Currently, Azure supports both modes of VPN gateways: route-based VPN gateways a
 
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
-| **IKE version**          | IKEv1                       | IKEv2                            | IKEv1 and IKEv2                                    |
-| **Max. S2S connections** | **1**                       | 10                               |Standard: 10<br> Other SKUs: 30                     |
+| **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **IKE version**          | IKEv1                       | IKEv2                            | IKEv1 and IKEv2                         |
+| **Max. S2S connections** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 With the custom IPsec/IKE policy, you can now configure Azure route-based VPN gateways to use prefix-based traffic selectors with option "**PolicyBasedTrafficSelectors**", to connect to on-premises policy-based VPN devices. This capability allows you to connect from an Azure virtual network and VPN gateway to multiple on-premises policy-based VPN/firewall devices, removing the single connection limit from the current Azure policy-based VPN gateways.

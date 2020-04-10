@@ -114,7 +114,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -145,7 +145,7 @@ The code presents a two-step process:
   Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
 
-```
+```python
     # importing the requests library 
     import requests 
 
@@ -167,7 +167,7 @@ The code presents a two-step process:
 
 You can display the secret value by running the following code: 
 
-```
+```console
 python Sample.py
 ```
 

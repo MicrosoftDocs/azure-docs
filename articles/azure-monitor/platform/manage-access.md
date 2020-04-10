@@ -21,7 +21,7 @@ This article explains how to manage access to logs and to administer the workspa
 
 ## Configure access control mode
 
-You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+You can view the [access control mode](design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
 * Azure portal
 

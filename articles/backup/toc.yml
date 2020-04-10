@@ -15,12 +15,12 @@
     href: quick-backup-vm-powershell.md
   - name: Back up a VM - CLI
     href: quick-backup-vm-cli.md
-  - name: Back up a VM - Resource Manager template
-    displayName: ARM
+  - name: Back up a VM - ARM template
+    displayName: Resource Manager
     href: quick-backup-vm-template.md
 - name: Tutorials
   items:
-  - name: Back up Azure VMs at scale
+  - name: Back up multiple Azure VMs
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
@@ -32,19 +32,17 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
-  - name: Back up Azure Files file shares
-    href: tutorial-backup-azure-files.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
     href: tutorial-backup-restore-files-windows-server.md
   - name: SAP HANA databases on Azure VMs – using CLI
     items:
-    - name: Backup SAP HANA databases - CLI  
+    - name: Backup SAP HANA databases - CLI
       href: tutorial-sap-hana-backup-cli.md
     - name: Restore SAP HANA databases - CLI
       href: tutorial-sap-hana-restore-cli.md
-    - name: Manage backed up SAP HANA databases - CLI 
+    - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
 - name: Concepts
   items:
@@ -58,9 +56,11 @@
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
       href: backup-support-matrix-mars-agent.md
+    - name: SQL Server Backup support matrix
+      href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
-    - name: Supported VM SKUs for Azure Policy  
+    - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
@@ -88,13 +88,13 @@
     items:
     - name: Overview
       href: backup-azure-recovery-services-vault-overview.md
-    - name: Create 
+    - name: Create
       href: backup-create-rs-vault.md
     - name: Delete
       href: backup-azure-delete-vault.md
-    - name: Move 
+    - name: Move
       href: backup-azure-move-recovery-services-vault.md
-    - name: Manage 
+    - name: Manage
       href: backup-azure-manage-windows-server.md
   - name: Azure VM backup
     items:
@@ -164,10 +164,10 @@
       href: backup-azure-manage-mars.md
   - name: Azure File share backup
     items:
+    - name: Overview
+      href: azure-file-share-backup-overview.md
     - name: From the Azure portal
       items:
-      - name: Overview
-        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore
@@ -206,7 +206,7 @@
       href: backup-azure-sap-hana-database.md
     - name: Restore
       href: sap-hana-db-restore.md
-    - name: Manage 
+    - name: Manage
       href: sap-hana-db-manage.md
   - name: Azure Backup Server (MABS)
     items:
@@ -270,9 +270,9 @@
     items:
     - name: Overview
       href: offline-backup-overview.md
-    - name: Offline Backup with Azure Data Box 
+    - name: Offline Backup with Azure Data Box
       href: offline-backup-azure-data-box.md
-    - name: Offline Backup with Import/Export (MARS) 
+    - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)
       href: backup-azure-backup-server-import-export-.md
@@ -336,6 +336,8 @@
       href: backup-rm-template-samples.md
   - name: Security
     items:
+    - name: Overview
+      href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
     - name: Security for cloud workloads
@@ -382,6 +384,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Compliance 
+    href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
