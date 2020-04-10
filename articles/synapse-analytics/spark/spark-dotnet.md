@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 You can analyze data with .NET for Apache Spark through Spark batch job definitions or with interactive Azure Synapse Analytics notebooks. In this article, you learn how to use .NET for Apache Spark with Azure Synapse using both techniques. 
 
-## Submit batch jobs
+## Submit batch jobs using the Spark job definition
 
 Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache Spark job definitions for Synapse Spark pools](apache-spark-job-definitions.md). If you have not packaged your app to submit to Azure Synapse, complete the following steps.
 
