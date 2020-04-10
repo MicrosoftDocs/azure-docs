@@ -148,7 +148,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
-- [Integration with Azure Event Grid](concept-event-grid-integration) allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
+- [Integration with Azure Event Grid](concept-event-grid-integration.md) allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
 
 > [!TIP]
 > While some information on models and datasets are automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
