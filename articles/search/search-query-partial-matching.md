@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/09/2020
 ---
 # Partial term search and patterns with special characters (wildcard, regex, patterns)
 
-A *partial term search* refers to queries consisting of term fragments, such as the first, last, or interior parts of a string. A *pattern* might a combination of fragments, sometimes with special characters such as dashes or slashes that are part of the query. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
+A *partial term search* refers to queries consisting of term fragments, where instead of a whole term, you might have just the start, middle, or end of term (sometimes referred to as prefix, infix, or suffix queries). A *pattern* might a combination of fragments, often with special characters such as dashes or slashes that are part of the query string. Common use-cases include querying for portions of a phone number, URL, people or product codes, or compound words.
 
-Partial search can be problematic if the index doesn't have terms in the format required for pattern matching. During the text analysis phase of indexing, using the default standard analyzer, special characters are discarded, composite and compound strings are split up, causing pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214`(tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
+Partial and pattern search can be problematic if the index doesn't have terms in the expected format. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, composite and compound strings are split up, and whitespace is deleted; all of which can cause pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
 The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
@@ -22,21 +22,21 @@ The solution is to invoke an analyzer that preserves a complete string, includin
 
 In Azure Cognitive Search, partial search and pattern is available in these forms:
 
-+ [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simply query syntax for prefix search.
++ [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simple query syntax or the full Lucene query syntax for prefix search.
 
-+ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string, including the suffix. Wildcard and regular expressions require the full Lucene syntax. 
++ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string. Wildcard and regular expressions require the full Lucene syntax. Suffix and index queries are formulated as a regular expression.
 
-  Some examples of partial term search include the following. For a suffix query, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) to find a match. For a partial term that includes characters, such as a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
+  Some examples of partial term search include the following. For a suffix query, given the term "alphanumeric", you would use a wildcard search (`search=/.*numeric.*/`) to find a match. For a partial term that includes interior characters, such as a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
 
 As noted, all of the above require that the index contains strings in a format conducive to pattern matching, which the standard analyzer does not provide. By following the steps in this article, you can ensure that the necessary content exists to support these scenarios.
 
-## Solving partial search problems
+## Solving partial/pattern search problems
 
-When you need to search on patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the whole string. Taking a step back, the approach looks like this:
+When you need to search on fragments or patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the whole string. Taking a step back, the approach looks like this:
 
 + Define a field to store an intact version of the string (assuming you want analyzed and non-analyzed text)
-+ Choose a predefined analyzer or define a custom analyzer to output an intact string
-+ Assign the analyzer to the field
++ Choose a predefined analyzer or define a custom analyzer to output a non-analyzed intact string
++ Assign the custom analyzer to the field
 + Build and test the index
 
 > [!TIP]
@@ -217,6 +217,10 @@ The previous sections explained the logic. This section steps through each API y
 + [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) was introduced in [Choose an analyzer](#choose-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
 
 + [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) explains how to construct a query request, using either [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md) for wildcard and regular expressions.
+
+  For partial term queries, such as querying "3-6214" to find a match on "+1 (425) 703-6214", you can use the simple syntax: `search=3-6214&queryType=simple`.
+
+  For infix and suffix queries, such as querying "num" or "numeric to find a match on "alphanumeric", use the full Lucene syntax and a regular expression: `search=/.*num.*/&queryType=full`
 
 ## Tips and best practices
 
