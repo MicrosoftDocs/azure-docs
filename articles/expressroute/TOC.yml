@@ -17,7 +17,11 @@
 - name: Concepts
   items:
   - name: Work remotely
-    href: work-remotely-support.md
+    items:
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md
+    - name: Hybrid connectivity for remote users
+      href: work-remotely-support.md
   - name: Connectivity models
     href: expressroute-connectivity-models.md
   - name: Circuits and peering
