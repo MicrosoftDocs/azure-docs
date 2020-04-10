@@ -21,10 +21,10 @@ ms.reviewer: jrasnick
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within Synapse SQL.  
+You can use the [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within Synapse SQL.  
 
 ## 1. Connect
-To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
+To get started with [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name

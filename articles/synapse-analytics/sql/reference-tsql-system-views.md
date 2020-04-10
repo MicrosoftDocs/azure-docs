@@ -244,4 +244,4 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 
 ## Next steps
 
-For more reference information, see [T-SQL statements in Synapse SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements), and [T-SQL language elements in Synapse SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+For more reference information, see [T-SQL statements in Synapse SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), and [T-SQL language elements in Synapse SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

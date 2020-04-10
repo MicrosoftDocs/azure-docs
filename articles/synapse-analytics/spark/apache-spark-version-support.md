@@ -1246,6 +1246,6 @@ zlib==1.2.8
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
 - [Apache Spark Concepts](apache-spark-concepts.md)

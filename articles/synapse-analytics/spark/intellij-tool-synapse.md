@@ -264,5 +264,5 @@ It's convenient for you to foresee the script result by sending some code to the
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../overview-what-is.md)
 - [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
