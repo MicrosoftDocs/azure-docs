@@ -38,8 +38,10 @@
   items: 
     - name: Understanding Azure Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understanding metrics in the Azure Spring Cloud
+    - name: Understanding metrics in Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Understanding app status in Azure Spring Cloud
+      href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
