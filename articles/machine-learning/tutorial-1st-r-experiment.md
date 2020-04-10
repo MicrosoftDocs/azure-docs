@@ -94,7 +94,23 @@ The setup for your development work in this tutorial includes the following acti
 * Create a remote compute target to use for training
 
 ### Install required packages
-This tutorial assumes you already have the Azure ML SDK installed. Go ahead and import the **azuremlsdk** package.
+
+ * Install the latest version from CRAN.
+
+    ```R
+    # install the latest version from CRAN
+    install.packages("azuremlsdk")
+    ```
+    
+* Or install the development version from GitHub.
+
+    ```R
+    # or install the development version from GitHub
+    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+
+Now go ahead and import the **azuremlsdk** package.
 
 ```R
 library(azuremlsdk)
