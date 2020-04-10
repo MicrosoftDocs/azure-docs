@@ -1,11 +1,12 @@
 ---
-title: Migrate from a managed image to an image version with the Azure CLI 
-description: Learn how to migrate from a managed image to an image version in a Shared Image Gallery using the Azure CLI.
+title: Create an image from a VM  
+description: Learn how to create an image in a Shared Image Gallery from a VM in Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 03/24/2020
+ms.date: 04/10/2020
 ms.author: cynthn
 #PMcontact: akjosh
 
@@ -13,7 +14,7 @@ ms.author: cynthn
 
 # Create an image version from a VM in Azure using the Azure CLI
 
-If you have an existing VM that you would like to use to make multiple, identical VMs, then you can use that VM to create an image version in a Shared Image Gallery. 
+If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using the Azure CLI. You can also create an image from a VM using [Azure PowerShell](image-version-vm-powershell.md).
 
 An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create disks for the new VM. Image versions can be used multiple times.
 
@@ -22,9 +23,9 @@ An **image version** is what you use to create a VM when using a Shared Image Ga
 
 To complete this article, you must have an existing Shared Image Gallery. 
 
-Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition. If you want to use the VM without removing existing user accounts, create a specialized image definition.
+You must also have an existing VM in Azure, in the same region as your gallery. 
 
-You must also have an existing VM in Azure, in the same region as your gallery. If the has a data disk attached, the data disk size cannot be more than 1 TB.
+If the VM has a data disk attached, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
@@ -40,6 +41,33 @@ Once you know the VM name and what resource group it is in, get the ID of the VM
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
+```
+
+
+## Create an image definition
+
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
+
+Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
+
+Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+
+For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+
+```azurecli-interactive 
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state specialized
 ```
 
 
@@ -67,9 +95,10 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store all of your image version replicas in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
+> You can also store all of your image version replicas in Premiun storage by a adding `--storage-account-type Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
 >
 
 ## Next steps
 
-Create a VM from the [specialized image version](vm-specialized-image-version-cli.md).
+Create a VM from the [generalized image]() using the Azure CLI.
+Create a VM from the [specialized image version](vm-specialized-image-version-powershell.md) using PowerShell.

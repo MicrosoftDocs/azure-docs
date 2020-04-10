@@ -12,14 +12,21 @@ ms.author: cynthn
 ---
 # Create a VM from a generalized image version using the CLI
 
-Create a VM from a [generalized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a specialized image version, see [Create a VM from a specialized image version](vm-specialized-image-version-cli.md).
+Create a VM from a [generalized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a specialized image, see [Create a VM from a specialized image using PowerShell](vm-specialized-image-version-powershell.md). Currently, you cannot create a VM from a specialized image using the Azure CLI.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
+## Get the image ID
+
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
+
+```azurecli-interactive 
+az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery --query "[].[name, id]" --output tsv
+```
 
 ## Create the VM
 
-Create a VM from the latest image version using [az vm create](/cli/azure/vm#az-vm-create). To use the latest image version, the value for `--image` is set to the ID of the image definition. 
+Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest verison of the image, set `--image` to the ID of the image definition. 
 
 Replace resource names as needed in this example. 
 
@@ -27,7 +34,7 @@ Replace resource names as needed in this example.
 az vm create\
    --resource-group myGalleryRG \
    --name myVM \
-   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+   --image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --generate-ssh-keys
 ```
 

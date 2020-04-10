@@ -13,7 +13,7 @@ ms.author: cynthn
 
 # Preview: Create an image from a VM
 
-If you have an existing VM that you would like to use to make multiple, identical VMs, then you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
+If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
 
 You can capture an image from both [specialized and generalized](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) VMs using Azure PowerShell. 
 

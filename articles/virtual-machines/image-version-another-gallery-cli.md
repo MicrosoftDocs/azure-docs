@@ -13,15 +13,20 @@ ms.author: cynthn
 
 # Copy an image version from another gallery
 
-If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example.
+If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using [Azure PowerShell](image-version-another-gallery-powershell.md).
 
 
-To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. We will be creating a new image definition and image version in your destination gallery
+
+## Before you begin
+
+To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. 
+
+
+The source image version must be replicated to the region where your destination gallery is located. 
 
 
 When working through this article, replace the resource names where needed.
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
 ## Get information from the source gallery
@@ -122,7 +127,7 @@ Create versions using [az image gallery create-image-version](/cli/azure/sig/ima
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage.
+In this example, the version of our image is *1.0.0* and we are going to create 1 replica in the *South Central US* region and 1 replica in the *East US* region using zone-redundant storage.
 
 
 ```azurecli-interactive 
@@ -131,7 +136,7 @@ az sig image-version create \
    --gallery-name myNewGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
+   --target-regions "southcentralus=1" "eastus=1=standard_zrs" \
    --replica-count 2 \
    --managed-image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"
 ```
@@ -146,10 +151,4 @@ az sig image-version create \
 
 Create a VM from a [generalized](vm-generalized-image-version-cli.md) image version using CLI, or a [specialized](vm-specialized-image-version-PowerShell.md) image version, using PowerShell. You can't currently create a VM from a specialized version using the Azure CLI.
 
-
-
-
-
-## Next steps
-
-[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+Also, try out [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 

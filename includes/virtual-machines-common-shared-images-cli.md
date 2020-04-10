@@ -26,32 +26,6 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## Create an image definition
-
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
-
-Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
-
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
-
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
-
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. To create a generalized image definition, use `--os-state generalized`.
-
-```azurecli-interactive 
-az sig image-definition create \
-   --resource-group myGalleryRG \
-   --gallery-name myGallery \
-   --gallery-image-definition myImageDefinition \
-   --publisher myPublisher \
-   --offer myOffer \
-   --sku 16.04-LTS \
-   --os-type Linux \
-   --os-state specialized
-```
-
-
-
 ## Share the gallery
 
 You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
