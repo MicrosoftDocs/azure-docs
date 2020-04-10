@@ -240,11 +240,9 @@ This section describes possible solutions to common errors or problems.
 
 ### 404 error: "A reference was made to a file or folder which does not exist"
 
-To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get this `404` error message:
+This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but the newly created file is then immediately moved before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if the file is moved, the Logic Apps service can no longer find the file so you get the `404` error message.
 
-`'A reference was made to a file or folder which does not exist'`
-
-To skip reading the file's metadata after file creation, follow these steps:
+If you can't avoid or delay moving the file, you can skip reading the file's metadata after file creation instead by following these steps:
 
 1. In the **Create file** action, open the **Add new parameter** list, select the **Get all file metadata** property, and set the value to **No**.
 
