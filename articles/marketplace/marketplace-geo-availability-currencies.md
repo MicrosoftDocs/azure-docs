@@ -1,5 +1,5 @@
 ---
-title: Geographic availability and Currency Support | Azure
+title: Geographic availability and currency support | Azure 
 description: Geographic availability in the commercial marketplace
 author: qianw211
 ms.service: marketplace

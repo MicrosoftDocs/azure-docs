@@ -1,5 +1,5 @@
 ---
-title: Analytics for the commercial Marketplace in Partner Center
+title: Analytics for the commercial marketplace in Partner Center
 description: Overview on accessing analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
 author: dsindona
 ms.author: dsindona
@@ -15,7 +15,7 @@ Learn how to access analytic reports in Microsoft Partner Center to monitor sale
 
 ## Partner Center analytics tools
 
-To access the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under commercial marketplace.
+To access the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

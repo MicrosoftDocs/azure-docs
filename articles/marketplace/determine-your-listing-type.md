@@ -1,5 +1,5 @@
 ---
-title: Determine Your Publishing Option in the commercial marketplace 
+title: Determine your publishing option in the commercial marketplace 
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the commercial marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
