@@ -34,4 +34,4 @@ The following table describes the benefits of using a storefront:
 
 ## Next steps
 
-- Review the [commercial marketplace publishing guide](./marketplace-publishers-guide.md).
+* Review the [commercial marketplace publishing guide](./marketplace-publishers-guide.md).
