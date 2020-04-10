@@ -7,7 +7,7 @@ manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 04/09/2020
+ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ---
