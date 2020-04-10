@@ -12,7 +12,7 @@
 
 ## 2. Assign access permissions to an identity
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The general recommendation is to use share level permission for high level access management to a team or group, then leverage NTFS permissions for granular access control on directory/file level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -27,6 +27,8 @@ You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in ro
 
 > [!NOTE]
 > Remember to sync your AD credentials to Azure AD if you plan to use your AD for authentication. Password hash sync from AD to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from AD.
+
+The general recommendation is to use share level permission for high level access management to an AD group representing a group of users and identities, then leverage NTFS permissions for granular access control on directory/file level. 
 
 #### Azure portal
 To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
