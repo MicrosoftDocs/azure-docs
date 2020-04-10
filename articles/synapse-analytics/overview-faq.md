@@ -11,9 +11,11 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics frequently asked questions
+# Azure Synapse Analytics (workspace preview) frequently asked questions
 
 In this guide, you'll find the most frequently asked questions for Synapse Analytics.
+
+[!INCLUDE [preview](includes/note-preview.md)]
 
 ## General
 

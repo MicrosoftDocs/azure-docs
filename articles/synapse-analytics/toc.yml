@@ -1,5 +1,5 @@
 - name: Azure Synapse (workspaces preview)
-  href:
+  href: sql-data-warehouse/index.yml
 - name: Switch to Azure Synapse (SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
@@ -176,6 +176,8 @@
     items:
     - name: Overview
       items:
+      - name: Synapse SQL architecture
+        href: sql/overview-architecture.md
       - name: SQL on-demand
         href: sql/on-demand.md
       - name: SQL pool 
@@ -812,6 +814,8 @@
         href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Reference
   items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types
