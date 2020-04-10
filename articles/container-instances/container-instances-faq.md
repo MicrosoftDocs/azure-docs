@@ -38,9 +38,9 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 #### Windows Server 2019 and client base images (preview)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.914` or earlier
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` or earlier
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` or earlier
 
 ### What .NET or .NET Core image layer should I use in my container? 
 
