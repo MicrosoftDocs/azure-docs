@@ -312,7 +312,7 @@
           href: how-to-deploy-and-where.md
         - name: Deployment scenarios
           items: 
-            - name: Compute instances
+            - name: Azure ML compute instances
               href: how-to-deploy-local-container-notebook-vm.md
             - name: Azure Kubernetes Service
               displayName: aks, aad, authentication, azure active directory
@@ -328,13 +328,13 @@
             - name: Azure Functions
               displayName: functions app
               href: how-to-deploy-functions.md
-            - name: IoT Edge
+            - name: Azure IoT Edge devices
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: FPGA inference
               href: how-to-deploy-fpga-web-service.md
-            - name: Use custom Docker image
+            - name: Custom Docker images
               href: how-to-deploy-custom-docker-image.md
-            - name: Use existing models
+            - name: Non-Azure ML models
               displayName: publish existing model
               href: how-to-deploy-existing-model.md
         - name: Troubleshoot & debug
