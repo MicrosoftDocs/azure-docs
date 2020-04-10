@@ -121,7 +121,7 @@ Select a minimum of one and a maximum of three categories. These categories are 
 
 You must provide terms and conditions for the offer. You have two options:
 
-- Provide your own terms and conditions
+- Use your own terms and conditions
 - Use the Standard Contract for the Microsoft commercial marketplace
 
 #### Use your own terms and conditions
@@ -130,7 +130,7 @@ To provide your own custom terms and conditions, enter up to 10,000 characters o
 
 Customers must accept these terms before they can try your offer.
 
-#### Use thetandard Contract for the Microsoft commercial marketplace
+#### Use the Standard Contract for the Microsoft commercial marketplace
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the commercial marketplace. When you offer your software under the Standard Contract, customers only need to read and accept it once, and you don't have to creating custom terms and conditions.
 

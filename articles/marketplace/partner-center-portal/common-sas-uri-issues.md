@@ -19,7 +19,7 @@ Following are common issues encountered when working with shared access signatur
 | **Issue** | **Failure Message** | **Fix** |
 | --------- | ------------------- | ------- |
 | *Failure in copying images* |  |  |
-| "w" | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI using recommended tools. |
+| "?" is not found in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI using recommended tools. |
 | "st" and "se" parameters not in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI with proper **Start Date** and **End Date** values. |
 | "sp=rl" not in SAS URI | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI with permissions set as `Read` and `List`. |
 | SAS URI has white spaces in VHD name | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI to remove white spaces. |
