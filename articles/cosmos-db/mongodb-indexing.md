@@ -44,7 +44,7 @@ You can use compound indexes to sort efficiently on multiple fields at once, as 
 
 `db.coll.find().sort({name:1,age:1})`
 
-You can also use the preceding compound index can to efficiently sort on a query with the opposite sort order on all fields. Here's an example:
+You can also use the preceding compound index to efficiently sort on a query with the opposite sort order on all fields. Here's an example:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
