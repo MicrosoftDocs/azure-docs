@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Concurrent RDP connections |25* |
 | Concurrent SSH connections |50** |

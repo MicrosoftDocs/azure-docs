@@ -1,5 +1,6 @@
 ---
-title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
+title: Pod security best practices
+titleSuffix: Azure Kubernetes Service
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft

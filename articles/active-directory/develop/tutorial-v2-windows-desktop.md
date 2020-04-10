@@ -1,17 +1,13 @@
 ---
-title: Get started with Microsoft identity platform Windows desktop | Microsoft Docs
+title: Get started with Microsoft identity platform Windows desktop
 description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
