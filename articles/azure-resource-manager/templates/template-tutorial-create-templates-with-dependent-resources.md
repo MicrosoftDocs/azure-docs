@@ -64,14 +64,14 @@ When you explore the template in this section, try to answer these questions:
 
     There are six resources defined by the template:
 
-   * `Microsoft.Storage/storageAccounts`. See the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. See the [template reference](/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/networkSecurityGroups`. See the [template reference](/azure/templates/microsoft.network/networksecuritygroups).
-   * `Microsoft.Network/virtualNetworks`. See the [template reference](/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. See the [template reference](/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     It is helpful to get some basic understanding of the template before customizing it.
+     It is helpful to review the template reference before customizing a template.
 
 1. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
 
@@ -125,11 +125,12 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 1. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $resourceGroupName = "${projectName}rg"
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
@@ -144,8 +145,11 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 1. Run the following PowerShell command to list the newly created virtual machine:
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $resourceGroupName = "${projectName}rg"
+    $vmName = "SimpleWinVM"
+
+    Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
     Write-Host "Press [ENTER] to continue ..."
     ```
 
