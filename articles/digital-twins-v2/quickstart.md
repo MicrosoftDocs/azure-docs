@@ -15,119 +15,134 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Getting started with the Azure Digital Twins Sample App
+# Getting started with the Azure Digital Twins sample app
 
-In this tutorial, you will set up to use Azure Digital Twins, create an instance and configure your application, and perform some sample actions on the solution.
+In this section, you will set up to use Azure Digital Twins, create an instance and configure your application, and perform some sample actions on the solution.
 
 ## Prerequisites
 
-Before you can create and start working with your Azure Digital Twins instance, complete the following:
+Before you can start working with an Azure Digital Twins instance, complete the following steps:
 
 1. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your machine.
-    * If you have an older version, open the Visual Studio Installer on your machine and follow the prompts to update your installation.
-    ![Visual Studio Installer](./media/quickstart/visual-studio-installer.jpg)
+    * If you have an older version, open the Visual Studio Installer on your machine and follow the prompts to update your installation. The application looks like this:
+      ![Visual Studio Installer](media/quickstart/visual-studio-installer.png)
 
-2. Choose whether to complete this tutorial with [Azure Cloud Shell](../cloud-shell/overview.md) or the local Azure CLI. If the local CLI, install the Azure CLI package on your computer
-    * If you have it installed already, run `az --version` to make sure `azure-cli` is at least **version 2.0.8** -- if it isn't, use the link below to install the latest version
-    * Use this link to install if you haven't: [Azure CLI Installation Documentation](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest])
+2. Choose whether to complete this tutorial with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) or the Azure CLI locally. To use the local CLI, install the Azure CLI package on your computer with these steps:
+    1. If you have it installed already, run `az --version` and verify that `azure-cli` is at least **version 2.0.8**. If it isn't, use the link below to install the latest version.
+    2. Use the instructions at this link to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest]).
+    3. For Windows, installing the Azure CLI gives you CLI access through the Windows Command Prompt (CMD) and PowerShell. You can now use the CLI by typing Azure CLI commands in a CMD or PowerShell window.
 
-3. Download the sample project
-    * If you haven't already, download this entire repository. We recommend **downloading as a ZIP file** for an easier experience
+3. Download the sample project.
+    * Download this entire repository to your machine. We recommend downloading as a ZIP file.
 
-4. Install Azure IoT CLI Extension.
-    * Open PowerShell
-    * Add the new extension with `az extension add --name azure-iot`
-    * See the top-level Azure Digital Twins commands with `az dt -h`
+4. Install the Azure IoT CLI extension.
+    1. Open PowerShell or another command window on your machine (or an Azure Cloud Shell instance if you will be using that instead of the local CLI).
+    2. Add the new Azure IoT CLI extension with `az extension add --name azure-iot`.
+    3. You can run `az dt -h` to see the top-level Azure Digital Twins commands.
+> [!NOTE]
+> This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
+> Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
+> Use `az extension add --name azure-iot` to add the new version of the extension. 
+> To see what extensions you have installed, use `az extension list`.
 
-5. Configure AAD app registration and save important strings
-    * [Optional] If you don't have an app registration for ADT, follow guidance in [How to authenticate - create an app registration](https://github.com/Azure/azure-digital-twins/blob/private-preview/Documentation/how-to-authenticate.md) (screenshot from the process below)
-        ![New AAD app registration](./media/quickstart/new-app-registration.jpg)        
-    * [Required] Once created, use [Azure portal - AAD app registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the app registration overview page and make note of the *Application ID* and *Directory ID*
-        ![Azure portal: authentication IDs](./media/quickstart/get-authentication-ids.jpg)
+5. Configure app registration and save important strings.
+    1. Complete the "Create an app registration" section of [How to authenticate](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-authenticate?branch=pr-en-us-110066) to set up an Azure Active Directory (AAD) app registration to use for authentication with Azure Digital Twins.
+      After doing this, your command window should look something like this:
+      ![New AAD app registration](media/quickstart/new-app-registration.png)        
+    2. After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
+      From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
+      ![Azure portal: authentication IDs](media/quickstart/get-authentication-ids.png)
 
-    Save the *Application ID* and *Directory ID* (tenant ID). You will use these values along with your *Subscription ID* later.
+        Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later.
 
-6. [Optional] Check out the Azure Digital Twins Swagger to learn about our APIs
-    * Download and install the [Swagger Viewer VS Code extension](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
-    * Navigate back a directory in the repo and to *OpenApiSpec > * **digitaltwins.json**, right-click it and open with Visual Studio Code
-    * Press *F1* and enter the command "Preview Swagger"
-    * The compiled swagger should appear adjacent to the *.json* file
+6. [Optional] To learn more about the available Azure Digital Twins APIs, view the Azure Digital Twins Swagger.
 
 ## Create an instance and configure your solution
 
+This section walks through the basic steps to set up an Azure Digital Twins solution. The last steps get you ready to work with the sample project for this tutorial.
+
+Complete these steps using PowerShell or another command window on your machine. You can also use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+> [!NOTE]
+> This document encourages PowerShell due to its parsing of quotations. Other bashes will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
+
+Any placeholders shown *<in-brackets>* should be replaced with the appropriate values from your own resources.
+
 ### 1. Create an Azure Digital Twins instance
-These instructions use the recommended Azure Digital Twins CLI commands (`az dt`) to _set the context to your subscription_, _create a resource group_ and _create an Azure Digital Twins instance_. Complete these steps using PowerShell on your machine. Anything <in-brackets> is your own resources that you need to replace.
 
-> [!NOTE] 
-> This document encourages PowerShell due to its parsing of quotations. Alternative bashes will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
+These instructions use the Azure Digital Twins CLI commands (`az dt`) to set the context to your subscription, create a resource group, and create an Azure Digital Twins instance. For more about the CLI commands, see [How to use Azure Digital Twins CLI](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-use-digital-twins-cli?branch=pr-en-us-110066).
 
-> [!IMPORTANT]
-> Make sure to sign in with the AAD account associated with your subscription.
+Begin by logging in and setting the shell context to your subscription.
 
-Log in and set the context to your allow-listed subscription
-
-```bash
+```Azure CLI
 az login
 az account set --subscription <your-subscription-ID>
 ```
 
-Register with the Azure Digital Twins namespace, create a resource group and create your Azure Digital Twins instance
-
-```bash
-az provider register --namespace 'Microsoft.DigitalTwins'
-```
+Run the following commands to register with the Azure Digital Twins namespace, create a new resource group to use in this tutorial, and create your Azure Digital Twins instance.
 
 > [!NOTE]
-> If using cmd or bash, you may have to remove the quotes or use double-quotes for `Microsoft.DigitalTwins`
+> If using CMD or bash, you may have to remove the quotes or use double-quotes for `Microsoft.DigitalTwins`.
 
-```bash
-az group create --location "westcentralus" --name <your-resource-group>
-az dt create --dt-name <your-Azure-Digital-Twins-instance> -g <your-resource-group>
-az dt show --dt-name <your-Azure-Digital-Twins-instance>
+```Azure CLI
+az provider register --namespace 'Microsoft.DigitalTwins'
+
+az group create --location "westcentralus" --name <name-for-your-resource-group>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group>
 ```
 
-Save your *resource group*, *Azure Digital Twins instance*, and *HostName* from the output of the `create` operation above. You will use them later.
+The result of these commands looks something like this, outputting information about the resources you've created:
+![Command window with successful creation of resource group and Azure Digital Twins instance](media/quickstart/create-instance.png)
 
-### 2. Assign an AAD role
+Save the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup*  from the output. You will use them later.
 
-Azure Digital Twins uses AAD for RBAC, so you must create a role assignment for your tenant to be able to make data plane calls to your instance.
+> [!TIP]
+> You can see the properties of your instance at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-Create the role assignment using the AAD email associated with your tenant (*\<your-AAD-email>*)
+### 2. Assign an Azure Active Directory role
 
-```bash
+Azure Digital Twins uses [Azure Active Directory (AAD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
+
+Create the role assignment using your email associated with the AAD tenant on your Azure subscription:
+
+```Azure CLI
 az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role owner
 ```
 
+The result of this command is outputted information about the role assignment you've created.
+
 > [!TIP]
-> If you get a *400: BadRequest* error, navigate to your user in the [AAD Users page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) and use the **Object ID** instead of *\<your-AAD-email>*
-> ![Assign role bad request](./media/quickstart/assign-role-bad-request.jpg)
-> ![Azure portal: object ID for AAD user](./media/quickstart/aad-user.jpg)
+> If you get a *400: BadRequest* error instead, navigate to your user in the [AAD Users page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) for your tenant. Repeat the command using your user's *Object ID* instead of your email.
+> ![Azure portal: object ID for AAD user](media/quickstart/aad-user.png)
 
-### 3. Open the sample app
+### 3. Configure the sample project
 
-Azure Digital Twins has put together a sample app to make it easier for people to start testing the service. This app implements…
+In this tutorial, you will work with pre-written sample app to work with Azure Digital Twins. This app implements…
 * Device authentication 
-* Already-generated AutoRest SDK
-* Sample usage of the SDK (in *CommandLoop.cs*)
+* Pre-generated AutoRest SDK
+* SDK usage examples (in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
-* _BuildingScenario_ - a sample Azure Digital Twins solution
-* _HubtToDT_ - a Functions App to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
-* _DTRoutedData_ - a Functions App to update your Azure Digital Twins graph as a result of ADT-routed data 
+* *BuildingScenario* - A sample Azure Digital Twins solution
+* *HubtToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
+* *DTRoutedData* - An Azure Functions app to update your Azure Digital Twins graph according to Azure Digital Twins data 
 
-To get started with this app on your local machine…
-  
-Launch *DigitalTwinsMetadata > DigitalTwinsSample >* **DigitalTwinsSample.sln** and edit the following values
+To get started with this app on your local machine, navigate to the sample project folder you downloaded from this repository.
 
-In *DigitalTwinsMetadata > DigitalTwinsSample > **Program.cs**, change `adtInstanceUrl` to your Azure Digital Twins instance hostname, `ClientId` to *\<your-application-ID>* and  `TenantId` to *\<your-directory-ID>*
+Open _DigitalTwinsMetadata > DigitalTwinsSample > **Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
 
-```bash
+```csharp
 private const string ClientId = "<your-application-ID>";
 private const string TenantId = "<your-directory-ID>";
-const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostname>"
+//...
+const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
 ```
 
-### 4. Start testing
+### 4. [Optional] Explore the sample project
 
-Sample code is in *CommandLoop.cs* and *BuildingScenario.cs*. When you feel comfortable with this code, go try building your own solution! There are infinite physical environments to model with Digital Twins, try a couple yourself.
+Launch _DigitalTwinsMetadata > **DigitalTwinsSample.sln**_ in Visual Studio.
 
-For guided testing, move on to the next section.
+You can explore the sample code in this project to familiarize yourself with the example and get an idea of how Azure Digital Twins works.
+You can also can edit or copy it to try out creating your own solution.
+
+The bulk of the project code resides in *CommandLoop.cs* and *BuildingScenario.cs*. 
+
+For additional guided solution development, continue with the steps below.
