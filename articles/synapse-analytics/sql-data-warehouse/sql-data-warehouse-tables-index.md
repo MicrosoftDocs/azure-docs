@@ -47,9 +47,9 @@ There are a few scenarios where clustered columnstore may not be a good option:
 
 ## Heap tables
 
-When you are temporarily landing data in Synapse SQL pool, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
+When you are temporarily landing data in Synapse SQL pool, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  After data loading, you can create indexes in the table for faster query performance.  
 
-For small lookup tables, less than 60 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 60 million rows.
+Cluster columnstore tables begin to achieve optimal compression once there is more than 60 million rows.  For small lookup tables, less than 60 million rows, consider using HEAP or clustered index for faster query performance. 
 
 To create a heap table, simply specify HEAP in the WITH clause:
 

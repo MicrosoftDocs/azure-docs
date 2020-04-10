@@ -480,6 +480,8 @@
       items:
       - name: Change feed overview
         href: change-feed.md
+      - name: Change feed design patterns
+        href: change-feed-design-patterns.md
       - name: Reading change feed
         href: read-change-feed.md
       - name: Change feed processor
@@ -1033,6 +1035,10 @@
       items:
       - name: Monitor Cosmos DB
         href: monitor-cosmos-db.md
+      - name: Monitor server-side latency
+        href: monitor-server-side-latency.md
+      - name: Monitor request unit usage
+        href: monitor-request-unit-usage.md
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Audit control plane logs
@@ -1155,7 +1161,7 @@
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: SQL playground
-      href: https://aka.ms/cosmos-db-playground
+      href: https://www.documentdb.com/sql/demo
     - name: FAQ
       href: faq.md
     - name: Whitepapers
