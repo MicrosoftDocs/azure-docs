@@ -1,12 +1,12 @@
 ---
-title: Create a new Dynamics 365 Business Central offer in Microsoft commercial marketplace 
-description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal on Microsoft Partner Center. 
+title: Create a new Dynamics 365 Business Central offer in the Microsoft commercial marketplace 
+description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, Microsoft AppSource, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal on Microsoft Partner Center. 
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/09/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -108,7 +108,10 @@ Provide your own legal terms and conditions in the **Terms and conditions** fiel
 
 ## Offer listing
 
-The Offer listing page displays the languages in which your offer will be listed. You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
+The Offer listing page is where you define details for your offer (such as name, description, images, etc.).
+
+> [!NOTE]
+> You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### Name
 
@@ -332,7 +335,11 @@ Remember to **Save** before moving on to the next section!
 
 ### Test drive marketplace listings
 
-The **Marketplace listing** option found under the **Test drive** tab displays the languages in which your test drive is available. Select the language name to enter info that describes the test drive experience.
+The **Marketplace listing** option found under the **Test drive** tab is where you define details for the test drive experience.
+
+> [!NOTE]
+> You can provide test drive listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the test drive listing content.
+
 
 - **Description** (required): Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field. 
 
