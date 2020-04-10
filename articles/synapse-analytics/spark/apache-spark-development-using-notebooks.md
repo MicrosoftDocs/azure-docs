@@ -387,5 +387,5 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Synapse Analytics](synapse-analytics)
