@@ -24,7 +24,7 @@ In this article, you learn how to debug and troubleshoot [machine learning pipel
 ## Debug and troubleshoot in the Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected.
 
-### Test scripts locally
+### Testing scripts locally
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
@@ -44,7 +44,7 @@ Once you have a script setup to run on your local environment, it is much easier
 > Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before 
 > attempting to run it in a pipeline with multiple steps.
 
-### Debug scripts from remote context
+### Debugging scripts from remote context
 
 Testing scripts locally is a great way to debug major code fragments and complex logic before you start building a pipeline, but at some point you will likely need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs during the interaction between pipeline steps. We recommend liberal use of `print()` statements in your step scripts so that you can see object state and expected values during remote execution, similar to how you would debug JavaScript code.
 
