@@ -65,6 +65,8 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+    id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-four
   title: Programming languages
   prompt: Choose a programming language

@@ -54,3 +54,12 @@ zone_pivot_groups: programming-languages-set-three
 ::: zone pivot="programming-language-python"
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+**Choose your target environment**
+#### [Browser Based](#tab/browser)
+[!INCLUDE [browser](../includes/quickstarts/platform/javascript-browser.md)]
+#### [NodeJS](#tab/nodejs)
+[!INCLUDE [node](../includes/quickstarts/platform/javascript-node.md)]
+* * *
+::: zone-end
