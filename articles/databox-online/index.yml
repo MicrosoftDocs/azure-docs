@@ -88,7 +88,7 @@ landingContent:
           - text: Edge compute
             url: data-box-edge-manage-compute.md
           - text: Edge compute network
-            url: data-box-edge-extend-compute-access-modules.md
+            url: azure-stack-edge-extend-compute-access-modules.md
 
   # Card
   - title: Troubleshoot
