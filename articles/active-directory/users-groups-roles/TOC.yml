@@ -125,7 +125,7 @@
       - name: Dynamic group rule syntax
         href: groups-dynamic-membership.md
       - name: Validate a membership rule
-        href: groups-dynamic-rule-validation
+        href: groups-dynamic-rule-validation.md
       - name: Change group membership type  
         href: groups-change-type.md
   - name: Assign licenses
