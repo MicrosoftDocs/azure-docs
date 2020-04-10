@@ -13,9 +13,9 @@ ms.date: 04/10/2020
 
 # Create a suggester to enable autocomplete and suggestions in Azure Cognitive Search
 
-In Azure Cognitive Search, "search-as-you-type" functionality is enabled through a **suggester** construct that you add to a [search index](search-what-is-an-index.md). A suggester supports two search experiences: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
+In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes the term or phrase, and *suggestions* that return a short list of matching documents.  
 
-The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates what the user might type, finishing "tw" with "in" as the prospective search term. Suggestions are documents from the index that match the query. For suggestions, you can surface any part of a document that best describes the result. In this example, a result is represented by the hotel name field.
+The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
