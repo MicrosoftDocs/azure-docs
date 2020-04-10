@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/09/2020
 ms.author: allensu
 ---
 
@@ -63,19 +63,18 @@ The following example is a snippet from an Azure Resource Manager template.  Thi
 - **natgatewayname** -  Name of the NAT gateway.
 - **location** - Azure region where resource is located.
 - **publicipname** - Name of the outbound public IP associated with the NAT gateway.
-- **publicipprefixname** - Name of the outbound public IP prefix associated with the NAT gateway.
 - **vnetname** - Name of the virtual network.
 - **subnetname** - Name of the subnet associated with the NAT gateway.
 
 The total number of IP addresses provided by all IP address and prefix resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
@@ -174,26 +173,49 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 
 ### Availability Zones
 
-Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.
+#### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with availability zones">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
 </p>
 
-*Figure: Virtual Network NAT with zone isolation*
+*Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
 
-A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone are unsupported.
+Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.  Availability zones build on this resiliency with zone isolation scenarios for NAT.
 
-Virtual networks and subnets are regional and not zonal aligned. A VM must be in the same zone as NAT gateway for a zonal promise of outbound connections. Zone isolation is created by creating a zonal "stack" per availability zone. A zonal promise won't exist when crossing zones of a zonal NAT gateway or using a regional NAT gateway with zonal VMs.
+Virtual networks and their subnets are regional constructs.  Subnets aren't restricted to a zone.
 
+A zonal promise for zone isolation exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone.  This "zonal stack" consists of virtual machine instances, NAT gateway resources, public IP address and/or prefix resources on a subnet that is assumed to be serving only the same zone.   The control plane operations and data plane are then aligned with and constrained to the specified zone. 
+
+Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.  
+
+#### Integrating inbound endpoints
+
+If your scenario requires inbound endpoints, you have two options:
+
+| Option | Pattern | Example | Pro | Con |
+|---|---|---|---|---|
+| (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
+| (2) | **Overlay** the zonal stacks with a **cross-zone** inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
+
+>[!NOTE]
+> A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone aren't allowed.
+
+#### Cross-zone outbound scenarios not supported
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="zone-spanning Virtual Network NAT">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
 </p>
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
 
-Virtual Network NAT is unable to provide a zonal promise with a zone-spanning subnet.  NAT doesn't support zone-redundancy and doesn't replicate flow state across zones. Use zone-isolation instead.
+You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
+
+A zonal promise does't exist when 
+a) the zone of a virtual machine instance and the zones of a zonal NAT gateway are not aligned, or
+b) a regional NAT gateway resource is used with zonal virtual machine instances.
+
+While the scenario will appear to work, its health model and failure mode is undefined from an availability zone point of view. Consider going with zonal stacks or all regional instead.
 
 >[!NOTE]
 >The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
@@ -253,9 +275,9 @@ Once a SNAT port releases, it's available for use by any virtual machine on subn
 
 ### Scaling
 
-NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.  You can use public IP addresses or public IP prefixes or both to create SNAT port inventory for usage by the NAT.
+Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets attached to a NAT gateway resource.  You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory.
 
-SNAT maps private addresses to one or more public IP addresses. These public IP addresses can be provided as public IP address resources or public IP prefix resources or both.  A NAT gateway resource will use 64,000 ports (SNAT ports) per configured IP address for this translation.  If a public IP prefix resource is provided, each IP address within the prefix is provided ports to the SNAT port inventory. These SNAT ports become the available inventory for the private to public flow mapping. And adding more IP addresses increases the available inventory SNAT ports. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
+SNAT maps private addresses to one or more public IP addresses, rewriting source address and source port in the processes. A NAT gateway resource will use 64,000 ports (SNAT ports) per configured public IP address for this translation. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix is providing SNAT port inventory. And adding more public IP addresses increases the available inventory SNAT ports. TCP and UDP are separate SNAT port inventories and unrelated.
 
 NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.
 
@@ -266,7 +288,7 @@ NAT gateway resources interact with IP and IP transport headers of UDP and TCP f
 ### Timers
 
 >[!IMPORTANT]
->Long idle timers can unnecessarily increase likelihood of SNAT exhaustion. The longer of a timer you specify, the longer NAT will hold on to SNAT ports until they eventually idle timeout. If your flows are idle timed out, they will fail eventually anyway and unnecessarily consume SNAT port inventory.  Flows that fails at 2 hours would have failed at the default 4 minutes as well. Increasing the idle timeout is a last resort option that should be used sparingly. If a flow never does go idle, it will not be impacted by these timers.
+>Long idle timer can unnecessarily increase likelihood of SNAT exhaustion. The longer of a timer you specify, the longer NAT will hold on to SNAT ports until they eventually idle timeout. If your flows are idle timed out, they will fail eventually anyway and unnecessarily consume SNAT port inventory.  Flows that fail at 2 hours would have failed at the default 4 minutes as well. Increasing the idle timeout is a last resort option that should be used sparingly. If a flow never does go idle, it will not be impacted by the idle timer.
 
 TCP idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
@@ -302,8 +324,8 @@ We want to know how we can improve the service. Are missing a capability? Make y
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * Tutorial for validating NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
+  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Quickstart for deploying a NAT gateway resource
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)

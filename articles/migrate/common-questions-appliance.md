@@ -90,6 +90,9 @@ No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-ap
 ## Can an Azure Migrate project have multiple appliances?
 A project can have multiple appliances attached to it. However, an appliance can only be associated with one project. 
 
+## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
+Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of VMware VMs) to the same vCenter server.
+
 
 ## How many VMs or servers can I discover with an appliance?
 

@@ -5,7 +5,7 @@ description: Learn how to plan and deploy Azure AD Password Protection in an on-
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2020
 
 ms.author: iainfou
