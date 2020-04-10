@@ -1,6 +1,6 @@
 ---
-title: Overview of the Commercial Marketplace portal in Partner Center 
-description: Learn more about the Commercial Marketplace portal in Partner Center and how to list and sell offers on Azure Marketplace, AppSource, and through the Cloud Solution Provider (CSP) program.
+title: Overview of the commercial marketplace in Partner Center 
+description: Learn more about the commercial marketplace in Partner Center and how to list and sell offers on Azure Marketplace, Microsoft AppSource, and through the Cloud Solution Provider (CSP) program.
 author: dsindona 
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ---
 
-# Overview of the Commercial Marketplace Portal in Partner Center
+# Overview of the commercial marketplace in Partner Center
 
 Welcome to the Commercial Marketplace Portal in Partner Center. The [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) helps you monetize your products and services, reach customers, and grow your business.
 
-These articles cover the basics of creating and using your Partner Center account. This includes creating new Software as a Service (SaaS) offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing SaaS offers, and providing resources to help with questions and collect your feedback.
+These articles cover the basics of creating and using your Partner Center account. This includes creating new Software as a Service (SaaS) offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), managing your existing SaaS offers, and providing resources to help with questions and collect your feedback.
 
 ## About Microsoft's commercial marketplace
 
-Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal's in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams.
+Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [Microsoft AppSource](https://appsource.microsoft.com/) web stores, [Azure portal's in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams.
 
 Partner Center is the hub of a Microsoft partner experience. For organizations who go to market with Microsoft and take advantage of the commercial marketplace, Partner Center is the portal through which publishers create and manage offers, provide test drive demonstrations, and view analytics on offer performance.
 
@@ -48,10 +48,10 @@ Partner Center analytics provides a view into the performance of your offers and
 
 ## View the roadmap and join the conversation
 
-Learn more about recent and future releases by visiting the [Microsoft commercial marketplace roadmap](https://aka.ms/publicmarketplaceroadmap), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
+Learn more about recent and future releases by visiting the [commercial marketplace roadmap](https://aka.ms/publicmarketplaceroadmap), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
 
 ## Next steps
 
-- For new Microsoft partners interested in publishing a SaaS offer to the marketplaces, see [Create a Commercial Marketplace account in Partner Center](./create-account.md).
-- For existing partners who have previously published offers in Cloud Partner Portal, [Manage your Commercial Marketplace account in Partner Center](./manage-account.md).
+- For new Microsoft partners interested in publishing a SaaS offer to the marketplaces, see [Create a commercial marketplace account in Partner Center](./create-account.md).
+- For existing partners who have previously published offers in Cloud Partner Portal, [Manage your commercial marketplace account in Partner Center](./manage-account.md).
 - Learn more about cloud marketplace management moving to Partner Center in this [Partner Community blog post](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), which includes a demo video.
