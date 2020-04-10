@@ -1,6 +1,6 @@
 ---
-title: Indexing in Azure Cosmos DB's API for MongoDB
-description: Presents an overview of the indexing capabilities with Azure Cosmos DB's API for MongoDB.
+title: Manage indexing with the Azure Cosmos DB API for MongoDB
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
@@ -10,41 +10,41 @@ author: timsander1
 ms.author: tisande
 
 ---
-# Indexing using Azure Cosmos DB's API for MongoDB
+# Manage indexing with the Azure Cosmos DB API for MongoDB
 
-Azure Cosmos DB's API for MongoDB leverages the core index management capabilities of Azure Cosmos DB. This document focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that is relevant across all API's.
+The Azure Cosmos DB API for MongoDB leverages the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using the Azure Cosmos DB API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
-## Indexing for version 3.6
+## Indexing for MongoDB version 3.6
 
-The `_id` field is always automatically indexed and cannot be dropped. Azure Cosmos DB's API for MongoDB automatically enforces uniqueness of the `_id` field per shard key.
+MongoDB version 3.6 automatically indexes the `_id` field, which can't be dropped. The Azure Cosmos DB API for MongoDB automatically enforces uniqueness of the `_id` field per shard key.
 
-To index additional fields, you should apply the MongoDB index management commands. As in MongoDB, only the `_id` field is indexed automatically. This default indexing policy is different from the Azure Cosmos DB SQL API, which indexes all fields by default.
+To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, the Azure Cosmos DB API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
-To apply a sort to a query, an index must be created on the fields used in the sort operation.
+To apply a sort to a query, you must create an index on the fields used in the sort operation.
 
 ## Index types
 
 ### Single field
 
-You can create indexes on any single field. The sort order of the single field index does not matter. The following command will create an index on the field `name`:
+You can create indexes on any single field. The sort order of the single-field index does not matter. The following command creates an index on the field `name`:
 
 `db.coll.createIndex({name:1})`
 
-One query will utilize multiple single field indexes, where available. You can create up to 500 single field indexes per container.
+One query utilizes multiple single-field indexes where available. You can create up to 500 single-field indexes per container.
 
-### Compound indexes (3.6)
+### Compound indexes (MongoDB version 3.6)
 
-Compound indexes are supported for accounts using the 3.6 wire protocol. You can include up to 8 fields in a compound index. Unlike in MongoDB, you should only create a compound index if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, you should create multiple single field indexes instead of one single compound index.
+The Azure Cosmos DB API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should only create a compound index if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, you should create multiple single-field indexes instead of a single compound index.
 
-The following command will create a compound index on the fields `name` and `age`:
+The following command creates a compound index on the fields `name` and `age`:
 
 `db.coll.createIndex({name:1,age:1})`
 
-Compound indexes can be used to sort efficiently on multiple fields at once, such as:
+You can use compound indexes to sort efficiently on multiple fields at once, as shown in the following example:
 
 `db.coll.find().sort({name:1,age:1})`
 
-The above compound index can also be used for efficient sorting on a query with the opposite sort order on all fields. Here's an example:
+You can also use the preceding compound index can to efficiently sort on a query with the opposite sort order on all fields. Here's an example:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -58,28 +58,28 @@ Azure Cosmos DB creates multikey indexes to index content stored in arrays. If y
 
 ### Geospatial indexes
 
-Many geospatial operators will benefit from geospatial indexes. Currently, Azure Cosmos DB's API for MongoDB supports `2dsphere` indexes. `2d` indexes are not yet supported.
+Many geospatial operators will benefit from geospatial indexes. Currently, the Azure Cosmos DB API for MongoDB supports `2dsphere` indexes. The API does not yet support `2d` indexes.
 
-Here's an example for creating a geospatial index on the `location` field:
+Here's an example of creating a geospatial index on the `location` field:
 
 `db.coll.createIndex({ location : "2dsphere" })`
 
 ### Text indexes
 
-Text indexes are not currently supported. For text search queries on strings, you should use [Azure Cognitive Search's](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
+The Azure Cosmos DB API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
 
 ## Index properties
 
-The following operations are common for both accounts serving wire protocol version 3.6 and accounts serving earlier wire protocol versions. You can also learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
+The following operations are common for accounts serving wire protocol version 3.6 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
 
 ### Unique indexes
 
-[Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s).
+[Unique indexes](unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for the indexed field(s).
 
->[!Important]
+> [!IMPORTANT]
 > Unique indexes can be created only when the collection is empty (contains no documents).
 
-The following command creates a unique index on the field "student_id":
+The following command creates a unique index on the field `student_id`:
 
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
@@ -92,9 +92,9 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 }
 ```
 
-For sharded collections, creating a unique index requires providing the shard (partition) key. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
+For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
 
-The following commands create a sharded collection ```coll``` (shard key is ```university```) with a unique index on fields student_id and university:
+The following commands create a sharded collection ```coll``` (the shard key is ```university```) with a unique index on the fields `student_id` and `university`:
 
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
@@ -113,13 +113,13 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 }
 ```
 
-In the above example, if ```"university":1``` clause was omitted, an error with the following message would be returned:
+In the preceding example, omitting the ```"university":1``` clause would return an error with the following message:
 
 ```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
 
 ### TTL indexes
 
-To enable document expiration in a particular collection, a ["TTL index" (time-to-live index)](../cosmos-db/time-to-live.md) needs to be created. A TTL index is an index on the _ts field with an "expireAfterSeconds" value.
+To enable document expiration in a particular collection, you need to create a [time-to-live (TTL) index](../cosmos-db/time-to-live.md). A TTL index is an index on the `_ts` field with an `expireAfterSeconds` value.
 
 Example:
 
@@ -127,16 +127,16 @@ Example:
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
-The preceding command will cause the deletion of any documents in ```db.coll``` collection that have not been modified in the last 10 seconds.
+The preceding command deletes any documents in the ```db.coll``` collection that have not been modified in the last 10 seconds.
 
 > [!NOTE]
-> **_ts** is an Azure Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
+> The **_ts** field is specific to Azure Cosmos DB and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
 
-## Track the index progress
+## Track index progress
 
-The 3.6 version of Azure Cosmos DB's API for MongoDB accounts support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about the in-progress operations on a database instance. The `currentOp` command is used to track all the in-progress operations in native MongoDB whereas in Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
+Version 3.6 of the Azure Cosmos DB API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In the Azure Cosmos DB API for MongoDB, this command only supports tracking the index operation.
 
-Here are some examples that show how to use the `currentOp` command to track the index progress:
+The following examples show how to use the `currentOp` command to track index progress:
 
 * Get the index progress for a collection:
 
@@ -144,21 +144,23 @@ Here are some examples that show how to use the `currentOp` command to track the
    db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
    ```
 
-* Get the index progress for all the collections in a database:
+* Get the index progress for all collections in a database:
 
   ```shell
   db.currentOp({"command.$db": <databaseName>})
   ```
 
-* Get the index progress for all the databases and collections in an Azure Cosmos account:
+* Get the index progress for all databases and collections in an Azure Cosmos DB account:
 
   ```shell
   db.currentOp({"command.createIndexes": { $exists : true } })
   ```
 
-The index progress details contain percentage of progress for the current index operation. The following example shows the output document format for different stages of index progress:
+### Examples of index progress output
 
-1. If the index operation on a 'foo' collection and 'bar' database that has 60 % indexing complete will have the following output document. `Inprog[0].progress.total` shows 100 as the target completion.
+The index progress details show the percentage of progress for the current index operation. The following example shows the output document format for different stages of the index progress:
+
+- An index operation on a "foo" collection and "bar" database that is 60-percent complete will have the following output document. The `Inprog[0].progress.total` field shows 100 as the target completion percentage.
 
    ```json
    {
@@ -182,7 +184,7 @@ The index progress details contain percentage of progress for the current index 
    }
    ```
 
-2. For an index operation that has just started on a 'foo' collection and 'bar' database, the output document may show 0% progress until it reaches to a measurable level.
+- If an index operation has just started on a "foo" collection and "bar" database, the output document might show 0-percent progress until it reaches a measurable level.
 
    ```json
    {
@@ -206,7 +208,7 @@ The index progress details contain percentage of progress for the current index 
    }
    ```
 
-3. When the in-progress index operation completes, the output document shows empty inprog operations.
+- When the in-progress index operation completes, the output document shows empty `inprog` operations.
 
    ```json
    {
@@ -217,34 +219,34 @@ The index progress details contain percentage of progress for the current index 
 
 ### Background index updates
 
-Regardless of the value specified for the **Background** index property, index updates are always done in the background. Index updates consume RU's at a lower priority than other database operations. Therefore, index changes won't result in any downtime for writes, updates, or deletes.
+Regardless of the value specified for the **Background** index property, index updates are always done in the background. Index updates consume Request Units (RUs) at a lower priority than other database operations. Therefore, index changes won't result in any downtime for writes, updates, or deletes.
 
-When adding a new index, queries will immediately utilize it. This means that queries may not return all the matching results, and will do so without returning any errors. Once the index transformation is completed, query results will be consistent. You can [track the index progress](#track-the-index-progress).
+When you add a new index, queries will immediately utilize the index. This means that queries might not return all matching results and will do so without returning any errors. When the index transformation completes, query results will be consistent. You can [track the index progress](#track-the-index-progress).
 
-## Migrating collections with indexes
+## Migrate collections with indexes
 
-Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the `--noIndexRestore` flag in the command line).
+Currently, you can only create unique indexes when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, you can manually create the corresponding collections and unique indexes instead of allowing the migration tool to make the attempt. (You can achieve this behavior for ```mongorestore``` by using the `--noIndexRestore` flag in the command line.)
 
-## Indexing for version 3.2
+## Indexing for MongoDB version 3.2
 
-For Azure Cosmos DB accounts compatible with the 3.2 version of the MongoDB wire protocol, the available indexing features and defaults are different. You can [check your account's version](mongodb-feature-support-36.md#protocol-support). You can upgrade to the 3.6 version by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Available indexing features and defaults are different for Azure Cosmos DB accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](mongodb-feature-support-36.md#protocol-support). You can upgrade to the 3.6 version by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 If you are using version 3.2, this section outlines key differences with version 3.6.
 
-### Dropping the default indexes (3.2)
+### Dropping default indexes (version 3.2)
 
-Unlike the 3.6 version of Azure Cosmos DB's API for MongoDB, 3.2 version indexes every property by default. The following command can be used to drop these default indexes for a collection ```coll```:
+Unlike the 3.6 version of the Azure Cosmos DB API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-After dropping the default indexes, you can add on additional indexes as done in Version 3.6.
+After dropping the default indexes, you can add more indexes as you would in version 3.6.
 
-### Compound indexes (3.2)
+### Compound indexes (version 3.2)
 
-Compound indexes hold references to multiple fields of a document. If you would like to create a compound index, please upgrade to 3.6 version by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Compound indexes hold references to multiple fields of a document. If you want to create a compound index, please upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Next steps
 
