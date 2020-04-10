@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Instantiate the scenario
+title: Build an end-to-end solution
 titleSuffix: Azure Digital Twins
-description: Tutorial to instantiate an Azure Digital Twins scenario
+description: Tutorial to develop a full sample Azure Digital Twins solution.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/7/2020
+ms.date: 4/10/2020
 ms.topic: tutorial
 ms.service: digital-twins
 

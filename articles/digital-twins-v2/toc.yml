@@ -10,14 +10,10 @@
   items:
   - name: Create and configure Azure Digital Twins
     href: quickstart.md
-- name: Tutorials
+- name: Tutorial
   items:
-  - name: Instantiate the scenario
-    href: tutorial-1-instantiate.md
-  - name: Send telemetry from IoT Hub
-    href: tutorial-2-telemetry.md
-  - name: Handle events with an Azure Functions app
-    href: tutorial-3-events.md
+  - name: Build an end-to-end solution
+    href: tutorial-end-to-end.md
 - name: Concepts
   items:
   - name: Create a twin type
