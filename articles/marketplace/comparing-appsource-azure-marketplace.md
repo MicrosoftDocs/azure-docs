@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/10/2020
 ms.author: dsindona
 
 ---
@@ -16,7 +16,7 @@ The Microsoft commercial marketplace includes [Microsoft AppSource](https://apps
 
 ## Understanding the differences between storefronts
 
-To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
+To choose a storefront, first identify the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |

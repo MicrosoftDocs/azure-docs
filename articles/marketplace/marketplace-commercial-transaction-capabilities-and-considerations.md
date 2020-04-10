@@ -1,45 +1,44 @@
 ---
-title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
-description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
-services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
+title: ‎Commercial marketplace transact capabilities
+description: This article describes pricing, billing, invoicing, and payout considerations for the Microsoft commercial marketplace transact option.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/10/2020
 ms.author: dsindona
 
 ---
-# Commercial marketplace transaction capabilities and considerations
+# Commercial marketplace transact capabilities
 
-This article covers the following commerce-related topics for the commercial marketplace
+This article covers the following commerce-related topics for the Microsoft commercial marketplace
 
-* Marketplace publishing options
+* Transaction responsibility for different publishing options
 * Transact general overview
 * Transact billing models
 * Transact requirements
 
-## Marketplace publishing options
+## Transactions by publishing option
 
-The following publishing options are available to commercial marketplace publishers.
+Either the publisher or Microsoft is responsible for managing software license transactions in the commercial marketplace. This depends on the publishing option you choose for your offer, explained in the following sections. See [Determine your publishing option](./determine-your-listing-type.md#choose-a-publishing-option) for availability and explanations of each publishing option. 
 
-### List & trial publishing options
+### List, trial, and BYOL publishing options
 
 Publishers can leverage the list, trial, and BYOL publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
 
 ### Transact publishing option
 
-In addition to the list and trial publishing options, the transact publishing option is available to publishers. This takes advantage of Microsoft's globally available commerce capabilities and allows Microsoft to host cloud marketplace transactions on behalf of the publisher.
+The transact publishing option is also available to publishers for some offer types. The transact option takes advantage of Microsoft's globally available commerce capabilities and allows Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
 ## Transact general overview
 
 When using the transact publishing option, Microsoft enables the sale of third-party software, and deployment of some offer types to the customer's Azure subscription. The publisher must consider the billing of infrastructure fees, and the publisher's own software licensing fees, when selecting a billing model and offer type.
 
-The Transact publishing option is currently supported for the following offer types: Virtual Machines, Azure Applications,and SaaS Apps.
+The Transact publishing option is currently supported for the following offer types: Virtual Machines, Azure Applications, and SaaS Apps.
 
 ### Billing infrastructure costs
 
-**For Virtual Machines and Azure applications**
+**For Virtual Machines and Azure Applications**
 
 For Virtual Machines and Azure Applications, the Azure infrastructure usage fees are billed to the customer's Azure subscription.  Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
@@ -53,11 +52,11 @@ Depending on the transaction option used, the publisher's software license fees 
 
 * Free: No charge for software licenses. 
 
-* Bring your own license (BYOL): Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. (Virtual Machines and Azure Applications only.)
+* Bring your own license (BYOL): Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. This applies to Virtual Machines and Azure Applications only.
 
-* Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications.
+* Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This applies to Virtual Machines and Azure Applications only.
 
-* Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
+* Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This applies to SaaS Apps and Azure Applications - Managed Apps only.
 
 * Free software trial: No charge for software licenses for 30-days or 90-days.
 
@@ -69,7 +68,7 @@ When publishing a free or bring-your-own-license transaction offer, Microsoft do
 
 When publishing a pay-as-you-go or subscription transaction offer, Microsoft provides the technology and services to process software license purchases, returns, and chargebacks. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction, while retaining their designation as the seller, provider, distributor, and licensor.
 
-Microsoft enables customers to order, license, and use publisher software, subjecting to the terms and conditions of both Microsoft's commercial Marketplace and the publisher's end-user licensing agreement. Publishers must provide their end-user licensing agreement or select the [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract) when creating the offering.
+Microsoft enables customers to order, license, and use publisher software, subjecting to the terms and conditions of both Microsoft's commercial Marketplace and the publisher's end-user licensing agreement. Publishers must provide their end-user licensing agreement or select the [Standard Contract](./standard-contract.md) when creating the offering.
 
 ### Free software trials
 
@@ -195,7 +194,7 @@ When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts a
 
 * Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
->[!NOTE] 
+>[!NOTE]
 >All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal or Analytics section of Partner Center.
 
 #### Billing questions and support
@@ -210,15 +209,14 @@ The transact requirements for different offer types are covered in this section.
 
 ### Requirements for all offer types
 
-- A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
-- Mandatory financial information includes payout account and tax profile.
+* A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
+* Mandatory financial information includes payout account and tax profile.
 
 For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
-
 ### Requirements for specific offer types
 
-The transact publishing option is only available for use with the following marketplace offer types: 
+The transact publishing option is only available for use with the following marketplace offer types:
 
 **Virtual Machine** 
 

@@ -34,7 +34,7 @@ The following table shows the publishing options for offer types in Microsoft Ap
 | **Managed services** |  |  |  | Azure Marketplace |   |
 | **Consulting services** | Both storefronts |  |  |  |   |
 | **SaaS app** | Both storefronts | Both storefronts | Both storefronts |  | Both storefronts* |
-| **M365 App** | AppSource | AppSource |  |  | AppSource**  |
+| **Microsoft 365 App** | AppSource | AppSource |  |  | AppSource**  |
 | **Dynamics 365 add-in** |  AppSource | AppSource |  |  |   |
 | **PowerApps** | AppSource |AppSource  |  |  |   |
 
@@ -64,8 +64,8 @@ The publishing options available offer differentiated customer engagement while 
 | **BYOL** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution, and complete the financial transaction separately. BYOL offer types are ideal for on-premises to cloud migrations. The call-to-action is **Get it Now**.
 | **Transact** | Transact offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. The call-to-action is **Get it Now**.|
 
->[!Note]
->When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!Note]
+> When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, review the article [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: Determine your publishing option in the Microsoft commercial marketplace
-description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the commercial marketplace.
+title: Microsoft commercial marketplace publishing guide by offer type
+description: This article describes the offer types available in the Microsoft commercial marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/08/2020
 ms.author: dsindona
 ---
 
