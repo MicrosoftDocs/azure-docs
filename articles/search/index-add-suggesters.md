@@ -15,23 +15,32 @@ ms.date: 04/10/2020
 
 In Azure Cognitive Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). A suggester supports two search-as-you-type variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
 
-The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates both experiences. Autocomplete anticipates what the user might type, finishing "tw" with "in" as the prospective search term. Suggestions are actual search results, each one representing a matching document. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are represented by the hotel name field. 
+The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates both experiences. Autocomplete anticipates what the user might type, finishing "tw" with "in" as the prospective search term. Suggestions are actual search results, each one representing a matching document. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are represented by the hotel name field.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
 To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
-+ In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester. 
++ In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester.
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
 Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
+## What is a suggester?
+
+A suggester is a data structure that supports search-as-you-type behaviors by storing prefixes for matching on partial queries. Similar to tokenized terms, prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
+
+When creating prefixes, a suggester has its own analysis chain, similar to the one used for full text search. However, unlike analysis in full text search, a suggester can only use predefined analyzers (standard Lucene, [language analyzers](index-add-language-analyzers.md), or other analyzers in the [predefined analyzer list](index-add-custom-analyzers.md#predefined-analyzers-reference). [Custom analyzers](index-add-custom-analyzers.md) and configurations are specifically disallowed to avoid random configurations that yield poor results.
+
+> [!NOTE]
+> If you need to work around the analyzer constraint, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
+
 ## Create a suggester
 
 Although a suggester has several properties, it is primarily a collection of fields for which you are enabling a typeahead experience. For example, a travel app might want to enable typeahead search on destinations, cities, and attractions. As such, all three fields would go in the fields collection.
 
-To create a suggester, add one to an index schema. You can have one suggester in an index (specifically, one suggester in the suggesters collection). 
+To create a suggester, add one to an index schema. You can have one suggester in an index (specifically, one suggester in the suggesters collection).
 
 ### When to create a suggester
 
@@ -63,7 +72,6 @@ In the REST API, add suggesters through [Create Index](https://docs.microsoft.co
   }
   ```
 
-
 ### Create using the .NET SDK
 
 In C#, define a [Suggester object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is a collection but it can only take one item. 
@@ -94,13 +102,6 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |`name`        |The name of the suggester.|
 |`searchMode`  |The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|
 |`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Fields must be of type `Edm.String` and `Collection(Edm.String)`. If an analyzer is specified on the field, it must be a named analyzer from [this list](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (not a custom analyzer).<p/>As a best practice, specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
-
-### Analyzer restrictions for sourceFields in a suggester
-
-Azure Cognitive Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms, which requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Cognitive Search prevents fields with custom analyzers from being included in a suggester.
-
-> [!NOTE] 
->  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
 
 <a name="how-to-use-a-suggester"></a>
 
