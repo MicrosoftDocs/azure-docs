@@ -125,18 +125,50 @@ These actions will not change the notebook state or the values of any variables 
 |Action  |Result  |
 |---------|---------| --------|
 |Stop the kernel     |  Stops any running cell. Running a cell will automatically restart the kernel. |
-|Navigate to another workspace section     |     Running cells are stopped. | 
+|Navigate to another workspace section     |     Running cells are stopped. |
 
-These actions will reset the notebook state as well as all variables in the notebook:
+These actions will reset the notebook state as well as all variables in the notebook.
 
 |Action  |Result  |
 |---------|---------| --------|
 | Change the kernel | Notebook uses new kernel |
 | Switch compute    |     Notebook automatically uses the new compute. |
-| Reset compute | Starts again when you try to run a cell | 
-| Stop compute     |    No cells will run  | 
-| Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab.  | 
+| Reset compute | Starts again when you try to run a cell |
+| Stop compute     |    No cells will run  |
+| Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab.  |
 
+A dot next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
+
+|Color |Compute status |
+|---------|---------| 
+| Green | Compute running |
+| Red |Compute failed | 
+| Black | Compute stopped |
+|  Light Blue |Compute creating, starting, restarting, setting Up |
+|  Gray |Compute deleting, stopping |
+
+A dot next to the **Kernel** dropdown shows its status.
+
+|Color |Kernel status |
+|---------|---------|
+|  Green |Kernel connected, idle, busy|
+|  Gray |Kernel not connected |
+
+### Add new kernels
+
+The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
+
+1. Select **Terminal** in the Notebook toolbar.
+1. Use the terminal window.
+1. Create a new environment.
+1. Activate the environment.  For example, after creating `newenv`:
+
+    ```shell
+    source activate newenv
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
 ## Find compute details 
 
