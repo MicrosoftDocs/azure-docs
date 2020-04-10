@@ -74,7 +74,7 @@ The following operations are common for accounts serving wire protocol version 3
 
 ### Unique indexes
 
-[Unique indexes](unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for the indexed field(s).
+[Unique indexes](unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
 
 > [!IMPORTANT]
 > Unique indexes can be created only when the collection is empty (contains no documents).
