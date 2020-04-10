@@ -17,7 +17,7 @@ ms.author: janutter
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my Angular app can sign in users of personal Microsoft accounts, work accounts, or school accounts.
 ---
 
-# Quickstart: Sign in users and get an access token in an Angular SPA
+# Quickstart: Sign in users and get an access token in an Angular single-page application
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
