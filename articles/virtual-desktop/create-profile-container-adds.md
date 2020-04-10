@@ -19,8 +19,6 @@ This article will show you how to create an FSLogix profile container with Azure
 
 This article assumes you've already set up an Azure AD DS instance. If you don't have one yet, follow the instructions in [Create a basic managed domain](../active-directory-domain-services/tutorial-create-instance.md) first, then return here.
 
-You'll also need a general-purpose v2 Azure Storage account in the Azure portal. To learn how to set up your account, check out [Create an Azure Storage account](../storage/common/storage-account-create.md).
-
 ## Add Azure AD DS admins
 
 To add additional admins, you create a new user and grant them permissions.
@@ -55,21 +53,29 @@ To enable authentication:
 
 ## Assign access permissions to an identity
 
-From the Azure portal, open the file share you created in [Set up an Azure Storage account](#set-up-an-azure-storage-account).
+Other users will need access permissions to access your file share. To do this, you'll need to assign each user a role with the appropriate access permissions.
 
-1. Select **Access Control (IAM)**.
+To assign users access permissions:
 
-2. Select **Add a role assignment**.
+1. From the Azure portal, open the file share you created in [Set up an Azure Storage account](#set-up-an-azure-storage-account).
 
-3. In the **Add role assignment** tab, select the appropriate built-in role from the role list. You'll need to at least select **Storage File Data SMB Share Contributor** for the account to get proper permissions.
+2. Select **Access Control (IAM)**.
 
-4. For **Assign access to**, select **Azure Active Directory user, group, or service principal**.
+3. Select **Add a role assignment**.
 
-5. Select a name or email address for the target Azure Active Directory identity.
+4. In the **Add role assignment** tab, select the appropriate built-in role from the role list. You'll need to at least select **Storage File Data SMB Share Contributor** for the account to get proper permissions.
 
-6. Select **Save**.
+5. For **Assign access to**, select **Azure Active Directory user, group, or service principal**.
 
-## Get the storage account access key
+6. Select a name or email address for the target Azure Active Directory identity.
+
+7. Select **Save**.
+
+## Get the Storage Account access key
+
+Next, you'll need to get the access key for your Storage Account.
+
+To get the Storage Account access key:
 
 1. From the Azure portal sidebar, select **Storage accounts**.
 
@@ -119,9 +125,9 @@ From the Azure portal, open the file share you created in [Set up an Azure Stora
      icacls y: /grant john.doe@contoso.com:(f)
      ```
 
-## Configure your profile container
+## Create a profile container
 
-Now that you're ready to go, let's configure the FSLogix profile container.
+Now that your profiles are ready to go, let's create a FSLogix profile container.
 
 To configure a FSLogix profile container:
 
@@ -152,7 +158,7 @@ To configure a FSLogix profile container:
 
     ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
-## Assign users to session host
+## Assign users to a session host
 
 Now you'll need to assign users to your session host.
 
