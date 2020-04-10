@@ -314,13 +314,13 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for RBAC roles. 
 
-- Make sure that DBAs don't have access to the encryption keys or key stores and Security Administrators with access to the keys have no access to the database in turn. The use of [Extensible Key Management (EKM)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/extensible-key-management-ekm( can make this separation easier to achieve. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) can be used to implement EKM. 
+- Make sure that DBAs don't have access to the encryption keys or key stores, and that Security Administrators with access to the keys have no access to the database in turn. The use of [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) can make this separation easier to achieve. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) can be used to implement EKM. 
 
 - Always make sure to have an Audit trail for security-related actions. 
 
 - You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
-- Since any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
+- Because any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 
 - It is not possible to restrict permissions of a db_owner, and therefore prevent an administrative account from viewing user data. If there's highly sensitive data in a database, Always Encrypted can be used to safely prevent db_owners or any other DBA from viewing it.
 
@@ -431,7 +431,7 @@ The policies that determine which data is sensitive and whether the sensitive da
 
 - Use deterministic encryption if computations (equality) on data need to be supported. Otherwise, use randomized encryption. Avoid using deterministic encryption for low-entropy data sets, or data sets with publicly known distribution. 
 
-- If you're concerned about third-parties accessing your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the third party will have no way of decrypting the data unless they bypass the encryption.
+- If you're concerned about third parties accessing your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the third party will have no way of decrypting the data unless they bypass the encryption.
 
 - Always Encrypted doesn't easily support granting temporary access to the keys (and the protected data). For example, if you need to share the keys with a DBA to allow the DBA to do some cleansing operations on sensitive and encrypted data. The only way to reliability revoke the access to the data from the DBA will be to rotate both the column encryption keys and the column master keys protecting the data, which is an expensive operation. 
 
