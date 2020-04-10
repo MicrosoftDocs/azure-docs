@@ -1,15 +1,12 @@
 - name: Azure Arc Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
 - name: How-to guides
-  expanded: true
   items:
   - name: Connect to Azure Arc
-    expanded: true
     items:
     - name: Connect machines to Azure Arc from the Azure portal
       href: ./servers/onboard-portal.md
@@ -18,7 +15,6 @@
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: ./servers/onboard-dsc.md
   - name: Manage
-    expanded: true
     items:
     - name: Manage agent
       href: ./servers/manage-agent.md 
