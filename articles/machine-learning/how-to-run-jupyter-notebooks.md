@@ -137,6 +137,23 @@ These actions will reset the notebook state as well as all variables in the note
 | Stop compute     |    No cells will run  |
 | Open notebook in Jupyter or JupyterLab     |    Notebook opened in a new tab.  |
 
+### Add new kernels
+
+The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
+
+1. Select **Terminal** in the Notebook toolbar.
+1. Use the terminal window to create a new environment.
+1. Activate the environment.  For example, after creating `newenv`:
+
+    ```shell
+    source activate newenv
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
+
+### Status indicators
+
 A dot next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
 
 |Color |Compute status |
@@ -154,21 +171,7 @@ A dot next to the **Kernel** dropdown shows its status.
 |  Green |Kernel connected, idle, busy|
 |  Gray |Kernel not connected |
 
-### Add new kernels
 
-The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
-
-1. Select **Terminal** in the Notebook toolbar.
-1. Use the terminal window.
-1. Create a new environment.
-1. Activate the environment.  For example, after creating `newenv`:
-
-    ```shell
-    source activate newenv
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
 ## Find compute details 
 
