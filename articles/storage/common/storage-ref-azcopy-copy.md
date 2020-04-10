@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 04/09/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
