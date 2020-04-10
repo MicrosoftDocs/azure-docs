@@ -160,7 +160,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 ## Create an Audio configuration
 
-Now, you need to create an `AudioConfig` object that points to your audio file. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method, right below your Speech configuration.
+Now, you need to create an `AudioConfig` object that points to your audio file. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method, right below your Speech configuration.
 
 ```JavaScript
         var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
@@ -168,7 +168,7 @@ Now, you need to create an `AudioConfig` object that points to your audio file. 
 
 ## Initialize a SpeechRecognizer
 
-Now, let's create the `SpeechRecognizer` object using the `SpeechConfig` and `AudioConfig` objects created earlier. This object is also created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method.
+Now, let's create the `SpeechRecognizer` object using the `SpeechConfig` and `AudioConfig` objects created earlier. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method.
 
 ```JavaScript
         recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
@@ -176,9 +176,7 @@ Now, let's create the `SpeechRecognizer` object using the `SpeechConfig` and `Au
 
 ## Recognize a phrase
 
-From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
-
-Inside the using statement, add this code:
+From the `SpeechRecognizer` object, you're going to call the `recognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
 ```JavaScript
 recognizer.recognizeOnceAsync(
