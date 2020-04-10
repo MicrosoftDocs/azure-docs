@@ -170,7 +170,7 @@ You can also use the offline installation path parameter to update IoT Edge. For
 
 6. Run the `Initialize-IoTEdge` command to provision your device with an identity in IoT Hub. Either provide a device connection string for manual provisioning, or choose one of the methods described in the previous [automatically provision](#option-2-install-and-automatically-provision) section.
 
-   If your device restarted after running `Deploy-IoTEdge`, dot source the powershell script again before running `Initialize-IoTEdge`.
+   If your device restarted after running `Deploy-IoTEdge`, dot source the PowerShell script again before running `Initialize-IoTEdge`.
 
 For more information about the offline installation option, skip ahead to learn about [all installation parameters](#all-installation-parameters).
 
