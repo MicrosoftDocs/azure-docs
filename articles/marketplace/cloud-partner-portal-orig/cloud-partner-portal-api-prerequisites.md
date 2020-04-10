@@ -43,7 +43,7 @@ Use the following steps to add the service principal:
 
 -   A **Friendly Name** for the service principal, for example `spAccount`.
 -   The **Application ID**. To find this identifier, go to the [Azure
-    Portal](https://portal.azure.com), click **Azure Active Directory**,
+    portal](https://portal.azure.com), click **Azure Active Directory**,
     choose **App registrations**, and click on your app.
 -   The **Tenant ID**, also known as the **Directory ID**, for your
     Azure AD tenant. You can find this identifier in the Azure Active Directory
