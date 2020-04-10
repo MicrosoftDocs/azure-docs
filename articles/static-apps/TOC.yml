@@ -16,7 +16,7 @@
     - name: Routes
       href: static-apps-routes.md
     - name: Authentication and authorization
-      href: static-apps-.md
+      href: static-apps-authentication-authorization.md
     - name: Accessing user information
       href: static-apps-user-information.md
     - name: Review pull requests in preproduction environments
@@ -34,7 +34,7 @@
     - name: Add a database
       href: static-apps-add-database.md
     - name: Connect and disconnect from a GitHub repo
-      href: static-apps-.md
+      href: static-apps-connect-disconnect-repo.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

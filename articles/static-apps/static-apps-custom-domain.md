@@ -3,9 +3,9 @@ title: Setup a custom domain in App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: burkeholland
-ms.service: #Required; service per approved list.
+ms.service: azure-functions
 ms.topic: conceptual #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 05/08/2020
 ms.author: buhollan
 ---
 

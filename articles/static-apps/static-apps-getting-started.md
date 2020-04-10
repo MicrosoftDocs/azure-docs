@@ -1,11 +1,11 @@
 ---
-title: Quickstart: Building your first app with App Service Static Apps
+title: "Quickstart: Building your first app with App Service Static Apps"
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: craigshoemaker
-ms.service: #Required; service per approved list.
+ms.service: azure-functions
 ms.topic: quickstart #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 05/08/2020
 ms.author: cshoe
 ---
 

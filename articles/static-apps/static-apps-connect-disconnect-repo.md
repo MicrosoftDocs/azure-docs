@@ -3,9 +3,9 @@ title: Connect and disconnect an App Service Static App from a GitHub repo
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: sinedied
-ms.service: #Required; service per approved list.
+ms.service: azure-functions
 ms.topic: how-to #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 05/08/2020
 ms.author: yolasors
 ---
 

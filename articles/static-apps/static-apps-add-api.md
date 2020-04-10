@@ -3,9 +3,9 @@ title: Add an API to App Service Static Apps with Azure Functions
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: manekinekko
-ms.service: #Required; service per approved list.
+ms.service: azure-functions
 ms.topic: how-to #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 05/08/2020
 ms.author: wachegha
 ---
 
