@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
--name: How-to guides
+- name: How-to guides
  expanded: true
  items:
  - name: Connect to Azure Arc
