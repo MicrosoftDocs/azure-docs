@@ -57,7 +57,7 @@ Review the available tools in the [Azure Developer Tools](https://azure.microsof
 ## Create a VM image using an approved base
 
 > [!NOTE]
-> To create your virtual machine technical assets using an image you built on your own premises, go to [Create a VM using your own image](#Create-a-VM-using-your-own-image).
+> To create your virtual machine technical assets using an image you built on your own premises, go to [Create a VM using your own image](#create-a-vm-using-your-own-image).
 
 This section describes various aspects of using an approved base, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.
 
@@ -146,7 +146,7 @@ For details, including how to add a desktop to a provisioned Linux VM, see [Inst
 This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk (VHD).
 
 > [!NOTE]
-> To optionally use an approved base image, follow the instructions in [Create a VM image using an approved base](#Create-a-VM-image-using-an-approved-base).
+> To optionally use an approved base image, follow the instructions in [Create a VM image using an approved base](#create-a-vm-image-using-an-approved-base).
 
 1. Upload your images to Azure Storage account.
 2. Deploy the VM image.
@@ -264,18 +264,15 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 1. **Remove the Azure Linux agent**
 
-    a. Connect to your Linux VM using an SSH client.
-
-    b. In the SSH window, enter the following command: `sudo waagent -deprovision+user`
-
-    c. Type **Y** to continue (you can add the **-force** parameter to the previous command to avoid the confirmation step).
+    1. Connect to your Linux VM using an SSH client.
+    2. In the SSH window, enter the following command: `sudo waagent -deprovision+user`.
+    3. Type **Y** to continue (you can add the **-force** parameter to the previous command to avoid the confirmation step).
     d. After the command completes, type **Exit** to close the SSH client.
 
 2. **Stop virtual machine**
 
-    a. In the Azure portal, select your resource group (RG) and de-allocate the VM.
-
-    b. Your VHD is now generalized and you can create a new VM using this VHD.
+    1. In the Azure portal, select your resource group (RG) and de-allocate the VM.
+    2. Your VHD is now generalized and you can create a new VM using this VHD.
 
 ## Next steps
 
