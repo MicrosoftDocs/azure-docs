@@ -20,7 +20,7 @@
     - name: Accessing user information
       href: static-apps-user-information.md
     - name: Review pull requests in preproduction environments
-      href: static-apps-review-pull-requests.md
+      href: static-apps-review-publish-pull-requests.md
     - name: Custom domain
       href: static-apps-custom-domain.md
 - name: How-to guides
