@@ -462,8 +462,14 @@
           href: ./partner-center-portal/azure-apps-review-feedback.md
         - name: API for onboarding
           href: ./partner-center-portal/azure-app-apis.md
+    - name: Azure Container offers
+      items: 
+        - name: Prepare technical assets
+          href: ./partner-center-portal/create-azure-container-technical-assets.md
+        - name: Create an Azure Container offer
+          href: ./partner-center-portal/create-azure-container-offer.md
     - name: Consulting services
-      items:
+      items: 
         - name: Prerequisites
           href: ./partner-center-portal/consulting-service-prerequisites.md
         - name: Create a consulting service offer
