@@ -45,7 +45,7 @@
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
   - name: Use the Azure Digital Twins CLI
-    href: how-to-use-digital-twins-cli.md
+    href: how-to-use-cli.md
 - name: Reference
   items:
 - name: Resources

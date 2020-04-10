@@ -186,7 +186,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 ## Manage endpoints and routes with CLI
 
-Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [Use the Azure Digital Twins CLI](how-to-use-digital-twins-cli.md).
+Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [Use the Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Next steps
 
