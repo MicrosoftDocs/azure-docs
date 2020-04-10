@@ -95,7 +95,7 @@ Locate the components for installing the rail kit assembly:
 1. Two A7 Dell ReadyRails II sliding rail assemblies
 2. Two hook and loop straps
 
-    ![Identify rail kit contents](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identify rail kit contents](./media/azure-stack-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### Install and remove tool-less rails (Square hole or round hole racks)
 
@@ -107,7 +107,7 @@ Locate the components for installing the rail kit assembly:
 3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front-end piece on the vertical rack flange.
 4. To remove the rails, pull the latch release button on the end piece midpoint and unseat each rail.
 
-    ![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Install and remove tool-less rails](./media/azure-stack-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### Install and remove tooled rails (Threaded hole racks)
 
@@ -119,7 +119,7 @@ Locate the components for installing the rail kit assembly:
 3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
 4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
 
-    ![Install and remove tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Install and remove tooled rails](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### Install the system in a rack
 
@@ -128,7 +128,7 @@ Locate the components for installing the rail kit assembly:
 3. Push the system inward until the lock levers click into place.
 4. Press the slide-release lock buttons on both rails and slide the system into the rack.
 
-    ![Install system in a rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Install system in a rack](./media/azure-stack-edge-deploy-install/installing-system-rack.png)
 
 ### Remove the system from the rack
 
@@ -136,7 +136,7 @@ Locate the components for installing the rail kit assembly:
 2. Unlock each lever by rotating it up to its release position.
 3. Grasp the sides of the system firmly and pull it forward until the rail standoffs are at the front of the J-slots. Lift the system up and away from the rack and place it on a level surface.
 
-    ![Remove system from the rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Remove system from the rack](./media/azure-stack-edge-deploy-install/removing-system-rack.png)
 
 ### Engage and release the slam latch
 
@@ -147,7 +147,7 @@ Locate the components for installing the rail kit assembly:
 2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
 3. To secure the system for shipment in the rack or for other unstable environments, locate the hard-mount screw under each latch and tighten each screw with a #2 Phillips screwdriver.
 
-    ![Engage and release slam latch](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Engage and release slam latch](./media/azure-stack-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 
 ## Cable the device
@@ -191,11 +191,11 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device.
 
-    ![Back plane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    ![Back plane of a cabled device](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
-    ![Front plane of a device](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+    ![Front plane of a device](./media/azure-stack-edge-deploy-install/device-front-plane-labeled-1.png)
 
 3. Connect the power cords to each of the PSUs in the enclosure. To ensure high availability, install and connect both PSUs to different power sources.
 4. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.

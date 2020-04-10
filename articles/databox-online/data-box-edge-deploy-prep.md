@@ -32,7 +32,7 @@ To deploy Azure Stack Edge, refer to the following tutorials in the prescribed s
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Azure Stack Edge](data-box-edge-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install a Azure Stack Box Edge physical device. |
-| 2. |**[Install Azure Stack Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Azure Stack Edge physical device.  |
+| 2. |**[Install Azure Stack Edge](azure-stack-edge-deploy-install.md)**|Unpack, rack, and cable the Azure Stack Edge physical device.  |
 | 3. |**[Connect, set up, and activate Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Azure Stack Edge](azure-stack-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 | 5. |**[Transform data with Azure Stack Edge](azure-stack-edge-deploy-configure-compute.md)** |Configure compute modules on the device to transform the data as it moves to Azure. |
@@ -164,7 +164,7 @@ In this tutorial, you learned about Azure Stack Edge topics such as:
 Advance to the next tutorial to learn how to install Azure Stack Edge.
 
 > [!div class="nextstepaction"]
-> [Install Azure Stack Edge](./data-box-edge-deploy-install.md)
+> [Install Azure Stack Edge](./azure-stack-edge-deploy-install.md)
 
 
 

@@ -68,7 +68,7 @@
     - name: 1 - Prepare
       href: data-box-edge-deploy-prep.md
     - name: 2 - Install
-      href: data-box-edge-deploy-install.md
+      href: azure-stack-edge-deploy-install.md
     - name: 3 - Connect, set up, activate
       href: azure-stack-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share

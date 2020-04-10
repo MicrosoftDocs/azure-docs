@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 Before you configure and set up your Azure Stack Edge device, make sure that:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge](data-box-edge-deploy-install.md).
+* You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-deploy-install.md).
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](data-box-edge-deploy-prep.md).
 
 ## Connect to the local web UI setup 
@@ -36,7 +36,7 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 
 2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
 
-    ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    ![Backplane of a cabled device](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
