@@ -21,6 +21,9 @@ Azure Data Lake Storage Gen2 (ADLS Gen2) is a set of capabilities dedicated to b
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Data Lake Storage Gen2, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
+>[!TIP]
+>For data lake or data warehouse migration scenario, learn more from [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
+
 ## Supported capabilities
 
 This Azure Data Lake Storage Gen2 connector is supported for the following activities:

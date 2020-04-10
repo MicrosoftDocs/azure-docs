@@ -10,13 +10,13 @@ ms.topic: conceptual
 
 Runbooks execute based on the logic defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires you to write runbooks that support being restarted if transient issues occur.
 
-Starting a runbook in Azure Automation creates a job. A job is a single execution instance of the runbook. Each job has access to Azure resources by making a connection to your Azure subscription. The job only has access to resources in your datacenter if those resources are accessible from the public cloud.
+Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook. Each job has access to Azure resources by making a connection to your Azure subscription. The job only has access to resources in your datacenter if those resources are accessible from the public cloud.
 
 Azure Automation assigns a worker to run each job during runbook execution. While workers are shared by many Azure accounts, jobs from different Automation accounts are isolated from one another. You don't have control over which worker services your job request.
 
 When you view the list of runbooks in the Azure portal, it shows the status of each job that has been started for each runbook. Azure Automation stores job logs for a maximum of 30 days. 
 
-The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks), [Graphical runbooks](automation-runbook-types.md#graphical-runbooks), and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
+The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks), [graphical runbooks](automation-runbook-types.md#graphical-runbooks), and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 

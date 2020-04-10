@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
 
 ---
@@ -37,6 +37,7 @@ You can copy data from an Oracle database to any supported sink data store. You 
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database:
+    - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
     - Oracle 12c R1 (12.1) and higher
     - Oracle 11g R1 (11.1) and higher
@@ -84,9 +85,9 @@ To enable encryption on Oracle connection, you have two options:
 
 -	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on the Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings. For details, see this [Oracle documentation](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). The Oracle Application Development Framework (ADF) connector automatically negotiates the encryption method to use the one you configure in OAS when establishing a connection to Oracle.
 
--	To use **SSL**:
+-	To use **TLS**:
 
-    1.	Get the SSL certificate info. Get the Distinguished Encoding Rules (DER)-encoded certificate information of your SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
+    1.	Get the TLS/SSL certificate info. Get the Distinguished Encoding Rules (DER)-encoded certificate information of your TLS/SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text

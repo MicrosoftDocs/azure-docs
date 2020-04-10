@@ -49,12 +49,16 @@ landingContent:
   # Card (optional)
   - title: Load data
     linkLists:
-      # - linkListType: concept
-      #   links:
-          # - text: Design data loading strategy
-          #   url: design-elt-data-loading.md
-          # - text: Best practices
-          #   url: guidance-for-loading-data.md
+      - linkListType: quickstart
+        links:
+          - text: Fast data ingestion with the COPY statement
+            url: quickstart-bulk-load-copy-tsql.md
+      - linkListType: concept
+        links:
+          - text: Design data loading strategy
+            url: design-elt-data-loading.md
+          - text: Best practices
+            url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
           - text: Load data from Azure Data Lake Storage
