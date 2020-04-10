@@ -63,7 +63,6 @@ The following release notes are for version 10.0.0.0 of the Azure File Sync agen
  
 - Miscellaneous performance and reliability improvements
 	- Change detection on the Azure file share may fail if virtual network (VNET) and firewall rules are configured on the storage account.
-	- No longer 2KB security descriptor limit for syncing  discretionary access control lists (DACLs).  
 	- Reduced memory consumption associated with recall. 
 	- Improved performance when using the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) cmdlet.
 	- Other miscellaneous reliability improvements. 
