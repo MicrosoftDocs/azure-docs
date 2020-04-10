@@ -52,7 +52,7 @@ Telemetry message
     "source": "myhub.westcentralus.azuredigitaltwins.net", 
     "subject": "thermostat.vav-123", 
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-    "dataschema": "urn:contosocom:example:DigitalTwins:VAV:1",
+    "dataschema": "dtmi:com:contoso:DigitalTwins:VAV;1",
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
     "data":  
@@ -74,7 +74,7 @@ Life-cycle notifications message
     "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
     "time": "2018-04-05T17:31:00Z", 
     "datacontenttype" : "application/json", 
-    "dataschema": "urn:contosocom:example:DigitalTwins:Device:1",           
+    "dataschema": "dtmi:com:contoso:DigitalTwins:Device;1",           
     "data":  
       { 
         "$dtId": "room-123", 
@@ -129,7 +129,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
     "temperature": 80,
     "humidity": 45,
     "$metadata": {
-      "$model": "urn:contosocom:example:Thermostat:1",
+      "$model": "dtmi:com:contoso:Thermostat;1",
       "temperature": {
         "desiredValue": 85,
         "desiredVersion": 3,
@@ -147,7 +147,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
     }
   },
   "$metadata": {
-    "$model": "urn:contosocom:example:Thermostat_X500:1",
+    "$model": "dtmi:com:contoso:Thermostat_X500;1",
   }
 }
 ```
@@ -160,7 +160,7 @@ Here is another example of a digital twin. This one is based on a model, and doe
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
-    "$model": "urn:contosocom:example:Building:1",
+    "$model": "dtmi:com:contoso:Building;1",
     "$kind": "DigitalTwin",
     "avgTemperature": {
       "desiredValue": 72,
@@ -247,7 +247,7 @@ Here are the fields in the body of a model change notification.
 | specversion    | 1.0 |
 | type    | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
 | datacontenttype    | application/json |
-| subject    | ID of the model, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
+| subject    | ID of the model, in the form `dtmi:<domain>:<unique model identifier>;<model version number>` |
 | time    | Timestamp for when the operation occurred on the model |
 | sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
 | sequencetype    | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |

@@ -62,9 +62,9 @@ Here is an example of a typical model, written as a DTDL interface:
 
 ```json
 {
-    "@id": "urn:contosocom:example:Planet:1",
+    "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
     "contents": [
         {
@@ -85,12 +85,12 @@ Here is an example of a typical model, written as a DTDL interface:
         {
             "@type": "Relationship",
             "name": "satellites",
-            "target": "urn:contosocom:example:Moon:1"
+            "target": "dtmi:com:contoso:Moon;1"
         },
         {
             "@type": "Component",
             "name": "deepestCrater",
-            "schema": "urn:contosocom:example:Crater:1"
+            "schema": "dtmi:com:contoso:Crater;1"
         }
     ]
 }
@@ -100,9 +100,9 @@ The fields of the DTDL document are:
 
 | Field | Description |
 | --- | --- |
-| `@id` | An identifier for the model. Must be in the format `urn:<domain>:<unique model identifier>:<model version number>`. |
+| `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique model identifier>;<model version number>`. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
-| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `http://azure.com/v3/contexts/Model.json`. |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
@@ -124,9 +124,9 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
 
 ```json
 {
-    "@id": "urn:contosocom:example:CelestialBody:1",
+    "@id": "dtmi:com:contoso:CelestialBody;1",
     "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "dtmi:dtdl:context;2",
     "displayName": "Celestial body",
     "contents": [
         {
@@ -147,23 +147,23 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
     ]
 },
 {
-    "@id": "urn:contosocom:example:Planet:1",
+    "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
     "extends": [
-        "urn:contosocom:example:CelestialBody:1"
+        "dtmi:com:contoso:CelestialBody;1"
     ],
     "contents": [
         {
             "@type": "Relationship",
             "name": "satellites",
-            "target": "urn:contosocom:example:Moon:1"
+            "target": "dtmi:com:contoso:Moon;1"
         },
         {
             "@type": "Component",
             "name": "deepestCrater",
-            "schema": "urn:contosocom:example:Crater:1"
+            "schema": "dtmi:com:contoso:Crater;1"
         }
     ]
 }

@@ -66,7 +66,7 @@ One mandatory property for a digital twin is the model. This can be set using th
 // Define the model type for the twin to be created
 Dictionary<string, object> meta = new Dictionary<string, object>()
 {
-    { "$model", "urn:example:Room:2" }
+    { "$model", "dtmi:com:contoso:Room;1" }
 };
 // Initialize the twin properties
 Dictionary<string, object> initData = new Dictionary<string, object>()
@@ -87,7 +87,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
     // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
     {
-      { "$model", "urn:example:Room:2" }
+      { "$model", "dtmi:com:contoso:Room;1" }
     };
     // Initialize the twin properties
     Dictionary<string, object> initData = new Dictionary<string, object>()
@@ -126,9 +126,9 @@ Consider the following model (written in [Digital Twins Definition Language (DTD
 
 ```json
 {
-    "@id": " urn:contosocom:example:Moon:1",
+    "@id": " dtmi:com:contoso:Moon;1",
     "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "dtmi:dtdl:context;2",
     "contents": [
         {
             "@type": "Property",
@@ -154,7 +154,7 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "urn:contosocom:example:Moon:1",
+    "$model": "dtmi:com:contoso:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -230,7 +230,7 @@ For example, consider the following JSON Patch document that replaces the digita
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "urn:contosocom:example:foo:1"
+    "value": "dtmi:com:contoso:foo;1"
   }
 ]
 ```
@@ -249,7 +249,7 @@ The patch for this situation needs to update both the model and the twin's tempe
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "urn:contosocom:example:foo_new"
+    "value": "dtmi:com:contoso:foo_new"
   },
   {
     "op": "add",

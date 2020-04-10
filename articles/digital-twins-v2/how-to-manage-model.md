@@ -31,9 +31,9 @@ Models for Azure Digital Twins are written in DTDL. A patient room in this scena
 
 ```json
 {
-  "@id": "urn:contosocom:example:PatientRoom:1",
+  "@id": "dtmi:com:contoso:PatientRoom;1",
   "@type": "Interface",
-  "@context": "http://azure.com/v3/contexts/Model.json",
+  "@context": "dtmi:dtdl:context;2",
   "displayName": "Patient Room",
   "contents": [
     {
@@ -99,12 +99,12 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
 ```json
 [
   {
-    "@id": "urn:contosocom:example:Planet",
+    "@id": "dtmi:com:contoso:Planet",
     "@type": "Interface",
     //...
   },
   {
-    "@id": "urn:contosocom:example:Moon",
+    "@id": "dtmi:com:contoso:Moon",
     "@type": "Interface",
     //...
   }
@@ -173,28 +173,28 @@ The functionalities of the parser are:
 Here is an example defining several models in an Azure Digital Twins instance.
 
 > [!TIP] 
-> The `urn:contosocom:example:coffeeMaker` model is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that model.
+> The `dtmi:com:contoso:coffeeMaker` model is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that model.
 
 ```json
 {
-  "@id": " urn:contosocom:example:coffeeMaker",
+  "@id": " dtmi:com:contoso:coffeeMaker",
   "@type": "CapabilityModel",
   "implements": [
-        { "name": "coffeeMaker", "schema": " urn:contosocom:example:coffeeMakerInterface" }
+        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
   ]    
 }
 {
-  "@id": " urn:contosocom:example:coffeeMakerInterface",
+  "@id": " dtmi:com:contoso:coffeeMakerInterface",
   "@type": "Interface",
   "contents": [
       { "@type": "Property", "name": "waterTemp", "schema": "double" }  
   ]
 }
 {
-  "@id": " urn:contosocom:example:coffeeBar",
+  "@id": " dtmi:com:contoso:coffeeBar",
   "@type": "Interface",
   "contents": [
-        { "@type": "relationship", "contains": " urn:contosocom:example:coffeeMaker" },
+        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
         { "@type": "property", "name": "capacity", "schema": "integer" }
   ]    
 }

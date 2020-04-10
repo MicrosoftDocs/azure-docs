@@ -36,7 +36,7 @@ Get digital twins by model
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'urn:contosocom:DigitalTwins:Space:3')
+WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
 AND T.roomSize > 50
 ```
 
@@ -174,7 +174,7 @@ Below are some tips for querying with Azure Digital Twins.
         JOIN Room RELATED Floor.contains
         WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
         AND Room. Temperature > 72
-        AND IS_OF_MODEL(Room, 'urn:contosocom:DigitalTwins:Room:1')
+        AND IS_OF_MODEL(Room, 'dtmi:com:contoso::Room;1')
         ```
 * Property names and values are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
 

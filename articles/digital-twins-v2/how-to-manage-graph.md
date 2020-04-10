@@ -98,7 +98,7 @@ static async Task<bool> CreateRoom(string id, double temperature, double humidit
     // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
-            { "$model", "urn:example:Room:2" }
+            { "$model", "dtmi:com:contoso:Room;2" }
         };
 
     // Initialize the twin properties
@@ -122,9 +122,9 @@ static async Task<bool> CreateRoom(string id, double temperature, double humidit
 
 static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
 {
-    string type = "urn:example:Building:3";
+    string type = "dtmi:com:contoso:Building;3";
     if (makeFloor==true)
-        type = "urn:example:Floor:2";
+        type = "dtmi:com:contoso:Floor;2";
     // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
@@ -287,7 +287,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
          case "room":
             Dictionary<string, object> meta = new Dictionary<string, object>()
             {
-                { "$model", "urn:contosocom:Room:2" }
+                { "$model", "dtmi:com:contoso:Room;2" }
             }; 
             initData.Add("$metadata", meta);
             client.DigitalTwins.Add(id, initData);
@@ -295,7 +295,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
          case "floor": 
             Dictionary<string, object> meta = new Dictionary<string, object>()
             {
-                { "$model", "urn:contosocom:Floor:22" }
+                { "$model", "dtmi:com:contoso:Floor;22" }
             }; 
             initData.Add("$metadata", meta);
             client.DigitalTwins.CreateTwin(id, initData);

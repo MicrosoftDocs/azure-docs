@@ -38,7 +38,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
     // Define the model for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
     {
-      { "$model", "urn:example:Room:2" }
+      { "$model", "dtmi:com:contoso:Room;2" }
     };
     // Initialize the twin properties
     Dictionary<string, object> initData = new Dictionary<string, object>()
@@ -125,7 +125,7 @@ Here is an example of a digital twin formatted as a JSON object:
   "component": {
     "TableOccupancy": 1,
     "$metadata": {
-      "$model": "urn:contosocom:example:Table:1",
+      "$model": "dtmi:com:contoso:Table;1",
       "TableOccupancy": {
         "desiredValue": 1,
         "desiredVersion": 3,
@@ -136,7 +136,7 @@ Here is an example of a digital twin formatted as a JSON object:
     }
   },
   "$metadata": {
-    "$model": "urn:contosocom:example:Room:1",
+    "$model": "dtmi:com:contoso:Room;1",
     "Temperature": {
       "desiredValue": 72,
       "desiredVersion": 5,
