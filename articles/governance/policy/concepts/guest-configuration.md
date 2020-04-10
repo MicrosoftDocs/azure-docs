@@ -109,10 +109,10 @@ Windows Server Nano Server isn't supported in any version.
 Virtual machines in Azure can use either their local network adapter
 or a private link to communicate with the Guest Configuration service.
 
-Azure Arc machines will need to communicate to Azure services
-to report compliance status.
+Azure Arc machines connect using the on-premises network infrastructure
+to reach Azure services and report compliance status.
 
-### Communicate over virtual networks
+### Communicate over virtual networks in Azure
 
 Virtual machines using virtual networks for communication will require outbound
 access to Azure datacenters on port `443`. If you're using a private virtual
@@ -120,21 +120,17 @@ network in Azure that doesn't allow outbound traffic, configure exceptions with
 Network Security Group rules. The service tag "GuestAndHybridManagement" can be
 used to reference the Guest Configuration service.
 
-### Communicate over private link
+### Communicate over private link in Azure
 
-Virtual machines can use [private link](https://docs.microsoft.com/en-us/azure/private-link/)
+Virtual machines can use [private link](../../../azure/private-link/)
 for communication to the Guest Configuration service. Apply tag with the name
 `EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
 applied before or after Guest Configuration policies are applied to the machine.
 
-### Azure virtual machines
 Traffic is routed using the Azure
 [virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16)
 to establish
 a secure, authenticated channel with Azure platform resources.
-
-Virtual networks in Azure containing virtual machines that will be audited
-by Guest Configuration don't require any special rules for outbound traffic.
 
 ### Azure Arc connected machines
 
@@ -178,7 +174,7 @@ data](../how-to/get-compliance-data.md).
 > resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
-for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings inside Linux and Windows machines contain 18 policies. There are six **DeployIfNotExists** and
+for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings inside Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
 **AuditIfNotExists** pairs for Windows and three pairs for Linux. The
 [policy definition](definition-structure.md#policy-rule) logic validates that only the target
 operating system is evaluated.
