@@ -25,6 +25,6 @@ Following are common issues encountered when working with shared access signatur
 | SAS URI has white spaces in VHD name | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI to remove white spaces. |
 | SAS URI Authorization error | `Failure: Copying Images. Not able to download blob due to authorization error.` | Review and correct the SAS URI format. Regenerate if necessary. |
 | SAS URI "st" and "se" parameters do not have full date-time specification | `Failure: Copying Images. Not able to download blob due to incorrect SAS URI.` | SAS URI **Start Date** and **End Date** parameters (`st` and `se` substrings) must have full date-time format, such as `11-02-2017T00:00:00Z`. Shortened versions are invalid (some commands in Azure CLI may generate shortened values by default). |
-| | | |
+|  |  |  |
 
 For details, see [Using shared access signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
