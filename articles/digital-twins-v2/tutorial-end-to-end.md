@@ -77,7 +77,7 @@ They're written in a JSON-like language called Digital Twins Definition Language
 
 ```
 
-You can learn more about models in [Create a twin model](https://review.docs.microsoft.com/azure/digital-twins-v2/concepts-models?branch=pr-en-us-110066), and can see more sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*.
+You can learn more about models in [Create a twin model](concepts-models.md), and can see more sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*.
 
 To upload a model to your Azure Digital Twins instance, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. A console window will open, carry out device authentication, and present action options.
 
@@ -93,7 +93,7 @@ Afterwards, you can verify the models were created with the `listModels` command
 
 #### Variations
 
-You'll notice that `addModels` is actually just calling `CommandLoop.SubmitAddModels`. Read the [DTDL technical deep dive](https://github.com/Azure/azure-digital-twins/blob/private-preview/Documentation/Digital%20Twins%20Definition%20Language%2C%20Version%202%2C%20Draft%202%2C%20NDA.pdf), twin model [concepts documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/concepts-models?branch=pr-en-us-110066) and [how-to documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-manage-model?branch=pr-en-us-110066), then try these variations.
+You'll notice that `addModels` is actually just calling `CommandLoop.SubmitAddModels`. Read the [DTDL technical deep dive](https://github.com/Azure/azure-digital-twins/blob/private-preview/Documentation/Digital%20Twins%20Definition%20Language%2C%20Version%202%2C%20Draft%202%2C%20NDA.pdf), twin model [concepts documentation](concepts-models.md) and [how-to documentation](how-to-manage-model.md), then try these variations.
 * Update existing models (*Floor.json* or *Room.json*)
   - Start by changing the `@id` value to `urn:example:<model-name>:2`. The "2" is the version number, so doing this will indicates that you are providing a more-updated version of this model. Any number greater than the current version number will also work.
   - Then play around with adding/changing properties or relationships.
@@ -142,7 +142,7 @@ In this section, you've set up twins and relationships to form this graph:
 
 #### Variations
 
-Read the [twin graph concept documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/concepts-twins-graph?branch=pr-en-us-110066), [twin management how-to documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-manage-twin?branch=pr-en-us-110066) and [twin graph management how-to documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-manage-graph?branch=pr-en-us-110066), then try out these variations.
+Read the [twin graph concept documentation](concepts-twins-graph.md), [twin management how-to documentation](how-to-manage-twin.md) and [twin graph management how-to documentation](how-to-manage-graph.md), then try out these variations.
 * Try deleting edges and twins 
    - Start by deleting all edges from a particular digital twin using `deleteEdge`. Then you can delete the twin with `deleteTwin`.
 * Create your own graphs of any physical space (your apartment, a car, a hospital… anything!) 
@@ -171,7 +171,7 @@ The following examples are some sample query commands you can run. They begin wi
 
 #### Variations
 
-Read the [query language documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/concepts-query-language?branch=pr-en-us-110066) and [graph query how-to documentation](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-query-graph?branch=pr-en-us-110066), then try these variations.
+Read the [query language documentation](concepts-query-language.md) and [graph query how-to documentation](how-to-query-graph.md), then try these variations.
 
 * Combine the above queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`
 * Use conditionals for properties: `IN`, `NOT IN`, `STARTSWITH`, `ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
@@ -213,7 +213,8 @@ This step involves setting up Azure resources and creating connections to the Az
 This section creates the first component of the larger solution, an Azure Functions app to process IoT Hub data.
 Open the *DigitalTwinsSample* project in Visual Studio.
 Navigate to _DigitalTwinsMetadata > DigitalTwinsSample > HubToDT > **ProcessHubToDTEvents.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostname:
-```
+
+```csharp
 const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 

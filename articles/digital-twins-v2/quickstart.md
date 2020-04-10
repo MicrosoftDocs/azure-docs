@@ -27,9 +27,9 @@ Before you can start working with an Azure Digital Twins instance, complete the 
     * If you have an older version, open the Visual Studio Installer on your machine and follow the prompts to update your installation. The application looks like this:
       ![Visual Studio Installer](media/quickstart/visual-studio-installer.png)
 
-2. Choose whether to complete this tutorial with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) or the Azure CLI locally. To use the local CLI, install the Azure CLI package on your computer with these steps:
+2. Choose whether to complete this tutorial with [Azure Cloud Shell](../cloud-shell/overview.md) or the Azure CLI locally. To use the local CLI, install the Azure CLI package on your computer with these steps:
     1. If you have it installed already, run `az --version` and verify that `azure-cli` is at least **version 2.0.8**. If it isn't, use the link below to install the latest version.
-    2. Use the instructions at this link to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest]).
+    2. Use the instructions at this link to [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
     3. For Windows, installing the Azure CLI gives you CLI access through the Windows Command Prompt (CMD) and PowerShell. You can now use the CLI by typing Azure CLI commands in a CMD or PowerShell window.
 
 3. Download the sample project.
@@ -46,7 +46,7 @@ Before you can start working with an Azure Digital Twins instance, complete the 
 > To see what extensions you have installed, use `az extension list`.
 
 5. Configure app registration and save important strings.
-    1. Complete the "Create an app registration" section of [How to authenticate](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-authenticate?branch=pr-en-us-110066) to set up an Azure Active Directory (AAD) app registration to use for authentication with Azure Digital Twins.
+    1. Complete the "Create an app registration" section of [How to authenticate](how-to-authenticate.md) to set up an Azure Active Directory (AAD) app registration to use for authentication with Azure Digital Twins.
       After doing this, your command window should look something like this:
       ![New AAD app registration](media/quickstart/new-app-registration.png)        
     2. After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
@@ -61,7 +61,7 @@ Before you can start working with an Azure Digital Twins instance, complete the 
 
 This section walks through the basic steps to set up an Azure Digital Twins solution. The last steps get you ready to work with the sample project for this tutorial.
 
-Complete these steps using PowerShell or another command window on your machine. You can also use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Complete these steps using PowerShell or another command window on your machine. You can also use the [Azure Cloud Shell](../cloud-shell/overview.md).
 > [!NOTE]
 > This document encourages PowerShell due to its parsing of quotations. Other bashes will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
 
@@ -69,7 +69,7 @@ Any placeholders shown *<in-brackets>* should be replaced with the appropriate v
 
 ### 1. Create an Azure Digital Twins instance
 
-These instructions use the Azure Digital Twins CLI commands (`az dt`) to set the context to your subscription, create a resource group, and create an Azure Digital Twins instance. For more about the CLI commands, see [How to use Azure Digital Twins CLI](https://review.docs.microsoft.com/azure/digital-twins-v2/how-to-use-digital-twins-cli?branch=pr-en-us-110066).
+These instructions use the Azure Digital Twins CLI commands (`az dt`) to set the context to your subscription, create a resource group, and create an Azure Digital Twins instance. For more about the CLI commands, see [How to use Azure Digital Twins CLI](how-to-use-cli.md).
 
 Begin by logging in and setting the shell context to your subscription.
 
@@ -100,7 +100,7 @@ Save the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* 
 
 ### 2. Assign an Azure Active Directory role
 
-Azure Digital Twins uses [Azure Active Directory (AAD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
+Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
 
 Create the role assignment using your email associated with the AAD tenant on your Azure subscription:
 
