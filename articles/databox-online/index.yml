@@ -28,7 +28,7 @@ landingContent:
           - text: What is Data Box Gateway?
             url: data-box-gateway-overview.md
           - text: What is Azure Stack Edge?
-            url: data-box-edge-overview.md  
+            url: azure-stack-edge-overview.md  
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options

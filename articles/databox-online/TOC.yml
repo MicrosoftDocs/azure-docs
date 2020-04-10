@@ -62,7 +62,7 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge?
-      href: data-box-edge-overview.md
+      href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
     - name: 1 - Prepare
