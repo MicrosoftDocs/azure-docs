@@ -34,7 +34,37 @@ To create an encryption scope in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-???Need PS module
+To create an encryption scope with PowerShell, first install the Az.Storage module version [1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview). Remove any other versions of the Az.Storage module. The preview module supports encryption scopes:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.13.4-preview –AllowPrerelease –AllowClobber –Force
+```
+
+???do we need to assign identity???
+```powershell
+$storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
+    -Name <storage-account> `
+    -AssignIdentity
+```
+
+To create a new encryption scope that uses Microsoft-managed keys, call the Get-AzStorageEncryptionScope command with the `-StorageEncryption` parameter. Remember to replace the placeholder values with your own values:
+
+```powershell
+New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -EncryptionScopeName <encryption-scope> `
+    -StorageEncryption
+```
+
+To create a new encryption scope that uses customer-managed keys, call the Get-AzStorageEncryptionScope command with the `-KeyvaultEncryption` parameter, and specify the key URI. Remember to replace the placeholder values with your own values:
+
+```powershell
+New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
+    -AccountName <storage-account>
+    -EncryptionScopeName <encryption-scope> `
+    -KeyUri <key-uri>
+    -KeyvaultEncryption
+```
 
 # [Azure CLI](#tab/cli)
 
