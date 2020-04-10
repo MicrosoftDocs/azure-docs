@@ -62,33 +62,43 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code Azure Resource Manager templates](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    There are five resources defined by the template:
+    There are six resources defined by the template:
 
-   * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. See the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. See the [template reference](/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/networkSecurityGroups`. See the [template reference](/azure/templates/microsoft.network/networksecuritygroups).
+   * `Microsoft.Network/virtualNetworks`. See the [template reference](/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. See the [template reference](/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
      It is helpful to get some basic understanding of the template before customizing it.
 
-2. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Visual Studio Code Azure Resource Manager templates storage account definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+1. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](/azure/templates/microsoft.network/publicipaddresses).
 
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:
 
-    ![Visual Studio Code Azure Resource Manager templates dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+1. Expand the third resource. The resource type is `Microsoft.Network/networkSecurityGroups`. Compare the resource definition to the [template reference](/azure/templates/microsoft.network/networksecuritygroups).
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. The resource depends on two other resources:
+    ![Visual Studio Code Azure Resource Manager templates network security group definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+
+1. Expand the fourth resource. The resource type is `Microsoft.Network/virtualNetworks`:
+
+    ![Visual Studio Code Azure Resource Manager templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+
+    The dependsOn element enables you to define one resource as a dependent on one or more resources. The dependsOn element enables you to define one resource as a dependent on one or more resources.  This resource depends on one other resource:
+
+    * `Microsoft.Network/networkSecurityGroups`
+
+1. Expand the fifty resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
 
-5. Expand the fifth resource. This resource is a virtual machine. It depends on two other resources:
+1. Expand the sixth resource. This resource is a virtual machine. It depends on two other resources:
 
     * `Microsoft.Storage/storageAccounts`
     * `Microsoft.Network/networkInterfaces`
@@ -100,8 +110,6 @@ The following diagram illustrates the resources and the dependency information f
 By specifying the dependencies, Resource Manager efficiently deploys the solution. It deploys the storage account, public IP address, and virtual network in parallel because they have no dependencies. After the public IP address and virtual network are deployed, the network interface is created. When all other resources are deployed, Resource Manager deploys the virtual machine.
 
 ## Deploy the template
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
