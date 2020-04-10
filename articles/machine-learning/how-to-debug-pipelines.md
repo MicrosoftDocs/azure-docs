@@ -1,7 +1,7 @@
 ---
-title: Debug and troubleshoot machine learning pipelines
+title: Debug & troubleshoot ML pipelines
 titleSuffix: Azure Machine Learning
-description: Debug and troubleshoot machine learning pipelines in the Azure Machine Learning SDK for Python. Learn common pitfalls for developing pipelines, and tips to help you debug your scripts before and during remote execution. Learn how to use Visual Studio Code to interactively debug your machine learning pipelines.
+description: Debug your Azure Machine Learning pipelines in Python. Learn common pitfalls for developing pipelines, and tips to help you debug your scripts before and during remote execution. Learn how to use Visual Studio Code to interactively debug your machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,7 +24,7 @@ In this article, you learn how to debug and troubleshoot [machine learning pipel
 ## Debug and troubleshoot in the Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected.
 
-### Testing scripts locally
+### Test scripts locally
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
@@ -44,7 +44,7 @@ Once you have a script setup to run on your local environment, it is much easier
 > Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before 
 > attempting to run it in a pipeline with multiple steps.
 
-### Debugging scripts from remote context
+### Debug scripts from remote context
 
 Testing scripts locally is a great way to debug major code fragments and complex logic before you start building a pipeline, but at some point you will likely need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs during the interaction between pipeline steps. We recommend liberal use of `print()` statements in your step scripts so that you can see object state and expected values during remote execution, similar to how you would debug JavaScript code.
 
