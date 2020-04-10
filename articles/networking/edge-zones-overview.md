@@ -37,7 +37,7 @@ There are three types of Azure edge zones:
 
 Azure edge zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure edge zones support VMs, containers, and a set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users.
 
-Azure edge zones are part of the Microsoft global network. They offer secure, reliable, high-bandwidth connectivity between applications running at the edge zone close to the user. They also offer the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
+Azure Edge Zones is part of the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications running at the edge zone close to the user. And it offers the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
 
 Typical use cases include:
 
@@ -58,16 +58,18 @@ Azure Edge Zones will be available in the following metro areas:
 
 ![Edge Zones with Carrier](./media/edge-zones-overview/edge-carrier.png "Edge Zones with Carrier")
 
-Azure Edge Zones with carrier are small footprint extensions of Azure placed in mobile operators' datacenters in population centers. Azure Edge Zones with carrier infrastructure is placed one hop away from the mobile operator's 5G network, offering sub-10 millisecond latency to applications from mobile devices. Azure Edge Zones with carrier is deployed in mobile operators' datacenters and are connected to the Microsoft global network. They offer secure, reliable, and high-bandwidth connectivity between applications running close to the user and the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the Edge Zones.
+Azure edge zones with carrier are small-footprint extensions of Azure placed in mobile operators' datacenters in population centers. Azure Edge Zones with Carrier infrastructure is placed one hop away from the mobile operator's 5G network, offering latency of less than 10 milliseconds to applications from mobile devices.
+
+Azure Edge Zones with Carrier is deployed in mobile operators' datacenters and connected to the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications running close to the user. And it offers the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the edge zones.
 
 Typical use cases include:
 
-- Gaming and game streaming
-- Media streaming and content delivery
-- Real-time analytics and inferencing using artificial intelligence and machine learning
-- Rendering for mixed reality
-- Connected automobiles
-- Telemedicine
+- Gaming and game streaming.
+- Media streaming and content delivery.
+- Real-time analytics and inferencing using artificial intelligence and machine learning.
+- Rendering for mixed reality.
+- Connected automobiles.
+- Telemedicine.
 
 Edge Zones will be offered in partnership with the following operators:
 
@@ -77,27 +79,33 @@ Edge Zones will be offered in partnership with the following operators:
 
 ![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
-Azure Private Edge Zones are small footprint extensions of Azure placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform and enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy virtualized network functions (VNFs) such as mobile packet cores, routers, firewalls, and SD-WAN appliances, and applications from ISVS as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) side-by-side along with virtual machines and containers on-premises. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycle of Virtualized Network Functions (VNF) and applications from the Azure portal.
+Azure private edge zones are small-footprint extensions of Azure placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) side-by-side along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
 
-Azure Private Edge Zones lets you develop and deploy applications on-premises using the same familiar tools used to build and deploy applications in Azure. You can also run private mobile networks (private LTE, private 5G), security functions such as firewalls, and extend your on-premises networks across multiple branches and Azure using SD-WAN appliances on the same Private Edge Zone appliances and manage them from Azure.
+Azure Private Edge Zones lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
+
+It also lets you: 
+
+- Run private mobile networks (private LTE, private 5G).
+- Implement security functions like firewalls.
+- Extend your on-premises networks across multiple branches and Azure by using SD-WAN appliances on the same Private Edge Zone appliances and manage them from Azure.
 
 Typical use cases include:
 
-- Real-time command and control in robotics
-- Real-time analytics and inferencing with Artificial Intelligence and Machine Learning
-- Machine Vision
-- Remote rendering for mixed reality and VDI scenarios
-- Surveillance and security
+- Real-time command and control in robotics.
+- Real-time analytics and inferencing with artificial intelligence and machine learning.
+- Machine vision.
+- Remote rendering for mixed reality and VDI scenarios.
+- Surveillance and security.
 
-We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions using Private Edge Zones. [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information.
+We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions that use Private Edge Zones. [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information.
 
-## <a name="private-edge-partners"></a>Private Edge Zones - Partners
+### <a name="private-edge-partners"></a>Private Edge Zones partners
 
-![Private Edge Zone Partners](./media/edge-zones-overview/partners.png "Private Edge Zone Partners")
+![Private Edge Zones partners](./media/edge-zones-overview/partners.png "Private Edge Zones partners")
 
-### <a name="vnf"></a>Virtualized Network Functions (VNFs)
+#### <a name="vnf"></a>Virtualized network functions (VNFs)
 
-#### <a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for Mobile Networks
+##### <a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
 - [Druid Software](https://www.druidsoftware.com/)
@@ -106,65 +114,77 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 - [Metaswitch](https://www.metaswitch.com/)
 - [Nokia Digital Automation Cloud](https://www.dac.nokia.com/)
 
-#### <a name="mobile-radio"></a>Mobile Radio Partners
+##### <a name="mobile-radio"></a>Mobile radio partners
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-#### <a name="sdwan-vendors"></a>SD-WAN Vendors
+##### <a name="sdwan-vendors"></a>SD-WAN vendors
 
 - [NetFoundry](https://netfoundry.io/)
-- [NuageNetworks from Nokia](https://www.nuagenetworks.net/)
+- [Nuage Networks from Nokia](https://www.nuagenetworks.net/)
 - [VMware SD-WAN by Velocloud](https://www.velocloud.com/)
 
-#### <a name="router-vendors"></a>Router Vendors
+##### <a name="router-vendors"></a>Router vendors
 
 - [Arista](https://www.arista.com/)
 
-[Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
+##### <a name="firewall-vendors"></a>Firewall vendors
 
-#### <a name="firewall-vendors"></a>Firewall Vendors
+- [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
-- Palo Alto Networks
+##### <a name="msp-mobile"></a>Managed Solutions Providers: Mobile operators and Global System Integrators (GSIs)
 
-### <a name="msp-mobile"></a>Managed Solutions Providers - Mobile Operators and Global System Integrators
-
-| Global SIs and Operators | Mobile Operators |
+| GSIs and operators | Mobile operators |
 | --- | --- |
 | Amdocs                       | Etisalat             |
 | American Tower               | NTT Communications   |
-| Century Link                 | Proximus             |
+| CenturyLink                  | Proximus             |
 | Expeto                       | Rogers               |
 | Federated Wireless           | SK Telecom           |
 | Infosys                      | Telefonica           |
 | Tech Mahindra                | Telstra              |
-|        *                     | Vodafone             |
+|                              | Vodafone             |
 
 [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
 
-## <a name="solutions-private-edge"></a>Private Edge Zones - Solutions
+### <a name="solutions-private-edge"></a>Private Edge Zones solutions
 
-### <a name="private-mobile-private-edge"></a>Private Mobile Network on Private Edge Zones
+#### <a name="private-mobile-private-edge"></a>Private mobile network on Private Edge Zones
 
-![Private Mobile Network on Private Edge Zones](./media/edge-zones-overview/mobile-networks.png "Private Mobile Network on Private Edge Zones")
+![Private mobile network on Private Edge Zones](./media/edge-zones-overview/mobile-networks.png "Private mobile network on Private Edge Zones")
 
-You can now deploy a private mobile network on private edge zones. Private mobile networks enable ultra-low latency, high capacity, and a reliable and secure wireless network that is required for business critical applications. Private mobile networks can enable scenarios such as command and control of automated guided vehicles (AGV) in a warehouse, real-time communication between robots in a smart factory and augmented realty, and virtual reality edge applications.
+You can now deploy a private mobile network on Private Edge Zones. Private mobile networks enable ultra-low latency, high capacity, and the reliable and secure wireless network that's required for business-critical applications. 
 
-The virtualized evolved packet core (vEPC) network function forms the brains of a private mobile network. You can now deploy a vEPC on Private Edge Zones. For a list of vEPC partners that are available on private edge zones, see [vEPC ISVs](#vEPC).
+Private mobile networks can enable scenarios like: 
+- Command and control of automated guided vehicles (AGVs) in warehouses. 
+- Real-time communication between robots in smart factories.
+- Augmented reality and virtual reality edge applications.
 
-Deploying a private mobile network solution on Private Edge Zones requires other components such as mobile access points, SIM cards, and other VNFs such as routers. Access to licensed or unlicensed spectrum is critical to setting up a private mobile network. Additionally, you may need help with RF planning, physical layout, installation, and support. For a list of partners, see [Mobile radio partners](#mobile-radio).
+The virtualized evolved packet core (vEPC) network function is the brains of a private mobile network. You can now deploy a vEPC on Private Edge Zones. For a list of vEPC partners that are available on Private Edge Zones, see [vEPC ISVs](#vEPC).
 
-Microsoft provides a partner ecosystem that can help with all aspects of this process – from planning the network, purchasing the required devices, setting up hardware, to managing the configuration from Azure. With a set of validated partners that are tightly integrated with Microsoft, you can be assured that the solution will be reliable and easy to use. You can focus on your core scenarios, while relying on Microsoft and its partners to help with the rest.
+Deploying a private mobile network solution on Private Edge Zones requires other components, like mobile access points, SIM cards, and other VNFs like routers. Access to licensed or unlicensed spectrum is critical to setting up a private mobile network. And you might need help with RF planning, physical layout, installation, and support. For a list of partners, see [Mobile radio partners](#mobile-radio).
 
-### <a name="sdwan-private-edge"></a>SD-WAN on Private Edge Zones
+Microsoft provides a partner ecosystem that can help with all aspects of this process, including planning the network, purchasing the required devices, setting up hardware, and managing the configuration from Azure. A set of validated partners that are tightly integrated with Microsoft ensure that your solution will be reliable and easy to use. You can focus on your core scenarios and rely on Microsoft and its partners to help with the rest.
+
+#### <a name="sdwan-private-edge"></a>SD-WAN on Private Edge Zones
 
 ![SD-WAN on Private Edge Zones](./media/edge-zones-overview/sd-wan.png "SD-WAN on Private Edge Zones")
  
-SD-WAN as a technology lets you create enterprise-grade Wide Area Networks (WAN) with increased bandwidth, high-performance access to cloud, service insertion, reliability, policy management, and extensive network visibility. SD-WAN provides seamless branch office connectivity orchestrated from redundant central controllers, at lower cost of ownership.
-SD-WAN on Private Edge Zones lets you move away from capex-centric model, to a Software-as-a-service (SaaS) model to reduce IT budgets. You can use your choice of SD-WAN partners orchestrator or controller to enable new services and propagate them throughout the entire network immediately.
+SD-WAN lets you create enterprise-grade wide area networks (WANs) that have these benefits:
+
+- Increased bandwidth
+- High-performance access to cloud
+- Service insertion
+- Reliability
+- Policy management
+- Extensive network visibility
+    
+SD-WAN provides seamless branch office connectivity orchestrated from redundant central controllers at lower cost of ownership.
+SD-WAN on Private Edge Zones lets you move from a capex-centric model to a software-as-a-service (SaaS) model to reduce IT budgets. You can use your choice of SD-WAN partners, orchestrator or controller, to enable new services and propagate them throughout your entire network immediately.
 
 ## Next steps
 
 For more information, reach out to the following teams:
 
 * [Edge Zones team](https://aka.ms/EdgeZones)
-* [Private Edge Zones team - to become a Partner](https://aka.ms/EdgeZonesPartner)
+* [Private Edge Zones team, to become a partner](https://aka.ms/EdgeZonesPartner)
