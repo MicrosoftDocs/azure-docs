@@ -20,7 +20,7 @@ Budgets reset automatically at the end of a period (monthly, quarterly, or annua
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
-Watch the [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) video to see how you can create budgets in Azure to monitor spending.
+Watch the [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) video to see how you can create budgets in Azure to monitor spending. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,7 +38,6 @@ Budgets are supported for the following types of Azure account types and scopes:
 - Azure Role-Based Access Control scopes
     - Management groups
     - Subscription
-    - Resource group
 - Enterprise Agreement scopes
     - Billing account
     - Department

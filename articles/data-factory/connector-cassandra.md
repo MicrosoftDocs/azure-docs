@@ -69,7 +69,7 @@ The following properties are supported for Cassandra linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->Currently connection to Cassandra using SSL is not supported.
+>Currently connection to Cassandra using TLS is not supported.
 
 **Example:**
 

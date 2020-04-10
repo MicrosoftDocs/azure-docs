@@ -261,3 +261,8 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
 It's convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark console**. The selected code will be sent to the console and be done. The result will be displayed after the code in the console. The console will check the errors if existing.
 
    ![Send Selection to Spark console](./media/intellij-tool-synapse/send-selection-to-console.png)
+
+## Next steps
+
+- [Azure Synapse Analytics](../overview-what-is.md)
+- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md)

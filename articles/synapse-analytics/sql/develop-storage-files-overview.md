@@ -1,6 +1,6 @@
 ---
-title: Query storage files using SQL on-demand (preview) within SQL Analytics
-description: Describes querying storage files using SQL on-demand (preview) resources within SQL Analytics.
+title: Query storage files using SQL on-demand (preview) within Synapse SQL
+description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,13 +11,13 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query storage files using SQL on-demand (preview) resources within SQL Analytics
+# Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
 SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
 
 For querying, the following T-SQL aspects are supported:
 
-- Full [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql?view=sql-server-2017) surface area, including majority of SQL functions, operators, and so on.
+- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of SQL functions, operators, and so on.
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
 For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand.md) article.
@@ -47,9 +47,9 @@ The following rules apply:
 - Several patterns can appear in the same directory step or file name.
 - If there are multiple wildcards, then files within all matching paths will be included in the resulting file set.
 
-  ```
-  N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
-  ```
+```
+N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
+```
 
 Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
 
@@ -57,7 +57,7 @@ Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md)
 
 To query Parquet source data, use FORMAT = 'PARQUET'
 
-```
+```sql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -75,7 +75,7 @@ Review the [Query Parquet files](query-parquet-files.md) article for usage examp
 
 These additional parameters are introduced for working with CSV (delimited text) files:
 
-```
+```syntaxsql
 <bulk_options> ::=
 ...
 [ , FIELDTERMINATOR = 'char' ]
@@ -99,7 +99,7 @@ To specify columns that you want to read, you can provide an optional WITH claus
 - If there are CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation.
 - If there are Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name.
 
-```
+```syntaxsql
 OPENROWSET
 ...
 | BULK 'data_file',
@@ -177,18 +177,18 @@ By default, the OPENROWSET function matches the source field name and path with 
 - Function returns a scalar value, such as int, decimal, and varchar, from the specified element, and on the specified path, for all Parquet types that are not in the Nested Type group.
 - If the path points to an element that is of a Nested Type, the function returns a JSON fragment starting from the top element on the specified path. The JSON fragment is of type varchar(8000).
 - If the property can't be found at the specified column_name, the function returns an error.
-- If the property can't be found at the specified column_path, depending on [Path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
+- If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
 
 For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
 
 #### Access elements from repeated columns
 
-To access elements from a repeated column, such as an element of an Array or Map, use the [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
+To access elements from a repeated column, such as an element of an Array or Map, use the [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every scalar element you need to project and provide:
 
 - Nested or repeated column, as the first parameter
-- A [JSON path](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element or property to access, as a second parameter
+- A [JSON path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) that specifies the element or property to access, as a second parameter
 
-To access non-scalar elements from a repeated column, use the [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
+To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every non-scalar element you need to project and provide:
 
 - Nested or repeated column, as the first parameter
 - A [JSON path](https://docs.microsoft.com/lational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element or property to access, as a second parameter

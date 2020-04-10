@@ -13,7 +13,9 @@ ms.reviewer: euang
 
 # Apache Spark in Azure Synapse Analytics Core Concepts
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a different implementation of these Spark capabilities that are documented here.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
+
+Azure Synapse makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a different implementation of these Spark capabilities that are documented here.
 
 ## Spark pools (preview)
 
@@ -27,7 +29,9 @@ You can read how to create a Spark pool and see all their properties here [Get s
 
 ## Spark instances
 
-Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users may have access to a single Spark pool, a new Spark instance is created for each user that connects. When you submit a second job, then if there is capacity in the pool, the existing Spark instance also has capacity then the existing instance will process the job; if not and there is capacity at the pool level, then a new Spark instance will be created.
+Spark instances are created when you connect to a Spark pool, create a session, and run a job. As multiple users may have access to a single Spark pool, a new Spark instance is created for each user that connects. 
+
+When you submit a second job, then if there is capacity in the pool, the existing Spark instance also has capacity then the existing instance will process the job; if not and there is capacity at the pool level, then a new Spark instance will be created.
 
 ## Examples
 
@@ -50,3 +54,8 @@ Spark instances are created when you connect to a Spark pool, create a session, 
 - You submit a notebook job, J1 that uses 10 nodes, a Spark instance, SI1 is created to process the job.
 - Another user, U2, submits a Job, J3, that uses 10 nodes, a new Spark instance, SI2, is created to process the job.
 - You now submit another job, J2, that uses 10 nodes because there is still capacity in the pool and the instance, J2, is processed by SI1.
+
+## Next steps
+
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)

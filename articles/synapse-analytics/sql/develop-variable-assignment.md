@@ -1,6 +1,6 @@
 ---
-title: Assign variables with SQL Analytics
-description: In this article, you'll find tips for assigning T-SQL variables with SQL Analytics.
+title: Assign variables with Synapse SQL
+description: In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,13 +11,13 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables with SQL Analytics
+# Assigning variables with Synapse SQL
 
-In this article, you'll find tips for assigning T-SQL variables with SQL Analytics.
+In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 
 ## Setting variables with DECLARE
 
-Variables in SQL Analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Analytics.
+Variables in Synapse SQL are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in Synapse SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -61,4 +61,4 @@ You can't use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see the [SQL Analytics development overview](develop-overview.md) article.
+For more development tips, see the [Synapse SQL development overview](develop-overview.md) article.

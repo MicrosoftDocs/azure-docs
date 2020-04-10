@@ -1,28 +1,28 @@
 ---
-title: Use external tables with SQL Analytics
-description: Reading or writing data files with SQL Analytics
+title: Use external tables with Synapse SQL
+description: Reading or writing data files with Synapse SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 10/21/2019
+ms.date: 04/08/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Use external tables with SQL Analytics
+# Use external tables with Synapse SQL
 
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
 
 ## External tables in SQL pool
 
-In SQL pool, you'll use an external table to:
+In SQL pool, you can use an external table to:
 
-- Query Hadoop or Azure Blob Storage data with Transact-SQL statements.
-- Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Storage into SQL pool.
+- Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
+- Import and store data from Azure Blob Storage and Azure Data Lake Storage into SQL pool.
 
-When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In additional to the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest), external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
 ## External tables in SQL on-demand (preview)
@@ -38,10 +38,10 @@ You can create external tables using SQL on-demand via the following steps:
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
 
-##
 ## CREATE EXTERNAL DATA SOURCE
 
-External data sources are used to connect to storage accounts.
+External data sources are used to connect to storage accounts. The complete documentation is outlined [here](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest). 
+
 
 ## Syntax for CREATE EXTERNAL DATA SOURCE
 
@@ -54,36 +54,35 @@ WITH
 
 ## Arguments for CREATE EXTERNAL DATA SOURCE
 
-data_source_name -Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
+data_source_name -Specifies the user-defined name for the data source. The name must be unique within the database.
 
 LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, and a folder in the form of `'<prefix>://<path>/container/folder'`.
 
-| External Data Source       | Location prefix | Location path                                       |
-| -------------------------- | --------------- | --------------------------------------------------- |
-| Azure Blob Storage         | https           | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https           | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Storage Gen2 | https           | <storage_account>.dfs.core.windows.net              |
+| External Data Source        | Location prefix | Location path                                         |
+| --------------------------- | --------------- | ----------------------------------------------------- |
+| Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
+| Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
+| Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
 
 ## Example for CREATE EXTERNAL DATA SOURCE
 
-The following example creates an external data source pointing to US population census data:
+The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
 
 ```sql
-CREATE EXTERNAL DATA SOURCE population_ds
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
-(
-    LOCATION =  'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county'
-)
+  -- Please note the abfss endpoint when your account has secure transfer enabled
+  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' , 
+    CREDENTIAL = ADLS_credential ,
+    TYPE = HADOOP
+  ) ;
 ```
 
 ## CREATE EXTERNAL FILE FORMAT
 
-Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Storage. Creating an external file format is a prerequisite for creating an external table. 
+Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Storage. Creating an external file format is a prerequisite for creating an external table. The complete documentation is [here](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver15). 
 
-By creating an external file format, you specify the actual layout of the data referenced by an external table. SQL on-demand supports the following file formats:
-
-- Delimited Text
-- Parquet
+By creating an external file format, you specify the actual layout of the data referenced by an external table. 
 
 ## Syntax for CREATE EXTERNAL FILE FORMAT
 
@@ -183,7 +182,7 @@ WITH
 
 ## CREATE EXTERNAL TABLE
 
-The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
+The CREATE EXTERNAL TABLE command creates an external table for Synapse SQL to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
 
 ## Syntax for CREATE EXTERNAL TABLE
 
@@ -240,7 +239,7 @@ To select from an external table, you need proper credentials with list and read
 
 ## Example CREATE EXTERNAL TABLE
 
-The following example creates an external table using the previously created external data source and external file format. It returns the first row:
+The following example creates an external table. It returns the first row:
 
 ```sql
 CREATE EXTERNAL TABLE census_external_table
@@ -255,39 +254,27 @@ CREATE EXTERNAL TABLE census_external_table
     maxAge int
 )  
 WITH (
-    LOCATION = 'year=*/*.parquet', 
+    LOCATION = '/parquet/', 
     DATA_SOURCE = population_ds,  
     FILE_FORMAT = census_file_format
 )
 GO
 
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
 SELECT TOP 1 * FROM census_external_table
 ```
 
-## Create External tables from a file in Azure Data Lake
+## Create and query external tables from a file in Azure Data Lake
 
-Using Data Lake exploration capabilities you can now create an external table using SQL pool or SQL on-demand with a simple right-click on the file.
+Using Data Lake exploration capabilities you can now create and query an external table using SQL pool or SQL on-demand with a simple right-click on the file.
 
 ## Prerequisites
 
-Make sure you have Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account. You need to have DB owner permission on the SQL pool or SQL OD. Also if you run this scenario on an existing workspace,  additional set-up might be required to grant MSI access to the Workspace by running the SQL script:
+- You must have access to the workspace with at least the Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account
 
-```sql script
-CREATE USER <workspacename> from External Provider
-GO
-GRANT CONTROL TO <workspacename>
+- You must have at least [permissions to create](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2) and query external tables on the SQL pool or SQL OD 
 
-```
+- The linked service associated with the ADLS Gen2 Account **must have access to the file**. For example, if the linked service authentication mechanism is Managed Identity, the workspace managed identity must have at least Storage blob reader permission on the storage account
+
 
 From the Data panel, select the file that you would like to create the external table from:
 > [!div class="mx-imgBorder"] 

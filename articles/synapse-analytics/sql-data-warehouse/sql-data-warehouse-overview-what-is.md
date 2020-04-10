@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
-Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs
+Azure Synapse is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
 
 Azure Synapse has four components:
 
@@ -22,11 +22,11 @@ Azure Synapse has four components:
   - SQL pool (pay per DWU provisioned)
   - SQL on-demand (pay per TB processed) – (Preview)
 - Spark: Deeply integrated Apache Spark (Preview)
-- Data Integration: Hybrid data integration (Preview)
+- Synapse Pipelines: Hybrid data integration (Preview)
 - Studio: Unified user experience.  (Preview)
 
 > [!NOTE]
-> Access [Azure Synapse Analytics (Workspaces](../overview-cheat-sheet.md)) which is currently in public preview.
+> To access the preview features of Azure Synapse, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
 
 ## Synapse SQL pool in Azure Synapse
 

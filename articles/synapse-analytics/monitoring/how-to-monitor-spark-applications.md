@@ -52,10 +52,4 @@ To view the details about one of your Spark applications, select the Spark appli
 
 ## Next steps
 
-This article showed you how to monitor Spark applications in your Azure Synapse workspace. You learned how to:
-
-> [!div class="checklist"]
->
-> * View the list of Spark applications in your workspace
-> * Filter the list of Spark applications to find the Spark applications you'd like to monitor
-> * Monitor your selected Spark application in detail.
+For more information on monitoring pipeline runs, see the [Monitor pipeline runs Azure Synapse Studio](how-to-monitor-pipeline-runs.md) article.  

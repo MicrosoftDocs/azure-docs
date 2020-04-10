@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Synapse Analytics (formerly Azure SQL Data Warehouse)  # < 60 chars
+title: Azure Synapse Analytics  # < 60 chars
 summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # < 160 chars
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -20,21 +20,35 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Synapse Analytics 
+  - title: About Azure Synapse Analytics (formerly Azure SQL Data Warehouse) 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Synapse?
+          - text: What is Azure Synapse? (formerly Azure SQL Data Warehouse)
             url: sql-data-warehouse-overview-what-is.md
+          - text: Tips and best practices
+            url: cheat-sheet.md
       - linkListType: architecture
         links:
           - text: Azure Synapse architecture
             url: massively-parallel-processing-mpp-architecture.md
-          - text: Tips and best practices
-            url: cheat-sheet.md
           - text: Reference Architecture
-            url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
+  # Card (optional)
+  - title: About Azure Synapse Analytics (workspace preview) 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Synapse (workspace preview)
+            url: ../overview-what-is.md
+          - text: Tips and best practices
+            url: ../overview-cheat-sheet.md
+          - text: FAQ
+            url: ../overview-faq.md
+          - text: Release notes
+            url: ../release-notes.md
+ 
   # Card
   - title: Getting started
     linkLists:
@@ -48,12 +62,16 @@ landingContent:
   # Card (optional)
   - title: Load data
     linkLists:
-      # - linkListType: concept
-      #   links:
-          # - text: Design data loading strategy
-          #   url: design-elt-data-loading.md
-          # - text: Best practices
-          #   url: guidance-for-loading-data.md
+      - linkListType: quickstart
+        links:
+          - text: Fast data ingestion with the COPY statement
+            url: quickstart-bulk-load-copy-tsql.md
+      - linkListType: concept
+        links:
+          - text: Design data loading strategy
+            url: design-elt-data-loading.md
+          - text: Best practices
+            url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
           - text: Load data from Azure Data Lake Storage
@@ -118,7 +136,7 @@ landingContent:
     linkLists:
       - linkListType: video
         links:
-          - text: Watch the latest data warehouse videos
+          - text: Watch the latest Synapse SQL videos
             url: sql-data-warehouse-videos.md
   #         # - text: linktext2
   #         #   url: file2.md

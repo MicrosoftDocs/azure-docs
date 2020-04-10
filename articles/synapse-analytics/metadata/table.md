@@ -222,12 +222,9 @@ SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
 
 You should get the same results as with SQL on-demand above.
 
-<!-- TODO: Add examples for CSV backed external table and partitioned managed table as well as dropping the table -->
-
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
 
-<!--- [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->
+

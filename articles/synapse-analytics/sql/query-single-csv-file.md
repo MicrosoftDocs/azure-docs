@@ -230,6 +230,6 @@ WITH (
 ## Next steps
 
 The next articles will show you how to:
-> [!div class="nextstepaction"]
-> [Querying Parquet files](query-parquet-files.md)
-> [Querying folders and multiple files](query-folders-multiple-csv-files.md)
+
+- [Querying Parquet files](query-parquet-files.md)
+- [Querying folders and multiple files](query-folders-multiple-csv-files.md)

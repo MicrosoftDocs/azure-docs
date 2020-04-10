@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL Analytics using sqlcmd
+title: Connect to Synapse SQL using sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query SQL on-demand (preview) and SQL pool.
 services: synapse analytics
 author: azaricstefan 
@@ -11,34 +11,31 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with sqlcmd
+# Connect to Synapse SQL with sqlcmd
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Data Studio (preview)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
-> 
-> 
 
-You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within SQL Analytics.  
+You can use the [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within Synapse SQL.  
 
 ## 1. Connect
-To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:
+To get started with [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Analytics instance
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a Synapse SQL instance
 
 To use SQL Server Authentication, you need to add the username and password parameters:
 
 * **User (-U):** Server user in the form `<`User`>`
 * **Password (-P):** Password associated with the user
 
-
 Your connection string might look like the following example:
-
 
 **SQL on-demand**
 
@@ -47,7 +44,8 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 ```
 
 **SQL pool**
-```sql
+
+```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
@@ -58,23 +56,24 @@ To use Azure Active Directory Integrated authentication, you need to add the Azu
 Your connection string might look like on of the following examples:
 
 **SQL on-demand**
-```sql
+
+```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
 **SQL pool**
+
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
 > You need to [enable Azure Active Directory Authentication](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to authenticate using Active Directory.
-> 
-> 
 
-## 2. Query 
+## 2. Query
 
 ### Use SQL pool
+
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
 
 ```sql
@@ -93,8 +92,10 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```sql
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
+
 ### Use SQL on-demand
-After connecting, you can issue any supported [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference?view=sql-server-ver15) (T-SQL) statements against the instance.  In the following example, queries are submitted in interactive mode:
+
+After connecting, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) statements against the instance.  In the following example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -114,5 +115,5 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 ```
 
 ## Next steps
-For more information about sqlcmd options, see the [sqlcmd documentation](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15).
 
+For more information about sqlcmd options, see the [sqlcmd documentation](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
