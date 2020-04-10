@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Media Services v3 frequently asked questions
 
-This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
+This article gives answers to Azure Media Services v3 frequently asked questions.
 
 ## General
 
@@ -27,21 +27,21 @@ See [Role-based access control (RBAC) for Media Services accounts](rbac-overview
 
 ### How do you stream to Apple iOS devices?
 
-Make sure you have "(format=m3u8-aapl)" at the end of your path (after the "/manifest" portion of the URL) to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [delivering content](dynamic-packaging-overview.md)).
+Make sure you have "(format=m3u8-aapl)" at the end of your path (after the "/manifest" portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
 
 ### How do I configure Media Reserved Units?
 
-For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
+For the Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, we recommend that you provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket by using the [Azure portal](https://portal.azure.com/).
 
-For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
+For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended method to process videos?
 
-Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. After the Transform has been created, you can submit jobs by using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
-### I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
+### I uploaded, encoded, and published a video. Why won't the video play when I try to stream it?
 
-One of the most common reasons is you do not have the streaming endpoint from which you are trying to play back in the Running state.
+One of the most common reasons is you don't have the streaming endpoint from which you're trying to play back in the Running state.
 
 ### How does pagination work?
 
@@ -57,56 +57,58 @@ For details, see [Moving a Media Services account between subscriptions](media-s
 
 ## Live streaming 
 
-### How to stop the live stream after the broadcast is done?
+### How do I stop the live stream after the broadcast is done?
 
 You can approach it from a client side or a server side.
 
 #### Client side
 
-Your web application should prompt the user if they want to end the broadcast if they are closing the browser. This is a browser event that your web application can handle.
+Your web application should prompt the user if they want to end the broadcast if they're closing the browser. This is a browser event that your web application can handle.
 
 #### Server side
 
-You can monitor live events by subscribing to Event Grid events. For more information, see the [eventgrid event schema](media-services-event-schemas.md#live-event-types).
+You can monitor live events by subscribing to Azure Event Grid events. For more information, see the [EventGrid event schema](media-services-event-schemas.md#live-event-types).
 
-* You can either [subscribe](reacting-to-media-services-events.md) to the stream level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) and monitor that no reconnections come in for a while to stop and delete your live event.
-* Or, you can [subscribe](reacting-to-media-services-events.md) to the track level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have incoming bitrate dropping to 0; or the last timestamp is no longer increasing, then you can also safely shut down the live event. The heartbeat events come in at every 20 seconds for every track so it could be a little bit verbose.
+You can either:
 
-###  How to insert breaks/videos and image slates during live stream?
+* [Subscribe](reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) and monitor that no reconnections come in for a while to stop and delete your live event.
+* [Subscribe](reacting-to-media-services-events.md) to the track-level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
+
+###  How do I insert breaks/videos and image slates during a live stream?
 
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
-You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
+You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide to ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), and OBS Studio (free app).
 
 ## Content protection
 
-### Should I use an AES-128 clear key encryption or a DRM system?
+### Should I use AES-128 clear key encryption or a DRM system?
 
-Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption the content key is transmitted to the client over TLS so that the key is encrypted in transit but without any additional encryption ("in the clear"). As a result, the key used to decrypt the content is accessible to the client player and can be viewed in a network trace on the client in plain text. An AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
+Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption, the content key is transmitted to the client over TLS so that the key is encrypted in transit but without any additional encryption ("in the clear"). As a result, the key used to decrypt the content is accessible to the client player and can be viewed in a network trace on the client in plain text. An AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
 
-DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key used to decrypt the content compared to an AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in additional to any transport level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
+DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key used to decrypt the content compared to an AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in addition to any transport-level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. We recommend DRM for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
-### How to show a video only to users who have a specific permission, without using Azure AD?
+### How do I show a video to only users who have a specific permission, without using Azure AD?
 
-You don't have to use any specific token provider (such as Azure AD). You can create your own [JWT](https://jwt.io/) provider (so-called STS, Secure Token Service), using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
+You don't have to use any specific token provider such as Azure Active Directory (Azure AD). You can create your own [JWT](https://jwt.io/) provider (so-called Secure Token Service, or STS) by using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
 
-Make sure the issuer, audience and claims all match up exactly between what is in JWT and the ContentKeyPolicyRestriction used in ContentKeyPolicy.
+Make sure that the issuer, audience, and claims all match up exactly between what is in JWT and the **ContentKeyPolicyRestriction** value used in **ContentKeyPolicy**.
 
 For more information, see [Protect your content by using Media Services dynamic encryption](content-protection-overview.md).
 
-### How and where to get JWT token before using it to request license or key?
+### How and where did I get a JWT token before using it to request a license or key?
 
-1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon an HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+For production, you need to have Secure Token Service (STS; that is, a web service), which issues a JWT token upon an HTTPS request. For test, you can use the code shown in the **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
-* For an example of running STS, with either symmetric and asymmetric key, please see [https://aka.ms/jwt](https://aka.ms/jwt). 
-* For an example of a player based on Azure Media Player using such JWT token, see [https://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
+The player makes a request, after a user is authenticated, to STS for such a token and assigns it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-### How do you authorize requests to stream videos with AES encryption?
+For an example of running STS with either a symmetric key or an asymmetric key, see [https://aka.ms/jwt](https://aka.ms/jwt). For an example of a player based on Azure Media Player using such a JWT token, see [https://aka.ms/amtest](https://aka.ms/amtest). (Expand the **player_settings** link to see the token input.)
 
-The correct approach is to leverage STS (Secure Token Service):
+### How do I authorize requests to stream videos with AES encryption?
 
-In STS, depending on user profile, add different claims (such as "Premium User", "Basic User", "Free Trial User"). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
+The correct approach is to use Secure Token Service (STS):
+
+In STS, depending on the user profile, add different claims (such as "Premium User," "Basic User," "Free Trial User"). With different claims in a JWT, the user can see different contents. For different contents or assets, **ContentKeyPolicyRestriction** will have the corresponding **RequiredClaims** value.
 
 Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
@@ -115,7 +117,7 @@ For more information, see:
 - [Content protection overview](content-protection-overview.md)
 - [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 
-### HTTP or HTTPS?
+### Should I use HTTP or HTTPS?
 The ASP.NET MVC player application must support the following:
 
 * User authentication through Azure AD, which is under HTTPS.
@@ -156,7 +158,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 ### Is there an AssetFile concept in v3?
 
-The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
+The AssetFiles were removed from the Media Services API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
 For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
 
