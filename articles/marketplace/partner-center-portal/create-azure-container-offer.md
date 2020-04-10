@@ -12,13 +12,13 @@ ms.date: 04/07/2020
 # Create an Azure Container offer
 
 > [!IMPORTANT]
-> We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
+> We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
 
 This article describes how to create and publish a Container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 ## Create a new offer
 
-1. Log in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/home), and then from the top menu, select **Dashboard**.
+1. Log in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
 2. In the left menu, select **Commercial Marketplace**, then **Overview**.
 3. On the **Overview** page, select **+ New offer**, then **Azure Container**. The **New offer** dialog box appears.
 
@@ -49,10 +49,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page shows different links based on the current status of the offer. For example:
 
-- If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- If the offer is live - [Stop selling the offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven&#39;t completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
+- If you haven&#39;t completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## Offer setup
 
@@ -65,11 +65,11 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 1. **Select a lead destination where you want us to send customer leads**. Partner Center supports the following CRM systems:
 
-- [Dynamics 365](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-**Note** : If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+**Note** : If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 1. Connect your offer to the lead destination when publishing in Partner Center.
 2. Confirm the connection to the lead destination is configured properly. After you publish it in Partner Center, we&#39;ll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -77,7 +77,7 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Lead management overview](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
+- [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
@@ -103,7 +103,7 @@ You must provide terms and conditions for the offer. There are two options:
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don&#39;t want to create custom terms and conditions.
 
-To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](https://docs.microsoft.com/en-us/azure/marketplace/standard-contract). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
 To use the Standard Contract, select the **Use the Standard Contract for Microsoft&#39;s commercial marketplace** check box, and then click **Accept**.
 
@@ -406,4 +406,4 @@ To publish your offer to the public (or if a private offer, to a private audienc
 
 ## Next step
 
-- [Update an existing offer in the Commercial Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
