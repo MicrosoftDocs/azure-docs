@@ -32,7 +32,7 @@ For more development information, see the [Roobo development guide](http://dwn.r
 
 ## Audio Record/Play
 
-DDK2 audio operations can be performed in the following ways：
+DDK2 audio operations can be performed in the following ways:
 * Use ALSA Open-source libraries and their applications.
 * Use appmainprog interface to do application development. 
 DDK2 audio - related software framework uses standard ALSA framework, you can use libasound. So to develop software directly. So you can use ALSA's arecord and aplay directly to record and play audio.

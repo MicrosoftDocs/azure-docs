@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Secure artifacts in Azure Resource Manager template deployments
+# Tutorial: Secure artifacts in ARM template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact.
+Learn how to secure the artifacts used in your Azure Resource Manager (ARM) templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with ARM templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact.
 
 In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-To learn how to secure a linked template, see [Tutorial: Create linked Azure Resource Manager templates](./template-tutorial-create-linked-templates.md).
+To learn how to secure a linked template, see [Tutorial: Create linked ARM templates](./template-tutorial-create-linked-templates.md).
 
 This tutorial covers the following tasks:
 
@@ -30,19 +30,19 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with a Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
-* Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
+* Visual Studio Code with a Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
+* Review [Tutorial: Import SQL BACPAC files with ARM templates](./template-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
 * To increase security, use a generated password for the SQL Server administrator account. Here's a sample you can use to generate a password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a BACPAC file
 
-In this section, you prepare the BACPAC file so that the file is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
+In this section, you prepare the BACPAC file so that the file is accessible securely when you deploy the ARM template. There are five procedures in this section:
 
 * Download the BACPAC file.
 * Create an Azure Storage account.
@@ -110,7 +110,7 @@ In this section, you prepare the BACPAC file so that the file is accessible secu
 
 ## Open an existing template
 
-In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with an SAS token. The template developed in the SQL extension tutorial is shared in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with ARM templates](./template-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with an SAS token. The template developed in the SQL extension tutorial is shared in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. From Visual Studio Code, select **File** > **Open File**.
 1. In **File name**, paste the following URL:

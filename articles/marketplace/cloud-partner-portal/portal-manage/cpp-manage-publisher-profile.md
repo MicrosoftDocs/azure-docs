@@ -1,14 +1,12 @@
 ---
 title: Manage Azure Marketplace and AppSource publisher profile | Azure Marketplace
 description: Deprecated CPP article, linked to PC article; was "Explains how to manage Azure Marketplace and AppSource publisher profiles"
-services: Azure, Marketplace, AppSource, Cloud Partner Portal, Partner Center
-author: ChJenk
-manager: pbutlerm  
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Manage your Azure Marketplace and AppSource publisher profile

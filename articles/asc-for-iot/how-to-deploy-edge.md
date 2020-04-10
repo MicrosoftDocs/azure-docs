@@ -93,7 +93,7 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
 1. On the **Module Twin Settings** tab, add the following configuration:
       
     ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
 
 1. Select **Update**.

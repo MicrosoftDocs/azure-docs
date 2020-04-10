@@ -55,11 +55,11 @@ You can change a UPN by changing the prefix, suffix, or both.
 
    * Britta.Simon@contoso.com to Britta.Simon@contosolabs.com <br>
      Or<br>
-    *   Britta.Simon@corp.contoso.com to Britta.Simon@labs.contoso.com 
+    * Britta.Simon@corp.contoso.com to Britta.Simon@labs.contoso.com 
 
 Change the user's UPN every time the primary email address for a user is updated. No matter the reason for the email change, the UPN must always be updated to match.
 
-During the initial synchronization from Active Directory to Azure AD, ensure the users' emails  are identical to their UPNs
+During the initial synchronization from Active Directory to Azure AD, ensure the users' emails  are identical to their UPNs.
 
 ### UPNs in Active Directory
 
@@ -97,7 +97,7 @@ If the value of the userPrincipalName attribute doesn't correspond to a verified
 
 ### Roll-out bulk UPN changes
 
-Follow the[best practices for a pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) for bulk UPN changes. Also have a tested rollback plan for reverting UPNs if you find issues that can't be quickly resolved. Once your pilot is running, you can start targeting small sets of users with various organizational roles and their specific sets of apps or devices.
+Follow the [best practices for a pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) for bulk UPN changes. Also have a tested rollback plan for reverting UPNs if you find issues that can't be quickly resolved. Once your pilot is running, you can start targeting small sets of users with various organizational roles and their specific sets of apps or devices.
 
 Going through this first subset of users will give you a good idea of what users should expect as part of the change. Include this information on your user communications.
 
@@ -105,7 +105,7 @@ Create a defined procedure for changing UPNs on individual users as part of norm
 
 The following sections detail potential known issues and workarounds when UPNs are changed.
 
-## App provisioning known issues and workarounds
+## Apps known issues and workarounds
 
 [Software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and Line of Business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications that use [Just in Time provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) to create a user profile when users sign in to the app for the first time can be affected by UPN changes.
 
@@ -114,6 +114,7 @@ Changing a user's UPN could break the relationship between the Azure AD user and
 
 **Workaround**<br>
 [Azure AD Automated User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) lets you automatically create, maintain, and remove your user identities in supported cloud applications. Configuring automated user provisioning on your applications automatically updates UPNs on the applications. Test the applications as part of the progressive rollout to validate that they are not impacted by UPN changes.
+If you are a developer, consider [adding SCIM support to your application](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) to enable automatic user provisioning from Azure Active Directory. 
 
 ## Managed devices known issues and workarounds
 
@@ -127,7 +128,7 @@ By [bringing your devices to Azure AD](https://docs.microsoft.com/azure/active-d
 Users may experience single sign-on issues with applications that depend on Azure AD for authentication.
 
 **Workaround** <br>
-Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. you can also verify through [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on "Access work or school" Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -152,7 +153,8 @@ To unjoin a device from Azure AD, run the following command at a command prompt:
 
 **dsregcmd /leave**
 
-The user will need to [re-enroll](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) for Windows Hello for Business if it's being used. Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
+The user will need to [re-enroll](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) for Windows Hello for Business if it's being used. 
+Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
 ## Microsoft Authenticator known issues and workarounds
 
@@ -164,7 +166,7 @@ The [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-direct
 
 * Act as an Authentication Broker on iOS and Android devices to provide single sign-on for applications that use [Brokered authentication](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth)
 
-* Device registration (also known as Workplace Joined) to Azure AD, which is a requirement for other features like Intune App Protection and Device Enrolment/Management,
+* Device registration (also known as Workplace Join) to Azure AD, which is a requirement for other features like Intune App Protection and Device Enrolment/Management,
 
 * Phone sign in, which requires MFA and device registration.
 
@@ -172,15 +174,13 @@ The [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-direct
 
 The Microsoft Authenticator app offers an out-of-band verification option. Instead of placing an automated phone call or SMS to the user during sign-in, [Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) pushes a notification to the Microsoft Authenticator app on the user's smartphone or tablet. The user simply taps Approve (or enters a PIN or biometric and taps "Authenticate") in the app to complete their sign-in.
 
-When you change a user's UPN, mobile devices can experience the following issues:
-
 **Known issues** 
 
-The old UPN still displays on the user account and a notification might not be received. [Verification codes](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) continue to work.
+When you change a user's UPN, the old UPN still displays on the user account and a notification might not be received. [Verification codes](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) continue to work.
 
 **Workaround**
 
-If a notification is received, instruct the user to dismiss the notification, open the Authenticator app, tap the "Check for notifications" option and approve the MFA prompt. After this, the UPN displayed on the account will be updated. Note the updated UPN might be displayed as a new account, this is due to other Authenticator functionality being used. For more information additional known issues in this article.
+If a notification is received, instruct the user to dismiss the notification, open the Authenticator app, tap the "Check for notifications" option and approve the MFA prompt. After this, the UPN displayed on the account will be updated. Note the updated UPN might be displayed as a new account, this is due to other Authenticator functionality being used. For more information refer to the additional known issues in this article.
 
 ### Brokered authentication
 
@@ -228,10 +228,10 @@ The user needs to select the drop-down menu on the account enabled for Phone sig
 ## Security Key (FIDO2) known issues and workarounds
 
 **Known issues** <br>
-Users are not able to sign in to Windows Azure AD Join or Hybrid Join devices using a security key enrolled before the UPN change.
+When multiple users are registered on the same key, the sign in screen shows an account selection page where the old UPN is displayed. Sign ins using Security Keys are not affected by UPN changes.  
 
 **Workaround**<br>
-Users must [reset the security key and re-register](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
+To remove references to old UPNs, users must [reset the security key and re-register](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
 
 ## OneDrive known issues and workarounds
 

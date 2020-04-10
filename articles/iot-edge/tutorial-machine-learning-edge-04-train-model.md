@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 3/23/2020
+ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

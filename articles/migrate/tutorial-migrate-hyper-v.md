@@ -3,7 +3,7 @@ title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
+ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
 # Migrate Hyper-V VMs to Azure 
@@ -45,7 +45,7 @@ Before you begin this tutorial, you should:
 
 ## Add the Azure Migrate Server Migration tool
 
-If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Migration tool to the project.
+If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Assessment tool to the project.
 
 If you followed the second tutorial and already have an Azure Migrate project, add the Azure Migrate: Server Migration tool as follows:
 
@@ -62,10 +62,10 @@ If you followed the second tutorial and already have an Azure Migrate project, a
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight Hyper-V VM appliance.
+Azure Migrate Server Migration runs a software agent on Hyper-V Hosts or cluster nodes to orchestrate and replicate data to Azure Migrate and doesn't require a dedicated appliance for migration.
 
-- The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
-- The appliance is also used by the Azure Migrate: Server Assessment tool, to migrate Hyper-V VMs to Azure.
+- The Azure Migrate : Server Assessment appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
+- Migration orchestration and data replication is handled by Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent.
 
 To set up the appliance:
 - If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial, and don't need to do it again.

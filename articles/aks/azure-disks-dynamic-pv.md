@@ -1,5 +1,6 @@
 ---
-title: Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
+title: Dynamically create Azure disks volume
+titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -24,14 +25,14 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Built in storage classes
+## Built-in storage classes
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
 Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks:
 
 * The *default* storage class provisions a standard Azure disk.
-    * Standard storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+    * Standard storage is backed by HDDs and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost-effective dev and test workload.
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     

@@ -57,7 +57,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
-You can also register a new version of a dataset at 
 
 ### Retrieve a dataset by name
 

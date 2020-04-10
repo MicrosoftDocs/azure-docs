@@ -1,24 +1,24 @@
 ---
-title: Add suggestions and autocomplete in a search box
+title: Add autocomplete and suggestions in a search box
 titleSuffix: Azure Cognitive Search
-description: Enable typeahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
+description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
 
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2020
-#Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
+ms.date: 04/10/2020
+
 ---
 
 # Add suggestions or autocomplete to your Azure Cognitive Search application
 
 In this example, learn how to build a search box that supports search-as-you-type behaviors. There are two features, which you can use together or separately:
 
-+ [*Suggestions*](https://docs.microsoft.com/rest/api/searchservice/suggestions) are suggested results generated as you type, where each suggestion is a single result from the index that matches what you've typed so far. 
++ *Suggestions* generate search results as you type, where each suggestion is a single result or search document from the index that matches what you've typed so far. 
 
-+ [*Autocomplete*](https://docs.microsoft.com/rest/api/searchservice/autocomplete) "finishes" the word or phrase of a query. Instead of returning results, the response is a completed a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
++ *Autocomplete* generates queries by "finishing" the word or phrase. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
 
 Sample code demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. 
 

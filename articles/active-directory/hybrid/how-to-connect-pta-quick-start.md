@@ -56,7 +56,7 @@ Ensure that the following prerequisites are in place.
 
      | Port number | How it's used |
      | --- | --- |
-     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
      | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
      

@@ -52,8 +52,10 @@
     href: identity-management-best-practices.md
   - name: Security checklist
     href: steps-secure-identity.md
-  - name: Choose Azure AD authentication
-    href: choose-ad-authn.md
+  - name: Choose passwordless 
+    href: ad-passwordless.md
+
+
 
 - name: Network security
   items:
@@ -92,9 +94,9 @@
   - name: Database security
     items:
     - name: Overview
-      href: database-security-overview.md
+      href: ../../sql-database/sql-database-security-overview.md
     - name: Best practices
-      href: database-best-practices.md
+      href: ../../sql-database/sql-database-security-best-practice.md
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
@@ -124,6 +126,8 @@
     href: log-audit.md
   - name: Security management and monitoring
     href: management-monitoring-overview.md
+  - name: Enhance remote management
+    href: management.md
   - name: Operational security
     items:
     - name: Overview

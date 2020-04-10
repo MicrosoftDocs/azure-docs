@@ -163,7 +163,7 @@ A Channel provides an input endpoint (ingest URL) that you specify in the live e
 
 You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
-You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support SSL with custom domains.  
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support TLS with custom domains.  
 
 ### Allowed IP addresses
 You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
