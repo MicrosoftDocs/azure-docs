@@ -28,9 +28,9 @@ ms.custom: "include file"
 | Maximum number of Automation accounts in a subscription |No limit ||
 | Maximum number of Hybrid Worker Groups per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||
-| Maximum runbook job parameter size   | 512 kilobits||
+| Maximum runbook job parameter size   | 512 kibibits||
 | Maximum runbook parameters   | 50|If you reach the 50-parameter limit, you can pass a JSON or XML string to a parameter and parse it with the runbook.|
-| Maximum webhook payload size |  512 kilobits|
+| Maximum webhook payload size |  512 kibibits|
 | Maximum days that job data is retained|30 days|
 | Maximum PowerShell workflow state size |5 MB| Applies to PowerShell workflow runbooks when checkpointing workflow.|
 
