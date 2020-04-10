@@ -127,9 +127,9 @@ In this example, the destination gallery is named *myDestinationGallery*, in the
 
 
 ```azurepowershell-interactive
-   $region1 = @{Name='South Central US';ReplicaCount=1}
-   $region2 = @{Name='West US';ReplicaCount=2}
-   $targetRegions = @($region1,$region2)
+$region1 = @{Name='South Central US';ReplicaCount=1}
+$region2 = @{Name='West US';ReplicaCount=2}
+$targetRegions = @($region1,$region2)
 
 $job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $destinationImgDef.Name`
