@@ -13,7 +13,7 @@ ms.author: dsindona
 # Cloud Partner Portal API Reference
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in this document to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the [Changes to CPP APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center) listed in this document to ensure your code continues to work after the migration to Partner Center.
 
 The Cloud Partner Portal REST APIs allow the programmatic retrieval and
 manipulation of workloads, offers, and publisher profiles. The APIs use
