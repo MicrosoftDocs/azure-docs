@@ -100,7 +100,7 @@ In this section, you create a Python console app to simulate the device and rece
                 time.sleep(1000)
 
         except KeyboardInterrupt:
-            print ( "IoT Hub C2d Messaging device sample stopped" )
+            print ( "IoT Hub C2D Messaging device sample stopped" )
     ```
 
 1. Add the following main function:
@@ -108,7 +108,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```python
     if __name__ == '__main__':
         print ( "Starting the Python IoT Hub C2D Messaging device sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
+        print ( "Waiting for C2D messages, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
     ```
