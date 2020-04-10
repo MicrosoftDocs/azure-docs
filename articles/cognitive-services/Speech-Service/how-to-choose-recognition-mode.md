@@ -64,7 +64,15 @@ result = speech_recognizer.recognize_once()
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
+::: zone pivot="programming-language-javascript"
 
+For more information on using the `recognizeOnceAsync` function, see the [JavaScript Speech SDK docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-).
+
+```JavaScript
+recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
+```
+
+::: zone-end
 ## Continuous
 
 If you need long-running recognition, use the start and corresponding stop functions for continuous recognition. The start function will start and continue processing all utterances until you invoke the stop function, or until too much time in silence has passed. When using the continuous mode, be sure to register to the various events that will fire upon occurrence. For example, the "recognized" event fires when speech recognition occurs. You need to have an event handler in place to handle recognition.
@@ -152,6 +160,24 @@ speech_recognizer.stop_continuous_recognition()
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+recognizer.recognized = (s, e) => {
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        // Do something with the recognized text
+        // e.getResult().getText()
+    }
+});
+
+// Start continuous speech recognition
+recognizer.startContinuousRecognitionAsync(()=>{}, (error)=>{});
+
+// Stop continuous speech recognition
+recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
+```
+
+::: zone-end
 
 ## Dictation
 
@@ -200,6 +226,16 @@ SpeechConfig.enable_dictation()
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
+
+::: zone-end
+::: zone pivot="programming-language-javascript"
+
+For more information on using the `enableDictation` function, see the [JavaScript Speech SDK docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--).
+
+```JavaScript
+// Enable diction
+speechConfig.enableDictation();
+```
 
 ::: zone-end
 
