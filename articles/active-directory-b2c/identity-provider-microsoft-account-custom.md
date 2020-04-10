@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,7 +34,7 @@ To enable sign-in for users with a Microsoft account, you need to register an ap
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, *MSAapp1*.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
+1. Under **Supported account types**, select **Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C.**
 1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in the text box. Replace `your-tenant-name` with your Azure AD B2C tenant name.
 1. Select **Register**
 1. Record the **Application (client) ID** shown on the application Overview page. You need this when you configure the claims provider in a later section.

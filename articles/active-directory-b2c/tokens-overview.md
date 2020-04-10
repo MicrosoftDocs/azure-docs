@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -120,14 +120,14 @@ The value of the **alg** claim is the algorithm that was used to sign the token.
 Azure AD B2C has an OpenID Connect metadata endpoint. Using this endpoint, applications can request information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. Your Azure AD B2C tenant contains a JSON metadata document for each policy. The metadata document is a JSON object that contains several useful pieces of information. The metadata contains **jwks_uri**, which gives the location of the set of public keys that are used to sign tokens. That location is provided here, but it's best to fetch the location dynamically by using the metadata document and parsing **jwks_uri**:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
 ```
 The JSON document located at this URL contains all the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
 
 The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmicrosoft.com` tenant is located at:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
 To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -242,7 +242,7 @@ Next, update the relying party file that initiates the user journey that you cre
 
 Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this example with the following information as the body of the POST request:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 - Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 - Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
@@ -287,7 +287,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here. Use the information in the following table as the body of the request:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 - Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 - Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.

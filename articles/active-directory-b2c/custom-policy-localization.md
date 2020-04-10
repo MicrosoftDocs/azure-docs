@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -251,7 +251,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Switch your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authorization request. For example: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## Next steps

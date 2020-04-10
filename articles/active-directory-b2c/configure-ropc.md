@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -36,7 +36,7 @@ The resource owner password credentials (ROPC) flow is an OAuth standard authent
 
    You'll then see an endpoint such as this example:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## Register an application
@@ -50,7 +50,7 @@ Use your favorite API development application to generate an API call, and revie
 - Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Key | Value |
 | --- | ----- |
@@ -66,7 +66,7 @@ Use your favorite API development application to generate an API call, and revie
 The actual POST request looks like the following:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -90,7 +90,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here with the information in the following table as the body of the request:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Key | Value |
 | --- | ----- |
