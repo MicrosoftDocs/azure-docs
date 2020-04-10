@@ -48,7 +48,7 @@ Most applications use Redis client libraries to handle communication with their 
 Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5.2 or earlier, and use the latest TLS version on .NET Framework 4.6 or later. If you're using an older version of .NET Framework, you can enable TLS 1.2 manually:
 
 * **StackExchange.Redis:** Set `ssl=true` and `sslprotocols=tls12` in the connection string.
-* **ServiceStack.Redis:** Follow the [ServiceStack.Redis instructions](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
+* **ServiceStack.Redis:** Follow the [ServiceStack.Redis instructions](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support).
 
 ### .NET Core
 

@@ -4,7 +4,7 @@ description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/10/2020
 ms.author: tisande
 
 ---
@@ -47,6 +47,12 @@ The GROUP BY clause divides the query's results according to the values of one o
 - Aliasing properties or aliasing system functions (aliasing is still allowed within the SELECT clause)
 - Subqueries
 - Aggregate system functions (these are only allowed in the SELECT clause)
+
+Queries with an aggregate system function and a subquery with `GROUP BY` are not supported. For example, the following query is not supported:
+
+```sql
+SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+```
 
 ## Examples
 

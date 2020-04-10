@@ -42,6 +42,9 @@
           displayName: troubleshoot
 - name: Process Automation
   items:
+  - name: Runbook execution in Azure Automation
+    href: automation-runbook-execution.md
+    displayName: fair share, activity log
   - name: Hybrid Runbook Worker Overview
     href: automation-hybrid-runbook-worker.md
   - name: Runbook gallery
@@ -111,9 +114,6 @@
       - name: Runbook output
         href: automation-runbook-output-and-messages.md
         displayName: message streams, progress records, preference
-      - name: Track a runbook job
-        href: automation-runbook-execution.md
-        displayName: fair share, activity log
       - name: Error handling in graphical runbooks
         href: automation-runbook-graphical-error-handling.md
     - name: Hybrid Runbook Worker
