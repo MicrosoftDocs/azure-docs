@@ -32,7 +32,7 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 * AppInstance.status: Whether the instance is running or its state.
 * DiscoveryStatus: The registered status of the app instance in Eureka server
 
- ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instanch-status.png)
+ ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
 The instance status is reported as one of the following values:
 
