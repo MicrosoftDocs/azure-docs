@@ -84,7 +84,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
 
-1. [Create a GUID](#create-guids) using the suggested method and [register the GUID](#register-guids-and-offers).
+1. [Create a GUID](#create-guids) using the suggested method and [register the GUID](#register-guids).
 
 1. Open the Resource Manager template.
 
