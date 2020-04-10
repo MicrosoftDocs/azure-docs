@@ -329,7 +329,7 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 See how to create endpoints and routes to deliver events:
-* [Set up endpoints and routes](how-to-create-endpoints-routes.md)
+* [Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, learn more about the Azure Digital Twins APIs:
 * [Use the Azure Digital Twins APIs](how-to-use-apis.md)

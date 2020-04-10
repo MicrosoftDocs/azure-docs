@@ -279,5 +279,5 @@ A model's decommissioning status is also included in the `ModelData` records ret
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin graph](how-to-manage-graph.md)
-* [Manage an individual digital twin](how-to-manage-twin.md)
+* [Manage a digital twin](how-to-manage-twin.md)
+* [Manage a twin graph with relationships](how-to-manage-graph.md)

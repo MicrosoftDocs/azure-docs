@@ -163,4 +163,4 @@ namespace Azure Digital TwinsGettingStarted
 ## Next steps
 
 See how to make API calls to your Azure Digital Twin instance:
-* [Manage an individual digital twin](how-to-manage-twin.md)
+* [Manage a digital twin](how-to-manage-twin.md)

@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Create twins and relationships
+title: Manage a twin graph with relationships
 titleSuffix: Azure Digital Twins
-description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
+description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,109 +15,19 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create digital twins and relationships
+# Connect twins into a graph with relationships
 
-Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. 
+The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual twins connected via **relationships**.
+
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage a digital twin](how-to-manage-twin).
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
-There are two other prerequisites that this article assumes you've completed: 
-* Set up a working instance of Azure Digital Twins, with appropriate access permissions. For more information about this step, see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
-* Learn how to authenticate against Azure Digital Twins and how to create a service client object. For more information about authentication, see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
-
-## Create a digital twin (preview)
-
-The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your environment as a whole. The twin graph is made up of individual twins that represent individual entities in your environment.
-
-To create a twin, you use the `DigitalTwins.Add` method on the service client like this:
-
-```csharp
-await client.DigitalTwins.AddAsync("myNewTwinID", initData);
-```
-
-> [!TIP]
-> All SDK functions come in synchronous and asynchronous versions.
-
-To create a digital twin in this preview release, you need to provide:
-* The desired ID for the digital twin
-* The [model](concepts-models.md) you want to use 
-* Initial values for all properties of the digital twin
-
-The model and initial property values are provided through the `initData` parameter.
-
-### Initialize properties
-
-All non-optional properties and components of digital twins must be initialized at creation time, and are provided in the create call as `initData`. 
-
-> [!NOTE]
-> Relationships may be initialized, but do not need to be. 
-
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
-
-You can create a serializable parameter object with the following example code, which sets up some twin properties:
-
-```csharp
-Dictionary<string, object> moonData = new Dictionary<string, object>()
-{
-    { "name", "MyMoon" },
-    { "mass", 100 }
-};
-```
-
-One mandatory property for a digital twin is the model. This can be set using the property "$model" in the metadata section of the initialization data. Here is a code sample that sets a model along with a few other twin properties:
-
-```csharp
-// Define the model type for the twin to be created
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", "urn:example:Room:2" }
-};
-// Initialize the twin properties
-Dictionary<string, object> initData = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-    { "Temperature", temperature},
-    { "Humidity", humidity},
-};
-```
-
-### Full twin creation code
-
-The following code sample uses the information you've learned in this section to create a twin of type *Room* and initialize it:
-
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "urn:example:Room:2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
-
 ## Create relationships
 
-Digital twins are connected to each other with relationships, and this is how a twin graph is formed.
+Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created with `DigitalTwins.AddEdge`. 
+Relationships are created using `DigitalTwins.AddEdge`. 
 
 To create a relationship, you need to specify:
 * The source twin ID (the twin where the relationship originates)
@@ -149,9 +59,9 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 }
 ```
 
-### Create a digital twin hierarchy 
+### Create a digital twin graph 
 
-The following code snippet incorporates the method above to create a larger hierarchy of twins with relationships.
+The following code snippet incorporates the method above to create a larger graph of twins with relationships.
 
 ```csharp
 static async Task CreateTwins()
@@ -239,6 +149,101 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
 }
 ```
 
+## List relationships
+
+To access the list of relationships in the twin graph, you can write:
+
+```csharp
+await client.DigitalTwins.ListEdgesAsync(id)
+```
+
+Here is a more sophisticated example, that gets relationships in the context of a larger method and includes paging on the result.
+
+```csharp
+static async Task ListOutgoingRelationships(string id)
+{
+    // Find the relationships for the twin
+    try
+    {
+        List<object> relList = new List<object>();
+        // Enumerate the IPage object returned to get the results
+        // ListAsync will throw if an error occurs
+        IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
+        relList.AddRange(relPage);
+        // If there are more pages, the NextPageLink in the page is set
+        while (relPage.NextPageLink != null)
+        {
+            // Get more pages...
+            relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
+            relList.AddRange(relPage);
+        }
+        Console.WriteLine($"Found {relList.Count} relationships on {id}");
+        // Let's delete the edges we found
+        foreach (JObject r in relList)
+        {
+            string relId = r.Value<string>("$edgeId");
+            string relName = r.Value<string>("$relationship");
+            Console.WriteLine($"Found relationship {relId} from {id}");
+        }
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error retrieving relationships for {id}: {e.Response.StatusCode}");
+    }
+}
+```
+
+You can use retrieved relationships to navigate to other twins in your graph. To do this, retrieve the `target` field from the relationship that is returned, and use it as the ID for your next call to `DigitalTwins.GetById`. 
+
+### Find relationships on a twin
+
+Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
+
+The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
+
+```csharp
+static async Task FindAndDeleteIncomingRelationships(string id)
+{
+    // Find the incoming relationships for the twin
+    try
+    {
+        List<IncomingEdge> relList = new List<IncomingEdge>();
+        // Enumerate the IPage object returned to get the results
+        // ListAsync will throw if an error occurs
+        IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(id);
+        relList.AddRange(relPage);
+        // If there are more pages, the NextPageLink in the page is set
+        while (relPage.NextPageLink != null)
+        {
+            // Get more pages...
+            relPage = await client.DigitalTwins.ListIncomingEdgesNextAsync(relPage.NextPageLink);
+            relList.AddRange(relPage);
+        }
+        Console.WriteLine($"Found {relList.Count} relationships on {id}");
+        // Let's delete the edges we found
+        foreach (IncomingEdge r in relList)
+        {
+            string relId = r.EdgeId;
+            string relName = r.Relationship;
+            string source = r.SourceId;
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
+            await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
+            Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
+        }
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error deleting incoming relationships for {id}: {e.Response.StatusCode}");
+    }
+}
+```
+
+## Delete Relationships
+
+You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
+
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameters are the relationship's name and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
+
 ## Create digital twins graph from a spreadsheet
 
 In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet. This section illustrates how a spreadsheet can be parsed.
@@ -319,165 +324,6 @@ public class RelationshipRecord
     public string target;
     public string src;
     public string relName;
-}
-```
-
-## Delete digital twins
-
-You can delete twins using `DigitalTwins.Delete(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
-
-Here is an example of the code for this:
-
-```csharp
-static async Task DeleteTwin()
-{
-    await FindAndDeleteOutgoingRelationships("Floor01");
-    await FindAndDeleteIncomingRelationships("Floor01");
-    try
-    {
-        await client.DigitalTwins.DeleteAsync("Floor01");
-    } catch (ErrorResponseException e)
-    {
-        COnsole.WriteLine($"*** Error deleting Floor01: {e.Response.StatusCode}");
-    }
-}
-
-static async Task FindAndDeleteOutgoingRelationships(string id)
-{
-    // Find the relationships for the twin
-    try
-    {
-        List<object> relList = new List<object>();
-        // Enumerate the IPage object returned to get the results
-        // ListAsync will throw if an error occurs
-        IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-        relList.AddRange(relPage);
-        // If there are more pages, the NextPageLink in the page is set
-        while (relPage.NextPageLink != null)
-        {
-            // Get more pages...
-            relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-            relList.AddRange(relPage);
-        }
-        Console.WriteLine($"Found {relList.Count} relationships on {id}");
-        // Let's delete the edges we found
-        foreach (JObject r in relList)
-        {
-            string relId = r.Value<string>("$edgeId");
-            string relName = r.Value<string>("$relationship");
-            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
-            await client.DigitalTwins.DeleteEdgeAsync(id, relName, relId);
-            Console.WriteLine($"Deleting relationship {relId} from {id}");
-        }
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error retrieving relationships for {id}: {e.Response.StatusCode}");
-    }
-}
-
-static async Task FindAndDeleteIncomingRelationships(string id)
-{
-    // Find the incoming relationships for the twin
-    try
-    {
-        List<IncomingEdge> relList = new List<IncomingEdge>();
-        // Enumerate the IPage object returned to get the results
-        // ListAsync will throw if an error occurs
-        IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(id);
-        relList.AddRange(relPage);
-        // If there are more pages, the NextPageLink in the page is set
-        while (relPage.NextPageLink != null)
-        {
-            // Get more pages...
-            relPage = await client.DigitalTwins.ListIncomingEdgesNextAsync(relPage.NextPageLink);
-            relList.AddRange(relPage);
-        }
-        Console.WriteLine($"Found {relList.Count} relationships on {id}");
-        // Let's delete the edges we found
-        foreach (IncomingEdge r in relList)
-        {
-            string relId = r.EdgeId;
-            string relName = r.Relationship;
-            string source = r.SourceId;
-            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
-            await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
-            Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
-        }
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error deleting incoming relationships for {id}: {e.Response.StatusCode}");
-    }
-}
-```
-
-### Delete all digital twins
-
-The following example shows how to delete all twins in the system at once.
-
-```csharp
-static async Task DeleteAllTwins()
-{
-    Log($"\nDeleting All Twins", ConsoleColor.DarkYellow);
-    Log($"Step 1: Find all twins", ConsoleColor.DarkYellow);
-    List<object> twins = await ListTwins();
-    Log($"Step 2: Find relationship for each twin...", ConsoleColor.DarkYellow);
-    foreach (JObject twin in twins)
-    {
-        string id = twin.Value<string>("$dtId");
-        // Find the relationships for the twin
-        await FindAndDeleteOutgoingRelationships(id);
-    }
-    Log($"Step 3: Delete all twins", ConsoleColor.DarkYellow);
-    foreach (JObject twin in twins)
-    {
-        string id = twin.Value<string>("$dtId");
-        try
-        {
-            await client.DigitalTwins.DeleteAsync(id);
-            Log($"Deleted twin {id}");
-        }
-        catch (ErrorResponseException e)
-        {
-            Log($"*** Error deleting twin {id}: {e.Response.StatusCode}", ConsoleColor.Red);
-        }
-    }
-}
-
-static async Task<List<object>> ListTwins()
-{
-    string query = "SELECT * FROM digitaltwins";
-    List<object> results = new List<object>();
-    // Repeat the query while there are pages
-    string conToken = null;
-    try
-    {
-        int page = 0;
-        do
-        {
-            QuerySpecification spec = new QuerySpecification(query, conToken);
-            QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-            page++;
-            Log($"== Query results page {page}:", ConsoleColor.DarkYellow);
-            if (qr.Items != null)
-            {
-                results.AddRange(qr.Items);
-                // Query returns are JObjects
-                foreach(JObject o in qr.Items)
-                {
-                    string twinId = o.Value<string>("$dtId");
-                    Log($"  Found {twinId}");
-                }
-            }
-            Log($"== End query results page {page}", ConsoleColor.DarkYellow);
-            conToken = qr.ContinuationToken;
-        } while (conToken != null);
-    } catch (ErrorResponseException e)
-    {
-        Log($"*** Error in twin query: ${e.Response.StatusCode}\n${e.Response.ReasonPhrase}", ConsoleColor.Red);
-    }
-    return results;
 }
 ```
 

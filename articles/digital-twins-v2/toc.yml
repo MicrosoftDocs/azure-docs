@@ -34,17 +34,17 @@
     href: how-to-manage-model.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md
-  - name: Manage a twin graph
+  - name: Manage a twin graph with relationships
     href: how-to-manage-graph.md
+  - name: Manage endpoints and routes
+    href: how-to-manage-routes.md
   - name: Query the twin graph
     href: how-to-query-graph.md
-  - name: Set up endpoints and routes
-    href: how-to-create-endpoints-routes.md
   - name: Understand event data
     href: how-to-interpret-event-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
-  - name: How to use Azure Digital Twins CLI
+  - name: Use the Azure Digital Twins CLI
     href: how-to-use-digital-twins-cli.md
 - name: Reference
   items:

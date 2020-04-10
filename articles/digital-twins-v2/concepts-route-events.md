@@ -86,8 +86,8 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 
 ## Next steps
 
-See how to design and set up an event route:
-* [Set up endpoints and routes](how-to-create-endpoints-routes.md)
+See how to set up and manage an event route:
+* [Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, see how to use an Azure Function with Azure Digital Twins:
 * [Set up an Azure Function](how-to-create-azure-function.md)

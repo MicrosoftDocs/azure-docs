@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Set up endpoints and routes
+title: Manage endpoints and routes
 titleSuffix: Azure Digital Twins
-description: See how to set up an endpoint and an event route to deliver Azure Digital Twins data.
+description: See how to set up and manage endpoints and event routes for Azure Digital Twins data.
 author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
