@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ms.author: euang
 
 ---

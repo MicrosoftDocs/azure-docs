@@ -6,7 +6,7 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 09/10/2019
+ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---

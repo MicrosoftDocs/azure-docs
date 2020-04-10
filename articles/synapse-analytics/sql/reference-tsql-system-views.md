@@ -4,7 +4,7 @@ description: Links to the documentation for system views supported in SQL Analyt
 author: filippopovic
 ms.service: synapse-analytics 
 ms.topic: reference
-ms.date: 01/12/2020
+ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---

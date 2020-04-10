@@ -4,7 +4,7 @@ description: An article that teaches you to configure IP firewall rules in Azure
 author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview 
-ms.date: 03/11/2020 
+ms.date: 04/15/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---

@@ -6,7 +6,7 @@ author: euangMS
 ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: 
-ms.date: 01/15/2020 
+ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---

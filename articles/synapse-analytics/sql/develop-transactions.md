@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 03/22/2019
+ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---

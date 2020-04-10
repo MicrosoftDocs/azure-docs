@@ -8,7 +8,7 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ---
 
 # Quickstart: Create an Apache Spark pool (preview) in Synapse Analytics using web tools
