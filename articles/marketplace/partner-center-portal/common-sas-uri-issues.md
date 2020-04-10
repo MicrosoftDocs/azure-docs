@@ -12,7 +12,7 @@ ms.date: 04/09/2020
 # Common SAS URI issues and fixes
 
 > [!IMPORTANT]
-> We're moving the management of your Azure Virtual Machine offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Common SAS URL issues and fixes](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues ) for Cloud Partner Portal to manage your offers.
+> We're moving the management of your Azure Virtual Machine offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Common SAS URL issues and fixes](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues) for Cloud Partner Portal to manage your offers.
 
 Following are common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions.
 

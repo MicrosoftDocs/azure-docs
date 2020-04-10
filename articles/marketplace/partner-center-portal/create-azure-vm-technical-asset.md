@@ -117,7 +117,7 @@ Use the remote desktop client to connect to the Windows-based VM hosted on Azure
 This article details how to use the built-in Windows RDP support to connect to your VM: [How to connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 > [!TIP]
-You may get security warnings during the process. For example, warnings such as "The .rdp file is from an unknown publisher" or "Your user credentials cannot be verified." It is safe to ignore these warnings.
+> You may get security warnings during the process. For example, warnings such as "The .rdp file is from an unknown publisher" or "Your user credentials cannot be verified." It is safe to ignore these warnings.
 
 #### Connect to a Linux-based VM
 
@@ -144,8 +144,9 @@ For details, including how to add a desktop to a provisioned Linux VM, see [Inst
 ## Create a VM using your own image
 
 This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk (VHD).
+
 > [!NOTE]
-To optionally use an approved base image, follow the instructions in [Create a VM image using an approved base](#Create-a-VM-image-using-an-approved-base).
+> To optionally use an approved base image, follow the instructions in [Create a VM image using an approved base](#Create-a-VM-image-using-an-approved-base).
 
 1. Upload your images to Azure Storage account.
 2. Deploy the VM image.
