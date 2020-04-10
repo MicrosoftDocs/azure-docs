@@ -40,6 +40,11 @@ This article also provides detailed information about *advanced security setting
 
 ## Use a storage account for your workspace
 
+> [!WARNING]
+> If you have data scientists that use the Azure Machine Learning designer, they will receive an error when visualizing data from a storage account inside a virtual network. The following text is the error that they receive:
+>
+> `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`
+
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
 1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
