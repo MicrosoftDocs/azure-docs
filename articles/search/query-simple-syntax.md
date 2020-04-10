@@ -9,17 +9,6 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/03/2020
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
 ---
 
 # Simple query syntax in Azure Cognitive Search
@@ -84,13 +73,18 @@ The precedence operator encloses the string in parentheses `( )`. For example, `
 
 ## Escaping search operators  
 
- In order to use the above symbols as actual part of the search text, they should be escaped by prefixing them with a backslash. For example, `luxury\+hotel` will result in the term `luxury+hotel`. In order to make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
+In order to use any of the search operators as part of the search text, escape the character by prefixing it with a single backslash (`\`). For example, for a wildcard search on `https://`, where `://` is part of the query string, you would specify `search=https\:\/\/*`. Similarly, an escaped phone number pattern might look like this `\+1 \(800\) 642\-7676`.
 
-- The NOT operator `-` only needs to be escaped if it's the first character after whitespace, not if it's in the middle of a term. For example, `wi-fi` is a single term; whereas GUIDs (such as `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`) are treated as a single token.
-- The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `wi*fi` is treated as a single token.
+Special characters that require escaping include the following: `- * ? \ /`  
+
+In order to make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
+
++ The NOT operator `-` only needs to be escaped if it's the first character after whitespace, not if it's in the middle of a term. For example, the following GUID is valid without the escape character: `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
+
++ The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `4*4=16` does not require a backslash.
 
 > [!NOTE]  
->  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Cognitive Search REST API&#41;](index-add-language-analyzers.md) for details.  
+> Although escaping keeps tokens together, [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) during indexing may strip them out. For example, the standard Lucene analyzer will delete and break words on hyphens, whitespace, and other characters. If you require special characters in the query string, you might need an analyzer that preserves them in the index. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
 
 ## See also  
 
