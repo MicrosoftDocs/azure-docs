@@ -72,6 +72,7 @@ Creating and deleting administrative units   |    Supported    |   Supported   |
 Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported
 Bulk adding and removing administrative unit members using .csv file   |    Not supported     |  Supported   |    No plan to support
 Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported
+Adding and removing AU members dynamically based on attributes | Not supported | Not supported | Not supported
 
 ### User management
 
