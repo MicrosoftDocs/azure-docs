@@ -32,11 +32,11 @@ You can analyze your data using .NET for Apache Spark through either Spark batch
 ### .NET for Apache Spark in Azure Synapse batch job definitions 
 Jenny or someone please add details on the batch mode submission -->
 
-### .NET for Apache Spark in Azure Synapse Analytics notebooks 
+### .NET for Apache Spark in Azure Synapse Analytics notebooks
 
-When creating a new notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#. 
+When creating a new notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#.
 
-To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool. 
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool.
 
 The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box (with the Spark session variable `spark` already predefined). For more details on the available notebook capabilities [see below](#sparknet-c-kernel-features).
 
@@ -56,14 +56,14 @@ The following features are available when you use .NET for Apache Spark in the A
 * Simple C# statements (such as assignments, printing to console, throwing exceptions, and so on).
 * Multi-line C# code blocks (such as if statements, foreach loops, class definitions, and so on).
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
-* Support for [C# 8.0 language features](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-8).
+* Support for [C# 8.0 language features](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 * 'spark' as a pre-defined variable to give you access to your Apache Spark session.
 * Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
-*  Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library. 
+* Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+* [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 <!-- need link to .NET Interactive documentation -->

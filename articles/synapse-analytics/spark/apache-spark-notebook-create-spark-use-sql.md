@@ -128,7 +128,7 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 In this quickstart, you learned how to create a Synapse Analytics Apache Spark pool and run a basic Spark SQL query.
 
-- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 

@@ -36,5 +36,5 @@ For more information, see [Delta Lake Project](https://lfprojects.org).
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

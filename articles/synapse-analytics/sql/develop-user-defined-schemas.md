@@ -43,10 +43,9 @@ If schemas have already been used, then you have a few options:
 
 > [!NOTE]
 > On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL Analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
-> 
-> 
 
-### Examples:
+### Examples
+
 Implement user-defined schemas based on database names.
 
 ```sql
@@ -111,11 +110,9 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level. 
-> 
-> 
-If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users/
-) article. 
+> Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level.
+
+If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](../../analysis-services/analysis-services-database-users.md) article.
 
 ## Next steps
 

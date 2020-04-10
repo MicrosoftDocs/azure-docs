@@ -22,8 +22,7 @@ In SQL pool, you can use an external table to:
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
 - Import and store data from Azure Blob Storage and Azure Data Lake Storage into SQL pool.
 
-When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In additional to the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest), external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-
+When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In additional to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## External tables in SQL on-demand (preview)
 
@@ -40,12 +39,11 @@ You can create external tables using SQL on-demand via the following steps:
 
 ## CREATE EXTERNAL DATA SOURCE
 
-External data sources are used to connect to storage accounts. The complete documentation is outlined [here](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest). 
-
+External data sources are used to connect to storage accounts. The complete documentation is outlined [here](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Syntax for CREATE EXTERNAL DATA SOURCE
 
-```
+```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
 (    LOCATION         = '<prefix>://<path>' )
@@ -72,7 +70,7 @@ The following example creates an external data source for Azure Data Lake Gen2 p
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' , 
+  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;
@@ -80,13 +78,13 @@ WITH
 
 ## CREATE EXTERNAL FILE FORMAT
 
-Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Storage. Creating an external file format is a prerequisite for creating an external table. The complete documentation is [here](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver15). 
+Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Storage. Creating an external file format is a prerequisite for creating an external table. The complete documentation is [here](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-By creating an external file format, you specify the actual layout of the data referenced by an external table. 
+By creating an external file format, you specify the actual layout of the data referenced by an external table.
 
 ## Syntax for CREATE EXTERNAL FILE FORMAT
 
-```
+```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
@@ -106,10 +104,10 @@ WITH (
 <format_options> ::=  
 {  
     FIELD_TERMINATOR = field_terminator  
-    | STRING_DELIMITER = string_delimiter 
-    | First_Row = integer    
-    | USE_TYPE_DEFAULT = { TRUE | FALSE } 
-    | Encoding = {'UTF8' | 'UTF16'} 
+    | STRING_DELIMITER = string_delimiter
+    | First_Row = integer
+    | USE_TYPE_DEFAULT = { TRUE | FALSE }
+    | Encoding = {'UTF8' | 'UTF16'}
 }
 ```
 
@@ -123,7 +121,7 @@ FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT]- Specifies the format of the external d
 - DELIMITEDTEXT - Specifies a text format with column delimiters, also called field terminators.
 
 FIELD_TERMINATOR = *field_terminator* -
-Applies only to delimited text files. The field terminator specifies one or more characters that mark the end of each field (column) in the text-delimited file. The default is the pipe character (ꞌ|ꞌ). 
+Applies only to delimited text files. The field terminator specifies one or more characters that mark the end of each field (column) in the text-delimited file. The default is the pipe character (ꞌ|ꞌ).
 
 Examples:
 
@@ -132,7 +130,7 @@ Examples:
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
 STRING_DELIMITER = *string_delimiter* -
-Specifies the field terminator for data of type string in the text-delimited file. The string delimiter is one or more characters in length and is enclosed with single quotes. The default is the empty string (""). 
+Specifies the field terminator for data of type string in the text-delimited file. The string delimiter is one or more characters in length and is enclosed with single quotes. The default is the empty string ("").
 
 Examples:
 
@@ -140,27 +138,27 @@ Examples:
 - STRING_DELIMITER = '*'
 - STRING_DELIMITER = ꞌ,ꞌ
 
-FIRST_ROW = *First_row_int* - 
-Specifies the row number that is read first and applies to all files. Setting the value to two causes the first row in every file (header row) to be skipped when the data is loaded. Rows are skipped based on the existence of row terminators (/r/n, /r, /n). 
+FIRST_ROW = *First_row_int* -
+Specifies the row number that is read first and applies to all files. Setting the value to two causes the first row in every file (header row) to be skipped when the data is loaded. Rows are skipped based on the existence of row terminators (/r/n, /r, /n).
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
-TRUE - 
+TRUE -
 If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:
 
 - 0 if the column is defined as a numeric column. Decimal columns aren't supported and will cause an error.
 - Empty string ("") if the column is a string column.
 - 1900-01-01 if the column is a date column.
 
-FALSE - 
+FALSE -
 Store all missing values as NULL. Any NULL values that are stored by using the word NULL in the delimited text file are imported as the string 'NULL'.
 
-Encoding = {'UTF8' | 'UTF16'} - 
+Encoding = {'UTF8' | 'UTF16'} -
 SQL on-demand can read UTF8 and UTF16 encoded delimited text files.
 
-DATA_COMPRESSION = *data_compression_method* - 
-This argument specifies the data compression method for the external data. When reading from external tables, it's ignored. It's only used when writing to external tables using [CETAS](develop-tables-cetas.md). 
+DATA_COMPRESSION = *data_compression_method* -
+This argument specifies the data compression method for the external data. When reading from external tables, it's ignored. It's only used when writing to external tables using [CETAS](develop-tables-cetas.md).
 
 The PARQUET file format type supports the following compression methods:
 
@@ -173,7 +171,7 @@ The following example creates an external file format for census files:
 
 ```sql
 CREATE EXTERNAL FILE FORMAT census_file_format
-WITH 
+WITH
 (  
     FORMAT_TYPE = PARQUET,
     DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
@@ -182,17 +180,17 @@ WITH
 
 ## CREATE EXTERNAL TABLE
 
-The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
+The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Storage.
 
 ## Syntax for CREATE EXTERNAL TABLE
 
-```
+```syntaxsql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
-        FILE_FORMAT = external_file_format_name   
+        FILE_FORMAT = external_file_format_name
     )  
 [;]  
 
@@ -203,7 +201,7 @@ column_name <data_type>
 
 ## Arguments CREATE EXTERNAL TABLE
 
-*{ database_name.schema_name.table_name | schema_name.table_name | table_name }* 
+*{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
 The one to three-part name of the table to create. For an external table, SQL on-demand stores only the table metadata. No actual data is moved or stored in SQL on-demand.
 
@@ -220,7 +218,7 @@ LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure Blob Storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
-If you specify a folder LOCATION, a SQL on-demand query will select from the external table and retrieve files from the folder. 
+If you specify a folder LOCATION, a SQL on-demand query will select from the external table and retrieve files from the folder.
 
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
@@ -243,7 +241,7 @@ The following example creates an external table. It returns the first row:
 
 ```sql
 CREATE EXTERNAL TABLE census_external_table
-( 
+(
     decennialTime varchar(20),
     stateName varchar(100),
     countyName varchar(100),
@@ -254,7 +252,7 @@ CREATE EXTERNAL TABLE census_external_table
     maxAge int
 )  
 WITH (
-    LOCATION = '/parquet/', 
+    LOCATION = '/parquet/',
     DATA_SOURCE = population_ds,  
     FILE_FORMAT = census_file_format
 )
@@ -271,30 +269,29 @@ Using Data Lake exploration capabilities you can now create and query an externa
 
 - You must have access to the workspace with at least the Storage Blob Data Contributor ARM Access role to the ADLS Gen2 Account
 
-- You must have at least [permissions to create](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2) and query external tables on the SQL pool or SQL OD 
+- You must have at least [permissions to create](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2) and query external tables on the SQL pool or SQL OD
 
 - The linked service associated with the ADLS Gen2 Account **must have access to the file**. For example, if the linked service authentication mechanism is Managed Identity, the workspace managed identity must have at least Storage blob reader permission on the storage account
 
-
 From the Data panel, select the file that you would like to create the external table from:
-> [!div class="mx-imgBorder"] 
+> [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
 
 A dialog window will open. Select SQL pool or SQL on-demand, give a name to the table and select open script:
 
-> [!div class="mx-imgBorder"] 
+> [!div class="mx-imgBorder"]
 >![externaltable2](./media/develop-tables-external-tables/external-table-2.png)
 
 The SQL Script is auto-generated inferring the schema from the file:
-> [!div class="mx-imgBorder"] 
+> [!div class="mx-imgBorder"]
 >![externaltable3](./media/develop-tables-external-tables/external-table-3.png)
 
 Run the script. The script will automatically run a Select Top 100 *.:
-> [!div class="mx-imgBorder"] 
+> [!div class="mx-imgBorder"]
 >![externaltable4](./media/develop-tables-external-tables/external-table-4.png)
 
 The external table is now created, for future exploration of the content of this external table the user can query it directly from the Data pane:
-> [!div class="mx-imgBorder"] 
+> [!div class="mx-imgBorder"]
 >![externaltable5](./media/develop-tables-external-tables/external-table-5.png)
 
 ## Next steps
