@@ -178,7 +178,7 @@ WHERE
 
 ## Next steps
 
-Now you are ready to start with following Quickstarts:
+Now you are ready to start with following Quickstart articles:
 
 - [Query single CSV file](sql/query-single-csv-file.md)
 - [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
