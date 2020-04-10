@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/10/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -35,10 +35,16 @@ If your organization has given you permission, you can reset passwords for your 
 
 1. [Open My Staff](https://aka.ms/mystaff).
 1. Open a staff member's profile.
+
+    ![Select Reset password in the user profile in My Staff](media/my-staff-team-manager/userprofile2.png)
+
 1. Select **Reset password**.
+
+    ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password1.png)
+
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
 
-    ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password.png)
+    ![Copy the temporary user password after a reset in My Staff](media/my-staff-team-manager/reset-password2.png)
 
 After you have reset the user's password, give the user the temporary password. When the user signs in with their temporary password, they are required to change it.
 
@@ -48,30 +54,73 @@ If your organization has given you permission, you can manage phone numbers for 
 
 ### Add a phone number
 
-1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff member's profile.
+1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
+
+    ![select a location for a team member in My Staff](media/my-staff-team-manager/allaus.png)
+
+1. Open a team member's profile.
+
+    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
+
 1. Select **Add phone number**.
+
+    ![Add a user phone number in My Staff](media/my-staff-team-manager/addphone1.png)
+
 1. Add the phone number and select **Save**.
 
-    ![Add a user phone number in My Staff](media/my-staff-team-manager/add-number.png)
+    ![Save the added user phone number in My Staff](media/my-staff-team-manager/addphone2.png)
 
 After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 
+![screen showing new phone number registered with My Staff](media/my-staff-team-manager/addphone3.png)
+
 ### Edit a phone number
 
-1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff member's profile.
+1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
+
+    ![select a location for a team member in My Staff](media/my-staff-team-manager/allaus.png)
+
+1. Open a team member's profile.
+
+    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
+
 1. Select **Edit phone number**.
 1. Change the phone number and select **Edit**.
 
     ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/edit-number.png)
 
+### Enable phone number sign-in for a suer
+
+If sign-in using a phone number as a username (SMS sign-in) is enabled in your organization, you can add this authentication to existing user phone number.
+
+1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
+
+    ![select a location for a team member in My Staff](media/my-staff-team-manager/allaus.png)
+
+1. Open a team member's profile.
+
+    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
+
+1. Select **Enable** at the prompt.
+
+    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/enableforms1.png)
+
+1. Confirm your intent.
+
+    ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/enableforms2.png)
+
 ### Remove a phone number
 
-1. [Open My Staff](https://aka.ms/mystaff).
-1. Open a staff member's profile.
+1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
+
+    ![select a location for a team member in My Staff](media/my-staff-team-manager/allaus.png)
+
+1. Open a team member's profile.
+
+    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
+
 1. Select **Remove phone number**.
 1. Confirm your intent.
 
-    ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/remove-number.png)
+    ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/deletephone1.png)
 
