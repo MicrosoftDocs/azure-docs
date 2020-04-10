@@ -1,5 +1,5 @@
 ---
-title: Connect to and query SQL Analytics with Visual Studio and SSDT
+title: Connect to and query Synapse SQL with Visual Studio and SSDT
 description: Use Visual Studio to query SQL pool using Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with Visual Studio and SSDT
+# Connect to Synapse SQL with Visual Studio and SSDT
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)

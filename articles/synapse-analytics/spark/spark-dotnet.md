@@ -64,6 +64,6 @@ The following features are available when you use .NET for Apache Spark in the A
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [Azure Synapse Analytics](../overview-what-is.md)
 <!-- need link to .NET Interactive documentation -->

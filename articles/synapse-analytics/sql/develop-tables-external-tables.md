@@ -1,6 +1,6 @@
 ---
-title: Use external tables with SQL Analytics
-description: Reading or writing data files with SQL Analytics
+title: Use external tables with Synapse SQL
+description: Reading or writing data files with Synapse SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Use external tables with SQL Analytics
+# Use external tables with Synapse SQL
 
-An external table points to data located in  Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
 
 ## External tables in SQL pool
 
@@ -182,7 +182,7 @@ WITH
 
 ## CREATE EXTERNAL TABLE
 
-The CREATE EXTERNAL TABLE command creates an external table for SQL Analytics to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
+The CREATE EXTERNAL TABLE command creates an external table for Synapse SQL to access data stored in Azure Blob Storage or Azure Data Lake Storage. 
 
 ## Syntax for CREATE EXTERNAL TABLE
 

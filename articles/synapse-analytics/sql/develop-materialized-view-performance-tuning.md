@@ -355,4 +355,5 @@ With materialized views, the same query runs much faster without any code change
 
 ## Next steps
 
-For more development tips, see [SQL Analytics development overview](develop-overview.md).
+For more development tips, see [Synapse SQL development overview](develop-overview.md).
+ 

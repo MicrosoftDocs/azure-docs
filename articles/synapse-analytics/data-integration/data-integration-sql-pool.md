@@ -1,6 +1,6 @@
 ---
 title: Ingest into SQL pool in Azure Synapse Analytics 
-description: Learn how to ingest data into a SQL analytics pool in Azure Synapse Analytics
+description: Learn how to ingest data into a SQL pool in Azure Synapse Analytics
 services: synapse-analytics 
 author: djpmsft
 ms.service: synapse-analytics 
