@@ -91,6 +91,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1195,6 +1196,33 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
+
+## Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | actionGroups | Yes | Yes |
+> | activityLogAlerts | Yes | Yes |
+> | alertrules | Yes | Yes |
+> | autoscalesettings | Yes | Yes |
+> | components | Yes | Yes |
+> | components / linkedStorageAccounts | No | No |
+> | components / ProactiveDetectionConfigs | No | No |
+> | diagnosticSettings | No | No |
+> | guestDiagnosticSettings | Yes | Yes |
+> | guestDiagnosticSettingsAssociation | Yes | Yes |
+> | logprofiles | Yes | Yes |
+> | metricAlerts | Yes | Yes |
+> | privateLinkScopes | Yes | Yes |
+> | privateLinkScopes / privateEndpointConnections | No | No |
+> | privateLinkScopes / scopedResources | No | No |
+> | queryPacks | Yes | Yes |
+> | queryPacks / queries | No | No |
+> | scheduledQueryRules | Yes | Yes |
+> | webtests | Yes | Yes |
+> | workbooks | Yes | Yes |
+> | workbooktemplates | Yes | Yes |
 
 ## Microsoft.Intune
 
