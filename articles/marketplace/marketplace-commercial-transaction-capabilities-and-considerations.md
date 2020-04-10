@@ -30,6 +30,8 @@ Publishers withe existing commerce capabilities can choose list, trial, and BYOL
 
 The transact publishing option takes advantage of Microsoft commerce capabilities, and provides an end-to-end experiences from discovery and evaluation to purchase and implementation. Transact offers are billed against an existing Microsoft subscription or a credit card, allowing Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
+You choose the transact option when you create a new offer in Partner Center. On the **Offer setup** page under **Setup details**, select "Yes, I would like to sell through Microsoft and have Microsoft host transactions on my behalf." This option will show only if transact is available for your offer type.
+
 ## Transact general overview
 
 When using the transact publishing option, Microsoft enables the sale of third-party software, and deployment of some offer types to the customer's Azure subscription. The publisher must consider the billing of infrastructure fees, and the publisher's own software licensing fees, when selecting a billing model and offer type.
@@ -62,7 +64,7 @@ Depending on the transaction option used, the publisher's software license fees 
 
 ### Free and bring-your-own-license (BYOL) pricing
 
-When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees. 
+When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees.
 
 ### Pay-as-you-go and subscription (site-based) pricing
 
