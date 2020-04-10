@@ -113,18 +113,9 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
+1. Follow the instructions in [Deploy the template](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud Shell and upload the revised template.
 
-1. Sign in to the [Cloud Shell](https://shell.azure.com).
-1. Select **PowerShell** from the upper left corner of the Cloud Shell, and then select **Confirm**.  You use PowerShell in this tutorial.
-1. Select **Upload file** from the Cloud Shell:
-
-    ![Azure portal Cloud Shell upload file](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-1. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
-
-    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files are uploaded successfully.
-
-1. From the Cloud Shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+1. Run the following PowerShell script to deploy the template.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
