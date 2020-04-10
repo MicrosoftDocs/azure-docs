@@ -4,9 +4,9 @@ description: Automate tasks that monitor, create, manage, send, and receive file
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
 ---
 
@@ -150,6 +150,16 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 1. Save the private key file with the `.pem` file name extension.
 
+## Considerations
+
+This section describes known issues about this connector's triggers and actions.
+
+<a name="create-file"></a>
+
+### Create file
+
+To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## Connect to SFTP with SSH
@@ -216,9 +226,29 @@ This trigger starts a logic app workflow when a file is added or changed on an S
 
 <a name="get-content"></a>
 
-### SFTP - SSH action: Get content using path
+### SFTP - SSH action: Get file content using path
 
-This action gets the content from a file on an SFTP server. So for example, you can add the trigger from the previous example and a condition that the file's content must meet. If the condition is true, the action that gets the content can run.
+This action gets the content from a file on an SFTP server by specifying the file path. So for example, you can add the trigger from the previous example and a condition that the file's content must meet. If the condition is true, the action that gets the content can run.
+
+<a name="troubleshooting-errors"></a>
+
+## Troubleshoot errors
+
+This section describes possible solutions to common errors or problems.
+
+<a name="file-does-not-exist"></a>
+
+### 404 error: "A reference was made to a file or folder which does not exist"
+
+To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get this `404` error message:
+
+`'A reference was made to a file or folder which does not exist'`
+
+To skip reading the file's metadata after file creation, follow these steps:
+
+1. In the **Create file** action, open the **Add new parameter** list, select the **Get all file metadata** property, and set the value to **No**.
+
+1. If you need this file metadata later, you can use the **Get file metadata** action.
 
 ## Connector reference
 
