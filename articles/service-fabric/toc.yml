@@ -148,11 +148,8 @@
         href: service-fabric-containers-overview.md
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
-<<<<<<< HEAD
       - name: Probes
         href: probes-codepackage.md
-=======
->>>>>>> 421566c825575f7af7280ab3a37ea0a4cd8e7505
     - name: Reliable Services      
       items:
       - name: Reliable Services overview
