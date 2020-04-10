@@ -4,7 +4,7 @@ description: Learn how to create an Azure Function from within an Azure for Stud
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: alkarche
 

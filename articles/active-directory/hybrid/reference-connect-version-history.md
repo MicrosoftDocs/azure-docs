@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/7/2019
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -16,7 +16,6 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
-
 
 This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
 
@@ -44,6 +43,38 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.20.0
+
+### Release status
+04/09/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+
+## 1.5.18.0
+
+### Release status
+04/02/2020: Released for download
+
+### Functional changes ADSyncAutoUpgrade 
+
+- Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
+- The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
+- Removed the Get-ADSyncRunProfile because it is no longer in use. 
+- Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
+- Added a new cmdlet to remove objects from the connector space the old CSDelete.exe tool is removed, and it is replaced with the new Remove-ADSyncCSObject cmdlet. The Remove-ADSyncCSObject cmdlet takes a CsObject as input. This object can be retrieved by using the Get-ADSyncCSObject cmdlet.
+
+>[!NOTE]
+>The old CSDelete.exe tool has been removed and replaced with the new Remove-ADSyncCSObject cmdlet 
+
+### Fixed issues
+
+- Fixed a bug in the group writeback forest/OU selector on rerunning the Azure AD Connect wizard after disabling the feature. 
+- Introduced a new error page that will be displayed if the required DCOM registry values are missing with a new help link. Information is also written to log files. 
+- Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
+- Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
+- Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+
 ## 1.4.38.0
 ### Release status
 12/9/2019: Release for download. Not available through auto-upgrade.
@@ -63,7 +94,8 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 11/08/2019: Released for download. Not available through auto-upgrade.
 
 >[!IMPORTANT]
->Due to an internal schema change in this release of Azure AD Connect, if you manage ADFS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+>Due to an internal schema change in this release of Azure AD Connect, if you manage AD FS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+
 ### Fixed issues
 
 This version fixes an issue with existing Hybrid Azure AD joined devices. This release contains a new device sync rule that corrects this issue.
@@ -100,10 +132,10 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported in new AAD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
-- Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the AADC wizard.
+- Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
 - Added new error for issues with a user's password policy.
 - Prevent misconfiguration of  group filtering by domain and OU filters. Group filtering will show an error when the domain/OU of the entered group is already filtered out and keep the user from moving forward until the issue is resolved.
 - Users can no longer create a connector for Active Directory Domain Services or Windows Azure Active Directory in the Synchronization Service Manager UI.
@@ -134,11 +166,11 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 >[!IMPORTANT]
 >There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the O365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
 >
-> To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` powershell cmdlet on the Azure AD Connect server.  You can use the following steps:
+> To resolve this you need to import the **AdSync** module and then run the`Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
 >
->1.	Open Powershell in administator mode
->2.	Run `Import-Module "ADSync"`
->3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>1.	Open PowerShell in administator mode.
+>2.	Run `Import-Module "ADSync"`.
+>3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
 ### Release status 
 
@@ -146,7 +178,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### Fixed issues 
 
-- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two powershell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
+- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two PowerShell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## 1.3.20.0 
 
@@ -251,8 +283,8 @@ This hotfix build fixes a regression in the previous build where Password Writeb
 
 
 - Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  Under certain scenarios, Azure AD was overwriting the msExchUcVoicemailSettings attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
-- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through Powershell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
-- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through Powershell using the Start-ConnectivityValidation function in the ADConnectivityTools Powershell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through PowerShell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through PowerShell using the Start-ConnectivityValidation function in the ADConnectivityTools PowerShell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
 - Added an AD schema version pre-check for Hybrid Azure Active Directory Join and device write-back 
 - Changed the Directory Extension page attribute search to be non-case sensitive.
 -	Added full support for TLS 1.2. This release supports all other protocols being disabled and only TLS 1.2 being enabled on the machine where Azure AD Connect is installed.  For more information see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
@@ -648,7 +680,7 @@ Status: September 05 2017
 
 ### AD FS Management
 #### Fixed issues
-* The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep powershell module was incorrectly applying ACLs to the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
+* The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep PowerShell module was incorrectly applying ACLs to the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
 
 #### New features and improvements
 * The AAD Connect Verify ADFS Login task was updated so that it verifies logins against Microsoft Online and not just token retrieval from ADFS.
