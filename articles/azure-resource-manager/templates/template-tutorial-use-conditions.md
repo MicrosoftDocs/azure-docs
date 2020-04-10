@@ -132,7 +132,7 @@ Here is the procedure to make the changes:
 Follow the instructions in [Deploy the template](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud Shell and upload the revised template, and then run the following PowerShell script to deploy the template.
 
 > [!IMPORTANT]
-> The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. The storage account name is the project name with "store" appended. Make sure the project name meets the storage account name requirements.
+> The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. The storage account name is the project name with "store" appended. Make sure the project name and the generated storage account name meet the storage account name requirements.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
