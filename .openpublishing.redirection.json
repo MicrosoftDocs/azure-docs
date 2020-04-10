@@ -533,7 +533,7 @@
     },
     {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
-      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui",
       "redirect_document_id": false
     },
     {
