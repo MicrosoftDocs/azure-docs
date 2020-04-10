@@ -56,7 +56,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.3
+npm install --save @azure/ai-text-analytics@1.0.0-preview.4
 ```
 
 > [!TIP]
@@ -261,7 +261,6 @@ Document ID: 3 , Language: Chinese_Simplified
 
 > [!NOTE]
 > In version `3.0-preview`:
-> * NER includes separate methods for detecting personal information. 
 > * Entity linking is a separate request than NER.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
