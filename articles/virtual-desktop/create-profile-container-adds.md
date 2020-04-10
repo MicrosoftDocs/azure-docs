@@ -15,47 +15,11 @@ manager: lizross
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
-## Set up Azure AD DS
+## Prerequisites
 
-This section explains how to set up your Azure AD DS account and configure it to create FSLogix profile containers. If you already have your Azure AD DS account set up, skip ahead to [Add Azure AD DS admins](#add-azure-ad-ds-admins).
+This article assumes you've already set up an Azure AD DS instance. If you don't have one yet, follow the instructions in [Create a basic managed domain](../active-directory-domain-services/tutorial-create-instance.md) first, then return here.
 
-To configure your Azure AD DS account to create FSLogix profile containers:
-
-1. Sign in to the Azure portal with an account that has contributor or administrator permissions.
-
-2. Select **New**, then in the search bar, search for and select **Azure Active Directory Domain Services**.
-
-3. When the Azure AD DS window opens, select **Create**.
-
-4. In the **Basics** tab:
-
-   - Enter the DNS domain name.
-   - Select an active Azure subscription (if multiple subscriptions are available).
-   - Select an empty resource group or create a new one by selecting **Create new**.
-   - Select a location.
-
-    ![A screenshot of the Basics tab in Azure AD DS.](media/basics-tab.png)
-
-5. For the **Network** tab, configure a virtual network or select an existing one. We recommend you create a new one by selecting **Create new** and entering the following information:
-
-   - Visual network name
-   - Address space
-   - Subnet name
-   - Subnet address range
-
-    ![A screenshot of the Network tab. The user has selected Create New and is in the process of creating a new network.](media/network-tab.png)
-
-6. For the **Administrator group** tab, select the Azure AD users that will manage the Azure AD DS configuration.
-
-7. For most deployments, you won't need to change any information in the **Synchronization** tab. Keep the default values unless told otherwise.
-
-8. Finally, you'll see the **Summary** tab. Review the information to make sure you've selected the right settings. When you're done, select **OK** to start the deployment.
-
-    ![A screenshot of the Summary tab in Azure AD DS.](media/summary-tab.png)
-
-   To check your deployment's progress, select the **Notifications** icon in the global controls bar.
-
-9. When the deployment is done, go to **Azure AD DS** and confirm that Azure AD DS is running.
+You'll also need a general-purpose v2 Azure Storage account in the Azure portal. To learn how to set up your account, check out [Create an Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Add Azure AD DS admins
 
@@ -73,40 +37,25 @@ To add an admin:
 
 5. In the left pane, select **Members**, then select **Add members** in the main pane. This will show a list of all users available in Azure AD. Select the name of the user profile you just created.
 
-## Set up an Azure Files Storage account
+## Set up an Azure Storage account
 
-Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). For more information about this process, see our [Azure Storage Documentation](../storage/common/storage-introduction.md).
+Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). 
 
 To enable authentication:
 
-1. Go to the Azure portal, then select **All services**, and then select **Storage accounts**.
+1. If you haven't already, set up and deploy a general-purpose v2 Azure Storage account by following the instructions in [Create an Azure Storage account](../storage/common/storage-account-create.md).
 
-2. Select **Add** to create a storage account.
+2. Once you've finished setting up your account, select **Go to resource**.
 
-3. In the window that appears:
+3. Select **Configuration** from the pane on the left side of the screen, then enable **Azure Active Directory authentication for Azure Files** in the main pane. When you're done, select **Save**.
 
-    - Select **Subscription** (if applicable).
-    - Select an existing **Resource group** or select **Create new** to create a new one.
-    - Enter the **Storage account name**.
-    - Select the **Location**. (We recommend using the same location as the session host VMs.)
-    - Select the **Performance type**.
-    - For **Account type**, select a **StorageV2 (general purpose V2) account**.
+4. Select **Overview** in the pane on the left side of the screen, then select **Files** in the main pane.
 
-4. Select **Review + create**. This will start the validation process for the information you entered for your new storage account.
-
-5. Once the validation process is done, select **Create**. This will start the deployment process.
-
-6. Once the deployment is done, select **Go to resource**.
-
-7. Select **Configuration** from the pane on the left side of the screen, then enable **Azure Active Directory authentication for Azure Files** in the main pane. When you're done, select **Save**.
-
-8. Select **Overview** in the pane on the left side of the screen, then select **Files** in the main pane.
-
-9.  Select **File share** and enter the **Name** and **Quota** into the fields that appear on the right side of the screen.
+5. Select **File share** and enter the **Name** and **Quota** into the fields that appear on the right side of the screen.
 
 ## Assign access permissions to an identity
 
-From the Azure portal, navigate to the **Files share** created in the previous section.
+From the Azure portal, open the file share you created in [Set up an Azure Storage account](#set-up-an-azure-storage-account).
 
 1. Select **Access Control (IAM)**.
 
@@ -128,7 +77,7 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 
 3. Under **Settings**, select **Access keys** and copy the key from **key1**.
 
-4. Go to the **Virtual Machines** tab and locate any VM that is going to be part of your host pool.
+4. Go to the **Virtual Machines** tab and locate any VM that will become part of your host pool.
 
 5. Select the name of the virtual machine (VM) under **Virtual Machines (adVM)** and select **Connect**
 
@@ -172,12 +121,13 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 
 ## Configure your profile container
 
+Now that you're ready to go, let's configure the FSLogix profile container.
+
+To configure a FSLogix profile container:
+
 1. Sign in to the session host VM you configured at the beginning of this article, then [download and install the FSLogix agent](/fslogix/install-ht/).
 
 2. Unzip the FSLogix agent file you downloaded and go to **x64** > **Releases**, then open **FSLogixAppsSetup.exe**.
-
-     >[!NOTE]
-     > If there are multiple VMs in the host pool the below configuration must be done for each VM.
 
 3. Once the installer launches, select **I agree to the license terms and conditions.** If applicable, provide a new key.
 
@@ -185,13 +135,16 @@ From the Azure portal, navigate to the **Files share** created in the previous s
 
 5. Open **Drive C**, then go to **Program Files** > **FSLogix** > **Apps** to make sure the FSLogix agent was properly installed.
 
+     >[!NOTE]
+     > If there are multiple VMs in the host pool, you'll need to repeat steps 1 through 5 for each VM.
+
 6. Run **Registry Editor** (RegEdit) as an administrator.
 
 7. Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, right-click on **FSLogix**, select **New**, and then select **Key**.
 
 8. Create a new key named **Profiles**.
 
-9. Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
+9.  Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
     ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
@@ -200,6 +153,10 @@ From the Azure portal, navigate to the **Files share** created in the previous s
     ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to session host
+
+Now you'll need to assign users to your session host.
+
+To assign users:
 
 1. Run Windows PowerShell as an administrator, then run the following cmdlet to sign in to Windows Virtual Desktop with PowerShell:
 
