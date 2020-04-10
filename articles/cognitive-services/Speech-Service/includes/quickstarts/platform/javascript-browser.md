@@ -32,3 +32,7 @@ This results in four files being unpacked:
 ## Create an index.html page
 
 Create a new file in the folder, named `index.html` and open this file with a text editor.
+
+## Next steps
+
+[!INCLUDE [windows](../quickstart-list.md)]

@@ -14,22 +14,9 @@ Before you get started:
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 
-## Create a new Website folder
-
-Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
-
-## Unpack the Speech SDK for JavaScript into that folder
-
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-The latter file is optional, and is useful for debugging into the SDK code.
-
-## Create an index.html page
-
-Create a new file in the folder, named `index.html` and open this file with a text editor.
-
 ## Start with some boilerplate code
 
-Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `RecognizeSpeechAsync()`.
+Let's add some code that works as a skeleton for our project.
 
 ```html
     <!DOCTYPE html>
