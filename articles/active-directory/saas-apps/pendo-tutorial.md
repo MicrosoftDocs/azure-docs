@@ -54,7 +54,6 @@ To configure the integration of Pendo into Azure AD, you need to add Pendo from 
 1. In the **Add from the gallery** section, type **Pendo** in the search box.
 1. Select **Pendo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Pendo
 
 Configure and test Azure AD SSO with Pendo using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Pendo.
@@ -83,10 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://sso.connect.pingidentity.com/<CUSTOM_GUID>`
 
-    b. In the **Reply URL** text box, type a URL:
-    `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
-
-    c. In the **Relay State** text box, type a URL using the following pattern:
+    b. In the **Relay State** text box, type a URL using the following pattern:
     `https://pingone.com/1.0/<CUSTOM_GUID>`
 
 	> [!NOTE]
