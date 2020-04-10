@@ -69,7 +69,7 @@ Azure Bot Service can be used in Azure Government supporting Impact Level 5 work
 
 Azure Cognitive Search can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Configure encryption at rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/search/search-security-manage-encryption-keys)
+- Configure encryption at rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ Text Analytics can be used in Azure Government supporting Impact Level 5 workloa
 
 Azure Data Explorer can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage encryption of your data at the storage level with your own keys.(https://docs.microsoft.com/en-us/azure/data-explorer/security#data-encryption)
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage encryption of your data at the storage level with your own keys.(https://docs.microsoft.com/azure/data-explorer/security#data-encryption)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -107,7 +107,7 @@ Azure Data Explorer can be used in Azure Government supporting Impact Level 5 wo
 
 Azure Data Factory can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Secure data store credentials by storing encrypted credentials in an Azure Data Factory managed store. Data Factory helps protect your data store credentials by encrypting them with certificates managed by Microsoft. For more information about Azure Storage security, see Azure Storage security overview. You can also store the data store's credential in Azure Key Vault. Data Factory retrieves the credential during the execution of an activity. For more information, see Store credential in Azure Key Vault (https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault)
+Secure data store credentials by storing encrypted credentials in an Azure Data Factory managed store. Data Factory helps protect your data store credentials by encrypting them with certificates managed by Microsoft. For more information about Azure Storage security, see Azure Storage security overview. You can also store the data store's credential in Azure Key Vault. Data Factory retrieves the credential during the execution of an activity. For more information, see Store credential in Azure Key Vault (https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -259,7 +259,7 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 
 Azure Container Instances can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Azure Container Instances service automatically encrypts data related to your containers when it is persisted in the cloud. Data in ACI is encrypted and decrypted using 256-bit AES encryption and enabled for all ACI deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption with your own keys. (https://docs.microsoft.com/en-us/azure/container-instances/container-instances-encrypt-data) 
+Azure Container Instances service automatically encrypts data related to your containers when it is persisted in the cloud. Data in ACI is encrypted and decrypted using 256-bit AES encryption and enabled for all ACI deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption with your own keys. (https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data) 
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -269,7 +269,7 @@ Azure Container Instances service automatically encrypts data related to your co
 
 Container Registry can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with service-managed keys. You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-customer-managed-keys)
+When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with service-managed keys. You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. (https://docs.microsoft.com/azure/container-registry/container-registry-customer-managed-keys)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -281,7 +281,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 Azure Database for MySQL can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. Data encryption with customer-managed keys for Azure Database for MySQL, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. (https://docs.microsoft.com/en-us/azure/mysql/concepts-data-encryption-mysql)
+Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. Data encryption with customer-managed keys for Azure Database for MySQL, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. (https://docs.microsoft.com/azure/mysql/concepts-data-encryption-mysql)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -291,7 +291,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL enables 
 
 Azure Database for PostgreSQL can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. (https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-encryption-postgresql)
+Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. (https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -309,11 +309,11 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 ## Hybrid
 
-### [Azure Stack Edge] (https://azure.microsoft.com/en-us/products/azure-stack/edge/)
+### [Azure Stack Edge] (https://azure.microsoft.com/products/azure-stack/edge/)
 
 Azure Stack Edge can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
-You can protect data via storage accounts as your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and two 512-bit storage access keys associated with that storage account. (https://docs.microsoft.com/en-us/azure/databox-online/data-box-edge-security#protect-your-data) 
+You can protect data via storage accounts as your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and two 512-bit storage access keys associated with that storage account. (https://docs.microsoft.com/azure/databox-online/data-box-edge-security#protect-your-data) 
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -327,7 +327,7 @@ You can protect data via storage accounts as your device is associated with a st
 
 Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
-Azure Logic Apps relies on Azure Storage to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see Azure Storage encryption for data at rest and Azure Data Encryption-at-Rest.(https://docs.microsoft.com/en-us/azure/logic-apps/customer-managed-keys-integration-service-environment)
+Azure Logic Apps relies on Azure Storage to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see Azure Storage encryption for data at rest and Azure Data Encryption-at-Rest.(https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -366,7 +366,7 @@ Azure API Management can be used in Azure Government supporting Impact Level 5 w
 
 Azure IoT Hub can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-IoT Hub supports encryption of data at rest with customer-managed keys (CMK), also known as Bring your own key (BYOK), support for Azure IoT Hub. Azure IoT Hub provides encryption of data at rest and in transit. By default, IoT Hub uses Microsoft-managed keys to encrypt the data. With CMK support, customers now have the choice of encrypting the data at rest with a key encryption key, managed by the customers, using the Azure Key Vault. (https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-customer-managed-keys)
+IoT Hub supports encryption of data at rest with customer-managed keys (CMK), also known as Bring your own key (BYOK), support for Azure IoT Hub. Azure IoT Hub provides encryption of data at rest and in transit. By default, IoT Hub uses Microsoft-managed keys to encrypt the data. With CMK support, customers now have the choice of encrypting the data at rest with a key encryption key, managed by the customers, using the Azure Key Vault. (https://docs.microsoft.com/azure/iot-hub/iot-hub-customer-managed-keys)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -386,7 +386,7 @@ Notification Hubs can be used in Azure Government supporting Impact Level 5 work
 
 Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-By default, your Azure Automation account uses Microsoft-managed keys.You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. (https://docs.microsoft.com/en-us/azure/automation/automation-secure-asset-encryption)
+By default, your Azure Automation account uses Microsoft-managed keys.You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. (https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -436,7 +436,7 @@ Azure Cost Management can be used in Azure Government supporting Impact Level 5 
 
 Azure Managed Applications can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Bring your own storage for the managed application definition and store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs. (https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
+Bring your own storage for the managed application definition and store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -462,7 +462,7 @@ Azure Policy can be used in Azure Government supporting Impact Level 5 workloads
 
 Microsoft Azure portal can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-You can add a markdown tile to your Azure dashboards to display custom, static content. For example, you can show basic instructions, an image, or a set of hyperlinks on a markdown tile (https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-markdown-tile)
+You can add a markdown tile to your Azure dashboards to display custom, static content. For example, you can show basic instructions, an image, or a set of hyperlinks on a markdown tile (https://docs.microsoft.com/azure/azure-portal/azure-portal-markdown-tile)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -488,7 +488,7 @@ Azure Resource Graph can be used in Azure Government supporting Impact Level 5 w
 
 Azure Site Recovery can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-You can replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed disks, from one Azure region to another (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks)
+You can replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed disks, from one Azure region to another (https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -498,7 +498,7 @@ You can replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed dis
 
 Log Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.(https://docs.microsoft.com/en-us/azure/azure-monitor/platform/customer-managed-keys)
+Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.(https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -560,7 +560,7 @@ Load Balancer can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Load Balancer** | X | X | X | X | X | X |
 
-### [Network Watcher](https://azure.microsoft.com/en-us/services/network-watcher/)
+### [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 
 Network Watcher and Network Watcher Traffic Analytics can be used in Azure Government supporting all impact levels with no additional configuration required between regions:
 
@@ -733,7 +733,7 @@ For more information on how to enable this Azure Storage Encryption feature, ple
 
 StorSimple can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows - You specify the cloud storage encryption key when you create a volume container. (https://docs.microsoft.com/en-us/azure/storsimple/storsimple-8000-security#storsimple-data-protection)
+To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows - You specify the cloud storage encryption key when you create a volume container. (https://docs.microsoft.com/azure/storsimple/storsimple-8000-security#storsimple-data-protection)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
