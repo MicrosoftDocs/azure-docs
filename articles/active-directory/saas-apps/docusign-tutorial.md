@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/10/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 
 * DocuSign supports service provider (SP)-initiated SSO.
 
-* DocuSign supports *just-in-time* user provisioning.
+* DocuSign supports **just-in-time** user provisioning.
 
 * DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
 * Once you configure DocuSign you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
@@ -84,14 +84,20 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 1. In the **Basic SAML Configuration** section, follow these steps:
 
-	a. In the **Sign on URL** box, enter a URL using the following pattern:
+	a. In the **Sign on URL** textbox, enter a URL using the following pattern:
+
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
-    b. In the **Identifier (Entity ID)** box, enter a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** textbox, enter a URL using the following pattern:
+
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
+    c. In the **Reply URL** textbox, enter a URL using the following pattern:
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+
 	> [!NOTE]
-	> These bracketed values are placeholders. Replace them with the values in the actual sign-on URL and Identifier. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
+	> These bracketed values are placeholders. Replace them with the values in the actual sign-on URL, Identifier and Reply URL. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
@@ -205,13 +211,16 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
        ![Identity Providers/Endpoints][59]
 
     l. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
-       1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
 
+       ![View SAML 2.0 Endpoints][60]
+       
+       1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
+       
+       1. Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
+       
        1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
 
        1. Select **Close**.
-
-       ![View SAML 2.0 Endpoints][60]
 
 ### Create DocuSign test user
 
