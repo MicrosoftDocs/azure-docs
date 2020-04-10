@@ -42,7 +42,7 @@ This section shows a few basic SPX commands that are often useful for first-time
 spx recognize --microphone
 ```
 
-After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the output. Text-to-speech synthesis is also easy to do using SPX. Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
+After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using SPX. Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
 
 ```shell
 spx synthesize --text "Testing synthesis using SPX" --speakers
@@ -59,12 +59,23 @@ spx synthesize --text "Synthesis to a file." --audio output some/file/path/spx.w
 The commands in the previous section are great for quickly seeing how the Speech service works. However, when assessing whether or not your use-cases can be met, you likely need to perform batch operations against a range of input you already have, to see how the service handles a variety of scenarios. This section shows how to:
 
 * Run batch speech recognition on a directory of audio files
-* Iterate through a `.tsv` file and run batch text-to-speech
+* Iterate through a `.tsv` file and run batch text-to-speech synthesis
 
-### Batch speech recognition
+## Batch speech recognition
 
+If you have a directory of audio files, it's easy with SPX to quickly run batch-speech recognition. Simply run the following command, pointing to your directory with the `--files` command. In this example, you append `\*.wav` to the directory to recognize all `.wav` files present in the dir. Additionally, specify the `--threads` argument to run the recognition on 10 parallel threads.
 
-### Batch text-to-speech
+```shell
+spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10
+```
+
+The recognized speech output is written to `speech_output.tsv` using the `--output file` argument. The following is an example of the output file structure.
+
+    audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
+    sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
+    sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+
+## Batch text-to-speech synthesis
 
 The easiest way to run batch text-to-speech is to create a new `.tsv` file, and leverage the `--foreach` command in SPX. Consider the following file `text_synthesis.tsv`:
 
@@ -97,7 +108,4 @@ You can override these field names to the correct arguments using the following 
 spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.tsv
 ```
 
-
-
-
-
+## Next steps
