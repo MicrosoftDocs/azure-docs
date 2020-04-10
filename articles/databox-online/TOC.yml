@@ -98,7 +98,7 @@
       - name: Edge compute network
         href: data-box-edge-extend-compute-access-modules.md
       - name: Shares
-        href: data-box-edge-manage-shares.md
+        href: azure-stack-edge-manage-shares.md
       - name: Users
         href: data-box-edge-manage-users.md
       - name: Bandwidth schedules

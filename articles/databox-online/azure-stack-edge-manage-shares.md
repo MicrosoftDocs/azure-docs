@@ -36,7 +36,7 @@ Do the following steps in the Azure portal to create a share.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
-    ![Select add share](media/data-box-edge-manage-shares/add-share-1.png)
+    ![Select add share](media/azure-stack-edge-manage-shares/add-share-1.png)
 
 2. In **Add Share**, specify the share settings. Provide a unique name for your share.
     
@@ -54,12 +54,12 @@ Do the following steps in the Azure portal to create a share.
 6. This step depends on whether you are creating an SMB or an NFS share.
    - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
 
-      ![Add SMB share](media/data-box-edge-manage-shares/add-smb-share.png)
+      ![Add SMB share](media/azure-stack-edge-manage-shares/add-smb-share.png)
 
         If you check allow only read operations for this share data, you can specify read-only users.
    - **If creating an NFS share** - You need to supply the **IP addresses of the allowed clients** that can access the share.
 
-      ![Add NFS share](media/data-box-edge-manage-shares/add-nfs-share.png)
+      ![Add NFS share](media/azure-stack-edge-manage-shares/add-nfs-share.png)
 
 7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it is created. When this option is selected, the Edge module can also use the compute with the local mount point.
 
@@ -69,7 +69,7 @@ Do the following steps in the Azure portal to create a share.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
-   ![Select add share](media/data-box-edge-manage-shares/add-local-share-1.png)
+   ![Select add share](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. In **Add Share**, specify the share settings. Provide a unique name for your share.
     
@@ -85,15 +85,15 @@ Do the following steps in the Azure portal to create a share.
 
 7. Select **Create**. 
 
-   ![Create local share](media/data-box-edge-manage-shares/add-local-share-2.png)
+   ![Create local share](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
     You see a notification that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
 
-   ![View updates Shares blade](media/data-box-edge-manage-shares/add-local-share-3.png)
+   ![View updates Shares blade](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
     Select the share to view the local mountpoint for the Edge compute modules for this share.
 
-   ![View local share details](media/data-box-edge-manage-shares/add-local-share-4.png)
+   ![View local share details](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## Mount a share
 
@@ -101,23 +101,23 @@ If you created a share before you configured compute on your Azure Stack Edge de
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
 
-   ![Select share](media/data-box-edge-manage-shares/select-share-mount.png)
+   ![Select share](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Select **Mount**.
 
-   ![Select mount](media/data-box-edge-manage-shares/select-mount.png)
+   ![Select mount](media/azure-stack-edge-manage-shares/select-mount.png)
 
 3. When prompted for confirmation, select **Yes**. This will mount the share.
 
-   ![Confirm mount](media/data-box-edge-manage-shares/confirm-mount.png)
+   ![Confirm mount](media/azure-stack-edge-manage-shares/confirm-mount.png)
 
 4. After the share is mounted, go to the list of shares. You'll see that the **Used for compute** column shows the share status as **Enabled**.
 
-   ![Share mounted](media/data-box-edge-manage-shares/share-mounted.png)
+   ![Share mounted](media/azure-stack-edge-manage-shares/share-mounted.png)
 
 5. Select the share again to view the local mountpoint for the share. Edge compute module uses this local mountpoint for the share.
 
-   ![Local mountpoint for the share](media/data-box-edge-manage-shares/share-mountpoint.png)
+   ![Local mountpoint for the share](media/azure-stack-edge-manage-shares/share-mountpoint.png)
 
 ## Unmount a share
 
@@ -125,19 +125,19 @@ Do the following steps in the Azure portal to unmount a share.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**.
 
-   ![Select share](media/data-box-edge-manage-shares/select-share-unmount.png)
+   ![Select share](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. From the list of the shares, select the share that you want to unmount. You want to make sure that the share you unmount is not used by any modules. If the share is used by a module, then you will see issues with the corresponding module. Select **Unmount**.
 
-   ![Select unmount](media/data-box-edge-manage-shares/select-unmount.png)
+   ![Select unmount](media/azure-stack-edge-manage-shares/select-unmount.png)
 
 3. When prompted for confirmation, select **Yes**. This will unmount the share.
 
-   ![Confirm unmount](media/data-box-edge-manage-shares/confirm-unmount.png)
+   ![Confirm unmount](media/azure-stack-edge-manage-shares/confirm-unmount.png)
 
 4. After the share is unmounted, go to the list of shares. You'll see that **Used for compute** column shows the share status as **Disabled**.
 
-   ![Share unmounted](media/data-box-edge-manage-shares/share-unmounted.png)
+   ![Share unmounted](media/azure-stack-edge-manage-shares/share-unmounted.png)
 
 ## Delete a share
 
@@ -145,15 +145,15 @@ Do the following steps in the Azure portal to delete a share.
 
 1. From the list of shares, select and click the share that you want to delete.
 
-   ![Select share](media/data-box-edge-manage-shares/delete-share-1.png)
+   ![Select share](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Click **Delete**.
 
-   ![Click delete](media/data-box-edge-manage-shares/delete-share-2.png)
+   ![Click delete](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. When prompted for confirmation, click **Yes**.
 
-   ![Confirm delete](media/data-box-edge-manage-shares/delete-share-3.png)
+   ![Confirm delete](media/azure-stack-edge-manage-shares/delete-share-3.png)
 
 The list of shares updates to reflect the deletion.
 
@@ -170,21 +170,21 @@ Do the following steps in the Azure portal to refresh a share.
 
 1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-   ![Select share](media/data-box-edge-manage-shares/refresh-share-1.png)
+   ![Select share](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Click **Refresh**.
 
-   ![Click refresh](media/data-box-edge-manage-shares/refresh-share-2.png)
+   ![Click refresh](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
 3. When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share.
 
-   ![Confirm refresh](media/data-box-edge-manage-shares/refresh-share-3.png)
+   ![Confirm refresh](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
 4. While the refresh is in progress, the refresh option is grayed out in the context menu. Click the job notification to view the refresh job status.
 
 5. The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated. The refresh error logs are also updated.
 
-   ![Updated timestamp](media/data-box-edge-manage-shares/refresh-share-4.png)
+   ![Updated timestamp](media/azure-stack-edge-manage-shares/refresh-share-4.png)
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 
@@ -196,11 +196,11 @@ Do the following steps in the Azure portal to sync your storage access key.
 
 1. Go to **Overview** in your resource. From the list of shares, choose and click a share associated with the storage account that you need to sync.
 
-    ![Select share with relevant storage account](media/data-box-edge-manage-shares/sync-storage-key-1.png)
+    ![Select share with relevant storage account](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 
 2. Click **Sync storage key**. Click **Yes** when prompted for confirmation.
 
-     ![Select Sync storage key](media/data-box-edge-manage-shares/sync-storage-key-2.png)
+     ![Select Sync storage key](media/azure-stack-edge-manage-shares/sync-storage-key-2.png)
 
 3. Exit out of the dialog once the sync is complete.
 

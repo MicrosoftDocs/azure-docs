@@ -84,7 +84,7 @@ landingContent:
           - text: Data Box Gateway shares
             url: data-box-gateway-manage-shares.md
           - text: Azure Stack Edge shares
-            url: data-box-edge-manage-shares.md
+            url: azure-stack-edge-manage-shares.md
           - text: Edge compute
             url: azure-stack-edge-manage-compute.md
           - text: Edge compute network

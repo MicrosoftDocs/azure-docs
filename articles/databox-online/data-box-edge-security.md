@@ -76,7 +76,7 @@ This section describes the Azure Stack Edge security features that protect in-tr
 ### Protect data via storage accounts
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
-- Rotate and then [sync your storage account keys](data-box-edge-manage-shares.md#sync-storage-keys) regularly to help protect your storage account from unauthorized users.
+- Rotate and then [sync your storage account keys](azure-stack-edge-manage-shares.md#sync-storage-keys) regularly to help protect your storage account from unauthorized users.
 
 ## Manage personal information
 
@@ -84,7 +84,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](data-box-edge-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-manage-shares.md).
 
 For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
 
