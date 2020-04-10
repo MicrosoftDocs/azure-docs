@@ -468,6 +468,24 @@
           href: ./partner-center-portal/create-azure-container-technical-assets.md
         - name: Create an Azure Container offer
           href: ./partner-center-portal/create-azure-container-offer.md
+    - name: Virtual Machine offer
+      items:
+        - name: Create an Azure Virtual Machine offer
+          href: ./partner-center-portal/azure-vm-create-offer.md
+      - name: Create Azure VM technical asset
+       items:
+        - name: Create Azure VM technical asset
+          href: ./partner-center-portal/create-azure-container-technical-assets.md
+        - name: Azure VM technical asset FAQ
+          href: ./partner-center-portal/common-issues-during-vhd-creation.md
+        - name: Certify Azure VM image
+          href: ./partner-center-portal/azure-vm-image-certification.md
+        - name: SaS URI
+        items:
+          - name: Get SaS URI
+            href: ./partner-center-portal/get-sas-uri.md
+          - name: SaS URI FAQ
+            href: ./partner-center-portal/common-sas-uri-issues.md
     - name: Consulting services
       items: 
         - name: Prerequisites

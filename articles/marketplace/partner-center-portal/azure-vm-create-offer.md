@@ -77,9 +77,7 @@ Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-### Setup details
-
-#### Test drive
+### Test drive
 
 Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
@@ -222,22 +220,18 @@ Enter the web address (URL) to your organization's privacy policy. Ensure your o
 
 Provide supplemental online documents about your offer. To add a link, select **+ Add a link** and then complete the following fields:
 
-- **Name** – Customers will see the offer name on the details page.
+- **Name** – Customers will see the name on the details page.
 - **Link (URL)** – Enter a link for customers to view your online document.
 
-#### Contact Information
-
-Provide support links and contact information for your offer.
-
-#### Customer support links
+### Customer support links
 
 Provide the support website where customers can reach your support team.
 
 - Azure Global support website
 - Azure Government support website
-- more?
+- and so on
 
-#### Partner support contact
+### Partner support contact
 
 Provide contact information for Microsoft partners to use when your customers open a support ticket. This will not be listed in the marketplace.
 
@@ -245,7 +239,7 @@ Provide contact information for Microsoft partners to use when your customers op
 - Email
 - Phone
 
-#### Engineering contact
+### Engineering contact
 
 Provide contact information for Microsoft to use when there are issues with your offer, including issues with certification. This will not be listed in the marketplace.
 
@@ -276,9 +270,8 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-### Additional marketplace listing resources
-
-- [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices)
+### &nbsp;
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices).
 
 Select **Save draft** before continuing.
 
@@ -294,7 +287,7 @@ Your preview audience is identified by Azure subscription ID GUIDs, along with a
 Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you define who can preview your offer before it is published live. If your offer is already live, you may still define a preview audience for testing offer changes or updates to your offer.
 
 > [!NOTE]
-> A preview audience differs from a private audience. A preview audience can access to your offer _before_ it's published live in the marketplaces. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. A private audience (defined in the plan Availability tab) has exclusive access to a particular plan.
+> A preview audience differs from a private audience. A preview audience can access to your offer _before_ it's published live in the marketplaces. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. A private audience (defined in the plan **Pricing and Availability** tab) has exclusive access to a particular plan.
 
 Select **Save draft** before proceeding to the next section, Plan overview.
 
@@ -362,7 +355,7 @@ Select **Save draft** before continuing.
 
 ### Plan listing
 
-This tab displays specific information that can differ between plans in the same offer.
+This is where you configure listing detail of the plan. This tab displays specific information that can differ between plans in the same offer.
 
 #### Plan name
 
@@ -396,25 +389,20 @@ If you've already set prices for your plan in United States Dollars (USD) and ad
 
 **License model** – Select **Usage-based monthly billed plan** to configure pricing for this plan or **Bring your own license** to let customers use this plan with their existing license.
 
-For a Usage-based monthly billed plan, use one of the following three pricing options:
+For a Usage-based monthly billed plan, use one of the following three pricing entry options:
 
 - **Per core** – Provide the price per core in United States Dollars (USD). We'll calculate the pricing per core size and convert into local currencies using the current exchange rate.
 - **Per core size** – Provide prices per core size in USD. We'll convert the prices into local currencies using the current exchange rate.
 - **Per market and core size** – Provide prices for each core size for all markets. You may import prices from a spreadsheet.
 
 > [!NOTE]
-> Save pricing changes to enable the export of pricing data.
-
-Make sure these prices are right before publishing by exporting the pricing spreadsheet and reviewing the price in each market.
-
-> [!NOTE]
-> After a price for a market in your plan is published, it can't be changed later.
+> Save pricing changes to enable the export of pricing data. After a price for a market in your plan is published, it can't be changed later. Ensure these prices are right before publishing by exporting the pricing spreadsheet and reviewing the price in each market.
 
 #### Free trial
 
 You can offer a one-month or three-month free trial to your customers.
 
-#### Plan visibility
+#### Visibility
 
 You can design each plan to be visible to everyone or to only a preselected audience. Assign memberships in this restricted audience using Azure subscription IDs.
 
@@ -429,7 +417,10 @@ You can design each plan to be visible to everyone or to only a preselected audi
 
 #### Hide plan
 
-If your virtual machine is meant to be used only indirectly when referenced through another virtual machine or managed application, select this box to publish it but hide it from customers searching and browsing for it directly. Hidden plans do not support preview links.
+If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine or offer but hide it from customers searching and browsing for it directly.
+
+> [!NOTE]
+> Hidden plans do not support preview links.
 
 Select **Save draft** before continuing.
 
@@ -454,6 +445,8 @@ Select up to six recommended virtual machine sizes to display in Azure Marketpla
 
 Open public or private ports on a deployed virtual machine.
 
+#### Storage option for deployment
+
 **Disk deployment option** – Select what kind of disk deployment your users can use when using the virtual machine. Microsoft recommends limiting the deployment to Managed disk deployment only.
 
 #### Properties
@@ -469,11 +462,13 @@ Provide a disk version and the SAS URI for the virtual machine images. Add up to
 - Data disk images are also VHD SAS URIs stored in their Azure storage.
 - Add only one image per submission in a plan.
 
+Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
+
 Select **Save draft** before continuing and return to **Plan overview**.
 
 ## Resell through CSPs
 
-Expand the reach of your offer by making it available to partners in the Cloud Solution Providers (CSP) program. All Bring Your Own License (BYOL) plans are automatically opted in; you can choose to opt in your non-BYOL plans.
+Expand the reach of your offer by making it available to partners in the [Cloud Solution Providers](https://azure.microsoft.com/offers/ms-azr-0145p/) (CSP) program. All Bring Your Own License (BYOL) plans are automatically opted in; you can choose to opt in your non-BYOL plans.
 
 Select **Save draft** before continuing.
 
@@ -487,7 +482,7 @@ Additional test drive resources:
 
 - Technical best practices
 - Marketing best practices
-- Test Drives overview PDF (make sure your pop-up blocker is off).
+- Test Drives overview (PDF; make sure your pop-up blocker is off).
 
 Select **Save draft** before continuing.
 
@@ -497,7 +492,7 @@ After you've completed all the required sections of the offer, you can submit it
 
 In the top-right corner of the portal, select **Review and publish**.
 
-If this is your first time publishing this offer, you can:
+On this page you can:
 
 - See the completion status for each section of the offer.
   - **Not started** – The section has not been started and needs to be completed.
