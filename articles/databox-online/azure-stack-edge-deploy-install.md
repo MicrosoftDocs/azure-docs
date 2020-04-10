@@ -32,7 +32,7 @@ The prerequisites for installing a physical device as follows:
 
 Before you begin, make sure that:
 
-* You've completed all the steps in [Prepare to deploy Azure Stack Edge](data-box-edge-deploy-prep.md).
+* You've completed all the steps in [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md).
     * You've created a Azure Stack Edge resource to deploy your device.
     * You've generated the activation key to activate your device with the Azure Stack Edge resource.
 
