@@ -40,7 +40,7 @@ To send your vault diagnostics data to Log Analytics:
 1. Select **Resource specific** in the toggle, and select the following six events: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, and **AddonAzureBackupProtectedInstance**.
 1. Select **Save**.
 
-   ![Resource-specific mode](./media/backup-azure-diagnostics-events/resource-specific-bLogAnalyticsde.png)
+   ![Resource-specific mode](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 
 After data flows into the Log Analytics workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly. You can also perform joins or unions between these tables if necessary.
 
