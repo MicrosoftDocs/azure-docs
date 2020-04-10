@@ -23,7 +23,7 @@ Before you configure My Staff for your organization, we recommend that you revie
 
 ## How My Staff works
 
-My Staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My Staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role.
+My Staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My Staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role. For more information about administrative units, see [Administrative units management in Azure Active Directory](directory-administrative-units.md)].
 
 ## How to enable My Staff
 

@@ -85,13 +85,16 @@ After you register a phone number for a user, they can use it to sign in with SM
     ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
 
 1. Select **Edit phone number**.
-1. Change the phone number and select **Edit**.
+
+    ![Select Edit from the user profile in My Staff](media/my-staff-team-manager/editphone2.png)
+
+1. Enter the new phone number and select **Save**.
 
     ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/editphone1.png)
 
 ### Enable phone number sign-in for a suer
 
-If sign-in using a phone number as a username (SMS sign-in) is enabled in your organization, you can add this authentication to existing user phone number.
+If sign-in using a phone number as a username (SMS sign-in) is enabled in your organization, you can add this authentication to an existing user phone number.
 
 1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
 
@@ -101,11 +104,11 @@ If sign-in using a phone number as a username (SMS sign-in) is enabled in your o
 
     ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
 
-1. Select **Enable** at the prompt.
+1. If there's a message at the bottom of the screen that signing in with your phone number as a username is available for you, select **Enable** to begin the process. This message appears if the user has been enabled to sign in with their phone number.
 
-    ![Select one of the users in a location in My Staff](media/my-staff-team-manager/enableforms1.png)
+    ![See the message when phone sign-in is supported in a location in My Staff](media/my-staff-team-manager/enableforms1.png)
 
-1. Confirm your intent.
+1. Select **OK* to finish.
 
     ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/enableforms2.png)
 
@@ -120,7 +123,6 @@ If sign-in using a phone number as a username (SMS sign-in) is enabled in your o
     ![Select one of the users in a location in My Staff](media/my-staff-team-manager/aupage.png)
 
 1. Select **Remove phone number**.
-1. Confirm your intent.
+1. Select **Delete** to finish.
 
     ![Remove a staff member phone number in My Staff](media/my-staff-team-manager/deletephone1.png)
-
