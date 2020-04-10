@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -82,6 +82,8 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
+We recommend that you use the WindowsVirtualDesktop service tag instead of whitelisting URLs, but in case you can't use the service tag, we'll list the URLs in the following table.
+
 The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
@@ -93,8 +95,6 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |prod.warmpath.msftcloudes.com|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
-
-
 
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
