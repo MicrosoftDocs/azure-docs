@@ -28,7 +28,7 @@ The tutorial shows you how to:
 > * Update certificate's attributes using Azure Powershell
 
 
-Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
+Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -121,7 +121,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Learn more about the parameters [here](https://docs.microsoft.com/en-us/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes)
+Learn more about the parameters [here](/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes)
 
 ## Clean up resources
 
@@ -137,5 +137,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 In this tutorial, you updated a certificate's life-cycle. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read more about [Managing certificates in Azure Key Vault](https://docs.microsoft.com/en-us/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Read more about [Managing certificates in Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
 - Review the [Key Vault Overview](../general/overview.md)
