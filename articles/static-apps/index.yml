@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: App Service Static Apps documentation
+summary: App Service Static Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+
+metadata:
+  title: App Service Static Apps documentation
+  description: App Service Static Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+  ms.topic: landing-page # Required
+  ms.service: azure-functions
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+
+landingContent:
+  - title: About Static Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are App Service Static Apps?
+            url: static-apps-overview.md
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Create your first static app
+            url: static-apps-getting-started.md
