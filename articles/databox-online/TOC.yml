@@ -104,7 +104,7 @@
       - name: Bandwidth schedules
         href: data-box-edge-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
-        href: data-box-edge-manage-access-power-connectivity-mode.md
+        href: azure-stack-edge-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
         href: azure-stack-edge-connect-powershell-interface.md
     - name: Troubleshoot 

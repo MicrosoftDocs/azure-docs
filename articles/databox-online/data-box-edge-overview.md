@@ -69,7 +69,7 @@ The Azure Stack Edge solution comprises of Azure Stack Edge resource, Azure Stac
 
     <!--![The Azure Stack Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
 ## Region availability
 
