@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.date: 02/20/2020 
+ms.date: 04/15/2020 
 ---
 
 # Getting Started Tutorial with Azure Synapse Analytics

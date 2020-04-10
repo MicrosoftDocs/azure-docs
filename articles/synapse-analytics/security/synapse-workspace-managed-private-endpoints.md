@@ -4,7 +4,7 @@ description: An article that explains Managed private endpoints in Azure Synapse
 author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---

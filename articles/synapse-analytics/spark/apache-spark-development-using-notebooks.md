@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice:
-ms.date: 03/10/2020
+ms.date: 04/15/2020
 ms.author: ruxu 
 ms.reviewer: 
 ---

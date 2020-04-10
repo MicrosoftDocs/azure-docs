@@ -4,7 +4,7 @@ description: An article that explains managed identity in Azure Synapse workspac
 author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview 
-ms.date: 03/19/2020 
+ms.date: 04/15/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---

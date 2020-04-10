@@ -5,7 +5,8 @@ author: mamccrea
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.date: 04/10/2020 
+
+ms.date: 04/15/2020 
 ms.author: mamccrea 
 ms.reviewer: jrasnick
 ---
