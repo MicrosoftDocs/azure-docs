@@ -32,13 +32,13 @@ To link an endpoint to Azure Digital Twins, the Event Hub, Event Grid topic, or 
 
 The following example shows how to create an Event Grid topic using the Azure CLI:
 
-```bash
+```Azure CLI
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l "westcentralus"
 ```
 
 Once you have created the topic, you can link it to Azure Digital Twins with the following command:
 
-```bash
+```Azure CLI
 az dt endpoints add eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -47,12 +47,12 @@ This makes the Event Grid topic available inside of Azure Digital Twins, under t
 Equivalent commands exist for Event Hub and Service Bus endpoints:
 
 * Add Service Bus Topic endpoint (requires a pre-created Service Bus resource)
-```bash 
+```Azure CLI 
 az dt endpoints add servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Add Event Hub endpoint (requires pre-created Event Hub resource)
-```bash
+```Azure CLI
 az dt endpoints add eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -89,7 +89,7 @@ The following code sample shows how to create, list and delete an event route:
 try
 {
     Log("Create a route: testRoute1");
-    EventRoute er = new EventRoute(<your-endpoint-name>);
+    EventRoute er = new EventRoute(<your-endpoint-name>,true);
     await client.EventRoutes.AddAsync(<your-route-name>, er);
     Log("Create route succeeded. Now listing routes:");
     List<EventRoute> routes = await ListRoutes();

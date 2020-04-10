@@ -40,7 +40,7 @@ To generate an SDK, you will need:
 * The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
-```bash
+```cmd/sh
 npm install -g autorest@2.0.4413
 ```
 
@@ -49,7 +49,7 @@ To run AutoRest against the Azure Digital Twins Swagger file, follow these steps
 2. On a command prompt, switch to that working directory.
 3. Run AutoRest with the following command.
 
-```bash
+```cmd/sh
 autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 

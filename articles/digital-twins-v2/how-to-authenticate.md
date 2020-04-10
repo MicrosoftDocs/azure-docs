@@ -50,7 +50,7 @@ Save this file as *manifest.json*.
 
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
-```bash
+```Azure CLI
 az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url <one-or-more-reply-URLs>
 ```
 
