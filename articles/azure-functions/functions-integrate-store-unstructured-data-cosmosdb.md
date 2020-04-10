@@ -48,9 +48,9 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Binding Type** | Azure Cosmos DB | Name of the binding type to select to create the output binding to Azure Cosmos DB. |
-    | **Document parameter name** | outputDocument | Name that refers to the Cosmos DB object in code. |
-    | **Database name** | outDatabase | Name of database to save documents. |
-    | **Collection name** | MyCollection | Name of the database collection. |
+    | **Document parameter name** | taskDocument | Name that refers to the Cosmos DB object in code. |
+    | **Database name** | taskDatabase | Name of database to save documents. |
+    | **Collection name** | taskCollection | Name of the database collection. |
     | **If true, creates the Cosmos DB database and collection** | Yes | The collection doesn't already exist, so create it. |
     | **Cosmos DB account connection** | New setting | Select **New**, then choose **Azure Cosmos DB Account** and the **Database account** you created earlier, and then select **OK**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
 
