@@ -355,7 +355,7 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
@@ -50680,13 +50680,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/",
+      "source_path": "articles/chef/index.yml",
       "redirect_url": "/azure/developer/chef/",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/index.yml",
-      "redirect_url": "/azure/developer/chef/",
+      "source_path": "articles/security/fundamentals/database-security-overview.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/database-best-practices.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
       "redirect_document_id": false
     }
   ]
