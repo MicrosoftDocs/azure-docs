@@ -105,6 +105,8 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+    - name: Handle 429 errors or throttling problems
+      href: handle-throttling-problems-429-errors.md
   - name: Access Azure virtual networks
     items: 
       - name: Create integration service environment - Azure portal
