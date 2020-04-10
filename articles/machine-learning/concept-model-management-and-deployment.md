@@ -131,12 +131,18 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 ## Capture the governance data required for capturing the end-to-end ML lifecycle
 
-Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
 - Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
-- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+
+> [!TIP]
+> While some information on models and datasets are automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
+>
+> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) class reference.
+
 
 ## Notify, automate, and alert on events in the ML lifecycle
 Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
