@@ -132,7 +132,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
+1. For HDI version 3.6, go to Ambari UI and add the following configurations under **Advanced kafka-env** and the **kafka-env template** property.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
