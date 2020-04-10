@@ -475,7 +475,7 @@
         - name: Create Azure VM technical asset
           items:
             - name: Create Azure VM technical asset
-              href: ./partner-center-portal/create-azure-container-technical-asset.md
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Azure VM technical asset FAQ
               href: ./partner-center-portal/common-issues-during-vhd-creation.md
             - name: Certify Azure VM image
