@@ -144,9 +144,9 @@ The **Users** section of Partner Center (under **Account Settings**) lets you us
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 
-- [Add or remove users](#add-or-remove-users)
+- [Add or remove users](#add-existing-users)
 - [Change a user password](#change-a-user-password)
-- [Add or remove groups](#add-or-remove-users)
+- [Add or remove groups](#manage-groups)
 - [Add or remove Azure AD applications](#add-new-azure-ad-applications)
 - [Manage keys for an Azure AD application](#manage-keys-for-an-azure-ad-application)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
