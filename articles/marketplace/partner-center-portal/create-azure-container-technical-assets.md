@@ -37,7 +37,7 @@ In addition to your solution domain, your engineering team should have knowledge
 Choose one or both of the following scripting environments to help manage your Container image:
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Azure CLI.](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 We recommend adding these tools to your development environment:
 
@@ -54,7 +54,7 @@ Review the available tools on the [Azure Developer Tools](https://azure.microsof
 For more information, see the following tutorials:
 
 - [Tutorial: Create a container image for deployment to Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks.](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
+- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
 
 ## Next step
 
