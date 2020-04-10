@@ -49,6 +49,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     +  Dataset: fixed dataset download failure if data path containing unicode characters
     +  Dataset: improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled
     + Added user_managed flag in RSection which indicates whether the environment is managed by user or by AzureML.
+    + Dataset: we add an index for the timeseries column when you access a timeseries dataset as a pandas dataframes, which is used to speed up access to timeseries based data access.  Previously, the index was given the same name as the timestamp column, confusing users about which is the actual timestamp column and which is the index. We now don’t give any specific name to the index since it should not be used as a column. 
   + **azureml-dataprep**
     + Fixed dataset authentication issue in sovereign cloud
     + Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores
