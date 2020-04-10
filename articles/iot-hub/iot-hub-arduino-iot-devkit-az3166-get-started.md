@@ -318,15 +318,15 @@ The sample application is running successfully when you see the following result
 ![Serial monitor output](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
 
 > [!NOTE]
->In case you receive the below errors during testing, notice that the LED is not blinking, and the Azure Portal does not show the incoming data from the device, but the device OLED screen shows as Running... go to the device inside the IoT Hub within Azure Portal and send message to the device. If you see the response in the serial monitor within VS Code, there is a possibility that the direct communication from the device is getting blocked at the router level. You can check for the firewall or the router rules configured for the connecting devices. Check if the outbound port 1833 is open as well.
->ERROR: mqtt_client.c (ln 454): Error: failure opening connection to endpoint
->INFO: >>>Connection status: disconnected
->ERROR: tlsio_mbedtls.c (ln 604): Underlying IO open failed
->ERROR: mqtt_client.c (ln 1042): Error: io_open failed
->ERROR: iothubtransport_mqtt_common.c (ln 2283): failure connecting to address atcsliothub.azure-devices.net.
->INFO: >>>Re-connect.
->INFO: IoThub Version: 1.3.6
-
+> You might encounter an error during testing in which the LED is not blinking, the Azure portal doesn't show incoming data from the device, but the device OLED screen shows as **Running...**. To resolve the issue, in the Azure portal, go to the device in the IoT Hub and send a message to the device. If you see the following response in the serial monitor in VS Code, it's possible that direct communication from the device is blocked at the router level. Check firewall and router rules that are configured for the connecting devices. Also, ensure that outbound port 1833 is open.
+> 
+> ERROR: mqtt_client.c (ln 454): Error: failure opening connection to endpoint  
+> INFO: >>>Connection status: disconnected  
+> ERROR: tlsio_mbedtls.c (ln 604): Underlying IO open failed  
+> ERROR: mqtt_client.c (ln 1042): Error: io_open failed  
+> ERROR: iothubtransport_mqtt_common.c (ln 2283): failure connecting to address atcsliothub.azure-devices.net.  
+> INFO: >>>Re-connect.  
+> INFO: IoThub Version: 1.3.6  
 
 ### View the telemetry received by Azure IoT Hub
 
