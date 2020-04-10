@@ -68,7 +68,7 @@ Now that you have the sample source code, the next thing to do is to get a set o
 
 There are several open source tools to help you manage your IoT hub.
 
-* A Windows application called [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* A Windows application called [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
 * A cross-platform Visual Studio Code extension called [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 

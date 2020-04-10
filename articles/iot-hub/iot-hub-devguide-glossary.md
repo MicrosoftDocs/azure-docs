@@ -40,7 +40,7 @@ There are _device SDKs_ available for multiple languages that enable you to crea
 
 ## Azure IoT Explorer
 
-The [Azure IoT Explorer](iot-pnp/howto-install-iot-explorer.md) is used to view the telemetry the device is sending, work with device properties, and call commands. You can also use the explorer to interact with and test your devices.
+The [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) is used to view the telemetry the device is sending, work with device properties, and call commands. You can also use the explorer to interact with and test your devices, and to manage plug and play devices.
 
 ## Azure IoT service SDKs
 
@@ -140,7 +140,7 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 
 ## Device explorer
 
-The device explorer has been replaced with the [Azure IoT Explorer](#azure-iot-explorer), which is used to view the telemetry a device is sending, work with device properties, and call commands. You can also use the explorer to interact with and test your devices.
+The device explorer has been replaced with the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer), which is used to view the telemetry the device is sending, work with device properties, and call commands. You can also use the explorer to interact with and test your devices, and to manage plug and play devices.
 
 ## Device identity
 

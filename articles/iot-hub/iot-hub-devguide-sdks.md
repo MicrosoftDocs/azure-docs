@@ -152,7 +152,7 @@ Azure Provisioning device and service SDKs for Node.js:
 
 Azure Provisioning device and service SDKs for Python:
 
-* [Source code](https://github.com/Azure/azure-iot-device)
+* [Source code](https://github.com/Azure/azure-iot-sdk-python)
 * Download [Device SDK](https://pypi.org/project/azure-iot-device/) and [Service SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) from pip
 
 ## Next steps
