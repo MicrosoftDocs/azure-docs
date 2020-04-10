@@ -7,7 +7,7 @@ manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ---
@@ -101,7 +101,7 @@ A round-robin table is the simplest table to create and delivers fast performanc
 
 A round-robin distributed table distributes data evenly across the table but without any further optimization. A distribution is first chosen at random and then buffers of rows are assigned to distributions sequentially. It is quick to load data into a round-robin table, but query performance can often be better with hash distributed tables. Joins on round-robin tables require reshuffling data, which takes additional time.
 
-## Replicated Tables
+## Replicated tables
 A replicated table provides the fastest query performance for small tables.
 
 A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data, which make large tables impractical. 
