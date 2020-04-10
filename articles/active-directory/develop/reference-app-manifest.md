@@ -1,5 +1,5 @@
 ---
-title: Understanding the Azure Active Directory app manifest | Microsoft Docs
+title: Understanding the Azure Active Directory app manifest
 description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 author: rwike77
