@@ -1,24 +1,24 @@
 ---
-title: Add suggestions and autocomplete in a search box
+title: Add autocomplete and suggestions in a search box
 titleSuffix: Azure Cognitive Search
-description: Enable typeahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
+description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
 
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-#Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
+ms.topic: conceptual
+ms.date: 04/10/2020
+
 ---
 
 # Add suggestions or autocomplete to your Azure Cognitive Search application
 
 In this article, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
 
-+ *Suggestions* are suggested results generated as you type, where each suggestion is a single result from the index that matches what you've typed so far. 
++ *Suggestions* generate search results as you type, where each suggestion is a single result or search document from the index that matches what you've typed so far. 
 
-+ *Autocomplete* "finishes" the word or phrase that a user is currently typing. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
++ *Autocomplete* generates queries by "finishing" the word or phrase. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
 
 You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the prepared index hosted in a sandbox service, or [populate your own index](#configure-app) using a data loader in the NYCJobs sample solution. 
 
