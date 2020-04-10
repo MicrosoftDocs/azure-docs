@@ -209,4 +209,4 @@ Do the following steps in the Azure portal to sync your storage access key.
 
 ## Next steps
 
-- Learn how to [Manage users via Azure portal](data-box-edge-manage-users.md).
+- Learn how to [Manage users via Azure portal](azure-stack-edge-manage-users.md).
