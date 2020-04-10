@@ -37,7 +37,9 @@ Contact us with the following details:
 - Follow the below steps to attach the log file for the Deployment failure:
 
     1. Navigate to the **Resource Group** in the Azure portal.
+
     2. Select **Deployments** under **Settings** section on the left hand side.
+
     3. For every deployment that shows **Failed**, select through to the details and download the deployment details. Attach this file to the mail.
 
 ## Sensor telemetry
