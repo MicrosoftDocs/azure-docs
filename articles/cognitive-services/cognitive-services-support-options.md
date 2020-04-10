@@ -54,10 +54,7 @@ Where `{search keywords}` is the context of your search. Consider using these sc
 
 If you can't find an answer to your problem with the search box on Stack Overflow, submit a new question. Stack Overflow is the preferred channel for development-related questions. It's where members of the Stack Overflow community and Microsoft team members are directly involved in helping you solve your problems.
 
- Use one of the following tags when you formulate the question:
-
- - [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
- - [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+Review questions or ask questions [here](https://go.microsoft.com/fwlink/?linkid=2126464). Use the appropriate tag for your question, so we are sure to see the question.
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:
