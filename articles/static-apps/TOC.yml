@@ -3,51 +3,51 @@
 - name: Overview
   items:
     - name: About Static Apps
-      href: static-apps-overview.md
+      href: overview.md
 - name: Quickstarts
   expanded: true
   items:
     - name: Build your first static site
-      href: static-apps-getting-started.md
+      href: getting-started.md
 - name: Concepts
   items:
     - name: API support with Azure Functions
-      href: static-apps-apis.md
+      href: apis.md
     - name: Routes
-      href: static-apps-routes.md
+      href: routes.md
     - name: Authentication and authorization
-      href: static-apps-authentication-authorization.md
+      href: authentication-authorization.md
     - name: Accessing user information
-      href: static-apps-user-information.md
+      href: user-information.md
     - name: Review pull requests in preproduction environments
-      href: static-apps-review-publish-pull-requests.md
+      href: review-publish-pull-requests.md
     - name: Custom domain
-      href: static-apps-custom-domain.md
+      href: custom-domain.md
 - name: How-to guides
   items:
     - name: Setup local development
-      href: static-apps-local-development.md
+      href: local-development.md
     - name: Add an API
-      href: static-apps-add-api.md
+      href: add-api.md
     - name: Configure environment variables
-      href: static-apps-environment-variables.md
+      href: environment-variables.md
     - name: Add a database
-      href: static-apps-add-database.md
+      href: add-database.md
     - name: Connect and disconnect from a GitHub repo
-      href: static-apps-connect-disconnect-repo.md
+      href: connect-disconnect-repo.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
       items:
         - name: Gatsby
-          href: static-apps-publish-gatsby.md
+          href: publish-gatsby.md
         - name: Hugo
-          href: static-apps-publish-hugo.md
+          href: publish-hugo.md
         - name: VuePress
-          href: static-apps-publish-vuepress.md
+          href: publish-vuepress.md
     - name: Deploy from a framework
       items:
         - name: Next.js
-          href: static-apps-deploy-nextjs.md
+          href: deploy-nextjs.md
         - name: Nuxt.js
-          href: static-apps-deploy-nuxtjs.md
+          href: deploy-nuxtjs.md

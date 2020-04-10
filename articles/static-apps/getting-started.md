@@ -4,7 +4,7 @@ description: #Required; article description that is displayed in search results.
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: craigshoemaker
 ms.service: azure-functions
-ms.topic: quickstart #Required
+ms.topic:  quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
 ---

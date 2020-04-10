@@ -1,17 +1,18 @@
 ---
-title: Routes in App Service Static Apps
+title: Authentication and authorization for App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: craigshoemaker
+
 ms.service: azure-functions
-ms.topic: conceptual #Required
+ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Routes in App Service Static Apps
+# Authentication and authorization for App Service Static Apps
 
 Introductory paragraph.
 

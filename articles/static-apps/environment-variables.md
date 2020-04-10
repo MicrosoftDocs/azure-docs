@@ -1,17 +1,17 @@
 ---
-title: Add an API to App Service Static Apps with Azure Functions
+title: Configure environment variables for App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: manekinekko
+author: burkeholland
 ms.service: azure-functions
-ms.topic: how-to #Required
+ms.topic:  how-to
 ms.date: 05/08/2020
-ms.author: wachegha
+ms.author: buhollan
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Add an API to App Service Static Apps with Azure Functions
+# Configure environment variables for App Service Static Apps
 
 Introductory paragraph.
 

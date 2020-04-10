@@ -1,17 +1,17 @@
 ---
-title: Accessing user information in an App Service Static Apps API
+title: Setup a custom domain in App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: craigshoemaker
+author: burkeholland
 ms.service: azure-functions
-ms.topic: conceptual #Required
+ms.topic:  conceptual
 ms.date: 05/08/2020
-ms.author: cshoe
+ms.author: buhollan
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Accessing user information in an App Service Static Apps API
+# Setup a custom domain in App Service Static Apps
 
 Introductory paragraph.
 

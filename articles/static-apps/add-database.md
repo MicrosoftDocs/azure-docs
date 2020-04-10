@@ -1,17 +1,17 @@
 ---
-title: Connect and disconnect an App Service Static App from a GitHub repo
+title: Add a database to an App Service Static App
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: sinedied
+author: softchris
 ms.service: azure-functions
-ms.topic: how-to #Required
+ms.topic:  how-to
 ms.date: 05/08/2020
-ms.author: yolasors
+ms.author: chnoring
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Connect and disconnect an App Service Static App from a GitHub repo
+# Add a database to an App Service Static App
 
 Introductory paragraph.
 

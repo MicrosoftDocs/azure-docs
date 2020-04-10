@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Deploy server-rendered Next.js websites on App Service Static Apps"
+title: "Tutorial: Deploy server-rendered Nuxt.js websites on App Service Static Apps"
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: christiannwamba
 ms.service: azure-functions
-ms.topic: tutorial #Required
+ms.topic:  tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ---
@@ -16,7 +16,7 @@ Refer to the following guide for more details:
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Tutorial: Deploy server-rendered Next.js websites on App Service Static Apps
+# Tutorial: Deploy server-rendered Nuxt.js websites on App Service Static Apps
 
 <!---Required:
 Starts with "Tutorial: "

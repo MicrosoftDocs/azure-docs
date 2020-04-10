@@ -1,17 +1,17 @@
 ---
-title: Add a database to an App Service Static App
+title: Review pull requests in preproduction environments in App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: softchris
+author: sinedied
 ms.service: azure-functions
-ms.topic: how-to #Required
+ms.topic:  conceptual
 ms.date: 05/08/2020
-ms.author: chnoring
+ms.author: yolasors
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Add a database to an App Service Static App
+# Review pull requests in preproduction environments in App Service Static Apps
 
 Introductory paragraph.
 

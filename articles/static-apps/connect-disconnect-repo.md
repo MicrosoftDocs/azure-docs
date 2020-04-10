@@ -1,17 +1,17 @@
 ---
-title: Configure environment variables for App Service Static Apps
+title: Connect and disconnect an App Service Static App from a GitHub repo
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: burkeholland
+author: sinedied
 ms.service: azure-functions
-ms.topic: how-to #Required
+ms.topic:  how-to
 ms.date: 05/08/2020
-ms.author: buhollan
+ms.author: yolasors
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Configure environment variables for App Service Static Apps
+# Connect and disconnect an App Service Static App from a GitHub repo
 
 Introductory paragraph.
 

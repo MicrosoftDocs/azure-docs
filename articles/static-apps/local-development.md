@@ -1,17 +1,17 @@
 ---
-title: Review pull requests in preproduction environments in App Service Static Apps
+title: Setup local development for App Service Static Apps
 description: #Required; article description that is displayed in search results. 
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: sinedied
+author: burkeholland
 ms.service: azure-functions
-ms.topic: conceptual #Required
+ms.topic:  how-to
 ms.date: 05/08/2020
-ms.author: yolasors
+ms.author: buhollan
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-# Review pull requests in preproduction environments in App Service Static Apps
+# Setup local development for App Service Static Apps
 
 Introductory paragraph.
 
