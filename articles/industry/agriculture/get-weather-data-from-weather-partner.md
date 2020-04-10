@@ -9,7 +9,7 @@ ms.author: sunasing
 
 # Get weather data from weather partners
 
-Azure FarmBeats helps you to bring weather data from your weather data provider(s) into Datahub using a docker-based Connector Framework. Using this framework, weather data providers implement a docker that can be integrated with FarmBeats. Currently the following weather data providers are supported:
+Azure FarmBeats helps you to bring weather data from your weather data provider(s) using a docker-based Connector Framework. Using this framework, weather data providers implement a docker that can be integrated with FarmBeats. Currently the following weather data providers are supported:
 
 [NOAA data from Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)
 
@@ -17,15 +17,15 @@ The weather data can be used to generate actionable insights and build AI/ML mod
 
 ## Before you start
 
-To get weather data, ensure that you have installed FarmBeats. **Weather integration is supported in version 1.3.0 or higher**. To install Azure FarmBeats, see [Install FarmBeats](https://aka.ms/farmbeatsinstalldocumentation).
+To get weather data, ensure that you have installed FarmBeats. **Weather integration is supported in version 1.2.11 or higher**. To install Azure FarmBeats, see [Install FarmBeats](https://aka.ms/farmbeatsinstalldocumentation).
 
 ## Enable weather integration with FarmBeats
 
-To start getting weather data on your FarmBeats Data hub, follow the steps below: 
+To start getting weather data on your FarmBeats Data hub, follow the steps below:
 
-1. Go to your FarmBeats Data hub swagger (https://yourdatahub.azurewebsites.net/swagger) 
+1. Go to your FarmBeats Data hub swagger (https://yourdatahub.azurewebsites.net/swagger)
 
-2. Navigate to /Partner API and make a POST request with the following input payload: 
+2. Navigate to /Partner API and make a POST request with the following input payload:
 
 ```json
 {  
@@ -57,22 +57,23 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 For example, to get weather data from NOAA by Azure Open Datasets, use the payload below. You can modify the name and description as per your preference.
 
 ```json
-{ 
+{
 
-  "dockerDetails": { 
-    "imageName": "azurefarmbeats/farmbeats-noaa", 
-    "imageTag": "latest", 
-    "azureBatchVMDetails": { 
-      "batchVMSKU": "standard_d2_v2", 
-      "dedicatedComputerNodes": 1, 
-      "nodeAgentSKUID": "batch.node.ubuntu 18.04" 
-    } 
-  }, 
-  "partnerType": "Weather", 
-  "name": "ods-noaa", 
-  "description": "NOAA data from Azure Open Datasets registered as a Weather Partner" 
+  "dockerDetails": {
+    "imageName": "azurefarmbeats/farmbeats-noaa",
+    "imageTag": "latest",
+    "azureBatchVMDetails": {
+      "batchVMSKU": "standard_d2_v2",
+      "dedicatedComputerNodes": 1,
+      "nodeAgentSKUID": "batch.node.ubuntu 18.04"
+    }
+  },
+  "partnerType": "Weather",
+  "name": "ods-noaa",
+  "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
 }  
 ```
+
  > [!NOTE]
  > For more information about the Partner object, see [Appendix](get-weather-data-from-weather-partner.md#appendix)
 
@@ -87,44 +88,45 @@ It takes about 10-15 minutes to provision the above resources.
 
 5. Now your FarmBeats instance has an active weather data partner and you can run jobs to request weather data for a particular location (latitude/longitude) and a date range. The JobType(s) will have details on what parameters are required to run weather jobs.
 
-For example, for NOAA data from Azure Open Datasets, following JobType(s) will be created: 
+For example, for NOAA data from Azure Open Datasets, following JobType(s) will be created:
 
 - get_weather_data (Get ISD/historical weather data)
 - get_weather_forecast_data (Get GFS/forecast weather data)
 
-6. Make a note of the **id** and the parameters of the JobType(s).
+6. Make a note of the **ID** and the parameters of the JobType(s).
 
 7. Navigate to /Jobs API and make a POST request on /Jobs with the following input payload:
 
 ```json
- { 
-      "typeId": "<id of the interested JobType>", 
-      "arguments": { 
-        "additionalProp1": {}, 
-        "additionalProp2": {}, 
-        "additionalProp3": {} 
-      }, 
-      "name": "<name of the job>", 
-      "description": "<description>", 
-      "properties": {} 
-    } 
-```
-For example, to run **get_weather_data**, use the following payload: 
-
-```json
-{ 
-
-      "typeId": "<id of the interested JobType>", 
-      "arguments": { 
-            "latitude": "<latitude>", 
-            "longitude": "<longitude>", 
-            "start_date": "<start date of interest>",
-            "end_date": "<end date of interest>" 
-      }, 
-      "name": "<name of the job>", 
+ {
+      "typeId": "<id of the JobType>",
+      "arguments": {
+        "additionalProp1": {},
+        "additionalProp2": {},
+        "additionalProp3": {}
+      },
+      "name": "<name of the job>",
       "description": "<description>",
       "properties": {}
-} 
+    }
+```
+
+For example, to run **get_weather_data**, use the following payload:
+
+```json
+{
+
+      "typeId": "<id of the JobType>",
+      "arguments": {
+            "latitude": 47.620422,
+            "longitude": -122.349358,
+            "start_date": "yyyy-mm-dd",
+            "end_date": "yyyy-mm-dd"
+      },
+      "name": "<name of the job>",
+      "description": "<description>",
+      "properties": {}
+}
 ```
 
 8. The above step will run the weather jobs as defined in the partner docker and ingest weather data into FarmBeats. You can check the status of the job by making a GET request on /Jobs and look for **currentState** in the response. Once complete, the currentState is set to **Succeeded**.
@@ -140,7 +142,7 @@ After the weather jobs are complete, you can query ingested weather data to buil
 
 To query weather data using FarmBeats REST API, follow the steps below:
 
-1. In your FarmBeats Data hub swagger (https://yourdatahub.azurewebsites.net/swagger), navigate to /WeatherDataLocation API and make a GET request. The response will have /WeatherDataLocation object(s) created for the location (latitude/longitude) that was specified as part of the job run. Make a note of the **id** and the **weatherDataModelId** of the object(s).
+1. In your FarmBeats Data hub swagger (https://yourdatahub.azurewebsites.net/swagger), navigate to /WeatherDataLocation API and make a GET request. The response will have /WeatherDataLocation object(s) created for the location (latitude/longitude) that was specified as part of the job run. Make a note of the **ID** and the **weatherDataModelId** of the object(s).
 
 2. Make a GET/{id} on /WeatherDataModel API for the **weatherDataModelId** as noted in step 1. The "Weather Data Model" has all the metadata and details about the ingested weather data. For example, **Weather Measure** within the **Weather Data Model** object has details about what weather information is supported and in what types and units. For example,
 
@@ -154,19 +156,21 @@ To query weather data using FarmBeats REST API, follow the steps below:
       "description": "<Description of the measure>"
   }
   ```
+
 Make a note of the response from the GET/{id} call for the Weather Data Model.
 
-3. Navigate to **Telemetry** API and make a POST request with the following input payload: 
+3. Navigate to **Telemetry** API and make a POST request with the following input payload:
 
 ```json
 {
-    "weatherDataLocationId": "<id from step 1 above>", 
-  "searchSpan": { 
-    "from": "<from time range>", 
-    "to": "<to time range>" 
+    "weatherDataLocationId": "<id from step 1 above>",
+  "searchSpan": {
+    "from": "2020-XX-XXT07:30:00Z",
+    "to": "2020-XX-XXT07:45:00Z"
   }
 }
 ```
+
 4. The response containing weather data that is available for the specified time range will look like this:
 
   ```json
@@ -189,7 +193,7 @@ Make a note of the response from the GET/{id} call for the Weather Data Model.
           29.1,
           30.2
         ],
-        "name": "Temperature <name of the SensorMeasure as defined in the SensorModel object>",
+        "name": "Temperature <name of the WeatherMeasure as defined in the WeatherDataModel object>",
         "type": "Double <Data Type of the value - eg. Double>"
       }
     ]
@@ -206,14 +210,10 @@ Weather data is received on an EventHub and then pushed to a TSI environment wit
 
 Follow the steps to visualize data on TSI:
 
-1. Go to **Azure Portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
+1. Go to **Azure portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
 2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You can now visualize the ingested weather data.
 
 Apart from storing, querying and visualization of weather data, TSI also enables integration to a Power BI dashboard. For more information, see [here]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
-
-## Next steps
-
-You now have queried sensor data from your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.
 
 ## Appendix
 
@@ -229,3 +229,7 @@ You now have queried sensor data from your Azure FarmBeats instance. Now, learn 
 | partnerType | "Weather" (Other partner types in FarmBeats are "Sensor" and "Imagery")  |
 |  name   |   Desired name of the partner in FarmBeats system   |
 |  description |  Description   |
+
+## Next steps
+
+You now have queried sensor data from your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.
