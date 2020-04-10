@@ -51,14 +51,14 @@ conceptualContent:
     - title: Text-to-speech
       links:
         - itemType: quickstart
+          text: Speech synthesis basics
+          url: text-to-speech-basics.md
+        - itemType: quickstart
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - itemType: quickstart
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
-          text: Customize speech synthesis for your apps
-          url: how-to-custom-voice.md
       footerLink:
         text: See more
         url: index-text-to-speech.yml

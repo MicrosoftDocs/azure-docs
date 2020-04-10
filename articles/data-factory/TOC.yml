@@ -607,6 +607,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Migrate SSIS jobs with SSMS
+      href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
