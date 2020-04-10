@@ -150,8 +150,8 @@ We recommend you create a unique GUID for every offer and distribution channel f
 
 If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
 
-*	Product A in Azure Marketplace
-*	Product A on GitHub
+*    Product A in Azure Marketplace
+*    Product A on GitHub
 
 Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs.
 
@@ -167,7 +167,7 @@ After you add the GUID to your template or in the user agent, and register the G
 
 1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
-   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in the commercial marketplace.
    * Partners can register multiple GUIDs.
    * Partners can register a GUID for the non-Marketplace solution templates and offers.
 
