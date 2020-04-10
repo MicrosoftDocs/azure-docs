@@ -146,8 +146,6 @@
         href: service-fabric-containers-overview.md
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
-      - name: Resource governance
-        href: service-fabric-resource-governance.md
     - name: Reliable Services      
       items:
       - name: Reliable Services overview
@@ -194,6 +192,8 @@
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
     - name: Guest executables
       href: service-fabric-guest-executables-introduction.md
+    - name: Resource governance
+      href: service-fabric-resource-governance.md
   - name: Applications and services
     items:
     - name: Application model
@@ -410,8 +410,6 @@
       items:      
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
-      - name: Resource governance for containers and services
-        href: service-fabric-resource-governance.md
       - name: Volume and logging drivers
         href: service-fabric-containers-volume-logging-drivers.md
       - name: View container logs
