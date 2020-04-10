@@ -100,6 +100,7 @@ The setup for your development work in this tutorial includes the following acti
     ```R
     # install the latest version from CRAN
     install.packages("azuremlsdk")
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
     ```
     
 * Or install the development version from GitHub.
