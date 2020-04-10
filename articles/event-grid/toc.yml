@@ -98,8 +98,12 @@
   items:    
   - name: Event Grid terminology
     href: concepts.md
-  - name: Event Grid event schema
-    href: event-schema.md
+  - name: Event schema formats
+    items:    
+    - name: Event Grid event schema
+      href: event-schema.md
+    - name: Cloud event schema
+      href: cloud-event-schema.md
   - name: Custom topics
     href: custom-topics.md
   - name: System topics
