@@ -40,11 +40,11 @@ If your organization has given you permission, you can reset passwords for your 
 
 1. Select **Reset password**.
 
-    ![Reset a user password in My Staff](media/my-staff-team-manager/reset-password1.png)
+    ![Reset a user password in My Staff](media/my-staff-team-manager/resetpassword1.png)
 
 1. Generate or enter the new password. You might be shown an automatically generated temporary password or you might be asked to enter a temporary password for the user.
 
-    ![Copy the temporary user password after a reset in My Staff](media/my-staff-team-manager/reset-password2.png)
+    ![Copy the temporary user password after a reset in My Staff](media/my-staff-team-manager/resetpassword2.png)
 
 After you have reset the user's password, give the user the temporary password. When the user signs in with their temporary password, they are required to change it.
 
@@ -87,7 +87,7 @@ After you register a phone number for a user, they can use it to sign in with SM
 1. Select **Edit phone number**.
 1. Change the phone number and select **Edit**.
 
-    ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/edit-number.png)
+    ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/editphone1.png)
 
 ### Enable phone number sign-in for a suer
 
