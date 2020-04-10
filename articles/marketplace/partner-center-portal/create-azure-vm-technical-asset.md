@@ -132,7 +132,7 @@ To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. T
 7. Open the PuTTY application.
 8. In the PuTTY Configuration dialog, enter the IP address or DNS name of your VM.
 
-        :::image type="content" source="media/avm-putty.png" alt-text="Illustrates the PuTTY terminal settings. the Host Name or IP address and Port boxes are highlighted.":::
+    :::image type="content" source="media/avm-putty.png" alt-text="Illustrates the PuTTY terminal settings. the Host Name or IP address and Port boxes are highlighted.":::
 
 9. Select **Open** to open a PuTTY terminal.
 10. When prompted, enter the account name and password of your Linux VM account.
@@ -166,7 +166,7 @@ Create your image using either the Azure Portal or Azure PowerShell.
 1. On the home page, select **Create a resource**, search for "Template Deployment", and select **Create**.
 2. Choose **Build your own template in the editor**.
 
-        :::image type="content" source="media/avm-custom-deployment.png" alt-text="Illustrates the Custom deployment page.":::
+    :::image type="content" source="media/avm-custom-deployment.png" alt-text="Illustrates the Custom deployment page.":::
 
 3. Paste this [JSON template](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) into the editor and select **Save**.
 4. Provide the parameter values for the displayed **Custom deployment** property pages.

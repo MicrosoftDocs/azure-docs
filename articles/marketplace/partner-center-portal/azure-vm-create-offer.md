@@ -451,7 +451,7 @@ Open public or private ports on a deployed virtual machine.
 
 #### Properties
 
-**Support accelerated networking** – Select if your VM supports [accelerated](https://go.microsoft.com/fwlink/?linkid=2124513)[networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+**Support accelerated networking** – Select if your VM supports [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
 
 #### VM Images
 
