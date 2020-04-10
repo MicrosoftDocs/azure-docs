@@ -1,11 +1,11 @@
-- name: Azure Marketplace and AppSource documentation
+- name: Commercial marketplace documentation
   href: index.yml
   items:
-  - name: Azure Marketplace and AppSource roadmap
+  - name: Commercial marketplace roadmap
     href: ./marketplace-roadmap.md
-  - name: Azure Marketplace policies and terms
+  - name: Commercial marketplace policies and terms
     href: ./policies-terms.md
-  - name: Azure Marketplace and AppSource overview and benefits
+  - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
 #    - name: Become a publisher on the marketplace
@@ -22,7 +22,7 @@
       items:
       - name: Lead management
         href: ./lead-management-for-cloud-marketplace.md
-      - name: Transacting in Azure Marketplace
+      - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
       - name: Private Offers
         href: ./private-offers.md
@@ -75,7 +75,7 @@
         href: ./preferred-solutions.md
       - name: Integrated solutions
         href: ./integrated-solutions.md
-    - name: Support for Azure Marketplace and AppSource
+    - name: Support for the commercial marketplace
       href: ./support-azure-marketplace.md
       items:
       - name: Marketplace FAQs
@@ -436,12 +436,10 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Getting support
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Commercial Marketplace Portal in Partner Center
+- name: Commercial marketplace in Partner Center
   items: 
-  - name: Overview
-    items:
-    - name: What is Commercial Marketplace?
-      href: ./partner-center-portal/commercial-marketplace-overview.md
+  - name: Overview of the commercial marketplace
+    href: ./partner-center-portal/commercial-marketplace-overview.md
   - name: Account Management
     items:
     - name: Create a new Partner Center account
@@ -548,7 +546,7 @@
     href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
     items:
-    - name: Analytics for the Commercial Marketplace
+    - name: Analytics for the commercial marketplace
       href: ./partner-center-portal/analytics.md
     - name: Summary dashboard
       href: ./partner-center-portal/summary-dashboard.md
