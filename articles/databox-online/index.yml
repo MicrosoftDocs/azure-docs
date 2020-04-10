@@ -52,7 +52,7 @@ landingContent:
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
           - text: Azure Stack Edge limits
-            url: data-box-edge-limits.md
+            url: azure-stack-edge-limits.md
 
   # Card
   - title: "Deploy"

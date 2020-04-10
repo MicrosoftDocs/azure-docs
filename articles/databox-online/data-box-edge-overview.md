@@ -82,5 +82,5 @@ Azure Stack Edge physical device, Azure resource, and target storage account to 
 ## Next steps
 
 - Review the [Azure Stack Edge system requirements](data-box-edge-system-requirements.md).
-- Understand the [Azure Stack Edge limits](data-box-edge-limits.md).
+- Understand the [Azure Stack Edge limits](azure-stack-edge-limits.md).
 - Deploy [Azure Stack Edge](azure-stack-edge-deploy-prep.md) in Azure portal.

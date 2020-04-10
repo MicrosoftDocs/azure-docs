@@ -82,7 +82,7 @@
     - name: Review requirements
       href: data-box-edge-system-requirements.md
     - name: Understand limits
-      href: data-box-edge-limits.md
+      href: azure-stack-edge-limits.md
     - name: Security overview
       href: data-box-edge-security.md
     - name: Review specifications
