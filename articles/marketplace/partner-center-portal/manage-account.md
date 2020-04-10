@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ---
 
-# How to manage your commercial marketplace account in Partner Center
+# Manage your commercial marketplace account in Partner Center
 
 Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 

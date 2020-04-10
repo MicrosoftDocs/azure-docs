@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Publishing guide by offer type
 
-Once you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you are ready to select the offer type that will be used to present your offer. 
+Once you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you are ready to select the offer type that will be used to present your offer.
 
  The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
 
@@ -39,6 +39,5 @@ Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/market
 
 ## Next steps
 
-- Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
+- Review the eligibility requirements in the corresponding article for your offer type (following sections) to finalize the selection and configuration of your offer.
 - Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
-
