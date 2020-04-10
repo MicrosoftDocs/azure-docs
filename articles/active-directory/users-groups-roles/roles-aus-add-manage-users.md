@@ -72,11 +72,11 @@ Example:
 
 In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile.
 
-![Open a user's profile in Azure Active Directory](./media/roles-aus-add-manage-groups/user_profile_au.png)
+![Open a user's profile in Azure Active Directory](./media/roles-aus-add-manage-users/user_profile_au.png)
 
 Select **Administrative units** on the left panel to see the list of administrative units where the user has been assigned.
 
-![List the administrative units for a user](./media/roles-aus-add-manage-groups/list_group_au.png)
+![List the administrative units for a user](./media/roles-aus-add-manage-users/list_group_au.png)
 list_user_au.png)
 
 ### PowerShell
@@ -91,11 +91,11 @@ list_user_au.png)
 
 There are two ways you can remove a user from an administrative unit. In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile. Select the administrative unit you want the user to be removed from and click on Remove from administrative unit.
 
-![Remove a user from an administrative unit from the user profile](./media/roles-aus-add-manage-groups/user_remove_au.png)
+![Remove a user from an administrative unit from the user profile](./media/roles-aus-add-manage-users/user_remove_au.png)
 
 Alternatively, go to Azure AD > Administrative units and select the administrative unit you want to remove users from. Select the user and click Remove member.
   
-![Remove a user at the administrative unit level](./media/roles-aus-add-manage-groups/au_remove_user.png)
+![Remove a user at the administrative unit level](./media/roles-aus-add-manage-users/au_remove_user.png)
 
 #### Bulk remove more than one user from an administrative unit
 
@@ -103,11 +103,11 @@ You can go to Azure AD > Administrative units and select the administrative unit
 
 Edit the downloaded CSV template with the relevant user entries. Do not remove the first two rows of the template. Add one user UPN in each row.
 
-![Edit the CSV file for bulk user removal from administrative units](./media/roles-aus-add-manage-groups/bulk_user_entries.png)
+![Edit the CSV file for bulk user removal from administrative units](./media/roles-aus-add-manage-users/bulk_user_entries.png)
 
 Once you have saved the entries in the file, upload the file, select **Submit**.
 
-![Submit the bulk upload file](./media/roles-aus-add-manage-groups/bulk_user_remove.png)
+![Submit the bulk upload file](./media/roles-aus-add-manage-users/bulk_user_remove.png)
 
 PowerShell
 
