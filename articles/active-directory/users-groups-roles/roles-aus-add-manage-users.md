@@ -81,13 +81,15 @@ list_user_au.png)
 
 ### PowerShell
 
+    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+
 ### Graph
 
-## Remove users from an AU
+    https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+
+## Remove a single user from an AU
 
 ### Azure portal
-
-#### Removing a single user from an administrative unit
 
 There are two ways you can remove a user from an administrative unit. In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile. Select the administrative unit you want the user to be removed from and click on Remove from administrative unit.
 
@@ -97,7 +99,15 @@ Alternatively, go to Azure AD > Administrative units and select the administrati
   
 ![Remove a user at the administrative unit level](./media/roles-aus-add-manage-users/au_remove_user.png)
 
-#### Bulk remove more than one user from an administrative unit
+### PowerShell
+
+    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+
+### Graph
+
+   https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<user-id>/$ref
+
+## Bulk remove more than one user
 
 You can go to Azure AD > Administrative units and select the administrative unit you want to remove users from. Click on Bulk remove member. Download the CSV template for providing the list of users to be removed.
 
@@ -108,10 +118,6 @@ Edit the downloaded CSV template with the relevant user entries. Do not remove t
 Once you have saved the entries in the file, upload the file, select **Submit**.
 
 ![Submit the bulk upload file](./media/roles-aus-add-manage-users/bulk_user_remove.png)
-
-PowerShell
-
-Graph
 
 ## Next steps
 

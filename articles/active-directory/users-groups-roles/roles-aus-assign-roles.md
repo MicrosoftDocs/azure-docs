@@ -16,7 +16,7 @@ ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Assign and list scoped roles for an administrative unit
+# Assign scoped roles to an administrative unit
 
 In Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs) for more granular administrative control.
 
