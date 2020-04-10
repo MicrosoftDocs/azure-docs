@@ -1,6 +1,6 @@
 ---
 title: Validate rules for dynamic group membership (preview) - Azure AD | Microsoft Docs
-description: How to create membership rules to automatically populate groups, and a rule reference.
+description: How to test members against a membership rule for a dynamic groups in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/10/2020
 ms.author: curtand
-ms.reviewer: krbain
+ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) now provides the means to validate dynamic gro
 
 ## Step-by-step walk-through
 
-To get started, access Azure Active Directory from this URL: https://aka.ms/ValidateRules and sign in with your credentials. Then go to Azure Active Directory / Groups. Pick an existing dynamic group or create a new dynamic group and click on Dynamic membership rules. You can then see the Validate Rules Preview tab.
+To get started, go to **Azure Active Directory** > **Groups**. Select an existing dynamic group or create a new dynamic group and click on Dynamic membership rules. You can then see the **Validate Rules** tab.
 
 ![Find the Validate rules tab and start with an existing rule](./media/groups-dynamic-rule-validation/validate-tab.png)
 
