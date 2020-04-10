@@ -1,6 +1,6 @@
 ---
-title: Connection strings for SQL Analytics (preview)
-description: Connection strings for SQL Analytics (preview)
+title: Connection strings for Synapse SQL (preview)
+description: Connection strings for Synapse SQL (preview)
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connection strings for SQL Analytics (preview)
+# Connection strings for Synapse SQL (preview)
 
-You can connect to SQL Analytics (preview) with several different application protocols such as, [ADO.NET](/dotnet/framework/data/adonet), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Below are some examples of connections strings for each protocol.
+You can connect to Synapse SQL (preview) with several different application protocols such as, [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Below are some examples of connections strings for each protocol. 
 
 You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 

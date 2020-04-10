@@ -114,4 +114,4 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 
 ## Next steps
 
-[Workspace managed identity](./synapse-workspace-managed-identity.md)
+Learn more about [Workspace managed identity](./synapse-workspace-managed-identity.md)

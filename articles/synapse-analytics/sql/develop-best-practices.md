@@ -1,6 +1,6 @@
 ---
-title: Development best practices for SQL Analytics
-description: Recommendations and best practices you should know as you develop for SQL Analytics. 
+title: Development best practices for Synapse SQL
+description: Recommendations and best practices you should know as you develop for Synapse SQL. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Development best practices for SQL Analytics
 
-This article describes guidance and best practices as you develop your data warehouse solution.
+# Development best practices for Synapse SQL
+This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## Development best practices for SQL Analytics
+## Development best practices for Synapse SQL
 
 ### Reduce cost with pause and scale
 
@@ -41,10 +41,9 @@ When loading a distributed table, be sure that your incoming data is not sorted 
 See also [Table overview][Table overview], [Table distribution][Table distribution], [Selecting table distribution][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT].
 
 ### Do not over-partition
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
 
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL Analytics pool.  
-
-Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL Analytics pool partitions your data for you into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
+Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL pool partitions your data for you into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
 
 One option to consider is using a granularity that is lower than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
 
@@ -68,11 +67,11 @@ See also [Table overview][Table overview], [Table data types](develop-tables-dat
 
 ### Optimize clustered columnstore tables
 
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL Analytics pool.  By default, tables in SQL Analytics pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
+Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
 Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high-quality columnstore segments are important, it's a good idea to use users IDs which are in the medium or large resource class for loading data. Using lower [data warehouse units](azure -synapse-resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL Analytics pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For tables with less than 60 million rows, having a columstore index may not be the optimal solution.  
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For tables with less than 60 million rows, having a columstore index may not be the optimal solution.  
 
 Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions *100 partitions* 1 million rows).  
 
@@ -84,11 +83,11 @@ See also [Table indexes][Table indexes], [Columnstore indexes guide][Columnstore
 
 ### Next steps
 
-If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL Analytics pool documents.  The [Azure SQL Analytics pool Forum][Azure SQL Analytics pool MSDN Forum] is a place for you pose questions to other users and to the SQL Analytics pool Product Group.  
+If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL pool documents.  The [Azure SQL pool Forum][Azure SQL pool MSDN Forum] is a place for you pose questions to other users and to the SQL pool Product Group.  
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Analytics pool Stack Overflow Forum][Azure SQL Analytics pool Stack Overflow Forum].
+We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum][Azure SQL pool Stack Overflow Forum].
 
-Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
+Use the [Azure SQL pool Feedback][Azure SQL pool Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
 
 <!--Image references-->
 
@@ -138,34 +137,35 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
-[Azure SQL Analytics pool Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Azure SQL Analytics pool MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Azure SQL Analytics pool Stack Overflow Forum]:  https://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Analytics pool loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
+[Azure SQL pool Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Azure SQL pool MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
+[Azure SQL pool Stack Overflow Forum]:  https://stackoverflow.com/questions/tagged/azure-sqldw
+[Azure SQL pool loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
 
 ## Development best practices for SQL on-demand (preview)
 
 ### General considerations
 
-SQL Analytics on-demand allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities, meaning that all files that the query targets are external to SQL Analytics on-demand. Therefore, everything related to reading files from storage might have an impact on query performance.
+SQL on-demand allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities, meaning that all files that the query targets are external to SQL on-demand. Therefore, everything related to reading files from storage might have an impact on query performance.
 
-### Colocate Azure Storage account and SQL Analytics on-demand
+### Colocate Azure Storage account and SQL on-demand
 
-To minimize latency, colocate your Azure storage account and your SQL Analytics on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
-
-For optimal performance, if you access other storage accounts with SQL Analytics on-demand, make sure they are in the same region. Otherwise, there will be increased latency for the data's network transfer from the remote region to the endpoint's region.
+ 
+To minimize latency, colocate your Azure storage account and your SQL on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region. 
+ 
+For optimal performance, if you access other storage accounts with SQL on-demand, make sure they are in the same region. Otherwise, there will be increased latency for the data's network transfer from the remote region to the endpoint's region.
 
 ### Azure Storage throttling
 
-Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and SQL Analytics on-demand workload exceed the limits of the storage account,storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance.
-
-Once throttling is detected, SQL Analytics on-demand has built-in handling of this scenario. SQL Analytics on-demand will make requests to storage at a slower pace until throttling is resolved. However, for optimal query execution, it is advised that you not stress the storage account with other workloads during query execution.
+Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and SQL on-demand workload exceed the limits of the storage account,storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance. 
+ 
+Once throttling is detected, SQL on-demand has built-in handling of this scenario. SQL on-demand will make requests to storage at a slower pace until throttling is resolved. However, for optimal query execution, it is advised that you not stress the storage account with other workloads during query execution.
 
 ### Prepare files for querying
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV to Parquet – Parquet is columnar format. Since it is compressed, it has smaller file sizes than CSV files with the same data, and SQL Analytics on-demand will need less time and storage requests to read it.
+- Convert CSV to Parquet – Parquet is columnar format. Since it is compressed, it has smaller file sizes than CSV files with the same data, and SQL on-demand will need less time and storage requests to read it.
 - If a query targets a single large file, you will benefit from splitting it to multiple smaller files.
 - Try keeping your CSV file size below 10GB.
 - It is preferred to have equally sized files for a single OPENROWSET path or an external table LOCATION.
@@ -173,14 +173,14 @@ If possible, you can prepare files for better performance:
 
 ### Use fileinfo and filepath functions to target specific partitions
 
-Data is often organized in partitions. You can instruct SQL Analytics on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
+Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
-When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL Analytics on-demand, the query will automatically target only files needed.
+When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
-[CETAS](develop-tables-cetas.md) is one of the most important features available in SQL Analytics on-demand. CETAS is a parallel operation that creates external table metadata and exports the result of the SELECT query to a set of files in your storage account.
+[CETAS](develop-tables-cetas.md) is one of the most important features available in SQL on-demand. CETAS is a parallel operation that creates external table metadata and exports the result of the SELECT query to a set of files in your storage account.
 
 You can use CETAS to store often used part of queries, like joined reference tables, to a  new set of files. Later on, you can join to this single external table instead of repeating common joins in multiple queries. As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table and you will gain improved performance.

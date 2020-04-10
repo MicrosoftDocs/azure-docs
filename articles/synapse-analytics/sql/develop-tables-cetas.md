@@ -1,6 +1,6 @@
 ---
-title: CETAS in SQL Analytics
-description: Using CETAS with SQL Analytics
+title: CETAS in Synapse SQL
+description: Using CETAS with Synapse SQL
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# CETAS with SQL Analytics
+# CETAS with Synapse SQL
 
 In either SQL pool or SQL on-demand (preview), you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
 

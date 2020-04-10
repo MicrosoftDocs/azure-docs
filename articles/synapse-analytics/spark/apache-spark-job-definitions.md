@@ -168,4 +168,7 @@ After creating a Spark job definition, you can submit it to a Synapse Spark pool
 
 ## Next steps
 
-This tutorial demonstrates how to use the Azure Synapse Analytics to create Spark job definitions, and then submit them to a Synapse Spark pool. Next you can use the Azure Synapse Analytics to create Power BI datasets and manage Power BI data.          
+This tutorial demonstrated how to use the Azure Synapse Analytics to create Spark job definitions, and then submit them to a Synapse Spark pool. Next you can use Azure Synapse Analytics to create Power BI datasets and manage Power BI data. 
+
+- [Connect to data in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-connect-to-data)
+- [Visualize with Power BI](/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi)

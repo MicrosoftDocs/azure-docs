@@ -1,6 +1,6 @@
 ---
 title: Creating, updating statistics
-description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
+description: Recommendations and examples for creating and updating query-optimization statistics in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Statistics in SQL Analytics
+# Statistics in Synapse SQL
 
-Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand (preview).
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: SQL pool and SQL on-demand (preview).
 
 ## Statistics in SQL pool
 

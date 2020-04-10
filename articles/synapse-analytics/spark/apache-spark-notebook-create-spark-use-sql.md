@@ -129,8 +129,8 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 In this quickstart, you learned how to create a Synapse Analytics Apache Spark pool and run a basic Spark SQL query.
 
 - [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
-> [!NOTE]
-> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../spark/apache-spark-notebook-create-spark-use-sql.md) or [IntelliJ](../spark/intellij-tool-synapse.md) experiences instead.

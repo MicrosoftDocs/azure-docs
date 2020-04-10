@@ -1,6 +1,6 @@
 ---
-title: Resources for developing SQL Analytics features
-description: Development concepts, design decisions, recommendations, and coding techniques for SQL Analytics.
+title: Resources for developing Synapse SQL features
+description: Development concepts, design decisions, recommendations, and coding techniques for Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Design decisions and coding techniques for SQL Analytics features in Azure Synapse Analytics
-In this article, you'll find a list of resources for SQL pool and SQL on-demand (preview) functions of SQL Analytics. The recommended articles are split up into two sections: Key design decisions and Development and coding techniques.
+# Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics
+In this article, you'll find a list of resources for SQL pool and SQL on-demand (preview) functions of Synapse SQL. The recommended articles are split up into two sections: Key design decisions and Development and coding techniques.
 
-The goal of these articles is to help you develop the optimal technical approach for the SQL Analytics components within Synapse Analytics.
+The goal of these articles is to help you develop the optimal technical approach for the Synapse SQL components within Synapse Analytics.
 
 ## Key design decisions
-The articles below highlight concepts and design decisions for SQL Analytics development:
+The articles below highlight concepts and design decisions for Synapse SQL development:
 
 |                                                          |   SQL pool   | SQL on-demand |
 | -----------------------------------------------------    | ---- | ---- |

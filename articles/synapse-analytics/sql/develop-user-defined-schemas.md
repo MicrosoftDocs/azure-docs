@@ -1,6 +1,6 @@
 ---
-title: User-defined schemas within SQL Analytics
-description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions with the SQL Analytics capability of Azure Synapse Analytics.
+title: User-defined schemas within Synapse SQL
+description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions with the Synapse SQL capability of Azure Synapse Analytics.
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -12,15 +12,15 @@ ms.reviewer: jrasnick
 ---
 
 
-# User-defined schemas within SQL Analytics
+# User-defined schemas within Synapse SQL
 
-In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within SQL Analytics.
+In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within Synapse SQL.
 
 ## Schemas for application boundaries
 
 Traditional analytics architecture often uses separate databases to create application boundaries based on workload, domain, or security. For example, a traditional SQL Server analytics infrastructure might include a staging database, an analytics database, and data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
 
-Instead, SQL Analytics runs the entire analytics workload within one database. Cross database joins aren't permitted. SQL Analytics expects all tables used by the warehouse to be stored within the one database.
+Instead, Synapse SQL runs the entire analytics workload within one database. Cross database joins aren't permitted. Synapse SQL expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
 > SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL on-demand (preview) supports cross database queries.
@@ -33,7 +33,7 @@ Included are recommendations for consolidating workloads, security, domain, and 
 - Consolidate your existing analytics environment to use one database.
 - Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
-If user-defined schemas haven't been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL Analytics database.
+If user-defined schemas haven't been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the Synapse SQL database.
 
 If schemas have already been used, then you have a few options:
 
@@ -42,7 +42,7 @@ If schemas have already been used, then you have a few options:
 - Retain the legacy schema names by implementing views over the table in an extra schema, which re-creates the old schema structure.
 
 > [!NOTE]
-> On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL Analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
+> On first inspection, option 3 may seem like the most appealing choice. Views are read only in Synapse SQL. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
 > 
 > 
 
@@ -119,4 +119,4 @@ If more granular permissions are required, you can use database roles. For more 
 
 ## Next steps
 
-For more development tips, see [SQL Analytics development overview](develop-overview.md).
+For more development tips, see [Synapse SQL development overview](develop-overview.md).

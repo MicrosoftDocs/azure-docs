@@ -1,6 +1,6 @@
 ---
-title: Use query labels in SQL Analytics
-description: Included in this article are essential tips for using query labels in SQL Analytics.
+title: Use query labels in Synapse SQL
+description: Included in this article are essential tips for using query labels in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -13,8 +13,8 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Use query labels in SQL Analytics
-Included in this article are essential tips for using query labels in SQL Analytics.
+# Use query labels in Synapse SQL
+Included in this article are essential tips for using query labels in Synapse SQL.
 
 > [!NOTE]
 > SQL on-demand (preview) doesn't support labelling queries.

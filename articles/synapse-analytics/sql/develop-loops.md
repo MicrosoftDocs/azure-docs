@@ -1,6 +1,6 @@
 ---
 title: Using T-SQL loops
-description: Tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in SQL Analytics.
+description: Tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,17 +11,17 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
-# Using T-SQL loops in SQL Analytics
 
-This article provides you with essential tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in SQL Analytics.
+# Using T-SQL loops in Synapse SQL
+This article provides you with essential tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in Synapse SQL.
 
 ## Purpose of WHILE loops
 
-SQL Analytics supports the [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) loop for repeatedly executing statement blocks. This WHILE loop continues for as long as the specified conditions are true or until the code specifically terminates the loop using the BREAK keyword.
+Synapse SQL supports the [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) loop for repeatedly executing statement blocks. This WHILE loop continues for as long as the specified conditions are true or until the code specifically terminates the loop using the BREAK keyword. 
 
 Loops in SQL pool are useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read-only variety. So, [WHILE] loops are a great alternative for replacing cursors.
 
-## Replacing cursors in SQL Analytics pool
+## Replacing cursors in SQL pool
 
 Before diving in, the following question should be considered: "Could this cursor be rewritten to use set-based operations?" In many cases, the answer is yes and is frequently the best approach. A set-based operation often executes faster than an iterative, row by row approach.
 
