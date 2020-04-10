@@ -20,13 +20,13 @@ An Azure Key Vault account generates the following event types:
 | Event full name | Event display name | Description |
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Certificate New Version Created | Triggered when a new certificate or new certificate version is created. |
-| Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The event is triggered 30 days before the expiration date.) |
 | Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the certificate is expired. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
-| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. (The event is triggered 30 days before the expiration date.) |
 | Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when a key is expired. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
-| Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The default is 30 days before the expiration date.) |
+| Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
 | Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
 
 ## Event examples

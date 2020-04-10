@@ -2,7 +2,7 @@
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template to create multiple Azure resource instances.
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/08/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -59,7 +59,7 @@ The completed template looks like:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {
@@ -86,18 +86,18 @@ The completed template looks like:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },
-      "kind": "Storage",
-      "properties": {},
+      "kind": "StorageV2",
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     }
   ]
 }
@@ -114,16 +114,19 @@ Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio
 To list all three storage accounts, omit the --name parameter:
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
+echo "Enter a project name that is used to generate resource group name:" &&
+read projectName &&
+resourceGroupName="${projectName}rg" &&
 az storage account list --resource-group $resourceGroupName
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+$resourceGroupName = "${projectName}rg"
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
