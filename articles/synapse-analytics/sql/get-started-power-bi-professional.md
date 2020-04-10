@@ -12,7 +12,7 @@ ms.reviewer: jrasnick, carlrab
 ---
 
 
-# Connect to SQL Analytics with Power BI Professional
+# Connect to Synapse SQL with Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -103,6 +103,5 @@ Write URL for the database and name of the database where view is residing.
 
 ## Next steps
 
-Advance to the next article to learn how to connect to SQL on-demand using Azure Data Studio.
-> [!div class="nextstepaction"]
-> [Query storage files](get-started-azure-data-studio.md)
+Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to SQL on-demand using Azure Data Studio.
+ 

@@ -137,7 +137,7 @@ WHERE
 
 ## Next steps
 
-The next article in this series will demonstrate how to:
+The next articles in this series will demonstrate how to:
 
 - [Querying folders and multiple files](query-folders-multiple-csv-files.md)
 - [Create and use views](create-use-views.md).

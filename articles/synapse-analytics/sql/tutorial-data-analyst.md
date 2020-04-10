@@ -226,6 +226,5 @@ This tutorial has shown how data analyst can quickly perform exploratory data an
 
 ## Next steps
 
-Advance to the next article to learn how to connect SQL on-demand to Power BI Desktop & create report.
-> [!div class="nextstepaction"]
-> [Connect SQL on-demand to Power BI Desktop & create report](tutorial-connect-power-bi-desktop.md)
+Review the [Connect SQL on-demand to Power BI Desktop & create report](tutorial-connect-power-bi-desktop.md) article to learn how to connect SQL on-demand to Power BI Desktop and create reports.
+ 

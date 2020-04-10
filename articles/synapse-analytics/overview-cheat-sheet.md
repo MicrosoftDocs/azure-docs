@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article will be helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
+The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
 
 ## Architecture
 
@@ -46,5 +46,11 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 |**Linked service**| Connection strings that define the connection information needed for the workspace to connect to external resources.|
 |**Dataset**|  Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.|
 
+## Next steps
 
+- [Create a workspace](quickstart-create-workspace.md)
+- [Use Synapse Studio](quickstart-synapse-studio.md)
+- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Use SQL on-demand](quickstart-sql-on-demand.md)
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
 
