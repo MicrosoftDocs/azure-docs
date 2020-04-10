@@ -246,7 +246,7 @@ locations:
 
 ## Next steps
 
-- Learn how to view the details each setting from the [Guest Configuration compliance view] (../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+- Learn how to view the details each setting from the [Guest Configuration compliance view](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Azure Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
