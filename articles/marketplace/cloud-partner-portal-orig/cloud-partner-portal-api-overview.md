@@ -13,7 +13,7 @@ ms.author: dsindona
 # Cloud Partner Portal API Reference
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are shimmed and will continue to work after your offers are migrated to Partner Center. The shims introduce small changes. Review the changes listed in this document to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in this document to ensure your code continues to work after the migration to Partner Center.
 
 The Cloud Partner Portal REST APIs allow the programmatic retrieval and
 manipulation of workloads, offers, and publisher profiles. The APIs use
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) access token for authentication.
 
 | **API** | **Change description** | **Impact** |
 | ------- | ---------------------- | ---------- |
-| POST Publish, GoLive, Cancel | Depending on factors like offer type, the response header may have a slightly different format. It will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two format depending on the migration status of the offer:<ul><li>Non-migrated offers<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
+| POST Publish, GoLive, Cancel | For migrated offers, the response header format will be different. The API will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two format depending on the migration status of the offer:<ul><li>Non-migrated offers<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
 | GET Operation | For offer types that previously supported 'notification-email' field in the response, this field will be deprecated and no longer returned for migrated offers. | For migrated offers, we'll no longer send notifications to the list of emails specified in the requests. Instead, the API service will align with the notification email process in Partner Center to send emails. Specifically, notifications will be sent to the email address set in the Seller contact info section of your Account settings in Partner Center, to notify you of operation progress.<br><br>Please review the email address set in the Seller contact info section of your [Account settings](https://partner.microsoft.com/dashboard/account/management) in Partner Center to ensure the correct email is provided for notifications.  |
 
 ## Common tasks

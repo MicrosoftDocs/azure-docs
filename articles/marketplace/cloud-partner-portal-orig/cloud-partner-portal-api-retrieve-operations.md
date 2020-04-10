@@ -13,7 +13,7 @@ ms.author: dsindona
 # Retrieve operations
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are shimmed and will continue to work after your offers are migrated to Partner Center. The shims introduce small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 Retrieves all the operations on the offer or to get a particular operation for the specified operationId. The client may use
 query parameters to filter on running operations.
@@ -186,8 +186,8 @@ query parameters to filter on running operations.
 | estimatedTimeFrame | The estimated duration of this operation |
 | id | The unique identifier for the step process |
 | description | Description of the step |
-| stepName | The friendly name for the stop |
-| status | The status of the step, either notStated, running, failed, or completed |
+| stepName | The friendly name for the step |
+| status | The status of the step, either `notStarted` \| `running` \| `failed` \| `completed` |
 | messages | Any notifications or warnings encountered during the step. Array of strings |
 | progressPercentage | An integer from 0 to 100 indicating the progression of the step |
 | | |
