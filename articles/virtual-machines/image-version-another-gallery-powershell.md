@@ -3,9 +3,10 @@ title: Copy an image from another gallery
 description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 04/02/2020
+ms.date: 04/09/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #SIG to SIG
@@ -13,17 +14,22 @@ ms.author: cynthn
 
 # Copy an image from another gallery
 
-If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from and image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
+If you have multiple galleries in your organization, you can create images from images stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
 
 
-To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. We will be creating a new image definition and image version in your destination gallery
+## Before you begin
+
+To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. 
+
+The source image version must be replicated to the region where your destination gallery is located. 
+
+We will be creating a new image definition and image version in your destination gallery.
 
 
 When working through this article, replace the resource names where needed.
 
 
-
-## Get the source image version
+## Get the source image 
 
 You will need information from the source image definition so you can create a copy of it in your destination gallery.
 
@@ -32,11 +38,12 @@ List information about the existing galleries, image definitions, and image vers
 The results are in the format `gallery\image definition\image version`.
 
 ```azurepowershell-interactive
-$imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images/versions
-$imageVersions.Name
+Get-AzResource `
+   -ResourceType Microsoft.Compute/galleries/images/versions | `
+   Format-Table -Property Name,ResourceGroupName
 ```
 
-Once you have all of the information you need, you can get the ID of the source image version using [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). In this example, we are getting the `1.0.0` image version, using the `myImageDefinition`, in the `myGallery` source gallery, from the `myResourceGroup` resource group.
+Once you have all of the information you need, you can get the ID of the source image version using [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). In this example, we are getting the `1.0.0` image version, of the `myImageDefinition` definition, in the `myGallery` source gallery, in the `myResourceGroup` resource group.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -132,7 +139,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -Location WestUS `
    -TargetRegion $targetRegions  `
    -Source $sourceImgVer.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -PublishingProfileEndOfLifeDate '2020-12-01' `
    -asJob 
 ```
 
@@ -147,6 +154,7 @@ $job.State
 >
 > You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
+
 
 ## Next steps
 

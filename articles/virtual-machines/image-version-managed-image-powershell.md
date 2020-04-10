@@ -4,6 +4,7 @@ description: Learn how to use Azure PowerShell to migrate a managed image to a i
 author: cynthn
 ms.topic: article
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure
 ms.date: 04/09/2020
 ms.author: cynthn
