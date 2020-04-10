@@ -36,6 +36,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SynchroNet CLICK single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -80,11 +83,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type the URL:
+	In the **Sign on URL** text box, type the URL:
     `https://click.synchronet.com`
-
-    b. In the **Identifier (Entity ID)** text box, type the URL:
-    `urn:amazon:cognito:sp:us-east-1_cVKer1FyM`
 
 1. SynchroNet CLICK application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **emailaddress** is mapped with **user.mail**. SynchroNet CLICK application expects **emailaddress** to be mapped with **user.userprincipalname**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
