@@ -100,7 +100,7 @@
       - name: Shares
         href: azure-stack-edge-manage-shares.md
       - name: Users
-        href: data-box-edge-manage-users.md
+        href: azure-stack-edge-manage-users.md
       - name: Bandwidth schedules
         href: data-box-edge-manage-bandwidth-schedules.md
       - name: Power, access, connectivity

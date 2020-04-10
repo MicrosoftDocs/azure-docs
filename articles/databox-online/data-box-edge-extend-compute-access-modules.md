@@ -93,4 +93,4 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 
 ## Next steps
 
-- Learn how to [Manage users via Azure portal](data-box-edge-manage-users.md).
+- Learn how to [Manage users via Azure portal](azure-stack-edge-manage-users.md).
