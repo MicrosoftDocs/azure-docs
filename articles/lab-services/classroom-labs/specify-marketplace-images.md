@@ -55,7 +55,7 @@ You can enable more images at the time lab creation:
 2. Select the default virtual machine image or the down arrow. 
 3. Select **Enable more image options**. 
 
-    ![Enable more image options](../media/tutorial-setup-lab-account/enable-more-images-menu.png)
+    ![Enable more image options](../media/specify-marketplace-images/enable-more-images-menu.png)
 4. Follow instructions from the previous section to enable the images you select. 
 5. You may need to close the **New lab** window and reopen it to see the images you selected in the previous step. 
 
