@@ -53,23 +53,23 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
-|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers	| postgresqlServer |
-|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers	| mysqlServer |
-|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers	| mariadbServer |
-|**Azure Key Vault** | Microsoft.KeyVault/vaults	| vault |
-|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters	| managedCluster |
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
+|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
+|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
-|**Azure Container Registry** | Microsoft.ContainerRegistry/registries	| registry |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores	| configurationStore |
-|**Azure Backup** | Microsoft.RecoveryServices/vaults	| vault |
-|**Azure Event Hub** | Microsoft.EventHub/namespaces	| namespace |
+|**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Azure Backup** | Microsoft.RecoveryServices/vaults    | vault |
+|**Azure Event Hub** | Microsoft.EventHub/namespaces    | namespace |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
-|**Azure Event Grid** | Microsoft.EventGrid/topics	| topic |
-|**Azure Event Grid** | Microsoft.EventGrid/domains	| domain |
-|**Azure WebApps** | Microsoft.Web/sites	| site |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces	| workspace |
+|**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
+|**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
+|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
   
  
 ## Network security of private endpoints 
@@ -100,52 +100,9 @@ Alias is a unique moniker that is generated when the service owner creates the p
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource. 
- 
-You can use the following options to configure your DNS settings for private endpoints: 
-- **Use the Host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
-- **Use a private DNS zone**. You can use private DNS zones to override the DNS resolution for a given private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
-- **Use your custom DNS server**. You can use your own DNS server to override the DNS resolution for a given private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
- 
-> [!IMPORTANT]
-> It's not recommended to override a zone that is actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
- 
-For Azure services, use the recommended zone names as described in the following table:
 
-|Private Link resource type   |Subresource  |Zone name  |
-|---------|---------|---------|
-|SQL DB (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
-|Azure Synapse Analytics (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        | privatelink.database.windows.net |
-|Storage Account (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Table (table, table_secondary)      |   privatelink.table.core.windows.net       |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Queue (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Storage Account (Microsoft.Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
-|Storage Account (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL	|privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB	|privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Azure Key Vault (Microsoft.KeyVault/vaults)|vault|privatelink.vaultcore.azure.net|
-|Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters)	| managedCluster | {guid}.privatelink.<region>.azmk8s.io|
-|Azure Search (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|   
-|Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io |
-|Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
-|Azure Backup (Microsoft.RecoveryServices/vaults)| vault |privatelink.{region}.backup.windowsazure.com|
-|Azure Event Hub (Microsoft.EventHub/namespaces)| namespace |privatelink.servicebus.windows.net|
-|Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace |privatelink.servicebus.windows.net|
-|Azure Relay (Microsoft.Relay/namespaces) | namespace |privatelink.servicebus.windows.net|
-|Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.{region}.privatelink.eventgrid.azure.net|
-|Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.{region}.privatelink.eventgrid.azure.net |
-|Azure WebApps (Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
-|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)	| workspace | privatelink.api.azureml.ms |
- 
-Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
- 
-Your applications don't need to change the connection URL. When attempting to resolve using a public DNS, the DNS server will now resolve to your private endpoints. The process does not impact your applications. 
+review [integrate dns with private endpoints](private-endpoint-dns.md) for more details.
+
  
 ## Limitations
  
