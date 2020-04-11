@@ -113,9 +113,7 @@ You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
 1. Verify the configuration settings for your swap and click **Swap**
     
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
-
-    ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Swap the deployment slot." border="true":::
 
 The operation may take a moment while the swap operation is executing.
 
