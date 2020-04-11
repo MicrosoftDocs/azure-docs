@@ -61,13 +61,13 @@ If you create a deployment setting in one slot, make sure to create the same set
 
 Use the following steps to create a deployment setting:
 
-1. Navigate to *Slots* in the function app, and then select the slot name.
+1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-navigage-slots.png" alt-text="Find slots in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
 
 1. Select **Configuration**, and then select the setting name you want to stick with the current slot.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
 
 1. Select **Deployment slot setting**, and then select **OK**.
 
