@@ -902,7 +902,7 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
-      - name: Logz.io - Cloud Observability for Engineers
+      - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
