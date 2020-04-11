@@ -38,16 +38,20 @@ For example, if an email message was already sent to alert you about an RDP atta
 
 1. Open the **Email notifications** page:
 
-    1. For alerts, open **Pricing & settings**, select the relevant subscription, and select **Email notifications**.
+    - For alerts, open **Pricing & settings**, select the relevant subscription, and select **Email notifications**.
 
-    1. If you are implementing a recommendation, then Under **Recommendations**, select **Provide security contact details**, select the Azure subscription to provide contact information on. This opens **Email notifications**.
+    - If you are implementing a recommendation, then Under **Recommendations**, select **Provide security contact details**, select the Azure subscription to provide contact information on. This opens **Email notifications**.
 
    ![Provide security contact details][2]
 
-   * Enter the security contact email address or addresses separated by commas. There is no limit to the number of email addresses that you can enter.
-   * To receive emails about high severity alerts, turn on the option **Send me emails about alerts**. For other severity levels use a Logic App as explained in [workflow automation](workflow-automation.md).
-   * You can send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
-   * To apply the security contact information to your subscription, select **Save**.
+1. Enter the security contact email address or addresses separated by commas. 
+There is no limit to the number of email addresses that you can enter.
+
+1. To receive emails about high severity alerts, turn on the option **Send me emails about alerts**. For other severity levels use a Logic App as explained in [workflow automation](workflow-automation.md).
+
+1. You can send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
+
+1. To apply the security contact information to your subscription, select **Save**.
 
 ## See also
 To learn more about Security Center, see the following:

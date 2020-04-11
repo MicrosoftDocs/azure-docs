@@ -13,11 +13,13 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
-  - name: Create with a template
+  - name: Create with ARM template
     items:
     - name: Linux scale set
+      displayName: ARM, resource manager
       href: quick-create-template-linux.md
     - name: Windows scale set
+      displayName: ARM, resource manager
       href: quick-create-template-windows.md
 - name: Tutorials
   items:
@@ -229,7 +231,7 @@
       - name: Extension sequencing
         href: disk-encryption-extension-sequencing.md
       - name: Key vault for Azure Disk Encryption
-        href: disk-encryption-key-vault.md      
+        href: disk-encryption-key-vault.md
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk

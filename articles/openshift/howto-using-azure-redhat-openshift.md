@@ -13,7 +13,7 @@ keywords: aro, openshift, az aro, red hat, cli
 # Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster
 
 > [!IMPORTANT]
-> Please note that Azure Red Hat OpenShift 4.3 is currently only available in private preview in East US. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
+> Please note that Azure Red Hat OpenShift 4.3 is currently only available in private preview in East US and East US 2. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
 > Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use.
@@ -61,7 +61,7 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
    az -v
    ...
    Extensions:
-   aro                                0.1.0
+   aro                                0.3.0
    ...
    ```
   
@@ -104,7 +104,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 4. Add two empty subnets to your virtual network.
 
    ```console
-    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
+   for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
        --vnet-name vnet \
@@ -137,6 +137,8 @@ az aro create \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
   --worker-subnet "$CLUSTER-worker" \
+  --cluster-resource-group "aro-$CLUSTER" \
+  --domain "$CLUSTER" \
   --pull-secret "$PULL_SECRET"
 ```
 

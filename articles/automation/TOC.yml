@@ -15,22 +15,26 @@
     - name: Manage Automation Run As account
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: Configure authentication with AWS
-      href: automation-config-aws-account.md
-    - name: Encryption of secure assets in Azure Automation
-      href: automation-secure-asset-encryption.md
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Use Azure AD in Azure Automation to authenticate to Azure
+      href: automation-use-azure-ad.md
+    - name: Manage Office 365 services using Azure Automation
+      href: manage-office-365.md
+    - name: Configure authentication with AWS
+      href: automation-config-aws-account.md
+    - name: Encrypt secure assets in Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
     - name: Automate onboarding of Automation Services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Supported Regions for Log Analytics Workspace Mappings
-      href: how-to/region-mappings.md
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
+    - name: Supported Regions for Log Analytics Workspace Mappings
+      href: how-to/region-mappings.md
     - name: Troubleshoot
       items:  
         - name: Automation account troubleshooting
@@ -38,6 +42,9 @@
           displayName: troubleshoot
 - name: Process Automation
   items:
+  - name: Runbook execution in Azure Automation
+    href: automation-runbook-execution.md
+    displayName: fair share, activity log
   - name: Hybrid Runbook Worker Overview
     href: automation-hybrid-runbook-worker.md
   - name: Runbook gallery
@@ -56,7 +63,15 @@
   - name: How-to Guides
     items:
     - name: Start/stop VMs during off-hours
-      href: automation-solution-vm-management.md
+      items:
+      - name: Overview
+        href: automation-solution-vm-management.md
+      - name: Enable solution
+        href: automation-solution-vm-management-enable.md
+      - name: Configure solution
+        href: automation-solution-vm-management-config.md
+      - name: Analyze data with log queries
+        href: automation-solution-vm-management-logs.md
     - name: Manage runbooks
       href: manage-runbooks.md
     - name: Create runbooks
@@ -99,9 +114,6 @@
       - name: Runbook output
         href: automation-runbook-output-and-messages.md
         displayName: message streams, progress records, preference
-      - name: Track a runbook job
-        href: automation-runbook-execution.md
-        displayName: fair share, activity log
       - name: Error handling in graphical runbooks
         href: automation-runbook-graphical-error-handling.md
     - name: Hybrid Runbook Worker
@@ -250,7 +262,7 @@
         href: /powershell/scripting/dsc/overview/overview
   - name: Quickstarts
     items:
-    - name: Getting Started
+    - name: Get Started
       href: automation-dsc-getting-started.md
       displayName: DSC
     - name: Manage the configuration of a machine
@@ -266,18 +278,15 @@
     - name: Configure servers to a desired state and manage drift with State Configuration
       href: tutorial-configure-servers-desired-state.md
       displayName: DSC, compliance
-    - name: Onboarding machines for management
-      href: automation-dsc-onboarding.md
-      displayName: DSC, state configuration
-    - name: Compiling DSC configurations
+    - name: Compile DSC configurations
       href: automation-dsc-compile.md
       displayName: state configuration, composite resources, configurationData
     - name: Remediate non-compliant DSC servers
       href: automation-dsc-remediate.md
       displayName: state configuration, DSC, remediate
-    - name: Composing DSC Configurations using Composite Resources
+    - name: Compose DSC configurations using composite resources
       href: compose-configurationwithcompositeresources.md
-    - name: Continuous deployment using Chocolatey
+    - name: Provide continuous deployment using Chocolatey
       href: automation-dsc-cd-chocolatey.md
       displayName: dsc, state configuration
     - name: Forward State Configuration reporting data to Azure Monitor logs
@@ -285,12 +294,12 @@
       displayName: DSC
   - name: Troubleshoot
     items:
-    - name: Onboarding
+    - name: Troubleshoot onboarding
       href: troubleshoot/onboarding.md
       displayName: troubleshoot
     - name: Troubleshoot State Configuration (DSC)
       href: troubleshoot/desired-state-configuration.md
-      displayName: Desired State Configuration, troubleshoot
+      displayName: state configuration, DSC, troubleshoot
   - name: Reference
     items:
     - name: Community Solutions
@@ -317,9 +326,9 @@
       href: shared-resources/credentials.md
     - name: PowerShell modules
       items: 
-      - name: Modules
+      - name: Manage modules in Azure Automation
         href: shared-resources/modules.md
-      - name: Using Az modules in Azure Automation
+      - name: Az module support in Azure Automation
         href: az-modules.md
       - name: Update Azure PowerShell modules
         href: automation-update-azure-modules.md

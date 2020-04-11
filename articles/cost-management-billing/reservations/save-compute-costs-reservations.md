@@ -5,7 +5,7 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ Azure Reservations help you save money by committing to one-year or three-years 
 
 You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payment is available for Azure reservations, not third-party products.
 
-You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+You can buy a reservation in the Azure portal at [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## Why buy a reservation?
 
@@ -70,7 +70,7 @@ For more information on how to see reservations in Azure portal, see [View res
 
 After you buy an Azure reservation, you can update the scope to apply reservation to a different subscription, change who can manage the reservation, split a reservation into smaller parts, or change instance size flexibility. 
 
-For more information, see Manage Reservations for Azure resources (manage-reserved-vm-instance.md) 
+For more information, see [Manage Reservations for Azure resources](manage-reserved-vm-instance.md) 
 
 ## Flexibility with Azure reservations
 

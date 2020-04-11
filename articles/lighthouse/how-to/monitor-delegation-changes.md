@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
 ---
 
@@ -68,7 +68,7 @@ After you've created your service principal account and assigned the Monitoring 
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant. 
 
-The sample below uses Azure PowerShell to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
+[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID

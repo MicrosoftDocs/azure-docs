@@ -52,7 +52,7 @@ To ensure that your `DiagnosticsConnectionString` setting is correct before you 
   If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the property pages to set this value.
 
 ## Exported certificate does not include private key
-To run a web role under SSL, you must ensure that your exported management certificate includes the private key. If you use the *Windows Certificate Manager* to export the certificate, be sure to select **Yes** for the **Export the private key** option. The certificate must be exported in the PFX format, which is the only format currently supported.
+To run a web role under TLS, you must ensure that your exported management certificate includes the private key. If you use the *Windows Certificate Manager* to export the certificate, be sure to select **Yes** for the **Export the private key** option. The certificate must be exported in the PFX format, which is the only format currently supported.
 
 ## Next steps
 View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.

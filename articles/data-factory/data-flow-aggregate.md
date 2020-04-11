@@ -91,8 +91,6 @@ MoviesYear aggregate(
             ) ~> AvgComedyRatingByYear
 ```
 
-## Data flow script
-
 ![Aggregate data flow script](media/data-flow/aggdfs1.png "Aggregate data flow script")
 
 ```MoviesYear```: Derived Column defining year and title columns

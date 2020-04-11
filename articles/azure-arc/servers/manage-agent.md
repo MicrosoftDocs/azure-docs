@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ---
 
@@ -56,6 +56,9 @@ The Setup Wizard discovers if a previous version exists, and then it automatical
 ### Linux agent
 
 To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package. 
+
+> [!NOTE]
+> To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
 
 #### Upgrade Ubuntu
 
@@ -107,13 +110,11 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## Remove the agent
 
-Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard described in this section. Before uninstalling the agent, first disconnect the machine from Azure Arc for servers (preview) by completing these steps: 
-
-1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
-
-2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc for servers (preview), this is a separate process you perform when you no longer need to manage the machine in Azure.
 
 ### Windows agent
+
+Both of the following methods remove the agent, but they do not remove the *C:\Program Files\AzureConnectedMachineAgent* folder on the machine.
 
 #### Uninstall from Control Panel
 
@@ -153,6 +154,9 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 
 ### Linux agent
 
+> [!NOTE]
+> To uninstall the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
+
 To uninstall the Linux agent, the command to use depends on the Linux operating system.
 
 - For Ubuntu, run the following command:
@@ -172,3 +176,11 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## Unregister machine
+
+If you are planning to stop managing the machine with supporting services in Azure, perform the following steps to unregister the machine with Arc for servers (preview). You can perform these step either before or after you have removed the Connected Machine agent from the machine.
+
+1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
+
+2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.

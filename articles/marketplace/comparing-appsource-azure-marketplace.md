@@ -1,7 +1,7 @@
 ---
 title: Comparing AppSource and the Azure Marketplace | Azure
 description: This article describes the storefronts in Microsoft AppSource and the Azure Marketplace.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -31,5 +31,5 @@ The following table describes the benefits of using a storefront:
 | **In-context presentation to customers** | Make your solution available in the Azure in-portal experience for contextual search. Use the Virtual machine and Azure apps: Solution template publishing options. | Reach more customers through the in-app experience for Microsoft products such as Dynamics 365, Power BI, and Office 365. |
 
 ## Next steps
-*   Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).
+*   Review the [commercial marketplace publishing guide](./marketplace-publishers-guide.md).
 
