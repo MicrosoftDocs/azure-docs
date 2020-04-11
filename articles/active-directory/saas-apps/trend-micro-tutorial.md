@@ -184,7 +184,7 @@ Once you successfully configured the Azure AD service and specified Azure AD as 
 1. Clear the browser of all cookies and then restart the browser. 
 
 1. Point your browser to the TMWS proxy server. 
-For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/enterprise/trend-micro-web-security-online-help/administration_001/pac-files/traffic-forwarding-u.aspx#GUID-A4A83827-7A29-4596-B866-01ACCEDCC36B).
+For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/pac-files/traffic-forwarding-u.aspx#GUID-A4A83827-7A29-4596-B866-01ACCEDCC36B).
 
 1. Visit any Internet website. TMWS will direct you to the TMWS captive portal.
 
