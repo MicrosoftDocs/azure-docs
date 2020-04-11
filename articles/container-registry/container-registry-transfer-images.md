@@ -258,6 +258,7 @@ For example, the following [`azcopy sync`](/azure/storage/common/storage-ref-azc
 azcopy sync \
   'https://<source-storage-account-name>.blob.core.windows.net/transfer/'$SOURCE_SAS \
   'https://<destination-storage-account-name>.blob.core.windows.net/transfer/'$TARGET_SAS \
+  --force \
   --recursive 
 ```
 
@@ -306,12 +307,20 @@ az acr repository list --name <target-registry-name>
 
 ## Delete pipeline resources
 
-To delete a pipeline resource, delete its Resource Manager deployment by using the [az deployment group delete][az-deployment-group-delete] command. The following example deletes an ExportPipeline deployment named *exportPipeline*:
+To delete a pipeline resource, delete its Resource Manager deployment by using the [az deployment group delete][az-deployment-group-delete] command. The following examples delete the pipeline resources created in this article:
 
 ```azurecli
 az deployment group delete \
   --resource-group $SOURCE_RG \
   --name exportPipeline
+
+az deployment group delete \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun
+
+az deployment group delete \
+  --resource-group $TARGET_RG \
+  --name importPipeline  
 ```
 
 ## Troubleshooting
@@ -324,8 +333,10 @@ az deployment group delete \
   * Existing storage blob in source storage account might not be overwritten during multiple export runs. Confirm that the OverwriteBlob option is set in the export run and the SAS token has sufficient permissions.
   * Storage blob in target storage account might not be deleted after successful import run. Confirm that the DeleteBlobOnSuccess option is set in the import run and the SAS token has sufficient permissions.
   * Storage blob not created or deleted. Confirm that container specified in export or import run exists, or specified storage blob exists for manual import run. 
+* **AzCopy issues**
+  * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Artifacts transfer problems**
-  * Artifacts are transferred incompletely or not at all. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 10 artifacts.
+  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 10 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time. 
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
 
