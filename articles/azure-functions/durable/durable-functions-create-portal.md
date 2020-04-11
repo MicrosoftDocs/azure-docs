@@ -2,7 +2,7 @@
 title: Create Durable Functions using the Azure portal  
 description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ---
 
@@ -29,13 +29,13 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 
 1. From your function app's page, select **Advanced Tools** under **Development Tools** in the left pane.
 
-   ![Functions platform features choose Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Functions platform features choose Kudu":::
 
 2. In the **Advanced Tools** page, select **Go**.
 
 3. Inside the Kudu console, select **Debug console**, and then **CMD**.
 
-   ![Kudu debug console](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu debug console":::
 
 3. Your function app's file directory structure should display. Navigate to the `site/wwwroot` folder. From there, you can upload a `package.json` file by dragging and dropping it into the file directory window. A sample `package.json` is below:
 
@@ -47,7 +47,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
     }
     ```
 
-   ![Kudu upload package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu upload package.json":::
 
 4. Once your `package.json` is uploaded, run the `npm install` command from the Kudu Remote Execution Console.
 
@@ -59,7 +59,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 
 1. In the search field of the **New Function** page, enter `durable`, and then choose the **Durable Functions HTTP starter** template.
 
-   ![Select Durable Functions HTTP starter](./media/durable-functions-create-portal/durable-functions-http-starter-template.png)
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Select Durable Functions HTTP starter":::
 
 1. For the **New Function** name, enter `HttpStart`, and then select **Create Function**.
 
