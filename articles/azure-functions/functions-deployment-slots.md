@@ -104,8 +104,12 @@ You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
 You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
-1. Navigate to the function app
-1. Click on the source slot name that you want to swap
+1. Navigate to the function app.
+1. Select **Deployment slots**, and then click **Swap**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
+
+ on the source slot name that you want to swap
 1. From the *Overview* tab, click on the **Swap** button
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
 1. Verify the configuration settings for your swap and click **Swap**
