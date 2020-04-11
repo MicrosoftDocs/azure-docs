@@ -3,7 +3,7 @@ title: Using Azure CDN with SAS | Microsoft Docs
 description: Azure CDN supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Using Azure CDN with SAS

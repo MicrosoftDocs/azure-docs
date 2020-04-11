@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace and AppSource publishing guide
-description: An overview of the Azure Marketplace and Microsoft AppSource for app and service publishers.
+title: Commercial marketplace publishing guide
+description: An overview of the commercial marketplace for app and service publishers.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.date: 06/05/2018
 ms.author: dsindona
 ---
 
-# Azure Marketplace and AppSource publishing guide
+# Commercial marketplace publishing guide
 
 The Marketplace publishing guide is designed to help new and existing publishers learn how to use storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) to grow their business in partnership with Microsoft by listing applications and services.
 
