@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice:
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 03/16/2020
+ms.date: 04/15/2020
 ---
 
 # Tutorial: Use Azure Synapse Analytics to create Apache Spark job definitions for Synapse Spark pools

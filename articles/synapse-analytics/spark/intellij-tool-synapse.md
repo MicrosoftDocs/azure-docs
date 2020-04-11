@@ -7,7 +7,7 @@ ms.author: v-jiche
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ---
 
 # Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Spark pools (preview)

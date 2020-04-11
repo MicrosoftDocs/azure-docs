@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 01/06/2020
+ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: 

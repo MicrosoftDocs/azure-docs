@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice:
-ms.date: 10/07/2019
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---

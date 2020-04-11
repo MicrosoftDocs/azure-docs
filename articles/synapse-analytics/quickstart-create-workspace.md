@@ -6,7 +6,7 @@ author: malvenko
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: 
-ms.date: 03/15/2020
+ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
 ---

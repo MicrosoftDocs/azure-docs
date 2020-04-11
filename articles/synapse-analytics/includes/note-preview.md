@@ -2,7 +2,7 @@
 author: julieMSFT
 ms.service: synapse-analytics  
 ms.topic: include
-ms.date: 4/6/2020
+ms.date: 04/15/2020
 ms.author: jrasnick
 ---
 > [!IMPORTANT]

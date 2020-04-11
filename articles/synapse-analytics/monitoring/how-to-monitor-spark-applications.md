@@ -6,7 +6,7 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice:
-ms.date: 01/01/2020
+ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---

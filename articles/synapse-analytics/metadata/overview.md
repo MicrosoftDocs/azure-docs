@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 02/24/2020
+ms.date: 04/15/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ---
