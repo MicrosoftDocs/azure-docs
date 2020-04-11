@@ -92,13 +92,15 @@ All slots scale to the same number of workers as the production slot.
 
 You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
-1. Navigate to your function app and click on the **plus sign** next to *Slots*.
+1. Navigate to your function app.
 
-    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Select **Deployment slots**, and then select **+ Add**.
 
-1. Enter a name in the textbox, and press the **Create** button.
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Add Azure Functions deployment slot." border="true":::
 
-    ![Name Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Type the name of the slot and select **Add**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Name the Azure Functions deployment slot." border="true":::
 
 ## Swap slots
 
