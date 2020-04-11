@@ -125,6 +125,30 @@ If a swap results in an error or you simply want to "undo" a swap, you can roll 
 
 You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
 
+1. Navigate to **Deployment slots** in the function app, and then select the slot name.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
+
+1. Select **Delete**, and then select the setting name you want to stick with the current slot.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
+
+1. Select **Deployment slot setting**, and then select **OK**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure the deployment slot setting." border="true":::
+
+1. Once setting section disappears, select **Save** to keep the changes
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Save the deployment slot setting." border="true":::
+
+
+
+
+
+
+
+
+
 1. Navigate to the function app Overview
 
 1. Click on the **Delete** button
