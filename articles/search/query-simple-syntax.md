@@ -8,12 +8,14 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/12/2020
 ---
 
 # Simple query syntax in Azure Cognitive Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Cognitive Search, the simple query syntax excludes the fuzzy/slop options.  
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+
+In Azure Cognitive Search, the simple query syntax excludes fuzzy search operations. Instead, use the full Lucene syntax for [fuzzy search](search-query-fuzzy.md).
 
 > [!NOTE]
 > The simple query syntax is used for query expressions passed in the **search** parameter of the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
@@ -89,15 +91,15 @@ When deciding on a **searchMode** setting, consider the user interaction pattern
 
 <a name="prefix-search"></a>
 
-## Suffix `*` operator for prefix search
+## Suffix `*` operator (prefix search)
 
-The suffix operator is an asterisk `*`. For example, `lingui*` will find documents containing terms that start with "lingui", such as "linguistic" or "linguini", ignoring case. 
+The suffix operator is an asterisk `*`. For example, `lingui*` will find "linguistic" or "linguini", ignoring case. 
 
 Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. 
 
 If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and the full Lucene syntax.
 
-## Phrase search
+## Phrase operator `"`
 
 The phrase operator encloses a phrase in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
 
