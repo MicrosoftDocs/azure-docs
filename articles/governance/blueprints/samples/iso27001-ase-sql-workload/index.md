@@ -25,7 +25,7 @@ a service based web environment. The environment can be used to host multiple we
 APIs, and SQL Database instances that follow the ISO 27001 standards. This blueprint sample depends
 on the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
 
-![ISO 27001 ASE/SQL workload blueprint sample design](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="ISO 27001 ASE/SQL workload blueprint sample design" border="false":::
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready workload infrastructure based on ISO 27001 standards. This environment is
