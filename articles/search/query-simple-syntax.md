@@ -28,7 +28,7 @@ Simple syntax is the default. Invocation is only necessary if you are resetting 
 
 Any text with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
-As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see [NOT operator](#not-operator).
+As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a **searchMode** parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see [NOT operator](#not-operator).
 
 ### Precedence operators (grouping)
 
@@ -103,6 +103,8 @@ The phrase operator encloses a phrase in quotation marks `" "`. For example, whi
 
 ## See also  
 
-+ [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Query examples for simple search](search-query-simple-examples.md)
++ [Query examples for full Lucene search](search-query-lucene-examples.md)
++ [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Lucene query syntax](query-lucene-syntax.md)
 + [OData expression syntax](query-odata-filter-orderby-syntax.md) 

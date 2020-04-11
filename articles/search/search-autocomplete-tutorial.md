@@ -9,12 +9,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-
 ---
 
 # Add suggestions or autocomplete to your Azure Cognitive Search application
 
-In this example, learn how to build a search box that supports search-as-you-type behaviors. There are two features, which you can use together or separately:
+This example demonstrates a search box that supports search-as-you-type behaviors. There are two features, which you can use together or separately:
 
 + *Suggestions* generate search results as you type, where each suggestion is a single result or search document from the index that matches what you've typed so far. 
 
@@ -32,7 +31,7 @@ For both language versions, the front-end user experience is based on the [jQuer
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-An Azure Cognitive Search service is optional for this exercise because the solution uses a hosted service hosting and NYCJobs demo index. If you want to build this index on your own search service, see [Create NYC Jobs index](#configure-app) for instructions.
+An Azure Cognitive Search service is optional for this exercise because the solution uses a hosted service and NYCJobs demo index. If you want to build this index on your own search service, see [Create NYC Jobs index](#configure-app) for instructions. Otherwise, you can use the existing service and index to back a JavaScript client app.
 
 <!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
 
@@ -321,4 +320,3 @@ As a next step, trying integrating suggestions and autocomplete into your search
 > [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 > [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
 > [Facets index attribute on a Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-

@@ -115,18 +115,15 @@ The AND operator is an ampersand or a plus sign. For example: `wifi && luxury` w
 
 ### NOT operator `NOT`, `!` or `-`
 
-The NOT operator is an exclamation point or the minus sign. For example: `wifi !luxury` will search for documents that have the "wifi" term and/or do not have "luxury". The `searchMode` setting controls whether a term with the NOT operator is ANDed or ORed with the other terms in the query, assuming the absence of additional `+` or `|` operators on the other terms.
+The NOT operator is a minus sign. For example, `wifi –luxury` will search for documents that have the `wifi` term and/or do not have `luxury`.
 
-`searchMode` is a parameter that specifies whether any or all of the search terms must be matched in order to count the document as a match. On a NOT query, this parameter has a profound effect on query logic. 
+The **searchMode** parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Valid values include `any` or `all`.
 
-|searchMode setting| Effect | Example |
-|------------------|--------|--------|
-|`any` (default) | Increases the recall of queries by returning more results, and by default will be interpreted as "OR NOT". | `search=wifi -luxury` will match documents that either contain the term *wifi* or those that do not contain the term *luxury*. |
-|`all` | Increases the precision of queries by including fewer results, and by default will be interpreted as "AND NOT". | `search=wifi -luxury` will match documents that either contain the term *wifi* or those that do not contain the term *luxury*. This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider choosing `searchMode=all` over `searchMode=any` if you want to optimize searches for precision instead of recall *and* your users frequently use the `-` operator in searches.|
+`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`.
 
-Using `searchMode=any` increases the recall of queries by returning more results, and by default will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term *wifi* or those that do not contain the term *luxury.*
+`searchMode=all` increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.
 
-Using `searchMode=all` increases the precision of queries by including fewer results, and by default will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term `luxury`. This is arguably a more intuitive behavior for the - operator. Therefore, you should consider choosing `searchMode=all` over `searchMode=any` if you want to optimize searches for precision instead of recall *and* your users frequently use the `-` operator in searches.
+When deciding on a **searchMode** setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures.
 
 ##  <a name="bkmk_fields"></a> Fielded search
 
@@ -186,8 +183,10 @@ Suffix search, where `*` or `?` precedes the string, requires full Lucene syntax
 
 Azure Cognitive Search uses frequency-based scoring ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
-## See also  
+## See also
 
++ [Query examples for simple search](search-query-simple-examples.md)
++ [Query examples for full Lucene search](search-query-lucene-examples.md)
 + [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md)   
 + [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)   
