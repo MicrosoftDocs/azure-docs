@@ -152,7 +152,7 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 ## Considerations
 
-This section describes known issues about this connector's triggers and actions.
+This section describes considerations to review for this connector's triggers and actions.
 
 <a name="create-file"></a>
 
