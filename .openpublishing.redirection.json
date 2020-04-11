@@ -423,17 +423,17 @@
     },
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/miro-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/tutorial-list",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {
