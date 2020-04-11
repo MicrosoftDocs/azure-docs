@@ -67,15 +67,15 @@ Use the following steps to create a deployment setting:
 
 1. Select **Configuration**, and then select the setting name you want to stick with the current slot.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-application-setting.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
 
 1. Select **Deployment slot setting**, and then select **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment=slot-setting.png" alt-text="Configure the deployment slot setting." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure the deployment slot setting." border="true":::
 
 1. Once setting section disappears, select **Save** to keep the changes
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment=slot-setting.png" alt-text="Save the deployment slot setting." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Save the deployment slot setting." border="true":::
 
 ## Deployment
 
@@ -111,10 +111,10 @@ You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
 
- on the source slot name that you want to swap
-1. From the *Overview* tab, click on the **Swap** button
-    ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
 1. Verify the configuration settings for your swap and click **Swap**
+    
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
+
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 The operation may take a moment while the swap operation is executing.
