@@ -19,11 +19,7 @@ ms.date: 03/09/2020
 # Train with datasets in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in a remote experiment training runs without worrying about connection strings or data paths.
-
-- Option 1: If you have structured data, create a TabularDataset and use it directly in your training script.
-
-- Option 2: If you have unstructured data, create a FileDataset and mount or download files to a remote compute for training.
+In this article, you learn how to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in your training experiments.  Use them in your local or remote compute target without worrying about connection strings or data paths.
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
@@ -40,7 +36,17 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Option 1: Use datasets directly in training scripts
+
+## Local Options
+
+## Remote Options
+
+There are two ways to consume Azure Machine Learning datasets in remote experiment training runs:
+
+Option 1: If you have structured data, create a TabularDataset and use it directly in your training script.
+
+Option 2: If you have unstructured data, create a FileDataset and mount or download files to a remote compute for training.
+### Option 1: Use datasets directly in training scripts
 
 In this example, you create a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and use it as a direct input to your `estimator` object for training. 
 
