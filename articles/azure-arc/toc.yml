@@ -20,5 +20,5 @@
       href: ./servers/manage-agent.md
 - name: Reference
   items:
-    - name: Azure Connected Machine Agent CLI interface
-      href: ./servers/azcmagent-reference.md
+  - name: Azure Connected Machine Agent CLI interface
+    href: ./servers/azcmagent-reference.md
