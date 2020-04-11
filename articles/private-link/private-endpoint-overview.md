@@ -101,7 +101,7 @@ When connecting to a private link resource using a fully qualified domain name (
  
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource. 
 
-review [integrate dns with private endpoints](private-endpoint-dns.md) for more details.
+please review [integrate dns with private endpoints](private-endpoint-dns.md) for more details.
 
  
 ## Limitations
