@@ -4,11 +4,11 @@
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
--name: How-to guides
- items:
- - name: Connect to Azure Arc
-   items:
-   - name: Connect machines to Azure Arc from the Azure portal
+- name: How-to guides
+  items:
+  - name: Connect to Azure Arc
+    items:
+    - name: Connect machines to Azure Arc from the Azure portal
       href: ./servers/onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: ./servers/onboard-service-principal.md
