@@ -199,6 +199,34 @@ Like keys, secrets are managed with their own commands:
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
+#### Certificates
+
+You can manage certificates using below commands:
+
+- Delete a Certificate named SQLPassword: 
+  ```powershell
+  Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- List all deleted certificates in a key vault: 
+  ```powershell
+  Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
+  ```
+
+- Recover a certificate in the deleted state: 
+  ```powershell
+  Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- Purge a certificate in deleted state: 
+
+  > [!IMPORTANT]
+  > Purging a certificate will permanently delete it, and it will not be recoverable!
+
+  ```powershell
+  Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState 
+  ```
+  
 ## Purging a soft-delete protected key vault
 
 > [!IMPORTANT]

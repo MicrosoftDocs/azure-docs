@@ -3,7 +3,7 @@ title: Tutorial - Add Azure CDN to an Azure App Service web app | Microsoft Docs
 description: In this tutorial, Azure Content Delivery Network (CDN) is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 
 ---
