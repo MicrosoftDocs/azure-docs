@@ -95,7 +95,7 @@ To enable AD authentication over SMB for Azure file shares, you need to first re
 > [!IMPORTANT]
 > The `Join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
 
-The `Join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-ad-account-password).
+The `Join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD account password](#5-update-the-password-of-your storage-account-identity-in-ad).
 
 You can use the following script to perform the registration and enable the feature or, alternatively, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
 
@@ -124,20 +124,27 @@ Import-Module -Name AzFilesHybrid
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 Connect-AzAccount
 
+#Define parameters
+$SubscriptionId = "<your-subscription-id-here>"
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
 #Select the target subscription for the current session
-Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
+Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-Join-AzStorageAccountForAuth `
-        -ResourceGroupName "<resource-group-name-here>" `
-        -Name "<storage-account-name-here>" `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
-        -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead
-
-#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 #You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+
+Join-AzStorageAccountForAuth `
+        -ResourceGroupName $ResourceGroupName `
+        -Name $StorageAccountName `
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+
+#You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD identity. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 
 ```
 
