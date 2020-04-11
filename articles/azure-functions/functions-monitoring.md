@@ -46,7 +46,7 @@ For more information, see [Query telemetry data](#query-telemetry-data) later in
 
 ## View telemetry in Application Insights
 
-To open Application Insights from a function app in the Azure portal, select **Application Insights** under **Settings** in the left page. If this is your first time using Application Insights with your subscription, enable it by selecting **Turn on Application Insights**, and then selecting **Apply**.
+To open Application Insights from a function app in the Azure portal, select **Application Insights** under **Settings** in the left page. If this is your first time using Application Insights with your subscription, you'll be prompted to enable it: select **Turn on Application Insights**, and then select **Apply** on the next page.
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
