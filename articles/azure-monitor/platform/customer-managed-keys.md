@@ -144,23 +144,23 @@ Some of the operations in this configuration procedure run asynchronously becaus
 
 You can check the status of the asynchronous operation by sending a GET request to the *Azure-AsyncOperation* header value:
 ```rst
-GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
 Authorization: Bearer <token>
 ```
 
-The body of the response from the operation contains information about the operation and the *Status* property indicates its state. The asynchronous operations in this configuration procedure and their statuses are:
+The body of the response from the operation contains information about the operation including *Status*. The asynchronous operations in this configuration and their statuses are:
 
-**Creating a *Cluster* resource**
-* ProvisioningAccount -- ADX cluster is in provisioning 
-* Succeeded -- ADX cluster provisioning is completed
+* Creating a *Cluster* resource
+    * ProvisioningAccount -- ADX cluster is in provisioning 
+    * Succeeded -- provisioning is completed
 
-**Granting permissions to your Key Vault**
-* Updating -- Key identifier details update is in progress
-* Succeeded -- Update completed
+* Granting permissions to your Key Vault
+    * Updating -- Key identifier details update is in progress
+    * Succeeded -- update completed
 
-**Associating Log Analytics workspaces**
-* Linking -- Workspace association to cluster is in progress
-* Succeeded -- Association completed
+* Associating Log Analytics workspaces
+    * Linking -- workspace association to cluster is in progress
+    * Succeeded -- association completed
 
 
 ### Subscription whitelisting
@@ -173,6 +173,8 @@ CMK capability is an early access feature. The subscriptions where you plan to c
 ### Storing encryption key (KEK)
 
 Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
+
+![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
 
 These settings are available via CLI and PowerShell:
 - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -216,7 +218,7 @@ The identity is assigned to the *Cluster* resource at creation time.
 200 OK and header when accepted.
 >[!Important]
 > During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
-> 1. Copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](#asynchronous-operations-and-status-check)
+> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 > 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Azure Monitor data-store (ADX cluster) provisioning
@@ -318,7 +320,7 @@ Content-type: application/json
 200 OK and header when accepted.
 >[!Important]
 > It takes the propagation of the Key identifier a few minutes to complete. You can check the provisioning state in two ways:
-> 1. Copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](#asynchronous-operations-and-status-check)
+> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 > 2. Send a GET request on the *Cluster* resource and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
 
 A response to GET request on the *Cluster* resource should look like this when Key identifier update is complete:
@@ -385,10 +387,9 @@ Content-type: application/json
 
 200 OK and header when accepted.
 >[!Important]
-> It can operation up to 90 minutes to complete. Data ingested to your workspaces is stored encrypted with your managed key only after a successful workspaces association.
-> To check the workspace association state, copy the *Azure-AsyncOperation* URL value from the response and use it for the operation status check in [asynchronous operations](# asynchronous-operations-and-status-check)
+> Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. To check the workspace association state, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 
-You can check the *Cluster* resource associated to your workspace by sending a GET request to [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) and observing the response. The *clusterResourceId* indicates on the *Cluster* resource ID.
+You can verify if your workspace was associated to a Cluster resource by sending a GET request to [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) and observing the response. The clusterResourceId indicates on the Cluster resource ID.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
@@ -609,10 +610,11 @@ Content-type: application/json
 
 **Response**
 
-202 Accepted. This is a standard Resource Manager response for asynchronous operations.
-
+200 OK and header when accepted.
 >[!Important]
-> It takes the provisioning of the underly ADX cluster a few minutes to complete. You can verify the provisioning state when performing GET REST API call on the *Cluster* resource and looking at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and "Succeeded" when completed.
+> During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+> 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
