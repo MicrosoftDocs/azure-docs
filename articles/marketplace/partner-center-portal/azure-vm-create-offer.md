@@ -210,7 +210,7 @@ Here are some tips for writing your description:
 
 To make your offer description more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
 
-![Illustrates the Overview page in Partner Center with the New offer button and Consulting service offer selected.](media/avm-create8.png)
+![Illustrates the Overview page in Partner Center with the New offer button and Consulting service offer selected.](media/power-bi-rich-text-editor.png)
 
 #### Privacy policy link
 
@@ -270,7 +270,6 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-### &nbsp;
 For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices).
 
 Select **Save draft** before continuing.

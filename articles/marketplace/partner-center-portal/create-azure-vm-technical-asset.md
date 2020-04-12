@@ -159,9 +159,9 @@ This section describes how to create and deploy a user-provided virtual machine 
 
 ### Deploy your image
 
-Create your image using either the Azure Portal or Azure PowerShell.
+Create your image using either the Azure portal or Azure PowerShell.
 
-#### Deploy using the Azure Portal
+#### Deploy using the Azure portal
 
 1. On the home page, select **Create a resource**, search for "Template Deployment", and select **Create**.
 2. Choose **Build your own template in the editor**.
@@ -175,7 +175,7 @@ Create your image using either the Azure Portal or Azure PowerShell.
     | ------------ | ------------- |
     | User Storage Account Name | Content from cell 2 |
     | User Storage Container Name | Storage account name where the generalized VHD is located |
-    | DNS Name for Public IP | Public IP DNS name. Define the DNS name for the public IP address in the Azure Portal after the offer is deployed. |
+    | DNS Name for Public IP | Public IP DNS name. Define the DNS name for the public IP address in the Azure portal after the offer is deployed. |
     | Admin User Name | Administrator account's username for new VM |
     | Admin Password | Administrator account's password for new VM |
     | OS Type | VM operating system: Windows or Linux |

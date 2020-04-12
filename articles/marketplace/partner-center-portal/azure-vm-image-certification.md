@@ -602,14 +602,10 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 There are two ways to run validations on the deployed image:
 
-1. Use Certification Test Tool for Azure Certified
-2. Use the self-test API
+- Use Certification Test Tool for Azure Certified
+- Use the self-test API
 
-### Use the Certification Test Tool for Azure Certified
-
-This section describes where to get the _Certification Test Tool for Azure Certified_, how to use this tool to certify your VM image, and how to upload the verification results to the Azure container where your VHDs reside.
-
-#### Download and run the certification test tool
+### Download and run the certification test tool
 
 The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met. The output of the tool is a compatibility report that you will upload to the Partner Center portal to request VM certification.
 
@@ -619,13 +615,11 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 4. Select the **Platform** for your VM, either Windows Server or Linux. Your platform choice affects the remaining options.
 5. If your VM is using this database service, select the **Test for Azure SQL Database** check box.
 
-    ![Azure Certified Test Tool initial page with Test Name and Platform fields highlighted.](media/avm-cert1.png)
-
-#### Connect the certification tool to a VM image
+### Connect the certification tool to a VM image
 
 The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.microsoft.com/powershell/) and connects to Linux VMs through [SSH.Net](https://www.ssh.com/ssh/protocol/).
 
-#### Connect the certification tool to a Linux VM image
+### Connect the certification tool to a Linux VM image
 
 1. Select the **SSH Authentication** mode: Password Authentication or Key File Authentication.
 2. If using password-­based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default **SSH Port** number.
@@ -634,7 +628,7 @@ The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.micr
 
 3. If using key file-based authentication, enter values for the **VM DNS Name**, **User name**, and **Private key** location. You can also include a **Passphrase** or change the default **SSH Port** number.
 
-##### **Connect the certification tool to a Windows-based VM image**
+### **Connect the certification tool to a Windows-based VM image**
 
 1. Enter the fully qualified **VM DNS name** (for example, MyVMName.Cloudapp.net).
 2. Enter values for the **User Name** and **Password**.
@@ -643,21 +637,13 @@ The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.micr
 
 ### Run a certification test
 
-After you've given the parameter values for your VM image in the certification tool, select **Test Connection** to create a valid connection to your VM. After a connection is verified, select **Next** to start the test. When the test is complete, the test results are shown in a table. The Status column shows (Pass/Fail/Warning) for each test. Here are the results for a Linux VM test:
-
-![Azure Certified Test Tool certification test page](media/avm-cert5.png)
-
-If any of the tests fail, your image is _not_ certified. In this case, review the requirements and failure messages, make the suggested changes, and run the test again.
+After you've given the parameter values for your VM image in the certification tool, select **Test Connection** to create a valid connection to your VM. After a connection is verified, select **Next** to start the test. When the test is complete, the test results are shown in a table. The Status column shows (Pass/Fail/Warning) for each test. If any of the tests fail, your image is _not_ certified. In this case, review the requirements and failure messages, make the suggested changes, and run the test again.
 
 After the automated test completes, provide additional information about your VM image on the two tabs of the **Questionnaire** screen, **General Assessment** and **Kernel Customization**, and then select **Next**.
-
-![Azure Certified Test Tool, additional information tabs](media/avm-cert6.png)
 
 The last screen lets you provide more information, such as SSH access information for a Linux VM image, and an explanation for any failed assessments if you're looking for exceptions.
 
 Finally, select **Generate Report** to download the test results and log files for the executed test cases along with your answers to the questionnaire. Save the results in the same container as your VHDs.
-
-![Azure Certified Test Tool, generate report](media/avm-cert7.png)
 
 ## Next step
 
