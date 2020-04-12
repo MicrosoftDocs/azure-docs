@@ -59,7 +59,7 @@ SQL on-demand is used to authorize data access. Before accessing the data, the A
 > You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
 > Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
 >
-> To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) article.
+> To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
 >
 
 ### Managed Identity
@@ -131,7 +131,7 @@ WITH IDENTITY='User Identity';
 GO
 ```
 
-**User Identity and Azure Data Lake Storage Gen2** 
+**User Identity and Azure Data Lake Storage Gen2**
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 

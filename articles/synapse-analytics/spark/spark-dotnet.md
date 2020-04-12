@@ -32,18 +32,11 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
    **On Linux:**
 
-   ```bash
-   cd mySparkApp
-   foo@bar:~/path/to/app$ dotnet publish -c Release -f netcoreapp3.0 -r ubuntu.16.04-x64
-   ```
+### .NET for Apache Spark in Azure Synapse Analytics notebooks
 
-2. Do the following tasks to zip your published app files so that you can easily upload them to Azure Synapse.
+When creating a new notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#.
 
-   **On Windows:**
-
-   Navigate to *mySparkApp/bin/Release/netcoreapp3.0/ubuntu.16.04-x64*. Then, right-click on **Publish** folder and select **Send to > Compressed (zipped) folder**. Name the new folder **publish.zip**.
-
-   **On Linux, run the following command:**
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool.
 
    ```bash
    zip -r publish.zip
@@ -69,14 +62,14 @@ The following features are available when you use .NET for Apache Spark in the A
 * Simple C# statements (such as assignments, printing to console, throwing exceptions, and so on).
 * Multi-line C# code blocks (such as if statements, foreach loops, class definitions, and so on).
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
-* Support for [C# 8.0 language features](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-8).
+* Support for [C# 8.0 language features](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 * 'spark' as a pre-defined variable to give you access to your Apache Spark session.
 * Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
-*  Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library. 
+* Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+* [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)
