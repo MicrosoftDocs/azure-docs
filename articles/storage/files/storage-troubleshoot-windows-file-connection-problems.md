@@ -336,7 +336,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 The cmdlet performs these checks below in sequence and provides guidance for failures:
 1. CheckPort445Connectivity: check that Port 445 is opened for SMB connection
 2. CheckDomainJoined: validate that the client machine is domain joined to AD
-3. CheckADObject: confirm that the logged on user has a valid representation in AD
+3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
 4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
 5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
 6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
