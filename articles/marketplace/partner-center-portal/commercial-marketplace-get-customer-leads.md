@@ -132,7 +132,7 @@ The Azure Blob lead destination is no longer supported so you are missing any cu
 
 ### I received an email from Marketplace, why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass private identifiable information from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
 
 ### I have configured Azure Table as my lead destination, how can I view the leads?
 
@@ -148,7 +148,7 @@ Check if the "web to lead" form is a mandatory field based on a picklist. If yes
 
 ### There was an issue with my lead destination, and I missed some leads. Can I have them sent to me in an email?
 
-Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email.
+Due to private identifiable information policies, we cannot share lead information through unsecured email.
 
 ### I have configured Azure Table as my lead destination, how much will it cost?
 
