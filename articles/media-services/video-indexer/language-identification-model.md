@@ -9,13 +9,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 04/12/2020
 ms.author: ellbe
 ---
 
 # Automatically identify the spoken language with language identification model
 
-Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. Currently LID supports English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). 
+Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. Currently LID supports English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian). 
+
+Make sure to review the [Guidelines and limitations](#guidelines-and-limitations) section below.
 
 ## Choosing auto language identification on indexing
 
@@ -45,7 +47,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 
 ## Guidelines and limitations
 
-* Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese.
+* Not supported in LID: Arabic (Modern Standard and Levantine), Hindi, and Korean are not supported in automatic language identification.
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
