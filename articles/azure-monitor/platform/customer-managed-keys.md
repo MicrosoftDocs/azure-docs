@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/08/2020
+ms.date: 04/12/2020
 
 ---
 # Azure Monitor customer-managed key configuration 
@@ -148,20 +148,43 @@ GET https://management.azure.com/subscriptions/ subscription-id/providers/Micros
 Authorization: Bearer <token>
 ```
 
-The body of the response from the operation contains information about the operation including *Status*. The asynchronous operations in this configuration and their statuses are:
+The response contains information about the operation and its *Status*. It can be one of the followings:
 
-* Creating a *Cluster* resource
-    * ProvisioningAccount -- ADX cluster is in provisioning 
-    * Succeeded -- provisioning is completed
+Operation is in progress
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "InProgress", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
 
-* Granting permissions to your Key Vault
-    * Updating -- Key identifier details update is in progress
-    * Succeeded -- update completed
+Operation is completed
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Succeeded", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
 
-* Associating Log Analytics workspaces
-    * Linking -- workspace association to cluster is in progress
-    * Succeeded -- association completed
-
+Operation failed
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Failed", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+    "error" : { 
+        "code": "error-code",  
+        "message": "error-message" 
+    }
+}
+```
 
 ### Subscription whitelisting
 
@@ -215,7 +238,8 @@ The identity is assigned to the *Cluster* resource at creation time.
 
 **Response**
 
-200 OK and header when accepted.
+200 OK and header.
+
 >[!Important]
 > During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
 > 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
@@ -317,7 +341,8 @@ Content-type: application/json
 
 **Response**
 
-200 OK and header when accepted.
+200 OK and header.
+
 >[!Important]
 > It takes the propagation of the Key identifier a few minutes to complete. You can check the provisioning state in two ways:
 > 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
@@ -385,11 +410,12 @@ Content-type: application/json
 
 **Response**
 
-200 OK and header when accepted.
->[!Important]
-> Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. To check the workspace association state, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+200 OK and header.
 
-You can verify if your workspace was associated to a Cluster resource by sending a GET request to [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) and observing the response. The clusterResourceId indicates on the Cluster resource ID.
+>[!Important]
+> Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. You can check the workspace association state in two ways:
+> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+> 2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
