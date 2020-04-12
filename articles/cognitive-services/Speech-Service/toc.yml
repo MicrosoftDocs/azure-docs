@@ -67,10 +67,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Custom keyword naming guidelines
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
-          href: speech-devices-sdk-create-kws.md
     - name: Reference
       items:
         - name: Speech SDK APIs
@@ -117,6 +113,8 @@
       items:
         - name: What is text-to-speech?
           href: text-to-speech.md
+        - name: Text-to-speech basics
+          href: text-to-speech-basics.md
     - name: Quickstart
       items:
         - name: Synthesize speech to a speaker
@@ -448,6 +446,10 @@
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
+    - name: Resources
+      items:
+      - name: Containers FAQ
+        href: speech-container-faq.md
 - name: Speech SDK
   items:
     - name: Overview
@@ -456,8 +458,6 @@
           href: speech-sdk.md
         - name: Scenario availability
           href: scenario-availability.md
-        - name: Ship an application
-          href: ship-application.md
     - name: Quickstart
       items:
         - name: Setup Speech SDK
@@ -472,6 +472,9 @@
         - name: Configure OpenSSL for Linux
           displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
           href: how-to-configure-openssl-linux.md
+        - name: Configure RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
     - name: Samples
       items:
         - name: Speech SDK samples (GitHub)
@@ -544,6 +547,8 @@
       href: sovereign-clouds.md
     - name: Pricing and limits
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption

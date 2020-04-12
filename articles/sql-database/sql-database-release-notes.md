@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -21,7 +21,6 @@ This article lists SQL Database features that are currently in public preview. F
 | Feature | Details |
 | ---| --- |
 | New Fsv2-series and M-series hardware generations| For information, see [Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations).|
-| [Azure private link](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link simplifies the network architecture and secures the connection between endpoints in Azure by keeping data on the Azure network, thus eliminating exposure to the internet. Private Link also enables you to create and render your own services on Azure. |
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -72,6 +71,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
 |[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround|Mar 2020|
@@ -95,6 +95,12 @@ The following features are enabled in Managed instance deployment model in H1 20
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in managed instance||Resolved|Aug 2019|
+
+### Permissions on resource group not applied to managed instance
+
+Managed Instance Contributor RBAC role when applied to a resource group (RG) is not applied to Managed Instance and has no effect.
+
+**Workaround**: Setup Managed Instance Contributor role for users at the subscription level.
 
 ### Limitation of manual failover via portal for failover groups
 

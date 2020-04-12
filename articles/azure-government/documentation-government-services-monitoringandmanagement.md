@@ -196,7 +196,7 @@ This section describes the supplemental configuration that is required to use Ap
 
 ### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
 
-Currently for Azure Government customers, the only way to enable Application Insights via the traditional **Add Applications Insights Telemetry** button in Visual Studio requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+Azure Government customers can enable Application Insights with a [codeless agent](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for their Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
 
 1. Switch Visual Studio to [target the Azure Government cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs).
 
@@ -442,8 +442,8 @@ The URLs for Azure Monitor logs are different in Azure Government:
 | portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
-| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
-| N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
+| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-requirements) |
+| N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-requirements) |
 
 The following Azure Monitor logs features behave differently in Azure Government:
 

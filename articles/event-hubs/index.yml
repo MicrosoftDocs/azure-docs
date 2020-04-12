@@ -77,8 +77,6 @@ landingContent:
             url: event-hubs-kafka-stream-analytics.md      
       - linkListType: how-to-guide
         links:
-          - text: Create an Apache Kafka enabled event hub
-            url: event-hubs-create.md
           - text: Mirror a Kafka broker in an event hub
             url: event-hubs-kafka-mirror-maker-tutorial.md                          
           - text: Connect Apache Spark to an event hub
@@ -118,7 +116,7 @@ landingContent:
           - text: Overview
             url: /azure-stack/user/event-hubs-overview
           - text: Common feature set
-            url: /azure-stack/user/event-hubs-overview
+            url: /azure-stack/user/event-hubs-overview#features
       - linkListType: how-to-guide
         links:
           - text: Capacity planning
@@ -127,6 +125,8 @@ landingContent:
             url: /azure-stack/operator/event-hubs-rp-prerequisites
           - text: Installation (operator)
             url: /azure-stack/operator/event-hubs-rp-install            
+          - text: Use Blob Storage as checkpoint store
+            url: use-blob-storage-checkpoint-store-azure-stack-hub.md
       - linkListType: quickstart
         links:
           - text: Create Event Hubs cluster

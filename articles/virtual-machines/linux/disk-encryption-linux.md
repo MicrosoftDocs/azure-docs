@@ -13,9 +13,10 @@ ms.custom: seodec18
 
 # Azure Disk Encryption scenarios on Linux VMs
 
-Azure Disk Encryption uses the DM-Crypt feature of Linux to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
-There are many disk encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Linux VMs.
+Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature of Linux to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the ephemeral resource disk when using the EncryptFormatAll feature.
+
+Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
 You can only apply disk encryption to virtual machines of [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems). You must also meet the following prerequisites:
 
@@ -411,6 +412,9 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
 - Moving an encrypted VM to another subscription.
 - Kernel Crash Dump (kdump).
+- Oracle ACFS (ASM Cluster File System)
+- Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
 
 ## Next steps
 

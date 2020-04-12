@@ -6,12 +6,14 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/9/2019
+ms.date: 04/08/2020
 ---
 
 # Build expressions in mapping data flow
 
 In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
 ## Open Expression Builder
 
