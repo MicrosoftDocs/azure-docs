@@ -109,7 +109,7 @@ You can use the following options to configure your DNS settings for private end
 > [!IMPORTANT]
 > It's not recommended to override a zone that is actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
  
-For Azure services, use the recommended zone names as described in the following table:
+For Azure services, use the zone names as described in the following table:
 
 |Private Link resource type   |Subresource  |Zone name  |
 |---------|---------|---------|
