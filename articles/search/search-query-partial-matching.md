@@ -18,6 +18,9 @@ Partial and pattern search can be problematic if the index doesn't have terms in
 
 The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
+> [!TIP]
+> Familiar with Postman and REST APIs? [Download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) to query partial terms and special characters described in this article.
+
 ## What is partial search in Azure Cognitive Search
 
 In Azure Cognitive Search, partial search and pattern is available in these forms:
@@ -146,7 +149,11 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 ### Use built-in analyzers
 
-Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. For more information about available built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
+
+Language analyzers, such as the en.microsoft natural language processor, will preserve hyphens in compound words or strings. If query patterns include dashes, using a language analyzer might be sufficient.
+
+For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
