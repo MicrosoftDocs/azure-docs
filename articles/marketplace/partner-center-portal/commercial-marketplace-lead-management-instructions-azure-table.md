@@ -63,10 +63,10 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
 5.    On the *Build a scheduled flow* window under *Repeat every* select "1" for interval and "hour" for frequency. Also, give the flow a name if you like. Select **Create**.
 
-    >[!Note]
-    >Although this example uses a 1-hour interval, you can select the interval and frequency that's best for your business needs.
+>[!Note]
+>Although this example uses a 1-hour interval, you can select the interval and frequency that's best for your business needs.
 
-    ![Build a scheduled flow.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Build a scheduled flow.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Select **+ New step**.
 7. On the *Choose an action* window search for "get past time," and then select **Get past time** under Actions.
@@ -88,22 +88,17 @@ In next set of steps, you'll connect to your Azure table, and set up the process
 9. After the Get past time step, select **+ New step**, and then search for "Get entities" on the *Choose an action* window.
 10. Under **Actions**, select **Get entities (Azure Table Storage)**.
 11.    In the **Azure Table Storage** window, provide information for the following fields and select **Create**:
+* *Connection Name* - provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
+* *Storage Account Name* - provide the name of the storage account for your Azure table. You can find this in the storage account's **Access keys** page.
+* *Shared Storage Key* - provide the key value for your store account for your Azure table. You can find this in the storage account's **Access keys** page.
+    ![Azure Table storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Connection Name* - provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
-    * *Storage Account Name* - provide the name of the storage account for your Azure table. You can find this in the storage account's **Access keys** page.
-    * *Shared Storage Key* - provide the key value for your store account for your Azure table. You can find this in the storage account's **Access keys** page.
+After clicking Create you will see a *Get entities* window. Here select **Show advanced options** and provide information for the following fields:
+* *Table* - Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when "marketplaceleads" table is selected for this example.
+    ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Azure Table storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    After clicking Create you will see a *Get entities* window. Here select **Show advanced options** and provide information for the following fields:
-
-       * *Table* - Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when "marketplaceleads" table is selected for this example.
-
-            ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Filter Query* - Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
-
-            ![Azure Table get entities - Filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Filter Query* - Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
+    ![Azure Table get entities - Filter Query.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Now that you've completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads. 
 
