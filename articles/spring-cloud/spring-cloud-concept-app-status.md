@@ -1,5 +1,5 @@
 ---
-title: Understanding app status for Azure Spring Cloud
+title: Understanding app status in Azure Spring Cloud
 description: Learn the app status categories in Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: brendm
 
 ---
 
-# Understanding app status for Azure Spring Cloud
+# Understanding app status in Azure Spring Cloud
 
 The Azure Spring Cloud UI delivers a lot of information about the status of running applications.  There is an **Apps** option for each resource group in a subscription that displays general status of application types.  For each application type there is an **Application instances** display.
 
