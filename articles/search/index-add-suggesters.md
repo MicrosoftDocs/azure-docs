@@ -19,13 +19,13 @@ The following screenshot from [Create your first app in C#](tutorial-csharp-type
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
-To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
+You can use these features separately or together. To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
 + In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester.
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
-Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
+Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
 ## What is a suggester?
 
