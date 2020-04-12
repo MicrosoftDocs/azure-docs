@@ -11,12 +11,12 @@ ms.author: brendm
 
 # Understanding app status in Azure Spring Cloud
 
-The Azure Spring Cloud UI delivers a lot of information about the status of running applications.  There is an **Apps** option for each resource group in a subscription that displays general status of application types.  For each application type there is an **Application instances** display.
+The Azure Spring Cloud UI delivers information about the status of running applications.  There is an **Apps** option for each resource group in a subscription that displays general status of application types.  For each application type there is display of **Application instances**.
 
 ## Apps status
-To view general status of an application type, select **Apps** in the left navigation pane of a resource group. This will display the status of the deployed app and its discovery status:
-* DeploymentStatus: Whether the app is deployed or its state.
-* DiscoveryStatus: The registered status of the app in Eureka server, which is the same as the definition in Eureka.
+To view general status of an application type, select **Apps** in the left navigation pane of a resource group. The result will be display of the status of the deployed app and its discovery status:
+* DeploymentStatus: Whether the app is deployed or its state
+* DiscoveryStatus: The registered status of the app in Eureka server, which is the same as the definition in Eureka
 
  ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
@@ -28,8 +28,8 @@ The Discovery status is reported as one of the following values:
 
 ## App instances status
 
-To view the status of a specific instance of a deployed app, click the **Name** of the app in the **Apps** UI. This will display:
-* AppInstance.status: Whether the instance is running or its state.
+To view the status of a specific instance of a deployed app, click the **Name** of the app in the **Apps** UI. The results will display:
+* AppInstance.status: Whether the instance is running or its state
 * DiscoveryStatus: The registered status of the app instance in Eureka server
 
  ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
