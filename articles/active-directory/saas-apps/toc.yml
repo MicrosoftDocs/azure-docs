@@ -1438,6 +1438,8 @@
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
+      - name: SynchroNet CLICK
+        href: synchronet-click-tutorial.md
       - name: Syncplicity
         href: syncplicity-tutorial.md
       - name: Synergi
