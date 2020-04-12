@@ -74,7 +74,6 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | --- | --- |
 | **US Government** |  |
 | US Gov Arizona | 12076:51106 |
-| US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
 | US DoD Central | 12076:51209 |
@@ -133,18 +132,6 @@ The URLs for accessing and managing the Service Bus service are different:
 | Service Bus | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
 
 ## Support for Azure Firewall
-
-Azure Firewall is available in Azure Government in the following regions:
-- usgovarizona
-- usgovtexas
-- usgovvirginia
-
-The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
-
-### Limitations
-
-- Traffic Manager service tags do not work, by design.
-- App Service Environment FQDN tags currently do not work.
 
 For more information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
