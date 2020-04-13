@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/10/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;

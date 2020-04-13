@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/10/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -23,11 +23,9 @@ Your organization can use **My Staff** to delegate user management tasks to figu
 
 Managing your team members in My Staff is simple. To start, [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the team members in a location are determined by your IT administrator and you can't change them.
 
-If you manage more than one location or group of staff members, when you go to My Staff you must select a location to see the list of staff who are part of the location or team.
+If you manage more than one location, when you go to My Staff you must select a location to see the team member who are assigned to the location.
 
-If you don't yet have sufficient permissions to access My Staff, you'll see the following message:
-
-![Insufficient permissions to access My Staff](media/my-staff-team-manager/no-perms.png)
+If you don't yet have sufficient permissions to access My Staff, you'll see the following message "Oops, seem you're not authorized to see My Staff at this time. Please contact your admin for more information."
 
 You must open the profile of a user before you can begin to manage them.
 
