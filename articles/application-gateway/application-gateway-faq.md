@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: victorh
 ---
 
@@ -107,7 +107,15 @@ Most deployments that use the v2 SKU take around 6 minutes to provision. However
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
-No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. 
+No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+### Will the Application Gateway v1 SKU continue to be supported?
+
+Yes. The Application Gateway v1 SKU will continue to be supported. However, it is strongly recommended that you move to v2 to take advantage of the feature updates in that SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## Performance
 
@@ -198,10 +206,6 @@ Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azu
 ### Can I use the same port for both public-facing and private-facing listeners?
 
 No.
-
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
 ### Does Application Gateway support IPv6?
 
@@ -325,10 +329,6 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
-
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?
@@ -348,11 +348,11 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. It contains one record per application gateway.
 * **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
 * **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+All logs are collected every 60 seconds. For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
 ### How do I know if my backend pool members are healthy?
 

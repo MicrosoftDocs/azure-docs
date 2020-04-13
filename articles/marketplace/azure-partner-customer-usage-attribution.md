@@ -181,6 +181,53 @@ Partners who want to get their deployment via Terraform tracked by customer usag
 * Create a GUID (the GUID should be added for each Offer or SKU)
 * Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
 
+<<<<<<< HEAD
+=======
+## Create GUIDs
+
+A GUID is a unique reference number that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+
+> [!Note]
+> It is highly recommended that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
+
+We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
+
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
+
+*    Product A in Azure Marketplace
+*    Product A on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs.
+
+You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
+
+## Register GUIDs and offers
+
+The GUIDs must be registered to enable customer usage attribution.
+
+All registrations for template GUIDs are done within Partner Center.
+
+After you add the GUID to your template or in the user agent, and register the GUID in Partner Center, all deployments are tracked.
+
+1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
+
+   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in the commercial marketplace.
+   * Partners can register multiple GUIDs.
+   * Partners can register a GUID for the non-Marketplace solution templates and offers.
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+
+1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
+
+1. On the **Account settings page**, select **Add Tracking GUID.**
+
+1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
+
+1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
+
+1. Select **Save**.
+
+>>>>>>> master
 
 ## Verify the GUID deployment
 
@@ -225,7 +272,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
+You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
 
 Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
 
@@ -260,7 +307,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 1. Choose the **Category** for your issue:
 
    - For usage association issues, select **Other**.
-   - For access issues with the Azure Marketplace CPP, select **Access Problem**.
+   - For access issues with the Azure Marketplace, select **Access Problem**.
 
      ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -309,7 +356,11 @@ Yes, a customer or implementation partner may customize the template and can cha
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
+<<<<<<< HEAD
 Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners must still register their GUIDs.
+=======
+Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the commercial marketplace enrollment in Partner Center to register GUIDs used for the deployment outside of the Azure Marketplace.
+>>>>>>> master
 
 **Does the customer receive reporting as well?**
 

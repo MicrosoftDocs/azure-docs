@@ -70,7 +70,7 @@ Azure App Service supports out of the box tuning and customization through the A
 
 - [Configure app settings](configure-common.md#configure-app-settings)
 - [Set up a custom domain](app-service-web-tutorial-custom-domain.md)
-- [Configure SSL bindings](configure-ssl-bindings.md)
+- [Configure TLS bindings](configure-ssl-bindings.md)
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -179,7 +179,7 @@ To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_
 
 ### Configure TLS/SSL
 
-Follow the instructions in the [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+Follow the instructions in the [Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md) to upload an existing TLS/SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
 ### Use KeyVault References
 

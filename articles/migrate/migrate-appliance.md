@@ -75,14 +75,14 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
-- If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+- If you're using a URL-based proxy to connect to the internet, you need to allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with Azure Migrate.
-management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.

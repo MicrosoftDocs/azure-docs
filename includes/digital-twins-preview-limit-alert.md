@@ -11,4 +11,4 @@
 ---
 
 > [!NOTE]
-> The Azure Digital Twins preview program is currently at capacity. As a result, new customers are no longer being added and **no additional Azure Digital Twins resources can be created at this time**. If an instance somewhere is deleted, it is possible your resource creation will succeed and you can proceed normally, but this is not guaranteed. Please continue to check back for any update to this status.
+> Thank you for your interest in the Azure Digital Twins preview program. Due to overwhelming demand, the preview program is temporarily closed as we prepare for the upcoming release of new capabilities. As a result, you may not be able to create new Azure Digital Twins resources right now. Please continue checking back for new information.

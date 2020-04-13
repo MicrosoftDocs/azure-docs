@@ -37,8 +37,10 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks
+  - name: Access to Azure virtual networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
+  - name: Business continuity and disaster recovery
+    href: business-continuity-disaster-recovery-guidance.md
 - name: How-to guides
   items:
   - name: Develop
@@ -103,6 +105,8 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+    - name: Handle 429 errors or throttling problems
+      href: handle-throttling-problems-429-errors.md
   - name: Access Azure virtual networks
     items: 
       - name: Create integration service environment - Azure portal
@@ -305,6 +309,8 @@
         href: ../connectors/connectors-create-api-yammer.md
   - name: Manage
     items: 
+    - name: Manage logic apps - Azure portal
+      href: manage-logic-apps-with-azure-portal.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts

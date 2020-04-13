@@ -69,6 +69,8 @@
   items:
   - name: Manage Batch accounts
     items:
+    - name: Manage your account
+      href: batch-manage-account-basics.md
     - name: Manage Batch accounts with the portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET

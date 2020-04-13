@@ -3,13 +3,13 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/08/2020
 
 ---
 
 # Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) is defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) is defined when you create an AKS cluster, which creates a [system node pool][use-system-pool]. To support applications that have different compute or storage demands, you can create additional *user node pools*. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. User node pools are where you place your application-specific pods. For example, use these additional user node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 > [!NOTE]
 > This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
@@ -25,19 +25,23 @@ You need the Azure CLI version 2.2.0 or later installed and configured. Run `az 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* You can't delete the system node pool, by default the first node pool.
+* You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
+* System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* All node pools must reside in the same virtual network and subnet.
-* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This version can be updated after the cluster has been provisioned by using per node pool operations.
+* All node pools must reside in the same virtual network.
+* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 
 ## Create an AKS cluster
+
+> [!Important]
+> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.15.7* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 > [!NOTE]
-> The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
+> The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from the Azure CLI and Azure portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -116,6 +120,29 @@ The following example output shows that *mynodepool* has been successfully creat
 
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
+
+### Add a node pool with a unique subnet (preview)
+
+A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
+
+#### Limitations
+
+* All subnets assigned to nodepools must belong to the same virtual network.
+* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
+* Assignment of a unique subnet per node pool is limited to Azure CNI during preview.
+* Using network policies with a unique subnet per node pool is not supported during preview.
+
+To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## Upgrade a node pool
 
@@ -393,7 +420,7 @@ The Kubernetes scheduler can use taints and tolerations to restrict what workloa
 
 For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
-In this example, apply a taint to your GPU-based node using the --node-taints command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key:value* and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
+In this example, apply a taint to your GPU-based node using the --node-taints command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key=value* pair and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -453,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Only pods that have this taint applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
+Only pods that have this toleration applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
 
 ## Specify a taint, label, or tag for a node pool
 
@@ -486,9 +513,9 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     ...
     "provisioningState": "Creating",
     ...
-    "nodeTaints":  {
-      "sku": "gpu:NoSchedule"
-    },
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
     ...
   },
  ...
@@ -691,18 +718,22 @@ az group deployment create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node in a node pool
+## Assign a public IP per node for a node pool (preview)
 
 > [!WARNING]
 > During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. As a result of this limitation, Windows agent pools are not supported with this preview feature. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
-AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved by registering for a separate preview feature, Node Public IP (preview).
+AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
+
+Register for the Node Public IP feature by issuing the following Azure CLI command.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. 
+
+This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ## Clean up resources
 
@@ -721,6 +752,8 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 ## Next steps
+
+Learn more about [system node pools][use-system-pool].
 
 In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
@@ -757,3 +790,4 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

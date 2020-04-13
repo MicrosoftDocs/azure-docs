@@ -12,7 +12,7 @@ Pre-scripts and post-scripts let you run PowerShell runbooks in your Azure Autom
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post-script, the runbook must be imported into your Automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publish-a-runbook).
+For a runbook to be used as a pre or post-script, the runbook must be imported into your Automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publishing-a-runbook).
 
 ## Using a pre-script or post-script
 

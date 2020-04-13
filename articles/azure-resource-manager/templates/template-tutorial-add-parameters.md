@@ -2,7 +2,7 @@
 title: Tutorial - add parameters to template
 description: Add parameters to your Azure Resource Manager template to make it reusable.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -107,13 +107,16 @@ az deployment group create \
 
 ---
 
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+
 To see the flexibility of your template, let's deploy again. This time set the SKU parameter to **Standard_GRS**. You can either pass in a new name to create a different storage account, or use the same name to update your existing storage account. Both options work.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
@@ -124,7 +127,7 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 az deployment group create \
-  --name usedefaultsku \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
