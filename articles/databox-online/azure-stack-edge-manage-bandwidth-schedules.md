@@ -31,7 +31,7 @@ Do the following steps in the Azure portal to add a schedule.
 1. In the Azure portal for your Azure Stack Edge resource, go to **Bandwidth**.
 2. In the right-pane, select **+ Add schedule**.
 
-    ![Select Bandwidth](media/data-box-edge-manage-bandwidth-schedules/add-schedule-1.png)
+    ![Select Bandwidth](media/azure-stack-edge-manage-bandwidth-schedules/add-schedule-1.png)
 
 3. In the **Add schedule**: 
 
@@ -41,11 +41,11 @@ Do the following steps in the Azure portal to add a schedule.
    4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download.
    5. Select **Add**.
 
-      ![Add schedule](media/data-box-edge-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Add schedule](media/azure-stack-edge-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. A schedule is created with the specified parameters. This schedule is then displayed in the list of bandwidth schedules in the portal.
 
-    ![Updated list of bandwidth schedules](media/data-box-edge-manage-bandwidth-schedules/add-schedule-3.png)
+    ![Updated list of bandwidth schedules](media/azure-stack-edge-manage-bandwidth-schedules/add-schedule-3.png)
 
 ## Edit schedule
 
@@ -53,15 +53,15 @@ Do the following steps to edit a bandwidth schedule.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**. 
 2. From the list of bandwidth schedules, select and select a schedule that you want to modify.
-    ![Select bandwidth schedule](media/data-box-edge-manage-bandwidth-schedules/modify-schedule-1.png)
+    ![Select bandwidth schedule](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Make the desired changes and save the changes.
 
-    ![Modify user](media/data-box-edge-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modify user](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. After the schedule is modified, the list of schedules is updated to reflect the modified schedule.
 
-    ![Modify user](media/data-box-edge-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modify user](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## Delete a schedule
@@ -72,7 +72,7 @@ Do the following steps to delete a bandwidth schedule associated with your Azure
 
 2. From the list of bandwidth schedules, select a schedule that you want to delete. In the **Edit schedule**, select **Delete**. When prompted for confirmation, select **Yes**.
 
-   ![Delete a user](media/data-box-edge-manage-bandwidth-schedules/delete-schedule-2.png)
+   ![Delete a user](media/azure-stack-edge-manage-bandwidth-schedules/delete-schedule-2.png)
 
 3. After the schedule is deleted, the list of schedules is updated.
 

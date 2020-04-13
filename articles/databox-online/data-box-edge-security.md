@@ -45,7 +45,7 @@ Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Ed
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](data-box-edge-deploy-prep.md#get-the-activation-key).
+For more information, see [Get an activation key](azure-stack-edge-deploy-prep.md#get-the-activation-key).
 
 ### Protect the device via password
 
@@ -57,7 +57,7 @@ You can:
 - Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
-- Use the local web UI to [change the password](data-box-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
+- Use the local web UI to [change the password](azure-stack-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ## Protect your data
 
@@ -90,4 +90,4 @@ For more information, review the Microsoft privacy policy on the [Trust Center](
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](data-box-edge-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-deploy-prep.md)

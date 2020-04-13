@@ -38,4 +38,4 @@ No new issues are release noted for this release. All the release noted issues h
 ## Next steps
 
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Prepare to deploy Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

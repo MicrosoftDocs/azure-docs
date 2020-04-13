@@ -42,11 +42,11 @@ Take the following steps on your local web UI to configure compute settings.
     - If using static IP addresses, enter an IP address for the network interface.
     - If using DHCP, the IP addresses are automatically assigned. This example uses DHCP.
 
-    ![Enable compute settings 1](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-1.png)
+    ![Enable compute settings 1](media/azure-stack-edge-extend-compute-access-modules/enable-compute-setting-1.png)
 
 3. Select **Apply** to apply the settings. Make a note of the IP address assigned to the network interface if using DHCP.
 
-    ![Enable compute settings](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
+    ![Enable compute settings](media/azure-stack-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 
 ## Add webserver app module
 
@@ -76,7 +76,7 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 
         This configuration lets you access the module using the compute network IP over *http* on TCP port 8080 (with the default webserver port being 80).
 
-        ![Specify port information in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/module-information.png)
+        ![Specify port information in IoT Edge custom module blade](media/azure-stack-edge-extend-compute-access-modules/module-information.png)
 
     4. Select **Save**.
 
@@ -89,7 +89,7 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 
     You should see that the webserver app is running.
 
-    ![Verify connection to module over specified port](media/data-box-edge-extend-compute-access-modules/verify-connect-module-1.png)
+    ![Verify connection to module over specified port](media/azure-stack-edge-extend-compute-access-modules/verify-connect-module-1.png)
 
 ## Next steps
 

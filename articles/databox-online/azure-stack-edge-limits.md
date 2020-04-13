@@ -49,4 +49,4 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge](data-box-edge-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md)

@@ -46,4 +46,4 @@ The following table provides a summary of known issues for the Data Box Gateway 
 ## Next steps
 
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
-- [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md).
+- [Prepare to deploy Azure Data Box Edge](azure-stack-edge-deploy-prep.md).
