@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Learn the basics of speech recognition
@@ -31,6 +31,10 @@ One of the core features of the Speech service is the ability to recognize and t
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
