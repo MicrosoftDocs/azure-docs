@@ -166,7 +166,9 @@ When you add a new question-and-answer pair to the knowledge base, each pair sho
 
 1. After you've added the follow-up prompt, select **Save and train** in the top navigation bar.
 
-## Enable multi-turn during testing of follow-up prompts
+<a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>
+
+## View multi-turn during testing of follow-up prompts
 
 When you test the question with follow-up prompts in the **Test** pane, the response includes the follow-up prompts.
 
