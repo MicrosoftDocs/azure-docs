@@ -9,7 +9,7 @@ ms.author: v-umha
 
 # Disaster recovery for FarmBeats
 
-Data recovery protects you from losing your data in an unfortunate event like collapse of Azure region. In such an event, you can start failover, and recover the data stored in your FarmBeats deployment.
+Data recovery protects you from losing your data in an event like collapse of Azure region. In such an event, you can start failover, and recover the data stored in your FarmBeats deployment.
 
 Data recovery is not a default feature in Azure FarmBeats. You can configure this feature manually by configuring the required Azure resources that are used by FarmBeats to store data in an Azure paired region. Use Active – Passive approach to enable recovery.
 
