@@ -15,16 +15,17 @@ ms.date: 04/06/2020
 # Reinforcement learning with Azure Machine Learning (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this article, you learn how to train a reinforcement learning (RL) agent to play the video game, Pong, using the Python library, Ray rllib. Use Azure Machine Learning to perform computationally expensive RL tasks without having to worry about managing multiple compute resources.
-
-This article is based on the [Rllib Pong example](https://github.com/Azure/azureml-rl-preview/blob/master/Rllib%20Pong.ipynb) that can found in the Azure Machine Learning reinforcement learning [GitHub repository](https://github.com/Azure/azureml-rl-preview).
+In this article, you learn how to train a reinforcement learning (RL) agent to play the video game, Pong, using the Python library, Ray rllib. Azure Machine Learning lets you scale computationally expensive RL tasks across multiple compute clusters without worrying about managing individual machines.
 
 In this article you will learn how to:
-1. Setup an RL experiment
-1. Define head and worker nodes.
-1. Create an RL estimator.
-1. Submit an experiment.
-1. Monitor results.
+> [!div class="checklist"]
+> * Set up an RL experiment
+> * Define head and worker nodes
+> * Create an RL estimator
+> * Submit an experiment
+> * Monitor results
+
+This article is based on the [Rllib Pong example](https://github.com/Azure/azureml-rl-preview/blob/master/Rllib%20Pong.ipynb) that can found in the Azure Machine Learning reinforcement learning [GitHub repository](https://github.com/Azure/azureml-rl-preview).
 
 ## Prerequisites
 
@@ -37,25 +38,25 @@ Run this code in either of these environments:
  - Your own Jupyter Notebook server
 
     - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-        - Install the Azure Machine Learning RL SDK: `!pip install --upgrade azureml-contrib-reinforcementlearning`
+        - Install the Azure Machine Learning RL SDK: `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
     - Run the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) to create a virtual network (vnet) that allows network ports used for distributed training.
 
 ## What is reinforcement learning
 
-Reinforcement learning is 
+![TODO]
 
 ### Reinforcement learning in Azure Machine Learning
 
-Azure Machine Learning takes x, y x, 
+![TODO]
 
 ## Set up the experiment
 
-Set up the training experiment by loading the required Python packages, initializing your workspace, creating an experiment, and specifying a vnet.
+First, set up the RL experiment by loading the required Python packages, initializing your workspace, creating an experiment, and specifying a configured vnet.
 
 ### Import libraries
 
-First, import the necessary Python libraries.
+Import the necessary Python libraries to run the rest of this example. Make sure you install the reinforcement learning SDK with `pip install --upgrade azureml-contrib-reinforcementlearning`.
 
 ```python
 # Azure ML Core imports
@@ -85,7 +86,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an experiment to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections that let you easily find logs, run history, and outputs for related runs.
+Create an [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials that contain logs, run history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong'
@@ -95,7 +96,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Specify a vnet
 
-For RL jobs that use multiple compute targets, specify a vnet in your Azure Machine Learning resource group. The vnet must allow worker nodes to communicate with the head node. For more information on setting up your vnet, see the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) found in the prerequisites section.
+For RL jobs that use multiple compute targets, you must specify a vnet in your resource group that allows worker nodes and head nodes to communicate with each other. For more information on setting up your vnet, see the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) found in the prerequisites section.
 
 ```python
 vnet = 'your_vnet'
@@ -103,9 +104,15 @@ vnet = 'your_vnet'
 
 ## Define head and worker nodes
 
-In this example, we show how to set up separate computing clusters for the Ray head and Ray workers. First we define the head cluster.
+This example uses separate compute clusters for the Ray head and workers nodes. These settings let you scale your RL workloads. Set the number of nodes you need and the size of each node depending on the experiment.
+
+![TODO] Specify limitations for compute clusters. AKS? ACI? Considerations for choosing compute sizes?
 
 ### Head computing cluster
+
+First, define the head cluster. In this example, create a GPU-based head cluster with a maximum of two nodes. A minimum of zero nodes indicates that the cluster will deallocate itself when not in use.
+
+![TODO] More info on head nodes
 
 ```python
 # choose a name for the Ray head cluster
@@ -141,6 +148,10 @@ else:
 ```
 
 ### Worker computing cluster
+
+Next, define the worker cluster. In this example, create a CPU-based worker cluster with a maximum of five nodes. 
+
+![TODO] More info on worker nodes
 
 ```python
 # choose a name for your Ray worker cluster
@@ -179,6 +190,8 @@ else:
 ## Create a reinforcement learning estimator
 
 Use the ReinforcementLearningEstimator to specify how to submit your training job. Azure Machine Learning uses the estimator class to encapsulate run configuration information. This simplifies the process of specifying how a script is executed. In this case, the estimator specifies how the entry script, `rllib-pong.py` is run.
+
+![TODO] Add link to RLEstimator class reference.
 
 Currently, Azure Machine Learning reinforcement learning only supports the Ray framework.
 
@@ -261,7 +274,7 @@ estimator = ReinforcementLearningEstimator(
 
 ### Entry script
 
-The entry script 
+![TODO] More details on entry script. What is it, what is going on in the background. High level what is IMPALA, what is pongnoframeskip-v4. It's tuned already what does this mean?
 
 ## Submit a run
 
@@ -273,6 +286,4 @@ run = exp.submit(config=estimator)
 
 ## Next steps
 
-* [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
-* [Understand automated machine learning results](how-to-understand-automated-ml.md).
-* [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+![TODO] How do users proceed next? Is it deployment? What do they do with this?
