@@ -23,23 +23,23 @@ To view general status of an application type, select **Apps** in the left navig
 The Deployment status is reported as one of the following values:
 
 Deployment.properties.Status: 
-| Enum     | Definition        |
-|----------|:----------------:|
-| Running  | The deployment runs properly |
-| Stopped  | The deployment is stopped  |
-| Compiling | ASC is compiling user's source code |
-| Allocating | ASC is acquiring resource for the deployment. Prevent user operation in this status. |
-| Upgrading | User's app is trying to boot up with given resources and binary deployment. |
-| Failed | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
+| Enum       | Definition                                                                                        |
+|------------|:-------------------------------------------------------------------------------------------------:|
+| Running    | The deployment runs properly                                                                      |
+| Stopped    | The deployment is stopped                                                                         |
+| Compiling  | ASC is compiling user's source code                                                               |
+| Allocating | ASC is acquiring resource for the deployment. Prevent user operation in this status.              |
+| Upgrading  | User's app is trying to boot up with given resources and binary deployment.                       |
+| Failed     | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
 
 The Discovery status is reported as one of the following values:
 
-DiscoveryStatus: Show registered status of the instance in Eureka server, same as the definition in Eureka
-| Enum | Definition      |
-|----------|:----------------:|
-| Up | The app instance is registered to eureka and ready to receive traffic |
-| OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
-| DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
+| DiscoveryStatus: Show registered status of the instance in Eureka server, same as the definition in Eureka |
+|------------------------------------------------------------------------------------------------------------|--|
+| ----------                                                                                                 | :----------------: |
+| Up                                                                                                         | The app instance is registered to eureka and ready to receive traffic |
+| OUT_OF_SERVICE                                                                                             | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
+| DOWN                                                                                                       | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
 
 ## App instances status
 
