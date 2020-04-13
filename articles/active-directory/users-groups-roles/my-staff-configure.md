@@ -62,7 +62,7 @@ From **My Staff**, open a user's profile. Select **Reset password**.
 - If the user is cloud-only, you can see a temporary password that you can give to the user.
 - If the user is synced from on-premises Active Directory, you can enter a password that meets your on-premises AD policies. You can then give that password to the user.
 
-![Password reset progress indicator and success notification](media/my-staff-configure/reset-password.png)
+    ![Password reset progress indicator and success notification](media/my-staff-configure/reset-password.png)
 
 The user is required to change their password the next time they sign in.
 
