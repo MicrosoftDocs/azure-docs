@@ -96,7 +96,7 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Deploy and monitor at scale using the Azure CLI
-            url: how-to-deploy-monitor-cli.md
+            url: how-to-deploy-cli.md
           - text: Create a CI/CD pipeline with Azure Pipelines
             url: how-to-ci-cd.md
       - linkListType: deploy

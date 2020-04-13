@@ -168,11 +168,11 @@
     - name: Deploy at scale
       items:
       - name: Azure portal
-        href: how-to-deploy-monitor.md
+        href: how-to-deploy.md
       - name: Azure CLI
-        href: how-to-deploy-monitor-cli.md
+        href: how-to-deploy-cli.md
       - name: Visual Studio Code
-        href: how-to-deploy-monitor-vscode.md
+        href: how-to-deploy-vscode.md
   - name: Monitor and diagnose deployments
     items:
       - name: Monitor IoT Edge deployments

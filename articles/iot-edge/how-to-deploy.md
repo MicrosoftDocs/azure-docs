@@ -5,13 +5,12 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
-
-# Deploy and monitor IoT Edge modules at scale using the Azure portal
+# Deploy IoT Edge modules at scale using the Azure portal
 
 Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
@@ -162,27 +161,7 @@ Select **Next: Review + Create** to move on to the final step.
 
 Review your deployment information, then select **Create**.
 
-## Monitor a deployment
-
-To view the details of a deployment and monitor the devices running it, use the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
-1. Select the **IoT Edge deployments** tab.
-
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
-
-1. Inspect the deployment list. For each deployment, you can view the following details:
-   * **ID** - the name of the deployment.
-   * **Type** - the type of deployment, either **Deployment** or **Layered Deployment**.
-   * **Target Condition** - the tag used to define targeted devices.
-   * **Priority** - the priority number assigned to the deployment.
-   * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
-   * **Device Metrics** - the number of IoT Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
-   * **Custom Metrics** - the number of IoT Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
-   * **Creation Time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority.
-1. Select the deployment that you want to monitor.  
-1. Inspect the deployment details. You can use tabs to review the details of the deployment.
+To monitor a deployment using the Azure portal, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments#monitor-a-deployment-in-the-azure-portal).
 
 ## Modify a deployment
 

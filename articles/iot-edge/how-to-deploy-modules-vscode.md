@@ -15,7 +15,7 @@ services: iot-edge
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
-This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy IoT Edge modules at scale using Visual Studio Code](how-to-deploy-monitor-vscode.md).
+This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy IoT Edge modules at scale using Visual Studio Code](how-to-deploy-vscode.md).
 
 ## Prerequisites
 
@@ -145,4 +145,4 @@ Right-click the name of a module to view and edit the module twin.
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale using Visual Studio Code](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale using Visual Studio Code](how-to-deploy.md)

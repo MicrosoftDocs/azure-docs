@@ -5,12 +5,11 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
-
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI
 
 Create an **IoT Edge automatic deployment** using the Azure command-line interface to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
@@ -196,37 +195,7 @@ The deployment create command takes the following parameters:
 * **--priority** - A positive integer. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
 * **--metrics** - Create metrics that query the edgeHub reported properties to track the status of a deployment. Metrics take JSON input or a filepath. For example, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
-## Monitor a deployment
-
-Use the [az iot edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) command to display the details of a single deployment:
-
-```cli
-az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
-```
-
-The deployment show command takes the following parameters:
-
-* **--deployment-id** - The name of the deployment that exists in the IoT hub. Required parameter.
-* **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
-
-Inspect the deployment in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
-
-* **targetedCount** - A system metric that specifies the number of device twins in IoT Hub that match the targeting condition.
-* **appliedCount** - A system metric specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
-* **reportedSuccessfulCount** - A device metric that specifies the number of IoT Edge devices in the deployment reporting success from the IoT Edge client runtime.
-* **reportedFailedCount** - A device metric that specifies the number of IoT Edge devices in the deployment reporting failure from the IoT Edge client runtime.
-
-You can show a list of device IDs or objects for each of the metrics by using the [az iot edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) command:
-
-```cli
-az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
-```
-
-The deployment show-metric command takes the following parameters:
-
-* **--deployment-id** - The name of the deployment that exists in the IoT hub.
-* **--metric-id** - The name of the metric for which you want to see the list of device IDs, for example `reportedFailedCount`.
-* **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.
+To monitor a deployment using Azure CLI, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments#monitor-a-deployment-with-azure-cli).
 
 ## Modify a deployment
 

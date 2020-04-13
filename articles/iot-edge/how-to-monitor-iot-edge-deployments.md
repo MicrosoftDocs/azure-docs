@@ -28,6 +28,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 1. Select **IoT Edge** from the left pane menu.
 1. Select the **IoT Edge deployments** tab.
 1. Inspect the deployment list. For each deployment, you can view the following details:
+
     | Column | Description |
     | --- | --- |
     | ID | The name of the deployment. |
