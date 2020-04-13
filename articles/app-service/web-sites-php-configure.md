@@ -15,13 +15,15 @@ ms.custom: seodec18
 
 ## Introduction
 
-This guide shows you how to configure the built-in PHP runtime for web apps, mobile back ends, and API apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP app in App Service.
+This guide shows you how to configure the built-in PHP runtime for web apps and API apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP app in App Service.
 
 ## How to: Change the built-in PHP version
 
-By default, PHP 5.6 is installed and immediately available for use when you create an App Service app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
+When creating a web app you will have a chance to chose the version of PHP you want to use. For up to date information of currently supported versions see: [PHP on App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md)
 
-PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
+To check on the existing runtime version of your app, you can deploy a script that calls the [phpinfo()] function.
+
+To update the PHP version, follow one of these methods:
 
 ### Azure portal
 
@@ -45,7 +47,7 @@ To use the Azure Command-Line Interface, you must [Install the Azure CLI](https:
 
 2. Set the PHP version for the app.
 
-        az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
+        az webapp config set --php-version {5.6 | 7.2 | 7.3} --name {app-name} --resource-group {resource-group-name}
 
 3. The PHP version is now set. You can confirm these settings:
 
