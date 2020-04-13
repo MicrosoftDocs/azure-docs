@@ -267,7 +267,7 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-  - name: Interpret models
+  - name: Explain models
     displayName: interpretability
     items:
     - name: Explain ML models
