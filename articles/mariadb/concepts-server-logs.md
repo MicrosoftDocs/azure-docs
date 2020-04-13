@@ -41,7 +41,7 @@ When logging to the server's local storage, logs are available for up to seven d
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-[!NOTE]
+> [!Note]
 > The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. You can change the retention period for the data sinks being emitted to (ex. Azure Storage).
 
 ## Diagnostic logs
@@ -76,6 +76,9 @@ The following table describes what's in each log. Depending on the output method
 | `server_id_s` | Server ID |
 | `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
+
+> [!Note]
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 ## Analyze logs in Azure Monitor Logs
 
