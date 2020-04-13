@@ -212,6 +212,13 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 5. In the **Python script** text box, type or paste valid Python script.
 
+    > [!NOTE]
+    > Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). If you need to import modules which are not listed, please installing the corresponding packages such as
+	>  ``` Python
+	> import os
+	> os.system(f"pip install scikit-misc")
+	> ```
+    
     The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Be sure to follow Python conventions about indentation and casing.
 
     + The script must contain a function named `azureml_main` as the entry point for this module.
