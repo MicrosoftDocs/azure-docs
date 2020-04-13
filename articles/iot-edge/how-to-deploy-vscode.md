@@ -230,7 +230,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 ## Monitoring and modifying deployments
 
-Use the [Azure CLI](how-to-deploy-cli.md#monitor-a-deployment) or the [Azure portal](how-to-deploy.md#monitor-a-deployment) to monitor, modify, and delete deployments. Both provide metrics on your deployments.
+Use the [Azure CLI](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal) or the [Azure portal](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli) to monitor, modify, and delete deployments. Both provide metrics on your deployments.
 
 ## Next steps
 

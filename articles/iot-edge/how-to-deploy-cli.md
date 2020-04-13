@@ -195,7 +195,7 @@ The deployment create command takes the following parameters:
 * **--priority** - A positive integer. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
 * **--metrics** - Create metrics that query the edgeHub reported properties to track the status of a deployment. Metrics take JSON input or a filepath. For example, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
-To monitor a deployment using Azure CLI, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments#monitor-a-deployment-with-azure-cli).
+To monitor a deployment using Azure CLI, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli).
 
 ## Modify a deployment
 
