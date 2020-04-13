@@ -196,24 +196,27 @@ To get started, create a logic app in your Azure subscription by using the follo
 
     ![Configure autoshutdown for a compute VM](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
 
-### Activity log
-When you update the autoshutdown setting, you will see the **Add or modify schedules** operation in the activity log. If you don't see it, remove **Resource: mycomputevm** from the filters. If you still don't see it, wait for sometime and refresh the activity log.
+### View activity logs for auto shutdown updates
+When you update the autoshutdown setting, you will see the activity logged in the activity log for the VM. 
 
-![Activity log entry](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+1. In the [Azure portal](https://portal.azure.com), navigate to the home page for your VM.
+2. Select **Activity log** from the left menu. 
+3. Confirm that you see the **Add or modify schedules** operation in the activity log. 
 
-When you select the **Add or modify schedules** operation, you see the following information on the **Summary** page:
+    If you don't see it, remove **Resource: mycomputevm** from the filters. If you still don't see it, wait for sometime and refresh the activity log.
 
-- Operation name (Add or modify schedules)
-- The date and time at which the autoshutdown setting was updated.
-- The email address of the user who updated the setting. 
+    ![Activity log entry](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Select the **Add or modify schedules** operation to see the following information on the **Summary** page:
 
-![Activity log entry summary](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+    - Operation name (Add or modify schedules)
+    - The date and time at which the autoshutdown setting was updated.
+    - The email address of the user who updated the setting. 
 
-Switch to the **Change history** tab in the **Add or modify schedules** page, you see the change history for the setting. In the following example, the shutdown time was changed from 7 PM to 6 PM on April 10, 2020 at 15:18:47 EST. And, the setting was disabled at 15:25:09 EST. 
+        ![Activity log entry summary](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Switch to the **Change history** tab in the **Add or modify schedules** page, you see the change history for the setting. In the following example, the shutdown time was changed from 7 PM to 6 PM on April 10, 2020 at 15:18:47 EST. And, the setting was disabled at 15:25:09 EST. 
 
-![Activity log - change history](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
-
-To see more details about the operation, switch to the **JSON** tab in the **Add or modify schedules** page.
+    ![Activity log - change history](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. To see more details about the operation, switch to the **JSON** tab in the **Add or modify schedules** page.
 
 ## Next steps
 To learn how to set all policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
