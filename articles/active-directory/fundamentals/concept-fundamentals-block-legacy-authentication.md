@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,13 +26,13 @@ Today, the majority of all compromising sign-in attempts come from legacy authen
 
 ## Identify legacy authentication use
 
-Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you’re using legacy authentication.
+Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you're using legacy authentication.
 
-1. Navigate to the Azure portal > Azure Active Directory > Sign-ins.
-1. Add the Client App column if it is not shown by clicking on Columns > Client App.
-1. Filter by Client App > check all the Other Client options presented and click Apply.
-1. Filter by Status > Success and click Apply. 
-1. Expand your date range if necessary using the Date filter.
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
+1. Add the **Client App** column if it is not shown by clicking on **Columns** > **Client App**.
+1. Filter by **Client App** > check all the **Legacy Authentication Clients** options presented.
+1. Filter by **Status** > **Success**. 
+1. Expand your date range if necessary using the **Date** filter.
 
 Filtering will only show you successful sign-in attempts that were made by the selected legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The Client App column or the Client App field under the Basic Info tab after selecting an individual row of data will indicate which legacy authentication protocol was used. 
 These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy or enable the Baseline policy: block legacy authentication for these users only.
@@ -45,18 +45,18 @@ This section gives a step-by-step overview on how to update your environment to 
 
 ### Step 1: Enable modern authentication in your directory
 
-The first step in enabling modern authentication is making sure your directory supports modern authentication. Modern authentication is enabled by default for directories created on or after August 1, 2017. If your directory was created prior to this date, you’ll need to manually enable modern authentication for your directory using the following steps:
+The first step in enabling modern authentication is making sure your directory supports modern authentication. Modern authentication is enabled by default for directories created on or after August 1, 2017. If your directory was created prior to this date, you'll need to manually enable modern authentication for your directory using the following steps:
 
 1. Check to see if your directory already supports modern authentication by running `Get-CsOAuthConfiguration` from the [Skype for Business Online PowerShell module](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. If your command returns an empty `OAuthServers` property, then Modern Authentication is disabled. Update the setting to enable modern authentication using `Set-CsOAuthConfiguration`. If your `OAuthServers` property contains an entry, you’re good to go.
+1. If your command returns an empty `OAuthServers` property, then Modern Authentication is disabled. Update the setting to enable modern authentication using `Set-CsOAuthConfiguration`. If your `OAuthServers` property contains an entry, you're good to go.
 
-Be sure to complete this step before moving forward. It’s critical that your directory configurations are changed first because they dictate which protocol will be used by all Office clients. Even if you’re using Office clients that support modern authentication, they will default to using legacy protocols if modern authentication is disabled on your directory.
+Be sure to complete this step before moving forward. It's critical that your directory configurations are changed first because they dictate which protocol will be used by all Office clients. Even if you're using Office clients that support modern authentication, they will default to using legacy protocols if modern authentication is disabled on your directory.
 
 ### Step 2: Office applications
 
 Once you have enabled modern authentication in your directory, you can start updating applications by enabling modern authentication for Office clients. Office 2016 or later clients support modern authentication by default. No extra steps are required.
 
-If you are using Office 2013 Windows clients or older, we recommend upgrading to Office 2016 or later. Even after completing the prior step of enabling modern authentication in your directory, the older Office applications will continue to use legacy authentication protocols. If you are using Office 2013 clients and are unable to immediately upgrade to Office 2016 or later, follow the steps in the following article to [Enable Modern Authentication for Office 2013 on Windows devices](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). To help protect your account while you’re using legacy authentication, we recommend using strong passwords across your directory. Check out [Azure AD password protection](../authentication/concept-password-ban-bad.md) to ban weak passwords across your directory.
+If you are using Office 2013 Windows clients or older, we recommend upgrading to Office 2016 or later. Even after completing the prior step of enabling modern authentication in your directory, the older Office applications will continue to use legacy authentication protocols. If you are using Office 2013 clients and are unable to immediately upgrade to Office 2016 or later, follow the steps in the following article to [Enable Modern Authentication for Office 2013 on Windows devices](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). To help protect your account while you're using legacy authentication, we recommend using strong passwords across your directory. Check out [Azure AD password protection](../authentication/concept-password-ban-bad.md) to ban weak passwords across your directory.
 
 Office 2010 does not support modern authentication. You will need to upgrade any users with Office 2010 to a more recent version of Office. We recommend upgrading to Office 2016 or later, as it blocks legacy authentication by default.
 
@@ -84,9 +84,9 @@ In order to use the native iOS mail client, you will need to be running iOS vers
 
 ### Step 6: On-premises clients
 
-If you are a hybrid customer using Exchange Server on-premises and Skype for Business on-premises, both services will need to be updated to enable modern authentication. When using modern authentication in a hybrid environment, you’re still authenticating users on-premises. The story of authorizing their access to resources (files or emails) changes.
+If you are a hybrid customer using Exchange Server on-premises and Skype for Business on-premises, both services will need to be updated to enable modern authentication. When using modern authentication in a hybrid environment, you're still authenticating users on-premises. The story of authorizing their access to resources (files or emails) changes.
 
-Before you can begin enabling modern authentication on-premises, please be sure that you have met the pre-requisites. You’re now ready to enable modern authentication on-premises.
+Before you can begin enabling modern authentication on-premises, please be sure that you have met the pre-requisites. You're now ready to enable modern authentication on-premises.
 
 Steps for enabling modern authentication can be found in the following articles:
 
