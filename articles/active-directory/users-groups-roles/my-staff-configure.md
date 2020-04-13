@@ -56,7 +56,7 @@ The following roles have permission to reset a user's password:
 - [Global administrator](directory-assign-admin-roles.md#global-administrator--company-administrator)
 - [Helpdesk administrator](directory-assign-admin-roles.md#helpdesk-administrator)
 - [User administrator](directory-assign-admin-roles.md#user-administrator)
-
+- [Password administrator](directory-assign-admin-roles.md#password-administrator)
 From **My Staff**, open a user's profile. Select **Reset password**.
 
 - If the user is cloud-only, you can see a temporary password that you can give to the user.

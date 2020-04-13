@@ -27,7 +27,9 @@ If you manage more than one location, when you go to My Staff you must select a 
 
 If you don't yet have sufficient permissions to access My Staff, you'll see the following message "Oops, seem you're not authorized to see My Staff at this time. Please contact your admin for more information."
 
-You must open the profile of a user before you can begin to manage them.
+### Find a staff member in My Staff
+
+You must open the profile of a staff member before you can start managing them.
 
 1. [Open My Staff](https://aka.ms/mystaff) and, if needed, select a location.
 
