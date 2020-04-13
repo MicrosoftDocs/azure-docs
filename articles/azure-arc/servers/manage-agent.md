@@ -122,7 +122,9 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the agent during install
 
 * **-h or --help** - Shows available command-line parameters
 
-* **-v or --verbose** - Increase logging verbosity 
+* **-v or --verbose** - Enable verbose logging
+
+
 
 The tool su
 
