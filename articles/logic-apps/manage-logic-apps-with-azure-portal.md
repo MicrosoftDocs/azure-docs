@@ -181,9 +181,7 @@ You can use the Azure portal for version control of your logic apps. You can fin
 
 <a name="find-version-history"></a>
 
-### Find previous versions
-
-To see your logic app's version history and find previous versions:
+### Find and view previous versions
 
 1. In the Azure portal, [find the logic app that you want to manage](#find-logic-app).
 
@@ -195,17 +193,15 @@ To see your logic app's version history and find previous versions:
 
 1. On the **History version** page, you'll see the previous version's details in read-only mode. You can select between the Logic Apps **Designer** and **Code view** modes.
 
-    ![History version page for logic app with code view and Logic apps designer view](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![History version page for logic app with code view and Logic apps designer view](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
 ### Promote previous versions
 
-To promote a previous version of your logic app:
+1. In your logic app's version history, [find and select the version that you want to promote](#find-version-history).
 
-1. [Find and select the version that you want to promote](#find-version-history) in your logic app's version history.
-
-1. On the **History version** page, choose **Promote**.
+1. On the **History version** page, select **Promote**.
 
    ![Promote button in logic app's version history](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
@@ -213,9 +209,9 @@ To promote a previous version of your logic app:
 
    ![Logic Apps Designer page for promoting a previous version](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
-1. Choose **Save** to save any updates and finishing promoting the previous version. (Or, choose **Discard** to cancel your changes.) 
+1. To save any updates and finishing promoting the previous version, select **Save**. (Or, to cancel your changes, select **Discard**.) 
 
-   When you [view your logic app's version history](#find-version-history) again, the promoted version is listed at the top of the page under a new identifier.
+   When you [view your logic app's version history](#find-version-history) again, the promoted version appears at the top of the list and has a new identifier.
 
 ## Next steps
 
