@@ -41,7 +41,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 1. Select **Create Python Model**, and edit the script to implement your modeling or data management process. You can base the model on any learner that's included in a Python package in the Azure Machine Learning environment.
 
 > [!NOTE]
-> Please pay extra attention to the comments of the sample code of the script and make sure your script strictly follows the requirement, such as the class name, methods as well as method signature. Violation will lead to exceptions. 
+> Please pay extra attention to the comments in sample code of the script and make sure your script strictly follows the requirement, including the class name, methods as well as method signature. Violation will lead to exceptions. 
 
    The following sample code of the two-class Naive Bayes classifier uses the popular *sklearn* package:
 
