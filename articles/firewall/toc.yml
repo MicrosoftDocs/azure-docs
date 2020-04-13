@@ -22,7 +22,7 @@
     href: quick-create-ipgroup-template.md
   - name: Deploy with multiple addresses
     displayName: Resource Manager
-    href: quick-create-multipleip-template.md
+    href: quick-create-multiple-ip-template.md
 - name: Samples
   items:
   - name: Azure PowerShell
