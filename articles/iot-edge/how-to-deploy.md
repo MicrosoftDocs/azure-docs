@@ -161,7 +161,7 @@ Select **Next: Review + Create** to move on to the final step.
 
 Review your deployment information, then select **Create**.
 
-To monitor a deployment using the Azure portal, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments#monitor-a-deployment-in-the-azure-portal).
+To monitor a deployment using the Azure portal, see [monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal).
 
 ## Modify a deployment
 
@@ -191,7 +191,7 @@ To modify a deployment, use the following steps:
    * **Deployment**
 
 1. Select **Save**.
-1. Follow the steps in [Monitor a deployment](#monitor-a-deployment) to watch the changes roll out.
+1. Follow the guidance in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployment.md) to watch the changes roll out.
 
 ## Delete a deployment
 
