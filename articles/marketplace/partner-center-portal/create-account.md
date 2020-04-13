@@ -1,6 +1,6 @@
 ---
-title: Create a Commercial Marketplace account in Partner Center
-description: Learn how to create a Commercial Marketplace account in Partner Center.
+title: Create a commercial marketplace account in Partner Center
+description: Learn how to create a commercial marketplace account in Partner Center.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
@@ -9,9 +9,9 @@ ms.topic: guide
 ms.date: 03/10/2020
 ---
 
-# Create a Commercial Marketplace account in Partner Center
+# Create a commercial marketplace account in Partner Center
 
-To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), you'll need to create an account in the Commercial Marketplace program in Partner Center. In this article, we'll cover how to create a Partner Center account and how to add new publishers to the Commercial Marketplace program.
+To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you'll need to create an account in the commercial marketplace program in Partner Center. In this article, we'll cover how to create a Partner Center account and how to add new publishers to the Commercial Marketplace program.
 
 >[!IMPORTANT]
 >If you have an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from CPP](#publishers-moving-from-cpp) for more information.
@@ -70,7 +70,7 @@ After you've confirmed your publisher profile information, agree to the terms an
 
 Once enrolled, you're taken to the Commercial Marketplace Overview page. **Commercial Marketplace** is displayed in the left navigation bar. If you select **Settings** > **Partner Settings** > **Programs**, you'll see that Commercial Marketplace is listed as registered.
 
-Thank you for creating a Commercial Marketplace account on Partner Center! For help, see [Commercial Marketplace Overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the Commercial Marketplace program](#add-new-publishers-to-the-commercial-marketplace-program).
+Thank you for creating a Commercial Marketplace account on Partner Center! For help, see [commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## Create an account using existing Microsoft Partner Center enrollments
 
@@ -114,7 +114,7 @@ After you sign in, use the following steps to finish setting up your account.
 
 Once enrolled, you're taken to the Commercial Marketplace Overview page. **Commercial Marketplace** is displayed in the left navigation bar. If you select **Settings** > **Partner Settings** > **Programs**, you'll see that Commercial Marketplace is listed as registered.
 
-Thank you for creating an account on Partner Center! For help, see [Commercial Marketplace Overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the Commercial Marketplace program](#add-new-publishers-to-the-commercial-marketplace-program).
+Thank you for creating an account on Partner Center! For help, see [commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### Enrolled in a developer program
 
@@ -138,13 +138,13 @@ After you sign in, use the following steps to finish setting up your account:
 
 Once enrolled, you're taken to the Commercial Marketplace Overview page. **Commercial Marketplace** is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Commercial Marketplace is listed as registered.
 
-Thank you for creating an account on Partner Center! For help, see [Commercial Marketplace Overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the Commercial Marketplace program](#add-new-publishers-to-the-commercial-marketplace-program).
+Thank you for creating an account on Partner Center! For help, see [commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## Publishers moving from CPP
 
 If your account has been migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Partner Center account. You should have received a customized link to your new Partner Center account in email, and in a banner notification after logging in to your existing CPP account.
 
-Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 
 The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account.
 
@@ -165,7 +165,7 @@ Another user from the same Azure Active Directory tenant can add a new publisher
 4. Choose the MPN ID that you want to associate to the publisher.
 5. Update the **publisher details** on the form.
 
-   1. **Publisher Name**: The name that will get displayed in Azure Marketplace or AppSource with the offer.
+   1. **Publisher Name**: The name that will get displayed in the commercial marketplace with the offer.
    1. **PublisherID**: An identifier used by Partner Center to uniquely identify your publisher. The default for this field maps to an existing and unique `PublisherID` in the system, which cannot be reused, and therefore this field needs to be updated.
    1. **Contact information**: Update the contact information when necessary.
 
@@ -173,4 +173,4 @@ After you complete the process, you can manage your newly created publisher by g
 
 ## Next step
 
-- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md)
+- [Manage your commercial marketplace account in Partner Center](./manage-account.md)

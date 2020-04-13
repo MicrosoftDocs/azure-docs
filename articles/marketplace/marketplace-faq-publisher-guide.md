@@ -1,5 +1,5 @@
 ---
-title: Microsoft Commercial Marketplace FAQ 
+title: Microsoft commercial marketplace FAQ 
 description: Answers to common questions about the Azure Marketplace and Microsoft AppSource
 author: qianw211
 ms.service: marketplace
@@ -9,13 +9,13 @@ ms.date: 10/4/2019
 ms.author: dsindona
 ---
 
-# Microsoft Commercial Marketplace FAQs
+# Microsoft commercial marketplace FAQs
 
-Answers to common questions about the Azure Marketplace and Microsoft AppSource.
+Answers to common questions about the commercial marketplace.
 
 ## FAQ for customers
 
-### What you need to know about Azure Marketplace and Microsoft AppSource
+### What you need to know about the commercial marketplace
 
 **What is Azure Marketplace?**
 
@@ -163,7 +163,7 @@ Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may t
 
 **What payment methods are supported for commercial marketplace purchases?**
 
-Customers can purchase offerings from Azure Marketplace and Microsoft AppSource using credit cards. If you have an existing Azure subscription, purchases from Azure Marketplace will use the payment method configured on the account and appear on the same invoice as a separate line item. Some offers consume Azure monetary commitment, but most commercial marketplace purchases do not draw down Enterprise Agreement commitments although Azure infrastructure consumption will.
+Customers can purchase offerings from the commercial marketplace using credit cards. If you have an existing Azure subscription, purchases from Azure Marketplace will use the payment method configured on the account and appear on the same invoice as a separate line item. Some offers consume Azure monetary commitment, but most commercial marketplace purchases do not draw down Enterprise Agreement commitments although Azure infrastructure consumption will.
 
 **Can I apply Azure subscription credits or monetary commitment funds in my account towards Azure Marketplace offers?**
 
@@ -253,12 +253,12 @@ Yes, it is possible for a customer to own two plans from the same offer simultan
 
 **Do refund and plan change policies differ by storefront?**
 
-No, the business policies are consistent across Azure Marketplace and Microsoft AppSource. If resold by a partner in the Cloud Solution Provide program, the partner may enforce a different policy for their customers.
+No, the business policies are consistent across the commercial marketplace. If resold by a partner in the Cloud Solution Provide program, the partner may enforce a different policy for their customers.
 
 
 ## FAQ for publishers
 
-### What you need to know about Azure Marketplace and Microsoft AppSource
+### What you need to know about the commercial marketplace
 
 **What is Azure Marketplace?**
 
@@ -367,8 +367,8 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
 
 *O365 Apps:*
 
-1.	Sign in to <https://sellerdashboard.microsoft.com> with your Dev Account.
-1.	Withdraw the add-in.
+1.    Sign in to <https://sellerdashboard.microsoft.com> with your Dev Account.
+1.    Withdraw the add-in.
 
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
@@ -417,7 +417,7 @@ For billing and subscription issues with your Azure Marketplace purchase, contac
 
 **Who do I contact with publishing or offer management questions?**
 
-Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Visit the [commercial marketplace publisher guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### Azure Marketplace for publishers
 
@@ -468,7 +468,7 @@ Yes, upon your request via support ticket, Microsoft will process credits to you
 
 ## Next steps
 
-Visit the [Azure Marketplace and AppSource Publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
+Visit the [commercial marketplace publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
 
 
 [Azure portal]: https://portal.azure.com
