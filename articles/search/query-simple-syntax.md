@@ -22,7 +22,7 @@ In Azure Cognitive Search, the simple query syntax excludes fuzzy search operati
 >
 > Azure Cognitive Search provides an alternative [full Lucene query syntax](query-lucene-syntax.md) for more complex queries in the **search** parameter. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
 
-## How to invoke simple parsing
+## Invoke simple parsing
 
 Simple syntax is the default. Invocation is only necessary if you are resetting the syntax from full to simple. To explicitly set the syntax, use the `queryType` search parameter. Valid values include `queryType=simple` or `queryType=full`, where `simple` is the default, and `full` invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. 
 
@@ -63,9 +63,9 @@ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `
 
  There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  
 
-## Boolean operators (AND, OR, NOT) 
+## Boolean search
 
-You can embed operators in a query string to build a rich set of criteria against which matching documents are found. 
+You can embed Boolean operators (AND, OR, NOT) in a query string to build a rich set of criteria against which matching documents are found. 
 
 ### AND operator `+`
 
@@ -91,7 +91,7 @@ When deciding on a **searchMode** setting, consider the user interaction pattern
 
 <a name="prefix-search"></a>
 
-## Suffix `*` operator (prefix search)
+## Prefix search
 
 The suffix operator is an asterisk `*`. For example, `lingui*` will find "linguistic" or "linguini", ignoring case. 
 
@@ -99,9 +99,9 @@ Similar to filters, a prefix query looks for an exact match. As such, there is n
 
 If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and the full Lucene syntax.
 
-## Phrase operator `"`
+## Phrase search `"`
 
-The phrase operator encloses a phrase in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
+A term search is a query for one or more terms, where any of the terms are considered a match. A phrase search is an exact phrase enclosed in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
 
 ## See also  
 

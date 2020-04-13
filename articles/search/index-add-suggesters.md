@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ---
 
-# Create a suggester to enable autocomplete and suggestions in Azure Cognitive Search
+# Create a suggester to enable autocomplete and suggested results in a query
 
 In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes the term or phrase, and *suggestions* that return a short list of matching documents.  
 
@@ -129,9 +129,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 <a name="how-to-use-a-suggester"></a>
 
-## Use a suggester in a query
+## Use a suggester
 
-After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
+A suggester is used in a query. After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
 
 + [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
