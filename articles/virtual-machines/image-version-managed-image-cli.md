@@ -12,20 +12,50 @@ ms.author: cynthn
 ---
 
 # Migrate from a managed image to an image version using the Azure CLI
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
+If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using [PowerShell](image-version-managed-image-powershell.md).
 
-An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+Images in an image gallery have two components, which we will create in this example:
+- An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
+- An **image version** is what is used to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
 
 ## Before you begin
 
-To complete this article, you must have an existing [Shared Image Gallery and an image definition](./linux/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
+To complete this article, you must have an existing [Shared Image Gallery](shared-images-cli.md). 
 
 To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Capture a managed image](./linux/capture-image.md). If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource group and VM names where needed.
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
+
+
+## Create an image definition
+
+Because managed images are always generalized images, you will create a an image definition using `--os-state generalized` for a generalized image.
+
+Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
+
+
+For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+
+In this example, the image definition is named *myImageDefinition*, and is for a [generalized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+
+```azurecli-interactive 
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state generalized
+```
+
+
+
 
 ## Create the image version
 

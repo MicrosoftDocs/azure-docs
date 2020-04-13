@@ -95,10 +95,9 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store all of your image version replicas in Premiun storage by a adding `--storage-account-type Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
+> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
 ## Next steps
 
-Create a VM from the [generalized image]() using the Azure CLI.
-Create a VM from the [specialized image version](vm-specialized-image-version-powershell.md) using PowerShell.
+Create a VM from the [generalized image](vm-generalized-image-version-cli.md) using the Azure CLI.
