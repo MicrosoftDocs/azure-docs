@@ -191,7 +191,7 @@ In this section, you create the App Service app. You will connect this app to th
 <!-- --resource-group is not respected at all -->
 
 ```azurecli
-az webapp up --location westus --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
