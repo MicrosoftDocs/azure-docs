@@ -120,23 +120,56 @@ private const string TenantId = "<your-directory-ID>";
 const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
 ```
 
-## Run and query the sample project
+## Use the sample project to answer environment questions
 
-Start (![Visual Studio start button](media/tutorial-connect/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution:
+Start the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution:
 
 ```cmd/sh
 buildingScenario
 ```
+The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
 
-A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently. The following examples are some sample query commands you can run. They begin with the `queryTwins` command, followed by an Azure Digital Twins Query Store language query.
+![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/quickstart/building-scenario-graph.png)
 
-* Query twins based on their *Temperature* property
-    `queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature = 200 `
+### Query the twin graph
 
-* Query twins based on the model
-    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Floor:1')`
+A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently to answer questions about your environment. Run the following commands to get an idea of what this is like.
 
-* Query twins based on relationships
+* **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
+
+    `queryTwins`
+
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
+
+    ![Results of twin query, showing floor1, room21, and thermostat67](media/quickstart/output-query-all.png)
+
+* **What are all the thermostats in my environment?** (query by model)
+
+    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:contosocom:DigitalTwins:Thermostat:1')`
+
+    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *thermostat67*, but does **not** show *floor1* and *room21* (since they are spaces, not thermostats).
+    ![Results of model query, showing only thermostat67](media/quickstart/output-query-model.png)
+
+* **What are all the rooms on *floor1*?** (query by relationship)
+
     `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor1'`
 
-You can also combine the above queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`.
+    You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area.
+
+    ![Results of relationship query, showing room21](media/quickstart/output-query-relationship.png)
+
+* **What are all the twins in my environment with a temperature of 0?** (query by property)
+
+    `queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature = 0.0`
+
+    This sample initializes temperatures at 0, so this query could help you see which digital twins haven't been updated yet with data from a real device. You could also change the 0 to any other number and use comparison operators (such as *<*,*>*, *=*, or *!=*) to answer more temperature questions.
+
+    ![Results of property query, showing floor1, room21, and thermostat67](media/quickstart/output-query-property.png)
+
+* **What are all the spaces in my environment with a temperature of 0?** (compound query)
+
+    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:contosocom:DigitalTwins:Space:1') AND T.Temperature = 0.0`
+
+    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result only includes spaces (not thermostats).
+
+    ![Results of compound query, showing floor1 and room21](media/quickstart/output-query-compound.png)
