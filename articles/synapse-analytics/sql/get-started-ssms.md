@@ -44,7 +44,7 @@ To connect to Synapse SQL using SQL pool, follow these steps:
 1. Open SQL Server Management Studio (SSMS). 
 1. In the **Connect to Server** dialog box, fill in the fields and then select **Connect**: 
   
-    ![Connect to Server](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Connect to Server](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
    * **Authentication**:  Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**.
@@ -52,7 +52,7 @@ To connect to Synapse SQL using SQL pool, follow these steps:
 
 1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample AdventureWorksDW database. You can expand the database to see the tables:
    
-    ![Explore AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### SQL on-demand (preview)
@@ -83,7 +83,7 @@ Now that a database connection has been established, you can query the data.
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
    
-    ![New query](./media/get-started-ssms/new-query.png)
+    ![New query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
 3. Copy this T-SQL query into the query window:
    
     ```sql
@@ -91,10 +91,10 @@ Now that a database connection has been established, you can query the data.
     ```
 4. Run the query. To do this, click `Execute` or use the following shortcut: `F5`.
    
-    ![Run query](./media/get-started-ssms/execute-query.png)
+    ![Run query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
    
-    ![Query results](./media/get-started-ssms/results.png)
+    ![Query results](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### SQL on-demand
 
