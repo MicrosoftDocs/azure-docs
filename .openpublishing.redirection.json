@@ -20,6 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
+	
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -475,6 +476,11 @@
       "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
       "redirect_url": "/azure/azure-arc/servers/onboard-portal",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/active-directory/saas-apps/123contactform-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
@@ -38643,6 +38649,11 @@
     {
       "source_path": "articles/active-directory/authentication/howto-password-ban-bad.md",
       "redirect_url": "/azure/active-directory/authentication/howto-password-ban-bad-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/multi-factor-authentication-security-best-practices.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
     },
     {
