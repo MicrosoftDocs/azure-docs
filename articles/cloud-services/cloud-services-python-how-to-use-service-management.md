@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: tanmaygore
+ms.author: tagore
 
 ---
 # Use service management from Python
