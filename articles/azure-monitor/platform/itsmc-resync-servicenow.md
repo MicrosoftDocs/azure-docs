@@ -1,7 +1,7 @@
 ---
 title: How to manually fix ServiceNow sync problems 
 description: Resetting the connection to ServiceNow 
-ms.subservice: logs
+ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
