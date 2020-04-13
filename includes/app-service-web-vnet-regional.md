@@ -58,7 +58,10 @@ If you host your app on Linux with the built-in images, regional VNet Integratio
 
 ### Service endpoints
 
-With regional VNet Integration, you can use service endpoints. To use service endpoints with your app, use regional VNet Integration to connect to a selected VNet. Then configure service endpoints on the subnet you used for the integration.
+Regional VNet Integration enables you to use service endpoints. To use service endpoints with your app, use regional VNet Integration to connect to a selected VNet and then configure service endpoints with the destination service on the subnet you used for the integration. If you then wanted to access a service over service endpoints:
+
+1. configure regional VNet Integration with your web app
+1. go to the destination service and configure service endpoints against the subnet used for integration
 
 ### Network security groups
 
