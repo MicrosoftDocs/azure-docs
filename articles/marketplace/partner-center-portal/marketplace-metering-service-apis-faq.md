@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 04/13/2020
 ---
 
 # Marketplace metering service APIs - FAQ
@@ -43,6 +43,12 @@ Any usage event emitted to marketplace platform will not be accepted after a Saa
 ### Can you get a list of all SaaS subscriptions, including active and unsubscribed subscriptions?
 
 Yes, when you call the `GET /saas/subscriptions` API it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed. The call to list Subscriptions returns a maximum of 100 subscriptions at the time.
+
+### What happens if the Marketplace metering service has an outage?
+
+If the ISV sends a custom meter and receives an error, then the ISV should wait and then retry.
+
+If the error persists, then resubmit that custom meter the next hour (accumulate the quantity). Continue this process until a non-error response is received.
 
 ## Next steps
 
