@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/9/2020
+ms.date: 04/13/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -25,32 +25,46 @@ These metrics are obtained from the edgeAgent and edgeHub IoT Edge runtime modul
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
+1. Select **IoT Edge** from the left pane menu.
 1. Select the **IoT Edge deployments** tab.
-
-   ![View IoT Edge deployments](./media/how-to-monitor-iot-edge-deployments/iot-edge-deployments.png)
-
 1. Inspect the deployment list. For each deployment, you can view the following details:
-   * **ID** - the name of the deployment.
-   * **Type** - the type of deployment, either **Deployment** or **Layered Deployment**.
-   * **Target Condition** - the tag used to define targeted devices.
-   * **Priority** - the priority number assigned to the deployment.
-   * **System metrics** - specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
-   * **Device Metrics** - the number of IoT Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
-   * **Custom Metrics** - the number of IoT Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
-   * **Creation Time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority.
+    | Column | Description |
+    | --- | --- |
+    | ID | The name of the deployment. |
+    | Type | The type of deployment, either **Deployment** or **Layered Deployment** |
+    | Target Condition | The tag used to define targeted devices. |
+    | Priority | The priority number assigned to the deployment. |
+    | System metrics | Specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. |
+    | Device Metrics | The number of IoT Edge devices in the deployment  |reporting success or errors from the IoT Edge client runtime. |
+    | Custom Metrics | The number of IoT Edge devices in the deployment  |reporting data for any metrics that you defined for the deployment. |
+    | Creation Time | The timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. |
+
 1. Select the deployment that you want to monitor.  
-1. On the **Deployment Details** page, scroll down to the bottom section where you can review detailed metrics of the deployment. These metrics are provided in the following categories:
+1. On the **Deployment Details** page, scroll down to the bottom section and select the **Metrics** tab. Use the **Select Metric** drop-down to choose a specific metric. When a metric is selected, the **View** button appears that will list the IoT Edge devices that match the condition for the selected metric.
 
-* **Targeted** shows the IoT Edge devices that match the Deployment targeting condition.
-* **Applied** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
-**Reporting Success** shows the IoT Edge devices that have reported that the modules have been deployed successfully.
-**Reporting Failure** shows the IoT Edge devices that have reported that one or more modules haven't been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
-**Successfully Configured Devices** shows the number of devices that have a successful status.
+   ![View metrics for a selected deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-   ![View IoT Edge deployment metrics](./media/how-to-monitor-iot-edge-deployments/deployment-metrics.png)
+1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Every deployment has four default metrics. In this example, the custom metric `successfullyConfigured` is included for the current deployment.
 
-1. Select a metric and click **View Results** for a detailed report.
+    | Metric | Type | Description |
+    | --- | --- | -- |
+    | Targeted | Default | Shows the IoT Edge devices that match the Deployment targeting condition. |
+    | Applied | Default | Shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority. |
+    | Reporting Success | Default | Shows the IoT Edge devices that have reported that the modules have been deployed successfully. |
+    | Reporting Failure | Default | Shows the IoT Edge devices that have reported that one or more modules haven't been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files. |
+    | successfullyConfigured | Custom | Shows the number of devices that have a successful status. |
+
+   ![View IoT Edge deployment metric criteria](./media/how-to-monitor-iot-edge-deployments/metric-list.png)
+
+### Define a custom metric
+
+You can define custom metrics in the Azure portal when you create a deployment.
+
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+1. Select **Create Deployment** from the upper menu bar.
+1. Complete the wizard, and on the **Metrics** tab you can define a custom metric using the example syntax as a guide.
+
+   ![Create a custom metric in the deployment wizard](./media/how-to-monitor-iot-edge-deployments/create-custom-metric.png)
 
 ## Monitor a deployment with Azure CLI
 
