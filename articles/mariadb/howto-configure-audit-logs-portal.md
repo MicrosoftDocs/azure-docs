@@ -65,4 +65,5 @@ Enable and configure audit logging.
 
 ## Next steps
 
-- Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MariaDB.
+- Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MariaDB
+- Learn how to configure audit logs in the [Azure CLI](howto-configure-audit-logs-cli.md)
