@@ -118,9 +118,9 @@ The information you used to provide for SKUs in a single page in the Cloud Partn
 
 :::image type="content" source="media/migration-faq/tech-config-migration.png" alt-text="Illustrates the Plan technical configuration page.":::
 
-Your offer id is now shown on the left-navigation bar of the offer.
+Your offer ID is now shown on the left-navigation bar of the offer.
 
-:::image type="content" source="media/migration-faq/offer-id-offer-overview.png" alt-text="Illustrates the left navigation menu with the offer id.":::
+:::image type="content" source="media/migration-faq/offer-id-offer-overview.png" alt-text="Illustrates the left navigation menu with the offer ID.":::
 
 ### Stop selling an offer
 
@@ -138,7 +138,7 @@ The following table shows corresponding links between the two portals.
 | **All publishers page** | https://cloudpartner.azure.com/#publishers | https://partner.microsoft.com/dashboard/account/v3/publishers/list |
 | **Publisher profile** | https://cloudpartner.azure.com/#profile | https://partner.microsoft.com/dashboard/account/management |
 | **Users page** | https://cloudpartner.azure.com/#users | https://partner.microsoft.com/dashboard/account/usermanagement |
-| **History page** | https://cloudpartner.azure.com/#history | The History feature is not yet supported in Partner Center. We plan to add this feature in the future. |
+| **History page** | https://cloudpartner.azure.com/#history | The History feature is not yet supported in Partner Center. |
 | **Insights dashboard** | https://cloudpartner.azure.com/#insights | https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary |
 | **Payout report** | https://cloudpartner.azure.com/#insights/payout | https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
 | | |
