@@ -4,7 +4,7 @@ description: Azure Security Control Penetration Tests and Red Team Exercises
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

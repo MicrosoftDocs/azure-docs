@@ -4,7 +4,7 @@ description: Azure Security Control Secure Configuration
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -38,7 +38,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 |--|--|--|
 | 7.2 | 5.1 | Customer |
 
-Use Azure Security Center recommendations to maintain security configurations on all compute resources. Additionally, you may use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
+Use Azure Security Center recommendations to maintain security configurations on all compute resources.  Additionally, you may use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
 
 - [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
@@ -56,7 +56,7 @@ Use Azure Security Center recommendations to maintain security configurations on
 |--|--|--|
 | 7.3 | 5.2 | Customer |
 
-Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
 - [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
@@ -70,7 +70,7 @@ Use Azure policy [deny] and [deploy if not exist] to enforce secure settings acr
 |--|--|--|
 | 7.4 | 5.2 | Shared |
 
-Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation Desired State Configuration may assist in meeting and maintaining the security requirements. 
+Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources.  In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State configuration to maintain the security configuration of the operating system required by your organization.   The Microsoft virtual machine templates combined with the Azure Automation Desired State Configuration may assist in meeting and maintaining the security requirements. 
 
 Also, note that Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft. 
 
@@ -79,6 +79,8 @@ Also, note that Azure Marketplace Virtual Machine Images published by Microsoft 
 - [How to create an Azure Virtual Machine from an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 
 - [Azure Automation State Configuration Overview](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+
+- [Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 - [Information on how to download the VM template](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
 
@@ -102,7 +104,7 @@ Use Azure DevOps to securely store and manage your code like custom Azure polici
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images. 
+If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization.  For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.  
 
 - [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
@@ -110,13 +112,15 @@ If using custom images, use role-based access control (RBAC) to ensure only auth
 
 - [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
+- [Shared Image Gallery overview](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+
 ## 7.7: Deploy configuration management tools for Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.7 | 5.4 | Customer |
 
-Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources. Additionally, you may use Azure Automation to deploy configuration changes.
+Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources.  Additionally, you may use Azure Automation to deploy configuration changes.
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -138,7 +142,7 @@ Azure Automation State Configuration is a configuration management service for D
 |--|--|--|
 | 7.9 | 5.5 | Customer |
 
-Use Azure Security Center to perform baseline scans for your Azure Resources. Additionally, use Azure Policy to alert and audit Azure resource configurations.
+Use Azure Security Center to perform baseline scans for your Azure Resources.  Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
 - [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 

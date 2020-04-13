@@ -4,7 +4,7 @@ description: Azure Security Control Identity and Access Control
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -42,8 +42,7 @@ Create standard operating procedures around the use of dedicated administrative 
 
 You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
 
-- [Learn more](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
-
+- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
 
 ## 3.4: Use single sign-on (SSO) with Azure Active Directory
 
@@ -53,7 +52,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-- Test: [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
@@ -64,6 +63,7 @@ Wherever possible, use Azure Active Directory SSO instead than configuring indiv
 Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.
 
 - [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
 - [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 ## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks

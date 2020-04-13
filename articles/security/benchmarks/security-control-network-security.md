@@ -4,7 +4,7 @@ description: Azure Security Control Network Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,7 +18,7 @@ ms.custom: security-benchmark
 |--|--|--|
 | 1.1 | 9.2, 9.4, 14.1-14.3 | Customer |
 
-Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. When available, use Private Endpoints with Private Link to secure your Azure service resources to your virtual network by extending VNet identity to the service. When Private Endpoints and Private Link not available, use Service Endpoints. For service specific requirements, please refer to the security recommendation for that specific service. (Note: Before using Private Link for production workloads, ensure that it is no longer in Preview.)
+Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. When available, use Private Endpoints with Private Link to secure your Azure service resources to your virtual network by extending VNet identity to the service. When Private Endpoints and Private Link not available, use Service Endpoints. For service specific requirements, please refer to the security recommendation for that specific service. 
 
 Alternatively, if you have a specific use case, requirement may be met by implementing Azure Firewall.
 
@@ -32,7 +32,7 @@ Alternatively, if you have a specific use case, requirement may be met by implem
 
 - [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
-## 1.2: Monitor and log theconfiguration and traffic of virtual networks, subnets, and NICs
+## 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -96,7 +96,7 @@ Enable Network Watcher packet capture to investigate anomalous activities.
 |--|--|--|
 | 1.6 | 12.6, 12.7 | Customer |
 
-Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic.
 

@@ -4,7 +4,7 @@ description: Azure Security Control Inventory and Asset Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,7 +18,7 @@ ms.custom: security-benchmark
 |--|--|--|
 | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |
 
-Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
@@ -52,13 +52,13 @@ Use tagging, management groups, and separate subscriptions, where appropriate, t
 
 - [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## 6.4: Define and Maintainan inventory of approved Azure resources
+## 6.4: Define and Maintain an inventory of approved Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.4 | 2.1 | Customer |
 
-Create an inventoryof approved Azure resources and approved software for compute resources as peryour organizational needs.
+Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
 ## 6.5: Monitor for unapproved Azure resources
 
@@ -68,7 +68,7 @@ Create an inventoryof approved Azure resources and approved software for compute
 
 Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
-Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query/discover resources within their subscription(s).  Ensure that all Azure resources present in the environment are approved.
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -148,7 +148,7 @@ Use Azure Conditional Access to limit users' ability to interact with Azure Reso
 |--|--|--|
 | 6.12 | 2.9 | Customer |
 
-Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
+Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.  You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
 - [How to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

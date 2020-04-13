@@ -4,7 +4,7 @@ description: Azure Security Control Data Recovery
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -52,9 +52,9 @@ Ensure ability to periodically perform data restoration of content within Azure 
 |--|--|--|
 | 9.4 | 10.4 | Customer |
 
-For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). Use role-based access control to protect backups and customer managed keys. 
+For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). Use role-based access control to protect backups and customer managed keys.  
 
-Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
+Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.  If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
 
 - [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
