@@ -277,7 +277,7 @@ Browse to *http:\//\<app-name>.azurewebsites.net/admin* and sign in using the ad
 
 Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net/admin*, and create some poll questions. You can see the questions at *http:\//\<app-name>.azurewebsites.net/*. 
 
-![Run Python Django app in App Services in Azure](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
+![Run Python Django app in App Services in Azure](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
 Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net* again to see the poll question and answer the question.
 
