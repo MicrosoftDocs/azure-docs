@@ -19,7 +19,7 @@ This guide shows you how to configure the built-in PHP runtime for web apps and 
 
 ## How to: Change the built-in PHP version
 
-When creating a web app you will have a chance to chose the version of PHP you want to use. For up to date information of currently supported versions see: [PHP on App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md)
+When creating a web app you can choose the version of PHP that will be configured. See [PHP on App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) for up-to-date information of currently supported versions.
 
 To check on the existing runtime version of your app, you can deploy a script that calls the [phpinfo()] function.
 
@@ -77,7 +77,7 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 
 1. Add an App Setting to your app with the key `PHP_INI_SCAN_DIR` and value `d:\home\site\ini`
 1. Create an `settings.ini` file using Kudu Console (http://&lt;site-name&gt;.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
-1. Add configuration settings to the `settings.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512K, your `settings.ini` file would contain this text:
+1. Add configuration settings to the `settings.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512 K, your `settings.ini` file would contain this text:
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
