@@ -17,17 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Manage user settings for Azure Multi-Factor Authentication
 
-As an administrator, you can manage the following user and device settings:
-
-* Require users to provide contact methods again
-* Delete app passwords
-* Require MFA on all trusted devices
+To help manage the users of Azure Multi-Factor Authentication, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions. For users that have defined app passwords, you can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or want to reset their security status.
 
 ## Manage user authentication options
 
-If you're assigned the *Authentication Administrator* role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. These actions may be necessary if you need to provide assistance to a user, or want to reset their security status.
-
-To manage user settings, complete the following steps:
+If you're assigned the *Authentication Administrator* role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.
