@@ -194,7 +194,7 @@ recognizer.SessionStopped = (s, e) => {
 
 With everything set up, we can call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync).
 
-```csharp
+```javascript
 // Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.
 recognizer.startContinuousRecognitionAsync();
 
@@ -208,7 +208,7 @@ When using continuous recognition, you can enable dictation processing by using 
 
 To enable dictation mode, use the [`enableDictation`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--) method on your [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest).
 
-```csharp
+```javascript
 speechConfig.enableDictation();
 ```
 
@@ -216,7 +216,7 @@ speechConfig.enableDictation();
 
 A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest), then add this line directly below it.
 
-```csharp
+```javascript
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
