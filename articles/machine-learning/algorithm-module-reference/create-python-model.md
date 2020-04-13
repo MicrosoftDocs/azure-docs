@@ -28,7 +28,7 @@ After you create the model, you can use [Train Model](train-model.md) to train t
 Use of this module requires intermediate or expert knowledge of Python. The module supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. See the preinstalled Python package list in [Execute Python Script](execute-python-script.md).
 
 > [!NOTE]
-> Please be very careful when writing your script and makes sure there is no syntax error,  such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). If you need to import modules which are not listed, please installing the corresponding packages such as
+> Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). To import modules which are not listed, please install the corresponding packages in your script such as
 > ```Python
 > import os
 > os.system(f"pip install scikit-misc")
