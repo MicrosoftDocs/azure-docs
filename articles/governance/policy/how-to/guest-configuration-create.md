@@ -87,7 +87,7 @@ For an overview of DSC concepts and terminology, see
 
 When Guest Configuration audits a machine:
 
-1. It first runs `Test-TargetResource` to determine if it is
+1. The agent first runs `Test-TargetResource` to determine if the configuration is
 in the correct state.
 1. The boolean value returned by the function determines if the Azure Resource
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
