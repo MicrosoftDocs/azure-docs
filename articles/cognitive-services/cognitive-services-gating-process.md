@@ -11,18 +11,11 @@ ms.date: 03/04/2020
 ms.author: dapine
 ---
 
-# Azure Cognitive Services - Gating Process
+# Gating process for Azure Cognitive Services containers
 
-As new Azure Cognitive Services are introduced they're fed through a gating process, where customers have to explicitly request access. This process is in place to help identify opportunities for improvement with the service offering. This article will guide you through the application process for gated Cognitive Services offerings.
+As new Azure Cognitive Services are containerized, they go through a gated preview where customers have to explicitly request access. This gating process helps identify opportunities for improvements to the offering, before making it's publicly available. This article will guide you through the application process for gated Cognitive Services offerings.
 
 Currently, the services below are offered through the gating process:
-
-## Web APIs
-
-| Service |
-|---------|
-| TBD     |
-| TBD     |
 
 ## Online Containers
 
