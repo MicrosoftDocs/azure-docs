@@ -76,7 +76,7 @@ If you are using active geo-replication or failover groups as your business cont
 Using long term retention with a Azure SQL Database managed instances has the following limitations:
 
 - **Limited public preview** - Only whitelisted subscriptions have access to the LTR feature. 
-- **PowerShell only** - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
+- [**PowerShell only**](sql-database-managed-instance-long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
 
 
 ## Configure long-term backup retention
