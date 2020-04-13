@@ -101,7 +101,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 ## Delete a workspace
 
-Use the Delete button at the top of the workspace you wish to delete.
+In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you wish to delete.
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Delete workspace":::
 
