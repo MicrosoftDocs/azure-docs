@@ -24,20 +24,17 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-* **Labeling value types** You can now specify the types of values you're labeling with the Form Recognizer sample labeling tool. These value types and variations are currently supported:
-  * String
-    * default, no-whitespaces, alphanumeric
-  * Number
-    * default, currency
-  * Date 
-    * default, DMY, MDY, YMD
-  * Time
-  * Integer
-  
-  This image shows the value type selection menu in the Form Recognizer sample labeling tool:
+* **Labeling value types** You can now specify the types of values you're labeling with the Form Recognizer sample labeling tool. The following value types and variations are currently supported:
+  * `string`
+    * default, `no-whitespaces`, `alphanumeric`
+  * `number`
+    * default, `currency`
+  * `date` 
+    * default, `dmy`, `mdy`, `ymd`
+  * `time`
+  * `integer`
 
-  > [!div class="mx-imgBorder"]
-  > ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
+  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
