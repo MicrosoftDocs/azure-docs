@@ -146,6 +146,9 @@ You can create an App Configuration store using an Azure Resource Manager templa
 
 Now that you've added key-values to the store, you're ready to deploy a VM using an Azure Resource Manager template. The template references the **windowsOsVersion** and **diskSizeGB** keys you created.
 
+> [!WARNING]
+> ARM templates can't reference keys in an App Configuration store that has Private Link enabled.
+
 1. Copy and paste the following json code into a new file named *azuredeploy.json*, or download the file from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
    ```json
@@ -420,7 +423,7 @@ Now that you've added key-values to the store, you're ready to deploy a VM using
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
+       -ResourceGroupName "<your resource group>"
        -TemplateFile "<path to prereq.azuredeploy.json>" `
        -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
    ```
