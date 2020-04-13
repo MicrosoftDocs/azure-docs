@@ -14,8 +14,8 @@ extension and client. The extension, through the client, validates settings such
 - Application configuration or presence
 - Environment settings
 
-At this time, Azure Policy Guest Configuration only audits settings inside the machine. It doesn't
-apply configurations.
+At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
+apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
 ## Extension and client
 
@@ -26,38 +26,14 @@ applicable policy assignment and the corresponding configuration definition.
 ### Limits set on the extension
 
 To limit the extension from impacting applications running inside the machine, the Guest
-Configuration isn't allowed to exceed more than 5% of CPU utilization. This limitation exists for
+Configuration isn't allowed to exceed more than 5% of CPU. This limitation exists for
 both built-in and custom definitions.
 
 ## Register Guest Configuration resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. You can register
-through the portal or through PowerShell. The resource provider is registered automatically if
+through the [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), or [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). The resource provider is registered automatically if
 assignment of a Guest Configuration policy is done through the portal.
-
-### Registration - Portal
-
-To register the resource provider for Guest Configuration through the Azure portal, follow these
-steps:
-
-1. Launch the Azure portal and click on **All services**. Search for and select **Subscriptions**.
-
-1. Find and click on the subscription that you want to enable Guest Configuration for.
-
-1. In the left menu of the **Subscription** page, click **Resource providers**.
-
-1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
-   on the same row.
-
-### Registration - PowerShell
-
-To register the resource provider for Guest Configuration through PowerShell, run the following
-command:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
 
 ## Validation tools
 
@@ -68,13 +44,13 @@ The following table shows a list of the local tools used on each supported opera
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| If Ruby and Python aren't on the machine, they are installed by the Guest Configuration extension. |
 
 ### Validation frequency
 
 The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
-received, the settings are checked on a 15-minute interval. Results are sent to the Guest
-Configuration resource provider as soon as the audit completes. When a policy [evaluation
+received, the settings for that configuration are re-checked on a 15-minute interval.
+Results are sent to the Guest Configuration resource provider when the audit completes. When a policy [evaluation
 trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
 written to the Guest Configuration resource provider. This update causes Azure Policy to evaluate
 the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest
@@ -91,14 +67,9 @@ The following table shows a list of supported operating system on Azure images:
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3|
-
-> [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
-> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
-> modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -139,12 +110,20 @@ to the Guest Configuration service.
 Details about network and proxy requirements provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview#networking-configuration).
 
+## Azure managed identity requirements
+
+The **DeployIfNotExists** policies that add the extension to virtual machines also
+enable a system assigned managed identity, if one doesn't exist.
+
+> [!WARNING]
+> Avoid enabling user assigned managed identity to virtual machines in scope
+> for policies that enable system assigned managed identity. The user assigned
+> identity will be replaced and could machine become unresponsive.
+
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to
-prepare the machine with the Guest Configuration agent and other components to support the
-[validation tools](#validation-tools).
+definition and an **AuditIfNotExists** definition. 
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
@@ -159,7 +138,7 @@ If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
 task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
 
 Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment
-uses the local validation tools to determine if the configuration assignment is Compliant or
+determines if the guest assignment is Compliant or
 Non-compliant. The validation tool provides the results to the Guest Configuration client. The
 client forwards the results to the Guest Extension, which makes them available through the Guest
 Configuration resource provider.
@@ -174,32 +153,29 @@ data](../how-to/get-compliance-data.md).
 > resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
-for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security settings inside Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
+for use in assignments. The built-in initiative named _\[Preview\]: Audit Password security
+inside Linux and Windows machines_ contains 18 policies. There are six **DeployIfNotExists** and
 **AuditIfNotExists** pairs for Windows and three pairs for Linux. The
 [policy definition](definition-structure.md#policy-rule) logic validates that only the target
 operating system is evaluated.
 
 #### Auditing operating system settings following industry baselines
 
-One of the initiatives available in Azure Policy provides the ability to audit operating system
-settings inside virtual machines following a "baseline" from Microsoft. The definition,
+One initiative in Azure Policy provides the ability to audit operating system
+settings following a "baseline". The definition,
 _\[Preview\]: Audit Windows VMs that do not match Azure security baseline settings_ includes a
-complete set of audit rules based on settings from Active Directory Group Policy.
+set of rules based on Active Directory Group Policy.
 
-Most of the settings are available as parameters. This functionality allows you to customize what is
-audited to align the policy with your organizational requirements or to map the policy to
+Most of the settings are available as parameters. Parameters allow you to customize what is
+audited. Align the policy with your requirements or map the policy to
 third-party information such as industry regulatory standards.
 
-Some parameters support an integer value range. For example, the Maximum Password Age parameter can
-be set using a range operator to give flexibility to machine owners. You could audit that the
-effective Group Policy setting requiring users to change their passwords should be no more than 70
-days, but shouldn't be less than one day. As described in the info-bubble for the parameter, to make
-this business policy the effective audit value, set the value to "1,70".
+Some parameters support an integer value range. For example, the Maximum Password Age setting could audit the
+effective Group Policy setting. A "1,70" range would confirm that users are required to change their passwords at least every 70
+days, but no less than one day.
 
-If you assign the policy using an Azure Resource Manager deployment template, you can use a
-parameters file to manage these settings from source control. Using a tool such as Git to manage
-changes to Audit policies with comments at each check-in documents evidence as to why an assignment
-should be an exception to the expected value.
+If you assign the policy using an Azure Resource Manager deployment template, use a parameters file to manage exceptions. Check in the files to a version control system such as Git. Comments about file changes provide evidence why an assignment
+is an exception to the expected value.
 
 #### Applying configurations using Guest Configuration
 
@@ -222,14 +198,6 @@ assignment are automatically included.
 Guest Configuration policies currently only support assigning the same Guest Assignment once per
 machine, even if the Policy assignment uses different parameters.
 
-## Built-in resource modules
-
-When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is
-included with the latest version of DSC resource modules. This module can be downloaded from the
-PowerShell Gallery by using the 'Manual Download' link from the module page
-[GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). The '.nupkg'
-file format can be renamed to '.zip' to uncompress and review.
-
 ## Client log files
 
 The Guest Configuration extension writes log files to the following locations:
@@ -249,9 +217,7 @@ If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
 
-To use the Azure VM Run Command capability to capture information from log files in Windows
-machines, the following example PowerShell script can be helpful. For more information, see
-[Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command.md).
+Capture information from log files using [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), the following example PowerShell script can be helpful.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -262,9 +228,8 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### Linux
 
-To use the Azure VM Run Command capability to capture information from log files in Linux machines,
-the following example Bash script can be helpful. For more information, see
-[Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command.md)
+Capture information from log files using [Azure VM Run Command](../../../virtual-machines/linux/run-command.md),
+the following example Bash script can be helpful.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -275,7 +240,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## Guest Configuration samples
 
-Source for the Policy Guest Configuration built-in initiatives are available in the following
+Guest Configuration built-in policy samples are available in the following
 locations:
 
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
@@ -284,6 +249,7 @@ locations:
 
 ## Next steps
 
+- Learn how to view the details each setting from the [Guest Configuration compliance view](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Azure Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
