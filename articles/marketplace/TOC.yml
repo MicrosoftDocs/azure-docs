@@ -87,6 +87,8 @@
   items:
   - name: Cloud Partner Portal migration to Partner Center
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+  - name: Migration FAQ
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
   - name: Portal Tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
