@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/13/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -28,15 +28,15 @@ One of the core features of the Speech service is the ability to recognize human
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cpp.md)]
+[!INCLUDE [C++ Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-
+[!INCLUDE [Java Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
+[!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
