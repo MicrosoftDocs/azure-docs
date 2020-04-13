@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: mimckitt
 ---
 # Oracle VM images and their deployment on Microsoft Azure
