@@ -1,6 +1,6 @@
 ---
-title: Geographic availability and Currency Support | Azure
-description: Geographic availability in Azure Marketplace and AppSource
+title: Geographic availability and currency support | Azure 
+description: Geographic availability in the commercial marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,7 +11,7 @@ ms.author: dsindona
 ---
 # Geographic availability and currency support
 
-Azure Marketplace and AppSource offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
 |   Country/Region Name               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
