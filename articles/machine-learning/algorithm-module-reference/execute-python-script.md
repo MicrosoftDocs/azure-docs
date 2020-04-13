@@ -213,7 +213,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 5. In the **Python script** text box, type or paste valid Python script.
 
     > [!NOTE]
-    > Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). If you need to import modules which are not listed, please installing the corresponding packages such as
+    > Please be very careful when writing your script and make sure there is no syntax error, such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed module list. To import modules which are not listed, install the corresponding packages in your script such as
 	>  ``` Python
 	> import os
 	> os.system(f"pip install scikit-misc")
