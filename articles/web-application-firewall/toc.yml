@@ -1,4 +1,4 @@
-- name: Azure Web Application Firewall Documentation
+- name: Azure Web Application Firewall documentation
   href: index.yml
 - name: Overview
   items:
@@ -18,6 +18,14 @@
     items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Application Gateway
+    items:
+     - name: Deploy WAF v2 - ARM template
+       displayName: Resource Manager
+       href: ./ag/quick-create-template.md
 - name: Tutorials
   items:
   - name: Application Gateway
@@ -42,7 +50,7 @@
   items:
   - name: Application Gateway
     items:
-    - name: Managed Rules
+    - name: Managed rules
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
@@ -136,12 +144,16 @@
       href: https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest
     - name: Application Gateway
       href: https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest
+    - name: CDN
+      href: https://docs.microsoft.com/cli/azure/cdn/waf?view=azure-cli-latest
   - name: Azure PowerShell
     items:
     - name: Front Door
       href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
     - name: Application Gateway
       href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
+    - name: CDN
+      href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: REST API
     items:
     - name: Front Door

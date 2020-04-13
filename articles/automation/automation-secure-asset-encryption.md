@@ -1,6 +1,6 @@
 ---
-title: Encryption of secure assets in automation
-description: Azure automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer-managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
+title: Encrypt secure assets in Azure Automation
+description: Azure Automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer-managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -11,12 +11,12 @@ ms.topic: conceptual
 manager: kmadnani
 ---
 
-# Secure assets in Azure Automation
+# Encrypt secure assets in Azure Automation
 
 Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. 
 Based on the top-level key used for the encryption, there are two models for encryption:
--	Using Microsoft-managed keys
--	Using customer-managed keys
+-    Using Microsoft-managed keys
+-    Using customer-managed keys
 
 ## Microsoft-managed Keys
 

@@ -6,10 +6,9 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 03/26/2020
 
 ---
-
 
 # Azure Monitor Frequently Asked Questions
 
@@ -58,10 +57,6 @@ There is no limit to the amount of metric data you can collect, but this data is
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
 
-
-
-
-
 ## Solutions and insights
 
 ### What is an insight in Azure Monitor?
@@ -73,11 +68,6 @@ To view insights in the Azure portal, see the **Insights** section of the **Moni
 Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
 
 To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
-
-
-
-
-
 
 ## Logs
 
@@ -103,9 +93,6 @@ Many resource providers are automatically registered, but you may need to manual
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
-
-
-
 ## Alerts
 
 ### What is an alert in Azure Monitor?
@@ -126,7 +113,6 @@ An action group is a collection of notifications and actions that can be trigger
 
 ### What is an action rule?
 An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
-
 
 ## Agents
 
@@ -187,7 +173,7 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#network-firewall-requirements)for details on firewall requirements.
+See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations
@@ -195,7 +181,6 @@ See [Network firewall requirements](platform/log-analytics-agent.md#network-fire
 ### Why can't I see View Designer?
 
 View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
-
 
 ## Application Insights
 
@@ -508,10 +493,33 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 [windows]: app/app-insights-windows-get-started.md
 
 
-
 ## Azure Monitor for containers
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+### What does *Other Processes* represent under the Node view?
+
+**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+
+What are these **Other Processes**? 
+
+These are non-containerized processes that run on your node.  
+
+How do we calculate this?
+
+**Other Processes** = *Total usage from CAdvisor* - *Usage from containerized process*
+
+The **Other processes** includes:
+
+- Self-managed or managed Kubernetes non-containerized processes 
+
+- Container Run-time processes  
+
+- Kubelet  
+
+- System processes running on your node 
+
+- Other non-Kubernetes workloads running on node hardware or VM 
 
 ### I don't see Image and Name property values populated when I query the ContainerLog table.
 

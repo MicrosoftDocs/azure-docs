@@ -3,7 +3,7 @@
  description: include file
  services: search
  author: HeidiSteen
- ms.service: search
+ ms.service: cognitive-search
  ms.topic: include
  ms.date: 05/06/2019
  ms.author: heidist

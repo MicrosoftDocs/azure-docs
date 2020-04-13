@@ -22,6 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # How long does Azure AD store reporting data?
 
+
 In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
 
 ### When does Azure AD start collecting data?

@@ -58,22 +58,24 @@
     href: best-practices.md
   - name: Common Conditional Access policies
     items: 
+    - name: Block legacy authentication
+      href: howto-conditional-access-policy-block-legacy.md
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
     - name: Require MFA for Azure management
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
-    - name: Block legacy authentication
-      href: howto-conditional-access-policy-block-legacy.md
     - name: Risk-based Conditional Access
       href: howto-conditional-access-policy-risk.md
-    - name: Require trusted location for MFA registration
+    - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Require compliant devices
       href: howto-conditional-access-policy-compliant-device.md
+    - name: Block access
+      href: howto-conditional-access-policy-block-access.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Require approved client apps
@@ -94,6 +96,8 @@
     href: policy-migration-mfa.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot sign-in problems
+      href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
 - name: Resources

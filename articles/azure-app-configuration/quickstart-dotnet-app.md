@@ -26,13 +26,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a .NET console app
 

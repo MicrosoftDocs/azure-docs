@@ -3,12 +3,12 @@ title: Cognitive Services containers frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions and answers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -112,8 +112,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 <b>How should I run the Cognitive Services containers on IoT devices?</b>
 </summary>
 
-**Answer:** Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if you have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
-
+**Answer:** Whether you don't have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 </details>
 
 <details>
@@ -176,7 +175,7 @@ Explore the following tags for potential questions and answers that align with y
 <b>What is the current support warranty for containers?</b>
 </summary>
 
-**Answer:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
+**Answer:** There is no warranty for previews. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
 
 </details>
 

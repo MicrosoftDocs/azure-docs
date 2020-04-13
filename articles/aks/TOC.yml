@@ -140,10 +140,14 @@
       href: cluster-autoscaler.md
     - name: Use Availability Zones
       href: availability-zones.md
-    - name: Use multiple node pools
-      href: use-multiple-node-pools.md
-    - name: Use spot node pools (preview)
-      href: spot-node-pool.md
+    - name: Use node pools
+      items:
+      - name: Use multiple node pools
+        href: use-multiple-node-pools.md
+      - name: Use spot node pools (preview)
+        href: spot-node-pool.md
+      - name: Use system node pools
+        href: use-system-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
@@ -221,6 +225,8 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
+        - name: Integrate Azure AD (preview)
+          href: azure-ad-v2.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
         - name: Use the Azure portal
@@ -312,10 +318,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Use Open Service Broker for Azure
-      href: integrate-azure.md
-    - name: Use Cosmos DB API for MongoDB with OSBA
-      href: use-cosmosdb-osba-mongo-app.md
     - name: Use OpenFaaS
       href: openfaas.md
     - name: Run Spark jobs

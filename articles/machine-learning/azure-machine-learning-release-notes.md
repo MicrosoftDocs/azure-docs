@@ -17,6 +17,54 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-04-13
+
+### Azure Machine Learning SDK for Python v1.3.0
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Added additional telemetry around post-training operations.
+    + Speeds up automatic ARIMA training by using conditional sum of squares (CSS) training for series of length longer than 100. Note that the length used is stored as the constant ARIMA_TRIGGER_CSS_TRAINING_LENGTH w/in the TimeSeriesInternal class at /src/azureml-automl-core/azureml/automl/core/shared/constants.py
+    + The user logging of forecasting runs was improved, now more information on what phase is currently running will be shown in the log
+    + Disallowed target_rolling_window_size to be set to values less then 2
+  + **azureml-automl-runtime**
+    + Improved the error message shown when duplicated timestamps are found.
+    + Disallowed target_rolling_window_size to be set to values less then 2.
+    + Fixed the lag imputation failure. The issue was caused by the insufficient number of observations needed to seasonally decompose a series. The "de-seasonalized" data is used to compute a partial autocorrelation function (PACF) to determine the lag length.
+    + Enabled column purpose featurization customization for forecasting tasks by featurization config. Numerical and Categorical as column purpose for forecasting tasks are now supported.
+    + Enabled drop column featurization customization for forecasting tasks by featurization config.
+    + Enabled imputation customization for forecasting tasks by featurization config. Constant value imputation for target column and mean, median, most_frequent and constant value imputation for training data are now supported.
+  + **azureml-contrib-pipeline-steps**
+    + Accept string compute names to be passed to ParallelRunConfig
+  + **azureml-core**
+    +  Added Environment.clone(new_name) API to create a copy of Environment object
+    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
+    + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
+    +  Dataset: fixed dataset download failure if data path containing unicode characters
+    +  Dataset: improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled
+    + Added user_managed flag in RSection which indicates whether the environment is managed by user or by AzureML.
+    + Dataset: we add an index for the timeseries column when you access a timeseries dataset as a pandas dataframes, which is used to speed up access to timeseries based data access.  Previously, the index was given the same name as the timestamp column, confusing users about which is the actual timestamp column and which is the index. We now don’t give any specific name to the index since it should not be used as a column. 
+  + **azureml-dataprep**
+    + Fixed dataset authentication issue in sovereign cloud
+    + Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores
+  + **azureml-interpret**
+    + Added global scores to visualization if local importance values are sparse
+    + Updated azureml-interpret to use interpret-community 0.9.*
+    + Fixed issue with downloading explanation that had sparse evaluation data
+    + Added support of sparse format of the explanation object in AutoML
+  + **azureml-pipeline-core**
+    + Support ComputeInstance as compute target in pipelines
+  + **azureml-train-automl-client**
+    + Added additional telemetry around post-training operations.
+    + Fixed the regression in early stopping
+    + Deprecated azureml.dprep.Dataflow as a valid type for input data.
+    +  Changing default AutoML experiment timeout to 6 days.
+  + **azureml-train-automl-runtime**
+    + Added additional telemetry around post-training operations.
+    + added sparse automl e2e support
+  + **azureml-opendatasets**
+    + Added additional telemetry for service monitor.
+    + Enable frontdoor for blob to increase stability 
 ## 2020-03-23
 
 ### Azure Machine Learning SDK for Python v1.2.0
@@ -671,7 +719,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
     + Renames AzureML-explain-model package to AzureML-interpret, keeping the old package for backwards compatibility for now.
     + fixed AutoML bug with raw explanations set to classification task instead of regression by default on download from ExplanationClient.
-    + Add support for [ScoringExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.scoring.scoring_explainer.scoringexplainer) to be created directly using [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
+    + Add support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) to be created directly using [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Improved performance for large Pipeline creation.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -920,7 +968,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
     +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
   + **azure-cli-ml**
-    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+    + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-automl-core**
     + Fixed an issue in AutoML where rows with missing labels were not removed properly.
     + Improved error logging in AutoML; full error messages will now always be written to the log file.
@@ -951,7 +999,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Supported importing HTTP csv/tsv files in dataset python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests using create() or get()/from_config() instead.
     + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages `whl`to the workspace and securely using them to build/materialize the environment.
-    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
+    + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
     + Added `is_raw` tagging to explanations in memory and upload.
