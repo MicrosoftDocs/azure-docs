@@ -96,7 +96,7 @@ Type \q to exit `psql`.
 In a terminal window, run the following commands to clone the sample app repository, and change to the new working directory:
 
 ```
-git clone https://github.com/cephalin/djangoapp
+git clone https://github.com/Azure-Samples/djangoapp
 cd djangoapp
 ```
 
@@ -106,7 +106,7 @@ The djangoapp sample repository contains the data-driven [Django](https://www.dj
 
 To set up your local development environment and run the sample app for the first time, run the following commands:
 
-# [Docker container](#tab/container)
+# [Docker container](#tab/docker)
 
 ```bash
 # Configure the Python virtual environment
@@ -227,17 +227,6 @@ Also, a Django app by default uses Sqlite3 as the database. To run your app in p
     
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    
-    # Configure Postgres database
-    DATABASES = {                                                                    
-        'default': {                                                                 
-            'ENGINE': 'django.db.backends.postgresql',                               
-            'NAME': os.environ['DBNAME'],                                            
-            'HOST': os.environ['DBHOST'],                                            
-            'USER': os.environ['DBUSER'],                                            
-            'PASSWORD': os.environ['DBPASS']                                         
-        }                                                                            
-    }
     ```
     
     Briefly, *azuresite/production.py* does the following:
@@ -245,9 +234,8 @@ Also, a Django app by default uses Sqlite3 as the database. To run your app in p
     - Inherit all settings from *azuresite/settings.py*.
     - Add the fully qualified domain name of the App Service app to the allowed hosts. 
     - Use [WhiteNoise](https://whitenoise.evans.io/en/stable/) to enable serving static files in production. The WhiteNoise package is already included in *requirements.txt*.
-    - Add configuration for PostgreSQL database. The [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) package is already included in *requirements.txt*.
 
-1. In *manage.py*, change the following line:
+1. In *azuresite/wsgi.py*, change the following line:
 
     ```python
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.settings')
@@ -262,9 +250,7 @@ Also, a Django app by default uses Sqlite3 as the database. To run your app in p
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.settings')
     ```
 
-1. In *azuresite/wsgi.py*, make the same change as above.
-
-    In App Service, you use *manage.py* to run database migrations, and App Service uses *azuresite/wsgi.py* to run your Django app in production. This change in both files ensures that the production settings are used in both cases.
+    App Service uses *azuresite/wsgi.py* to run your Django app in production. This change ensures that the production settings are used.
 
 ## Sign in to Azure CLI
 
