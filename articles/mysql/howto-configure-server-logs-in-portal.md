@@ -35,9 +35,7 @@ Configure access to the MySQL slow query log.
 
 8. Select **Save**. 
 
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Update slow query log parameters and save.":::
-   
-<!--    ![Screenshot of Server Parameters options](./media/howto-configure-server-logs-in-portal/3-save-discard.png) -->
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save.":::
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
