@@ -270,7 +270,7 @@
   - name: Interpret models
     displayName: interpretability
     items:
-    - name: Explain ML models and predictions
+    - name: Explain ML models
       displayName: SDK, interpret
       href: how-to-machine-learning-interpretability-aml.md
     - name: Explain automated ML models
