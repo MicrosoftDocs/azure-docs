@@ -1,6 +1,6 @@
 ---
-title: "Managed instance: Long-term backup retention (PowerShell)
-description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Database managed instance using PowerShell. "
+title: "Managed instance: Long-term backup retention (PowerShell)"
+description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Database managed instance using PowerShell."
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,7 +13,6 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
 ---
-
 # Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
 
 In Azure SQL Database managed instance, you can configure a [long-term backup retention](sql-database-long-term-retention.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using PowerShell.

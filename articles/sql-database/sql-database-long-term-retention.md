@@ -1,6 +1,6 @@
 ---
-title: Store backups for up to 10 years 
-description: Learn how Azure SQL Database supports storing full database backups for up to 10 years.
+title: "Long-term backup retention" 
+description: Learn how Azure SQL Database supports storing full database backups for up to 10 years via the long-term retention policy.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,7 +12,7 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
 ---
-# Store Azure SQL Database backups for up to 10 years
+# Azure SQL Database long-term retention
 
 Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in Azure Blob storage with read-access geo-redundant storage for up to 10 years. You can then restore any backup as a new database. For more information about Azure Storage redundancy, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). 
 
