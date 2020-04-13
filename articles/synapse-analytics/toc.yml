@@ -46,6 +46,8 @@
     items:
     - name: Use SQL on-demand to analyze and Synapse Studio to visualize
       href: ./sql/tutorial-data-analyst.md
+- name: Samples
+  href: https://github.com/Azure-Samples/Synapse
 - name: Concepts
   items:
   - name: Workspace
