@@ -423,12 +423,17 @@
     },
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/miro-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {
@@ -533,7 +538,7 @@
     },
     {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
-      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui",
       "redirect_document_id": false
     },
     {
@@ -40082,12 +40087,12 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-set-up-template",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
@@ -46282,7 +46287,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
@@ -46347,12 +46352,7 @@
     },
     {
       "source_path": "articles/iot-central/core/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-central/core/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
@@ -46787,7 +46787,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
