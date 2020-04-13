@@ -23,7 +23,7 @@ We are moving your offer data from the Cloud Partner Portal to Partner Center wi
 | **Availability of your offers in the marketplace** | No changes. If your offer is live in the marketplace it will continue to be live during and after the migration is completed. |
 | **New purchases and deployments** | No changes. Your customers will continue to be able to purchase and deploy your offers with no interruptions. |
 | **Payouts** | Any purchases and deployments that occur during or after the migration will continue to be paid out to you as normal. |
-|**API integrations with existing [Cloud Partner Portal APIs](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)** | Existing Cloud Partner Portal APIs will continue to be supported after the migration and your existing integrations will continue to work. For more details, see [Will the Cloud Partner Portal REST APIs be supported post-migration?](#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
+|**API integrations with existing [Cloud Partner Portal APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)** | Existing Cloud Partner Portal APIs will continue to be supported after the migration and your existing integrations will continue to work. For more details, see [Will the Cloud Partner Portal REST APIs be supported post-migration?](#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
 | | |
 
 ## Can I still access the Cloud Partner Portal and manage my offers during migration?
