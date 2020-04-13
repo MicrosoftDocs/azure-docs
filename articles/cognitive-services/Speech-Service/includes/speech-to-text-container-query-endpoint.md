@@ -31,6 +31,7 @@ to this call using the container [host](https://docs.microsoft.com/dotnet/api/mi
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
+
 # [Python](#tab/python)
 
 Change from using this Azure-cloud initialization call:
@@ -45,6 +46,36 @@ to this call using the container [host](https://docs.microsoft.com/python/api/az
 ```python
 speech_config = speechsdk.SpeechConfig(
     host="ws://localhost:5000")
+```
+
+To call sentiment analysis:
+
+> [!NOTE]
+> You can send requests for either "detailed" or "simple" responses. 
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+### Disable Sentiment analysis in the API response
+
+To disable sentiment analysis from appearing in the API response, regardless of other properties specified:
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
 ```
 
 ***
