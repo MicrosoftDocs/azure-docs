@@ -118,7 +118,7 @@ The following steps show how to create a new static site app and deploy it to a 
 
 ### Create Azure App Service Static App
 
-1. Navigate to the [Azure Portal](http://portal.azure.com).
+1. Navigate to the [Azure Portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static App** and select it.
 
   [Image of Static App]
@@ -207,4 +207,5 @@ If the page is a dynamic page, e.g. `_id.vue` it will not have enough informatio
 In this *how to*, you created a Nuxt.js static website with dynamic routes and deployed it to App Service Static Site using Github Actions.
 
 ## Next Steps
-> [!div class="nextstepaction"][setup a custom domain in app service static apps](static-apps-custom-domain.md)
+> [!div class="nextstepaction"]
+> [Set up a custom domain in app service static apps](custom-domain.md)
