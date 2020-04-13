@@ -19,7 +19,7 @@ This guide shows you how to configure the built-in PHP runtime for web apps and 
 
 ## How to: Change the built-in PHP version
 
-When creating a web app you can choose the version of PHP that will be configured. See [PHP on App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) for up-to-date information of currently supported versions.
+When creating a web app, you can choose the version of PHP that will be configured. See [PHP on App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) for up-to-date information of currently supported versions.
 
 To check on the existing runtime version of your app, you can deploy a script that calls the [phpinfo()] function.
 
