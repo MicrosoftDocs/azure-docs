@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -117,7 +117,7 @@ https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-m
 **Guidance**: 
 Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 
-Configure advanced threat protection for Azure Storage : https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection
+Configure advanced threat protection for Azure Storage: https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection
 
 
 **Azure Security Center monitoring**: Yes
@@ -292,7 +292,7 @@ How to configure monitoring for your Azure Storage account: https://docs.microso
 How to configure retention policy for Azure Storage account logs:
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging 
 
-Change the data retention period in Log Analytics.
+Change the data retention period in Log Analytics:
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 
@@ -684,8 +684,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 How to create and use Tags:
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags 
 
-Configure Azure Storage firewalls and virtual networks
-https://docs.microsoft.com/azure/storage/common/storage-network-security 
+Configure Azure Storage firewalls and virtual networks: https://docs.microsoft.com/azure/storage/common/storage-network-security 
 
 Virtual Network service endpoints:
 https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
@@ -707,8 +706,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 Configure Azure Storage firewalls and virtual networks:
 https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview
 
-Virtual network service endpoint policies for Azure Storage
-: https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal
+Virtual network service endpoint policies for Azure Storage: https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal
 
 Understand customer data protection in Azure:
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
@@ -755,7 +753,8 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3752).
 
-**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
+**Guidance**: 
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
 
 How to assign RBAC roles for Azure Storage account: https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal
 
@@ -765,7 +764,7 @@ How to configure access to Azure Blob and Queue data with RBAC in Azure portal: 
 
 How to create and configure an AAD instance: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant 
 
-Authorizing access to data in Azure Storage https://docs.microsoft.com/azure/storage/common/storage-auth
+Authorizing access to data in Azure Storage: https://docs.microsoft.com/azure/storage/common/storage-auth
 
 
 
@@ -972,18 +971,18 @@ Configure advanced threat protection for Azure Storage:  https://docs.microsoft.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3765).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: 
+Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
  - Not allowed resource types 
+
  - Allowed resource types 
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts. 
 
-How to configure and manage Azure Policy:
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
 
-How to create queries with Azure Graph:
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1032,16 +1031,16 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3769).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: 
+Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
-Not allowed resource types 
-Allowed resource types 
+- Not allowed resource types 
 
- How to configure and manage Azure Policy:
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
+- Allowed resource types 
 
- How to deny a specific resource type with Azure Policy:
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
+
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1105,20 +1104,22 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3774).
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure policy definitions for Azure Storage account such as: 
+**Guidance**: 
+Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure policy definitions for Azure Storage account such as: 
 
 Audit unrestricted network access to storage accounts 
+
 Deploy Advanced Threat Protection on Storage Accounts 
+
 Storage accounts should be migrated to new Azure Resource Manager resources 
+
 Secure transfer to storage accounts should be enabled 
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 
-How to view available Azure Policy Aliases:
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0 
+How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0 
 
-How to configure and manage Azure Policy:
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 **Azure Security Center monitoring**: Yes
@@ -1250,12 +1251,12 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3784).
 
-**Guidance**: Azure Storage automatically encrypts your data when it is persisted it to the cloud.  You can use Microsoft-managed keys for the encryption of the storage account, or can manage encryption with their own keys.  If you are using customer-provided keys, you can leverage Azure Key Vault to securely store the keys. 
+**Guidance**: 
+Azure Storage automatically encrypts your data when it is persisted it to the cloud. You can use Microsoft-managed keys for the encryption of the storage account, or can manage encryption with their own keys. If you are using customer-provided keys, you can leverage Azure Key Vault to securely store the keys. 
 
 Additionally, rotate Storage Account Keys on a frequent basis to limit the impact of  loss or disclosure of Storage Account keys.
 
-Azure Storage encryption for data at rest:
-https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+Azure Storage encryption for data at rest: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
 Manage storage account access keys:  https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage
 
@@ -1390,26 +1391,24 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3792).
 
-**Guidance**: Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands: 
+**Guidance**: 
+Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands: 
 
 Restore-AzKeyVaultCertificate 
+
 Restore-AzKeyVaultKey 
+
 Restore-AzKeyVaultManagedStorageAccount
-Restore-AzKeyVaultSecret
- 
 
-How to restore Key Vault Certificates: 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
- 
+Restore-AzKeyVaultSecret  
 
-How to restore Key Vault Keys: 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
+How to restore Key Vault Certificates: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0  
 
-How to restore Key Vault Managed Storage Accounts:
-https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount 
+How to restore Key Vault Keys: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
 
-How to restore Key Vault Secrets: 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0 
+How to restore Key Vault Managed Storage Accounts: https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount 
+
+How to restore Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0 
 
 AzCopy is a command-line utility that you can use to copy blobs, files and table data to or from a storage account: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10 
 
@@ -1451,11 +1450,13 @@ Store business-critical blob data with immutable storage:  https://docs.microsof
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3794).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+
 Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
 
 Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
+
 	
 
 
@@ -1470,6 +1471,7 @@ Customer may also leverage NIST's Computer Security Incident Handling Guide to a
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3795).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
@@ -1486,6 +1488,7 @@ Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3799).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+
 NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://csrc.nist.gov/publications/detail/sp/800-84/final
 
 
@@ -1499,6 +1502,7 @@ NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3796).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
+
 How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 
@@ -1512,6 +1516,7 @@ How to set the Azure Security Center Security Contact: https://docs.microsoft.co
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3797).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
+
 How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 
 How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
@@ -1548,6 +1553,7 @@ How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/senti
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3800).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+
 Penetration Testing Rules of Engagement: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 Microsoft Cloud Red Teaming: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
