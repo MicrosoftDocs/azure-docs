@@ -26,8 +26,9 @@ These Cognitive Services are language agnostic and don't have limitations based 
 ## Vision
 
 * [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support)
-* [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-* [Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
+* [Form Recognizer (Preview)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
+* [Ink Recognizer (Preview)](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
+* [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## Speech
 
@@ -38,7 +39,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 ## Language
 
-* [Immersive Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
+* [Immersive Reader (Preview)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
 * [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
 * [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
 * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/languages)

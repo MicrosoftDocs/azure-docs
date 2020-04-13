@@ -251,7 +251,7 @@
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text
     - name: Intelligent Kiosk
-      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk      
+      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Reference
   items:
   - name: Developer reference
@@ -395,7 +395,7 @@
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Language and region support
+  - name: Language support
     href: luis-language-support.md
     displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
