@@ -50,7 +50,7 @@ conceptualContent:
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
-        - itemType: quickstart
+        - itemType: how-to-guide
           text: Speech synthesis basics
           url: text-to-speech-basics.md
         - itemType: quickstart
@@ -64,7 +64,7 @@ conceptualContent:
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
-      - itemType: quickstart
+      - itemType: how-to-guide
         text: Speech translation basics
         url: speech-translation-basics.md
       - itemType: quickstart
