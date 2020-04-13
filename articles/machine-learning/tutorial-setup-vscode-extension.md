@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
+ms.date: 04/13/2020
 #Customer intent: As a professional data scientist, I want to Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 ---
 
@@ -66,7 +66,7 @@ Now that you have signed into Azure with your account credentials, Use the steps
 1. When the command palette expands, follow the prompts.
 
     1. Select your Azure subscription.
-    1. Select **Create a new Azure ML workspace**
+    1. Select **Create a new Azure ML workspace**.
     1. Select the **TensorFlow Single-Node Training** job type.
     1. Enter `train.py` as the script to train. This is the file that contains code to a machine learning model that categorize images of handwritten digits.
     1. Specify the following packages as requirements to run.
