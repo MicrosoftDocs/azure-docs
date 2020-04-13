@@ -140,6 +140,8 @@
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
         href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: Use SMS-based authentication (preview)
+    href: howto-authentication-sms-signin.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
