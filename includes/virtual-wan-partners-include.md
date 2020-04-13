@@ -14,7 +14,6 @@ You can check the links in this section for more information about services offe
 
 |Partners|Configuration/How-to/Deployment Guide|
 |---|---|
-|[128 Technology](https://www.128technology.com/partners/azure) |* |
 |[Barracuda Networks](https://www.barracuda.com/AzurevWAN)| [Barracuda CloudGen Firewall: Azure Virtual WAN](https://campus.barracuda.com/doc/79463435/)|
 | [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |[Check Point for the Microsoft Azure Virtual WAN Quick Start Guide](https://sc1.checkpoint.com/documents/IaaS/WebAdminGuides/EN/CP_for_Microsoft_Azure_vWAN/Content/Topics/Introduction.htm?tocpath=Introduction%7C_____0)|
 | [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|

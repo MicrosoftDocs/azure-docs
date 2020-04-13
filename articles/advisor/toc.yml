@@ -30,8 +30,6 @@
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
-  - name: Get periodic summary for recommendations
-    href: advisor-recommendations-digest.md
 - name: Reference
   items:
   - name: Security Center

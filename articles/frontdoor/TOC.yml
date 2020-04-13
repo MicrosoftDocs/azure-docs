@@ -27,6 +27,8 @@
     href: front-door-backend-pool.md
   - name: Caching with Front Door
     href: front-door-caching.md
+  - name: Front Door FAQ
+    href: front-door-faq.md
   - name: Geo-filtering
     href: front-door-geo-filtering.md
   - name: Health probes
@@ -67,10 +69,6 @@
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
-- name: FAQ
-  items:
-  - name: Front Door FAQ
-    href: front-door-faq.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -1,16 +1,18 @@
 ---
 title: Azure IoT Edge Module offer publishing overview | Azure Marketplace
 description: Overview of the process for publishing an IoT Edge module offer on Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # IoT Edge module offer publishing overview
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 <table> <tr> <td>This section explains how to publish a new Azure IoT Edge module offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>. An IoT Edge module is a Docker-compatible container that's made to run on an IoT Edge device. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services or custom solution code. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 

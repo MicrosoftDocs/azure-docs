@@ -8,10 +8,9 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Introduction to Azure App Service on Linux
 
 [Azure App Service](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks.

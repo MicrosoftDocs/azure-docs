@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
+ms.date: 03/12/2020
 ---
 
 # Copy data from an on-premises SQL Server database to Azure Blob storage
@@ -86,17 +86,17 @@ You use the name and key of your storage account in this tutorial. To get the na
 #### Create the adftutorial container
 In this section, you create a blob container named **adftutorial** in your Blob storage.
 
-1. In the **Storage account** window, go to **Overview**, and then select **Blobs**.
+1. In the **Storage account** window, go to **Overview**, and then select **Containers**.
 
     ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. In the **Blob service** window, select **Container**.
+1. In the **Containers** window, select **+ Container** to create a new one.
 
-1. In the **New container** window, under **Name**, enter **adftutorial**. Then select **OK**.
+1. In the **New container** window, under **Name**, enter **adftutorial**. Then select **Create**.
 
-1. In the list of containers, select **adftutorial**.
+1. In the list of containers, select **adftutorial** you just created.
 
-1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+1. Keep the **container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
@@ -138,29 +138,29 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. On the **General** tab at the bottom of the **Properties** window, for **Name**, enter **SQLServerToBlobPipeline**.
 
-   ![Pipeline name](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
-
 1. In the **Activities** tool box, expand **Move & Transform**. Drag and drop the **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
 
 1. In the **Properties** window, go to the **Source** tab, and select **+ New**.
 
 1. In the **New Dataset** dialog box, search for **SQL Server**. Select **SQL Server**, and then select **Continue**.
+    ![New SqlServer dataset](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
 
 1. In the **Set Properties** dialog box, under **Name**, enter **SqlServerDataset**. Under **Linked service**, select **+ New**. You create a connection to the source data store (SQL Server database) in this step.
 
 1. In the **New Linked Service** dialog box, add **Name** as **SqlServerLinkedService**. Under **Connect via integration runtime**, select **+New**.  In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Blob storage.
 
-1. In the **Integration Runtime Setup** dialog box, select **Self-Hosted**, and then select **Next**.
+1. In the **Integration Runtime Setup** dialog box, select **Self-Hosted**, and then select **Continue**.
 
-1. Under name, enter **TutorialIntegrationRuntime**. Then select **Next**.
+1. Under name, enter **TutorialIntegrationRuntime**. Then select **Create**.
 
-1. For Settings, select **Click here to launch the express setup for this computer**.This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
+1. For Settings, select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
+    ![Integration runtime setup](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
 
-1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**.
+1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close** when the process is finished.
 
     ![Integration runtime (self-hosted) express setup](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
-1. In the **New Linked Service** dialog box, confirm that **TutorialIntegrationRuntime** is selected under **Connect via integration runtime**. Then, take the following steps:
+1. In the **New linked service (SQL Server)** dialog box, confirm that **TutorialIntegrationRuntime** is selected under **Connect via integration runtime**. Then, take the following steps:
 
     a. Under **Name**, enter **SqlServerLinkedService**.
 
@@ -174,13 +174,17 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 
-    g. To save the linked service, select **Finish**.
+    g. To save the linked service, select **Create**.
+ 
+    ![New linked service (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. You should be back in the window with the source dataset opened. On the **Connection** tab of the **Properties** window, take the following steps:
+1. After the linked service is created, you're back to the **Set properties** page for the SqlServerDataset. Take the following steps:
 
     a. In **Linked service**, confirm that you see **SqlServerLinkedService**.
 
-    b. In **Table**, select **[dbo].[emp]**.
+    b. Under **Table name**, select **[dbo].[emp]**.
+    
+    c. Select **OK**.
 
 1. Go to the tab with **SQLServerToBlobPipeline**, or select **SQLServerToBlobPipeline** in the tree view.
 
@@ -194,10 +198,11 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. In the **Set Properties** dialog box, enter **AzureBlobDataset** for Name. Next to the **Linked service** text box, select **+ New**.
 
-1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account** name list. Test connection, and then select **Finish** to deploy the linked service.
-1. After the linked service is created, you're back to the **Set properties** page. Select **Continue**.
+1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account** name list. Test connection, and then select **Create** to deploy the linked service.
 
-1. You should be back in the window with the sink dataset open. On the **Connection** tab, take the following steps:
+1. After the linked service is created, you're back to the **Set properties** page. Select **OK**.
+
+1. Open the sink dataset. On the **Connection** tab, take the following steps:
 
     a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
 
@@ -210,11 +215,13 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected.
 
-1. To validate the pipeline settings, select **Validate** on the toolbar for the pipeline. To close the **Pipe Validation Report**, select **Close**.
+1. To validate the pipeline settings, select **Validate** on the toolbar for the pipeline. To close the **Pipe validation output**, select the **>>** icon.
+    ![validate pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+    
 
-1. To publish entities you created to Data Factory, select **Publish All**.
+1. To publish entities you created to Data Factory, select **Publish all**.
 
-1. Wait until you see the **Publishing succeeded** pop-up. To check the status of publishing, select the **Show Notifications** link on the top of the window. To close the notification window, select **Close**.
+1. Wait until you see the **Publishing completed** pop-up. To check the status of publishing, select the **Show notifications** link on the top of the window. To close the notification window, select **Close**.
 
 
 ## Trigger a pipeline run
@@ -224,8 +231,10 @@ Select **Add Trigger** on the toolbar for the pipeline, and then select **Trigge
 
 1. Go to the **Monitor** tab. You see the pipeline that you manually triggered in the previous step.
 
+1. To view activity runs associated with the pipeline run, select the **SQLServerToBlobPipeline** link under *PIPELINE NAME*. 
     ![Monitor pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-1. To view activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. You see only activity runs because there's only one activity in the pipeline. To see details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the Pipeline Runs view, select **Pipeline Runs** at the top.
+
+1. On the **Activity runs** page, select the Details (eyeglasses image) link to see details about the copy operation. To go back to the Pipeline Runs view, select **All pipeline runs** at the top.
 
 ## Verify the output
 The pipeline automatically creates the output folder named *fromonprem* in the `adftutorial` blob container. Confirm that you see the *[pipeline().RunId].txt* file in the output folder.

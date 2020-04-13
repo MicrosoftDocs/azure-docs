@@ -17,9 +17,11 @@ Monitor and manage IoT Edge deployments by using the direct methods included in 
 
 For more information about direct methods, how to use them, and how to implement them in your own modules, see [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 
+The names of these direct methods are handled case-insensitive.
+
 ## Ping
 
-The **ping** method is useful for checking whether IoT Edge is running on a device, or whether the device has an open connection to ioT Hub. Use this direct method to ping the IoT Edge agent and get its status. A successful ping returns an empty payload and **"status": 200**.
+The **ping** method is useful for checking whether IoT Edge is running on a device, or whether the device has an open connection to IoT Hub. Use this direct method to ping the IoT Edge agent and get its status. A successful ping returns an empty payload and **"status": 200**.
 
 For example:
 
@@ -68,6 +70,7 @@ New direct method options are available as experimental features to test, includ
 
 * [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Retrieve module logs and upload them to Azure Blob Storage.
 * [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Check on the status of an upload logs request.
+* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Retrieve module logs inline in the response of the direct method.
 
 ## Next steps
 

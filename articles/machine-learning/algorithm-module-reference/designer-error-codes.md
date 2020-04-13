@@ -35,6 +35,9 @@ There are two ways to get the full text of an error message in the designer:
 |Column with name or index "{column_id}" not found.|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}".|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
+|Columns with name or index "{column_names}" not found.|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}".|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
 
 
 ## Error 0002  
@@ -380,6 +383,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |{dataset1} and {dataset2} should be consistent columnwise.|
 |{dataset1} contains invalid data, {reason}.|
 |{dataset1} contains {invalid_data_category}. {troubleshoot_hint}|
+|{dataset1} is not valid, {reason}. {troubleshoot_hint}|
 
 
 ## Error 0019  
@@ -1300,6 +1304,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |{data_name} contains invalid data for training.|
 |{data_name} contains invalid data for training. Learner type: {learner_type}.|
 |{data_name} contains invalid data for training. Learner type: {learner_type}. Reason: {reason}.|
+|Failed to apply "{action_name}" action on training data {data_name}. Reason: {reason}.|
 
 
 ## Error 0084  
@@ -1449,9 +1454,10 @@ This error can also occur when a previous operation changes the dataset such tha
 
 Resolution: 
 
- If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
+ If you include a label column in the column selection but it isn't recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
 
  Check your input datasets to make sure that they contain valid data, and enough rows to satisfy the requirements of the operation. Many algorithms will generate an error message if they require some minimum number rows of data, but the data contains only a few rows, or only a header.
 
@@ -1514,8 +1520,8 @@ Resolution:
 
 |Exception Messages|
 |------------------------|
-|Column names are not string.|
-|Column names: {column_names} are not string.|
+|The dataframe column name must be string type. Column names are not string.|
+|The dataframe column name must be string type. Column names {column_names} are not string.|
 
 
 ## Error 0156  
@@ -1534,6 +1540,15 @@ Resolution:
 |------------------------|
 |Datastore information is invalid.|
 |Datastore information is invalid. Failed to get AzureML datastore '{datastore_name}' in workspace '{workspace_name}'.|
+
+
+## Error 0158
+ Thrown when a transformation directory is invalid.
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given TransformationDirectory is invalid.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
 
 
 ## Error 1000  

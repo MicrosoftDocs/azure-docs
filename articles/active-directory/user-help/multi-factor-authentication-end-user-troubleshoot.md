@@ -10,7 +10,7 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
 ---
@@ -95,6 +95,8 @@ App passwords replace your normal password for older desktop applications that d
 ## I can't turn two-factor verification off
 
 If you're using two-factor verification with your work or school account (for example, alain@contoso.com), it most likely means that your organization has decided you must use this added security feature. Because your organization has decided you must use this feature, there is no way for you to individually turn it off. If, however, you're using two-factor verification with a personal account, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to control two-factor verification for your personal accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+If you can't turn off two-factor verification, it could also be because of the security defaults that have been applied at the organization level. For more information about security defaults, see [What are security defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## I didn't find an answer to my problem
 

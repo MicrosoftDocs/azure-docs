@@ -12,7 +12,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 03/19/2020
 ms.author: ejarvi
 
 ---
@@ -30,7 +30,7 @@ For a full list of prerequisites, see [Azure Disk Encryption for Windows VMs](..
 - [Networking requirements](../windows/disk-encryption-overview.md#networking-requirements)
 - [Group Policy requirements](../windows/disk-encryption-overview.md#group-policy-requirements)
 
-## Extension schemata
+## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
 - v2.2 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
@@ -49,20 +49,20 @@ The v2.2 schema is recommended for all new VMs and does not require Azure Active
   "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
-		"publisher": "Microsoft.Azure.Security",
-		"type": "AzureDiskEncryption",
-		"typeHandlerVersion": "[extensionVersion]",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-		  "EncryptionOperation": "[encryptionOperation]",
-		  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-		  "KeyVaultURL": "[keyVaultURL]",
-		  "KekVaultResourceId": "[keyVaultResourceID]",
-		  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-		  "KeyVaultResourceId": "[keyVaultResourceID]",
-		  "SequenceVersion": "sequenceVersion]",
-		  "VolumeType": "[volumeType]"
-		}
+        "publisher": "Microsoft.Azure.Security",
+        "type": "AzureDiskEncryption",
+        "typeHandlerVersion": "2.2",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        }
   }
 }
 ```
@@ -86,7 +86,7 @@ Using `aadClientSecret`:
     },    
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
@@ -116,7 +116,7 @@ Using `AADClientCertificate`:
     },    
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",

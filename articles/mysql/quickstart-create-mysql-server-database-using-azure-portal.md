@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 3/20/2020
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -52,7 +52,7 @@ Follow these steps to create an Azure Database for MySQL server:
 
    ![Create server - pricing tier window](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Select **Create** to provision the server. Provisioning can take up to 20 minutes.
+4. Select **Review + create** to provision the server. Provisioning can take up to 20 minutes.
    
 5. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
    

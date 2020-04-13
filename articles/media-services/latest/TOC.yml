@@ -75,7 +75,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: encoding, presets, jobs, adaptive, bitrate, billing 
+      displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -87,7 +87,7 @@
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: analyzing, presets, jobs
+      displayName: analyze, analyzing, presets, jobs
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md    
   - name: Live streaming 
@@ -401,7 +401,7 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Quotas and limitations
+  - name: Quotas and limits
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md

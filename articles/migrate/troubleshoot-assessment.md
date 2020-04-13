@@ -69,7 +69,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 
 -  If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#assessments-in-server-assessment) about assessment sizing.
+- [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
 
 ## Azure disk SKUs bigger than on-premises
 

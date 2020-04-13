@@ -1,18 +1,13 @@
 ---
-title: Azure Active Directory breaking changes reference | Microsoft Docs
+title: Azure Active Directory breaking changes reference
 description: Learn about changes made to the Azure AD protocols that may impact your application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: ryanwi
@@ -123,7 +118,7 @@ If the Contoso gateway app were a multi-tenant application, however, then the re
 
 **Protocol impacted**: All flows
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
 
 The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
 

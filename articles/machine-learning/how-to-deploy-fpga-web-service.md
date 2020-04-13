@@ -47,7 +47,7 @@ Microsoft Azure is the world's largest cloud investment in FPGAs. Using this FPG
 FPGAs on Azure supports:
 
 + Image classification and recognition scenarios
-+ TensorFlow deployment
++ TensorFlow deployment (requires Tensorflow 1.x)
 + Intel FPGA hardware
 
 These DNN models are currently available:
@@ -111,9 +111,8 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 - The Python SDK for hardware-accelerated models:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## 1. Create and containerize models
 

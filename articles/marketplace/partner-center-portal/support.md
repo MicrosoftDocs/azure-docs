@@ -2,8 +2,7 @@
 title: Get support for the Commercial Marketplace portal in Partner Center
 description: Learn about your support options in Partner Center, including how to file a support request.
 author: qianw211
-manager: evansma
-ms.author: jamwall 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -38,23 +38,23 @@ Refer to the inspect tab and data preview to verify your mapping output.
 Refer to the following JSON object for the below examples of the flatten transformation
 
 ``` json
-[{
+{
   "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
   "goods": {
     "trade":true, "customers":["government", "distributer", "retail"],
     "orders":[
         {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
         {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}},
+    ]}}
 {"name":"Company1","location":"Seattle", "satellites": ["New York"],
   "goods":{"trade":false, "customers":["store1", "store2"],
   "orders":[
       {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
       {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}},
+    ]}}
 {"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
-{"name": "Company3", "location": "Kirkland"}]
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
+{"name": "Company3", "location": "Kirkland"}
 ```
 
 ### No unroll root with string array
@@ -66,12 +66,12 @@ Refer to the following JSON object for the below examples of the flatten transfo
 #### Output
 
 ```
-{ 'MSFT', 'government'},
-{ 'MSFT', 'distributer'},
-{ 'MSFT', 'retail'},
-{ 'Company1', 'store'},
-{ 'Company1', 'store2'},
-{ 'Company2', 'Bank'},
+{ 'MSFT', 'government'}
+{ 'MSFT', 'distributer'}
+{ 'MSFT', 'retail'}
+{ 'Company1', 'store'}
+{ 'Company1', 'store2'}
+{ 'Company2', 'Bank'}
 { 'Company3', null}
 ```
 
@@ -84,15 +84,15 @@ Refer to the following JSON object for the below examples of the flatten transfo
 #### Output
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
-{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
+{ 'Company2', 4, null, null, 'Bellevue'}
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
@@ -105,10 +105,10 @@ Refer to the following JSON object for the below examples of the flatten transfo
 #### Output
 
 ```
-{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
-{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
-{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
-{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'}
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'}
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'}
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
@@ -121,14 +121,14 @@ Refer to the following JSON object for the below examples of the flatten transfo
 #### Output
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
 { 'Company2', 4, null, null, 'Bellevue'}
 ```
 
@@ -151,15 +151,15 @@ foldDown(unroll(<unroll cols>),
 
 ```
 source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
-	mapColumn(
-		name,
-		orderId = goods.orders.orderId,
-		itemName = goods.orders.shipped.orderItems.itemName,
-		itemQty = goods.orders.shipped.orderItems.itemQty,
-		location = location
-	),
-	skipDuplicateMapInputs: false,
-	skipDuplicateMapOutputs: false) 
+    mapColumn(
+        name,
+        orderId = goods.orders.orderId,
+        itemName = goods.orders.shipped.orderItems.itemName,
+        itemQty = goods.orders.shipped.orderItems.itemQty,
+        location = location
+    ),
+    skipDuplicateMapInputs: false,
+    skipDuplicateMapOutputs: false) 
 ```    
 
 ## Next steps

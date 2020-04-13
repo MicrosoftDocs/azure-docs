@@ -16,7 +16,11 @@
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-4. [Export](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
+4. Export the point-to-site client certificate you created and uploaded to your P2S configuration on the gateway. Use the following article links:
+
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
+   
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
 5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
    ```
@@ -51,8 +55,12 @@
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
+4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. Use the following article links for information about how to export a certificate to get the encoded public key:
+
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) instructions 
+   
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) instructions
+5. Fill in the private key section with the P2S client certificate private key in base64. See the [Export your private key](https://openvpn.net/community-resources/how-to/#pki) on the OpenVPN site for information about how to extract a private key.
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 7. Double-click the profile file to create the profile in Tunnelblick.
 8. Launch Tunnelblick from the applications folder.
@@ -66,8 +74,12 @@
 1. Install the OpenVPN client (version 2.4 or higher) from the App store.
 2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
+4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. Use the following article links for information about how to export a certificate to get the encoded public key:
+
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) instructions 
+   
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) instructions
+5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) on the OpenVPN site for information about how to extract a private key.
 6. Do not change any other fields.
 7. E-mail the profile file (.ovpn) to your email account that is configured in the mail app on your iPhone. 
 8. Open the e-mail in the mail app on the iPhone, and tap the attached file
@@ -106,11 +118,15 @@
    sudo service network-manager restart
    ```
 3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
-4. [Export](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway. 
+4. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. Use the following article links:
+
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions 
+   
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
 5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
     ```
-    openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
    The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
@@ -141,7 +157,7 @@
 11. To connect using the command line, type the following command:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.

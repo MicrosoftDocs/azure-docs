@@ -1,23 +1,20 @@
 ---
-title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 11/24/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use Python to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
-> [!IMPORTANT]
-> The Azure Data Lake Storage client library for Python is currently in public preview.
-
-[Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+[Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## Prerequisites
 
@@ -30,7 +27,7 @@ This article shows you how to use Python to create and manage directories, files
 Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
 ```
-pip install azure-storage-file-datalake --pre
+pip install azure-storage-file-datalake
 ```
 
 Add these import statements to the top of your code file.
@@ -44,9 +41,13 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
 
-This example uses an account key to create a **DataLakeServiceClient** instance that represents the storage account. 
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```python
 try:  
@@ -62,6 +63,30 @@ except Exception as e:
 - Replace the `storage_account_name` placeholder value with the name of your storage account.
 
 - Replace the `storage_account_key` placeholder value with your storage account access key.
+
+### Connect by using Azure Active Directory (AD)
+
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
+
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```python
+def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
+    
+    try:  
+        global service_client
+
+        credential = ClientSecretCredential(tenant_id, client_id, client_secret)
+
+        service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+            "https", storage_account_name), credential=credential)
+    
+    except Exception as e:
+        print(e)
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
 ## Create a file system
 
@@ -268,7 +293,9 @@ def download_file_from_directory():
 
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        downloaded_bytes = file_client.read_file()
+        download = file_client.download_file()
+
+        downloaded_bytes = download.readall()
 
         local_file.write(downloaded_bytes)
 

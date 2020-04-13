@@ -13,9 +13,6 @@ ms.date: 03/09/2020
 
 # Azure SQL Connectivity Settings
 > [!NOTE]
-> Features are only available in **US West 2, US East, US South Central** with other regions soon to follow
-
-> [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 > [!IMPORTANT]
