@@ -258,7 +258,6 @@ For example, the following [`azcopy sync`](/azure/storage/common/storage-ref-azc
 azcopy sync \
   'https://<source-storage-account-name>.blob.core.windows.net/transfer/'$SOURCE_SAS \
   'https://<destination-storage-account-name>.blob.core.windows.net/transfer/'$TARGET_SAS \
-  --force \
   --recursive 
 ```
 
