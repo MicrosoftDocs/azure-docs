@@ -91,10 +91,11 @@ For other language stacks, it's better to use [app settings](#configure-app-sett
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQLServer: `SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
+* PostgreSQL: `POSTGRESQLCONNSTR_`  
 
 For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
@@ -168,7 +169,7 @@ Here, you can configure some common settings for the app. Some settings require 
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
-    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, [secure your custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     - **ARR affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](containers/configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
@@ -243,7 +244,7 @@ See [Configure a custom Linux container for Azure App Service](containers/config
 
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
-- [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md)
+- [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 - [Enable diagnostic logs](troubleshoot-diagnostic-logs.md)
 - [Scale an app in Azure App Service]
 - [Monitoring basics in Azure App Service]

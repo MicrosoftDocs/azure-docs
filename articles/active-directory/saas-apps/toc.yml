@@ -47,8 +47,6 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
-        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -570,6 +568,8 @@
         href: foreseecxsuite-tutorial.md
       - name: Form.com
         href: formcom-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -582,6 +582,8 @@
         href: freshworks-tutorial.md
       - name: Front
         href: front-tutorial.md
+      - name: Frontify
+        href: frontify-tutorial.md
       - name: Frontline Education
         href: frontline-education-tutorial.md
       - name: Fulcrum
@@ -610,6 +612,8 @@
         href: golinks-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
+      - name: gr8 People
+        href: gr8-people-tutorial.md
       - name: Gra-Pe
         href: grape-tutorial.md
       - name: Greenhouse
@@ -634,6 +638,8 @@
         href: halosys-tutorial.md
       - name: HappyFox
         href: happyfox-tutorial.md
+      - name: Harmony
+        href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
       - name: Helper Helper
@@ -650,6 +656,8 @@
         href: heybuddy-tutorial.md
       - name: HighGear
         href: highgear-tutorial.md
+      - name: HighGround
+        href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
       - name: HireVue
@@ -882,6 +890,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: Litmus
+        href: litmus-tutorial.md
       - name: Learnster
         href: learnster-tutorial.md
       - name: LinkedIn Elevate
@@ -900,7 +910,7 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
-      - name: Logz.io - Cloud Observability for Engineers
+      - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
@@ -962,6 +972,8 @@
         href: moconavi-tutorial.md
       - name: monday.com
         href: mondaycom-tutorial.md
+      - name: MongoDB Cloud
+        href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
       - name: Motus
@@ -1020,6 +1032,8 @@
         href: nimblex-tutorial.md
       - name: Nintex Promapp
         href: promapp-tutorial.md
+      - name: Nitro Productivity Suite
+        href: nitro-productivity-suite-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1104,6 +1118,8 @@
         href: peakon-tutorial.md
       - name: Pega Systems
         href: pegasystems-tutorial.md
+      - name: Pendo
+        href: pendo-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart
@@ -1180,8 +1196,6 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
-      - name: Qualtrics
-        href: qualtrics-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -1280,6 +1294,8 @@
         href: saphana-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
+      - name: SAP Qualtrics
+        href: qualtrics-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
@@ -1430,6 +1446,8 @@
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
+      - name: SynchroNet CLICK
+        href: synchronet-click-tutorial.md
       - name: Syncplicity
         href: syncplicity-tutorial.md
       - name: Synergi
@@ -1494,6 +1512,8 @@
         href: timelive-tutorial.md
       - name: TimeOffManager
         href: timeoffmanager-tutorial.md
+      - name: Timetabling Solutions
+        href: timetabling-solutions-tutorial.md
       - name: TINFOIL SECURITY
         href: tinfoil-security-tutorial.md
       - name: TiViTz
@@ -1662,6 +1682,8 @@
         href: zoom-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
+      - name: Zscaler B2B User Portal
+        href: zscaler-b2b-user-portal-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
       - name: Zscaler Internet Access Administrator
