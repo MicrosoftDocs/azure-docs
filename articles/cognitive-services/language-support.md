@@ -18,10 +18,10 @@ Azure Cognitive Services enable you to build applications that see, hear, speak 
 
 These Cognitive Services are language agnostic and don't have limitations based on human language.
 
-* [Anomaly Detector (Preview)](./anomaly-detector/overview)
-* [Custom Vision](./Custom-Vision-Service/home)
-* [Face](./face/)
-* [Personalizer](./personalizer/)
+* [Anomaly Detector (Preview)](./anomaly-detector/index.yml)
+* [Custom Vision](./Custom-Vision-Service/index.yml)
+* [Face](./face/index.yml)
+* [Personalizer](./personalizer/index.yml)
 
 ## Vision
 
