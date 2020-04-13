@@ -2,11 +2,11 @@
 title: Additional documentation and resources
 titleSuffix: Azure Australia
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Additional documentation and resources by focus area
