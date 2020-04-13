@@ -56,7 +56,7 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
    * The root object of *each domain* in that forest
    * The user organizational units (OUs) you want to be in scope for SSPR
 
-If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud.
+If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
 
 To set up the appropriate permissions for password writeback to occur, complete the following steps:
 
