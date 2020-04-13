@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure canary deployments for Azure Linux Virtual Machines
-description: In this tutorial you will learn how to set up continuous deployment (CD) pipeline that updates a group of Azure Linux Virtual Machines using canary deployment strategy
+description: In this tutorial you will learn how to set up continuous deployment (CD) pipeline that updates a group of Azure Virtual Machines using blue-green deployment strategy
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -23,7 +23,7 @@ ms.custom: devops
 Azure DevOps is a built-in Azure service that enables you to configure continuous integration and continuous delivery for any Azure resource. This document contains the steps to use Azure Pipelines, a fully featured set of CI/CD automation tools, to deploy your application to Azure Linux Virtual Machines using Blue-Green deployment strategy. You can also take a look at other strategies like [rolling](https://aka.ms/AA7jlh8) and [canary](https://aka.ms/AA7jdrz), which are supported out-of-box from Azure portal. 
 ![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
  
- **Configure CI/CD on Linux Virtual Machines**
+ **Configure CI/CD on Virtual Machines**
 
 Linux Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
  
