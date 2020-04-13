@@ -24,14 +24,9 @@ ms.collection: M365-identity-device-management
 ## Pass Through Authentication 
 
 ### Allow access to URLs  
-Before deploying the pass-through authentication agent, verify if there is a firewall between your servers and Azure AD, and if so, configure the following items: 
-
-- If your firewall or proxy allows DNS whitelisting, whitelist connections to *.msapproxy.us and *.servicebus.usgovcloudapi.net. If not, allow access to the Azure datacenter IP ranges, which are updated weekly. 
-- Your Authentication Agents need access to login.windows.us and login.microsoftonline.us for initial registration. Open your firewall for those URLs as well. 
-- For certificate validation, unblock the following URLs: mscrl.microsoft.us:80, crl.microsoft.us:80, ocsp.msocsp.us:80, and www.microsoft.us:80. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked. 
-
 Before deploying the pass-through authentication agent, verify if there is a firewall between your servers and Azure AD. If your firewall or proxy allows DNS whitelisting, whitelist the following connections: 
-
+> [!NOTE]
+> The following guidance also applies to installing the [Application Proxy connector](https://aka.ms/whyappproxy) for Azure Government environments.
 
 |URL |How it's used|
 |-----|-----| 
@@ -43,13 +38,17 @@ Before deploying the pass-through authentication agent, verify if there is a fir
 In order to install the agent for the Azure Government cloud you must follow these specific steps: 
 In the command line terminal, navigate to folder where the executable for installing the agent is located. 
 Run the following command which specifies the installation is for Azure Government. 
+
 For Passthrough Authentication: 
 ```
-AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" ENVIRONMENTNAME="AzureUSGovernment" /q 
-For Application Proxy: 
-AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="Azure 
-USGovernment" 
+AADConnectAuthAgentSetup.exe ENVIRONMENTNAME="AzureUSGovernment"
 ```
+
+For Application Proxy:
+```
+AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
+```
+
 ## Single Sign On 
 Set up your Azure AD Connect server: If you use Pass-through Authentication as your sign-in method, no additional prerequisite check is required. If you use password hash synchronization as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
 - You use version 1.1.644.0 or later of Azure AD Connect. 
