@@ -1,11 +1,11 @@
 ---
 title: How to manually fix ServiceNow sync problems 
-description: Resetting the connection to ServiceNow 
+description: Reset the connection to ServiceNow so alerts in Microsoft Azure can again call ServiceNow  
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
-ms.author: v-jysur
-ms.date: 05/24/2018
+ms.author: nolavime
+ms.date: 04/12/2020
 
 ---
 
@@ -24,8 +24,8 @@ Use the following sync process to reactivate the connection and refresh the toke
 
     ![New connection](media/itsmc-resync-servicenow/solutions-list-8bit.png)
 
-1. Select the solution of your ITSM connection
-1. Select ITSM connection in the left banner
+1. Select the solution of your ITSM connection.
+1. Select ITSM connection in the left banner.
 
     ![New connection](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
