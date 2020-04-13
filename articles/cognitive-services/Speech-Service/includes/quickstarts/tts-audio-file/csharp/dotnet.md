@@ -191,7 +191,7 @@ Now you're ready to build your app and test our speech synthesis using the Speec
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 
