@@ -120,17 +120,31 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the agent during install
 
 * **Show** - View agent status and its configuration properties (Resource Group name, Subscription Id, version, etc.), which can help when troubleshooting an issue with the agent.
 
-* **-h or --help** - Shows available command-line parameters. 
+* **-h or --help** - Shows available command-line parameters
 
     For example, to see detailed help for the **Reconnect** parameter, type `azcmagent reconnect -h`. 
 
 * **-v or --verbose** - Enable verbose logging
+
+You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md).
 
 ### Connect 
 
 ### Disconnect
 
 Specifies the agent deletes the Azure Resource Manager resource representing the machine in Azure. It does not delete the agent from the machine. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` to create a new resource for it in Azure.
+
+To disconnect using a service principal, run the following command:
+
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+To disconnect using an access token, run the following command:
+
+`azcmagent disconnect --access-token <accessToken>`
+
+To disconnect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent disconnect --tenant-id <tenantID>`
 
 ## Remove the agent
 
