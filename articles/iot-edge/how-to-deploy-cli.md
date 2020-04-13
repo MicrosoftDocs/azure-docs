@@ -182,7 +182,7 @@ Use the [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
-Use the same command with the `--layered` flag to create a layered deploymet.
+Use the same command with the `--layered` flag to create a layered deployment.
 
 The deployment create command takes the following parameters:
 
