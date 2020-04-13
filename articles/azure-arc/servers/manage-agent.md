@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/01/2020
+ms.date: 04/13/2020
 ms.topic: conceptual
 ---
 
@@ -107,6 +107,24 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
     ```
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file. 
+
+## About the Azcmagent tool
+
+The Azcmagent tool (Azcmagent.exe) is used to configure the agent during installation, or modify the initial configuration of the Azure Arc for servers Connected Machine agent after it is installed. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
+
+* **Connect** - To connect the machine to Azure Arc
+
+* **Disconnect** - To disconnect the machine from Azure Arc
+
+* **Reconnect** - To reconnect a disconnected machine to Azure Arc
+
+* **Show** - View agent status and its configuration properties (Resource Group name, Subscription Id, version, etc.), which can help when troubleshooting an issue with the agent.
+
+* **-h or --help** - Shows available command-line parameters
+
+* **-v or --verbose** - Increase logging verbosity 
+
+The tool su
 
 ## Remove the agent
 
