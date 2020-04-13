@@ -48,7 +48,7 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
     ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
 
 1. When you're finished configuring the workspace, select **Review + Create**.
-2. Review the settings and make any additional changes or corrections. When you're satisified with the settings, select **Create**.
+2. Review the settings and make any additional changes or corrections. When you're satisfied with the settings, select **Create**.
 
    > [!Warning] 
    > It can take several minutes to create your workspace in the cloud.
