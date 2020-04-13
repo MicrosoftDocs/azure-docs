@@ -16,7 +16,7 @@ The Spark SQL Analytics Connector is designed to efficiently transfer data betwe
 
 ## Design
 
-Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools (which provides massively parallel processing (MPP)), JDBC tends to be a bottleneck with serial data transfer.
+Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
 The Spark pools to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 

@@ -72,10 +72,6 @@ The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = N
 
 ## How to estimate memory requirements
 
-<!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
--->
-
 The maximum required memory to compress one rowgroup is approximately
 
 - 72 MB +
@@ -117,7 +113,7 @@ Another reason to avoid over-partitioning is there is a memory overhead for load
 
 The database shares the memory grant for a query among all the operators in the query. When a load query has complex sorts and joins, the memory available for compression is reduced.
 
-Design the load query to focus only on loading the query. If you need to run transformations on the data, run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
+Design the load query to focus only on loading the query. If you need to run transformations on the data, run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. 
 
 ### Adjust MAXDOP
 
