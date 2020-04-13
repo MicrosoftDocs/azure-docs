@@ -32,7 +32,7 @@ This article describes how to create and publish a Container offer for Azure Mar
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID can be seen by customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** , the offer web address will be **https&#8203;://azuremarketplace.microsoft.com/marketplace/../test-offer-1**.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 **Enter an** **Offer alias**. This is the name used to refer to the offer in Partner Center.
@@ -305,7 +305,7 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 Your plan must be available in at least one cloud.
 
-Select the **Azure Global** option so your plan can be used by customers in all public Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Select the [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
