@@ -24,8 +24,8 @@ This article explains how to configure an existing Azure-hosted virtual machine 
 
 The WinRM over HTTPS protocol uses port 5986, which is not enabled by default on pre-configured Windows VMs offered on the Azure Marketplace. To enable this protocol, use the following steps to add a new rule to the network security group (NSG) with the [Azure portal](https://portal.azure.com).  For more information about NSGs, see [Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.    Navigate to the blade **Virtual machines >**  <*vm-name*>  **> Settings/Networking**.
-2.    Click on the NSG name (in this example, **testvm11002**) to display its properties:
+1. Navigate to the blade **Virtual machines >**  <*vm-name*>  **> Settings/Networking**.
+2. Click on the NSG name (in this example, **testvm11002**) to display its properties:
 
     ![Network security group properties](./media/nsg-properties.png)
  
