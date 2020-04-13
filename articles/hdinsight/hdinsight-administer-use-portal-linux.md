@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
+ms.date: 04/13/2020
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
@@ -195,9 +195,9 @@ From the [cluster home page](#homePage):
 
 The password is changed on all nodes in the cluster.
 
-### Change the SSH user password
+### Change the SSH user password or public key
 
-1. Using a text editor, save the following text as a file named **changepassword.sh**.
+1. Using a text editor, save the following text as a file named **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
@@ -217,13 +217,13 @@ The password is changed on all nodes in the cluster.
    | Field | Value |
    | --- | --- |
    | Script type | Select **- Custom** from the drop-down list.|
-   | Name |"Change ssh password" |
-   | Bash script URI |The URI to the changepassword.sh file |
+   | Name |"Change ssh credentials" |
+   | Bash script URI |The URI to the changecredentials.sh file |
    | Node type(s): (Head, Worker, Nimbus, Supervisor, or Zookeeper.) |✓ for all node types listed |
-   | Parameters |Enter the SSH user name and then the new password. There should be one space between the user name and the password. |
+   | Parameters |Enter the SSH user name and then the new password or public key. There should be one space between the user name and the credentials. |
    | Persist this script action ... |Leave this field unchecked. |
 
-6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new password.
+6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new credentials.
 
 ## Find the subscription ID
 
