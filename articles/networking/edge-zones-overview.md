@@ -145,7 +145,7 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 | Tech Mahindra                | Telstra              |
 |                              | Vodafone             |
 
-[Contact the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
+[Contact the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for information on how to become a partner.
 
 ### <a name="solutions-private-edge"></a>Private Edge Zones solutions
 
@@ -173,7 +173,7 @@ Microsoft provides a partner ecosystem that can help with all aspects of this pr
 SD-WAN lets you create enterprise-grade wide area networks (WANs) that have these benefits:
 
 - Increased bandwidth
-- High-performance access to cloud
+- High-performance access to the cloud
 - Service insertion
 - Reliability
 - Policy management
