@@ -1,0 +1,110 @@
+---
+title: Move an Azure Event Hubs namespace to another region | Microsoft Docs
+description: This article shows you how to move an Azure Event Hubs namespace from the current region to another region. 
+services: event-hubs
+author: spelluru
+
+ms.service: event-hubs
+ms.topic: how-to
+ms.custom: subject-moving-resources
+ms.date: 09/27/2019
+ms.author: spelluru 
+ms.reviewer: shvija
+#Customer intent: As an Azure administrator, I want to move an Event Hubs namespace to a different region so that it's closer to customers.
+---
+
+# Move an Azure Event Hubs namespace to another region
+There are various scenarios in which you'd want to move your existing Event Hubs namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to move a namespace to another region as part of disaster recovery planning.
+
+## Prerequisites
+
+- Ensure that the services and features that your account uses are supported in the target region.
+- For preview features, ensure that your subscription is whitelisted for the target region.
+- If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. 
+
+## Prepare
+To get started, export, and then modify a Resource Manager template.
+
+### Export a template
+This template contains settings that describe your Event Hubs namespace. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Select **All resources** and then select your Event Hubs namespace.
+
+3. Select > **Settings** > **Export template**.
+
+4. Choose **Download** in the **Export template** page.
+
+    ![Download Resource Manager template](./media/move-across-regions/download-template.png)
+
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
+   This zip file contains the .json files that include the template and scripts to deploy the template.
+
+
+## Move
+
+Deploy the template to create an Event Hubs namespace in the target region. 
+
+
+1. In the Azure portal, select **Create a resource**.
+
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+
+3. Select **Template deployment**.
+
+4. Select **Create**.
+
+5. Select **Build your own template in the editor**.
+
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
+
+7. Select **Save** to save the template. 
+
+8. On the **Custom deployment** page, follow these steps: 
+
+    1. Select an Azure **subscription**. 
+
+    2. Select an existing **resource group** or create one. If the source namespace was in an Event Hubs cluster, select the resource group that contains cluster in the target region. 
+
+    3. Select the target **location** or region. If you selected an existing resource group, this setting is read-only. 
+
+    4. In the **SETTINGS** section, do the following steps:
+    
+        1. enter the new **namespace name**. 
+
+            ![Deploy Resource Manager template](./media/move-across-regions/deploy-template.png)
+
+        2. If your source namespace was in an **Event Hubs cluster**, enter names of **resource group** and **Event Hubs cluster** as part of **external ID**. 
+
+              ```
+              /subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
+              ```   
+    
+    5. Select the **I agree to the terms and conditions stated above** checkbox. 
+    
+    6. Now, select **Select Purchase** to start the deployment process. 
+
+## Discard or clean up
+After the deployment, if you want to start over, you can delete the **target Event Hubs namespace**, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
+
+To commit the changes and complete the move of an Event Hubs namespace, delete the **source Event Hubs namespace**. Make sure that you processed all the events in the namespace before deleting the namespace. 
+
+To delete an Event Hubs namespace (source or target) by using the Azure portal:
+
+1. In the search window at the top of Azure portal, type **Event Hubs**, and select **Event Hubs** from search results. You see the Event Hubs namespaces in a list.
+
+2. Select the target namespace to delete, and select **Delete** from the toolbar. 
+
+    ![Delete namespace - button](./media/move-across-regions/delete-namespace-button.png)
+
+3. On the **Delete Resources*** page, verify the selected resources, and confirm the deletion by typing **yes**, and then select **Delete**. 
+
+## Next steps
+
+In this tutorial, you moved an Azure Event Hubs namespace from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+
+- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
