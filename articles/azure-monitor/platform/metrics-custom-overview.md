@@ -11,7 +11,7 @@ ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
 These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
 ## Methods to send custom metrics
@@ -28,13 +28,13 @@ There is no cost to ingest standard metrics (platform metrics) into Azure Monito
 
 Metric queries will be charged based on the number of standard API calls. A standard API call is a call that analyzes 1,440 data points (1,440 is also the total number of data points that can be stored per metric per day). If an API call analyzes more than 1,440 data points, then it will count as multiple standard API calls. If an API call analyzes less than 1,440 data points, it will count as less than one API call. The number of standard API calls is calculated every day as the total number of data points analyzed per day divided by 1,440.
 
-Specific price details for custom metrics and metric queries are available on the [Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Specific price details for custom metrics and metric queries are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 > [!NOTE]  
-> Metrics sent to Azure Monitor via the Application Insights SDK will be billed as ingested log data, and incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. Learn more about the [Application Insights pricing model](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/en-us/pricing/details/monitor/). 
+> Metrics sent to Azure Monitor via the Application Insights SDK will be billed as ingested log data, and incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 > [!NOTE]  
-> Check the [Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. 
+> Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. 
 
 ## How to send custom metrics
 
