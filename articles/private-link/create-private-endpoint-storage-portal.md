@@ -14,9 +14,6 @@ Azure Private Endpoint is the fundamental building block for Private Link in Azu
 
 In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
-> [!NOTE]
-> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
-
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -35,7 +32,7 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | West Central US      |
-| **\<IPv4 address space>**   | 10.1.0.0\16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
 | **\<subnet-address-range>** | 10.1.0.0\24          |
 

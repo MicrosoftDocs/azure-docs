@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -43,7 +43,11 @@ This article gives you an overview of the sign-ins report.
 
 ### What Azure AD license do you need to access sign-in activity?
 
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the reports after you upgrade to a premium license with no data activities before the upgrade.
+- The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
+
+- If you want to access the sign-in data using an API, your tenant must have an [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) license associated with it.
+
+
 
 ## Sign-ins report
 
@@ -169,13 +173,17 @@ The **Location** - The location the connection was initiated from:
 **Correlation ID** - The correlation ID of the activity.
 
 
+
+
 **Conditional access** - The status of the applied conditional access rules
 
-- Not applied 
+- **Not applied**: No policy applied to the user and application during sign-in.
 
-- Success
+- **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
 
-- Failure
+- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
+
+
 
 
 

@@ -26,6 +26,9 @@ The following video provides a useful overview.
 
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
+   > [!IMPORTANT]
+   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+
 ## Collaborate with any partner using their identities
 
 With Azure AD B2B, the partner uses their own identity management solution, so there is no external administrative overhead for your organization.

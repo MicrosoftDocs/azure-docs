@@ -6,8 +6,9 @@ author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the Android client
 
@@ -20,7 +21,7 @@ You can access Windows Virtual Desktop resources from your Android device with o
 
 ## Install the Android client
 
-To get started, [download](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) and install the client on your Android device.
+To get started, [download](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) and install the client on your Android device.
 
 ## Subscribe to a feed
 

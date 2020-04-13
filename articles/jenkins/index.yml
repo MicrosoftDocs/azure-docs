@@ -36,7 +36,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Jenkins server
-            url: install-jenkins-solution-template.md
+            url: install-solution-template-quickstart.md
       - linkListType: download
         links:
         - text: Sample jobs and scripts

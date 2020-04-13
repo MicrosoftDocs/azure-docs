@@ -55,11 +55,12 @@ Operating system configuration can drift from the recommended settings over time
   In order to have proper network performance and system stability, it is advised to ensure that the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. Note that, in some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure that appropriate driver version is running post OS/Kernel patching operations.
        
       
-  |  OS Vendor    |  OS Package Version     |  eNIC Driver	|  fNIC Driver |
-  |---------------|-------------------------|---------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
+  |---------------|-------------------------|--------------------|--------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3b           |  2.3.0.47    |   2.0.0.54   |
+  |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages

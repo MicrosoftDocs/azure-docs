@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop environment
 

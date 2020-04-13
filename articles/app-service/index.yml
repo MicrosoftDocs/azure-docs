@@ -120,7 +120,7 @@ landingContent:
           - text: Create hybrid connections to on-prem
             url: app-service-hybrid-connections.md
           - text: Load balance with Traffic Manager
-            url: web-sites-traffic-manager-custom-domain-name.md
+            url: configure-domain-traffic-manager.md
           - text: Back up your app to Storage Blobs
             url: manage-backup.md
 

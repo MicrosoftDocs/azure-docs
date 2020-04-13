@@ -145,7 +145,7 @@ Azure Kinect DK embeds a high-quality, seven microphone circular array that iden
 
 Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
-Vendor ID is 0x045E (Microsoft), Product ID table below:
+Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
@@ -185,7 +185,7 @@ A Type-C to Type-C cable isn't included with the Azure Kinect DK.
 > To select a good Type-C to Type-C cable:
 > - The [USB certified cable](https://www.usb.org/products) must support both power and data.
 > - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
-> - The cable needs to support no less than >1.5A. Otherwise you need to connect an external power supply.
+> - The cable needs to support at least 1.5A. Otherwise you need to connect an external power supply.
 
 Verify cable:
 

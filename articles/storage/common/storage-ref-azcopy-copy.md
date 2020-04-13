@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -164,9 +164,11 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 ## Options
 
+**--backup**                               Activates Windows' SeBackupPrivilege for uploads, or SeRestorePrivilege for downloads, to allow AzCopy to see read all files, regardless of their file system permissions, and to restore all permissions. Requires that the account running AzCopy already has these permissions (e.g. has administrator rights or is a member of the 'Backup Operators' group). All this flag does is activate privileges that the account already has.
+
 **--blob-type** string                     Defines the type of blob at the destination. This is used for uploading blobs and when copying between accounts (default 'Detect'). Valid values include 'Detect', 'BlockBlob', 'PageBlob', and 'AppendBlob'. When copying between accounts, a value of 'Detect' causes AzCopy to use the type of source blob to determine the type of the destination blob. When uploading a file, 'Detect' determines if the file is a VHD or a VHDX file based on the file extension. If the file is ether a VHD or VHDX file, AzCopy treats the file as a page blob. (default "Detect")
 
-**--block-blob-tier** string               upload block blob to Azure Storage using this blob tier. (default "None")
+**--block-blob-tier** string               Upload block blobs directly to the [access tier](../blobs/storage-blob-storage-tiers.md) of your choice. (default 'None'). Valid values include 'None', 'Hot', 'Cool', and 'Archive'. If 'None' or no tier is passed, the blob will inherit the tier of the storage account.
 
 **--block-size-mb** float                  Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
@@ -217,6 +219,12 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 **--page-blob-tier** string                Upload page blob to Azure Storage using this blob tier. (default "None")
 
 **--preserve-last-modified-time**          Only available when destination is file system.
+
+**--preserve-smb-permissions** string      False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need to use the `--backup` flag to restore permissions where the new Owner will not be the user that is running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (e.g. `include-pattern`).
+
+**--preserve-smb-info** string             False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern). The information transferred for folders is the same as that for files, except for Last Write Time which is never preserved for folders.
+
+**--preserve-owner**                       Only has an effect in when downloading data, and only when the `--preserve-smb-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If this flag is set to false, `--preserve-smb-permissions` will still preserve ACLs but Owner and Group will be based on the user that is running AzCopy.
 
 **--put-md5**                             Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 

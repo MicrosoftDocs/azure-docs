@@ -2,7 +2,7 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 03/04/2020
 ms.author: jroth
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v2) | Isolated </th> |
@@ -30,7 +30,7 @@ ms.author: jroth
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [Staging slots](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
+| [Staging slots](../articles/app-service/deploy-staging-slots.md) per app| | | |5 |20 |20 |
 | SLA | |  |99.95%|99.95%|99.95%|99.95%|  
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  

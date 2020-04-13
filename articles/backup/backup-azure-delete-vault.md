@@ -25,6 +25,8 @@ You can't delete a Recovery Services vault that has dependencies, such as protec
 - If backup items are in soft deleted state below warning message appears and you will have to wait until they are permanently deleted. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Delete the vault error.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+
+- Vaults that have registered storage accounts can't be deleted. To learn how to unregister the account, see [Unregister a storage account](manage-afs-backup.md#unregister-a-storage-account).
   
 To delete the vault, choose the scenario that matches your setup and follow the recommended steps:
 
@@ -34,7 +36,7 @@ I have on-premises files and folders protected by using the Azure Backup agent, 
 I have on-premises machines that are protected by using MABS (Microsoft Azure Backup Server) or DPM (System Center Data Protection Manager) to Azure | Perform the steps in [Delete backup items from the MABS management console](#delete-backup-items-from-the-mabs-management-console)
 I have protected items in the cloud (for example, an laaS virtual machine or an Azure Files share)  | Perform the steps in [Delete protected items in the cloud](#delete-protected-items-in-the-cloud)
 I have protected items both on premises and in the cloud | Perform the steps in all of the following sections, in the following order: <br> 1. [Delete protected items in the cloud](#delete-protected-items-in-the-cloud)<br> 2. [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console) <br> 3. [Delete backup items from the MABS Management console](#delete-backup-items-from-the-mabs-management-console)
-I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault by using Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
+I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault by using Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager) <br><br> Ensure that there are no storage accounts registered with the vault. To learn how to unregister the account, see [Unregister a storage account](manage-afs-backup.md#unregister-a-storage-account).
 
 ## Delete protected items in the cloud
 
@@ -329,7 +331,7 @@ For more information on the ARMClient command, see [ARMClient README](https://gi
 
 ### Use the Azure Resource Manager client to delete a Recovery Services vault
 
-1. Run the following command by using your subscription ID, resource group name, and vault name. If you don’t have any dependencies, the vault is deleted when you run the following command:
+1. Run the following command by using your subscription ID, resource group name, and vault name. If you don't have any dependencies, the vault is deleted when you run the following command:
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

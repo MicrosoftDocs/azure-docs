@@ -58,6 +58,8 @@ landingContent:
           url: quickstart-azure-functions-csharp.md
         - text: Code a Spring Boot app
           url: quickstart-java-spring-app.md
+        - text: Azure Resource Manager template
+          url: quickstart-resource-manager.md       
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core

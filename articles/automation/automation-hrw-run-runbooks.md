@@ -23,7 +23,7 @@ As they are accessing non-Azure resources, runbooks running on a Hybrid Runbook 
 
 By default, runbooks run on the local computer. For Windows, they run in the context of the local System account. For Linux, they run in the context of the special user account **nxautomation**. In either scenario, the runbooks must provide their own authentication to resources that they access.
 
-You can use [Credential](automation-credentials.md) and [Certificate](automation-certificates.md) assets in your runbook with cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the **Restart-Computer** cmdlet.
+You can use [Credential](automation-credentials.md) and [Certificate](automation-certificates.md) assets in your runbook with cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -32,7 +32,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-You can also use an [InlineScript](automation-powershell-workflow.md#inlinescript) activity. InlineScript allows you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](/powershell/module/psworkflow/about/about_workflowcommonparameters).
+You can also use an [InlineScript](automation-powershell-workflow.md#inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### Run As account
 
@@ -57,9 +57,9 @@ Use the following procedure to specify a Run As account for a Hybrid Runbook Wor
 
 Hybrid Runbook Workers on Azure virtual machines can use managed identities for Azure resources to authenticate to Azure resources. Using managed identities for Azure resources instead of Run As accounts provides benefits because you don't need to:
 
-* Export the Run As certificate and then import it into the Hybrid Runbook Worker
-* Renew the certificate used by the Run As account
-* Handle the Run As connection object in your runbook code
+* Export the Run As certificate and then import it into the Hybrid Runbook Worker.
+* Renew the certificate used by the Run As account.
+* Handle the Run As connection object in your runbook code.
 
 Follow the next steps to use a managed identity for Azure resources on a Hybrid Runbook Worker.
 
@@ -67,7 +67,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
 2. Configure managed identities for Azure resources on the VM. See [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 3. Give the VM access to a resource group in Resource Manager. Refer to [Use a Windows VM system-assigned managed identity to access Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 4. Install the Hybrid Runbook worker on the VM. See [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md).
-5. Update the runbook to use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet with the *Identity* parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
+5. Update the runbook to use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
 ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -78,7 +78,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity` works for a Hybrid Runbook Worker using a system-assigned identity and a single user-assigned identity. If you use multiple user-assigned identities on the Hybrid Runbook Worker, your runbook must specify the *AccountId* parameter for **Connect-AzAccount** to select a specific user-assigned identity.
+> `Connect-AzAccount -Identity` works for a Hybrid Runbook Worker using a system-assigned identity and a single user-assigned identity. If you use multiple user-assigned identities on the Hybrid Runbook Worker, your runbook must specify the *AccountId* parameter for `Connect-AzAccount` to select a specific user-assigned identity.
 
 ### <a name="runas-script"></a>Automation Run As account
 
@@ -154,13 +154,13 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 ```
 
 >[!NOTE]
->For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. When searching your library items, if you do not see **Connect-AzAccount**, you can use **Add-AzAccount**, or you can update your modules in your Automation account.
+>For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. When searching your library items, if you do not see `Connect-AzAccount`, you can use `Add-AzAccount`, or you can update your modules in your Automation account.
 
 To finish preparing the Run As account:
 
 1. Save the **Export-RunAsCertificateToHybridWorker** runbook to your computer with a **.ps1** extension.
 2. Import it into your Automation account.
-3. Edit the runbook, changing the value of the *Password* variable o your own password. 
+3. Edit the runbook, changing the value of the `Password` variable o your own password. 
 4. Publish the runbook.
 5. Run the runbook, targeting the Hybrid Runbook Worker group that runs and authenticates runbooks using the Run As account. 
 6. Examine the job stream to see that it reports the attempt to import the certificate into the local machine store, and follows with multiple lines. This behavior depends on how many Automation accounts you define in your subscription and the degree of success of the authentication.
@@ -171,7 +171,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers somewhat differently fro
 
 For a long-running runbook, you want to make sure that it's resilient to possible restart, for example, if the machine that hosts the worker reboots. If the Hybrid Runbook Worker host machine reboots, any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. After a runbook job is restarted more than three times, it is suspended.
 
-Remember that jobs for Hybrid Runbook Workers run under the local System account on Windows or the **nxautomation** account on Linux. For Linux, you must ensure that the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify **AllUsers** for the *Scope* parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
+Remember that jobs for Hybrid Runbook Workers run under the local System account on Windows or the **nxautomation** account on Linux. For Linux, you must ensure that the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify AllUsers for the `Scope` parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## Starting a runbook on a Hybrid Runbook Worker
 
@@ -179,14 +179,14 @@ Remember that jobs for Hybrid Runbook Workers run under the local System account
 
 When you start a runbook in the Azure portal, you're presented with the **Run on** option for which you can select **Azure** or **Hybrid Worker**. If you select **Hybrid Worker**, you can choose the Hybrid Runbook Worker group from a dropdown.
 
-Use the *RunOn* parameter with the **Start-AzureAutomationRunbook** cmdlet. The following example uses Windows PowerShell to start a runbook named **Test-Runbook** on a Hybrid Runbook Worker group named MyHybridGroup.
+Use the `RunOn` parameter with the `Start-AzureAutomationRunbook` cmdlet. The following example uses Windows PowerShell to start a runbook named **Test-Runbook** on a Hybrid Runbook Worker group named MyHybridGroup.
 
 ```azurepowershell-interactive
 Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> The *RunOn* parameter was added to **Start-AzureAutomationRunbook** in version 0.9.1 of Microsoft Azure PowerShell. You should [download the latest version](https://azure.microsoft.com/downloads/) if you have an earlier one installed. Only install this version on the workstation where you are starting the runbook from PowerShell. You do not need to install it on the Hybrid Runbook Worker computer unless you intend to start runbooks from this computer.
+> The `RunOn` parameter was added to `Start-AzureAutomationRunbook` in version 0.9.1 of Microsoft Azure PowerShell. You should [download the latest version](https://azure.microsoft.com/downloads/) if you have an earlier one installed. Only install this version on the workstation where you are starting the runbook from PowerShell. You do not need to install it on the Hybrid Runbook Worker computer unless you intend to start runbooks from this computer.
 
 ## Working with signed runbooks on a Windows Hybrid Runbook Worker
 
@@ -246,7 +246,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](manage-runbooks.md#import-a-runbook).
+When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](manage-runbooks.md#importing-a-runbook).
 
 ## Working with signed runbooks on a Linux Hybrid Runbook Worker
 
@@ -279,7 +279,7 @@ To create the GPG keyring and keypair, use the Hybrid Runbook Worker **nxautomat
 
 ### Make the keyring available to the Hybrid Runbook Worker
 
-Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` to include the following example code under the file section **[worker-optional]**.
+Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file **/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf** to include the following example code under the file section `[worker-optional]`.
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx

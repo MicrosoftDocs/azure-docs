@@ -144,7 +144,8 @@ The first step of migration is to set up the replication appliance. You  downloa
     ![Download provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. Run the replication appliance setup file, as described in the next procedure.
+11. Run the replication appliance setup file, as described in the next procedure. After installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial we'll be manually installing the Mobility Service on machines to be replicated, so create a dummy account in this step and proceed.
+
 12. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and click **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -218,7 +219,7 @@ Now, select machines for migration.
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, you specify a VM admin account that will be used for push installation of the Mobility service. In this tutorial we're installing the Mobility service manually, so you can add any dummy account. Then click **Next: Virtual machines**.
+6. In **Guest credentials**, you specify a dummy account that will be used for installing the Mobility service manually (push install is not supported in Physical). Then click **Next: Virtual machines**.
 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
@@ -309,14 +310,19 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**
+
+    Note: For Physical Server Migration, the recommendation is to bring the application down as part of the migration window (don't let the applications accept any connections) and then initiate the migration (The server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
+
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+    - Stops replication for the on-premises machine.
+    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Cleans up replication state information for the machine.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.

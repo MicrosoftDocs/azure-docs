@@ -1,13 +1,12 @@
 ---
 title: Configure lead management in Marketo | Azure Marketplace
 description: Configure lead management for Marketo for Azure marketplace customers.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211    
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: evansma
+ms.date: 03/30/2020
+ms.author: dsindona
 ---
 
 # Configure lead management in Marketo
@@ -72,3 +71,9 @@ When you are ready to configure the lead management information for your offer i
     >[!Note]
     >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
 
+5. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
+6. Select **OK**.
+
+To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
+
+![Connection details](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

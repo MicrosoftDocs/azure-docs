@@ -55,7 +55,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 </dependency>
 ```
 
@@ -65,7 +65,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 
@@ -103,8 +103,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabledAsync("feature-a"))
-{
+if (featureManager.isEnabledAsync("feature-a").block()) {
     // Run the following code
 }
 ```
@@ -153,7 +152,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("feature-a")) {
+        if(!featureManager.isEnabledAsync("feature-a").block()) {
             chain.doFilter(request, response);
             return;
         }

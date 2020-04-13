@@ -11,8 +11,8 @@ author: caitlinv39
 ms.date: 01/03/2020
 ---
 
-# Deploy javascript app to read data from FHIR service
-In this tutorial, you will deploy a small javascript app, which reads data from a FHIR service. The steps in this tutorial are:
+# Deploy JavaScript app to read data from FHIR service
+In this tutorial, you will deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
 1. Deploy a FHIR server
 1. Register a public client application
 1. Test access to the application
@@ -31,7 +31,6 @@ Before starting this set of tutorials, you will need the following items:
 The first step in the tutorial is to get your Azure API for FHIR setup correctly.
 
 1. Deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md)
-    1. On the Additional Settings tab, set the **Audience** to https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com.
 1. Once you have your Azure API for FHIR deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your Azure API for FHIR and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *

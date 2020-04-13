@@ -3,7 +3,7 @@ title: Scheduled Events for Linux VMs in Azure
 description: Schedule events by using Azure Metadata Service for your Linux virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: ericrad
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ericrad
+ms.author: mimckitt
 
 ---
 
@@ -44,7 +44,7 @@ With Scheduled Events, your application can discover when maintenance will occur
 Scheduled Events provides events in the following use cases:
 
 - [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
-- Degraded hardware
+- Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
 
@@ -145,6 +145,9 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Redeploy | 10 minutes |
 | Preempt | 30 seconds |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
+
+> [!NOTE] 
+> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
 
 ### Start an event 
 

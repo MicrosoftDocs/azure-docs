@@ -8,8 +8,8 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 10/31/2019
+ms.topic: how-to
+ms.date: 03/09/2020
 ms.author: iainfou
 
 ---
@@ -28,7 +28,7 @@ This article shows you how to install the Group Policy Management tools, then ed
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -38,7 +38,11 @@ To complete this article, you need the following resources and privileges:
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
 
 > [!NOTE]
-> As there's [no access to domain controllers in Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), you can't create and use a Central Store for group policy administrative templates in a managed domain. [Sysvol isn't included in on-premises Azure AD Connect synchronization](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), so you also can't create an on-premises Central Store and synchronize it to Azure AD DS through Azure AD.
+> You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
+>
+> For example, copy the English, United States version of the *.adml* files into the `\en-us` folder.
+>
+> Alternatively, you can centrally store your Group Policy Administrative Template on the domain controllers that are part of the Azure AD DS managed domain. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Install Group Policy Management tools
 

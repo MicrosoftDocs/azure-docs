@@ -8,7 +8,6 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
@@ -78,12 +77,13 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your JavaScript app
 >
-> In the *JavaScriptSPA* folder, edit *authConfig.js*, and set the `clientID` and `authority` values under `msalConfig`.
+> In the *JavaScriptSPA* folder, edit *authConfig.js*, and set the `clientID`, `authority` and `redirectUri` values under `msalConfig`.
+>
 > ```javascript
 >
 >  // Config object to be passed to Msal on creation
@@ -96,14 +96,14 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >    cache: {
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
->      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
 >    }
 >  };  
-> ```
+>
+>```
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >
@@ -123,6 +123,27 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > We have configured your project with values of your app's properties. 
 
 > [!div renderon="docs"]
+> 
+> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `apiConfig` object.
+> ```javascript
+>   // Add here the endpoints for MS Graph API services you would like to use.
+>   const graphConfig = {
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>   };
+>
+>   // Add here scopes for access token to be used at MS Graph API endpoints.
+>   const tokenRequest = {
+>       scopes: ["Mail.Read"]
+>   };
+> ```
+>
+
+> [!div renderon="docs"]
+>
+> Where:
+> - *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, simply enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](https://docs.microsoft.com/graph/deployments)
+>
 > #### Step 4: Run the project
 
 Run the project with a web server by using [Node.js](https://nodejs.org/en/download/):
@@ -154,7 +175,6 @@ The MSAL library signs in users and requests the tokens that are used to access 
 > [!TIP]
 > You can replace the preceding version with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-
 Alternatively, if you have Node.js installed, you can download the latest version through Node.js Package Manager (npm):
 
 ```batch
@@ -176,7 +196,6 @@ The quickstart code also shows how to initialize the MSAL library:
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
     }
   };  
 
@@ -227,7 +246,7 @@ MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireToken
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-// Add scopes for the access token to be used at Microsoft Graph API endpoints.
+
 const tokenRequest = {
     scopes: ["Mail.Read"]
 };
@@ -285,8 +304,3 @@ To browse the MSAL repo for documentation, FAQ, issues, and more, see:
 
 > [!div class="nextstepaction"]
 > [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

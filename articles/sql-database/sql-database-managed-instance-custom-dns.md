@@ -22,7 +22,7 @@ Because Managed Instance uses the same DNS for its inner workings, configure the
 > Always use a fully qualified domain name (FQDN) for the mail server, the SQL Server instance, and for other services, even if they're within your private DNS zone. For example, use `smtp.contoso.com` for your mail server because `smtp` won't resolve correctly. Creating a linked server or replication that references SQL VMs inside the same virtual network also requires an FQDN and a default DNS suffix. For example, `SQLVM.internal.cloudapp.net`. For more information, see [Name resolution that uses your own DNS server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> Updating virtual network DNS servers won't affect Managed Instance immediately. Managed Instance DNS configuration is updated after the DHCP lease expires or after the platform upgarade, whichever occurs first. **Users are advised to set their virtual network DNS configuration before creating their first Managed Instance.**
+> Updating virtual network DNS servers won't affect Managed Instance immediately. Managed Instance DNS configuration is updated after the DHCP lease expires or after the platform upgrade, whichever occurs first. **Users are advised to set their virtual network DNS configuration before creating their first Managed Instance.**
 
 ## Next steps
 

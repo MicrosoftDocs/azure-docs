@@ -83,6 +83,8 @@ You can also manage alerting methods, and create alert notifications from the **
 
 Finally, selecting __Manage Alert Settings__ from the __Actions__ menu allows you to set the number of times an alert must occur before a notification is sent. This setting can be used to prevent notifications for transient errors.
 
+For a tutorial of an alert notification using a free [SendGrid account](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
+
 ### Cluster
 
 The **Metrics** tab of the dashboard contains a series of widgets that make it easy to monitor the status of your cluster at a glance. Several widgets, such as **CPU Usage**, provide additional information when clicked.

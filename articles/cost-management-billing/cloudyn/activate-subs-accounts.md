@@ -1,14 +1,14 @@
 ---
-title: Activate Azure subscriptions and accounts | Microsoft Docs
+title: Activate Azure subscriptions and accounts
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: quickstart
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
+ROBOTS: NOINDEX
 ---
 
 
@@ -17,6 +17,8 @@ ms.custom: secdec18
 Adding or updating your Azure Resource Manager credentials allows Cloudyn to discover all the accounts and subscriptions within your Azure Tenant. If you also have Azure Diagnostics extension enabled on your virtual machines, then Cloudyn can collect extended metrics like CPU and memory. This article describes how to enable access using Azure Resource Manager APIs for new and existing accounts. It also describes how to resolve common account problems.
 
 Cloudyn cannot access most of your Azure subscription data when the subscription is _unactivated_. You must edit _unactivated_ accounts so that Cloudyn can access them.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Required Azure permissions
 

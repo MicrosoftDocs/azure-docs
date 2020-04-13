@@ -13,11 +13,13 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
-  - name: Create with a template
+  - name: Create with ARM template
     items:
     - name: Linux scale set
+      displayName: ARM, resource manager
       href: quick-create-template-linux.md
     - name: Windows scale set
+      displayName: ARM, resource manager
       href: quick-create-template-windows.md
 - name: Tutorials
   items:
@@ -135,6 +137,9 @@
     - name: Select a disk type
       href: ../virtual-machines/windows/disks-types.md
       maintainContext: true
+    - name: Encryption
+      href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+      maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
@@ -226,7 +231,7 @@
       - name: Extension sequencing
         href: disk-encryption-extension-sequencing.md
       - name: Key vault for Azure Disk Encryption
-        href: disk-encryption-key-vault.md      
+        href: disk-encryption-key-vault.md
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
@@ -247,6 +252,8 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Automatic OS upgrades
       href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Automatic instance repairs (preview)
+      href: virtual-machine-scale-sets-automatic-instance-repairs.md
     - name: Instance protection
       href: virtual-machine-scale-sets-instance-protection.md
     - name: Scale-In Policy

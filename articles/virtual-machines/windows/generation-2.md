@@ -32,7 +32,9 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [DC-series](../dcv2-series.md)
 * [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
+* [Dasv4-series](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Esv3-series](../ev3-esv3-series.md)
+* [Easv4-series](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series)
 * [Fsv2-series](../fsv2-series.md)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [HB-series](../hb-series.md)
@@ -51,7 +53,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 Generation 2 VMs support the following Marketplace images:
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* Windows 10
+* Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 

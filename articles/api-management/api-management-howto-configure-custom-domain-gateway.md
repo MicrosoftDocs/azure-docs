@@ -34,7 +34,7 @@ To perform the steps described in this article, you must have:
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md)
 -   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
 -   A DNS record hosted on a DNS server that maps the custom domain name to the self-hosted gateway's IP address. This topic does not provide instructions on how to host a DNS record.
--   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over SSL).
+-   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

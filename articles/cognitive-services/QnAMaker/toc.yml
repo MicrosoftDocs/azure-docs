@@ -16,19 +16,16 @@
       href: Quickstarts/add-question-metadata-portal.md
     - name: 3. Get answer with Postman or cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-  - name: Test with batch file
-    href: Quickstarts/batch-testing.md
   - name: Using REST
     href: Quickstarts/quickstart-rest-curl.md
   - name: Using SDK
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
-  - name: Create and answer from KB
-    displayName: curl, publish, chit-chat, chit chat
-    href: Tutorials/create-publish-query-in-portal.md
-  - name: Create a QnA Maker bot
-    href: Tutorials/create-qna-bot.md
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+  - name: Test with batch file
+    href: Quickstarts/batch-testing.md
 - name: Concepts
   items:
   - name: Azure resources
@@ -71,50 +68,83 @@
     - name: Manage resources
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Get analytics
-      href: How-To/get-analytics-knowledge-base.md
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md
+    - name: Collaborate
+      href: How-To/collaborate-knowledge-base.md
+    - name: Turn on active learning
+      href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
-    - name: Create and publish a knowledge base
-      href: Quickstarts/create-publish-knowledge-base.md
-      displayName: create bot, bot, publish to bot, test, edit
-    - name: Create bot with QnA Maker and LUIS
-      href: Tutorials/integrate-qnamaker-luis.md
+    - name: Create knowledge base
+      href: How-To/manage-knowledge-bases.md
     - name: Language selection
       href: How-To/language-knowledge-base.md
-    - name: Migrate a knowledge base
-      href: Tutorials/migrate-knowledge-base.md
-      displayName: metadata, pair
-    - name: Collaborate on a knowledge base
-      href: How-To/collaborate-knowledge-base.md
-    - name: Test a knowledge base
-      href: How-To/test-knowledge-base.md
-    - name: Use active learning to improve knowledge base
-      href: How-to/improve-knowledge-base.md
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
-    - name: Edit a knowledge base
-      href: How-To/edit-knowledge-base.md
-    - name: Create multi-turn conversations with follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Add a secured SharePoint file
+    - name: Migrate to new knowledge base
+      href: Tutorials/migrate-knowledge-base.md
+      displayName: metadata, pair
+    - name: Test
+      href: How-To/test-knowledge-base.md
+  - name: Manage QnA pairs
+    items:
+    - name: Edit QnA pair
+      href: How-To/edit-knowledge-base.md
+    - name: Add follow-up prompts
+      href: How-To/multiturn-conversation.md
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
+    - name: Get suggested alternate questions
+      href: How-to/improve-knowledge-base.md
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
+    - name: Add secured SharePoint files
       href: How-To/add-sharepoint-datasources.md
       displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-    - name: Query knowledge base
-      href: How-To/metadata-generateanswer-usage.md
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+  - name: Query knowledge base
+    href: How-To/metadata-generateanswer-usage.md
+    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Use with a client application
     items:
-    - name: Bot framework
-      href: Tutorials/create-qna-bot.md
     - name: LUIS and QnA Maker
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
+  - name: Using REST APIs
+    items:
+    - name: Create a new knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/create-new-kb-csharp.md
+      - name: Go
+        href: Quickstarts/create-new-kb-go.md
+      - name: Java
+        href: Quickstarts/create-new-kb-java.md
+      - name: Python
+        href: Quickstarts/create-new-kb-python.md
+    - name: Publish a knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/publish-kb-csharp.md
+      - name: Go
+        href: Quickstarts/publish-kb-go.md
+      - name: Java
+        href: Quickstarts/publish-kb-java.md
+      - name: Node.js
+        href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
+      - name: Python
+        href: Quickstarts/publish-kb-python.md
+    - name: Get answer
+      items:
+      - name: C#
+        href: Quickstarts/get-answer-from-knowledge-base-csharp.md
+      - name: Go
+        href: Quickstarts/get-answer-from-knowledge-base-go.md
+      - name: Java
+        href: Quickstarts/get-answer-from-knowledge-base-java.md
+      - name: Node.js
+        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
+      - name: Python
+        href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: Reference
   items:
   - name: Languages
