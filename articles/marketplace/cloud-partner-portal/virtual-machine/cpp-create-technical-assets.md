@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Create technical assets for a virtual machine offer
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
+
 This section walks you through creating and configuring the technical assets for a virtual machine (VM) offer for the Azure Marketplace.  A VM contains two components: the solution virtual hard disk (VHD) and optional associated data disks.  
 
 - *Virtual hard disks (VHDs)*, containing the operating system and your solution, that you will deploy with your Azure Marketplace offer. The process of preparing the VHD differs depending on whether it is a Linux-based,  Windows-based, or a custom-based VM.
@@ -30,26 +33,26 @@ You must configure the VM OS, the VM size, ports to open, and up to 15 attached 
 ## Fundamental technical knowledge
 
 Designing, building, and testing these assets takes time and requires technical knowledge of both the Azure platform and the technologies used to build the offer. In addition to your solution domain, your engineering team should have knowledge of the following Microsoft technologies: 
--	Basic understanding of [Azure Services](https://azure.microsoft.com/services/) 
--	How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
--	Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
--	Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--	Working Knowledge of [JSON](https://www.json.org/)
+-    Basic understanding of [Azure Services](https://azure.microsoft.com/services/) 
+-    How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
+-    Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
+-    Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Working Knowledge of [JSON](https://www.json.org/)
 
 
 ## Suggested tools 
 
 Choose one or both of the following scripting environments to help manage VHDs and VMs:
--	[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--	[Azure CLI](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 In addition, we recommend adding the following tools to your development environment: 
 
--	[Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--	[Visual Studio Code](https://code.visualstudio.com/)
-    *	Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *	Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *	Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio Code](https://code.visualstudio.com/)
+    *    Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 We also suggest reviewing the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page and, if you are using Visual Studio, the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
