@@ -16,9 +16,6 @@ Before using the Azure portal to create a new Azure HPC Cache, make sure your en
 
 A paid subscription is recommended.
 
-> [!NOTE]
-> During the first several months of the GA release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
-
 ## Network infrastructure
 
 Two network-related prerequisites should be set up before you can use your cache:

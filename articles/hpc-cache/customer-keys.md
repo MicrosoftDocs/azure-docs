@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/06/2020
 ms.author: rohogue
 ---
 
@@ -29,7 +29,7 @@ There are three steps to enable customer-managed key encryption for Azure HPC Ca
 
 Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
 
-After you create the cache, you cannot change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can change the encryption key, the key version, and the key vault as needed.
+After you create the cache, you cannot change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can [change](#update-key-settings) the encryption key, the key version, and the key vault as needed.
 
 ## Understand key vault and key requirements
 
@@ -41,7 +41,7 @@ Key vault properties:
 * **Region** - The key vault must be in the same region as the Azure HPC Cache.
 * **Pricing tier** - Standard tier is sufficient for use with Azure HPC Cache.
 * **Soft delete** - Azure HPC Cache will enable soft delete if it is not already configured on the key vault.
-* **Purge protection** - Azure HPC Cache will enable purge protection if it is not already active.
+* **Purge protection** - Purge protection must be enabled.
 * **Access policy** - Default settings are sufficient.
 * **Network connectivity** - Azure HPC Cache must be able to access the key vault regardless of the endpoint settings you choose.
 
@@ -107,7 +107,7 @@ The cache shows the status **Waiting for key**. Click the **Enable encryption** 
 
 ![screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes](media/draft-enable-keyvault.png)
 
-Click the **Yes** button to authorize the cache to use the encryption key. This action also enables soft-delete and purge protection on the key vault.
+Click the **Yes** button to authorize the cache to use the encryption key. This action also enables soft-delete and purge protection (if not already enabled) on the key vault.<!-- xxx problem? xxx -->
 
 ![screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes](media/draft-enable-keyvault-banner.png)
 
@@ -115,7 +115,21 @@ After the cache requests access to the key vault, it can create and encrypt the 
 
 After you authorize encryption, Azure HPC Cache goes through several more minutes of setup to create the encrypted disks and related infrastructure.
 
-<!-- add info about rotating keys when it's available -->
+## Update key settings
+
+You can change the key vault, key, or key version for your cache from the Azure portal. Click the cache's **Encryption** settings link to open the **Customer key settings** page. (You cannot change a cache between customer-managed keys and system-managed keys.)
+
+![screenshot of "Customer keys setting" page, reached by clicking Settings > Encryption from the cache overview page in the Azure portal](media/draft-customer-key-settings.png)
+
+Click the **Change key** link to open the key selector.
+
+![screenshot of "select key from Azure Key Vault" page with three drop-down selectors to choose key vault, key, and version](media/draft-select-new-key.png)
+
+Key vaults in the same subscription and same region as this cache are shown in the list.
+
+After you choose the new encryption key values, click **Save**<!--not in screenshot - verify -->. A confirmation page appears with the new values. Click **Save** at the top of the confirmation page to finalize the selection.
+
+![screenshot of confirmation page with Save button at top left](media/draft-save-new-key.png)
 
 ## Read more about customer-managed keys in Azure
 
