@@ -312,7 +312,7 @@ You can ignore this warning if you never intend to protect this virtual machine 
 1. Run the script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Provide the **Subscription ID**, **VM Resource Group**, and **VM name** as parameters.
 1. If you're prompted for Azure credentials, provide them. Then verify that the script runs without any failures.
 
-## Replication not enabled on VM with stale resource links (error code 150226)
+## Replication not enabled on VM with stale resources (error code 150226)
 
 ### Possible causes
 
