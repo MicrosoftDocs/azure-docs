@@ -45,7 +45,7 @@ conceptualContent:
           text: About certificates
         - url: ./certificates/quick-create-portal.md
           itemType: quickstart
-          text:  Set and retrieve a key from Azure Key Vault using the Azure portal
+          text:  Set and retrieve a certificate from Azure Key Vault using the Azure portal
         - url: ./certificates/certificate-scenarios.md
           itemType: overview
           text: Get started with Key Vault certificates
@@ -65,7 +65,7 @@ conceptualContent:
           itemType: quickstart
           text:  Set and retrieve a key from Azure Key Vault using the Azure portal
         - url: ./keys/hsm-protected-keys.md
-          itemType: quickstart
+          itemType: tutorial
           text:  Import HSM-protected keys to Key Vault
         - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
           itemType: overview
