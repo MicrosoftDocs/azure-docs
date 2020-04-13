@@ -40,4 +40,5 @@ The next 15 seconds of speech input from your microphone will be recognized and 
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

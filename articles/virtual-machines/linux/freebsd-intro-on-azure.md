@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
-ms.author: huishao
+ms.author: mimckitt
 
 ---
 # Introduction to FreeBSD on Azure
