@@ -16,14 +16,16 @@ ms.custom: seodec18
 
 Azure Cognitive Services enable you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways. Use the links below to view language availability by service.
 
-These Cognitive Services are language agnostic and don't have limitations based on language.
+These Cognitive Services are language agnostic and don't have limitations based on human language.
 
-* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
+* [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home)
+* [Face](https://docs.microsoft.com/azure/cognitive-services/face/)
+* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 
 ## Vision
 
-* [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
+* [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support)
 * [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
 * [Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
 ## Speech
@@ -36,6 +38,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 ## Language
 
 * [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
+* [Immersive Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
 * [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
 * [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
 * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
