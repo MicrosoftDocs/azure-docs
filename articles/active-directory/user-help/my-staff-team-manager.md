@@ -71,7 +71,7 @@ If your organization has given you permission, you can manage phone numbers for 
 
 After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 
-![screen showing new phone number registered with My Staff](media/my-staff-team-manager/addphone3.png)
+![New phone number registered with My Staff](media/my-staff-team-manager/addphone3.png)
 
 ### Edit a phone number
 
