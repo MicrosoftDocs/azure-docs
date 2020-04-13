@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # IntelliSense for Stream Analytics query language
 
-IntelliSense is a general term for a variety of code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting". In [Azure Stream Analytics tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview), IntelliSense is provided for [Stream Analytics Query Language](https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+IntelliSense is a general term for a variety of code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting". In [Azure Stream Analytics tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview), IntelliSense is provided for [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 ![IntelliSense demo](./media/vs-code-intellisense/intellisense.gif)
 
@@ -54,7 +54,7 @@ The parameter list is also displayed for nested functions. If you type a functio
 
 ### Quick Info
 
-As provided by the language service, you can see **quick info** for each identifier in your code (input, output, intermediate result set or function). When you move the mouse pointer over an identifier, its declaration is displayed in a pop-up window. The properties and data schemas for inputs(if configurued) and intermediate data set are shown. 
+As provided by the language service, you can see **quick info** for each identifier in your code (input, output, intermediate result set or function). When you move the mouse pointer over an identifier, its declaration is displayed in a pop-up window. The properties and data schemas for inputs(if configurued) and intermediate data set are shown.
 
 ![quick info](./media/vs-code-intellisense/quick_info.gif)
 
@@ -62,10 +62,10 @@ As provided by the language service, you can see **quick info** for each identif
 
 ### Why am I not getting any name suggestions?
 
-This issue is caused by missing input configuration which provides data. You can check if a [local input](visual-studio-code-local-run#define-a-local-input) or [live input](visual-studio-code-local-run-live-input#define-a-live-stream-input) has been configured correctly.
+This issue is caused by missing input configuration which provides data. You can check if a [local input](visual-studio-code-local-run.md#define-a-local-input) or [live input](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) has been configured correctly.
 
 ## Next steps
 
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
