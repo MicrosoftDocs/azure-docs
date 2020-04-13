@@ -15,8 +15,8 @@ Data recovery is not a default feature in Azure FarmBeats. You can configure thi
 
 The following sections provide information about how you can configure data recovery in Azure FarmBeats:
 
-1. [Enable data redundancy](#enable-data-redundancy)
-2. [Restore service from online backup](#restore-service-from-online-backup)
+- [Enable data redundancy](#enable-data-redundancy)
+- [Restore service from online backup](#restore-service-from-online-backup)
 
 
 ## Enable data redundancy
