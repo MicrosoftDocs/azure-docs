@@ -9,17 +9,25 @@ ms.author: v-umha
 
 # Disaster recovery for FarmBeats
 
-Data recovery protects you from losing your data in an unfortunate event like collapse of Azure region. In such event, you can start failover and recover data stored in your FarmBeats deployment. By default, FarmBeats doesn't configure for data recovery or availability of service, if underlying Azure services or region in which FarmBeats is deployed goes down. However, customers can configure certain Azure resources used by FarmBeats to store data in an Azure paired region and use Active-Passive approach to enable disaster recovery.
+Data recovery protects you from losing your data in an unfortunate event like collapse of Azure region. In such an event, you can start failover, and recover the data stored in your FarmBeats deployment.
+
+Data recovery is not a default feature in Azure FarmBeats. You can configure this feature manually by configuring the required Azure resources that are used by FarmBeats to store data in an Azure paired region. Use Active – Passive approach to enable recovery.
+
+The following sections provide information about how you can configure data recovery in Azure FarmBeats:
+
+1. [Enable data redundancy](#enable-data-redundancy)
+2. [Restore service from online backup](#restore-service-from-online-backup)
+
 
 ## Enable data redundancy
 
-FarmBeats stores data in three Azure first party services, which are **Azure storage**, **Cosmos DB** and **Time Series Insights**. Below are the steps to enable data redundancy for these services to a paired Azure region:
+FarmBeats stores data in three Azure first party services, which are **Azure storage**, **Cosmos DB** and **Time Series Insights**. Use the following steps to enable data redundancy for these services to a paired Azure region:
 
 1.	**Azure Storage** - Follow this guideline to enable data redundancy for each storage account in your FarmBbeats deployment.
 2.	**Azure Cosmos DB** - Follow this guideline to enable data redundancy for Cosmos DB account your FarmBeats deployment.
 3.	**Azure Time Series Insights (TSI)** - TSI currently doesn't offer data redundancy. To recover Time Series Insights data, go to your sensor/weather partner and push the data again to FarmBeats deployment.
 
-## Restoring service from online backup
+## Restore service from online backup
 
 You can initiate failover and recover data stored for which, each of the above mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
 
@@ -38,7 +46,7 @@ You can initiate failover and recover data stored for which, each of the above m
 ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
 
 >[!NOTE]
-> Update Storage Account name in the new FarmBeats Batch VM config file.
+> Ensure to Update Storage Account name in the new FarmBeats Batch VM config file.
 
 ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/batch-prep-files.png)
 
