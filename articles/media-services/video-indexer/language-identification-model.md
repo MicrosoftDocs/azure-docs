@@ -47,7 +47,10 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 
 ## Guidelines and limitations
 
-* Even though Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in automatic language identification.
+* Automatic language identification (LID) supports the following languages: 
+
+    English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian).
+* Even though Video Indexer supports Arabic (Modern Standard and Levantine), Hindi, and Korean, these languages are not supported in LID.
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
