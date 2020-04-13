@@ -1,20 +1,16 @@
 ---
 title: Azure Security Control - Identity and Access Control
-description: Security Control Identity and Access Control
+description: Azure Security Control Identity and Access Control
 author: msmbaldwin
-manager: rkarlin
-
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
+ms.custom: security-benchmark
 
 ---
 
 # Security Control: Identity and Access Control
-
-Identity and access management recommendations focus on addressing issues related to identity-based access control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.
 
 ## 3.1: Maintain an inventory of administrative accounts
 
@@ -29,7 +25,6 @@ How to get a directory role in Azure AD with PowerShell:
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
 How to get members of a directory role in Azure AD with PowerShell:
-
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 ## 3.2: Change default passwords where applicable
@@ -61,7 +56,6 @@ Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identit
 Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
 Understand SSO with Azure AD:
-
 https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 ## 3.5: Use multi-factor authentication for all Azure Active Directory based access
@@ -89,15 +83,12 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
 Learn about Privileged Access Workstations:
-
 https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
 How to enable MFA in Azure:
-
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-
-## 3.7: Log and alert on suspicious activity from administrative accounts
+## 3.7: Log and alert on suspicious activities from administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -134,7 +125,6 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
 
 How to create and configure an AAD instance:
-
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 ## 3.10: Regularly review and reconcile user access
@@ -145,15 +135,14 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-Azure AD Reporting:
+Understand Azure AD reporting:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
 How to use Azure Identity Access Reviews:
-
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-## 3.11: Monitor attempts to access deactivated accounts
+## 3.11: Monitor attempts to access deactivated credentials
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -199,6 +188,3 @@ Understand Customer Lockbox:
 
 https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
-## Next steps
-
-See the next security control: [Data Protection](security-control-data-protection.md)

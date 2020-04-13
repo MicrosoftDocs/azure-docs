@@ -1,20 +1,16 @@
 ---
 title: Azure Security Control - Logging and Monitoring
-description: Security Control Logging and Monitoring
+description: Azure Security Control Logging and Monitoring
 author: msmbaldwin
-manager: rkarlin
-
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
+ms.custom: security-benchmark
 
 ---
 
 # Security Control: Logging and Monitoring
-
-Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services.
 
 ## 2.1: Use approved time synchronization sources
 
@@ -22,11 +18,11 @@ Security logging and monitoring focuses on activities related to enabling, acqui
 |--|--|--|
 | 2.1 | 6.1 | Microsoft |
 
-Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources.
+Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your Virtual Machines.
 
-How to configure time synchronization for Azure compute resources:
+How to configure time synchronization for Azure Windows compute resources: https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
-https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
+How to configure time synchronization for Azure Linux compute resources: https://docs.microsoft.com/azure/virtual-machines/linux/time-sync
 
 ## 2.2: Configure central security log management
 
@@ -74,14 +70,12 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS Logs(Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
+If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
 
 How to collect Azure Virtual Machine internal host logs with Azure Monitor:
-
 https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 
 Understand Azure Security Center data collection:
-
 https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## 2.5: Configure security log storage retention
@@ -92,9 +86,9 @@ https://docs.microsoft.com/azure/security-center/security-center-enable-data-col
 
 Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-How to set log retention parameters for Log Analytics Workspaces:
+Change the data retention period in Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+How to configure retention policy for Azure Storage account logs: https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging 
 
 ## 2.6: Monitor and review Logs
 
@@ -118,7 +112,7 @@ How to perform custom queries in Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
-## 2.7: Enable alerts for anomalous activity
+## 2.7: Enable alerts for anomalous activities
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -166,16 +160,23 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 |--|--|--|
 | 2.9 | 8.7 | Customer |
 
-Implement a third-party solution for DNS logging.
+If using your own DNS solution, Azure DNS Analytics (Preview) in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Alternatively, you may use a third party DNS logging solution if DNS Analytics is not available in your region.
+
+Gather insights about your DNS infrastructure with the DNS Analytics Preview solution: https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
 
 ## 2.10: Enable command-line audit logging
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 2.1 | 8.8 | Customer |
+| 2.10 | 8.8 | Customer |
 
-Manually configure console logging and PowerShell Transcription on a per-node basis.
+Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines to log the process creation event and  the CommandLine field.   For supported Azure Linux Virtual machines, you can manually configure console logging on a per-node basis and use Syslog to store the data.  Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on logged data from Azure Virtual machines. 
 
-## Next steps
+Data collection in Azure Security Center:
 
-See the next security control: [Identity and Access Control](security-control-identity-access-control.md)
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
+
+How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+
+Syslog data sources in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog
+
