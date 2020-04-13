@@ -10,30 +10,30 @@
   items:
     - name: Create an Automation account
       href: automation-quickstart-create-account.md
-    - name: Create standalone Automation account
+    - name: Create a standalone Automation account
       href: automation-create-standalone-account.md
-    - name: Manage Automation Run As account
+    - name: Manage an Automation Run As account
       href: manage-runas-account.md
       displayName: certificate renewal
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
-    - name: Use Azure AD in Azure Automation to authenticate to Azure
+    - name: Use Azure AD to authenticate to Azure
       href: automation-use-azure-ad.md
-    - name: Manage Office 365 services using Azure Automation
+    - name: Manage Office 365 services
       href: manage-office-365.md
     - name: Configure authentication with AWS
       href: automation-config-aws-account.md
     - name: Encrypt secure assets in Azure Automation
       href: automation-secure-asset-encryption.md
-    - name: Move your Automation Account to another Subscription
+    - name: Move your Automation Account to another subscription
       href: how-to/move-account.md
-    - name: Automate onboarding of Automation Services
+    - name: Automate onboarding of Automation services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
-    - name: Supported Regions for Log Analytics Workspace Mappings
+    - name: Supported regions for Log Analytics workspace mappings
       href: how-to/region-mappings.md
     - name: Troubleshoot
       items:  
