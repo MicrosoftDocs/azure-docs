@@ -335,41 +335,35 @@
       items:
       - name: Supported authentication flows
         href: msal-authentication-flows.md
-      - name: Acquire and cache tokens
+      - name: Public & confidential client apps
+        href: msal-client-applications.md
+      - name: Application configuration
+        href: msal-client-application-configuration.md
+      - name: Shared devices
+        href: msal-shared-devices.md
+        displayName: shared device mode, firstline worker, frontline worker
+      - name: Tokens
         items:
         - name: Acquire and cache tokens
           href: msal-acquire-cache-tokens.md
-        - name: Scopes for v1.0 apps
-          href: msal-v1-app-scopes.md
-      - name: Client applications
-        displayName: Client apps
-        items:
+        - name: Configure token lifetimes
+          href: active-directory-configurable-token-lifetimes.md
+        - name: Configure optional claims
+          href: active-directory-optional-claims.md
         - name: Configure role claim
           href: active-directory-enterprise-app-role-management.md
         - name: Customize claims - Portal
           href: active-directory-saml-claims-customization.md
         - name: Customize claims - PowerShell
           href: active-directory-claims-mapping.md
-        - name: Configure optional claims
-          href: active-directory-optional-claims.md
-        - name: Configure token lifetimes
-          href: active-directory-configurable-token-lifetimes.md
-        - name: Handle SameSite cookie changes in Chrome browser
-          href: howto-handle-samesite-cookie-changes-chrome-browser.md
-      - name: Application configuration
-        displayName: App configuration
-        items:
-        - name: Client applications
-          href: msal-client-applications.md
-        - name: Application configuration
-          href: msal-client-application-configuration.md
+        - name: Scopes for v1.0 apps
+          href: msal-v1-app-scopes.md
       - name: Handle errors and exceptions
         href: msal-handling-exceptions.md
+      - name: Handle SameSite cookie changes in Chrome browser
+        href: howto-handle-samesite-cookie-changes-chrome-browser.md
       - name: Logging
         href: msal-logging.md
-      - name: Shared devices
-        href: msal-shared-devices.md
-        displayName: shared device mode, firstline worker, frontline worker
   - name: Authentication protocols
     displayName: Auth protocol
     items:
