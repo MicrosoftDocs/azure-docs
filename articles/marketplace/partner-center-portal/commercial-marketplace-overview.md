@@ -15,7 +15,7 @@ Welcome to the Commercial Marketplace Portal in Partner Center. The [commercial 
 
 These articles cover the basics of creating and using your Partner Center account. This includes creating new offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing offers that were migrated from the Cloud Partner Portal, and providing resources to help with questions and collect your feedback.
 
-## About commercial marketplace
+## About the commercial marketplace
 
 Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal's in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams.
 
