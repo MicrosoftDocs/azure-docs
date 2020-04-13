@@ -92,7 +92,7 @@ in the correct state.
 1. The boolean value returned by the function determines if the Azure Resource
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
-why a machine isn't compliant, or to confirm that the current state is compliant.
+why a machine isn't compliant and to confirm that the current state is compliant.
 
 ### Get-TargetResource requirements
 
