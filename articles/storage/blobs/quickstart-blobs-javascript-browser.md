@@ -63,11 +63,19 @@ After you fill in the fields with the values from this table, click the **Save**
 
 The shared access signature (SAS) is used by the code running in the browser to authorize requests to Azure Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
-In the Azure portal, select your storage account. To generate a Blob service SAS URL, navigate to the **Settings** section and select **Shared access signature**. Scroll down and click the **Generate SAS and connection string** button. Next, click the **Copy to clipboard** button at the right end of the **Blob service SAS URL** field. Save the copied URL somewhere for use in an upcoming step.
+Follow these steps to get the Blob service SAS URL:
+
+1. In the Azure portal, select your storage account.
+2. Navigate to the **Settings** section and select **Shared access signature**.
+3. Scroll down and click the **Generate SAS and connection string** button.
+4. Scroll down further and locate the the **Blob service SAS URL** field
+5. Click the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
+6. Save the copied URL somewhere for use in an upcoming step.
 
 ### Implement the HTML page
 
-First, create a new folder called *azure-blobs-javascript* and open it in Visual Studio Code. Then create a new file in Visual Studio Code, add the following HTML, and save it as *index.html* in the *azure-blobs-javascript* folder.
+1. Create a new folder called *azure-blobs-javascript* and open it in Visual Studio Code.
+2. Create a new file in Visual Studio Code and add the following HTML.
 
 ```html
 <!-- index.html -->
@@ -92,6 +100,8 @@ First, create a new folder called *azure-blobs-javascript* and open it in Visual
 </html>
 ```
 
+3. Save the file as *index.html* in the *azure-blobs-javascript* folder.
+
 ### Add the Azure Blob storage client library
 
 Run the following npm command in a console window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
@@ -110,7 +120,7 @@ npm install --save @azure/storage-blob
 
 #### Bundle the Azure Blob storage client library
 
-To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. Bundling takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers. This article uses the [Parcel](https://parceljs.org/) bundler.
+To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. Bundling takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers. This quickstart article uses the [Parcel](https://parceljs.org/) bundler.
 
 Install Parcel by using the Node.js Package Manager (npm) in a console window:
 
@@ -248,18 +258,18 @@ In the following sections, add each new block of JavaScript code after the previ
 
 ### Add your storage account info
 
-Next, add code to access your storage account. Replace the placeholder with your Blob service SAS URL that you generated earlier. Add the following code to the *index.js* file.
+Next, add code to access your storage account. Replace the placeholder with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
 
 ```javascript
-// Update with your Blob service SAS URL string
-const blobSasUrl = "<Placeholder: update with the Blob service SAS URL you generated earlier>"
+// Update <placeholder> with your Blob service SAS URL string
+const blobSasUrl = "<placeholder>";
 ```
 
 Save the *index.js* file.
 
 ### Create client objects
 
-Create [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) and [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) objects for interacting with the Azure Blob storage service. Add the following code to the *index.js* file.
+Create [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) and [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) objects for interacting with the Azure Blob storage service. Add the following code to the end of the *index.js* file.
 
 ```javascript
 // Create a new BlobServiceClient
@@ -277,7 +287,7 @@ Save the *index.js* file.
 
 ### Create and delete a storage container
 
-Create and delete the storage container when you click the corresponding button on the web page. Add the following code to the *index.js* file.
+Create and delete the storage container when you click the corresponding button on the web page. Add the following code to the end of the *index.js* file.
 
 ```javascript
 const createContainer = async () => {
@@ -308,7 +318,7 @@ Save the *index.js* file.
 
 ### List blobs
 
-List the contents of the storage container when you click the **List files** button. Add the following code to the *index.js* file.
+List the contents of the storage container when you click the **List files** button. Add the following code to the end of the *index.js* file.
 
 ```javascript
 const listFiles = async () => {
@@ -342,7 +352,7 @@ This code calls the [ContainerClient.listBlobsFlat](/javascript/api/@azure/stora
 
 ### Upload blobs
 
-Upload files to the storage container when you click the **Select and upload files** button. Add the following code to the *index.js* file.
+Upload files to the storage container when you click the **Select and upload files** button. Add the following code to the end of the *index.js* file.
 
 ```javascript
 const uploadFiles = async () => {
@@ -372,7 +382,7 @@ This code connects the **Select and upload files** button to the hidden `file-in
 
 ### Delete blobs
 
-Delete files from the storage container when you click the **Delete selected files** button. Add the following code to the *index.js* file.
+Delete files from the storage container when you click the **Delete selected files** button. Add the following code to the end of the *index.js* file.
 
 ```javascript
 const deleteFiles = async () => {
@@ -407,7 +417,7 @@ To run the code inside the Visual Studio Code debugger, configure the *launch.js
 
 To set up the debugger extension in Visual Studio Code, select **Run > Add Configuration**, then select **Edge**, **Chrome**, or **Firefox**, depending on which extension you installed in the [Prerequisites](#prerequisites) section earlier. This action creates a *launch.json* file and opens it in the editor.
 
-Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
+Modify the *launch.json* file so that the `url` value is `http://localhost:1234/index.html`, as shown here:
 
 ```json
 {
@@ -427,7 +437,7 @@ Next, modify the *launch.json* file so that the `url` value includes `/index.htm
 }
 ```
 
-After updating, save this file. This configuration tells Visual Studio Code which browser to open and which URL to load.
+After updating, save the *launch.json* file. This configuration tells Visual Studio Code which browser to open and which URL to load.
 
 ### Launch the web server
 
@@ -441,11 +451,26 @@ This will bundle your code and start a local development server for your page at
 
 ### Start debugging
 
-Now you can run the page in the debugger and get a feel for how blob storage works. If any errors occur, the **Status** pane will display the error message received. You can set breakpoints in the JavaScript code to examine the values returned by the storage APIs. You can also verify the results of these API calls in the [Azure portal](https://portal.azure.com).
+Now you can run the page in the debugger and get a feel for how blob storage works. If any errors occur, the **Status** pane on the web page will display the error message received.
 
 To open *index.html* in the browser with the Visual Studio Code debugger attached, select **Run > Start Debugging** or press F5 in Visual Studio Code.
 
+### Use the web app
+
+You can verify the results of these API calls in the [Azure portal](https://portal.azure.com) as you do the steps below.
+
+1. Click the **Create container** button at the top of the page to create a new container.
+2. Click the **Select and upload files** button.
+3. In the **Open** dialog, select one or more files.
+4. Click the **Open** button to close the dialog and upload the selected files.
+5. Select one or more files in the **Files** list.
+6. Click the **Delete selected files** button to delete them.
+7. Click the **Delete container** button to delete the container and all files in the container.
+8. Close the web app.
+
 ### Clean up resources
+
+Click on the **Terminal** console in Visual Studio Code and press CTRL+C to stop the web server.
 
 To clean up the resources created during this quickstart, go to the [Azure portal](https://portal.azure.com) and delete the resource group you created in the [Prerequisites](#prerequisites) section.
 
