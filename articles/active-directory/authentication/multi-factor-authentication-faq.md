@@ -230,7 +230,7 @@ There are several reasons that users could be prompted to register their securit
 ## Errors
 
 * [What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
-* [What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?](#what-should-users-do-if-they-see-a-0x800434D4L-error-message-when-signing-in-to-a-non-browser-application)
+* [What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
 
 ### What should users do if they see an "Authentication request is not for an activated account" error message when using mobile app notifications?
 
