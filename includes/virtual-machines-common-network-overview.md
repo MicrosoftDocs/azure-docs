@@ -150,7 +150,7 @@ When working with virtual machine scale sets and load balancer, the following sh
   * Each virtual machine scale set must have an inbound NAT rule.
   * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically, this is by design.
 * **Load balancing rules**:
-  * When using the virtualm machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically, this is by design.
+  * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically, this is by design.
 * **Outbound rules**:
   *  To create outbound rule for a backend pool which is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
 
