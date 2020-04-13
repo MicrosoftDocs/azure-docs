@@ -23,7 +23,7 @@ ms.custom: devops
 Azure DevOps is a built-in Azure service that enables you to configure continuous integration and continuous delivery for any Azure resource. This document contains the steps to use Azure Pipelines, a fully featured set of CI/CD automation tools, to deploy your application to Azure Linux Virtual Machines using Canary deployment strategy. You can also take a look at other strategies like [rolling](https://aka.ms/AA7jlh8) and [blue-green](https://aka.ms/AA83fwu), which are supported out-of-box from Azure portal. 
 ![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
  
- ## TODO - add links to other strategies
+
 
 **Configure CI/CD on Linux Virtual Machines**
 
