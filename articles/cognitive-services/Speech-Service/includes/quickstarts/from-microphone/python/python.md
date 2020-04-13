@@ -39,4 +39,5 @@ Now you're ready to test the app, and verify the speech recognition functionalit
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+
