@@ -1,3 +1,16 @@
+---
+title:  "Web Service Input/Output"
+description: Learn about the web service modules in Azure Machine Learning designer (preview)
+titleSuffix: Azure Machine Learning
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+---
 # Web Service Input/Output
 
 This article describes **Web Service Input** module and **Web Service Output** module in Azure Machine Learning designer (preview).
@@ -10,7 +23,7 @@ This article describes **Web Service Input** module and **Web Service Output** m
 
 1. When you create a real-time inference pipeline from your training pipeline, **Web Service Input** and **Web Service Output** module will be automatically added to show where user data enters the pipeline and where data is returned. 
 
-   Learn more about [create a real-time inference pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline).
+   Learn more about [create a real-time inference pipeline](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline).
 
    > Note:
    >
@@ -33,5 +46,5 @@ This article describes **Web Service Input** module and **Web Service Output** m
    > In the above example, **Enter Data Manually** provides the data schema for web service input and is necessary for deploying the real-time endpoint. Generally, you should always connect a module or dataset to the port which **Web Service Input** is connected to provide the data schema.
    
 ## Next steps
-Learn more about [deploy the real-time endpoint](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Learn more about [deploy the real-time endpoint](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
 See the [set of modules available](module-reference.md) to Azure Machine Learning.
