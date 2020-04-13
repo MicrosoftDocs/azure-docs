@@ -240,7 +240,7 @@ phraseList.addPhrase("Supercalifragilisticexpialidocious");
 
 If you need to clear your phrase list:
 
-```csharp
+```javascript
 phraseList.clear();
 ```
 
