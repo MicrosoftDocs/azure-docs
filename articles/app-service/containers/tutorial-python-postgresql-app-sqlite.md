@@ -110,12 +110,6 @@ Also, a Django app by default uses Sqlite3 as the database. To run your app in p
 
     In App Service, you use *manage.py* to run database migrations, and App Service uses *azuresite/wsgi.py* to run your Django app in production. This change in both files ensures that the production settings are used in both cases.
 
-Commit your changes into your fork of the *djangoapp* repository:
-
-```bash
-git commit -am "configure for App Service"
-```
-
 ## Sign in to Azure CLI
 
 Run the following command in the terminal:
