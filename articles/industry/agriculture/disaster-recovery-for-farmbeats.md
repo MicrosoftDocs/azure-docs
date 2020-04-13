@@ -31,7 +31,7 @@ FarmBeats stores data in three Azure first party services, which are **Azure sto
 
 You can initiate failover and recover data stored for which, each of the above mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
 
-1. [Configure CosmosDB](#configure-cosmosdb)
+1. [Configure Cosmos DB](#configure-cosmos-db)
 2. [Configure Storage Account](#configure-storage-account)
 
 
