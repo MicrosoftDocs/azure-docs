@@ -31,7 +31,13 @@ FarmBeats stores data in three Azure first party services, which are **Azure sto
 
 You can initiate failover and recover data stored for which, each of the above mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
 
-1.	**Configure Cosmos DB** - Copy the access key of the restored Cosmos DB and update the new FarmBeats Datahub Key Vault.
+1. [Configure CosmosDB](#configure-cosmosdb)
+2. [Configure Storage Account](#configure-storage-account)
+
+
+### Configure Cosmos DB
+
+Copy the access key of the restored Cosmos DB and update the new FarmBeats Datahub Key Vault.
 
 
   ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
@@ -41,7 +47,9 @@ You can initiate failover and recover data stored for which, each of the above m
 
   ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
 
-2. **Configure Storage Account** - Copy the access key of the restored storage account and update it in the new FarmBeats Datahub Key Vault.
+### Configure Storage Account
+
+Copy the access key of the restored storage account and update it in the new FarmBeats Datahub Key Vault.
 
 ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
 
