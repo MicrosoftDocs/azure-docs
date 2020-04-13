@@ -108,7 +108,9 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md). 
+
+You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
 >[!div class="sxs-lookup" renderon="portal"]
 >#### Step 3: Run the project
@@ -138,12 +140,8 @@ After the browser loads the application, select **Login**. The first time you st
 
 ## Next steps
 
-To learn how to sign in a user and acquire tokens, see the Angular tutorial:
+Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
 
 > [!div class="nextstepaction"]
 > [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
 
-For documentation, FAQ, issues, and more, browse through the MSAL repo:
-
-> [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
