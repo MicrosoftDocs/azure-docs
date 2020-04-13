@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/12/2020
 ms.author: camper
 ---
 
@@ -41,8 +41,8 @@ We recommend you create a unique GUID for every offer and distribution channel f
 
 If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
 
-*    Product A in Azure Marketplace
-*    Product A on GitHub
+    - Product A in Azure Marketplace
+    - Product A on GitHub
 
 Reporting is done by Microsoft Partner Network ID and GUID.
 
