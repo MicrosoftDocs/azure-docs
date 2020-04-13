@@ -246,38 +246,64 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Microsoft Authentication Library (MSAL)
+  - name: Microsoft Authentication Library (MSAL) ######################################################################
     items:
     - name: Overview
       href: msal-overview.md
-    - name: Accounts and tenant profiles - Android
-      href: accounts-overview.md
-    - name: Authorization agents - Android
-      href: authorization-agents.md
-    - name: Brokered auth - Android
-      href: brokered-auth.md
+    - name: .NET
+      displayName: xamarin, ASP.NET Core
+      items:
+        - name: Initialize applications
+          href: msal-net-initializing-client-applications.md
+        - name: Client assertions
+          href: msal-net-client-assertions.md
+        - name: Integrate with Azure AD B2C
+          href: msal-net-aad-b2c-considerations.md
+        - name: Integrate with ADFS
+          href: msal-net-adfs-support.md
+        - name: Migrate to MSAL.NET
+          href: msal-net-migration.md
+        - name: Migrate Xamarin apps using brokers to MSAL.NET
+          href: msal-net-migration-ios-broker.md
+        - name: Web browser considerations
+          href: msal-net-web-browsers.md
+    - name: Android
+      items:
+        - name: Accounts and tenant profiles
+          href: accounts-overview.md
+        - name: Authorization agents
+          href: authorization-agents.md
+        - name: Brokered auth
+          href: brokered-auth.md
+        - name: Integrate with Azure AD B2C
+          href: msal-android-b2c.md
+        - name: Migrate to MSAL.Android
+          href: migrate-android-adal-msal.md
+        - name: Shared device mode
+          href: msal-android-shared-devices.md
+          displayName: firstline worker, frontline worker
+        - name: Single and multi account public client apps
+          href: single-multi-account.md
+    - name: iOS & macOS
+      items:
+    - name: Java
+      items:
+    - name: JavaScript & Node.js
+      items:
     - name: Migration
       items:
       - name: Overview
         href: msal-migration.md
-      - name: Migrate to MSAL.NET
-        href: msal-net-migration.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
-      - name: Migrate to MSAL.Android
-        href: migrate-android-adal-msal.md
       - name: Migrate to MSAL.iOS / macOS
         href: migrate-objc-adal-msal.md
       - name: Migrate to MSAL Python
         href: migrate-python-adal-msal.md
       - name: Migrate to MSAL for Java
         href: migrate-adal-msal-java.md
-      - name: Migrate Xamarin apps using brokers to MSAL.NET
-        href: msal-net-migration-ios-broker.md
     - name: Supported authentication flows
       href: msal-authentication-flows.md
-    - name: Single and multi account public client apps (Android)
-      href: single-multi-account.md
     - name: Acquire and cache tokens
       items:
       - name: Acquire and cache tokens
@@ -306,10 +332,6 @@
         href: msal-client-applications.md
       - name: Application configuration
         href: msal-client-application-configuration.md
-      - name: Initialize applications - .NET
-        href: msal-net-initializing-client-applications.md
-      - name: Client assertions - .NET
-        href: msal-net-client-assertions.md
       - name: Initialize applications - JavaScript
         href: msal-js-initializing-client-applications.md
     - name: Handle errors and exceptions
@@ -323,9 +345,6 @@
         displayName: shared device mode, firstline worker, frontline worker
       - name: Shared device mode for iOS devices
         href: msal-ios-shared-devices.md
-        displayName: firstline worker, frontline worker
-      - name: Shared device mode for Android devices
-        href: msal-android-shared-devices.md
         displayName: firstline worker, frontline worker
     - name: Single sign-on
       displayName: SSO
@@ -341,28 +360,18 @@
     - name: Integrate with ADFS
       displayName: Active Directory Federation Services
       items:
-      - name: ADFS support in MSAL.NET
-        href: msal-net-adfs-support.md
       - name: ADFS support in MSAL for Python
         href: msal-python-adfs-support.md
       - name: ADFS support in MSAL for Java
         href: msal-java-adfs-support.md
     - name: Integrate with Azure AD B2C
       items:
-      - name: Android
-        href: msal-android-b2c.md
       - name: JavaScript
         href: msal-b2c-overview.md
-      - name: .NET
-        href: msal-net-aad-b2c-considerations.md
       - name: iOS and macOS
         href: config-authority.md#b2c
     - name: Considerations and known issues
       items:
-        - name: MSAL.NET
-          items:
-          - name: Web browsers
-            href: msal-net-web-browsers.md
         - name: MSAL.js
           items:
           - name: Considerations - IE
@@ -373,7 +382,7 @@
             href: msal-js-known-issues-safari-browser.md
         - name: Troubleshoot SSL issues (MSAL iOS/macOS)
           href: ssl-issues.md
-  - name: Authentication protocols
+  - name: Authentication protocols #####################################################################################
     displayName: Auth protocol
     items:
     - name: Application types and OAuth 2.0
