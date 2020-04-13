@@ -15,7 +15,7 @@ App Service Static Apps publishes apps to a production environment by building w
 
 In this quickstart, you build a web application from a GitHub repository.
 
-If you don't have a Azure subscription, [create a free trial account](https://azure.microsoft.com/en-us/free).
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/en-us/free).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ If you don't have a Azure subscription, [create a free trial account](https://az
 
 ## Create a repository
 
-To help make it easy for you to create a new repository, you can create a new repo from a GitHub template repository. Each template includes a simple application powered by your preferred front-end framework.
+To make it easy for you to create a new repository, you use a GitHub template repository. Each template includes a simple application built with your preferred front-end framework.
 
 # [Angular](#tab/angular)
 
@@ -47,17 +47,17 @@ To help make it easy for you to create a new repository, you can create a new re
 - Name your repository **my-first-static-app**
 - Click the **Create repository from template** button
 
-# [Vanilla JavaScript](#tab/vanilla-javascript)
-
-- Navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-app**
-- Click the **Create repository from template** button
-
 # [Vue](#tab/vue)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
+
+# [No Framework](#tab/vanilla-javascript)
+
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
 - Name your repository **my-first-static-app**
 - Click the **Create repository from template** button
 
@@ -86,7 +86,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
 - Select your preferred _Organization_
 - Select **my-first-static-app** from the _Repository_ drop-down
-- Select **master** from the _Branch_ drop down
+- Select **master** from the _Branch_ drop-down
 - Click the **Next: Build >** button to edit the build configuration
 
 ### Build
@@ -114,13 +114,6 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **public** in the _App artifact location_ box
 - Click the **Review + create** button
 
-# [Vanilla JavaScript](#tab/vanilla-javascript)
-
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Clear the default value from _App artifact location_ box
-- Click the **Review + create** button
-
 # [Vue](#tab/vue)
 
 - Enter **/** in the _App location_ box
@@ -128,11 +121,18 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **dist** in the _App artifact location_ box
 - Click the **Review + create** button
 
+# [No Framework](#tab/vanilla-javascript)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Clear the default value from _App artifact location_ box
+- Click the **Review + create** button
+
 ---
 
 ### Review + create
 
-After the build validates, you can proceed to create the application.
+After the build validates, you can continue to create the application.
 
 - Click the **Create** button
 - Once the deployment is complete, click the **Go to resource** button
@@ -150,8 +150,9 @@ Once the provisioning and deployment is complete, you can click on the _URL_ lin
 
 If you're not going to continue to use this application, you can delete the static app through the following steps:
 
-1. Open the Azure portal
-1. Search for **my-first-static-app**
+1. Open the [Azure portal](https://portal.azure.com)
+1. Search for **my-first-static-app** from the top search bar
+1. Click on the app
 1. Click on the **Delete** button
 1. Click **Yes** to confirm the delete action
 
