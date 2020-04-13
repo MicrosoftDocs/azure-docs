@@ -13,7 +13,7 @@ ms.author: victorh
 
 In this quickstart, you use a Resource Manager template to deploy an Azure Firewall with multiple public IP addresses.
 
-NAT rule collection rules allows RDP connections to two Windows Server 2019 virtual machines.
+NAT rule collection rules allow RDP connections to two Windows Server 2019 virtual machines.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +29,7 @@ This template creates an Azure Firewall with two public IP addresses, along with
 
 The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/fw-docs-qs/azuredeploy.json)
 
-:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="235-370":::
+:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
 Multiple Azure resources are defined in the template:
 
@@ -51,15 +51,11 @@ Deploy Resource Manager template to Azure:
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-multipleip-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
-2. In the portal, on the **Create an Azure Firewall with IpGroups** page, type or select the following values:
+2. In the portal, on the **Create an Azure Firewall with multiple IP public addresses** page, type or select the following values:
    - Subscription: Select from existing subscriptions 
    - Resource group:  Select from existing resource groups or select **Create new**, and select **OK**.
    - Location: Select a location
-   - Virtual Network Name: Type a name for the new virtual network (VNet) 
-   - IP Group Name 1: Type name for IP Group 1 
-   - IP Group Name 2: Type name for IP Group 2 
    - Admin Username: Type username for the administrator user account 
-   - Authentication: Select sshPublicKey or password 
    - Admin Password: Type an administrator password or key
 
 3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
@@ -68,7 +64,7 @@ Deploy Resource Manager template to Azure:
 
 In the Azure portal, review the deployed resources. Note the firewall public IP addresses.  
 
-Use Remote Desktop Connection to connect to the firewall public IP addresses. A successful connection demonstrates the firewall NAT rules allowing the connection to the backend servers.
+Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connections demonstrates firewall NAT rules that allow the connection to the backend servers.
 
 ## Clean up resources
 
