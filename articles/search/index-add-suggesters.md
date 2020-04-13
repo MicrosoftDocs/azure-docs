@@ -38,13 +38,15 @@ When creating prefixes, a suggester has its own analysis chain, similar to the o
 
 ## Define a suggester
 
-Although a suggester has several properties, it is primarily a collection of fields for which you are enabling a search-as-you-type experience. For example, a travel app might want to enable autocomplete on destinations, cities, and attractions. As such, all three fields would go in the fields collection.
+Although a suggester has several properties, it is primarily a collection of fields for which you are enabling a search-as-you-type experience. Descriptive and unique fields work best.
 
-To create a suggester, add one to an index schema. You can have one suggester in an index (specifically, one suggester in the suggesters collection). A suggester takes a list of fields. 
+To create a suggester, add one to an [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index). In the index, you can have one suggester (specifically, one suggester in the suggesters collection). The best time to create a suggester is when you are also defining the field that will use it. 
 
-+ For suggestions, choose fields that best represent a single result. Names, titles, or other unique fields that distinguish among documents work best. If fields consist of similar or identical values, the suggestions will be composed of identical results and a user won't know which one to click.
++ `"searchMode": "analyzingInfixMatching"` is a required property and `analyzingInfixMatching` is the only valid value.
 
-+ Make sure each field in the suggester `sourceFields` list uses either the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`). 
++ In `sourceFields`, if you are enabling suggested results, choose fields that best represent a single result. Names, titles, or other unique fields that distinguish among documents work best. If fields consist of similar or identical values, the suggestions will be composed of identical results and a user won't know which one to click.
+
++ Make sure each field in the suggester `sourceFields` list uses an analyzer that performs lexical analysis during indexing. You can use either the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`). 
 
   Your choice of an analyzer determines how fields are tokenized and subsequently prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer will result in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string would not exist.
 

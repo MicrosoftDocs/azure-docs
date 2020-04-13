@@ -11,6 +11,29 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ---
 
+<!-- 
+suggestions
+   URL needs 3 things:  docs/suggest | autocomplete    search=   suggesterName=sg
+   
+   docs/ s | a = structures a request that produces suitable responses for a subsequent query (autocomplete) or suggested results. When you add s | a, the input is considered valid even if it is just a couple characters, as if you specified a prefix (min*) in the operation. 
+
+   search= is the query input, which matches on parts of a term (beginning or middle). It can be 1 character, but 2-3 characters is more efficient and effective.
+
+   docs/suggest gives you implied prefix search, but without the * operator: suggest?search=min behaves like search=min*
+   
+   docs/suggest gives you implied $select, returns just the sg-aware fields and a document id
+   
+   suggesterName gives you the suggester-aware fields that will be queries. Start with unique fields.
+   
+   search= are the character inputs. You can start queries at 1 but 2-3 is more efficient and effective.
+   
+   analysis for query processing is set by `"searchMode": "analyzingInfixMatching"` -- which is fixed -- flexible matching on the beginning of a term.
+
+   analysis for indexing is set by  `"analyzer": null` (default) or a language analyzer.
+
+   Postman collection for initial exploration. Stateless with no client code, which means you are manually specifying each query to inspect results: "w" <send>, "wo" <send>, "wol" <send>, "wolf" <send>. A search application would use JQuery or another search-as-you-type library to collect inputs and trigger each request.
+ -->
+
 # Add suggestions or autocomplete to your Azure Cognitive Search application
 
 This example demonstrates a search box that supports search-as-you-type behaviors. There are two features, which you can use together or separately:
