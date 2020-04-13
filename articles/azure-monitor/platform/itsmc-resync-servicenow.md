@@ -11,7 +11,8 @@ ms.date: 04/12/2020
 
 # How to manually fix ServiceNow sync problems
 
-Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers.
+Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers. 
+
 For security reasons, you may need to refresh the authentication token used for your connection with ServiceNow.
 Use the following sync process to reactivate the connection and refresh the token: 
 
@@ -45,6 +46,6 @@ Use the following sync process to reactivate the connection and refresh the toke
 
 f.    Review the notifications to see if the process finished with success 
 
-# Next Steps
+## Next Steps
 
 Learn more about [IT Service Management Connections](itsmc-connections.md)
