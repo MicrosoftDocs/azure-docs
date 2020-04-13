@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate 123FormBuilder SSO with Azure Active Directory (Azure AD). When you integrate 123FormBuilder SSO with Azure AD, you can:
 
 * Control in Azure AD who has access to 123FormBuilder SSO.
-* Enable your users to be automatically signed-in to 123FormBuilder SSO with their Azure AD accounts.
+* Enable your users to be automatically signed in to 123FormBuilder SSO with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -40,8 +40,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* 123FormBuilder SSO supports **SP and IDP** initiated SSO
-* 123FormBuilder SSO supports **Just In Time** user provisioning
+* 123FormBuilder SSO supports **SP and IDP** initiated SSO.
+* 123FormBuilder SSO supports **Just In Time** user provisioning.
 * Once you configure 123FormBuilder SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding 123FormBuilder SSO from the gallery
