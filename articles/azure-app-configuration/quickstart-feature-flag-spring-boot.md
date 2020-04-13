@@ -100,7 +100,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. In the App Configuration portal for your config store, select `Access keys` from the sidebar. Select the Read-only keys tab. Copy the value of the primary connection string.
@@ -280,7 +280,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the default URL for a locally hosted web app: `https://localhost:8080`.
+1. Open a browser window, and go to the URL: `http://localhost:8080/welcome`.
 
     ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
