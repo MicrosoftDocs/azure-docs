@@ -353,7 +353,7 @@ This article lists supported human languages for Immersive Reader features.
 | Vietnamese (Vietnam) | vi-VN |
 | Welsh | cy |
 
-## Syllbaification
+## Syllabification
 
 | Language | Tag |
 |----------|-----|
