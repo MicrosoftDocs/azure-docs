@@ -65,4 +65,6 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 
 
-## Supported endpoint protection solutions <a name="endpoint-supported"></a>
+## Reviewing dismissed alerts 
+
+To list all rules configured for a specified subscription. This method returns an array of the applicable rules.
