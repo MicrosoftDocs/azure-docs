@@ -89,4 +89,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Stack Edge](data-box-edge-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge](azure-stack-edge-deploy-prep.md) in Azure portal.

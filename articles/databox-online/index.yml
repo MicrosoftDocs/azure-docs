@@ -52,7 +52,7 @@ landingContent:
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
           - text: Azure Stack Edge limits
-            url: data-box-edge-limits.md
+            url: azure-stack-edge-limits.md
 
   # Card
   - title: "Deploy"
@@ -62,7 +62,7 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
           - text: Azure Stack Edge
-            url: data-box-edge-deploy-prep.md
+            url: azure-stack-edge-deploy-prep.md
 
   # Card
   - title: Develop
@@ -88,7 +88,7 @@ landingContent:
           - text: Edge compute
             url: azure-stack-edge-manage-compute.md
           - text: Edge compute network
-            url: data-box-edge-extend-compute-access-modules.md
+            url: azure-stack-edge-extend-compute-access-modules.md
 
   # Card
   - title: Troubleshoot

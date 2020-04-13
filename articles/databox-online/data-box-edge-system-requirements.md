@@ -130,4 +130,4 @@ Finally, make sure that you validate your solution on your dataset and quantify 
 
 ## Next step
 
-- [Deploy your Azure Stack Edge](data-box-edge-deploy-prep.md)
+- [Deploy your Azure Stack Edge](azure-stack-edge-deploy-prep.md)

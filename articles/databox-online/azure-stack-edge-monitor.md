@@ -45,4 +45,4 @@ Take the following steps in the local web UI to view the hardware status of your
 
 ## Next steps 
 
-Learn how to [Manage bandwidth](data-box-edge-manage-bandwidth-schedules.md).
+Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
