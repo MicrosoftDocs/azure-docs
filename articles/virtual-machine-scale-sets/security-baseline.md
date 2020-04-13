@@ -4,7 +4,7 @@ description: Azure Security Baseline for Virtual Machine Scale Sets
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -638,11 +638,13 @@ How to configure alert or alert and deny with Azure Firewall: https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2123).
 
-**Guidance**: &lt;--------------------NEED TO VALIDATE---------------------&gt;
+**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
-Microsoft Defender ATP is seamlessly integrated in Microsoft Threat Protection to provide a complete and comprehensive data loss prevention (DLP) solution for Windows Virtual machines.    Azure Advanced Threat Protection enables you to integrate Azure ATP with Windows Defender ATP and with Azure Security center.  For Linux Virtual machines, implement third party solution on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
+For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-Integrate Azure ATP with Windows Defender ATP: https://docs.microsoft.com/azure-advanced-threat-protection/integrate-wd-atp
+Understand customer data protection in Azure:
+
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: Yes
 
@@ -666,9 +668,9 @@ In-transit encryption in VMs: https://docs.microsoft.com/azure/security/fundamen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2125).
 
-**Guidance**: &lt;--------------------NEED TO VALIDATE---------------------&gt;
+**Guidance**: Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
 
-Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -694,14 +696,7 @@ Built-in roles for Azure resources (e.g. Virtual Machine Contributor): https://d
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2127).
 
-**Guidance**: &lt;--------------------NEED TO VALIDATE---------------------&gt;
-You can use Windows Defender ATP to provide data loss prevention functionality for Azure Windows virtual machines (VM).  Azure Advanced Threat Protection also enables you to integrate Azure ATP with Windows Defender ATP, for an even more complete threat protection solution. While Azure ATP monitors the traffic on your domain controllers, Windows Defender ATP monitors your endpoints, together providing a single interface from which you can protect your environment.
-
-For Linux VMs, implement a third party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to mitigate the risk of data breaches.
-
-Microsoft Defender Advanced Threat Protection with Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-wdatp
-
-Integrate Azure ATP with Windows Defender ATP: https://docs.microsoft.com/azure-advanced-threat-protection/integrate-wd-atp
+**Guidance**: Implement a third party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to mitigate the risk of data breaches.
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -913,7 +908,13 @@ How to enable Azure VM Inventory:  https://docs.microsoft.com/azure/automation/a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2141).
 
-**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.  You may use Change Tracking to identify all software installed on Virtual Machines. You can implement your own process or use Azure Automation State Configuration for removing unauthorized software. An introduction to Azure Automation:  https://docs.microsoft.com/azure/automation/automation-intro Track changes in your environment with the Change Tracking solution:  https://docs.microsoft.com/azure/automation/change-tracking Azure Automation State Configuration Overview:  https://docs.microsoft.com/azure/automation/automation-dsc-overview
+**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.  You may use Change Tracking to identify all software installed on Virtual Machines. You can implement your own process or use Azure Automation State Configuration for removing unauthorized software.
+
+An introduction to Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
+
+Track changes in your environment with the Change Tracking solution: https://docs.microsoft.com/azure/automation/change-tracking
+
+Azure Automation State Configuration Overview: https://docs.microsoft.com/azure/automation/automation-dsc-overview
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -955,7 +956,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4080).
 
-**Guidance**: Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux).  Implement third party solution if this does not meet your organization's requirement.
+**Guidance**: Use Adaptive application control to control which applications can run on your Azure and non-Azure machines (Windows and Linux).  Implement third party solution if this does not meet your organization's requirement.
 
 How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
@@ -1339,12 +1340,13 @@ Azure Key Vault soft-delete and purge protection overview:  https://docs.microso
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2169).
 
-**Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+**Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.  
 Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
 
-Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
+Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -1355,9 +1357,11 @@ Customer may also leverage NIST's Computer Security Incident Handling Guide to a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2170).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred. 
+**Guidance**: 
+Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview 
+Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -1371,9 +1375,10 @@ Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2171).
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. 
+**Guidance**: 
+Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://csrc.nist.gov/publications/detail/sp/800-84/final
 
-Identify weak points and gaps and revise plan as needed. Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1385,9 +1390,10 @@ Identify weak points and gaps and revise plan as needed. Refer to NIST's publica
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2172).
 
-**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved. 
-
+**Guidance**: 
+Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -1399,9 +1405,9 @@ How to set the Azure Security Center Security Contact: https://docs.microsoft.co
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2173).
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel. 
-
-How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export 
+**Guidance**: 
+Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
+How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 
 How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
@@ -1434,8 +1440,10 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2175).
 
 **Guidance**: 
-Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+Penetration Testing Rules of Engagement:  https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+
+Microsoft Cloud Red Teaming:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 
 

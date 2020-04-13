@@ -4,7 +4,7 @@ description: Azure Security Baseline for App Service
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

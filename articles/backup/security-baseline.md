@@ -4,7 +4,7 @@ description: Azure Security Baseline for Backup
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -34,7 +34,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
 
@@ -217,7 +217,7 @@ Using diagnostic settings to for Recovery Services Vaults: https://docs.microsof
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -283,7 +283,7 @@ Create, view, and manage log alerts using Azure Monitor: https://docs.microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 2.9: Enable DNS query logging
 
@@ -305,7 +305,7 @@ Create, view, and manage log alerts using Azure Monitor: https://docs.microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ## Identity and Access Control
 
@@ -703,7 +703,7 @@ Understanding security controls available for Azure Backup: https://docs.microso
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 5.3: Deploy automated third-party software patch management solution
 
@@ -714,7 +714,7 @@ Understanding security controls available for Azure Backup: https://docs.microso
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 5.4: Compare back-to-back vulnerability scans
 
@@ -725,7 +725,7 @@ Understanding security controls available for Azure Backup: https://docs.microso
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -840,7 +840,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
@@ -851,7 +851,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.8: Use only approved applications
 
@@ -862,7 +862,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
 
@@ -892,7 +892,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
 
@@ -917,7 +917,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -928,7 +928,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ## Secure Configuration
 
@@ -959,7 +959,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 7.3: Maintain secure Azure resource configurations
 
@@ -986,7 +986,7 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Shared
+**Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -1013,7 +1013,7 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy system configuration management tools
 
@@ -1038,7 +1038,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
@@ -1063,7 +1063,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
 
@@ -1093,7 +1093,7 @@ Services that support managed identities for Azure resources: https://docs.micro
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -1124,14 +1124,14 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4600).
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on your content. 
+**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Backup), however it does not run on your content. 
 
 Pre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc. 
 
@@ -1140,7 +1140,6 @@ Use Azure Security Center's Threat detection for data services to detect malware
 Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 Understand Azure Security Center's Threat detection for data services: https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services
-
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1155,7 +1154,7 @@ Understand Azure Security Center's Threat detection for data services: https://d
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ## Data Recovery
 
@@ -1170,16 +1169,14 @@ Understand Azure Security Center's Threat detection for data services: https://d
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4603).
 
-**Guidance**: Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
-
-Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
+**Guidance**: Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
 
 Backup customer managed keys within Azure Key Vault.
 
@@ -1187,6 +1184,7 @@ Azure Backup Overview: https://docs.microsoft.com/azure/backup/backup-overview
 
 How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
+Understand encryption in Azure Backup: https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1211,10 +1209,9 @@ How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/mo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4605).
 
-**Guidance**: For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
+**Guidance**: For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable soft-delete in Key Vault to protect keys against accidental or malicious deletion.
 
-How to enable Soft-Delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
-
+How to enable soft-delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -1308,8 +1305,7 @@ How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/senti
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-\How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
-
+How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center monitoring**: Not applicable
 
