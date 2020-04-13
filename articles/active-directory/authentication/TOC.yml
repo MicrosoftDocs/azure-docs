@@ -68,16 +68,16 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Cloud-based MFA
+  - name: Azure Multi-Factor Authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
-    - name: Per user MFA
-      href: howto-mfa-userstates.md
-    - name: User and device settings
-      href: howto-mfa-userdevicesettings.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
+    - name: Configure users
+      href: howto-mfa-userdevicesettings.md
+    - name: Enable per-user MFA
+      href: howto-mfa-userstates.md
     - name: Configure authentication providers
       href: concept-mfa-authprovider.md
     - name: Directory Federation
