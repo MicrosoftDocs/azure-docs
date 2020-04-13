@@ -159,7 +159,7 @@ The following example shows how to upload an image file in the **Execute Python 
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -215,7 +215,7 @@ The **Execute Python Script** module contains sample Python code that you can us
     The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Be sure to follow Python conventions about indentation and casing.
 
     + The script must contain a function named `azureml_main` as the entry point for this module.
-    + The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
+    + The entry point function must have two input arguments: `Param<dataframe1>` and `Param<dataframe2>`, even when these arguments are not used in your script.
     + Zipped files connected to the third input port are unzipped and stored in the directory, `.\Script Bundle`, which is also added to the Python `sys.path`. 
 
     Therefore, if your zip file contains `mymodule.py`, import it using `import mymodule`.
