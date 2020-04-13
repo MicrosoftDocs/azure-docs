@@ -152,9 +152,13 @@ The Front Door managed option provisions a standard TLS/SSL certificate via Digi
 For the Front Door managed certificate option, the certificates are autorotated by Front Door. If you are using a Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket.
 </br>For your own custom TLS/SSL certificate, autorotation isn't supported. Similar to how it was set up the first time for a given custom domain, you will need to point Front Door to the right certificate version in your Key Vault and ensure that the service principal for Front Door still has access to the Key Vault. This updated certificate rollout operation by Front Door is atomic and doesn't cause any production impact provided the subject name or SAN for the certificate doesn't change.
 
+### Can I configure TLS policy to control TLS Protocol versions?
+
+You can configure a minimum TLS version in Azure Front Door in the custom domain HTTPS settings via Azure portal or the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
+
 ### What are the current cipher suites supported by Azure Front Door?
 
-The following are the current cipher suites supported by Azure Front Door:
+The following are the current cipher suites supported by Azure Front Door when configured for TLS 1.0:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -177,9 +181,14 @@ The following are the current cipher suites supported by Azure Front Door:
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### Can I configure TLS policy to control TLS Protocol versions?
+The following are the current cipher suites supported by Azure Front Door when configured for TLS 1.2:
 
-You can configure a minimum TLS version in Azure Front Door in the custom domain HTTPS settings via Azure portal or the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+
+
 
 ### Can I configure Front Door to only support specific cipher suites?
 
