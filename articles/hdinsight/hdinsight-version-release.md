@@ -90,6 +90,8 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 * Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
 * You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
 * Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
+* With Spark 2.4 and Kafka 2.1 available in HDInsight 4.0, Spark 2.3 and Kafka 1.1 are not serviced anymore. We recommend using Spark 2.4 & Kafka 2.3 and above in HDInsight 4.0
+
 
 ## Next steps
 
