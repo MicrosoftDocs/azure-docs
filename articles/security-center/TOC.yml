@@ -72,6 +72,8 @@
       href: alerts-schemas.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
+    - name: Suppress some alerts
+      href: alerts-suppression-rules.md
     - name: Manage security incidents
       href: security-center-incident.md
     - name: Cloud Smart Alert correlation (incidents)
