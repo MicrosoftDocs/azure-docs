@@ -12,6 +12,8 @@ ms.custom: security-benchmark
 
 # Security Control: Penetration Tests and Red Team Exercises
 
+Test the overall strength of an organization's defense (the technology, the processes, and the people) by simulating the objectives and actions of an attacker.
+
 ## 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of allcritical security findings
 
 | Azure ID | CIS IDs | Responsibility |
@@ -22,5 +24,4 @@ Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are no
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
-
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)\n

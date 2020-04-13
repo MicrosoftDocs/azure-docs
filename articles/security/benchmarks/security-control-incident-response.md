@@ -12,6 +12,8 @@ ms.custom: security-benchmark
 
 # Security Control: Incident Response
 
+Protect the organization's information, as well as its reputation, by developing and implementing an incident response infrastructure (e.g., plans, defined roles, training, communications, management oversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
+
 ## 10.1: Create an incident response guide
 
 | Azure ID | CIS IDs | Responsibility |
@@ -24,8 +26,7 @@ Build out an incident response guide for your organization. Ensure that there ar
 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-- [Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
-
+- [Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)\n
 ## 10.2: Create an incident scoring and prioritization procedure
 
 | Azure ID | CIS IDs | Responsibility |
@@ -38,8 +39,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 - [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
-
+- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)\n
 ## 10.3: Test security response procedures
 
 | Azure ID | CIS IDs | Responsibility |
@@ -48,8 +48,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
-- [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
-
+- [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)\n
 ## 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 | Azure ID | CIS IDs | Responsibility |
@@ -58,8 +57,7 @@ Conduct exercises to test your systems’ incident response capabilities on a re
 
 Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
-
+- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)\n
 ## 10.5: Incorporate security alerts into your incident response system
 
 | Azure ID | CIS IDs | Responsibility |
@@ -70,8 +68,7 @@ Export your Azure Security Center alerts and recommendations using the Continuou
 
 - [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
-
+- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)\n
 ## 10.6: Automate the response to security alerts
 
 | Azure ID | CIS IDs | Responsibility |
@@ -80,5 +77,4 @@ Export your Azure Security Center alerts and recommendations using the Continuou
 
 Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
-
+- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)\n
