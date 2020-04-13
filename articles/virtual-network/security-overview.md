@@ -40,7 +40,7 @@ Existing connections may not be interrupted when you remove a security rule that
 
 There are limits to the number of security rules you can create in a network security group. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### <a name="default-security-rule"></a> Default security rules
+### <a name="default-security-rules"></a> Default security rules
 
 Azure creates the following default rules in each network security group that you create:
 
