@@ -74,7 +74,7 @@ Using regional VNet Integration enables your app to access:
 * resources across ExpressRoute connections
 * resources in the VNet you are connected to
 * resources across peered connections including ExpressRoute connections
-* private endpoints 
+* private endpoints - Note: DNS must be managed separately rather than using Azure DNS private zones
 
 When using VNet Integration with VNets in the same region, you can use the following Azure Networking features:
 
