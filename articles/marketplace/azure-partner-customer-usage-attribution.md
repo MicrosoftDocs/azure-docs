@@ -1,6 +1,6 @@
 ---
-title: Commerical Marketplace partner and customer usage attribution
-description: Overview of how to track customer usage for Azure Marketplace solutions
+title: Commercial Marketplace partner and customer usage attribution
+description: Get an overview of tracking customer usage for Azure Marketplace solutions.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.date: 04/13/2020
 ms.author: dsindona
 ---
 
-# Commerical Marketplace partner and customer usage attribution
+# Commercial Marketplace partner and customer usage attribution
 
 Customer usage attribution is a method to associate Azure resources running in customer subscriptions, deployed to run your solution, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. When you adopt this tracking capability, you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
