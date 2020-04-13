@@ -132,7 +132,7 @@ You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while 
 
 ### Disconnect
 
-Specifies the agent deletes the Azure Resource Manager resource representing the machine in Azure. It does not delete the agent from the machine. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` to create a new resource for it in Azure.
+This parameter specifies the agent deletes the Azure Resource Manager resource representing the machine in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
 
 To disconnect using a service principal, run the following command:
 
