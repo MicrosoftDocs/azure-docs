@@ -11,11 +11,9 @@ ms.author: cshoe
 
 # Quickstart: Building your first static app
 
-App Service Static Apps publishes apps to a production environment by building web apps from a GitHub repository.
+App Service Static Apps publishes apps to a production environment by building web apps from a GitHub repository. In this quickstart, you build a web application from a GitHub repository.
 
-In this quickstart, you build a web application from a GitHub repository.
-
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/en-us/free).
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
 ## Prerequisites
 
