@@ -67,7 +67,7 @@ You can deploy the **Start/stop VMs during off-hours** solution to a new Automat
 
 The user deploying the solution needs the following roles:
 
-- Coadministrator on subscription. This role is required to create the Classic Run As account if you are going to manage Classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#classic-run-as-accounts) are no longer created by default.
+- Coadministrator on subscription. This role is required to create the Classic Run As account if you are going to manage Classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
 - Membership in the [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
 - Contributor on the subscription or the following permissions.
 
@@ -126,7 +126,7 @@ The following table lists the variables created in your Automation account. Only
 |External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable `External_AutoStop_MetricName`. Percentage values range from 1 to 100.|
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator applied to the selected window size to evaluate the condition. Acceptable values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.|
 |External_AutoStop_TimeWindow | The size of the window during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
-|External_EnableClassicVMs| Value specifying if classic VMs are targeted by the solution. The default value is True. Set this variable to False for Azure Cloud Solution Provider (CSP) subscriptions. Classic VMs require a [Classic Run-As account](automation-create-standalone-account.md#classic-run-as-accounts).|
+|External_EnableClassicVMs| Value specifying if classic VMs are targeted by the solution. The default value is True. Set this variable to False for Azure Cloud Solution Provider (CSP) subscriptions. Classic VMs require a [Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).|
 |External_ExcludeVMNames | Comma-separated list of VM names to exclude, limited to 140 VMs. If you add more than 140 VMs to the list, VMs that are set to be excluded might be inadvertently started or stopped.|
 |External_Start_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for start actions.|
 |External_Stop_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for stop actions.|
