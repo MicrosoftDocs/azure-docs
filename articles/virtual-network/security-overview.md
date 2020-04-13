@@ -18,9 +18,7 @@ ms.reviewer: kumud
 # Network security groups
 <a name="network-security-groups"></a>
 
-You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. To learn about which Azure resources can be deployed into a virtual network and have network security groups associated to them, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md). For each rule, you can specify source and destination, port, and protocol.
-
-This article explains network security group concepts, to help you use them effectively. If you've never created a network security group, you can complete a quick [tutorial](tutorial-filter-network-traffic.md) to get some experience creating one. If you're familiar with network security groups and need to manage them, see [Manage a network security group](manage-network-security-group.md). If you're having communication problems and need to troubleshoot network security groups, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md). You can enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to analyze network traffic to and from resources that have an associated network security group.
+You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. . For each rule, you can specify source and destination, port, and protocol. This article explains network security group concepts, to help you use them effectively.
 
 ## Security rules
 
@@ -165,4 +163,8 @@ You can easily view the aggregate rules applied to a network interface by viewin
 
 ## Next steps
 
-* Learn how to [Create a network security group](tutorial-filter-network-traffic.md).
+* To learn about which Azure resources can be deployed into a virtual network and have network security groups associated to them, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md)
+* If you've never created a network security group, you can complete a quick [tutorial](tutorial-filter-network-traffic.md) to get some experience creating one. 
+* If you're familiar with network security groups and need to manage them, see [Manage a network security group](manage-network-security-group.md). 
+* If you're having communication problems and need to troubleshoot network security groups, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md). 
+* Learn how to enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to analyze network traffic to and from resources that have an associated network security group.

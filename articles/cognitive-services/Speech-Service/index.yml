@@ -22,15 +22,15 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
@@ -50,29 +50,29 @@ conceptualContent:
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: how-to-guide
+          text: Speech synthesis basics
+          url: text-to-speech-basics.md
         - itemType: quickstart
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - itemType: quickstart
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
-          text: Customize speech synthesis for your apps
-          url: how-to-custom-voice.md
       footerLink:
         text: See more
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md
       - itemType: quickstart
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
         text: Translate speech into multiple target languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
       footerLink:
         text: See more
         url: index-speech-translation.yml

@@ -151,6 +151,8 @@
             href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
             href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Move groups from one forest to another
+            href: how-to-connect-migrate-groups.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview

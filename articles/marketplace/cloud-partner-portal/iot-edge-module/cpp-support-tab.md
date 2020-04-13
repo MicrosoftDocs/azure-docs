@@ -5,11 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
 ---
 
 # IoT Edge module Support tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 Use the **Support** tab of the **New Offer** page to provide technical and user support resources for your offer.  The following input areas are provided on the Support form: **Engineering Contact**, **Customer Support**, and **Support Urls**. An asterisk (*) appended to the field name indicates that it's required.
 

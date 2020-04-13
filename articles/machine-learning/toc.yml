@@ -16,20 +16,27 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Studio & Designer
+  - name: Studio
     items:
-    - name: 'Designer: 1. Train a regression model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 'Designer: 2. Deploy that model'
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-    - name: Create an automated ML experiment
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
-    - name: Forecast demand with automated ML (Bike share data)
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-automated-ml-forecast.md
+    - name: Designer (drag-n-drop)
+      items:
+      - name: '1. Train a regression model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-train-score.md
+      - name: '2. Deploy that model'
+        displayName: studio
+        href: tutorial-designer-automobile-price-deploy.md
+    - name: Automated ML (UI)
+      items:
+      - name: Create automated ML experiments
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-first-experiment-automated-ml.md
+      - name: Forecast demand (Bike share data)
+        displayName: automl, automated, auto ml, portal, ui
+        href: tutorial-automated-ml-forecast.md
+    - name: Label image data
+      displayName: tag, tagging, images
+      href: tutorial-labeling.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -76,14 +83,14 @@
   - name: Jupyter Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
-  - name: Azure Open Datasets
-    href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
   - name: Designer datasets
     href: sample-designer-datasets.md
+  - name: Designer sample pipelines
+    href: samples-designer.md
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
-  - name: Designer pipelines
-    href: samples-designer.md
+  - name: Open Datasets (public)
+    href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
   - name: Workspace
@@ -113,10 +120,10 @@
     href: /azure/machine-learning/algorithm-cheat-sheet
   - name: How to select algorithms
     href: /azure/machine-learning/how-to-select-algorithms       
-  - name: Automated machine learning
+  - name: Automated ML
     displayName: automl, auto ml
     href: concept-automated-ml.md
-  - name: Manage ML pitfalls
+  - name: Overfitting & imbalanced data
     displayName: automl, auto ml, risks
     href: concept-manage-ml-pitfalls.md    
   - name: Compute instance
@@ -260,13 +267,13 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-  - name: Interpret models
+  - name: Explain models
     displayName: interpretability
     items:
-    - name: Interpret local and remote models
+    - name: Explain ML models
       displayName: SDK, interpret
       href: how-to-machine-learning-interpretability-aml.md
-    - name: Interpret automated ML models
+    - name: Explain automated ML models
       displayName: SDK, interpret, automl
       href: how-to-machine-learning-interpretability-automl.md
   - name: Automate machine learning
@@ -351,6 +358,8 @@
     items:
     - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
+    - name: Moving data into and between ML pipeline steps (Python)
+      href: how-to-move-data-in-out-of-pipelines.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
     - name: Trigger a pipeline
