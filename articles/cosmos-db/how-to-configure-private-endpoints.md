@@ -622,7 +622,7 @@ The following situations and outcomes are possible when you use Private Link in 
 
 ## Blocking public network access during account creation
 
-As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. See [this Azure Resource Manager template](https://azure.microsoft.com/en-us/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
+As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
 
 ## Update a private endpoint when you add or remove a region
 
