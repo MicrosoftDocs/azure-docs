@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/05/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 
 ---
