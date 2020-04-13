@@ -11,8 +11,8 @@
 - name: Concepts
   items:
   - name: Support for working remotely
-    href: ../networking/working-remotely-support.md
-  - name: Leverage Azure Bastion for remote working
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
+  - name: Leverage Bastion for remote working
     href: work-remotely-support.md
 - name: How-to guides
   items:
