@@ -48,7 +48,7 @@ This sample shows how to install Zoo:
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# The entry point function MUST have two input arguments:
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -73,7 +73,7 @@ The following example shows how to upload an image file in the **Execute R Scrip
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# The entry point function MUST have two input arguments:
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -127,7 +127,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
     # The script MUST contain a function named azureml_main
     # which is the entry point for this module.
 
-    # The entry point function can contain up to two input arguments:
+    # The entry point function MUST have two input arguments:
     #   Param<dataframe1>: a R DataFrame
     #   Param<dataframe2>: a R DataFrame
     azureml_main <- function(dataframe1, dataframe2){
@@ -144,8 +144,8 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
  * The script must contain a function named `azureml_main`, which is the entry point for this module.
 
- * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
- 
+ * The entry point function must have two input arguments: `Param<dataframe1>` and `Param<dataframe2>`, even when these two arguments are not used in the function.
+
    > [!NOTE]
     > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning designer (the designer reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
  
@@ -191,7 +191,7 @@ The following sample shows how to scale and normalize input data:
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
