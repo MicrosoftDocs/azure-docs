@@ -1,15 +1,15 @@
 ---
-title: Azure partner and customer usage attribution | Azure Marketplace
+title: Azure Partner and Customer Usage Attribution | Azure Marketplace
 description: Overview of how to track customer usage for Azure Marketplace solutions
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/12/2020
+ms.date: 04/13/2020
 ms.author: camper
 ---
 
-# Azure partner and customer usage attribution
+# Azure Partner and Customer Usage Attribution
 
 Customer usage attribution is a method to associate Azure resources running in customer subscriptions, deployed to run your solution, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. When you adopt this tracking capability, you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
@@ -41,8 +41,8 @@ We recommend you create a unique GUID for every offer and distribution channel f
 
 If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
 
-    - Product A in Azure Marketplace
-    - Product A on GitHub
+- Product A in Azure Marketplace
+- Product A on GitHub
 
 Reporting is done by Microsoft Partner Network ID and GUID.
 
@@ -181,53 +181,6 @@ Partners who want to get their deployment via Terraform tracked by customer usag
 * Create a GUID (the GUID should be added for each Offer or SKU)
 * Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
 
-<<<<<<< HEAD
-=======
-## Create GUIDs
-
-A GUID is a unique reference number that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
-
-> [!Note]
-> It is highly recommended that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
-
-We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
-
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
-
-*    Product A in Azure Marketplace
-*    Product A on GitHub
-
-Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs.
-
-You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
-
-## Register GUIDs and offers
-
-The GUIDs must be registered to enable customer usage attribution.
-
-All registrations for template GUIDs are done within Partner Center.
-
-After you add the GUID to your template or in the user agent, and register the GUID in Partner Center, all deployments are tracked.
-
-1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
-
-   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in the commercial marketplace.
-   * Partners can register multiple GUIDs.
-   * Partners can register a GUID for the non-Marketplace solution templates and offers.
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
-
-1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
-
-1. On the **Account settings page**, select **Add Tracking GUID.**
-
-1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
-
-1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
-
-1. Select **Save**.
-
->>>>>>> master
 
 ## Verify the GUID deployment
 
@@ -317,7 +270,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 
 1. On the next page, enter the required values.
 
-   > [!Important]
+   > [!IMPORTANT]
    > In the **Incident title** box, enter **ISV Usage Tracking**. Describe your issue in detail.
 
    ![Enter ISV Usage Tracking for the incident title](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
@@ -331,8 +284,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 1. Visit [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
-1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your
-sign-in credentials, an online request form will open:
+1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your sign-in credentials, an online request form will open:
     * Complete/review the contact information.
     * The consultation details may be pre-populated or select from the drop-downs.
     * Enter a title and the description of the problem (provide as much detail as possible).
@@ -356,11 +308,7 @@ Yes, a customer or implementation partner may customize the template and can cha
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
-<<<<<<< HEAD
 Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners must still register their GUIDs.
-=======
-Yes, as long as the GUID is present when the template is deployed, usage is tracked. Partners are required to have a profile in the commercial marketplace enrollment in Partner Center to register GUIDs used for the deployment outside of the Azure Marketplace.
->>>>>>> master
 
 **Does the customer receive reporting as well?**
 
