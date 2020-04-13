@@ -26,7 +26,6 @@ After you create the model, you can use [Train Model](train-model.md) to train t
 ## Configure the module
 
 Use of this module requires intermediate or expert knowledge of Python. The module supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. See the preinstalled Python package list in [Execute Python Script](execute-python-script.md).
-  
 
 > [!NOTE]
 > Please be very careful when writing your script and makes sure there is no syntax error,  such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). If you need to import modules which are not listed, please installing the corresponding packages such as
@@ -40,6 +39,9 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 ![Diagram of Create Python Model](./media/module/create-python-model.png)
 
 1. Select **Create Python Model**, and edit the script to implement your modeling or data management process. You can base the model on any learner that's included in a Python package in the Azure Machine Learning environment.
+
+> [!NOTE]
+> Please pay extra attention to the comments of the sample code of the script and make sure your script strictly follows the requirement, such as the class name, methods as well as method signature. Violation will lead to exceptions. 
 
    The following sample code of the two-class Naive Bayes classifier uses the popular *sklearn* package:
 
