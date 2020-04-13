@@ -246,7 +246,7 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Microsoft Authentication Library (MSAL) ######################################################################
+  - name: Microsoft Authentication Library (MSAL)
     items:
     - name: Overview
       href: msal-overview.md
@@ -382,7 +382,7 @@
             href: msal-js-known-issues-safari-browser.md
         - name: Troubleshoot SSL issues (MSAL iOS/macOS)
           href: ssl-issues.md
-  - name: Authentication protocols #####################################################################################
+  - name: Authentication protocols
     displayName: Auth protocol
     items:
     - name: Application types and OAuth 2.0
