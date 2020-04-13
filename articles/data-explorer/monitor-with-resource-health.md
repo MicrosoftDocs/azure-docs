@@ -39,7 +39,7 @@ A health status of **Available** indicates that your Azure Data Explorer resourc
 
 ### Unavailable
 
-A health status of **Unavailable** indicates that there's an ongoing problem with your Azure Data Explorer resource that causes it to be unavailable for queries and ingestion. For example, nodes in your Azure Data Explorer resource may have rebooted unexpectedly. If your Azure Data Explorer resource remains in this state for an extended period of time, contact [support]().
+A health status of **Unavailable** indicates that there's an ongoing problem with your Azure Data Explorer resource that causes it to be unavailable for queries and ingestion. For example, nodes in your Azure Data Explorer resource may have rebooted unexpectedly. If your Azure Data Explorer resource remains in this state for an extended period of time, contact support.
 
 ![Unavailable](media/monitor-with-resource-health/unavailable.png)
 

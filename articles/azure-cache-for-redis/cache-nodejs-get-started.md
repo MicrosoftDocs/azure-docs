@@ -37,7 +37,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## Connect to the cache
 
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using SSL. The following example shows how to connect to Azure Cache for Redis using the SSL endpoint of 6380. 
+The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using TLS. The following example shows how to connect to Azure Cache for Redis using the TLS endpoint of 6380. 
 
 ```js
 var redis = require("redis");
@@ -65,7 +65,7 @@ bluebird.promisifyAll(redis.Multi.prototype);
 
 async function testCache() {
 
-    // Connect to the Azure Cache for Redis over the SSL port using the key.
+    // Connect to the Azure Cache for Redis over the TLS port using the key.
     var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
         {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
         
