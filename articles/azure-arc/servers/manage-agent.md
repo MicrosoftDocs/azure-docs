@@ -110,7 +110,7 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## About the Azcmagent tool
 
-The Azcmagent tool (Azcmagent.exe) is used to configure the agent during installation, or modify the initial configuration of the Azure Arc for servers Connected Machine agent after it is installed. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
+The Azcmagent tool (Azcmagent.exe) is used to configure the agent during installation, or modify the initial configuration of the Azure Arc for servers (preview) Connected Machine agent after it is installed. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
 
 * **Connect** - To connect the machine to Azure Arc
 
@@ -120,13 +120,17 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the agent during install
 
 * **Show** - View agent status and its configuration properties (Resource Group name, Subscription Id, version, etc.), which can help when troubleshooting an issue with the agent.
 
-* **-h or --help** - Shows available command-line parameters
+* **-h or --help** - Shows available command-line parameters. 
+
+    For example, to see detailed help for the **Reconnect** parameter, type `azcmagent reconnect -h`. 
 
 * **-v or --verbose** - Enable verbose logging
 
+### Connect 
 
+### Disconnect
 
-The tool su
+Specifies the agent deletes the Azure Resource Manager resource representing the machine in Azure. It does not delete the agent from the machine. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` to create a new resource for it in Azure.
 
 ## Remove the agent
 
