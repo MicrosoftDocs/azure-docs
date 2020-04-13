@@ -30,11 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you start, download this entire repository to your machine. We recommend downloading as a ZIP file.
 
-The sample for this quickstart is written in C#. To run it, you need the .NET Core SDK 2.1.0 or greater on your development machine.
-  * You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
-  * You can verify the current version of C# on your development machine using `dotnet --version`.
+Before you start, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
 
-Next, run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance.
+Next, run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
