@@ -74,9 +74,7 @@ You can adjust retention and toggle between the two modes on the environment’s
 
 ### Environment planning
 
-The second area to focus on for planning your Time Series Insights environment is ingress capacity. Ingress capacity is a derivative of the per-minute allocation.
-
-From a throttling perspective, an ingressed data packet that has a packet size of 32 KB is treated as 32 events, each 1 KB in size. The maximum allowed event size is 32 KB. Data packets larger than 32 KB are truncated.
+The second area to focus on for planning your Time Series Insights environment is ingress capacity. The daily ingress storage and event capacity is measured per minute, in 1-KB blocks. The maximum allowed packet size is 32 KB. Data packets larger than 32 KB are truncated.
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You can't migrate from an S1 environment to an S2. You can't migrate from an S2 environment to an S1.
 
