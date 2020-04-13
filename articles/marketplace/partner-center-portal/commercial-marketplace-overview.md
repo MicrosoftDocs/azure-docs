@@ -1,7 +1,7 @@
 ---
 title: Overview of the Commercial Marketplace portal in Partner Center 
 description: Learn more about the Commercial Marketplace portal in Partner Center and how to list and sell offers on Azure Marketplace, AppSource, and through the Cloud Solution Provider (CSP) program.
-author: dsindona 
+author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
