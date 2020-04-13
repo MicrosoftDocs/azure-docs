@@ -18,9 +18,10 @@ ms.reviewer: kumud
 # Network security groups
 <a name="network-security-groups"></a>
 
-You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. . For each rule, you can specify source and destination, port, and protocol. This article explains network security group concepts, to help you use them effectively.
+You can use Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains [security rules](#security-rules) that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+This article describes properties of a network security group rule, the [default security rules](#default-security-rules) that are applied, and the rule properties that you can modify to create an [augmented security rule](#augmented-security-rules).
 
-## Security rules
+## <a name="security-rules"></a> Security rules
 
 A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
 
@@ -39,7 +40,7 @@ Existing connections may not be interrupted when you remove a security rule that
 
 There are limits to the number of security rules you can create in a network security group. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### Default security rules
+### <a name="default-security-rule"></a> Default security rules
 
 Azure creates the following default rules in each network security group that you create:
 
@@ -87,7 +88,7 @@ In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalan
  
 You cannot remove the default rules, but you can override them by creating rules with higher priorities.
 
-### Augmented security rules
+### <a name="augmented-security-rules"></a> Augmented security rules
 
 Augmented security rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports and multiple explicit IP addresses and ranges into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. To simplify maintenance of your security rule definition, combine augmented security rules with [service tags](service-tags-overview.md) or [application security groups](#application-security-groups). There are limits to the number of addresses, ranges, and ports that you can specify in a rule. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
