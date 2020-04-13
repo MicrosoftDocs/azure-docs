@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Container publishing prerequisites
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
+
 This article describes the prerequisites for publishing a container offer on the Azure Marketplace.  If you have not already done so, you should review the [Containers Offer Publishing Guide](../../marketplace-containers.md).
 
 ## Publishing prerequisites
