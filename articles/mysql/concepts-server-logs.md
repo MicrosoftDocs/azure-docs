@@ -42,7 +42,7 @@ When logging to the server's local storage, logs are available for up to seven d
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
 [!NOTE]
-> The above log retention does not apply to logs that are piped using Azure Monitor Logs. Customers can change the retention period for the data sinks being emitted to.
+> The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. You can change the retention period for the data sinks being emitted to (ex. Azure Storage).
 
 ## Diagnostic logs
 Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/platform-logs-overview.md).
