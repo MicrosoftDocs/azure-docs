@@ -201,9 +201,8 @@ When you update the autoshutdown setting, you will see the activity logged in th
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the home page for your VM.
 2. Select **Activity log** from the left menu. 
-3. Confirm that you see the **Add or modify schedules** operation in the activity log. 
-
-    If you don't see it, remove **Resource: mycomputevm** from the filters. If you still don't see it, wait for sometime and refresh the activity log.
+3. Remove **Resource: mycomputevm** from filters.
+3. Confirm that you see the **Add or modify schedules** operation in the activity log. If you don't see it, wait for sometime and refresh the activity log.
 
     ![Activity log entry](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
 4. Select the **Add or modify schedules** operation to see the following information on the **Summary** page:
