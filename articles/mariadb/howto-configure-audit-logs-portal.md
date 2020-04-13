@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 4/13/2020
 ---
 
 # Configure and access audit logs in the Azure portal
