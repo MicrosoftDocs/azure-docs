@@ -20,7 +20,7 @@ To view general status of an application type, select **Apps** in the left navig
 
  ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
-The Deployment status is reported as one of the following values:
+**The Deployment status is reported as one of the following values:**
 
 Deployment.properties.Status
 
@@ -33,13 +33,24 @@ Deployment.properties.Status
 | Upgrading | User's app is trying to boot up with given resources and binary deployment. |
 | Failed | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
 
-The Discovery status is reported as one of the following values:
+** The previsioning state is reported as one of the following values:**
 
-DiscoveryStatus: Show registered status of the instance in Eureka server, same as the definition in Eureka
+Deployment.properties.privioningState: 
 
 | Enum | Definition |
 |:--:|:----------------:|
+| Creating | The resource is creating. |
+| Updating | The resource is updating. |
+| Succeeded | ASC successfully supplies resources and deploys the binary. |
+| Failed | ASC failed to achieve the *Succeeded* goal. |
+| Deleting | The resource is being deleted. This prevents operation, and the resource is not available in this status. |
+
+**The Discovery status is reported as one of the following values:**
+
+DiscoveryStatus: registered status of the instance in Eureka server, same as the definition in Eureka
+
 | Enum | Definition |
+|:--:|:----------------:|
 | Up | The app instance is registered to eureka and ready to receive traffic |
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
 | DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
@@ -52,10 +63,30 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
  ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
-The instance status is reported as one of the following values:
+**The instance status is reported as one of the following values:**
 
+Deployment.properties.appInstance.status: 
 
-The discovery status of the instance is reported as one of the following values:
+| Enum | Definition |
+|:--:|:----------------:|
+| Pending | ASC is still allocating resources for the instance |
+| Starting | The binary is successfully deployed to the given instance. Instance booting the jar file may fail because jar cannot run properly. |
+| Running | The instance works. |
+| Failed | ASC failed to deploy the resource to the instance. |
+| Terminating | The app instance is shutting down. |
+| Retiring | The app instance is for the previous deployment and should be retired after the current deployment operation. |
+
+**The discovery status of the instance is reported as one of the following values:**
+
+Deployment.properties.appInstance. DiscoveryStatus: 
+registered status of the instance in Eureka server, same as the definition in Eureka
+
+| Enum | Definition |
+|:--:|:----------------:|
+| Up | The app instance is registered to eureka and ready to receive traffic |
+| OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
+| DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
+
 
 ## See also
 * [Prepare a Java Spring application for deployment in Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
