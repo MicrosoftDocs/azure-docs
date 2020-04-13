@@ -38,7 +38,7 @@ You can see sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*. 
 * Create your own models
   - Use the existing model examples to create your own models in the */DigitalTwinsMetadata/DigitalTwinsSample/Models* folder, and upload them using the process described earlier.
 
-Once you are satisfied with the models, upload a model to your Azure Digital Twins instance by starting (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. A console window will open, carry out device authentication, and present action options.
+Once you are satisfied with the models, upload a model to your Azure Digital Twins instance by starting (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. A console window will open, carry out device authentication, and present action options.
 
 Run the following command to upload the models for *Floor* and *Room*.
 
@@ -88,4 +88,4 @@ Verify the edges were created by running either of the following commands:
 
 In this tutorial, you set up twins and relationships to form this graph:
 
-![A graph with a "Floor" node connected to two different "Room" nodes via "contains" relationships](media/tutorial-end-to-end/sample-graph.jpg)
+![A graph with a "Floor" node connected to two different "Room" nodes via "contains" relationships](media/tutorial-build/sample-graph.jpg)

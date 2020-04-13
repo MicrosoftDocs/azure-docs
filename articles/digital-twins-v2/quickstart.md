@@ -124,7 +124,7 @@ const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostNa
 
 ## Run and query the sample project
 
-Start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution:
+Start (![Visual Studio start button](media/tutorial-connect/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution:
 
 ```cmd/sh
 buildingScenario

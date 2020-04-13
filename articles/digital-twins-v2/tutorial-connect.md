@@ -21,7 +21,7 @@ This tutorial shows you how to set up an end-to-end solution by connecting your 
 
 The project uses a **building scenario** to build an Azure Digital Twins solution, representing a real-world building with a floor, a room and a thermostat device. You'll automate the sensors in the building, and create the following workflow to represent the entire scenario:
 
-![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure function to an Azure Digital Twins instance, then out through Event Grid to another Azure function for processing](media/tutorial-end-to-end/building-scenario.png)
+![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure function to an Azure Digital Twins instance, then out through Event Grid to another Azure function for processing](media/tutorial-connect/building-scenario.png)
 
 In this tutorial, you will...
 * Instantiate Azure Digital Twins components for the building scenario (create models, create your graph with twins representing devices, rooms and floors)
@@ -40,7 +40,7 @@ This tutorial uses the Azure Digital Twins instance and configured sample projec
 
 The remaining steps in this tutorial build out the details of the building scenario. This step focuses on this section:
 
-![An excerpt from the full building scenario graphic, highlighting the Azure Digital Twins instance](media/tutorial-end-to-end/building-scenario-1.png)
+![An excerpt from the full building scenario graphic, highlighting the Azure Digital Twins instance](media/tutorial-connect/building-scenario-1.png)
 
 In this tutorial, you will work with pre-written sample app to work with Azure Digital Twins. This app implements…
 * Device authentication 
@@ -51,7 +51,7 @@ In this tutorial, you will work with pre-written sample app to work with Azure D
 * *HubtToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
 * *DTRoutedData* - An Azure Functions app to update your Azure Digital Twins graph according to Azure Digital Twins data 
 
-Start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution.
+Start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution.
 
 `buildingScenario`
 
@@ -65,7 +65,7 @@ The sample project contains an interactive authorization piece. All you need to 
 
 The next step is to simulate device telemetry from IoT Hub, and trigger a corresponding update to the Azure Digital Twins graph. This step focuses on this section of the building scenario:
 
-![An excerpt from the full building scenario graphic, highlighting the elements before Azure Digital Twins: the device, IoT Hub, and first Azure function](media/tutorial-end-to-end/building-scenario-2.png)
+![An excerpt from the full building scenario graphic, highlighting the elements before Azure Digital Twins: the device, IoT Hub, and first Azure function](media/tutorial-connect/building-scenario-2.png)
 
 This step involves setting up Azure resources and creating connections to the Azure Digital Twins instance. Here are the steps involved:
 * Deploy a pre-made Azure Functions app
@@ -88,27 +88,27 @@ const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostna
 
 In the Solution Explorer, right-select the **HubToDT project file** and hit **Publish**.
 
-![Visual Studio: publish project](media/tutorial-end-to-end/publish-azure-function-1.jpg)
+![Visual Studio: publish project](media/tutorial-connect/publish-azure-function-1.jpg)
 
 Select **Create Profile**, and fill the following fields.
 
-![Azure function in Visual Studio: create profile](media/tutorial-end-to-end/publish-azure-function-2.jpg)
+![Azure function in Visual Studio: create profile](media/tutorial-connect/publish-azure-function-2.jpg)
 
 * Change the **Name** to a new value, *<your-HubToDT-function>*
 * Change the **Subscription** to *DigitalTwins-Dev-Test-26*
 * Change the **Resource group** to *<your-resource-group>*
 * Create a new storage resource using the **New...** link
-  ![Azure function in Visual Studio: new storage resource](media/tutorial-end-to-end/publish-azure-function-3.jpg)
+  ![Azure function in Visual Studio: new storage resource](media/tutorial-connect/publish-azure-function-3.jpg)
 * Create a storage account with a new name (*<your-storage-account>*) in the window that pops up and select **OK**
-  ![Visual Studio: Azure storage properties](media/tutorial-end-to-end/storage.jpg)
+  ![Visual Studio: Azure storage properties](media/tutorial-connect/storage.jpg)
     - Save your function *Name* and your storage *Account name* from above. You will use them later.
 * Select **Create** in the *App Service Create New* window
 * Select **Publish** on the following page.
-  ![Azure function in Visual Studio: publish](media/tutorial-end-to-end/publish-azure-function-4.jpg)
+  ![Azure function in Visual Studio: publish](media/tutorial-connect/publish-azure-function-4.jpg)
 
 You may see a popup like this one. If so, select **Attempt to retrieve credentials from Azure** and **Save**.
 
-![Azure function in Visual Studio: publish credentials](media/tutorial-end-to-end/publish-azure-function-5.jpg)
+![Azure function in Visual Studio: publish credentials](media/tutorial-connect/publish-azure-function-5.jpg)
  
 > [!TIP]
 > If your Azure Functions app doesn't deploy correctly, check out the **Publishing the Azure Functions app isn't working** topic in **Troubleshooting** (at the end of this file).
@@ -152,17 +152,17 @@ This section creates an Event Subscription on your IoT Hub in Azure portal, usin
 
 In the [Azure portal](https://ms.portal.azure.com/#home), navigate to your recently-created IoT Hub. Select the *Events* blade and select *+ Event Subscription*.
 
-![Azure portal: IoT Hub event subscription](media/tutorial-end-to-end/event-subscription-1.jpg)
+![Azure portal: IoT Hub event subscription](media/tutorial-connect/event-subscription-1.jpg)
 
 Fill the fields as follows:
 
 * **Name**: *<your-event-subscription>*
 * **Filter Event Types**: Device Telemetry
-  ![Azure portal: create event subscription](media/tutorial-end-to-end/event-subscription-2.jpg)
+  ![Azure portal: create event subscription](media/tutorial-connect/event-subscription-2.jpg)
 * Select the **Select an endpoint** link
 * Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (some of these should auto-populate after selecting the subscription)
 * Select **Confirm Selection**
-  ![Azure portal event subscription: select Azure function](media/tutorial-end-to-end/event-subscription-3.jpg)
+  ![Azure portal event subscription: select Azure function](media/tutorial-connect/event-subscription-3.jpg)
 
 ### Create a device in IoT Hub 
 
@@ -203,16 +203,16 @@ deviceConnectionString = <device connection-string>
 
 ### Start the simulation
 
-To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DeviceSimulator** project in Visual Studio. This will run the simulated device.
+To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DeviceSimulator** project in Visual Studio. This will run the simulated device.
 
 A console window will open and display the following messages that the device is sending to IoT Hub.
-![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-end-to-end/device-simulator.jpg)
+![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-connect/device-simulator.jpg)
 
 You don't need to do anything else in this console, but leave it running while you complete the next steps.
 
 The Azure function published earlier listens to the IoT Hub data and sends it on to Azure Digital Twins.
 
-To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. This will open a console for interacting with your Azure Digital Twins instance.
+To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. This will open a console for interacting with your Azure Digital Twins instance.
 
 Run the following command in the new console:
 
@@ -222,13 +222,13 @@ cycleGetTwinById thermostat67
 
 You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds.
 
-![Console output showing log of temperature messages from a thermostat](media/tutorial-end-to-end/console-telemetry.jpg)
+![Console output showing log of temperature messages from a thermostat](media/tutorial-connect/console-telemetry.jpg)
 
 ## Handle events with an Azure Functions app
 
 The final step of the building scenario tutorial is to deploy an Azure Functions app that updates a *Room* twin when the connected *Thermostat* twin is updated. To do this, this section focuses on this part of the building scenario:
 
-![An excerpt from the full building scenario graphic, highlighting the elements after Azure Digital Twins: the Event Grid and second Azure function](media/tutorial-end-to-end/building-scenario-3.png)
+![An excerpt from the full building scenario graphic, highlighting the elements after Azure Digital Twins: the Event Grid and second Azure function](media/tutorial-connect/building-scenario-3.png)
 
 This step involves :
 * Creating an Azure Digital Twins endpoint that connects to Event Grid
@@ -279,11 +279,11 @@ const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostna
 
 Right-select the *ProcessDTRoutedData* project file in the **Solution Explorer**, and hit **Publish**.
 
-![Visual Studio: publish project](media/tutorial-end-to-end/publish-azure-function-1b.jpg)
+![Visual Studio: publish project](media/tutorial-connect/publish-azure-function-1b.jpg)
 
 In the publish dialog, select **Create profile**.
 
-![Azure function in Visual Studio: create profile](media/tutorial-end-to-end/publish-azure-function-2.jpg)
+![Azure function in Visual Studio: create profile](media/tutorial-connect/publish-azure-function-2.jpg)
 
 Fill the following details:
 * A **Name** for the Azure Functions app (*<your-DTRoutedData-function>*) 
@@ -291,11 +291,11 @@ Fill the following details:
 * **Resource Group**: *<your-resource-group>*
 * **Azure Storage**: *<your-azure-storage>*
 
-![Azure function in Visual Studio: new storage resource](media/tutorial-end-to-end/publish-azure-function-3b.jpg)
+![Azure function in Visual Studio: new storage resource](media/tutorial-connect/publish-azure-function-3b.jpg)
 
 Select **Publish**.
 
-![Azure function in Visual Studio: publish](media/tutorial-end-to-end/publish-azure-function-4b.jpg)
+![Azure function in Visual Studio: publish](media/tutorial-connect/publish-azure-function-4b.jpg)
 
 > [!TIP]
 > If your Azure Functions app doesn't deploy correctly, check out the **Publishing the Azure Functions app isn't working** topic in **Troubleshooting** (at the end of this file).
@@ -306,11 +306,11 @@ This step creates an Event Grid subscription, from your event grid topic to your
 
 In [Azure portal - Event Grid Topics](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.EventGrid%2Ftopics), navigate to your event grid topic and select **+ Event Subscription**.
 
-![Azure portal: Event Grid event subscription](media/tutorial-end-to-end/event-subscription-1b.jpg)
+![Azure portal: Event Grid event subscription](media/tutorial-connect/event-subscription-1b.jpg)
 
 Choose a new name for your Event grid subscription, select *Azure Function* for the **Event type**, and hit **Select an endpoint**.
 
-![Azure portal: create event subscription](media/tutorial-end-to-end/event-subscription-2b.jpg)
+![Azure portal: create event subscription](media/tutorial-connect/event-subscription-2b.jpg)
 
 In the pane that appears, the fields should auto-populate. If not, fill the fields based on the function you just deployed:
 * **Subscription**: *<your-subscription-ID>*
@@ -318,22 +318,22 @@ In the pane that appears, the fields should auto-populate. If not, fill the fiel
 * **Function app** (*<your-DTRoutedData-function>*
 * **Function**: *ProcessDTRoutedData* 
 
-![Azure portal event subscription: select Azure function](media/tutorial-end-to-end/event-subscription-3b.jpg)
+![Azure portal event subscription: select Azure function](media/tutorial-connect/event-subscription-3b.jpg)
 
 Select **Create** on the *Create Event Subscription* page.
 
 ### Start the simulation
 
-To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DeviceSimulator** project in Visual Studio.
+To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DeviceSimulator** project in Visual Studio.
 
 A console window will open and display the following messages that the device is sending to IoT Hub.
-![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-end-to-end/device-simulator.jpg)
+![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-connect/device-simulator.jpg)
 
 You don't need to do anything else in this console, but leave it running while you complete the next steps.
 
 The Azure function published earlier listens to the device data and uses it to update the temperature property on a *Room*.
 
-To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio
+To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio
 
 Run the following command in the new console.
 
@@ -342,7 +342,7 @@ cycleGetTwinById thermostat67 room21
 ```
 
 You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console. You'll notice you have both **thermostat67** and **room21** temperatures being updated.
-![Console output showing log of temperature messages, from a thermostat and a room](media/tutorial-end-to-end/console-telemetry-b.jpg)
+![Console output showing log of temperature messages, from a thermostat and a room](media/tutorial-connect/console-telemetry-b.jpg)
 
 This completes the end-to-end scenario walkthrough.
 
@@ -355,7 +355,7 @@ Here is a review of what you completed in this scenario tutorial.
 3. A "Property Change event" is routed to the event grid topic endpoint, and the Event Grid subscription triggers the *ProcessDTRoutedData* Azure Function (represented with **arrow C** on the diagram)
 4. The *ProcessDTRoutedData* Azure function calls an Azure Digital Twins API that sets a property on *room21* (represented with **arrow D** on the diagram)
 
-![A marked-up version of the full building scenario graphic, highlighting the flow of data described above](media/tutorial-end-to-end/building-scenario-4.png)
+![A marked-up version of the full building scenario graphic, highlighting the flow of data described above](media/tutorial-connect/building-scenario-4.png)
 
 
 # Troubleshooting
@@ -366,19 +366,19 @@ This section contains some common issues you may run into while completing the a
 
 This issue occurs when users publish the *HubToDT* or *DTRoutedData* Azure Functions app; the function app appears to publish; and then in the Azure portal, the function isn't available.
 
-![Azure portal view of the function app with no functions available](media/tutorial-end-to-end/missing-function.jpg)
+![Azure portal view of the function app with no functions available](media/tutorial-connect/missing-function.jpg)
 
 Steps to resolve:
 1. Make sure you've correctly updated the `AdtInstanceUrl` value (depending on the project, either in *DigitalTwinsMetadata > DigitalTwinsSample > HubToDT > ProcessHubToDTEvents* or *DigitalTwinsMetadata > DigitalTwinsSample > DTRoutedData > ProcessDTRoutedData*) before publishing
 2. Delete your publish profiles for the Azure Functions app and re-publish, like this:
 
-  ![Visual studio: delete publish profiles for the app](media/tutorial-end-to-end/delete-publish-profiles.jpg)
+  ![Visual studio: delete publish profiles for the app](media/tutorial-connect/delete-publish-profiles.jpg)
 
 ## Visual Studio error when running the project
 
 Wehn running one of the projects in Visual Studio, you may see this error:
 
-![An error dialog in Visual Studio, beginning with 'The target process exited without raising a CoreCLR started event.'](media/tutorial-end-to-end/visual-studio-error.png)
+![An error dialog in Visual Studio, beginning with 'The target process exited without raising a CoreCLR started event.'](media/tutorial-connect/visual-studio-error.png)
 
 This usually means that your Visual Studio version is outdated.
 
