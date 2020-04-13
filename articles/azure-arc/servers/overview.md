@@ -49,7 +49,7 @@ The following versions of the Windows and Linux operating system are officially 
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
