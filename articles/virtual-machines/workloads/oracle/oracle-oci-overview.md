@@ -51,7 +51,6 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure UK South (uksouth) & OCI London (UK South)
 * Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
 * Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
-* Azure Japan East (japaneast) & OCI Tokyo (Japan East)
 
 ## Networking
 
