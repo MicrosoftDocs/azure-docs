@@ -1,6 +1,6 @@
 ---
-title: How to manage a Commercial Marketplace account in Partner Center 
-description: Learn how to manage a Commercial Marketplace account in Partner Center. 
+title: How to manage a commercial marketplace account in Partner Center 
+description: Learn how to manage a commercial marketplace account in Partner Center. 
 author: dsindona
 ms.author: dsindona 
 ms.service: marketplace 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ---
 
-# How to manage your Commercial Marketplace account in Partner Center
+# How to manage your commercial marketplace account in Partner Center
 
-Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 In this article, we'll dive into how to manage your Partner Center account, including how to:
 
@@ -35,7 +35,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
 ### Open developer settings
 
-Account settings is located at the upper right corner of your [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**.
+Account settings is located at the upper right corner of your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**.
 
 ![Account settings menu in Partner Center](./media/dashboard-developer-settings.png)
 
@@ -62,7 +62,7 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
 
 To setup your payout account, you need to **associate your Microsoft Account**:
-1. Go to the [Commercial Marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 2. Under the Profile section, select **Associate your Microsoft Account**.
 3. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account.
 4. To complete the setup of your payout account, log completely out of Partner Center, then log back in with your Microsoft Account (rather than your work account).
@@ -121,8 +121,8 @@ We recommend you create a unique GUID for every offer and distribution channel f
 
 If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
 
-*	Product A in Azure Marketplace
-*	Product A on GitHub
+*    Product A in Azure Marketplace
+*    Product A on GitHub
 
 Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
 
