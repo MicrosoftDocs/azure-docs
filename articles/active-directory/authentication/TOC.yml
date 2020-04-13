@@ -42,17 +42,13 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: License your users
-      href: concept-mfa-licensing.md
-    - name: Manage an Auth Provider
-      href: concept-mfa-authprovider.md
-    - name: Security guidance
-      href: multi-factor-authentication-security-best-practices.md
     - name: Data residency
       href: concept-mfa-data-residency.md
+    - name: Licenses
+      href: concept-mfa-licensing.md
     - name: MFA for Office 365
       href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
-    - name: MFA FAQ
+    - name: FAQ
       href: multi-factor-authentication-faq.md
   - name: Azure AD password protection
     items:
@@ -72,16 +68,18 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Cloud-based MFA
+  - name: Azure Multi-Factor Authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
-    - name: Per user MFA
-      href: howto-mfa-userstates.md
-    - name: User and device settings
-      href: howto-mfa-userdevicesettings.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
+    - name: Configure users
+      href: howto-mfa-userdevicesettings.md
+    - name: Enable per-user MFA
+      href: howto-mfa-userstates.md
+    - name: Configure authentication providers
+      href: concept-mfa-authprovider.md
     - name: Directory Federation
       items:
       - name: Windows Server 2016 AD FS Adapter
