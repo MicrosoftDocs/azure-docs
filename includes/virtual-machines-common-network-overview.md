@@ -162,10 +162,6 @@ Below is the methods that can be used to deploy a virtual machine scale set with
 * **[Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).**
 * **[Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).**
 
-
-
-
-
 ## VMs
 
 VMs can be created in the same VNet and they can connect to each other using private IP addresses. They can connect even if they are in different subnets without the need to configure a gateway or use public IP addresses. To put VMs into a VNet, you create the VNet and then as you create each VM, you assign it to the VNet and subnet. VMs acquire their network settings during deployment or startup.  
