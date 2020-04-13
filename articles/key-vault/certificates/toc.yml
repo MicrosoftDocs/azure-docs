@@ -22,6 +22,8 @@
   items:
   - name: Import a certificate
     href: tutorial-import-certificate.md
+  - name: Configure certificate rotation
+    href: tutorial-rotate-certificates.md    
 - name: Concepts 
   items:
   - name: Get started with Key Vault certificates
