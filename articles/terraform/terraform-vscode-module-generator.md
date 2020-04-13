@@ -2,7 +2,7 @@
 title: Tutorial - Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 04/13/2020
 ---
 
 # Tutorial: Create a Terraform base template in Azure using Yeoman
@@ -121,7 +121,7 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
-The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
+The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest documentation](https://terratest.gruntwork.io/docs/).
 
 - `main.tf` - Defines a module called `random-shuffle`. The input is a `string_list`. The output is the count of the permutations.
 - `variables.tf` - Defines the input and output variables used by the module.
