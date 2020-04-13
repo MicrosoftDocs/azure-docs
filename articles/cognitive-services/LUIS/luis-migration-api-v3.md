@@ -1,22 +1,15 @@
 ---
 title: Prediction endpoint changes in the V3 API
-titleSuffix: Azure Cognitive Services
-description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 03/11/2020
 ms.author: diberry
 ---
 
 
 # Prediction endpoint changes for V3
 
-The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
+The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -38,9 +31,9 @@ The prediction endpoint [request](#request-changes) and [response](#response-cha
 
 ## V3 changes from preview to GA
 
-V3 made the following changes as part of the move to GA: 
+V3 made the following changes as part of the move to GA:
 
-* The following prebuilt entities have different JSON responses: 
+* The following prebuilt entities have different JSON responses:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
@@ -55,23 +48,26 @@ V3 made the following changes as part of the move to GA:
 
 ## Suggested adoption strategy
 
-If you use Bot Framework, Bing Spell Check V7, or want to migrate your LUIS app authoring only, continue to use the V2 endpoint. 
+If you use Bot Framework, Bing Spell Check V7, or want to migrate your LUIS app authoring only, continue to use the V2 endpoint.
 
-If you know none of your client application or integrations (Bot Framework, and Bing Spell Check V7) are impacted and you are comfortable migrating your LUIS app authoring and your prediction endpoint at the same time, begin using the V3 prediction endpoint. The V2 prediction endpoint will still be available and is a good fall-back strategy. 
+If you know none of your client application or integrations (Bot Framework, and Bing Spell Check V7) are impacted and you are comfortable migrating your LUIS app authoring and your prediction endpoint at the same time, begin using the V3 prediction endpoint. The V2 prediction endpoint will still be available and is a good fall-back strategy.
+
 
 ## Not supported
 
-* Bing Spell Check API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections
+### Bing Spell Check
+
+This API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections. If you need spelling correction while using V3 API, have the client application call the [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) API, and change the text to the correct spelling, prior to sending the text to the LUIS API.
 
 ## Bot Framework and Azure Bot Service client applications
 
-Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released. 
+Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 
-## V2 API Deprecation 
+## V2 API Deprecation
 
-The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8th, 2020. 
+The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8th, 2020.
 
-## Endpoint URL changes 
+## Endpoint URL changes
 
 ### Changes by slot name and version name
 
@@ -91,7 +87,7 @@ If you want to query by version, you first need to [publish via API](https://wes
 |`production`|
 |`staging`|
 
-## Request changes 
+## Request changes
 
 ### Query string changes
 
@@ -99,7 +95,7 @@ The V3 API has different query string parameters.
 
 |Param name|Type|Version|Default|Purpose|
 |--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Store query in log file. Default value is false.| 
+|`log`|boolean|V2 & V3|false|Store query in log file. Default value is false.|
 |`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 |`show-all-intents`|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
@@ -133,7 +129,7 @@ The V3 API has different query string parameters.
 
 ## Response changes
 
-The query response JSON changed to allow greater programmatic access to the data used most frequently. 
+The query response JSON changed to allow greater programmatic access to the data used most frequently.
 
 ### Top level JSON changes
 
@@ -158,7 +154,7 @@ The top JSON properties for V3 are:
     "query": "this is your utterance you want predicted",
     "prediction":{
         "topIntent": "intent-name-1",
-        "intents": {}, 
+        "intents": {},
         "entities":{}
     }
 }
@@ -176,13 +172,13 @@ The response JSON schema changes allow for:
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
 * Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **name** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
-* Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
+* Distinction between first priority prediction information and additional metadata, returned in the `$instance` object.
 
 ### Entity response changes
 
 #### Marking placement of entities in utterances
 
-**In V2**, an entity was marked in an utterance with the `startIndex` and `endIndex`. 
+**In V2**, an entity was marked in an utterance with the `startIndex` and `endIndex`.
 
 **In V3**, the entity is marked with `startIndex` and `entityLength`.
 
@@ -192,13 +188,13 @@ If you need entity metadata, the query string needs to use the `verbose=true` fl
 
 #### Each predicted entity is represented as an array
 
-The `prediction.entities.<entity-name>` object contains an array because each entity can be predicted more than once in the utterance. 
+The `prediction.entities.<entity-name>` object contains an array because each entity can be predicted more than once in the utterance.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
 #### Prebuilt entity changes
 
-The V3 response object includes changes to prebuilt entities. Review [specific prebuilt entities](luis-reference-prebuilt-entities.md) to learn more. 
+The V3 response object includes changes to prebuilt entities. Review [specific prebuilt entities](luis-reference-prebuilt-entities.md) to learn more.
 
 #### List entity prediction changes
 
@@ -212,7 +208,7 @@ The JSON for a list entity prediction has changed to be an array of arrays:
     ]
 }
 ```
-Each interior array corresponds to text inside the utterance. The interior object is an array because the same text can appear in more than one sublist of a list entity. 
+Each interior array corresponds to text inside the utterance. The interior object is an array because the same text can appear in more than one sublist of a list entity.
 
 When mapping between the `entities` object to the `$instance` object, the order of objects is preserved for the list entity predictions.
 
@@ -222,7 +218,7 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-#### Entity role name instead of entity name 
+#### Entity role name instead of entity name
 
 In V2, the `entities` array returned all the predicted entities with the entity name being the unique identifier. In V3, if the entity uses roles and the prediction is for an entity role, the primary identifier is the role name. This is possible because entity role names must be unique across the entire app including other model (intent, entity) names.
 
@@ -285,11 +281,11 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. This allows you to use your own separate and custom entity extractors before sending queries to your prediction endpoint. Because this is done at the query prediction endpoint, you don't need to retrain and publish your model.
 
-The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request. 
+The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request.
 
 External entities are the mechanism for extending any entity type while still being used as signals to other models like roles, composite, and others.
 
-This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user’s contact list. 
+This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user's contact list.
 
 ### Entity already exists in app
 
@@ -301,7 +297,7 @@ Consider a first utterance in a chat bot conversation where a user enters the fo
 
 `Send Hazem a new message`
 
-The request from the chat bot to LUIS can pass in information in the POST body about `Hazem` so it is directly matched as one of the user’s contacts.
+The request from the chat bot to LUIS can pass in information in the POST body about `Hazem` so it is directly matched as one of the user's contacts.
 
 ```json
     "externalEntities": [
@@ -317,7 +313,7 @@ The request from the chat bot to LUIS can pass in information in the POST body a
     ]
 ```
 
-The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
+The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.
 
 ### Second turn in conversation
 
@@ -341,11 +337,11 @@ In the previous utterance, the utterance uses `him` as a reference to `Hazem`. T
     ]
 ```
 
-The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
+The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.
 
 ### Override existing model predictions
 
-The `preferExternalEntities` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
+The `preferExternalEntities` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model.
 
 For example, consider the query `today I'm free`. LUIS detects `today` as a datetimeV2 with the following response:
 
@@ -376,7 +372,7 @@ If the user sends the external entity:
 }
 ```
 
-If the `preferExternalEntities` is set to `false`, LUIS returns a response as if the external entity were not sent. 
+If the `preferExternalEntities` is set to `false`, LUIS returns a response as if the external entity were not sent.
 
 ```JSON
 "datetimeV2": [
@@ -406,22 +402,22 @@ If the `preferExternalEntities` is set to `true`, LUIS returns a response includ
 
 #### Resolution
 
-The _optional_ `resolution` property returns in the prediction response, allowing you to pass in the metadata associated with the external entity, then receive it back out in the response. 
+The _optional_ `resolution` property returns in the prediction response, allowing you to pass in the metadata associated with the external entity, then receive it back out in the response.
 
-The primary purpose is to extend prebuilt entities but it is not limited to that entity type. 
+The primary purpose is to extend prebuilt entities but it is not limited to that entity type.
 
 The `resolution` property can be a number, a string, an object, or an array:
 
 * "Dallas"
 * {"text": "value"}
-* 12345 
+* 12345
 * ["a", "b", "c"]
 
 
 
 ## Dynamic lists passed in at prediction time
 
-Dynamic lists allow you to extend an existing trained and published list entity, already in the LUIS app. 
+Dynamic lists allow you to extend an existing trained and published list entity, already in the LUIS app.
 
 Use this feature when your list entity values need to change periodically. This feature allows you to extend an already trained and published list entity:
 
@@ -459,12 +455,12 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
 }
 ```
 
-The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request. 
+The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request.
 
-## Deprecation 
+## Deprecation
 
-The V2 API will not be deprecated for at least 9 months after the V3 preview. 
+The V2 API will not be deprecated for at least 9 months after the V3 preview.
 
 ## Next steps
 
-Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs. 
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs.

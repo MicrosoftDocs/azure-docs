@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the web client
 
@@ -39,4 +40,4 @@ After signing in, you should now see a list of resources. You can launch resourc
 
 ## Next steps
 
-To learn more about how to use the web client, check out [Get started with the Web client](https://go.microsoft.com/fwlink/?linkid=2120256).
+To learn more about how to use the web client, check out [Get started with the Web client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

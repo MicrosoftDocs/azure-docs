@@ -65,7 +65,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -73,7 +73,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
@@ -180,8 +180,3 @@ Try out the Windows desktop tutorial for a complete step-by-step guide on buildi
 
 > [!div class="nextstepaction"]
 > [UWP - Call Graph API tutorial](tutorial-v2-windows-uwp.md)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

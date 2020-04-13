@@ -1,16 +1,18 @@
 ---
 title: Create Azure Containers image technical assets | Azure Marketplace
 description: Create the technical assets for an Azure container.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Prepare your container technical assets
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Prepare your Azure Container technical assets](https://aka.ms/CreateContainerTechAssets) to manage your migrated offers.
 
 This article describes steps and requirements for configuring a container offer the Azure Marketplace.
 
@@ -24,26 +26,26 @@ Designing, building, and testing these assets take time and requires technical k
  
 In addition to your solution domain, your engineering team should have knowledge on the following Microsoft technologies:
 
--	Basic understanding of [Azure Services](https://azure.microsoft.com/services/) 
--	How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
--	Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
--	Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--	Working Knowledge of [JSON](https://www.json.org/)
+-    Basic understanding of [Azure Services](https://azure.microsoft.com/services/) 
+-    How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
+-    Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
+-    Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Working Knowledge of [JSON](https://www.json.org/)
 
 ## Suggested tools
 
 Choose one or both of the following scripting environments to help manage your container image:
 
--	[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--	[Azure CLI](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 In addition, we recommend adding the following tools to your development environment:
 
--	[Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--	[Visual Studio Code](https://code.visualstudio.com/)
-    *	Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *	Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *	Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio Code](https://code.visualstudio.com/)
+    *    Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Extension: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 We also suggest reviewing the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/) page and, if you are using Visual Studio, the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

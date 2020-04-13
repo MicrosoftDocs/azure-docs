@@ -8,10 +8,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/27/2019
-ms.custom: seoapril2019
+ms.date: 03/17/2020
+ms.custom: seoapril2019, seodec18
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
-ms.custom: seodec18
 ---
 
 # How Azure Machine Learning works: Architecture and concepts
@@ -25,9 +24,9 @@ Learn about the architecture, concepts, and workflow for Azure Machine Learning.
 The machine learning model workflow generally follows this sequence:
 
 1. **Train**
-    + Develop machine learning training scripts in **Python** or with the visual designer.
+    + Develop machine learning training scripts in **Python**, **R**, or with the visual designer.
     + Create and configure a **compute target**.
-    + **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
+    + **Submit the scripts** to a configured compute target to run in that environment. During training, the scripts can read from or write to **datastores**. The logs and output produced during training are saved as **runs** in the **workspace** and grouped under **experiments**.
 
 1. **Package** - After a satisfactory run is found, register the persisted model in the **model registry**.
 
@@ -132,7 +131,7 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 
 You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
 
-Pipeline steps are reusable, and can be run without rerunning subsequent steps if the output of that step hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
+Pipeline steps are reusable, and can be run without rerunning the previous steps if the output of those steps hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
 
 For more information about machine learning pipelines with this service, see [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 
@@ -184,7 +183,7 @@ For more information, see the following articles:
 * [Train ML models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
-* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
+* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-ml-models.md).
 
 ### Endpoints
 

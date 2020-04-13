@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ---
 
 # Manage and request quotas for Azure resources
@@ -34,7 +34,7 @@ As you design and scale your Azure Machine Learning resources for production wor
 
 Here is a breakdown of the quota limits by various resource types within your Azure subscription.
 
-> [!Important]
+> [!IMPORTANT]
 > Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) for all of Azure.
 
 ### Virtual machines
@@ -56,7 +56,7 @@ Available resources:
 
 + Clusters per region have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes). Contact Azure support if you want to request an increase beyond this limit.
 
-+ There are **other strict limits  that cannot be exceeded once hit.
++ There are other strict limits  that cannot be exceeded once hit.
 
 | **Resource** | **Maximum limit** |
 | --- | --- |

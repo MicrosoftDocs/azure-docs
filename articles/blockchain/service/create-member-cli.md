@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Blockchain Service member - Azure CLI
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
-ms.date: 01/23/2020
+ms.date: 03/30/2020
 ms.topic: quickstart
-ms.reviewer: janders
+ms.reviewer: ravastra
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a blockchain member on Azure
 ---
 
@@ -54,7 +54,7 @@ az resource create \
 | **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
 | **consortium** | Name of the consortium to join or create. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
 | **consortiumAccountPassword** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
-| **skuName** | Tier type. Use S0 for Standard and B0 for Basic.
+| **skuName** | Tier type. Use S0 for Standard and B0 for Basic. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. You should also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions. Changing the pricing tier between basic and standard after member creation is not supported.
 
 It takes about 10 minutes to create the blockchain member and supporting resources.
 

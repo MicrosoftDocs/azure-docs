@@ -1,14 +1,12 @@
 ---
 title: Go-To-Market Services - Offer listing best practices | Azure
 description: Go-To-Market Services - this section describes the listing best practices for an offer
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: ellacroi
+ms.author: dsindona
 
 ---
 

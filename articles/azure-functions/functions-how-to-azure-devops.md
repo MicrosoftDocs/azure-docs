@@ -42,7 +42,7 @@ steps:
     arguments: '--configuration Release --output publish_output'
     projects: '*.csproj'
     publishWebProjects: false
-    modifyOutputPath: true
+    modifyOutputPath: false
     zipAfterPublish: false
 - task: ArchiveFiles@2
   displayName: "Archive files"

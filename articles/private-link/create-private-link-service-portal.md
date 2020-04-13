@@ -38,7 +38,7 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4 address space>**   | 10.3.0.0\16          |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
 | **\<subnet-name>**          | myBackendSubnet        |
 | **\<subnet-address-range>** | 10.3.0.0\24          |
 

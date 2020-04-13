@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 6/24/2019
+ms.date: 04/04/2020
 ms.author: yinhew
 ---
 
@@ -21,8 +21,8 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnetcore)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
+
 ## Add sample code
 
 1. Open `Program.cs`, and replace all the code in it with the following.
@@ -51,7 +51,7 @@ Before you get started, make sure to:
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

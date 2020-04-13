@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2019
+ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -20,7 +20,7 @@ If you experience problems while using the Azure IoT Edge service, there are sev
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** – The Azure IoT Edge product tracks feature requests via the product’s [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
 ## Container engines
 
@@ -92,6 +92,28 @@ The systems listed in the following table are considered compatible with Azure I
 sudo apt-get install libssl1.0.2
 ```
 
+## Releases
+
+IoT Edge release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
+
+IoT Edge components can be installed or updated individually, and are backwards compatible with components from older versions. The following table lists the components included in each release:
+
+| Release   | Security daemon  | Edge hub<br>Edge agent | Libiothsm | Moby  |
+| --------- | ---------------- | ---------------------- | --------- | ----- |
+| **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
+| **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
+| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
+| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
+| **1.0.5** | 1.0.5            | 1.0.5                  | 1.0.5     | 3.0.2 |
+
+IoT Edge uses the Microsoft.Azure.Device.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). The following list shows the version of the client SDK that each release is tested against:
+
+* **IoT Edge 1.0.9**: Client SDK 1.21.1
+* **IoT Edge 1.0.8**: Client SDK 1.20.3
+* **IoT Edge 1.0.7**: Client SDK 1.20.1
+* **IoT Edge 1.0.6**: Client SDK 1.17.1
+* **IoT Edge 1.0.5**: Client SDK 1.17.1
+
 ## Virtual Machines
 
 Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
@@ -109,7 +131,7 @@ Azure IoT Edge runs great on devices as small as a Raspberry Pi3 to server grade
 Experience while prototyping will help guide your final device selection. Questions you should consider include:
 
 * How many modules are in your workload?
-* How many layers do your modules’ containers share?
+* How many layers do your modules' containers share?
 * In what language are your modules written?
 * How much data will your modules be processing?
 * Do your modules need any specialized hardware for accelerating their workloads?

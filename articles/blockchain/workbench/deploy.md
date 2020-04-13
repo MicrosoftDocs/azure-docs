@@ -130,7 +130,7 @@ Once the deployment of the Blockchain Workbench has completed, a new resource gr
 
     ![App service essentials](media/deploy/app-service.png)
 
-To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../../app-service/configure-domain-traffic-manager.md).
 
 ## Azure AD configuration script
 

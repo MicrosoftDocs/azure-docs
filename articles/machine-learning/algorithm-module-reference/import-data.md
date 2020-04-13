@@ -61,7 +61,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
     If it is selected, the system will execute the module again to regenerate output. So select this option when underlying data in storage is updated, it can help to get the latest data.
 
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
     When Import Data loads the data into the designer, it infers the data type of each column based on the values it contains, either numerical or categorical.
 

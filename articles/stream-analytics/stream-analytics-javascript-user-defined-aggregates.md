@@ -1,7 +1,7 @@
 ---
 title: JavaScript user-defined aggregates in Azure Stream Analytics
 description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
-author: rodrigoamicrosoft
+author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.reviewer: mamccrea
 ms.service: stream-analytics
@@ -113,7 +113,7 @@ For JavaScript UDA data types, refer to section **Stream Analytics and JavaScrip
 
 Below we walk through the process of creating a UDA from Portal. The example we use here is computing time weighted averages.
 
-Now let’s create a JavaScript UDA under an existing ASA job by following steps.
+Now let's create a JavaScript UDA under an existing ASA job by following steps.
 
 1. Log on to Azure portal and locate your existing Stream Analytics job.
 1. Then click on functions  link under **JOB TOPOLOGY**.

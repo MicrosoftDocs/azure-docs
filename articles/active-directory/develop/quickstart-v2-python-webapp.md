@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev 
+ms.custom: aaddev
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
@@ -38,8 +38,7 @@ To run this sample, you will need:
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-> 1. Select **New registration**.
+> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
 >
@@ -56,8 +55,11 @@ To run this sample, you will need:
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `python-webapp`.
 >      - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
->      - Under the **Redirect URI** section, in the drop-down list, select the **Web** platform, and then set the value to `http://localhost:5000/getAToken`.
->      - Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
+>      - Select **Register**.
+>      - On the app **Overview** page, note the **Application (client) ID** value for later use.
+> 1. Select the **Authentication** from the menu, and then add the following information:
+>    - Add the **Web** platform configuration. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
+>    - Select **Save**.
 > 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets** section:
 >
 >      - Type a key description (of instance app secret).
@@ -94,15 +96,19 @@ To run this sample, you will need:
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure the Application
-> 
+>
 > 1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 > 1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
 > 1. Open the **app_config.py** file, which can be found in the root folder and replace with the following code snippet:
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"

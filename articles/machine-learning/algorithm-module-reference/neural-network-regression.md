@@ -81,7 +81,7 @@ Neural networks can be extensively customized. This section describes how to cre
     -   If you set **Create trainer mode** to **Single Parameter**, use [Train Model](./train-model.md).  
   
    
-14. Run the pipeline.  
+14. Submit the pipeline.  
 
 ## Results
 

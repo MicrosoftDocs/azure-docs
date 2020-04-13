@@ -1,37 +1,38 @@
 ---
 title: 'Tutorial: ML pipelines for batch scoring'
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you build a machine learning pipeline for running batch scoring on an image classification model in Azure Machine Learning. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation.
+description: In this tutorial, you build a machine learning pipeline to perform batch scoring on an image classification model. Azure Machine Learning allow you to focus on machine learning instead of infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
+ms.reviewer: laobri
+ms.date: 03/11/2020
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you use a pipeline in Azure Machine Learning to run a batch scoring job. The example uses the pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network Tensorflow model to classify unlabeled images. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform.
+Learn how to build a pipeline in Azure Machine Learning to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
 
-Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation. [Learn more about machine learning pipelines](concept-ml-pipelines.md).
+The example uses a pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network model implemented in Tensorflow to classify unlabeled images. [Learn more about machine learning pipelines](concept-ml-pipelines.md).
 
 In this tutorial, you complete the following tasks:
 
 > [!div class="checklist"]
-> * Configure workspace and download sample data
-> * Create data objects to fetch and output data
+> * Configure workspace 
+> * Download and store sample data
+> * Create dataset objects to fetch and output data
 > * Download, prepare, and register the model in your workspace
 > * Provision compute targets and create a scoring script
 > * Use the `ParallelRunStep` class for async batch scoring
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
@@ -52,7 +53,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### Create a datastore for sample images
+## Create a datastore for sample images
 
 On the `pipelinedata` account, get the ImageNet evaluation public data sample from the `sampledata` public blob container. Call `register_azure_blob_container()` to make the data available to the workspace under the name `images_datastore`. Then, set the workspace default datastore as the output datastore. Use the output datastore to score output in the pipeline.
 
@@ -68,7 +69,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 def_data_store = ws.get_default_datastore()
 ```
 
-## Create data objects
+## Create dataset objects
 
 When building pipelines, `Dataset` objects are used for reading data from workspace datastores, and `PipelineData` objects are used for transferring intermediate data between pipeline steps.
 
@@ -254,7 +255,7 @@ def run(mini_batch):
 > [!TIP]
 > The pipeline in this tutorial has only one step, and it writes the output to a file. For multi-step pipelines, you also use `ArgumentParser` to define a directory to write output data for input to subsequent steps. For an example of passing data between multiple pipeline steps by using the `ArgumentParser` design pattern, see the [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
-## Build and run the pipeline
+## Build the pipeline
 
 Before you run the pipeline, create an object that defines the Python environment and creates the dependencies that your `batch_scoring.py` script requires. The main dependency required is Tensorflow, but you also install `azureml-defaults` for background processes. Create a `RunConfiguration` object by using the dependencies. Also, specify Docker and Docker-GPU support.
 
@@ -319,7 +320,7 @@ batch_score_step = ParallelRunStep(
 
 For a list of all the classes you can use for different step types, see the [steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-### Run the pipeline
+## Submit the pipeline
 
 Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
 
@@ -346,7 +347,7 @@ import pandas as pd
 
 batch_run = next(pipeline_run.get_children())
 batch_output = batch_run.get_output_data("scores")
-batch_output.download(local_path="inception_result")
+batch_output.download(local_path="inception_results")
 
 for root, dirs, files in os.walk("inception_results"):
     for file in files:

@@ -11,6 +11,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
 ### November 4, 2019 - Ignite
 
 * Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)

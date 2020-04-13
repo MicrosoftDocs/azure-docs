@@ -37,7 +37,7 @@ In this section you can find various guides, scripts, and explanations that can 
 
 - [Manual tuning](sql-database-performance-guidance.md)
 - [Use DMVs to monitor performance](sql-database-monitoring-with-dmvs.md)
-- [Use Query store to monitor performance](sql-database-operate-query-store.md)
+- [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Use Intelligent Insights diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-memory OLTP space](sql-database-in-memory-oltp-monitoring.md)

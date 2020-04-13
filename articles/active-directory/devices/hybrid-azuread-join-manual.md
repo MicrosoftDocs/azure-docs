@@ -84,7 +84,7 @@ Use the following table to get an overview of the steps that are required for yo
 | Configure service connection point | ![Check][1] | ![Check][1] | ![Check][1] |
 | Set up issuance of claims |     | ![Check][1] | ![Check][1] |
 | Enable non-Windows 10 devices |       |        | ![Check][1] |
-| Verify joined devices | ![Check][1] | ![Check][1] | [Check][1] |
+| Verify joined devices | ![Check][1] | ![Check][1] | ![Check][1] |
 
 ## Configure a service connection point
 
@@ -184,7 +184,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
 > [!NOTE]
 >If you don’t have AD FS as your on-premises federation service, follow the instructions from your vendor to make sure they support WS-Trust 1.3 or 2005 endpoints and that these are published through the Metadata Exchange file (MEX).
@@ -549,7 +549,7 @@ To register Windows down-level devices, you need to download and install a Windo
 
 ## Verify joined devices
 
-You can check for successfully joined devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+You can check for successfully joined devices in your organization by using the [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 The output of this cmdlet shows devices that are registered and joined with Azure AD. To get all devices, use the **-All** parameter, and then filter them by using the **deviceTrustType** property. Domain-joined devices have a value of **Domain Joined**.
 

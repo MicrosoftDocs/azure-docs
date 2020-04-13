@@ -5,8 +5,8 @@ description: In this quickstart, you learn how to use the Azure CLI upload a blo
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
@@ -149,7 +149,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
+If you want to delete the resources you created as part of this quickstart, including the storage account, delete the resource group by using the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az group delete \

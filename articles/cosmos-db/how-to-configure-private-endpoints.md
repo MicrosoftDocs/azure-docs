@@ -8,7 +8,7 @@ ms.date: 11/04/2019
 ms.author: thweiss
 ---
 
-# Configure Azure Private Link for an Azure Cosmos account (preview)
+# Configure Azure Private Link for an Azure Cosmos account
 
 By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
 
@@ -17,6 +17,9 @@ Private Link allows users to access an Azure Cosmos account from within the virt
 You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
 
 This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
+
+> [!NOTE]
+> Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -28,7 +31,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 
    ![Selections for create a private endpoint in the Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
 
-1. In the **Create a private endpoint (Preview) - Basics** pane, enter or select the following details:
+1. In the **Create a private endpoint - Basics** pane, enter or select the following details:
 
     | Setting | Value |
     | ------- | ----- |
@@ -52,7 +55,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
     |||
 
 1. Select **Next: Configuration**.
-1. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
+1. In **Create a private endpoint - Configuration**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -169,13 +172,89 @@ New-AzPrivateDnsRecordSet -Name $recordName `
 After the private endpoint is provisioned, you can query the IP addresses and the FQDN mapping by using the following PowerShell script:
 
 ```azurepowershell-interactive
-
 $pe = Get-AzPrivateEndpoint -Name MyPrivateEndpoint -ResourceGroupName myResourceGroup
 $networkInterface = Get-AzNetworkInterface -ResourceId $pe.NetworkInterfaces[0].Id
 foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 {
     Write-Host $IPConfiguration.PrivateIpAddress ":" $IPConfiguration.PrivateLinkConnectionProperties.Fqdns
 }
+```
+
+## Create a private endpoint by using Azure CLI
+
+Run the following Azure CLI script to create a private endpoint named "myPrivateEndpoint" for an existing Azure Cosmos account. Replace the variable values with the details for your environment.
+
+```azurecli-interactive
+# Resource group where the Azure Cosmos account and virtual network resources are located
+ResourceGroupName="myResourceGroup"
+
+# Subscription ID where the Azure Cosmos account and virtual network resources are located
+SubscriptionId="<your Azure subscription ID>"
+
+# Name of the existing Azure Cosmos account
+CosmosDbAccountName="mycosmosaccount"
+
+# API type of your Azure Cosmos account: Sql, MongoDB, Cassandra, Gremlin, or Table
+CosmosDbApiType="Sql"
+
+# Name of the virtual network to create
+VNetName="myVnet"
+
+# Name of the subnet to create
+SubnetName="mySubnet"
+
+# Name of the private endpoint to create
+PrivateEndpointName="myPrivateEndpoint"
+
+# Name of the private endpoint connection to create
+PrivateConnectionName="myConnection"
+
+az network vnet create \
+ --name $VNetName \
+ --resource-group $ResourceGroupName \
+ --subnet-name $SubnetName
+
+az network vnet subnet update \
+ --name $SubnetName \
+ --resource-group $ResourceGroupName \
+ --vnet-name $VNetName \
+ --disable-private-endpoint-network-policies true
+
+az network private-endpoint create \
+    --name $PrivateEndpointName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName  \
+    --subnet $SubnetName \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/$CosmosDbAccountName" \
+    --group-ids $CosmosDbApiType \
+    --connection-name $PrivateConnectionName
+```
+
+### Integrate the private endpoint with a private DNS zone
+
+After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
+
+```azurecli-interactive
+zoneName="privatelink.documents.azure.com"
+
+az network private-dns zone create --resource-group $ResourceGroupName \
+   --name  $zoneName
+
+az network private-dns link vnet create --resource-group $ResourceGroupName \
+   --zone-name  $zoneName\
+   --name myzonelink \
+   --virtual-network $VNetName \
+   --registration-enabled false 
+
+#Query for the network interface ID  
+networkInterfaceId=$(az network private-endpoint show --name $PrivateEndpointName --resource-group $ResourceGroupName --query 'networkInterfaces[0].id' -o tsv)
+ 
+# Copy the content for privateIPAddress and FQDN matching the Azure Cosmos account 
+az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
+ 
+#Create DNS records 
+az network private-dns record-set a create --name recordSet1 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName
+az network private-dns record-set a add-record --record-set-name recordSet2 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName -a <Private IP Address>
 ```
 
 ## Create a private endpoint by using a Resource Manager template
@@ -306,13 +385,13 @@ $virtualNetwork | Set-AzVirtualNetwork
 ## Step 4: Create the private endpoint.
 Write-Output "Deploying private endpoint on $($resourceGroupName)"
 $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpointDeployment" `
-	-ResourceGroupName $resourceGroupName `
-	-TemplateFile $PrivateEndpointTemplateFilePath `
-	-TemplateParameterFile $PrivateEndpointParametersFilePath `
-	-SubnetId $SubnetResourceId `
-	-ResourceId $CosmosDbResourceId `
-	-GroupId $CosmosDbApiType `
-	-PrivateEndpointName $PrivateEndpointName
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $PrivateEndpointTemplateFilePath `
+    -TemplateParameterFile $PrivateEndpointParametersFilePath `
+    -SubnetId $SubnetResourceId `
+    -ResourceId $CosmosDbResourceId `
+    -GroupId $CosmosDbApiType `
+    -PrivateEndpointName $PrivateEndpointName
 
 $deploymentOutput
 ```
@@ -342,20 +421,20 @@ Use the following code to create a Resource Manager template named "PrivateZone_
         "privateZoneName": {
             "type": "string"
         },
-		"VNetId": {
+        "VNetId": {
             "type": "string"
-        }		
+        }        
     },
-	"resources": [
-		{
+    "resources": [
+        {
             "name": "[parameters('privateZoneName')]",
             "type": "Microsoft.Network/privateDnsZones",
             "apiVersion": "2018-09-01",
             "location": "global",
-			"properties": {                
+            "properties": {                
             }
         },
-		{
+        {
             "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
             "apiVersion": "2018-09-01",
             "name": "[concat(parameters('privateZoneName'), '/myvnetlink')]",
@@ -369,7 +448,7 @@ Use the following code to create a Resource Manager template named "PrivateZone_
                     "id": "[parameters('VNetId')]"
                 }
             }
-        }		
+        }        
     ]
 }
 ```
@@ -384,12 +463,12 @@ Use the following code to create a Resource Manager template named "PrivateZoneR
         "DNSRecordName": {
             "type": "string"
         },
-		"IPAddress": {
-			"type":"string"
-		}		
+        "IPAddress": {
+            "type":"string"
+        }        
     },
-	"resources": [
-		 {
+    "resources": [
+         {
             "type": "Microsoft.Network/privateDnsZones/A",
             "apiVersion": "2018-09-01",
             "name": "[parameters('DNSRecordName')]",
@@ -401,7 +480,7 @@ Use the following code to create a Resource Manager template named "PrivateZoneR
                     }
                 ]
             }
-        }	
+        }    
     ]
 }
 ```
@@ -418,8 +497,8 @@ Create the following two parameters file for the template. Create the "PrivateZo
         "privateZoneName": {
             "value": ""
         },
-		"VNetId": {
-			"value": ""
+        "VNetId": {
+            "value": ""
         }
     }
 }
@@ -435,9 +514,9 @@ Create the "PrivateZoneRecords_parameters.json." with the following code:
         "DNSRecordName": {
             "value": ""
         },
-		"IPAddress": {
-			"type":"object"
-		}
+        "IPAddress": {
+            "type":"object"
+        }
     }
 }
 ```
@@ -490,38 +569,38 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## Step 4: Create the private zone
 New-AzResourceGroupDeployment -Name "PrivateZoneDeployment" `
-	-ResourceGroupName $ResourceGroupName `
-	-TemplateFile $PrivateZoneTemplateFilePath `
-	-TemplateParameterFile $PrivateZoneParametersFilePath `
-	-PrivateZoneName $PrivateZoneName `
-	-VNetId $VNetResourceId
+    -ResourceGroupName $ResourceGroupName `
+    -TemplateFile $PrivateZoneTemplateFilePath `
+    -TemplateParameterFile $PrivateZoneParametersFilePath `
+    -PrivateZoneName $PrivateZoneName `
+    -VNetId $VNetResourceId
 
 ## Step 5: Create the private endpoint
 Write-Output "Deploying private endpoint on $($resourceGroupName)"
 $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpointDeployment" `
-	-ResourceGroupName $resourceGroupName `
-	-TemplateFile $PrivateEndpointTemplateFilePath `
-	-TemplateParameterFile $PrivateEndpointParametersFilePath `
-	-SubnetId $SubnetResourceId `
-	-ResourceId $CosmosDbResourceId `
-	-GroupId $CosmosDbApiType `
-	-PrivateEndpointName $PrivateEndpointName
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $PrivateEndpointTemplateFilePath `
+    -TemplateParameterFile $PrivateEndpointParametersFilePath `
+    -SubnetId $SubnetResourceId `
+    -ResourceId $CosmosDbResourceId `
+    -GroupId $CosmosDbApiType `
+    -PrivateEndpointName $PrivateEndpointName
 $deploymentOutput
 
 ## Step 6: Map the private endpoint to the private zone
 $networkInterface = Get-AzResource -ResourceId $deploymentOutput.Outputs.privateEndpointNetworkInterface.Value -ApiVersion "2019-04-01"
 foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
-	foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-		$recordName = $fqdn.split('.',2)[0]
-		$dnsZone = $fqdn.split('.',2)[1]
-		Write-Output "Deploying PrivateEndpoint DNS Record $($PrivateZoneName)/$($recordName) Template on $($resourceGroupName)"
-		New-AzResourceGroupDeployment -Name "PrivateEndpointDNSDeployment" `
-			-ResourceGroupName $ResourceGroupName `
-			-TemplateFile $PrivateZoneRecordsTemplateFilePath `
-			-TemplateParameterFile $PrivateZoneRecordsParametersFilePath `
-			-DNSRecordName "$($PrivateZoneName)/$($RecordName)" `
-			-IPAddress $ipconfig.properties.privateIPAddress
-	}
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
+        $recordName = $fqdn.split('.',2)[0]
+        $dnsZone = $fqdn.split('.',2)[1]
+        Write-Output "Deploying PrivateEndpoint DNS Record $($PrivateZoneName)/$($recordName) Template on $($resourceGroupName)"
+        New-AzResourceGroupDeployment -Name "PrivateEndpointDNSDeployment" `
+            -ResourceGroupName $ResourceGroupName `
+            -TemplateFile $PrivateZoneRecordsTemplateFilePath `
+            -TemplateParameterFile $PrivateZoneRecordsParametersFilePath `
+            -DNSRecordName "$($PrivateZoneName)/$($RecordName)" `
+            -IPAddress $ipconfig.properties.privateIPAddress
+    }
 }
 ```
 
@@ -543,40 +622,21 @@ The following situations and outcomes are possible when you use Private Link in 
 
 ## Update a private endpoint when you add or remove a region
 
-Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. Update these changes accordingly in the private endpoint by using the following steps:
-
-1. When the Azure Cosmos DB administrator adds or removes regions, the network administrator gets a notification about the pending changes. For the private endpoint mapped to an Azure Cosmos account, the value of the `ActionsRequired` property changes from `None` to `Recreate`. Then the network administrator updates the private endpoint by issuing a PUT request with the same Resource Manager payload that was used to create it.
-
-1. After the private endpoint is updated, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
+Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
 For example, imagine that you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint.
 
-Later, you might add a new region (for example, "East US") to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it from the new region. 
+Later, you might add a new region (for example, "East US") to the Azure Cosmos account. After adding the new region, you need to add a corresponding DNS record to either your private DNS zone or your custom DNS.
 
-When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter. This parameter is set to `Recreate`. This value indicates that the private endpoint should be refreshed. Next, the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
-
-```powershell
-$pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
-
-Set-AzPrivateEndpoint -PrivateEndpoint $pe
-```
-
-A new private IP is automatically reserved in the subnet under this private endpoint. The value for `actionsRequired` becomes `None`. If you don't have any private DNZ zone integration (in other words, if you're using a custom private DNS zone), you have to configure your private DNS zone to add a new DNS record for the private IP that corresponds to the new region.
-
-You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `actionsRequired` flag becomes `None`. If you don't have any private DNZ zone integration, you must configure your private DNS zone to remove the DNS record for the removed region.
-
-DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records.
+You can use the same steps when you remove a region. After removing the region, you need to remove the corresponding DNS record from either your private DNS zone or your custom DNS.
 
 ## Current limitations
 
 The following limitations apply when you're using Private Link with an Azure Cosmos account:
 
-* Private Link support for Azure Cosmos accounts and virtual networks is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article. 
-
-  > [!NOTE]
-  > To create a private endpoint, make sure that both the virtual network and the Azure Cosmos account are in supported regions.
-
 * When you're using Private Link with an Azure Cosmos account by using a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not yet supported.
+
+* Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
 
 * When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
 

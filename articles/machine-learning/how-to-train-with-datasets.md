@@ -10,16 +10,16 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/25/2019
+ms.date: 03/09/2020
 
-# Customer intent: As an experienced Python developer, I need to make my data available to my remote compute to train my machine learning models.
+# Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute to train my machine learning models.
 
 ---
 
 # Train with datasets in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in remote experiment training runs without worrying about connection strings or data paths.
+In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in a remote experiment training runs without worrying about connection strings or data paths.
 
 - Option 1: If you have structured data, create a TabularDataset and use it directly in your training script.
 
@@ -31,7 +31,7 @@ Azure Machine Learning datasets provide a seamless integration with Azure Machin
 
 To create and train with datasets, you need:
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -68,7 +68,7 @@ from azureml.core import Dataset, Run
 
 run = Run.get_context()
 # get the input dataset by name
-dataset = run.input_datasets['titanic_ds']
+dataset = run.input_datasets['titanic']
 # load the TabularDataset to pandas DataFrame
 df = dataset.to_pandas_dataframe()
 ```

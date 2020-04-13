@@ -623,9 +623,10 @@ For more information, please see [public documentation](../cognitive-services/Fa
     
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
-  - `https://dev.microsofttranslator.us/translate?api-version=3.0`
-    ### Text Translation Method
-    This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
+  - `https://api.cognitive.microsofttranslator.us`
+* There are 2 regions `USGovVirginia` and `USGovArizona`
+### Text Translation Method
+The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 
@@ -634,8 +635,9 @@ The sample is written in C#.
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the corresponding code below.
 3. Replace the `subscriptionKey` value with the key value that you retrieved above.
-4. Replace the `text` value with text that you want to translate.
-5. Run the program.
+4. Replace the `region` value with the region value where you created your translator resource.
+5. Replace the `text` value with text that you want to translate.
+6. Run the program.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
@@ -657,7 +659,7 @@ namespace TextTranslator
 {
     class Program
     {
-        static string host = "https://dev.microsofttranslator.us";
+        static string host = "https://api.cognitive.microsofttranslator.us";
         static string path = "/translate?api-version=3.0";
         // Translate to German.
         static string params_ = "&to=de";
@@ -666,7 +668,10 @@ namespace TextTranslator
 
         // NOTE: Replace this example key with a valid subscription key.
         static string key = "PASTE KEY HERE";
-
+        
+        // NOTE: Replace this example region with a valid region.
+        static string region = "PASTE REGION HERE";
+         
         static string text = "Hello world!";
 
         async static void Translate()
@@ -681,6 +686,7 @@ namespace TextTranslator
                 request.RequestUri = new Uri(uri);
                 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+                request.Headers.Add("Ocp-Apim-Subscription-Region", region);
 
                 var response = await client.SendAsync(request);
                 var responseBody = await response.Content.ReadAsStringAsync();

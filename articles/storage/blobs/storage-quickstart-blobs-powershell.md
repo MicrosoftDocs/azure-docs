@@ -5,10 +5,10 @@ description: In this quickstart, you use Azure PowerShell in object (Blob) stora
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ---
 
@@ -24,7 +24,7 @@ To access Azure Storage, you'll need an Azure subscription. If you don't already
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -32,7 +32,7 @@ This quickstart requires the Azure PowerShell module Az version 0.7 or later. Ru
 
 Blobs are always uploaded into a container. You can organize groups of blobs like the way you organize your files on your computer in folders.
 
-Set the container name, then create the container by using [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer). Set the permissions to `blob` to allow public access of the files. The container name in this example is *quickstartblobs*.
+Set the container name, then create the container by using [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Set the permissions to `blob` to allow public access of the files. The container name in this example is *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -43,7 +43,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob storage supports block blobs, append blobs, and page blobs. VHD files that back IaaS VMs are page blobs. Use append blobs for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
 
-To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
+To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
 
 The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
 
@@ -65,7 +65,7 @@ Upload as many files as you like before continuing.
 
 ## List the blobs in a container
 
-Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-AzStorageblob). This example shows just the names of the blobs uploaded.
+Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example shows just the names of the blobs uploaded.
 
 ```powershell
 Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
@@ -73,7 +73,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## Download blobs
 
-Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent) to download the blob.
+Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) to download the blob.
 
 This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk. 
 

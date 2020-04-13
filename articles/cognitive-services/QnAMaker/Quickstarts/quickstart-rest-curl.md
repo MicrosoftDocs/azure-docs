@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: Use cURL & REST to manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
+ms.date: 04/13/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.date: 12/16/2019
 ---
 
 # Quickstart: Use cURL and REST to manage knowledge base
@@ -14,9 +16,9 @@ This quickstart walks you through creating, publishing, and querying your knowle
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
-* You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first part of the endpoint URL:
+* You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
