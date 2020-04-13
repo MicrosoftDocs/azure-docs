@@ -64,7 +64,17 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
    aro                                0.3.0
    ...
    ```
-  
+
+### Optionally obtain a Red Hat pull secret
+
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content.  Its use is optional but recommended.
+
+Obtain your pull secret by navigating to https://cloud.redhat.com/openshift/install/azure/aro-provisioned and clicking *Download pull secret*.
+
+You will need to log in to your Red Hat account, or create a new Red Hat account with your business email and accept the terms and conditions.
+
+Keep the saved `pull-secret.txt` file somewhere safe, it will be used in each cluster creation.
+
 ### Create a virtual network containing two empty subnets
 
 Follow these steps to create a virtual network containing two empty subnets.
@@ -75,15 +85,7 @@ Follow these steps to create a virtual network containing two empty subnets.
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > The optional pull secret enables your cluster to access Red Hat container registries along with additional content.
-   >
-   > Access your pull secret by navigating to https://cloud.redhat.com/openshift/install/azure/installer-provisioned and clicking *Copy Pull Secret*.
-   >
-   > You will need to log in to your Red Hat account, or create a new Red Hat account with your business email and accept the terms and conditions.
- 
 
 2. Create a resource group for your cluster.
 
@@ -139,7 +141,7 @@ az aro create \
   --worker-subnet "$CLUSTER-worker" \
   --cluster-resource-group "aro-$CLUSTER" \
   --domain "$CLUSTER" \
-  --pull-secret "$PULL_SECRET"
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]
