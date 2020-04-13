@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/09/2020
+ms.date: 04/13/2020
 ms.author: dapine
 ---
 
@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
 
 ## Change source language
 
-One common task of speech translation is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, interact with the [`SpeechTranslationConfig`][config] instance, assigning to the `SpeechRecognitionLanguage` property.
+One common task of speech translation is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, interact with the [`SpeechTranslationConfig`][config] instance, calling the `SetSpeechRecognitionLanguage` method.
 
 ```cpp
 void translateSpeech() {

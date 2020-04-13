@@ -65,14 +65,14 @@ conceptualContent:
     - title: Speech translation
       links:
       - itemType: quickstart
+        text: Speech translation basics
+        url: speech-translation-basics.md
+      - itemType: quickstart
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
         text: Translate speech into multiple target languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
       footerLink:
         text: See more
         url: index-speech-translation.yml
