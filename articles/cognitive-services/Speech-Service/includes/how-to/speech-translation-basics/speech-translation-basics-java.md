@@ -76,7 +76,7 @@ public class App {
     }
 
     static void translateSpeech() {
-        SpeechConfig config = SpeechConfig.fromSubscription(
+        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(
             SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
     }
 }
@@ -88,7 +88,7 @@ One common task of speech translation is specifying the input (or source) langua
 
 ```java
 static void translateSpeech() {
-    SpeechConfig translationConfig = SpeechConfig.fromSubscription(
+    SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromSubscription(
         SPEECH__SUBSCRIPTION__KEY, SPEECH__SERVICE__REGION);
     
     // Source (input) language
