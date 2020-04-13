@@ -33,16 +33,19 @@ highlightedContent:
     - title: Throttling
       itemType: overview
       url: ./general/overview-throttling.md
-    - title: Security
+    - title: Security Recommendations
       itemType: overview
-      url: ./general/secure-your-key-vault.md
+      url: ./general/security-recommendations.md
 conceptualContent:
   items:
     - title: Certificates
       links:
         - url: ./certificates/about-certificates.md
-          itemType: download
+          itemType: overview
           text: About certificates
+        - url: ./certificates/quick-create-portal.md
+          itemType: quickstart
+          text:  Set and retrieve a key from Azure Key Vault using the Azure portal
         - url: ./certificates/certificate-scenarios.md
           itemType: overview
           text: Get started with Key Vault certificates
@@ -58,6 +61,9 @@ conceptualContent:
         - url: ./keys/about-keys.md
           itemType: overview
           text:  About keys
+        - url: ./keys/quick-create-portal.md
+          itemType: quickstart
+          text:  Set and retrieve a key from Azure Key Vault using the Azure portal
         - url: ./keys/hsm-protected-keys.md
           itemType: quickstart
           text:  Import HSM-protected keys to Key Vault
@@ -71,11 +77,14 @@ conceptualContent:
     - title: Secrets
       links:
         - url: ./secrets/about-secrets.md
-          itemType: concept
+          itemType: overview
           text:  About secrets
-        - url: ./secrets/key-rotation-log-monitoring.md
-          itemType: concept
-          text:  Set up end-to-end key rotation and auditing
+        - url: ./secrets/quick-create-portal.md
+          itemType: quickstart
+          text:  Set and retrieve a secret from Azure Key Vault using the Azure portal
+        - url: ./secrets/tutorial-rotation.md
+          itemType: tutorial
+          text:  Rotate secrets for single-user resources
       footerLink:
         url: ./secrets/index.yml
         text: See more
