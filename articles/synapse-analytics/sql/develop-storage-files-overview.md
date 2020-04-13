@@ -191,7 +191,7 @@ To access elements from a repeated column, such as an element of an Array or Map
 To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every non-scalar element you need to project and provide:
 
 - Nested or repeated column, as the first parameter
-- A [JSON path](https://docs.microsoft.com/lational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element or property to access, as a second parameter
+- A [JSON path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) that specifies the element or property to access, as a second parameter
 
 See syntax fragment below:
 
