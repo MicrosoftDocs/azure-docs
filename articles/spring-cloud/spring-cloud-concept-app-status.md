@@ -22,7 +22,8 @@ To view general status of an application type, select **Apps** in the left navig
 
 The Deployment status is reported as one of the following values:
 
-Deployment.properties.Status 
+Deployment.properties.Status
+
 | Enum | Definition |
 |:--:|:----------------:|
 | Running | The deployment runs properly |
@@ -35,6 +36,7 @@ Deployment.properties.Status
 The Discovery status is reported as one of the following values:
 
 DiscoveryStatus: Show registered status of the instance in Eureka server, same as the definition in Eureka
+
 | Enum | Definition |
 |:--:|:----------------:|
 | Enum | Definition |
