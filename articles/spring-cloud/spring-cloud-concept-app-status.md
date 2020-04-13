@@ -33,7 +33,7 @@ Deployment.properties.Status
 | Upgrading | User's app is trying to boot up with given resources and binary deployment. |
 | Failed | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
 
-** The previsioning state is reported as one of the following values:**
+**The provisioning state is reported as one of the following values:**
 
 Deployment.properties.privioningState: 
 
