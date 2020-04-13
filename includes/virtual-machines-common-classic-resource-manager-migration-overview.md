@@ -20,7 +20,7 @@ Resource Manager enables deploying complex applications through templates, confi
 Almost all the features from the classic deployment model are supported for compute, network, and storage under Azure Resource Manager. To benefit from the new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model.
 
 ## Supported resources for migration
-These classic IaaS resources are supported during migration
+Migration is supported for these classic IaaS resources.
 
 * Virtual Machines
 * Availability Sets
@@ -63,7 +63,7 @@ The following configurations are not currently supported. If support is added in
 >
 
 ### Migration of storage accounts
-To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
+To allow seamless migration, the VHD file representing your classic Virtual Machine's disk can remain in a classic storage account while that Virtual Machine is migrated to Resource Manager. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
 
 If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to Azure Resource Manager can be done as a standalone migration without dependencies.
 
@@ -86,8 +86,6 @@ The following screenshots show how to upgrade a Classic storage account to an Az
 
 ### Migration of unattached resources
 Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
-
-Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can also be migrated independently.
 
 <br>
 
