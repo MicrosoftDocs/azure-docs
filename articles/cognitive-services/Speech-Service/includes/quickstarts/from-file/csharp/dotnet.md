@@ -203,4 +203,4 @@ Now you're ready to build your app and test our speech recognition using the Spe
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
