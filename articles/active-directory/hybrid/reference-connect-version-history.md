@@ -43,6 +43,13 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.20.0
+
+### Release status
+04/09/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
 
 ## 1.5.18.0
 

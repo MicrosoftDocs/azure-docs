@@ -125,4 +125,4 @@ The first 15 seconds of speech input from your audio file will be recognized and
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

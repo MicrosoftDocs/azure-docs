@@ -20,6 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
+	
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -355,7 +356,7 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
@@ -423,12 +424,17 @@
     },
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/miro-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {
@@ -470,6 +476,11 @@
       "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
       "redirect_url": "/azure/azure-arc/servers/onboard-portal",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/active-directory/saas-apps/123contactform-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
@@ -533,7 +544,7 @@
     },
     {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
-      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui",
       "redirect_document_id": false
     },
     {
@@ -46881,6 +46892,66 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/retail/architecture-connected-logistics-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-digital-distribution-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-digital-distribution-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-micro-fulfillment-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-micro-fulfillment-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/architecture-smart-inventory-management-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/architecture-smart-inventory-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/overview-iot-central-retail-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/overview-iot-central-retail",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-create-app-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-customize-dashboard-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-customize-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-connected-logistics-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-digital-distribution-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-iot-central-smart-inventory-management-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/retail/tutorial-micro-fulfillment-center-pnp.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -50580,13 +50651,48 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/ansible/",
+      "source_path": "articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/ansible/index.yml",
-      "redirect_url": "/azure/developer/ansible/",
+      "source_path": "articles/chef/chef-automation.md",
+      "redirect_url": "/azure/developer/chef/windows-vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-extension-portal.md",
+      "redirect_url": "/azure/developer/chef/client-install-from-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-habitat-overview.md",
+      "redirect_url": "/azure/developer/chef/habitat-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-inspec-overview.md",
+      "redirect_url": "/azure/developer/chef/inspec-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/chef-overview.md",
+      "redirect_url": "/azure/developer/chef/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/index.yml",
+      "redirect_url": "/azure/developer/chef/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/database-security-overview.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/database-best-practices.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
       "redirect_document_id": false
     }
   ]

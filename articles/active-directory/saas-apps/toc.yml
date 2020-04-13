@@ -7,8 +7,8 @@
       items:
       - name: 10,000ft Plans
         href: 10000ftplans-tutorial.md
-      - name: 123ContactForm
-        href: 123contactform-tutorial.md
+      - name: 123FormBuilder
+        href: 123formbuilder-tutorial.md
       - name: 15Five
         href: 15five-tutorial.md
       - name: 23 Video
@@ -47,8 +47,6 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
-        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -81,7 +79,7 @@
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
         href: amazon-web-service-tutorial.md
-      - name: Amazon Web Services (AWS) (Legacy Tutorial)
+      - name: Amazon Web Services (AWS) to connect multiple accounts
         href: aws-multi-accounts-tutorial.md
       - name: AMMS
         href: amms-tutorial.md
@@ -570,6 +568,8 @@
         href: foreseecxsuite-tutorial.md
       - name: Form.com
         href: formcom-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -612,6 +612,8 @@
         href: golinks-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
+      - name: gr8 People
+        href: gr8-people-tutorial.md
       - name: Gra-Pe
         href: grape-tutorial.md
       - name: Greenhouse
@@ -636,6 +638,8 @@
         href: halosys-tutorial.md
       - name: HappyFox
         href: happyfox-tutorial.md
+      - name: Harmony
+        href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
       - name: Helper Helper
@@ -652,6 +656,8 @@
         href: heybuddy-tutorial.md
       - name: HighGear
         href: highgear-tutorial.md
+      - name: HighGround
+        href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
       - name: HireVue
@@ -884,6 +890,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: Litmus
+        href: litmus-tutorial.md
       - name: Learnster
         href: learnster-tutorial.md
       - name: LinkedIn Elevate
@@ -902,7 +910,7 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
-      - name: Logz.io - Cloud Observability for Engineers
+      - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
@@ -1110,6 +1118,8 @@
         href: peakon-tutorial.md
       - name: Pega Systems
         href: pegasystems-tutorial.md
+      - name: Pendo
+        href: pendo-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart
@@ -1436,6 +1446,8 @@
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-tutorial.md
+      - name: SynchroNet CLICK
+        href: synchronet-click-tutorial.md
       - name: Syncplicity
         href: syncplicity-tutorial.md
       - name: Synergi
@@ -1500,6 +1512,8 @@
         href: timelive-tutorial.md
       - name: TimeOffManager
         href: timeoffmanager-tutorial.md
+      - name: Timetabling Solutions
+        href: timetabling-solutions-tutorial.md
       - name: TINFOIL SECURITY
         href: tinfoil-security-tutorial.md
       - name: TiViTz
