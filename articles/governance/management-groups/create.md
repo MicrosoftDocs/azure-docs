@@ -20,7 +20,9 @@ directory. You receive a notification when the process is complete. For more inf
 
 Any Azure AD user in the tenant can create a management group without the management group write permission assigned to that user.  This new management group will be a child of the Root Management Group and the creator will be given an "Owner" role assignment. Management group service allows this ability so that role assignments are not needed at the root level. No users have access to the Root Management Group when it is created.  To avoid the hurdle of finding the Azure AD Global Admins to start using management groups, we allow the creation of the initial management groups at the root level.      
 
-You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you can't use Resource Manager templates to create management groups.
+You can create the management group by using the portal, a
+[Resource Manager template](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group),
+PowerShell, or Azure CLI.
 
 ### Create in portal
 
