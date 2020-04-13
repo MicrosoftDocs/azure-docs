@@ -10,10 +10,12 @@
   items:
   - name: Create and configure Azure Digital Twins
     href: quickstart.md
-- name: Tutorial
+- name: Tutorials
   items:
-  - name: Build an end-to-end solution
-    href: tutorial-end-to-end.md
+  - name: Build a basic Azure Digital Twins solution
+    href: tutorial-build.md
+  - name: Connect your solution to other Azure services
+    href: tutorial-connect.md
 - name: Concepts
   items:
   - name: Create a twin type

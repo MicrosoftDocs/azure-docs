@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Build an end-to-end solution
+title: Connect your solution to other Azure services
 titleSuffix: Azure Digital Twins
-description: Tutorial to develop a full sample Azure Digital Twins solution.
+description: Tutorial to build out a sample Azure Digital Twins solution to update based on device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/10/2020
+ms.date: 4/13/2020
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -17,183 +17,51 @@ ms.service: digital-twins
 
 # Build out the end-to-end sample solution
 
-This section introduces Azure Digital Twins commands and goes through the steps to develop an end-to-end solution. The basis for this solution will be a pre-written sample application that you have downloaded from this repository.
+This tutorial shows you how to set up an end-to-end solution by connecting your Azure Digital Twins instance to other Azure services.
 
 The project uses a **building scenario** to build an Azure Digital Twins solution, representing a real-world building with a floor, a room and a thermostat device. You'll automate the sensors in the building, and create the following workflow to represent the entire scenario:
 
 ![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure function to an Azure Digital Twins instance, then out through Event Grid to another Azure function for processing](media/tutorial-end-to-end/building-scenario.png)
 
-Here is an overview of the steps in this tutorial and what you will accomplish in each:
+In this tutorial, you will...
+* Instantiate Azure Digital Twins components for the building scenario (create models, create your graph with twins representing devices, rooms and floors)
+* Route simulated device telemetry from IoT Hub through a Azure Functions app to update properties in your Azure Digital Twins instance |
+* Process notifications from Azure Digital Twins using endpoints and routes, and aggregate all data for a floor |
 
-| Building scenario | Details |
-|---| --- |
-| 0. Azure Digital Twins Basics | *[Optional]* Familiarize yourself with how to create models/relationships/query. *Not required for the following steps* |
-| 1. Instantiate building scenario | Instantiate metadata for the building scenario (create models, create your graph with twins as devices, rooms and floors) |
-| 2. Send simulated telemetry from IoT Hub | Route simulated device telemetry from IoT Hub to a Azure Functions app to update properties in an Azure Digital Twins instance |
-| 3. Set up an event handling Azure Functions app | Process notifications from DT via endpoints and routes and aggregate data on floor level (again, reformulate to sound good) |
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-The sample project contains an interactive authorization piece. All you need to do for this is to **choose your account when prompted in the browser**.
+## Prerequisites
 
-> [!IMPORTANT]
-> When working with the Azure CLI in a command window, make sure to sign in with the AAD account associated with your subscription.
+Before you start, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
 
-> [!TIP]
-> If Visual Studio throws a .NET error, check out the **Visual Studio error when the project is run** topic in **Troubleshooting** (at the end of this file).
+This tutorial uses the Azure Digital Twins instance and configured sample project from the [quickstart](quickstart.md) for creating and configuring Azure Digital Twins. You will need to complete the quickstart before building on it in this tutorial.
 
-## 0. Azure Digital Twins Basics
-
-Walk through this optional section to familiarize yourself with the major Azure Digital Twins concepts.
-If you are already familiar with models, digital twins, and querying the twin graph, you can skip ahead to section *1. Instantiate the building scenario*.
-
-### 0. (a) Model a physical environment with DTDL
-
-The first step in crafting an Azure Digital Twins solution is concepting and defining twin **models** for your environment. Models are similar to classes in C#, and provide user-defined templates that digital twins can instantiate later. 
-They're written in a JSON-like language called Digital Twins Definition Language (DTDL), and are structured like this: 
-
-```json
-{
-  "@id": "urn:example:Hospital:1",
-  "@type": "Interface",
-  "name": "Hospital",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "VisitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "HandWashPercentage",
-      "schema": "double"
-    },
-    {
-      "@type": "Relationship",
-      "name": "managedWards",
-      "target": "*"
-    }
-  ],
-  "@context": "http://azure.com/v3/contexts/Model.json"
-}
-
-```
-
-You can learn more about models in [Create a twin model](concepts-models.md), and can see more sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*.
-
-To upload a model to your Azure Digital Twins instance, start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. A console window will open, carry out device authentication, and present action options.
-
-Run the following command to upload the models for *Floor* and *Room*.
-
- ```cmd
- addModels Floor Room
- ```
-> [!NOTE]
-> Notice that *Floor.json* and *Room.json* are in the */DigitalTwinsMetadata/DigitalTwinsSample/Models* folder.
-
-Afterwards, you can verify the models were created with the `listModels` command. 
-
-#### Variations
-
-You'll notice that `addModels` is actually just calling `CommandLoop.SubmitAddModels`. Read the [DTDL technical deep dive](https://github.com/Azure/azure-digital-twins/blob/private-preview/Documentation/Digital%20Twins%20Definition%20Language%2C%20Version%202%2C%20Draft%202%2C%20NDA.pdf), twin model [concepts documentation](concepts-models.md) and [how-to documentation](how-to-manage-model.md), then try these variations.
-* Update existing models (*Floor.json* or *Room.json*)
-  - Start by changing the `@id` value to `urn:example:<model-name>:2`. The "2" is the version number, so doing this will indicates that you are providing a more-updated version of this model. Any number greater than the current version number will also work.
-  - Then play around with adding/changing properties or relationships.
-* Create your own models
-  - Use the existing model examples to create your own models in the */DigitalTwinsMetadata/DigitalTwinsSample/Models* folder, and upload them using the process described earlier.
-
-### 0. (b)  Create your graph with twins and relationships
-
-Now that you have uploaded some models to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment, and can be things like sensors on a farm, rooms in a building, or lights in a car.
-These are the elements that you will connect via **relationships** to form a **twin graph** of your entire environment.
-
-To create a twin, you must reference the model that the twin is based on, and define values for any properties in the model.
-
-The following example creates several twins based on the *Floor* and *Room* models. Recall that *Room* has two properties, so the twins below must provide initial values to these as arguments.
-
-```csharp
-addTwin urn:example:Floor:1 floor0
-addTwin urn:example:Room:1 room0 Temperature double 100 Humidity double 60
-addTwin urn:example:Room:1 room1 Temperature double 200 Humidity double 30
-```
-
-Verify the twins were created by querying your Azure Digital Twins instance with `queryTwins`.
-   * Notice that `queryTwins` allows you to input SQL-like queries as an argument, but leaving it blank executes a `SELECT * FROM DIGITALTWINS` query.
-
-Next, we'll connect these twins using relationships. The following example adds a "contains" edge from the *Floor* twin to each of the *Room* twins.
-
-  ```csharp
-  addEdge floor0 contains room0 edge0
-  addEdge floor0 contains room1 edge1
-  ```
-
-Verify the edges were created by running either of the following commands:
-
-  ```csharp
-  listEdges floor0
-  ```
-  or
-  ```csharp
-  getEdgeById floor0 contains edge0
-  getEdgeById floor0 contains edge1
-  ```
-
-In this section, you've set up twins and relationships to form this graph:
-
-![A graph with a "Floor" node connected to two different "Room" nodes via "contains" relationships](media/tutorial-end-to-end/sample-graph.jpg)
-
-#### Variations
-
-Read the [twin graph concept documentation](concepts-twins-graph.md), [twin management how-to documentation](how-to-manage-twin.md) and [twin graph management how-to documentation](how-to-manage-graph.md), then try out these variations.
-* Try deleting edges and twins 
-   - Start by deleting all edges from a particular digital twin using `deleteEdge`. Then you can delete the twin with `deleteTwin`.
-* Create your own graphs of any physical space (your apartment, a car, a hospital… anything!) 
-   - Create your own models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*, then use `uploadModel`, `createTwin`, and `addEdge` to create your graph.
-
-### 0. (c)  Query the twin graph
-
-A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently. Here are some example questions you can answer with the Azure Digital Twins Query Store language:
-* Which twins have a Temperature property with a value of 200?
-* Which twins are created from the *Floor* model?
-* Which *Room* twins are contained in the *floor0* twin?
-
-The following examples are some sample query commands you can run. They begin with the `queryTwins` command, followed by an Azure Digital Twins Query Store language query.
-
-1. Query twins based on their *Temperature* property
-
-`queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature = 200 `
-
-2. Query twins based on the model
-
-`queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Floor:1')`
-
-3. Query twins based on relationships
-
-`queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor1'`
-
-#### Variations
-
-Read the [query language documentation](concepts-query-language.md) and [graph query how-to documentation](how-to-query-graph.md), then try these variations.
-
-* Combine the above queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`
-* Use conditionals for properties: `IN`, `NOT IN`, `STARTSWITH`, `ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
-
-## 1. Instantiate the building scenario
+## Instantiate the building scenario
 
 The remaining steps in this tutorial build out the details of the building scenario. This step focuses on this section:
 
 ![An excerpt from the full building scenario graphic, highlighting the Azure Digital Twins instance](media/tutorial-end-to-end/building-scenario-1.png)
 
-Start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command.
+In this tutorial, you will work with pre-written sample app to work with Azure Digital Twins. This app implements…
+* Device authentication 
+* Pre-generated AutoRest SDK
+* SDK usage examples (in *CommandLoop.cs*)
+* Console interface to call the Azure Digital Twins API
+* *BuildingScenario* - A sample Azure Digital Twins solution
+* *HubtToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
+* *DTRoutedData* - An Azure Functions app to update your Azure Digital Twins graph according to Azure Digital Twins data 
 
-> [!NOTE]
-> This command will delete the twins in your instance and create a sample Azure Digital Twins solution.
+Start (![Visual Studio start button](media/tutorial-end-to-end/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution.
 
 `buildingScenario`
 
-Twins have been deleted and new twins have been created. You can run the following command to see the new twins.
+You can run the following command to see the new twins.
 
 `queryTwins`
 
-## 2. Send simulated telemetry from IoT Hub
+The sample project contains an interactive authorization piece. All you need to do for this is to **choose your account when prompted in the browser**.
+
+## Send simulated telemetry from IoT Hub
 
 The next step is to simulate device telemetry from IoT Hub, and trigger a corresponding update to the Azure Digital Twins graph. This step focuses on this section of the building scenario:
 
@@ -356,7 +224,7 @@ You should see the live updated temperatures *from your Azure Digital Twins inst
 
 ![Console output showing log of temperature messages from a thermostat](media/tutorial-end-to-end/console-telemetry.jpg)
 
-## 3. Handle events with an Azure Functions app
+## Handle events with an Azure Functions app
 
 The final step of the building scenario tutorial is to deploy an Azure Functions app that updates a *Room* twin when the connected *Thermostat* twin is updated. To do this, this section focuses on this part of the building scenario:
 
@@ -492,7 +360,7 @@ Here is a review of what you completed in this scenario tutorial.
 
 # Troubleshooting
 
-This section contains some common issues you may run into while completing the above tutorials.
+This section contains some common issues you may run into while completing the above tutorial.
 
 ## Unable to publish the Azure Functions app
 
