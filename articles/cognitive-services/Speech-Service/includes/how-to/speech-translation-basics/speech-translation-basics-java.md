@@ -16,7 +16,7 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Import dependencies
 
-To run the examples in this article, include the following `import` statements at the top of the C++ code file.
+To run the examples in this article, include the following `import` statements at the top of the **.Java* code file.
 
 ```java
 package speech;
@@ -31,7 +31,7 @@ import com.microsoft.cognitiveservices.speech.translation.*;
 
 ## Sensitive data and environment variables
 
-The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource subscription key and region. The C++ code file contains two string values that are assigned from the host machines environment variables, namely `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, making them accessible within method bodies of the class. For more information on environment variables, see [environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource subscription key and region. The Java code file contains two `static final String` values that are assigned from the host machines environment variables, namely `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, making them accessible within method bodies of the class. For more information on environment variables, see [environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```java
 public class App {
