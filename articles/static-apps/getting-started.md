@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Building your first app with App Service Static Apps"
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+description: Learn to build an App Service Static App with your preferred front-end framework.
+services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
 ms.topic:  quickstart
@@ -9,124 +9,153 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---quickstarts are fundamental day-1 instructions for helping new customers use a subscription to quickly try out a specific product/service. The entire activity is a short set of steps that provides an initial experience.
-You only use quickstarts when you can get the service, technology, or functionality into the hands of new customers in less than 10 minutes.
---->
-
 # Quickstart: Building your first static app
 
-<!---Required:
-Starts with "quickstart: "
-Make the first word following "quickstart:" a verb.
---->
+App Service Static Apps publishes apps to a production environment by building web apps from a GitHub repository.
 
-Introductory paragraph.
+In this quickstart, you build a web application from a GitHub repository.
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question.
---->
-
-In this quickstart, you will <do X>
-
-If you don't have a <service> subscription, create a free trial account...
-
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+If you don't have a Azure subscription, [create a free trial account](https://azure.microsoft.com/en-us/free).
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you feel like your quickstart has a lot of prerequisites, the quickstart may be the wrong content type - a tutorial or how-to guide may be the better option.
-If you need them, make Prerequisites your first H2 in a quickstart.
-If there's something a customer needs to take care of before they start (for example, creating a VM) it's OK to link to that content before they begin.
---->
+- [GitHub](https://github.com) account
+- [Azure](https://portal.azure.com) account
 
-## Sign in to <service/product/tool name>
+## Create a repository
 
-<!--Sign in to the [<service> portal](url). --->
-<!---If you need to sign in to the portal to do the quickstart, this H2 and link are required.--->
+To help make it easy for you to create a new repository, you can create a new repo from a GitHub template repository. Each template includes a simple application powered by your preferred front-end framework.
 
-## Procedure 1
+# [Angular](#tab/angular)
 
-<!---Required:
-Quickstarts are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the quickstart procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the quickstart when using cmdlets or code. Provide customers what they need to know in the quickstart to successfully complete the quickstart.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/angular-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+# [React](#tab/react)
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
-      <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-      If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/react-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
 
-## Procedure 2
+# [Svelte](#tab/svelte)
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/svelte-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+# [Vanilla JavaScript](#tab/vanilla-javascript)
 
-## Procedure 3
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+# [Vue](#tab/vue)
 
-<!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
+- Navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vue-basic/generate
+- Name your repository **my-first-static-app**
+- Click the **Create repository from template** button
 
-Here is an example of a code block for Java:
+---
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
-    ```
+## Create a static app
 
-or a code block for Azure CLI:
+Now that the repo is created, you can create a static app from the Azure portal.
 
-    ```azurecli-interactive
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
+- Navigate to the [Azure portal](https://portal.azure.com)
+- In the top bar, search for **Static Apps**
+- Click **Static Apps**
 
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-    ```
+![placeholder](https://via.placeholder.com/500x200)
+
+### Basics
+
+Begin by configuring your new app and linking it to a GitHub repository.
+
+- Select your _Azure subscription_
+- Select or create a new _Resource Group_
+- Name the app **my-first-static-app**.
+  - Valid characters are `a-z` (case insensitive), `0-9`, and `_`.
+- Select _Region_ closest to you
+- Select the **Free** _SKU_
+- Click the **Sign-in with GitHub** button and authenticate with GitHub
+- Select your preferred _Organization_
+- Select **my-first-static-app** from the _Repository_ drop-down
+- Select **master** from the _Branch_ drop down
+- Click the **Next: Build >** button to edit the build configuration
+
+### Build
+
+Next, add configuration details specific to your preferred front-end framework.
+
+# [Angular](#tab/angular)
+
+- Enter **src** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **dist** in the _App artifact location_ box
+- Click the **Review + create** button
+
+# [React](#tab/react)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **build** in the _App artifact location_ box
+- Click the **Review + create** button
+
+# [Svelte](#tab/svelte)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **public** in the _App artifact location_ box
+- Click the **Review + create** button
+
+# [Vanilla JavaScript](#tab/vanilla-javascript)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Clear the default value from _App artifact location_ box
+- Click the **Review + create** button
+
+# [Vue](#tab/vue)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **dist** in the _App artifact location_ box
+- Click the **Review + create** button
+
+---
+
+### Review + create
+
+After the build validates, you can proceed to create the application.
+
+- Click the **Create** button
+- Once the deployment is complete, click the **Go to resource** button
+
+## View website
+
+There are two automated aspects to deploying a static app. The first provisions the underlying Azure resources and services that make up your app. The second is a GitHub build process that builds your application and makes it publicly available.
+
+> [!NOTE]
+> You can ensure that the GitHub build process is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
+
+Once the provisioning and deployment is complete, you can click on the _URL_ link in the Azure portal to launch your app in the browser.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+If you're not going to continue to use this application, you can delete the static app through the following steps:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the quickstart procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
+1. Open the Azure portal
+1. Search for **my-first-static-app**
+1. Click on the **Delete** button
+1. Click **Yes** to confirm the delete action
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+> [Add an API](add-api.md)
