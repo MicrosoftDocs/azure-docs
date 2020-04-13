@@ -60,7 +60,7 @@ If you are using Office 2013 Windows clients or older, we recommend upgrading to
 
 Office 2010 does not support modern authentication. You will need to upgrade any users with Office 2010 to a more recent version of Office. We recommend upgrading to Office 2016 or later, as it blocks legacy authentication by default.
 
-If you are using MacOS, we recommend upgrading to Office for Mac 2016 or later. If you are using the native mail client, you will need to have MacOS version 10.14 or later on all devices.
+If you are using macOS, we recommend upgrading to Office for Mac 2016 or later. If you are using the native mail client, you will need to have macOS version 10.14 or later on all devices.
 
 ### Step 3: Exchange and SharePoint
 
