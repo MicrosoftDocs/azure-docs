@@ -33,7 +33,7 @@ Use the following sync process to reactivate the connection and refresh the toke
     1. Click the Connector name in order configure it
     1. If you notice that the connectors are not in use anymore please delete them
 
-    1. Update the fields – according to the definitions here https://docs.microsoft.com/en-us/azure/azure-monitor/platform/itsmc-connections (according to your partner type)
+    1. Update the fields – according to the definitions here https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections (according to your partner type)
 
     1. Click on sync
 
