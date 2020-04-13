@@ -152,6 +152,10 @@
     href: pca-based-anomaly-detection.md
   - name: Train Anomaly Detection Model
     href: train-anomaly-detection-model.md
+- name: Web Service
+  items: 
+  - name: Web Servcie Input/Output
+    href: web-service-input-output.md
 - name: Module errors & troubleshooting
   href: designer-error-codes.md
   
