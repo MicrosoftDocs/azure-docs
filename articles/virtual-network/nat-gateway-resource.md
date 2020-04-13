@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
+ms.date: 04/09/2020
 ms.author: allensu
 ---
 
@@ -324,8 +324,8 @@ We want to know how we can improve the service. Are missing a capability? Make y
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * Tutorial for validating NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
+  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Quickstart for deploying a NAT gateway resource
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
