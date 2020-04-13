@@ -1,3 +1,14 @@
+---
+title: Monitor Azure Key Vaults with Azure Monitor for Key Vaults (preview)| Microsoft Docs
+description: This article describes the Azure Monitor for Key Vaults. 
+services: azure-monitor 
+ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 04/13/2019
+
+---
+
 # Monitoring your key vault service with Azure Monitor for Key Vaults (preview)
 Azure Monitor for Key Vaults (preview) provides comprehensive monitoring of your Azure Key Vaults by delivering a unified view of your Azure Key Vaults requests, performance, failures, and latency.
 This article will help you understand how to onboard and customize the experience of Azure Monitor for Key Vaults (preview).
@@ -30,7 +41,7 @@ From Azure Monitor, you can view request, latency, and failure details from mult
 
 To view the utilization and operations of your storage accounts across all your subscriptions, perform the following steps.
 
-1.    Sign into the [Azure Portal](https://portal.azure.com/)
+1.    Sign into the [Azure portal](https://portal.azure.com/)
 
 2.    Select Monitor from the left-hand pane in the Azure portal, and under the Insights section, select Key Vaults (preview).
 
@@ -122,7 +133,7 @@ When a pinned item on the dashboard is clicked, it will open one of two things:
 
 ### Why don't I see all my subscriptions in the subscription picker?
 
-We only show Subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure Portal header.
+We only show Subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
 ![](./media/key-vault-insights-overview/Subscriptions.png)
  
