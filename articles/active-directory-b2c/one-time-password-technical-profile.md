@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -76,10 +76,6 @@ The following settings can be used to configure code generation mode:
 | Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
 | ReuseSameCode | No | Whether a duplicate code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`. |
 
-### Returning error message
-
-There is no error message returned for code generation mode.
-
 ### Example
 
 The following example `TechnicalProfile` is used for generating a code:
@@ -135,9 +131,9 @@ The following settings can be used to code verification mode:
 | Operation | Yes | The operation to be performed. Possible value: `VerifyCode`. |
 
 
-### Error messages
+### UI elements
 
-The following settings can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#one-time-password-error-messages).
+The following metadata can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |

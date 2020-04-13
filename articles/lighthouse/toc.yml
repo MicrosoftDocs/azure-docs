@@ -21,7 +21,7 @@
   - name: Tenants, roles, and users
     displayName: Azure AD, Azure Active Directory
     href: ./concepts/tenants-users-roles.md
-  - name: Managed services offers in Azure Marketplace
+  - name: Managed Service offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
   - name: Recommended security practices
@@ -38,7 +38,7 @@
   - name: Onboard a customer to Azure delegated resource management
     displayName: resource management
     href: ./how-to/onboard-customer.md
-  - name: Publish Managed Services offers to Azure Marketplace 
+  - name: Publish Managed Service offers to Azure Marketplace 
     displayName: managed services offer, azure marketplace, publish, marketplace
     href: ./how-to/publish-managed-services-offers.md
   - name: View and manage customers 

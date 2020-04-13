@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 04/07/2020
 ms.author: memildin
 ---
 # Microsoft Defender Advanced Threat Protection with Azure Security Center
@@ -30,7 +30,7 @@ When you use Microsoft Defender ATP, you get:
 
 The following capabilities are now available in Azure Security Center:
 
-- **Automated onboarding**: The Microsoft Defender ATP sensor is automatically enabled for Windows servers that are onboarded to Azure Security Center.
+- **Automated onboarding**: The Microsoft Defender ATP sensor is automatically enabled for Windows servers that are onboarded to Azure Security Center (with the exception of those that are running Windows Server 2019).
 
 - **Single pane of glass**: The Azure Security Center console displays Microsoft Defender ATP alerts.
 
@@ -54,9 +54,9 @@ Microsoft Defender ATP in Security Center supports detection on Windows Server 2
 To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
 
 1. In the **Onboarding** area, select or create a workspace in which to store the data. <br>
-2. If you can’t see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
-	
-3. Select **Add servers** to view instructions on how to install the Microsoft Monitoring Agent. 
+2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
+    
+3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
 4. After onboarding, you can monitor the machines under **Compute and apps**.
 
@@ -101,11 +101,11 @@ To generate a benign Microsoft Defender ATP test alert:
 
    ![A Command Prompt window with the command above](media/security-center-wdatp/image4.jpeg)
 
-3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
+1. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
 
-4. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
+1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 
-5. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
+1. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
 
 ## Next steps
 

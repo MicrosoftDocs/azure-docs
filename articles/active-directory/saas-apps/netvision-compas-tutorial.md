@@ -41,7 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Netvision Compas supports **SP and IDP** initiated SSO
-* Once you configure Netvision Compas you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Netvision Compas you can enforce Session Control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## Adding Netvision Compas from the gallery
@@ -66,7 +66,7 @@ To configure and test Azure AD SSO with Netvision Compas, complete the following
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Netvision Compas SSO](#configure-netvision-compas-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Netvision Compas test user](#create-netvision-compas-test-user)** - to have a counterpart of B.Simon in Netvision Compas that is linked to the Azure AD representation of user.
+    1. **[Configure Netvision Compas test user](#configure-netvision-compas-test-user)** - to have a counterpart of B.Simon in Netvision Compas that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -92,16 +92,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<TENANT>.compas.cloud/Identity/Auth/AssertionConsumerService`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Netvision Compas Client support team](mailto:contact@net.vision) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Netvision Compas Client support team](mailto:contact@net.vision) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Netvision Compas** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -127,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -135,17 +133,58 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Netvision Compas SSO
 
-To configure single sign-on on **Netvision Compas** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Netvision Compas support team](mailto:contact@net.vision). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section you enable SAML SSO in **Netvision Compas**.
+1. Log into **Netvision Compas** using an administrative account and access the administration area.
 
-### Create Netvision Compas test user
+    ![Admin area](media/netvision-compas-tutorial/admin.png)
 
-In this section, you create a user called B.Simon in Netvision Compas. Work with [Netvision Compas support team](mailto:contact@net.vision) to add the users in the Netvision Compas platform. Users must be created and activated before you use single sign-on.
+1. Locate the **System** area and select **Identity Providers**.
+
+    ![Admin IDPs](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Select the **Add** action to register Azure AD as a new IDP.
+
+    ![Add IDP](media/netvision-compas-tutorial/idps-add.png)
+
+1. Select **SAML** for the **Provider type**.
+1. Enter meaningful values for the **Display name** and **Description** fields.
+1. Assign **Netvision Compas** users to the IDP by selecting from the **Available users** list and then selecting the **Add selected** button. Users can also be assigned to the IDP while following the provisioning procedure.
+1. For the **Metadata** SAML option click the **Choose File** button and select the metadata file previously saved on your computer.
+1. Click **Save**.
+
+    ![Edit IDP](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### Configure Netvision Compas test user
+
+In this section, you configure an existing user in **Netvision Compas** to use Azure AD for SSO.
+1. Follow the **Netvision Compas** user provisioning procedure, as defined by your company or edit an existing user account.
+1. While defining the user's profile, make sure that the user's **Email (Personal)** address matches the Azure AD username: username@companydomain.extension. For example, `B.Simon@contoso.com`.
+
+    ![Edit user](media/netvision-compas-tutorial/user-config.png)
+
+Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration.
+
+### Using the Access Panel (IDP initiated).
 
 When you click the Netvision Compas tile in the Access Panel, you should be automatically signed in to the Netvision Compas for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### Directly accessing Netvision Compas (SP initiated).
+
+1. Access the **Netvision Compas** URL. For example, `https://tenant.compas.cloud`.
+1. Enter the **Netvision Compas** username and select **Next**.
+
+    ![Login user](media/netvision-compas-tutorial/login-user.png)
+
+1. **(optional)** If the user is assigned multiple IDPs within **Netvision Compas**, a list of available IDPs is presented. Select the Azure AD IDP configured previously in **Netvision Compas**.
+
+    ![Login choose](media/netvision-compas-tutorial/login-choose.png)
+
+1. You are redirected to Azure AD to perform the authentication. Once you are successfully authenticated, you should be automatically signed in to **Netvision Compas** for which you set up SSO.
 
 ## Additional resources
 

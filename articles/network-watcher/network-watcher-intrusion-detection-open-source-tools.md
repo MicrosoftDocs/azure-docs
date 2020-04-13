@@ -33,7 +33,7 @@ Both open source tools can be set up on an Azure VM, allowing you to perform thi
 
 ### Install Suricata
 
-For all other methods of installation, visit https://suricata.readthedocs.io/en/latest/install.html
+For all other methods of installation, visit https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. In the command-line terminal of your VM run the following commands:
 
@@ -71,7 +71,7 @@ tail -f /var/log/suricata/fast.log
 
 ### Set up the Elastic Stack
 
-While the logs that Suricata produces contain valuable information about what’s happening on our network, these log files aren’t the easiest to read and understand. By connecting Suricata with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
+While the logs that Suricata produces contain valuable information about what's happening on our network, these log files aren't the easiest to read and understand. By connecting Suricata with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
 
 #### Install Elasticsearch
 
@@ -269,7 +269,7 @@ The sample dashboard provides several visualizations of the Suricata alert logs:
 
     ![image 7][7]
 
-For more documentation on creating custom visualizations and dashboards, see [Kibana’s official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+For more documentation on creating custom visualizations and dashboards, see [Kibana's official documentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## Conclusion
 

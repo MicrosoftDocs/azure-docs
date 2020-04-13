@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 07/31/2019
 ---
-# Array and object functions for Azure Resource Manager templates
+# Array and object functions for ARM templates
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays and objects in your Azure Resource Manager (ARM) template.
 
 * [array](#array)
 * [coalesce](#coalesce)

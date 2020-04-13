@@ -42,7 +42,7 @@ landingContent:
             url: fxt-add-storage.md
           - text: 7 - Configure the cluster's network settings
             url: fxt-configure-network.md
-          - text: Mount clients on the cluster
+          - text: 8 - Mount clients on the cluster
             url: fxt-mount-clients.md
 
   # Card

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -50,7 +50,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 You complete the following experiment set-up and run steps  via Azure Machine learning at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. This interface is not supported on Internet Explorer browsers.
 
-1. Sign in to Azure Machine Learning at https://ml.azure.com.
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. Select your subscription and the workspace you created.
 
@@ -199,9 +199,9 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 ### Delete the deployment instance
 
-Delete just the deployment instance from Azure Machine Learning at https://ml.azure.com/ , if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from Azure Machine Learning at https:\//ml.azure.com/, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to Azure Machine Learning at https://ml.azure.com/. Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
+1. Go to [Azure Machine Learning](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 

@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
 | Front-end hosts, which includes custom domains per resource | 500 |

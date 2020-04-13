@@ -4,7 +4,7 @@ description: This article shows you, as a builder, how to create a new Azure IoT
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
