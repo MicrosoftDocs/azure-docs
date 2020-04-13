@@ -100,7 +100,7 @@ Fill in the fields with the following values:
 In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by clicking the gear icon in the lower corner of the left navigation bar.
+* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by clicking the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
@@ -126,9 +126,9 @@ Click **Run OCR on all files** on the left pane to get the text layout informati
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
-  1. Click **+** to create a new tag.
-  1. Enter the tag name.
-  1. Press Enter to save the tag.
+   1. Click **+** to create a new tag.
+   1. Enter the tag name.
+   1. Press Enter to save the tag.
 1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
@@ -140,11 +140,26 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Don't include keys in your tagged fields&mdash;only the values.
     > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
 
-
-Follow the above steps to label five of your forms, and then move on to the next step.
+Follow the above steps to label at least five of your forms.
 
 ![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
 
+### Specify tag value types
+
+Optionally, you can set the expected data type of each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+
+> [!div class="mx-imgBorder"]
+> ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
+
+The following value types and variations are currently supported:
+* `string`
+    * default, `no-whitespaces`, `alphanumeric`
+* `number`
+    * default, `currency`
+* `date` 
+    * default, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
 ## Train a custom model
 
