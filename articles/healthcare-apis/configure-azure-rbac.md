@@ -16,7 +16,7 @@ In this article, you will learn how to use [Azure Role Based Access Control (RBA
 
 To use Azure RBAC, your Azure API for FHIR must be configured to use your Azure subscription tenant for data plane and there should be no assigned identity object IDs. You can verify your settings by inspecting the **Authentication** blade of your Azure API for FHIR:
 
-![Confirm Azure RBAC mode](media/rbac/confirm-azure-rbac-mode.png)
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode.png" alt-text="Confirm Azure RBAC mode":::
 
 The **Authority** should be set to the Azure Active directory tenant associated with your subscription and there should be no GUIDs in the box labeled **Allowed object IDs**. You will also notice that the box is disabled and a label indicates that Azure RBAC should be used to assign data plane roles.
 
@@ -24,11 +24,11 @@ The **Authority** should be set to the Azure Active directory tenant associated 
 
 To grant users, service principals or groups access to the FHIR data plane, click **Access control (IAM)**, then click **Role assignments** and click **+ Add**:
 
-![Add Azure RBAC role assignment](media/rbac/add-azure-rbac-role-assignment.png)
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Add Azure RBAC role assignment":::
 
 In the **Role** selection, search for one of the built-in roles for the FHIR data plane:
 
-![Built-in FHIR data roles](media/rbac/built-in-fhir-data-roles.png)
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Built-in FHIR data roles":::
 
 You can choose between:
 

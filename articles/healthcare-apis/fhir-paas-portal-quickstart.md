@@ -26,19 +26,19 @@ Open the [Azure portal](https://portal.azure.com) and click **Create a resource*
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-![Search for Healthcare APIs](media/quickstart-paas-portal/portal-search-healthcare-apis.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
 
 ## Create Azure API for FHIR account
 
 Select **Create** to create a new Azure API for FHIR account:
 
-![Create Azure API for FHIR account](media/quickstart-paas-portal/portal-create-healthcare-apis.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Create Azure API for FHIR account":::
 
 ## Enter account details
 
 Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
 
-![New healthcare api details](media/quickstart-paas-portal/portal-new-healthcareapi-details.png)
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="New healthcare api details":::
 
 Confirm creation and await FHIR API deployment.
 
@@ -46,9 +46,9 @@ Confirm creation and await FHIR API deployment.
 
 You can also click **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
 
-![Default Authentication settings](media/rbac/confirm-azure-rbac-mode.png)
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Default Authentication settings":::
 
-Notice that the box for entering allowed object IDs is greyed, since we use Azure RBAC for configuring role assignments in this case.
+Notice that the box for entering allowed object IDs is grayed out, since we use Azure RBAC for configuring role assignments in this case.
 
 If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server. For more information, see the [local RBAC configuration](configure-local-rbac.md) guide.
 
