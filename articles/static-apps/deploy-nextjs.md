@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Deploy server-rendered Next.js websites on App Service Static Apps"
-description: #Required; article description that is displayed in search results. 
+description: "Build with JAMstack: Generate and deploy Next.js dynamic sites with App Service Static App."
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: christiannwamba
 ms.service: azure-functions
@@ -9,170 +9,228 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ---
 
-<!--
-Refer to the following guide for more details:
-  https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-mvc-tutorial?branch=master
--->
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Deploy server-rendered Next.js websites on App Service Static Apps
 
-# Tutorial: Deploy server-rendered Next.js websites on App Service Static Apps
-
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental "why would I want to do this?" question.
---->
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
-
-If you don't have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+In this tutorial, you will learn how to deploy a [Next.js](https://nextjs.org) generated static website to [Azure App Service Static Apps](overview.md). In the end, you will learn how to set up, configure, and deploy a Next.js app while putting into consideration one of the most prominent challenges encountered when generating static pages with Next.js
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there's something a customer needs to take care of before they start (for
-example, creating a VM) it's OK to link to that content before they
-begin.--->
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- A GitHub account. [Create an account for free](https://github.com/join).
+- [Node.js](https://nodejs.org) installed.
 
-## Sign in to <service/product/tool name>
+## Setup a Next.js App
 
-Sign in to the <service> portal.
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
+You can set up a new Next.js project using `create-next-app`. Instead of a new project, let's clone a repository that is set up to demonstrate an edge case when deploying a Next.js app with dynamic routes as a static site.
 
-## Procedure 1
+1. Clone starter repository:
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+   ```bash
+   git clone https://github.com/christiannwamba/nextjs-static-websites-starter
+   ```
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+1. Navigate to the newly cloned Next.js app:
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
+   ```bash
+   cd nextjs-static-websites-starter
+   ```
 
-## Procedure 2
+1. Install dependencies:
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+    ```bash
+    npm install
+    ```
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+1. Start Next.js app in development:
 
-## Procedure 3
+    ```bash
+    npm run dev
+    ```
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
+You should see the following website open in your preferred browser:
 
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+![Start Next.js app](./media/deploy-nextjs/start-nextjs-app.png)
 
-Here is an example of a code block for Java:
+When you click on a framework/library, you should see a details page about the selected item:
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
+![Details page](./media/deploy-nextjs/start-nextjs-details.png)
+
+## Generate a static website from Next.js build
+
+When you build a Next.js site using `npm run build`, it only builds the app to be served like a regular web app, not a static site. Here is how to generate a static site from the build:
+
+1. Configure static routes -- create a _next.config.js_ file at the root of your project and add the following route config:
+
+    ```javascript
+    module.exports = {
+      exportTrailingSlash: true,
+      exportPathMap: function() {
+        return {
+          '/': { page: '/' }
+        };
+      }
+    };
+    ```
+    
+  This configuration will map `/` to the Next.js page that is served for `/`, and that is the _pages/index.js_ page file.
+
+1. Update the _package.json_'s build script to also generate a static site after building, using the `next export` command:
+
+    ```json
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build && next export",
+    },
+    ```
+
+    App Service Static Apps will run the `build` script every time you push a commit.
+
+1. Generate a static site:
+
+    ```bash
+    npm run build
+    ```
+
+    The static site will be generated and copied into an _out_ folder at the root of your working directory.
+
+    > [!NOTE]
+    > This folder is ignored in _.gitignore_ because it should be generated by CI/CD when you deploy.
+
+## Push your static website to Github
+
+App Service Static Apps will deploy your app from a Github repository and it will keep doing so for every pushed commit. Set up a repository:
+
+1. Initialize a git repo
+
+    ```bash
+    # Remove existing .git
+    rm -rf .git
+    # Initialize git
+    git init
+    # Add all files
+    git add .
+    # Commit changes
+    git commit -m "initial commit"
+    ```
+
+1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) and name it whatever you like eg **nextjs-static-website**.
+
+1. Add the GitHub repo as a remote to your local repo.
+    
+    ```bash
+    git remote add origin https://github.com/<YOUR_USER_NAME>/<YOUR_REPO_NAME>
+    ```
+
+1. Push your local repo up to GitHub.
+
+    ```bash
+    git push --upstream origin master
+    ```
+
+## Deploy your static website
+
+The following steps show how to create a new static site app and deploy it to a production environment.
+
+### Create Azure App Service Static App
+
+1. Navigate to the [Azure Portal](http://portal.azure.com).
+1. Click **Create a Resource** then search for **Static App** and select it.
+
+  [Image of Static App]
+
+1. Select a subscription from the *Subscription* dropdown list or use the default one.
+1. Click the **New** link below the *Resource group* dropdown. In *New resource group name*, type **nextjsstaticsite** and click **OK**
+1. Provide a globally unique name for your app in the **Name** text box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.....`
+1. In the *Region* dropdown, choose a region closest to you.
+1. Select **Basic** from the SKU dropdown.
+
+  [Image of static app create form]
+
+### Add a Github repository
+
+Azure App Service Static App needs access to the repository where your Next.js app lives. It will automatically deploy every commit if it has access:
+
+1. Click the **Sign in with Github button**
+1. Select the **Organization** under which you created the repo for your Next.js project. It can also be your Github username.
+1. Find the name of the repository you created earlier and select it.
+1. Choose **master** as the branch from the *Branch* dropdown.
+
+  [Image of new repo form]
+
+### Configure the build process
+
+There are few things that Azure App Service Static App can assume -- things like automatically installing npm modules and running `npm run build`. There are also few you have to be explicit about, like what folder will the static app be copied to after build so the static site can be served from there.
+
+1. Click on the **Build** tab to configure the static output folder.
+
+  [Image highlighting the Build tab]
+
+1. Type **out** in the *App artifact location* text box.
+
+### Review and create
+
+1. Click the **Review + Create** button to verify the details are all correct.
+1. Click **Create** to start the creation of the resource and also provision a Github Action for deployment.
+1. Once the deployment is completed, click **Go to resource**
+1. On the resource screen, click the *URL* link to open your deployed application. 
+
+## How to handle dynamic routes
+
+Head to your newly deployed site and click on one of the frameworks/libraries. Instead of getting a details page, this time, you get a 404 error page:
+
+![404 on dynamic routes](./media/deploy-nextjs/404-in-production.png)
+
+The reason for this is, when we generated a static site with Next.js, we only did so for the home page:
+
+```javascript
+module.exports = {
+  exportTrailingSlash: true,
+  exportPathMap: function() {
+  return {
+    '/': { page: '/' }
+  };
+  }
+};
 ```
 
-or a code block for Azure CLI:
+## Generate static pages from dynamic routes
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
+1. Update the _next.config.js_ file so that Next.js uses a list of all available data to generate static pages for each framework/library:
 
-or a code block for Azure PowerShell:
+  ```javascript
+  const data = require('./utils/projectsData');
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+  module.exports = {
+    exportTrailingSlash: true,
+    exportPathMap: async function () {
+    const { projects } = data;
+    const paths = {
+      '/': { page: '/' },
+    };
 
+    projects.forEach((project) => {
+      paths[`/project/${project.slug}`] = {
+      page: '/project/[path]',
+      query: { path: project.slug },
+      };
+    });
 
-## Clean up resources
+    return paths;
+    },
+  };
+  ```
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+  > [!NOTE]
+  > `exportPathMap` is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+1. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build, the 404 error will be gone:
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+  ![404 on dynamic routes fixed](./media/deploy-nextjs/404-in-production-fixed.png)
 
-## Next steps
+## Summary
 
-<!-- Uncomment this block and add the appropriate link
+In this *how to*, you created a Next.js static website with dynamic routes and deployed it to App Service Static Site using Github Actions.
 
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn't fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+## Next Steps
+> [!div class="nextstepaction"][setup a custom domain in app service static apps](static-apps-custom-domain.md)
