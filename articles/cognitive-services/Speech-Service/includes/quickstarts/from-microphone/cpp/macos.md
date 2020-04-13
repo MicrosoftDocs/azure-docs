@@ -61,4 +61,4 @@ Create a C++ source file named *helloworld.cpp*, and paste the following code in
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
