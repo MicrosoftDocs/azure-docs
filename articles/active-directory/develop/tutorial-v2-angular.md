@@ -54,6 +54,8 @@ This tutorial uses the following library:
 > *Msal.js* targets the Microsoft identity platform endpoint, which enables personal accounts, work accounts, and school accounts to sign in and acquire tokens. The Microsoft identity platform endpoint has [some limitations](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
 > To understand the differences between the v1.0 and v2.0 endpoints, see the [endpoint comparison guide](../azuread-dev/azure-ad-endpoint-comparison.md).
 
+You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
+
 <!--end-collapse-->
 
 
@@ -353,7 +355,7 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 
 ## Next steps
 
-Browse the MSAL repo for documentation, FAQ, issues, and more:
+Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
 
 > [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
