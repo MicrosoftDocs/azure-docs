@@ -38331,6 +38331,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/multi-factor-authentication-security-best-practices.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": true
