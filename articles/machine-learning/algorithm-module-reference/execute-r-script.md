@@ -40,7 +40,10 @@ azureml_main <- function(dataframe1, dataframe2){
 ```
 
 ## Installing R packages
-To install additional R packages, use the `install.packages()` method. Be sure to specify the CRAN repository. Packages are installed for each **Execute R Script** module, and aren't shared across other **Execute R Script** modules.
+To install additional R packages, use the `install.packages()` method. Packages are installed for each **Execute R Script** module, and aren't shared across other **Execute R Script** modules.
+
+> [!NOTE]
+> Please specify the CRAN repository when installing packages such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`
 
 This sample shows how to install Zoo:
 ```R
