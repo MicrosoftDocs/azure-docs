@@ -2,16 +2,12 @@
 title: JavaScript single-page app tutorial - Microsoft identity platform | Azure
 description: How JavaScript SPA applications can call an API that requires access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
@@ -350,6 +346,18 @@ Create a new .js file named `authPopup.js`, which will contain your authenticati
    function signOut() {
      myMSALObj.logout();
    }
+   
+   function callMSGraph(theUrl, accessToken, callback) {
+       var xmlHttp = new XMLHttpRequest();
+       xmlHttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+              callback(JSON.parse(this.responseText));
+           }
+       }
+       xmlHttp.open("GET", theUrl, true); // true for asynchronous
+       xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+       xmlHttp.send();
+   }
 
    function getTokenPopup(request) {
      return myMSALObj.acquireTokenSilent(request)
@@ -508,8 +516,3 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 <!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

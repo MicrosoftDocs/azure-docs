@@ -31,9 +31,6 @@
   - name: Manage tag governance
     displayName: modify, append, effects
     href: ./tutorials/govern-tags.md
-  - name: Hands-on Labs - Exploring Azure Policy
-    displayName: create, policy, training, learn
-    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
   items:
   - name: Index
@@ -151,6 +148,12 @@
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - name: Policy Definitions
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Java
+    items:
+    - name: Assignments
+      href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+    - name: Policy Definitions
+      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
   - name: Azure SDK for Node
     items:
     - name: Policy
