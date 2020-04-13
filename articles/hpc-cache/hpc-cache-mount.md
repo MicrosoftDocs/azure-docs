@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.author: rohogue
 ---
 
@@ -40,39 +40,43 @@ Install the appropriate Linux utility software to support the NFS mount command:
 
 ### Create a local path
 
-Create a local directory path on each client to connect to the cache. Create a path for each storage target that you want to mount.
+Create a local directory path on each client to connect to the cache. Create a path for each namespace path that you want to mount.
 
 Example: `sudo mkdir -p /mnt/hpc-cache-1/target3`
 
+The [Mount instructions](#use-the-mount-instructions-utility) page in the Azure portal includes a prototype command that you can copy.
+
+When you connect the client machine to the cache, you will associate this path with a virtual namespace path that represents a storage target export. Create directories for each of the virtual namespace paths the client will use.
+
 ## Use the mount instructions utility
 
-Open the **Mount instructions** page from the **Configure** section of the cache view in the Azure portal.
+You can use the **Mount instructions** page in the Azure portal to create a copyable mount command. Open the page from the **Configure** section of the cache view in the portal.
+
+Before using the command on a client, make sure the client meets the prerequisites and has the software needed to use the NFS `mount` command as described above in [Prepare clients](#prepare-clients).
 
 ![screenshot of an Azure HPC Cache instance in the portal, with the Configure > Mount instructions page loaded](media/mount-instructions.png)
 
-The mount command page includes information about the client mount process and prerequisites, plus fields you can use to create a copyable mount command.
+Follow this procedure to create the mount command.
 
-To use this page, follow this procedure:
+1. Customize the **Client path** field. This field gives an example command that you can use to create a local path on the client. This is the path that the client will use to access the content from the Azure HPC Cache.
 
-<!--1.  In step one of **Mounting your file system**, enter the path that the client will use to access the Azure HPC Cache storage target.
+   Edit the command to contain the directory name you want. The name appears at the end of the string after `sudo mkdir -p`
 
-   * This path is local to the client.
-   * After you provide the directory name, the field populates with a command you can copy. Use this command on the client directly or in a setup script to create the directory path on the client VM. -->
+1. Choose the **Cache mount address** from the list. This menu lists all of the cache's [client mount points](#find-mount-command-components).
 
-1. Review the client prerequisites and install the utilities needed to use the NFS `mount` command as described above in [Prepare clients](#prepare-clients).
+   Balance client load across all of the available mount addresses for better cache performance.
 
-1. Step one of **Mounting your file system**<!-- label will change --> gives an example command for creating the local path on the client. This is the path that the client will use to access the content from the Azure HPC Cache.
+1. Choose the **Virtual namespace path** to use for the client. These paths link to exports on the back-end storage system.
 
-   Note the path name so that you can modify it in the command if needed.
+   You can view and change virtual namespace paths on the Storage targets portal page. Read [Add storage targets](hpc-cache-add-storage.md) to see how.
 
-1. In step two, select one of the available IP addresses. All of the cache's [client mount points](#find-mount-command-components) are listed here. Make sure that you have a system to balance load among all IP addresses.
+   To learn more about Azure HPC Cache's aggregated namespace feature, read [Plan the aggregated namespace](hpc-cache-namespace.md).
 
-1. The field in step three automatically populates with a prototype mount command. Click the copy symbol at the right side of the field to automatically copy it to your clipboard.
+1. The **Mount command** field in step three automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
 
-   > [!NOTE]
-   > Check the copy command before using it. You might need to customize the client mount path and the storage target virtual namespace path, which are not yet selectable in this interface. You also should update the mount command options to reflect the [recommended options](#mount-command-options) below. Read [Understand mount command syntax](#understand-mount-command-syntax) for help.
+   Click the copy symbol at the right side of the field to automatically copy it to your clipboard.
 
-1. Use the copied mount command (with edits, if needed) on the client machine to connect it to the storage target on the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
+1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
 ## Understand mount command syntax
 
@@ -105,16 +109,16 @@ For a robust client mount, pass these settings and arguments in your mount comma
 
 ### Find mount command components
 
-If you want to create a mount command without using the **Mount instructions** page, you can find the mount addresses on the cache **Overview** page and the virtual namespace paths on the **Storage targets** page.
+If you want to create a mount command without using the **Mount instructions** page, you can find the mount addresses on the cache **Overview** page and the virtual namespace paths on the **Storage target** page.
 
 ![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. In a resource group, these NICs are listed with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The virtual namespace paths are shown in the **Storage targets** page. Click an individual storage target name to see its details, including aggregated namespace paths associated with it.
+The virtual namespace paths are shown on each storage target's details page.<!-- this is not a detail page though...  Click an individual storage target name to see its details, including aggregated namespace paths associated with it. -->
 
-![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/hpc-cache-view-namespace-paths.png)
+<!-- update alt text and/or change screenshot -->![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/hpc-cache-view-namespace-paths.png)
 
 ## Next steps
 
