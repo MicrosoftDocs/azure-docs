@@ -97,14 +97,10 @@ A: Access to files and folders is currently managed through ADLSg2. For more inf
 
 A: Yes, you can use your third-party business applications, like Tableau and Power BI, to connect to SQL pool and SQL on-demand. Spark supports IntelliJ.
 
-### Q: Does Azure Synapse Analytics provide APIs
-
-A: Yes, we provide an SDK to programmatically interact with Azure Synapse Analytics. More information is available [here] on which operations are supported by Synapse.
-
 ## Next steps
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
 - [Create a SQL pool](quickstart-create-sql-pool.md)
 - [Use SQL on-demand](quickstart-sql-on-demand.md)
-- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md) 

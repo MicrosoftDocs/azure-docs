@@ -179,7 +179,7 @@
       - name: Synapse SQL architecture
         href: sql/overview-architecture.md
       - name: SQL on-demand
-        href: sql/on-demand.md
+        href: sql/on-demand-workspace-overview.md
       - name: SQL pool 
         href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Architecture
@@ -816,8 +816,6 @@
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-  # - name: .Net SDK
-  #   href: article-template.md
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: PowerShell cmdlets
@@ -856,8 +854,6 @@
     items:
     - name: SQL on-demand
       href: sql/resources-self-help-sql-on-demand.md
-  - name: Videos
-    href: ./sql-data-warehouse/sql-data-warehouse-videos.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Partners
     items:
     - name: Business intelligence
